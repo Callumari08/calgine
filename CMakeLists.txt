@@ -56,3 +56,17 @@ target_include_directories(Calgine
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
+
+# ---- Documentation (Doxygen) ----
+find_package(Doxygen QUIET)
+
+if(DOXYGEN_FOUND)
+    add_custom_target(docs
+        COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        COMMENT "Generating API documentation with Doxygen"
+        VERBATIM
+    )
+else()
+    message(STATUS "Doxygen not found — 'docs' target will be unavailable")
+endif()

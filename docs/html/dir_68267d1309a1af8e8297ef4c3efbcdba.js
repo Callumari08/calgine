@@ -5,7 +5,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "userland", "dir_173c9e88aa581eef1e30c63858f75f59.html", "dir_173c9e88aa581eef1e30c63858f75f59" ],
     [ "app.cxx", "app_8cxx.html", null ],
     [ "app.h", "app_8h.html", "app_8h" ],
-    [ "main.cxx", "main_8cxx.html", "main_8cxx" ],
     [ "useful_funcs.cxx", "useful__funcs_8cxx.html", null ],
     [ "useful_funcs.h", "useful__funcs_8h.html", "useful__funcs_8h" ]
 ];

@@ -9,12 +9,6 @@ This is the class from which all user applications derive from.
 
 {\ttfamily \#include $<$app.\+h$>$}
 
-Inheritance diagram for App\+:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=2.000000cm]{classApp}
-\end{center}
-\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -32,11 +26,8 @@ std\+::string \mbox{\hyperlink{classApp_a47885152dd30fa34389a495b5bc2620f}{app\+
 \doxysubsection{Detailed Description}
 This is the class from which all user applications derive from. 
 
-To get started with programming an application, you must first create your own class that derives from {\ttfamily \doxylink{classApp}{App}}, where the class name is the name of your app. You must first, before any of your code (except in specific instances where you want to use different libraries etc), call {\ttfamily \doxylink{classApp_a80bce247230188c2d289aed2978f9a59}{systems\+\_\+init}}, then run any (if at all) setup code.
+To get started with programming an application, create your own class that derives from {\ttfamily \doxylink{classApp}{App}}.
 
-You must {\bfseries{then}} instantiate your behaviours (this can also be done at tick time, however be warned that the {\ttfamily awake} tick will not be called).
-
-Lastly {\itshape phew} you can then call {\ttfamily \doxylink{classApp_a719ee7a1bfeacae564b0b03955e83a08}{main\+\_\+loop}}.\hypertarget{classApp_app_example}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{classApp_app_example}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{class\ }MyApp\ :\ \textcolor{keyword}{public}\ App}
@@ -60,7 +51,7 @@ Lastly {\itshape phew} you can then call {\ttfamily \doxylink{classApp_a719ee7a1
 \DoxyCodeLine{\ \}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8cxx_a840291bc02cba5474a4cb46a9b9566fe}{main}}()}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main()}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{\ \ MyApp\ myApp;}
 \DoxyCodeLine{}

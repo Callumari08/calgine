@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['epiccoolgame_0',['EpicCoolGame',['../classEpicCoolGame.html',1,'']]]
+  ['windowhandler_0',['WindowHandler',['../classWindowHandler.html',1,'']]]
 ];
