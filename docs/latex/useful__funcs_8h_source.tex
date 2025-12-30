@@ -1,0 +1,16 @@
+\doxysection{useful\+\_\+funcs.\+h}
+\hypertarget{useful__funcs_8h_source}{}\label{useful__funcs_8h_source}\index{src/useful\_funcs.h@{src/useful\_funcs.h}}
+\mbox{\hyperlink{useful__funcs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ USEFUL\_FUNCS}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ USEFUL\_FUNCS}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{useful__funcs_8h_ae762bca92696e0c19c4e90f546a855af}{throw\_sdl\_error}}(std::string\ message)\ \{}
+\DoxyCodeLine{00008\ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(message\ +\ std::string(SDL\_GetError()));}
+\DoxyCodeLine{00009\ \}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

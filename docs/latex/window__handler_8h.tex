@@ -1,0 +1,62 @@
+\doxysection{src/setup/window\+\_\+handler.h File Reference}
+\hypertarget{window__handler_8h}{}\label{window__handler_8h}\index{src/setup/window\_handler.h@{src/setup/window\_handler.h}}
+{\ttfamily \#include $<$SDL3/\+SDL\+\_\+video.\+h$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classWindowHandler}{Window\+Handler}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{window__handler_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\+\_\+\+WIDTH}}~800
+\item 
+\#define \mbox{\hyperlink{window__handler_8h_a5473cf64fa979b48335079c99532e243}{WINDOW\+\_\+\+HEIGHT}}~600
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{Vsync\+State}} \{ \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d}{disabled}}
+, \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc}{enabled}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{window__handler_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{window__handler_8h_a5473cf64fa979b48335079c99532e243}\index{window\_handler.h@{window\_handler.h}!WINDOW\_HEIGHT@{WINDOW\_HEIGHT}}
+\index{WINDOW\_HEIGHT@{WINDOW\_HEIGHT}!window\_handler.h@{window\_handler.h}}
+\doxysubsubsection{\texorpdfstring{WINDOW\_HEIGHT}{WINDOW\_HEIGHT}}
+{\footnotesize\ttfamily \label{window__handler_8h_a5473cf64fa979b48335079c99532e243} 
+\#define WINDOW\+\_\+\+HEIGHT~600}
+
+\Hypertarget{window__handler_8h_a498d9f026138406895e9a34b504ac6a6}\index{window\_handler.h@{window\_handler.h}!WINDOW\_WIDTH@{WINDOW\_WIDTH}}
+\index{WINDOW\_WIDTH@{WINDOW\_WIDTH}!window\_handler.h@{window\_handler.h}}
+\doxysubsubsection{\texorpdfstring{WINDOW\_WIDTH}{WINDOW\_WIDTH}}
+{\footnotesize\ttfamily \label{window__handler_8h_a498d9f026138406895e9a34b504ac6a6} 
+\#define WINDOW\+\_\+\+WIDTH~800}
+
+
+
+\label{doc-enum-members}
+\Hypertarget{window__handler_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{window__handler_8h_aa900384132ecccf295941ecb99b94459}\index{window\_handler.h@{window\_handler.h}!VsyncState@{VsyncState}}
+\index{VsyncState@{VsyncState}!window\_handler.h@{window\_handler.h}}
+\doxysubsubsection{\texorpdfstring{VsyncState}{VsyncState}}
+{\footnotesize\ttfamily \label{window__handler_8h_aa900384132ecccf295941ecb99b94459} 
+enum \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{Vsync\+State}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{disabled@{disabled}!window\_handler.h@{window\_handler.h}}\index{window\_handler.h@{window\_handler.h}!disabled@{disabled}}}\Hypertarget{window__handler_8h_aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d}\label{window__handler_8h_aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d} 
+disabled&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{enabled@{enabled}!window\_handler.h@{window\_handler.h}}\index{window\_handler.h@{window\_handler.h}!enabled@{enabled}}}\Hypertarget{window__handler_8h_aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc}\label{window__handler_8h_aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc} 
+enabled&\\
+\hline
+
+\end{DoxyEnumFields}

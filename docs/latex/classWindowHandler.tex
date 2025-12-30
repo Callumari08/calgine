@@ -1,0 +1,100 @@
+\doxysection{Window\+Handler Class Reference}
+\hypertarget{classWindowHandler}{}\label{classWindowHandler}\index{WindowHandler@{WindowHandler}}
+
+
+{\ttfamily \#include $<$window\+\_\+handler.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWindowHandler_aa9eee2c27935bc87d29923403b1b166c}{Window\+Handler}} (const \mbox{\hyperlink{classWindowHandler}{Window\+Handler}} \&)=delete
+\item 
+\mbox{\hyperlink{classWindowHandler}{Window\+Handler}} \& \mbox{\hyperlink{classWindowHandler_a40ad5f834383115893643e4d66924378}{operator=}} (const \mbox{\hyperlink{classWindowHandler}{Window\+Handler}} \&)=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classWindowHandler}{Window\+Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWindowHandler_a48f483e312836d2855f929ecc54c3b1d}{get\+\_\+instance}} ()
+\item 
+static SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWindowHandler_a3156947484fbd22dddea591b39ba1cd7}{get\+\_\+window}} ()
+\item 
+static SDL\+\_\+\+GLContext \mbox{\hyperlink{classWindowHandler_ad88477904c27a3475530ffd20d8fe217}{get\+\_\+gl\+\_\+context}} ()
+\item 
+static \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{Vsync\+State}} \mbox{\hyperlink{classWindowHandler_ae3a8d2cd19411745c0e2cd1325b47964}{get\+\_\+vsync\+\_\+state}} ()
+\item 
+static void \mbox{\hyperlink{classWindowHandler_af8827c2331dad02f7ae49e2999c1577d}{set\+\_\+vsync\+\_\+state}} (\mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{Vsync\+State}} state)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classWindowHandler_a33b33e31a70c6c27b64dcaf66ad66704}{window\+\_\+name}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classWindowHandler_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classWindowHandler_aa9eee2c27935bc87d29923403b1b166c}\index{WindowHandler@{WindowHandler}!WindowHandler@{WindowHandler}}
+\index{WindowHandler@{WindowHandler}!WindowHandler@{WindowHandler}}
+\doxysubsubsection{\texorpdfstring{WindowHandler()}{WindowHandler()}}
+{\footnotesize\ttfamily \label{classWindowHandler_aa9eee2c27935bc87d29923403b1b166c} 
+Window\+Handler\+::\+Window\+Handler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classWindowHandler}{Window\+Handler}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classWindowHandler_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWindowHandler_ad88477904c27a3475530ffd20d8fe217}\index{WindowHandler@{WindowHandler}!get\_gl\_context@{get\_gl\_context}}
+\index{get\_gl\_context@{get\_gl\_context}!WindowHandler@{WindowHandler}}
+\doxysubsubsection{\texorpdfstring{get\_gl\_context()}{get\_gl\_context()}}
+{\footnotesize\ttfamily \label{classWindowHandler_ad88477904c27a3475530ffd20d8fe217} 
+SDL\+\_\+\+GLContext Window\+Handler\+::get\+\_\+gl\+\_\+context (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classWindowHandler_a48f483e312836d2855f929ecc54c3b1d}\index{WindowHandler@{WindowHandler}!get\_instance@{get\_instance}}
+\index{get\_instance@{get\_instance}!WindowHandler@{WindowHandler}}
+\doxysubsubsection{\texorpdfstring{get\_instance()}{get\_instance()}}
+{\footnotesize\ttfamily \label{classWindowHandler_a48f483e312836d2855f929ecc54c3b1d} 
+\mbox{\hyperlink{classWindowHandler}{Window\+Handler}} \texorpdfstring{$\ast$}{*} Window\+Handler\+::get\+\_\+instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classWindowHandler_ae3a8d2cd19411745c0e2cd1325b47964}\index{WindowHandler@{WindowHandler}!get\_vsync\_state@{get\_vsync\_state}}
+\index{get\_vsync\_state@{get\_vsync\_state}!WindowHandler@{WindowHandler}}
+\doxysubsubsection{\texorpdfstring{get\_vsync\_state()}{get\_vsync\_state()}}
+{\footnotesize\ttfamily \label{classWindowHandler_ae3a8d2cd19411745c0e2cd1325b47964} 
+\mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{Vsync\+State}} Window\+Handler\+::get\+\_\+vsync\+\_\+state (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classWindowHandler_a3156947484fbd22dddea591b39ba1cd7}\index{WindowHandler@{WindowHandler}!get\_window@{get\_window}}
+\index{get\_window@{get\_window}!WindowHandler@{WindowHandler}}
+\doxysubsubsection{\texorpdfstring{get\_window()}{get\_window()}}
+{\footnotesize\ttfamily \label{classWindowHandler_a3156947484fbd22dddea591b39ba1cd7} 
+SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*} Window\+Handler\+::get\+\_\+window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classWindowHandler_a40ad5f834383115893643e4d66924378}\index{WindowHandler@{WindowHandler}!operator=@{operator=}}
+\index{operator=@{operator=}!WindowHandler@{WindowHandler}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classWindowHandler_a40ad5f834383115893643e4d66924378} 
+\mbox{\hyperlink{classWindowHandler}{Window\+Handler}} \& Window\+Handler\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classWindowHandler}{Window\+Handler}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classWindowHandler_af8827c2331dad02f7ae49e2999c1577d}\index{WindowHandler@{WindowHandler}!set\_vsync\_state@{set\_vsync\_state}}
+\index{set\_vsync\_state@{set\_vsync\_state}!WindowHandler@{WindowHandler}}
+\doxysubsubsection{\texorpdfstring{set\_vsync\_state()}{set\_vsync\_state()}}
+{\footnotesize\ttfamily \label{classWindowHandler_af8827c2331dad02f7ae49e2999c1577d} 
+void Window\+Handler\+::set\+\_\+vsync\+\_\+state (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{Vsync\+State}}}]{state}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classWindowHandler_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classWindowHandler_a33b33e31a70c6c27b64dcaf66ad66704}\index{WindowHandler@{WindowHandler}!window\_name@{window\_name}}
+\index{window\_name@{window\_name}!WindowHandler@{WindowHandler}}
+\doxysubsubsection{\texorpdfstring{window\_name}{window\_name}}
+{\footnotesize\ttfamily \label{classWindowHandler_a33b33e31a70c6c27b64dcaf66ad66704} 
+std\+::string Window\+Handler\+::window\+\_\+name\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/setup/\mbox{\hyperlink{window__handler_8h}{window\+\_\+handler.\+h}}\item 
+src/setup/\mbox{\hyperlink{window__handler_8cxx}{window\+\_\+handler.\+cxx}}\end{DoxyCompactItemize}
