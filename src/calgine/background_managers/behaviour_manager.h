@@ -2,7 +2,7 @@
 #define BEHAVIOUR_MANAGER_H
 
 #include <vector>
-#include "../userland/behaviour.h"
+#include "../behaviour.h"
 
 // Manages all userland code, and acts as a shell for the main thread to call each tick function.
 class BehaviourManager 

@@ -10,6 +10,8 @@
  * To get started with programming an application, create your own class that
  * derives from `App`.
  *
+ * @warning This example is out of date. Please do not use it to understand how behaviours work.
+ *
  * @code{.cpp}
  * class MyApp : public App
  * {

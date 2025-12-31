@@ -39,9 +39,9 @@ add_library(project_warnings INTERFACE)
 target_compile_options(project_warnings INTERFACE -Wall -Wextra -Wpedantic)
 
 # ---- Library ----
-file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cxx)
+file(GLOB_RECURSE CALGINE_SOURCES CONFIGURE_DEPENDS src/*.cxx)
 
-add_library(Calgine ${SOURCES})
+add_library(Calgine ${CALGINE_SOURCES})
 
 target_link_libraries(Calgine
     PUBLIC

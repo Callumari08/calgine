@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7ebehaviour_0',['~Behaviour',['../classBehaviour.html#ab9099279876aa70410ab96ca589531df',1,'Behaviour']]]
+  ['windowhandler_0',['WindowHandler',['../classWindowHandler.html#aa9eee2c27935bc87d29923403b1b166c',1,'WindowHandler']]]
 ];

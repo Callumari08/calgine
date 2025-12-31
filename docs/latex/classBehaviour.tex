@@ -2,14 +2,27 @@
 \hypertarget{classBehaviour}{}\label{classBehaviour}\index{Behaviour@{Behaviour}}
 
 
+Gives access to tick updates for users.  
+
+
+
+
 {\ttfamily \#include $<$behaviour.\+h$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classBehaviour_ad5778e83e92e2461e8baef933931e593}{Behaviour}} ()
-\item 
 virtual \mbox{\hyperlink{classBehaviour_ab9099279876aa70410ab96ca589531df}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T, typename... Args$>$ }\\static T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classBehaviour_add1a3aa26c1ae38c6436c529614a0361}{create}} (Args \&\&... args)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBehaviour_a57e050961bc1305993adaeac62658657}{Behaviour}} ()=default
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -18,20 +31,41 @@ class \mbox{\hyperlink{classBehaviour_a435b7d052d171d02d2e7cae17bd01d9c}{Behavio
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Gives access to tick updates for users. 
+
+
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
 \label{doc-constructors}
 \Hypertarget{classBehaviour_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classBehaviour_ad5778e83e92e2461e8baef933931e593}\index{Behaviour@{Behaviour}!Behaviour@{Behaviour}}
+\Hypertarget{classBehaviour_a57e050961bc1305993adaeac62658657}\index{Behaviour@{Behaviour}!Behaviour@{Behaviour}}
 \index{Behaviour@{Behaviour}!Behaviour@{Behaviour}}
 \doxysubsubsection{\texorpdfstring{Behaviour()}{Behaviour()}}
-{\footnotesize\ttfamily \label{classBehaviour_ad5778e83e92e2461e8baef933931e593} 
-Behaviour\+::\+Behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classBehaviour_a57e050961bc1305993adaeac62658657} 
+Behaviour\+::\+Behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
 
 \Hypertarget{classBehaviour_ab9099279876aa70410ab96ca589531df}\index{Behaviour@{Behaviour}!````~Behaviour@{\texorpdfstring{$\sim$}{\string~}Behaviour}}
 \index{````~Behaviour@{\texorpdfstring{$\sim$}{\string~}Behaviour}!Behaviour@{Behaviour}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Behaviour()}{\string~Behaviour()}}
 {\footnotesize\ttfamily \label{classBehaviour_ab9099279876aa70410ab96ca589531df} 
 Behaviour\+::\texorpdfstring{$\sim$}{\string~}\+Behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classBehaviour_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBehaviour_add1a3aa26c1ae38c6436c529614a0361}\index{Behaviour@{Behaviour}!create@{create}}
+\index{create@{create}!Behaviour@{Behaviour}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{classBehaviour_add1a3aa26c1ae38c6436c529614a0361} 
+template$<$typename T, typename... Args$>$ \\
+T \texorpdfstring{$\ast$}{*} Behaviour\+::create (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
@@ -48,5 +82,5 @@ friend class \mbox{\hyperlink{classBehaviourManager}{Behaviour\+Manager}}\hspace
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/userland/\mbox{\hyperlink{behaviour_8h}{behaviour.\+h}}\item 
-src/userland/\mbox{\hyperlink{behaviour_8cxx}{behaviour.\+cxx}}\end{DoxyCompactItemize}
+src/calgine/\mbox{\hyperlink{behaviour_8h}{behaviour.\+h}}\item 
+src/calgine/\mbox{\hyperlink{behaviour_8cxx}{behaviour.\+cxx}}\end{DoxyCompactItemize}
