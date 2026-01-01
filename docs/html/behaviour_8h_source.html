@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Calgine: src/calgine/behaviour.h Source File</title>
+<title>Calgine: src/calgine/core/behaviour.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,32 +91,32 @@ $(function(){initNavTree('behaviour_8h_source.html','',''); });
   <div class="headertitle"><div class="title">behaviour.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="behaviour_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef BEHAVIOUR_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define BEHAVIOUR_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classBehaviour.html">   13</a></span><span class="keyword">class </span><a class="code hl_function" href="classBehaviour.html#a57e050961bc1305993adaeac62658657">Behaviour</a>  </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">private</span>:</div>
+<a href="behaviour_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classBehaviour.html">   11</a></span><span class="keyword">class </span><a class="code hl_function" href="classBehaviour.html#a57e050961bc1305993adaeac62658657">Behaviour</a>  </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> register_instance(<a class="code hl_function" href="classBehaviour.html#a57e050961bc1305993adaeac62658657">Behaviour</a>* b);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> start();</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> tick();</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> late_tick();</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classBehaviour.html#a435b7d052d171d02d2e7cae17bd01d9c">   20</a></span>  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_friend" href="classBehaviour.html#a435b7d052d171d02d2e7cae17bd01d9c">BehaviourManager</a>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> register_instance(<a class="code hl_function" href="classBehaviour.html#a57e050961bc1305993adaeac62658657">Behaviour</a>* b);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classBehaviour.html#a57e050961bc1305993adaeac62658657">   25</a></span>  <a class="code hl_function" href="classBehaviour.html#a57e050961bc1305993adaeac62658657">Behaviour</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keyword">virtual</span> <a class="code hl_function" href="classBehaviour.html#ab9099279876aa70410ab96ca589531df">~Behaviour</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classBehaviour.html#a00df87c957d8f7ee0fc51f07a0542f4a">   21</a></span>  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_friend" href="classBehaviour.html#a00df87c957d8f7ee0fc51f07a0542f4a">GameObject</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classBehaviour.html#a57e050961bc1305993adaeac62658657">   24</a></span>  <a class="code hl_function" href="classBehaviour.html#a57e050961bc1305993adaeac62658657">Behaviour</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keyword">virtual</span> <a class="code hl_function" href="classBehaviour.html#ab9099279876aa70410ab96ca589531df">~Behaviour</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classBehaviour.html#add1a3aa26c1ae38c6436c529614a0361">   30</a></span>    <span class="keyword">static</span> T* <a class="code hl_function" href="classBehaviour.html#add1a3aa26c1ae38c6436c529614a0361">create</a>(Args&amp;&amp;... args) {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      <span class="keyword">static_assert</span>(std::is_base_of_v&lt;Behaviour, T&gt;, <span class="stringliteral">&quot;T must derive from `Behaviour`&quot;</span>);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keyword">requires</span> std::derived_from&lt;T, Behaviour&gt;</div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classBehaviour.html#aa38d274ddb34a6231a92012d9cca61a9">   31</a></span>    <span class="keyword">static</span> T* <a class="code hl_function" href="classBehaviour.html#aa38d274ddb34a6231a92012d9cca61a9">create</a>(Args&amp;&amp;... args) {</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>      T* obj = <span class="keyword">new</span> T(std::forward&lt;Args&gt;(args)...);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>      register_instance(obj);</div>
@@ -125,19 +125,18 @@ $(function(){initNavTree('behaviour_8h_source.html','',''); });
 </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif </span><span class="comment">// BEHAVIOUR_H</span></div>
+<div class="ttc" id="aclassBehaviour_html_a00df87c957d8f7ee0fc51f07a0542f4a"><div class="ttname"><a href="classBehaviour.html#a00df87c957d8f7ee0fc51f07a0542f4a">Behaviour::GameObject</a></div><div class="ttdeci">friend class GameObject</div><div class="ttdef"><b>Definition</b> behaviour.h:21</div></div>
 <div class="ttc" id="aclassBehaviour_html_a435b7d052d171d02d2e7cae17bd01d9c"><div class="ttname"><a href="classBehaviour.html#a435b7d052d171d02d2e7cae17bd01d9c">Behaviour::BehaviourManager</a></div><div class="ttdeci">friend class BehaviourManager</div><div class="ttdef"><b>Definition</b> behaviour.h:20</div></div>
 <div class="ttc" id="aclassBehaviour_html_a57e050961bc1305993adaeac62658657"><div class="ttname"><a href="classBehaviour.html#a57e050961bc1305993adaeac62658657">Behaviour::Behaviour</a></div><div class="ttdeci">Behaviour()=default</div></div>
-<div class="ttc" id="aclassBehaviour_html_ab9099279876aa70410ab96ca589531df"><div class="ttname"><a href="classBehaviour.html#ab9099279876aa70410ab96ca589531df">Behaviour::~Behaviour</a></div><div class="ttdeci">virtual ~Behaviour()</div><div class="ttdef"><b>Definition</b> behaviour.cxx:5</div></div>
-<div class="ttc" id="aclassBehaviour_html_add1a3aa26c1ae38c6436c529614a0361"><div class="ttname"><a href="classBehaviour.html#add1a3aa26c1ae38c6436c529614a0361">Behaviour::create</a></div><div class="ttdeci">static T * create(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> behaviour.h:30</div></div>
+<div class="ttc" id="aclassBehaviour_html_aa38d274ddb34a6231a92012d9cca61a9"><div class="ttname"><a href="classBehaviour.html#aa38d274ddb34a6231a92012d9cca61a9">Behaviour::create</a></div><div class="ttdeci">static T * create(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> behaviour.h:31</div></div>
+<div class="ttc" id="aclassBehaviour_html_ab9099279876aa70410ab96ca589531df"><div class="ttname"><a href="classBehaviour.html#ab9099279876aa70410ab96ca589531df">Behaviour::~Behaviour</a></div><div class="ttdeci">virtual ~Behaviour()</div><div class="ttdef"><b>Definition</b> behaviour.cxx:4</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_bc44db7a319896f65d6399405f420353.html">calgine</a></li><li class="navelem"><a href="behaviour_8h.html">behaviour.h</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_bc44db7a319896f65d6399405f420353.html">calgine</a></li><li class="navelem"><a href="dir_fe3e7b99e6960e99508725422ff73900.html">core</a></li><li class="navelem"><a href="behaviour_8h.html">behaviour.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>

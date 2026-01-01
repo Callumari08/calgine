@@ -1,5 +1,4 @@
-#ifndef APP_H
-#define APP_H
+#pragma once
 
 #include <string>
 
@@ -52,11 +51,14 @@
  */
 class App
 {
+private:
+  std::string app_name = "A Calgine App";
 public:
-  std::string app_name = "Calgine Game";
+  virtual std::string get_app_name()
+  {
+    return app_name;
+  }
 
   void systems_init();
   void main_loop();
 };
-
-#endif

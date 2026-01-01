@@ -1,5 +1,4 @@
-#ifndef WINDOW_HANDLER_H
-#define WINDOW_HANDLER_H
+#pragma once
 
 #include <SDL3/SDL_video.h>
 #include <mutex>
@@ -45,4 +44,3 @@ public:
   static VsyncState get_vsync_state();
   static void set_vsync_state(VsyncState state);
 };
-#endif

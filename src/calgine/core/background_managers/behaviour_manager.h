@@ -1,5 +1,4 @@
-#ifndef BEHAVIOUR_MANAGER_H
-#define BEHAVIOUR_MANAGER_H
+#pragma once
 
 #include <vector>
 #include "../behaviour.h"
@@ -24,5 +23,3 @@ public:
   BehaviourManager(const BehaviourManager&) = delete;
   BehaviourManager& operator=(const BehaviourManager&) = delete;
 };
-
-#endif

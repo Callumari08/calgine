@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['throw_5fsdl_5ferror_0',['throw_sdl_error',['../useful__funcs_8h.html#ae762bca92696e0c19c4e90f546a855af',1,'useful_funcs.h']]]
+  ['register_5fbehaviour_0',['register_behaviour',['../classBehaviourManager.html#aa87a006e64352f7884f4bfc14b7ba32d',1,'BehaviourManager']]]
 ];

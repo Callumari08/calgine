@@ -1,0 +1,90 @@
+\doxysection{Game\+Object Class Reference}
+\hypertarget{classGameObject}{}\label{classGameObject}\index{GameObject@{GameObject}}
+
+
+{\ttfamily \#include $<$game\+\_\+object.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGameObject_a49f0fc91c3048ec583044e7a1b9c2518}{Game\+Object}} ()=default
+\item 
+\mbox{\hyperlink{classGameObject_aac8336499118faec34e0f406c022a25a}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\item 
+\mbox{\hyperlink{classGameObject_aae3335f16f4c318950ef8b9b5fd1d368}{Game\+Object}} (const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&)=delete
+\item 
+\mbox{\hyperlink{classGameObject}{Game\+Object}} \& \mbox{\hyperlink{classGameObject_a0839af580baf87eb19faff2c996c0afd}{operator=}} (const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&)=delete
+\item 
+{\footnotesize template$<$typename T\+\_\+behaviour, typename... Args$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classGameObject_abe18c226465699e82ebf7a470f6a7c79}{add\+\_\+behaviour}} (Args \&\&... args)
+\item 
+{\footnotesize template$<$typename T\+\_\+behaviour$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\T\+\_\+behaviour \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGameObject_a4cd22676f498c36c369bec2cf3a7fdba}{get\+\_\+behaviour}} () const
+\item 
+{\footnotesize template$<$typename T\+\_\+behaviour$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classGameObject_ae7477b159ae17bbf083f54dfbde24008}{has\+\_\+behaviour}} () const
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classGameObject_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGameObject_a49f0fc91c3048ec583044e7a1b9c2518}\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classGameObject_a49f0fc91c3048ec583044e7a1b9c2518} 
+Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classGameObject_aac8336499118faec34e0f406c022a25a}\index{GameObject@{GameObject}!````~GameObject@{\texorpdfstring{$\sim$}{\string~}GameObject}}
+\index{````~GameObject@{\texorpdfstring{$\sim$}{\string~}GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GameObject()}{\string~GameObject()}}
+{\footnotesize\ttfamily \label{classGameObject_aac8336499118faec34e0f406c022a25a} 
+Game\+Object\+::\texorpdfstring{$\sim$}{\string~}\+Game\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classGameObject_aae3335f16f4c318950ef8b9b5fd1d368}\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classGameObject_aae3335f16f4c318950ef8b9b5fd1d368} 
+Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classGameObject_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGameObject_abe18c226465699e82ebf7a470f6a7c79}\index{GameObject@{GameObject}!add\_behaviour@{add\_behaviour}}
+\index{add\_behaviour@{add\_behaviour}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{add\_behaviour()}{add\_behaviour()}}
+{\footnotesize\ttfamily \label{classGameObject_abe18c226465699e82ebf7a470f6a7c79} 
+template$<$typename T\+\_\+behaviour, typename... Args$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$\\
+bool Game\+Object\+::add\+\_\+behaviour (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classGameObject_a4cd22676f498c36c369bec2cf3a7fdba}\index{GameObject@{GameObject}!get\_behaviour@{get\_behaviour}}
+\index{get\_behaviour@{get\_behaviour}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{get\_behaviour()}{get\_behaviour()}}
+{\footnotesize\ttfamily \label{classGameObject_a4cd22676f498c36c369bec2cf3a7fdba} 
+template$<$typename T\+\_\+behaviour$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$\\
+T\+\_\+behaviour \texorpdfstring{$\ast$}{*} Game\+Object\+::get\+\_\+behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classGameObject_ae7477b159ae17bbf083f54dfbde24008}\index{GameObject@{GameObject}!has\_behaviour@{has\_behaviour}}
+\index{has\_behaviour@{has\_behaviour}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{has\_behaviour()}{has\_behaviour()}}
+{\footnotesize\ttfamily \label{classGameObject_ae7477b159ae17bbf083f54dfbde24008} 
+template$<$typename T\+\_\+behaviour$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$\\
+bool Game\+Object\+::has\+\_\+behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classGameObject_a0839af580baf87eb19faff2c996c0afd}\index{GameObject@{GameObject}!operator=@{operator=}}
+\index{operator=@{operator=}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classGameObject_a0839af580baf87eb19faff2c996c0afd} 
+\mbox{\hyperlink{classGameObject}{Game\+Object}} \& Game\+Object\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/\mbox{\hyperlink{game__object_8h}{game\+\_\+object.\+h}}\item 
+src/calgine/core/\mbox{\hyperlink{game__object_8cxx}{game\+\_\+object.\+cxx}}\end{DoxyCompactItemize}

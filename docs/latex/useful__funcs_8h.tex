@@ -1,11 +1,13 @@
-\doxysection{src/calgine/useful\+\_\+funcs.h File Reference}
-\hypertarget{useful__funcs_8h}{}\label{useful__funcs_8h}\index{src/calgine/useful\_funcs.h@{src/calgine/useful\_funcs.h}}
+\doxysection{src/calgine/core/useful\+\_\+funcs.h File Reference}
+\hypertarget{useful__funcs_8h}{}\label{useful__funcs_8h}\index{src/calgine/core/useful\_funcs.h@{src/calgine/core/useful\_funcs.h}}
 {\ttfamily \#include $<$SDL3/\+SDL.\+h$>$}\newline
 {\ttfamily \#include $<$stdexcept$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{useful__funcs_8h_ae762bca92696e0c19c4e90f546a855af}{throw\+\_\+sdl\+\_\+error}} (std\+::string message)
+\item 
+{\footnotesize template$<$typename T$>$ }\\constexpr std\+::string\+\_\+view \mbox{\hyperlink{useful__funcs_8h_a76b4d07bdea899ac27cd17e96f56954b}{type\+\_\+name}} ()
 \end{DoxyCompactItemize}
 
 
@@ -17,4 +19,11 @@ void \mbox{\hyperlink{useful__funcs_8h_ae762bca92696e0c19c4e90f546a855af}{throw\
 \doxysubsubsection{\texorpdfstring{throw\_sdl\_error()}{throw\_sdl\_error()}}
 {\footnotesize\ttfamily \label{useful__funcs_8h_ae762bca92696e0c19c4e90f546a855af} 
 void throw\+\_\+sdl\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::string}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{useful__funcs_8h_a76b4d07bdea899ac27cd17e96f56954b}\index{useful\_funcs.h@{useful\_funcs.h}!type\_name@{type\_name}}
+\index{type\_name@{type\_name}!useful\_funcs.h@{useful\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{type\_name()}{type\_name()}}
+{\footnotesize\ttfamily \label{useful__funcs_8h_a76b4d07bdea899ac27cd17e96f56954b} 
+template$<$typename T$>$ \\
+std\+::string\+\_\+view type\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
 
