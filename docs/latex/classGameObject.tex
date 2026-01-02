@@ -4,6 +4,12 @@
 
 {\ttfamily \#include $<$game\+\_\+object.\+h$>$}
 
+Inheritance diagram for Game\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGameObject}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,6 +31,10 @@ requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBeha
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classGameObject_ae7477b159ae17bbf083f54dfbde24008}{has\+\_\+behaviour}} () const
 \item 
 void \mbox{\hyperlink{classGameObject_adca86db978c803349cd1668e08987154}{tick\+\_\+self\+\_\+and\+\_\+children}} (\mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53}{Tick\+Type}} tick\+\_\+type)
+\item 
+void \mbox{\hyperlink{classGameObject_a790ad71d6dc44f644ac5ded8c4d13484}{set\+\_\+parent}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}\+\_\+parent)
+\item 
+std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classGameObject}{Game\+Object}} $>$ $>$ \mbox{\hyperlink{classGameObject_a94d5a5ae3d3d3e6c53a04289afa206de}{get\+\_\+parent}} () const
 \end{DoxyCompactItemize}
 
 
@@ -70,6 +80,12 @@ template$<$typename T\+\_\+behaviour$>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$\\
 T\+\_\+behaviour \texorpdfstring{$\ast$}{*} Game\+Object\+::get\+\_\+behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
+\Hypertarget{classGameObject_a94d5a5ae3d3d3e6c53a04289afa206de}\index{GameObject@{GameObject}!get\_parent@{get\_parent}}
+\index{get\_parent@{get\_parent}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{get\_parent()}{get\_parent()}}
+{\footnotesize\ttfamily \label{classGameObject_a94d5a5ae3d3d3e6c53a04289afa206de} 
+std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classGameObject}{Game\+Object}} $>$ $>$ Game\+Object\+::get\+\_\+parent (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
 \Hypertarget{classGameObject_ae7477b159ae17bbf083f54dfbde24008}\index{GameObject@{GameObject}!has\_behaviour@{has\_behaviour}}
 \index{has\_behaviour@{has\_behaviour}!GameObject@{GameObject}}
 \doxysubsubsection{\texorpdfstring{has\_behaviour()}{has\_behaviour()}}
@@ -83,6 +99,12 @@ bool Game\+Object\+::has\+\_\+behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyPa
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
 {\footnotesize\ttfamily \label{classGameObject_a0839af580baf87eb19faff2c996c0afd} 
 \mbox{\hyperlink{classGameObject}{Game\+Object}} \& Game\+Object\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classGameObject_a790ad71d6dc44f644ac5ded8c4d13484}\index{GameObject@{GameObject}!set\_parent@{set\_parent}}
+\index{set\_parent@{set\_parent}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{set\_parent()}{set\_parent()}}
+{\footnotesize\ttfamily \label{classGameObject_a790ad71d6dc44f644ac5ded8c4d13484} 
+void Game\+Object\+::set\+\_\+parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{\+\_\+parent}{}\end{DoxyParamCaption})}
 
 \Hypertarget{classGameObject_adca86db978c803349cd1668e08987154}\index{GameObject@{GameObject}!tick\_self\_and\_children@{tick\_self\_and\_children}}
 \index{tick\_self\_and\_children@{tick\_self\_and\_children}!GameObject@{GameObject}}

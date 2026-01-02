@@ -11,8 +11,6 @@
 class Behaviour  
 {
 private:
-  static void register_instance(Behaviour* b);
-
   virtual void start_tick();
   virtual void update_tick();
   virtual void late_tick();
@@ -22,7 +20,6 @@ private:
   static T* create(Args&&... args) 
   {
     T* obj = new T(std::forward<Args>(args)...);
-    register_instance(obj);
     return obj;
   }
 

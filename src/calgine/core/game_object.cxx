@@ -27,3 +27,15 @@ void GameObject::tick_self_and_children(TickType tick_type)
   }
 }
 
+void GameObject::set_parent(GameObject* _parent)
+{
+  parent = _parent;
+}
+
+std::optional<std::reference_wrapper<GameObject>> GameObject::get_parent() const
+{
+  if (parent) 
+    return *parent;
+
+  return std::nullopt;
+}

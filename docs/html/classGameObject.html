@@ -88,11 +88,20 @@ $(function(){initNavTree('classGameObject.html','','classGameObject-members'); }
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">GameObject Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">GameObject Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="game__object_8h_source.html">game_object.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for GameObject:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classGameObject.png" usemap="#GameObject_map" alt=""/>
+  <map id="GameObject_map" name="GameObject_map">
+<area href="classRootGameObject.html" alt="RootGameObject" shape="rect" coords="0,56,106,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -110,6 +119,8 @@ requires std::derived_from&lt;T_behaviour, <a class="el" href="classBehaviour.ht
 requires std::derived_from&lt;T_behaviour, <a class="el" href="classBehaviour.html">Behaviour</a>&gt;</td></tr>
 <tr class="memitem:ae7477b159ae17bbf083f54dfbde24008 template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7477b159ae17bbf083f54dfbde24008">has_behaviour</a> () const</td></tr>
 <tr class="memitem:adca86db978c803349cd1668e08987154" id="r_adca86db978c803349cd1668e08987154"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adca86db978c803349cd1668e08987154">tick_self_and_children</a> (<a class="el" href="game__object_8h.html#ab2e4bfcb18c10326708bfba9aadbdd53">TickType</a> tick_type)</td></tr>
+<tr class="memitem:a790ad71d6dc44f644ac5ded8c4d13484" id="r_a790ad71d6dc44f644ac5ded8c4d13484"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a790ad71d6dc44f644ac5ded8c4d13484">set_parent</a> (<a class="el" href="classGameObject.html">GameObject</a> *_parent)</td></tr>
+<tr class="memitem:a94d5a5ae3d3d3e6c53a04289afa206de" id="r_a94d5a5ae3d3d3e6c53a04289afa206de"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::reference_wrapper&lt; <a class="el" href="classGameObject.html">GameObject</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94d5a5ae3d3d3e6c53a04289afa206de">get_parent</a> () const</td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a49f0fc91c3048ec583044e7a1b9c2518" name="a49f0fc91c3048ec583044e7a1b9c2518"></a>
@@ -228,6 +239,23 @@ requires std::derived_from&lt;T_behaviour, <a class="el" href="classBehaviour.ht
 
 </div>
 </div>
+<a id="a94d5a5ae3d3d3e6c53a04289afa206de" name="a94d5a5ae3d3d3e6c53a04289afa206de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94d5a5ae3d3d3e6c53a04289afa206de">&#9670;&#160;</a></span>get_parent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; std::reference_wrapper&lt; <a class="el" href="classGameObject.html">GameObject</a> &gt; &gt; GameObject::get_parent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae7477b159ae17bbf083f54dfbde24008" name="ae7477b159ae17bbf083f54dfbde24008"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae7477b159ae17bbf083f54dfbde24008">&#9670;&#160;</a></span>has_behaviour()</h2>
 
@@ -269,6 +297,23 @@ requires std::derived_from&lt;T_behaviour, <a class="el" href="classBehaviour.ht
 <span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a790ad71d6dc44f644ac5ded8c4d13484" name="a790ad71d6dc44f644ac5ded8c4d13484"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a790ad71d6dc44f644ac5ded8c4d13484">&#9670;&#160;</a></span>set_parent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameObject::set_parent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGameObject.html">GameObject</a> *</td>          <td class="paramname"><span class="paramname"><em>_parent</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

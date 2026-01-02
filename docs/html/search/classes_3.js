@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['windowhandler_0',['WindowHandler',['../classWindowHandler.html',1,'']]]
+  ['hierarchy_0',['Hierarchy',['../classHierarchy.html',1,'']]]
 ];

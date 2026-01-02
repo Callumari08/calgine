@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['useful_5ffuncs_2ecxx_0',['useful_funcs.cxx',['../useful__funcs_8cxx.html',1,'']]],
-  ['useful_5ffuncs_2eh_1',['useful_funcs.h',['../useful__funcs_8h.html',1,'']]]
+  ['hierarchy_5fmanager_2ecxx_0',['hierarchy_manager.cxx',['../hierarchy__manager_8cxx.html',1,'']]],
+  ['hierarchy_5fmanager_2eh_1',['hierarchy_manager.h',['../hierarchy__manager_8h.html',1,'']]]
 ];

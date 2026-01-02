@@ -7,17 +7,21 @@
 #include <iostream>
 #include <SDL3/SDL_error.h>
 #include <SDL3/SDL.h>
+#include "calgine/core/background_managers/hierarchy_manager.h"
+#include "calgine/core/game_object.h"
 #include "setup/window_handler.h"
-#include "background_managers/behaviour_manager.h"
 #include "useful_funcs.h"
 
 void App::main_loop()
 {
-  BehaviourManager& behaviour_manager = BehaviourManager::get_instance();
+  Hierarchy& hierarchy = Hierarchy::get_instance();
+  GameObject& root = hierarchy.get_hierarchy_root();
 
   glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
 
-  behaviour_manager.start_all();
+
+  // Instead of doing this here, I should implement a scene manager.
+  root.tick_self_and_children(TickType::start);
 
   bool running = true;
   while (running) 
@@ -31,8 +35,8 @@ void App::main_loop()
       }
     }
 
-    behaviour_manager.update_tick();
-    behaviour_manager.update_late_tick();
+    root.tick_self_and_children(TickType::update);
+    root.tick_self_and_children(TickType::late_update);
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

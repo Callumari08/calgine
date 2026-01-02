@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['operator_3d_0',['operator=',['../classBehaviourManager.html#a00856a11e4eb8eb760bcaa683a9c8696',1,'BehaviourManager::operator=()'],['../classGameObject.html#a0839af580baf87eb19faff2c996c0afd',1,'GameObject::operator=()'],['../classWindowHandler.html#a40ad5f834383115893643e4d66924378',1,'WindowHandler::operator=()']]]
+  ['set_5fparent_0',['set_parent',['../classGameObject.html#a790ad71d6dc44f644ac5ded8c4d13484',1,'GameObject']]],
+  ['set_5fvsync_5fstate_1',['set_vsync_state',['../classWindowHandler.html#af8827c2331dad02f7ae49e2999c1577d',1,'WindowHandler']]],
+  ['systems_5finit_2',['systems_init',['../classApp.html#a80bce247230188c2d289aed2978f9a59',1,'App']]]
 ];

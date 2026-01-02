@@ -1,0 +1,44 @@
+\doxysection{Root\+Game\+Object Class Reference}
+\hypertarget{classRootGameObject}{}\label{classRootGameObject}\index{RootGameObject@{RootGameObject}}
+
+
+{\ttfamily \#include $<$hierarchy\+\_\+manager.\+h$>$}
+
+Inheritance diagram for Root\+Game\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classRootGameObject}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classGameObject}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGameObject_a49f0fc91c3048ec583044e7a1b9c2518}{Game\+Object}} ()=default
+\item 
+\mbox{\hyperlink{classGameObject_aac8336499118faec34e0f406c022a25a}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\item 
+\mbox{\hyperlink{classGameObject_aae3335f16f4c318950ef8b9b5fd1d368}{Game\+Object}} (const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&)=delete
+\item 
+\mbox{\hyperlink{classGameObject}{Game\+Object}} \& \mbox{\hyperlink{classGameObject_a0839af580baf87eb19faff2c996c0afd}{operator=}} (const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&)=delete
+\item 
+{\footnotesize template$<$typename T\+\_\+behaviour, typename... Args$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classGameObject_abe18c226465699e82ebf7a470f6a7c79}{add\+\_\+behaviour}} (Args \&\&... args)
+\item 
+{\footnotesize template$<$typename T\+\_\+behaviour$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\T\+\_\+behaviour \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGameObject_a4cd22676f498c36c369bec2cf3a7fdba}{get\+\_\+behaviour}} () const
+\item 
+{\footnotesize template$<$typename T\+\_\+behaviour$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classGameObject_ae7477b159ae17bbf083f54dfbde24008}{has\+\_\+behaviour}} () const
+\item 
+void \mbox{\hyperlink{classGameObject_adca86db978c803349cd1668e08987154}{tick\+\_\+self\+\_\+and\+\_\+children}} (\mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53}{Tick\+Type}} tick\+\_\+type)
+\item 
+void \mbox{\hyperlink{classGameObject_a790ad71d6dc44f644ac5ded8c4d13484}{set\+\_\+parent}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}\+\_\+parent)
+\item 
+std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classGameObject}{Game\+Object}} $>$ $>$ \mbox{\hyperlink{classGameObject_a94d5a5ae3d3d3e6c53a04289afa206de}{get\+\_\+parent}} () const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/background\+\_\+managers/\mbox{\hyperlink{hierarchy__manager_8h}{hierarchy\+\_\+manager.\+h}}\end{DoxyCompactItemize}

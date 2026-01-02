@@ -3,7 +3,9 @@
 #include <unordered_map>
 #include <typeindex>
 #include <memory>
+#include <utility>
 #include <vector>
+#include <optional>
 
 class Behaviour;
 
@@ -14,12 +16,12 @@ enum TickType
   late_update,
 };
 
-class GameObject final
+class GameObject
 {
 private:
   std::unordered_map<std::type_index, std::unique_ptr<Behaviour>> behaviours;
   std::vector<std::unique_ptr<GameObject>> children;
-  std::unique_ptr<GameObject> parent;
+  GameObject* parent = nullptr;
 
 public:
   GameObject() = default;
@@ -41,6 +43,10 @@ public:
   bool has_behaviour() const;
 
   void tick_self_and_children(TickType tick_type);
+
+  void set_parent(GameObject* _parent);
+
+  std::optional<std::reference_wrapper<GameObject>> get_parent() const;
 };
 
 // Templates
