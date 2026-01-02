@@ -12,14 +12,11 @@ This is the class from which all user applications derive from.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+virtual std\+::string \mbox{\hyperlink{classApp_af65a5aada9d59de5f2f1a536b049f13d}{get\+\_\+app\+\_\+name}} ()
+\item 
 void \mbox{\hyperlink{classApp_a80bce247230188c2d289aed2978f9a59}{systems\+\_\+init}} ()
 \item 
 void \mbox{\hyperlink{classApp_a719ee7a1bfeacae564b0b03955e83a08}{main\+\_\+loop}} ()
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-std\+::string \mbox{\hyperlink{classApp_a47885152dd30fa34389a495b5bc2620f}{app\+\_\+name}} = "{}Calgine Game"{}
 \end{DoxyCompactItemize}
 
 
@@ -35,14 +32,14 @@ This example is out of date. Please do not use it to understand how behaviours w
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{class\ }MyApp\ :\ \textcolor{keyword}{public}\ App}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{\ \ std::string\ \mbox{\hyperlink{classApp_a47885152dd30fa34389a495b5bc2620f}{app\_name}}\ =\ \textcolor{stringliteral}{"{}My\ App"{}};}
+\DoxyCodeLine{\ \ std::string\ app\_name\ =\ \textcolor{stringliteral}{"{}My\ App"{}};}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ stuff\ related\ to\ your\ app\ can\ go\ here}}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{class\ }MyBehaviour\ :\ \textcolor{keyword}{public}\ Behaviour}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{\ \textcolor{keywordtype}{int}\ i\ =\ 0;}
-\DoxyCodeLine{\ \textcolor{keywordtype}{void}\ start()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a0e97c69c73117f6c0109b2d7d1d9cedc}{start}}()\textcolor{keyword}{\ override}}
 \DoxyCodeLine{\textcolor{keyword}{\ }\{}
 \DoxyCodeLine{\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}MyBehaviour\ Start!"{}};}
 \DoxyCodeLine{\ \}}
@@ -75,6 +72,12 @@ This example is out of date. Please do not use it to understand how behaviours w
 \label{doc-func-members}
 \Hypertarget{classApp_doc-func-members}
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classApp_af65a5aada9d59de5f2f1a536b049f13d}\index{App@{App}!get\_app\_name@{get\_app\_name}}
+\index{get\_app\_name@{get\_app\_name}!App@{App}}
+\doxysubsubsection{\texorpdfstring{get\_app\_name()}{get\_app\_name()}}
+{\footnotesize\ttfamily \label{classApp_af65a5aada9d59de5f2f1a536b049f13d} 
+virtual std\+::string App\+::get\+\_\+app\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
 \Hypertarget{classApp_a719ee7a1bfeacae564b0b03955e83a08}\index{App@{App}!main\_loop@{main\_loop}}
 \index{main\_loop@{main\_loop}!App@{App}}
 \doxysubsubsection{\texorpdfstring{main\_loop()}{main\_loop()}}
@@ -89,18 +92,7 @@ void App\+::systems\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption
 
 
 
-\label{doc-variable-members}
-\Hypertarget{classApp_doc-variable-members}
-\doxysubsection{Member Data Documentation}
-\Hypertarget{classApp_a47885152dd30fa34389a495b5bc2620f}\index{App@{App}!app\_name@{app\_name}}
-\index{app\_name@{app\_name}!App@{App}}
-\doxysubsubsection{\texorpdfstring{app\_name}{app\_name}}
-{\footnotesize\ttfamily \label{classApp_a47885152dd30fa34389a495b5bc2620f} 
-std\+::string App\+::app\+\_\+name = "{}Calgine Game"{}}
-
-
-
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/calgine/\mbox{\hyperlink{app_8h}{app.\+h}}\item 
-src/calgine/\mbox{\hyperlink{app_8cxx}{app.\+cxx}}\end{DoxyCompactItemize}
+src/calgine/core/\mbox{\hyperlink{app_8h}{app.\+h}}\item 
+src/calgine/core/\mbox{\hyperlink{app_8cxx}{app.\+cxx}}\end{DoxyCompactItemize}

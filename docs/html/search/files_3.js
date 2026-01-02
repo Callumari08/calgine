@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['window_5fhandler_2ecxx_0',['window_handler.cxx',['../window__handler_8cxx.html',1,'']]],
-  ['window_5fhandler_2eh_1',['window_handler.h',['../window__handler_8h.html',1,'']]]
+  ['hierarchy_5fmanager_2ecxx_0',['hierarchy_manager.cxx',['../hierarchy__manager_8cxx.html',1,'']]],
+  ['hierarchy_5fmanager_2eh_1',['hierarchy_manager.h',['../hierarchy__manager_8h.html',1,'']]]
 ];

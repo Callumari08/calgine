@@ -14,11 +14,6 @@ Gives access to tick updates for users.
 \item 
 virtual \mbox{\hyperlink{classBehaviour_ab9099279876aa70410ab96ca589531df}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-{\footnotesize template$<$typename T, typename... Args$>$ }\\static T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classBehaviour_add1a3aa26c1ae38c6436c529614a0361}{create}} (Args \&\&... args)
-\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -28,6 +23,8 @@ virtual \mbox{\hyperlink{classBehaviour_ab9099279876aa70410ab96ca589531df}{\texo
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classBehaviour_a435b7d052d171d02d2e7cae17bd01d9c}{Behaviour\+Manager}}
+\item 
+class \mbox{\hyperlink{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{Game\+Object}}
 \end{DoxyCompactItemize}
 
 
@@ -36,6 +33,7 @@ Gives access to tick updates for users.
 
 
 \begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//TODO:\ Example\ }}
 
 \end{DoxyCode}
  
@@ -57,18 +55,6 @@ Behaviour\+::\texorpdfstring{$\sim$}{\string~}\+Behaviour (\begin{DoxyParamCapti
 
 
 
-\label{doc-func-members}
-\Hypertarget{classBehaviour_doc-func-members}
-\doxysubsection{Member Function Documentation}
-\Hypertarget{classBehaviour_add1a3aa26c1ae38c6436c529614a0361}\index{Behaviour@{Behaviour}!create@{create}}
-\index{create@{create}!Behaviour@{Behaviour}}
-\doxysubsubsection{\texorpdfstring{create()}{create()}}
-{\footnotesize\ttfamily \label{classBehaviour_add1a3aa26c1ae38c6436c529614a0361} 
-template$<$typename T, typename... Args$>$ \\
-T \texorpdfstring{$\ast$}{*} Behaviour\+::create (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
 \label{doc-related-members}
 \Hypertarget{classBehaviour_doc-related-members}
 \doxysubsection{Friends And Related Symbol Documentation}
@@ -76,11 +62,17 @@ T \texorpdfstring{$\ast$}{*} Behaviour\+::create (\begin{DoxyParamCaption}\item[
 \index{BehaviourManager@{BehaviourManager}!Behaviour@{Behaviour}}
 \doxysubsubsection{\texorpdfstring{BehaviourManager}{BehaviourManager}}
 {\footnotesize\ttfamily \label{classBehaviour_a435b7d052d171d02d2e7cae17bd01d9c} 
-friend class \mbox{\hyperlink{classBehaviourManager}{Behaviour\+Manager}}\hspace{0.3cm}{\ttfamily [friend]}}
+friend class Behaviour\+Manager\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}\index{Behaviour@{Behaviour}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!Behaviour@{Behaviour}}
+\doxysubsubsection{\texorpdfstring{GameObject}{GameObject}}
+{\footnotesize\ttfamily \label{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a} 
+friend class \mbox{\hyperlink{classGameObject}{Game\+Object}}\hspace{0.3cm}{\ttfamily [friend]}}
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/calgine/\mbox{\hyperlink{behaviour_8h}{behaviour.\+h}}\item 
-src/calgine/\mbox{\hyperlink{behaviour_8cxx}{behaviour.\+cxx}}\end{DoxyCompactItemize}
+src/calgine/core/\mbox{\hyperlink{behaviour_8h}{behaviour.\+h}}\item 
+src/calgine/core/\mbox{\hyperlink{behaviour_8cxx}{behaviour.\+cxx}}\end{DoxyCompactItemize}

@@ -1,21 +1,23 @@
 \doxysection{app.\+h}
-\hypertarget{app_8h_source}{}\label{app_8h_source}\index{src/calgine/app.h@{src/calgine/app.h}}
+\hypertarget{app_8h_source}{}\label{app_8h_source}\index{src/calgine/core/app.h@{src/calgine/core/app.h}}
 \mbox{\hyperlink{app_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ APP\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ APP\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classApp}{App}}}
-\DoxyCodeLine{00054\ \{}
-\DoxyCodeLine{00055\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00056\ \ \ std::string\ \mbox{\hyperlink{classApp_a47885152dd30fa34389a495b5bc2620f}{app\_name}}\ =\ \textcolor{stringliteral}{"{}Calgine\ Game"{}};}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classApp_a80bce247230188c2d289aed2978f9a59}{systems\_init}}();}
-\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classApp_a719ee7a1bfeacae564b0b03955e83a08}{main\_loop}}();}
-\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classApp}{App}}}
+\DoxyCodeLine{00053\ \{}
+\DoxyCodeLine{00054\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00055\ \ \ std::string\ app\_name\ =\ \textcolor{stringliteral}{"{}A\ Calgine\ App"{}};}
+\DoxyCodeLine{00056\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classApp_af65a5aada9d59de5f2f1a536b049f13d}{get\_app\_name}}()}
+\DoxyCodeLine{00058\ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ app\_name;}
+\DoxyCodeLine{00060\ \ \ \}}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classApp_a80bce247230188c2d289aed2978f9a59}{systems\_init}}();}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classApp_a719ee7a1bfeacae564b0b03955e83a08}{main\_loop}}();}
+\DoxyCodeLine{00064\ \};}
 
 \end{DoxyCode}

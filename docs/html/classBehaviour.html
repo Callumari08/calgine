@@ -101,11 +101,6 @@ $(function(){initNavTree('classBehaviour.html','','classBehaviour-members'); });
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab9099279876aa70410ab96ca589531df" id="r_ab9099279876aa70410ab96ca589531df"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9099279876aa70410ab96ca589531df">~Behaviour</a> ()</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:add1a3aa26c1ae38c6436c529614a0361" id="r_add1a3aa26c1ae38c6436c529614a0361"><td class="memTemplParams" colspan="2">template&lt;typename T, typename... Args&gt; </td></tr>
-<tr class="memitem:add1a3aa26c1ae38c6436c529614a0361 template"><td class="memItemLeft" align="right" valign="top">static T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add1a3aa26c1ae38c6436c529614a0361">create</a> (Args &amp;&amp;... args)</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a57e050961bc1305993adaeac62658657" id="r_a57e050961bc1305993adaeac62658657"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57e050961bc1305993adaeac62658657">Behaviour</a> ()=default</td></tr>
@@ -113,10 +108,12 @@ Protected Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a435b7d052d171d02d2e7cae17bd01d9c" id="r_a435b7d052d171d02d2e7cae17bd01d9c"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a435b7d052d171d02d2e7cae17bd01d9c">BehaviourManager</a></td></tr>
+<tr class="memitem:a00df87c957d8f7ee0fc51f07a0542f4a" id="r_a00df87c957d8f7ee0fc51f07a0542f4a"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00df87c957d8f7ee0fc51f07a0542f4a">GameObject</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Gives access to tick updates for users. </p>
-<div class="fragment"></div><!-- fragment --> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="fragment"><div class="line"><span class="comment">//TODO: Example </span></div>
+</div><!-- fragment --> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a57e050961bc1305993adaeac62658657" name="a57e050961bc1305993adaeac62658657"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a57e050961bc1305993adaeac62658657">&#9670;&#160;</a></span>Behaviour()</h2>
 
@@ -167,34 +164,6 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="add1a3aa26c1ae38c6436c529614a0361" name="add1a3aa26c1ae38c6436c529614a0361"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add1a3aa26c1ae38c6436c529614a0361">&#9670;&#160;</a></span>create()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, typename... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T * Behaviour::create </td>
-          <td>(</td>
-          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
 <a id="a435b7d052d171d02d2e7cae17bd01d9c" name="a435b7d052d171d02d2e7cae17bd01d9c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a435b7d052d171d02d2e7cae17bd01d9c">&#9670;&#160;</a></span>BehaviourManager</h2>
@@ -206,7 +175,29 @@ template&lt;typename T, typename... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="classBehaviourManager.html">BehaviourManager</a></td>
+          <td class="memname">friend class BehaviourManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00df87c957d8f7ee0fc51f07a0542f4a" name="a00df87c957d8f7ee0fc51f07a0542f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00df87c957d8f7ee0fc51f07a0542f4a">&#9670;&#160;</a></span>GameObject</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classGameObject.html">GameObject</a></td>
         </tr>
       </table>
   </td>
@@ -219,8 +210,8 @@ template&lt;typename T, typename... Args&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/calgine/<a class="el" href="behaviour_8h_source.html">behaviour.h</a></li>
-<li>src/calgine/<a class="el" href="behaviour_8cxx.html">behaviour.cxx</a></li>
+<li>src/calgine/core/<a class="el" href="behaviour_8h_source.html">behaviour.h</a></li>
+<li>src/calgine/core/<a class="el" href="behaviour_8cxx.html">behaviour.cxx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

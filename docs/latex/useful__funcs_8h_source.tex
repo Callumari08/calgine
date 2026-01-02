@@ -1,16 +1,31 @@
 \doxysection{useful\+\_\+funcs.\+h}
-\hypertarget{useful__funcs_8h_source}{}\label{useful__funcs_8h_source}\index{src/calgine/useful\_funcs.h@{src/calgine/useful\_funcs.h}}
+\hypertarget{useful__funcs_8h_source}{}\label{useful__funcs_8h_source}\index{src/calgine/core/useful\_funcs.h@{src/calgine/core/useful\_funcs.h}}
 \mbox{\hyperlink{useful__funcs_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ USEFUL\_FUNCS}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ USEFUL\_FUNCS}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{useful__funcs_8h_ae762bca92696e0c19c4e90f546a855af}{throw\_sdl\_error}}(std::string\ message)\ \{}
-\DoxyCodeLine{00008\ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(message\ +\ std::string(SDL\_GetError()));}
-\DoxyCodeLine{00009\ \}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{useful__funcs_8h_ae762bca92696e0c19c4e90f546a855af}{throw\_sdl\_error}}(std::string\ message)\ \{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(message\ +\ std::string(SDL\_GetError()));}
+\DoxyCodeLine{00013\ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00022\ \textcolor{keyword}{constexpr}\ std::string\_view\ \mbox{\hyperlink{useful__funcs_8h_a76b4d07bdea899ac27cd17e96f56954b}{type\_name}}()}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#if\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00025\ \ \ \ \ std::string\_view\ p\ =\ \_\_PRETTY\_FUNCTION\_\_;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ p.substr(p.find(\textcolor{stringliteral}{"{}T\ =\ "{}})\ +\ 4,\ p.rfind(\textcolor{charliteral}{']'})\ -\/\ (p.find(\textcolor{stringliteral}{"{}T\ =\ "{}})\ +\ 4));}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00028\ \ \ \ \ std::string\_view\ p\ =\ \_\_PRETTY\_FUNCTION\_\_;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{return}\ p.substr(p.find(\textcolor{stringliteral}{"{}with\ T\ =\ "{}})\ +\ 9,\ p.rfind(\textcolor{charliteral}{';'})\ -\/\ (p.find(\textcolor{stringliteral}{"{}with\ T\ =\ "{}})\ +\ 9));}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#elif\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{00031\ \ \ \ \ std::string\_view\ p\ =\ \_\_FUNCSIG\_\_;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{return}\ p.substr(p.find(\textcolor{stringliteral}{"{}<"{}})\ +\ 1,\ p.rfind(\textcolor{stringliteral}{"{}>"{}})\ -\/\ (p.find(\textcolor{stringliteral}{"{}<"{}})\ +\ 1));}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}unknown"{}};}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00036\ \}}
 
 \end{DoxyCode}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Calgine: src/calgine/setup/window_handler.h Source File</title>
+<title>Calgine: src/calgine/core/setup/window_handler.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,76 +91,74 @@ $(function(){initNavTree('window__handler_8h_source.html','',''); });
   <div class="headertitle"><div class="title">window_handler.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="window__handler_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef WINDOW_HANDLER_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define WINDOW_HANDLER_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;SDL3/SDL_video.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;mutex&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// could include different types of Vsync buffers here</span></div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459">    9</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459">VsyncState</a> {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d">   10</a></span>  <a class="code hl_enumvalue" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d">disabled</a>,</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc">   11</a></span>  <a class="code hl_enumvalue" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc">enabled</a>,</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>};</div>
+<a href="window__handler_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;SDL3/SDL_video.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;mutex&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// could include different types of Vsync buffers here</span></div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459">    8</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459">VsyncState</a> {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d">    9</a></span>  <a class="code hl_enumvalue" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d">disabled</a>,</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc">   10</a></span>  <a class="code hl_enumvalue" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc">enabled</a>,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>};</div>
 </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="window__handler_8h.html#a498d9f026138406895e9a34b504ac6a6">   14</a></span><span class="preprocessor">#define WINDOW_WIDTH 800</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="window__handler_8h.html#a5473cf64fa979b48335079c99532e243">   15</a></span><span class="preprocessor">#define WINDOW_HEIGHT 600</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classWindowHandler.html">   17</a></span><span class="keyword">class </span>WindowHandler </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keyword">static</span> WindowHandler* instance;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keyword">static</span> std::mutex instance_mutex;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="comment">// Private constructor to prevent instantiation</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  WindowHandler() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keyword">static</span> SDL_Window* window;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keyword">static</span> SDL_GLContext gl_context;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keyword">static</span> <a class="code hl_enumeration" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459">VsyncState</a> vsync_state;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> quit_gracefully(SDL_Window* window, SDL_GLContext ctx);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classWindowHandler.html#a33b33e31a70c6c27b64dcaf66ad66704">   33</a></span>  <span class="keyword">static</span> std::string <a class="code hl_variable" href="classWindowHandler.html#a33b33e31a70c6c27b64dcaf66ad66704">window_name</a>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classWindowHandler.html#aa9eee2c27935bc87d29923403b1b166c">   34</a></span>  <a class="code hl_function" href="classWindowHandler.html#aa9eee2c27935bc87d29923403b1b166c">WindowHandler</a>(<span class="keyword">const</span> WindowHandler&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classWindowHandler.html#a40ad5f834383115893643e4d66924378">   35</a></span>  WindowHandler&amp; <a class="code hl_function" href="classWindowHandler.html#a40ad5f834383115893643e4d66924378">operator=</a>(<span class="keyword">const</span> WindowHandler&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="comment">// Returns the singleton instance of WindowHandler</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keyword">static</span> WindowHandler* <a class="code hl_function" href="classWindowHandler.html#a48f483e312836d2855f929ecc54c3b1d">get_instance</a>();</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="comment">// Returns an `SDL_Window` if one exists, otherwise it creates one.</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keyword">static</span> SDL_Window* <a class="code hl_function" href="classWindowHandler.html#a3156947484fbd22dddea591b39ba1cd7">get_window</a>();</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="comment">// Returns an `SDL_GLContext` if one exists, otherwise it creates one.</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="comment">// `window` mustn&#39;t be NULL, otherwise this function will throw an exception (TODO)</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keyword">static</span> SDL_GLContext <a class="code hl_function" href="classWindowHandler.html#ad88477904c27a3475530ffd20d8fe217">get_gl_context</a>();</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keyword">static</span> <a class="code hl_enumeration" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459">VsyncState</a> <a class="code hl_function" href="classWindowHandler.html#ae3a8d2cd19411745c0e2cd1325b47964">get_vsync_state</a>();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classWindowHandler.html#af8827c2331dad02f7ae49e2999c1577d">set_vsync_state</a>(<a class="code hl_enumeration" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459">VsyncState</a> state);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="window__handler_8h.html#a498d9f026138406895e9a34b504ac6a6">   13</a></span><span class="preprocessor">#define WINDOW_WIDTH 800</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="window__handler_8h.html#a5473cf64fa979b48335079c99532e243">   14</a></span><span class="preprocessor">#define WINDOW_HEIGHT 600</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classWindowHandler.html">   16</a></span><span class="keyword">class </span>WindowHandler </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keyword">static</span> WindowHandler* instance;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keyword">static</span> std::mutex instance_mutex;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="comment">// Private constructor to prevent instantiation</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  WindowHandler() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keyword">static</span> SDL_Window* window;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keyword">static</span> SDL_GLContext gl_context;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keyword">static</span> <a class="code hl_enumeration" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459">VsyncState</a> vsync_state;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> quit_gracefully(SDL_Window* window, SDL_GLContext ctx);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classWindowHandler.html#a33b33e31a70c6c27b64dcaf66ad66704">   32</a></span>  <span class="keyword">static</span> std::string <a class="code hl_variable" href="classWindowHandler.html#a33b33e31a70c6c27b64dcaf66ad66704">window_name</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classWindowHandler.html#aa9eee2c27935bc87d29923403b1b166c">   33</a></span>  <a class="code hl_function" href="classWindowHandler.html#aa9eee2c27935bc87d29923403b1b166c">WindowHandler</a>(<span class="keyword">const</span> WindowHandler&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classWindowHandler.html#a40ad5f834383115893643e4d66924378">   34</a></span>  WindowHandler&amp; <a class="code hl_function" href="classWindowHandler.html#a40ad5f834383115893643e4d66924378">operator=</a>(<span class="keyword">const</span> WindowHandler&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="comment">// Returns the singleton instance of WindowHandler</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keyword">static</span> WindowHandler* <a class="code hl_function" href="classWindowHandler.html#a48f483e312836d2855f929ecc54c3b1d">get_instance</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="comment">// Returns an `SDL_Window` if one exists, otherwise it creates one.</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keyword">static</span> SDL_Window* <a class="code hl_function" href="classWindowHandler.html#a3156947484fbd22dddea591b39ba1cd7">get_window</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="comment">// Returns an `SDL_GLContext` if one exists, otherwise it creates one.</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="comment">// `window` mustn&#39;t be NULL, otherwise this function will throw an exception (TODO)</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="keyword">static</span> SDL_GLContext <a class="code hl_function" href="classWindowHandler.html#ad88477904c27a3475530ffd20d8fe217">get_gl_context</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keyword">static</span> <a class="code hl_enumeration" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459">VsyncState</a> <a class="code hl_function" href="classWindowHandler.html#ae3a8d2cd19411745c0e2cd1325b47964">get_vsync_state</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classWindowHandler.html#af8827c2331dad02f7ae49e2999c1577d">set_vsync_state</a>(<a class="code hl_enumeration" href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459">VsyncState</a> state);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
 </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassWindowHandler_html_a3156947484fbd22dddea591b39ba1cd7"><div class="ttname"><a href="classWindowHandler.html#a3156947484fbd22dddea591b39ba1cd7">WindowHandler::get_window</a></div><div class="ttdeci">static SDL_Window * get_window()</div><div class="ttdef"><b>Definition</b> window_handler.cxx:33</div></div>
-<div class="ttc" id="aclassWindowHandler_html_a33b33e31a70c6c27b64dcaf66ad66704"><div class="ttname"><a href="classWindowHandler.html#a33b33e31a70c6c27b64dcaf66ad66704">WindowHandler::window_name</a></div><div class="ttdeci">static std::string window_name</div><div class="ttdef"><b>Definition</b> window_handler.h:33</div></div>
+<div class="ttc" id="aclassWindowHandler_html_a33b33e31a70c6c27b64dcaf66ad66704"><div class="ttname"><a href="classWindowHandler.html#a33b33e31a70c6c27b64dcaf66ad66704">WindowHandler::window_name</a></div><div class="ttdeci">static std::string window_name</div><div class="ttdef"><b>Definition</b> window_handler.h:32</div></div>
 <div class="ttc" id="aclassWindowHandler_html_a40ad5f834383115893643e4d66924378"><div class="ttname"><a href="classWindowHandler.html#a40ad5f834383115893643e4d66924378">WindowHandler::operator=</a></div><div class="ttdeci">WindowHandler &amp; operator=(const WindowHandler &amp;)=delete</div></div>
 <div class="ttc" id="aclassWindowHandler_html_a48f483e312836d2855f929ecc54c3b1d"><div class="ttname"><a href="classWindowHandler.html#a48f483e312836d2855f929ecc54c3b1d">WindowHandler::get_instance</a></div><div class="ttdeci">static WindowHandler * get_instance()</div><div class="ttdef"><b>Definition</b> window_handler.cxx:20</div></div>
 <div class="ttc" id="aclassWindowHandler_html_aa9eee2c27935bc87d29923403b1b166c"><div class="ttname"><a href="classWindowHandler.html#aa9eee2c27935bc87d29923403b1b166c">WindowHandler::WindowHandler</a></div><div class="ttdeci">WindowHandler(const WindowHandler &amp;)=delete</div></div>
 <div class="ttc" id="aclassWindowHandler_html_ad88477904c27a3475530ffd20d8fe217"><div class="ttname"><a href="classWindowHandler.html#ad88477904c27a3475530ffd20d8fe217">WindowHandler::get_gl_context</a></div><div class="ttdeci">static SDL_GLContext get_gl_context()</div><div class="ttdef"><b>Definition</b> window_handler.cxx:63</div></div>
 <div class="ttc" id="aclassWindowHandler_html_ae3a8d2cd19411745c0e2cd1325b47964"><div class="ttname"><a href="classWindowHandler.html#ae3a8d2cd19411745c0e2cd1325b47964">WindowHandler::get_vsync_state</a></div><div class="ttdeci">static VsyncState get_vsync_state()</div><div class="ttdef"><b>Definition</b> window_handler.cxx:86</div></div>
 <div class="ttc" id="aclassWindowHandler_html_af8827c2331dad02f7ae49e2999c1577d"><div class="ttname"><a href="classWindowHandler.html#af8827c2331dad02f7ae49e2999c1577d">WindowHandler::set_vsync_state</a></div><div class="ttdeci">static void set_vsync_state(VsyncState state)</div><div class="ttdef"><b>Definition</b> window_handler.cxx:91</div></div>
-<div class="ttc" id="awindow__handler_8h_html_aa900384132ecccf295941ecb99b94459"><div class="ttname"><a href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459">VsyncState</a></div><div class="ttdeci">VsyncState</div><div class="ttdef"><b>Definition</b> window_handler.h:9</div></div>
-<div class="ttc" id="awindow__handler_8h_html_aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d"><div class="ttname"><a href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d">disabled</a></div><div class="ttdeci">@ disabled</div><div class="ttdef"><b>Definition</b> window_handler.h:10</div></div>
-<div class="ttc" id="awindow__handler_8h_html_aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc"><div class="ttname"><a href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc">enabled</a></div><div class="ttdeci">@ enabled</div><div class="ttdef"><b>Definition</b> window_handler.h:11</div></div>
+<div class="ttc" id="awindow__handler_8h_html_aa900384132ecccf295941ecb99b94459"><div class="ttname"><a href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459">VsyncState</a></div><div class="ttdeci">VsyncState</div><div class="ttdef"><b>Definition</b> window_handler.h:8</div></div>
+<div class="ttc" id="awindow__handler_8h_html_aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d"><div class="ttname"><a href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d">disabled</a></div><div class="ttdeci">@ disabled</div><div class="ttdef"><b>Definition</b> window_handler.h:9</div></div>
+<div class="ttc" id="awindow__handler_8h_html_aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc"><div class="ttname"><a href="window__handler_8h.html#aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc">enabled</a></div><div class="ttdeci">@ enabled</div><div class="ttdef"><b>Definition</b> window_handler.h:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_bc44db7a319896f65d6399405f420353.html">calgine</a></li><li class="navelem"><a href="dir_0fb35ebe7bb28f4e0c611ad9182d154b.html">setup</a></li><li class="navelem"><a href="window__handler_8h.html">window_handler.h</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_bc44db7a319896f65d6399405f420353.html">calgine</a></li><li class="navelem"><a href="dir_fe3e7b99e6960e99508725422ff73900.html">core</a></li><li class="navelem"><a href="dir_2fe68ae5ebf6665e198610c599db1057.html">setup</a></li><li class="navelem"><a href="window__handler_8h.html">window_handler.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>

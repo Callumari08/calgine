@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Calgine: src/calgine/useful_funcs.h Source File</title>
+<title>Calgine: src/calgine/core/useful_funcs.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,26 +91,44 @@ $(function(){initNavTree('useful__funcs_8h_source.html','',''); });
   <div class="headertitle"><div class="title">useful_funcs.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="useful__funcs_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef USEFUL_FUNCS</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define USEFUL_FUNCS</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;SDL3/SDL.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="foldopen" id="foldopen00007" data-start="{" data-end="}">
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="useful__funcs_8h.html#ae762bca92696e0c19c4e90f546a855af">    7</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="useful__funcs_8h.html#ae762bca92696e0c19c4e90f546a855af">throw_sdl_error</a>(std::string message) {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <span class="keywordflow">throw</span> std::runtime_error(message + std::string(SDL_GetError()));</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>}</div>
+<a href="useful__funcs_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;SDL3/SDL.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span></div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="useful__funcs_8h.html#ae762bca92696e0c19c4e90f546a855af">   11</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="useful__funcs_8h.html#ae762bca92696e0c19c4e90f546a855af">throw_sdl_error</a>(std::string message) {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="keywordflow">throw</span> std::runtime_error(message + std::string(SDL_GetError()));</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>}</div>
 </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="auseful__funcs_8h_html_ae762bca92696e0c19c4e90f546a855af"><div class="ttname"><a href="useful__funcs_8h.html#ae762bca92696e0c19c4e90f546a855af">throw_sdl_error</a></div><div class="ttdeci">void throw_sdl_error(std::string message)</div><div class="ttdef"><b>Definition</b> useful_funcs.h:7</div></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="useful__funcs_8h.html#a76b4d07bdea899ac27cd17e96f56954b">   22</a></span><span class="keyword">constexpr</span> std::string_view <a class="code hl_function" href="useful__funcs_8h.html#a76b4d07bdea899ac27cd17e96f56954b">type_name</a>()</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#if defined(__clang__)</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    std::string_view p = __PRETTY_FUNCTION__;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">return</span> p.substr(p.find(<span class="stringliteral">&quot;T = &quot;</span>) + 4, p.rfind(<span class="charliteral">&#39;]&#39;</span>) - (p.find(<span class="stringliteral">&quot;T = &quot;</span>) + 4));</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#elif defined(__GNUC__)</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    std::string_view p = __PRETTY_FUNCTION__;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">return</span> p.substr(p.find(<span class="stringliteral">&quot;with T = &quot;</span>) + 9, p.rfind(<span class="charliteral">&#39;;&#39;</span>) - (p.find(<span class="stringliteral">&quot;with T = &quot;</span>) + 9));</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#elif defined(_MSC_VER)</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::string_view p = __FUNCSIG__;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">return</span> p.substr(p.find(<span class="stringliteral">&quot;&lt;&quot;</span>) + 1, p.rfind(<span class="stringliteral">&quot;&gt;&quot;</span>) - (p.find(<span class="stringliteral">&quot;&lt;&quot;</span>) + 1));</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;unknown&quot;</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
+</div>
+<div class="ttc" id="auseful__funcs_8h_html_a76b4d07bdea899ac27cd17e96f56954b"><div class="ttname"><a href="useful__funcs_8h.html#a76b4d07bdea899ac27cd17e96f56954b">type_name</a></div><div class="ttdeci">constexpr std::string_view type_name()</div><div class="ttdoc">allows for the name of an arbritrary type to be casted to a string, irrespective of the target machin...</div><div class="ttdef"><b>Definition</b> useful_funcs.h:22</div></div>
+<div class="ttc" id="auseful__funcs_8h_html_ae762bca92696e0c19c4e90f546a855af"><div class="ttname"><a href="useful__funcs_8h.html#ae762bca92696e0c19c4e90f546a855af">throw_sdl_error</a></div><div class="ttdeci">void throw_sdl_error(std::string message)</div><div class="ttdoc">prints the latest SDL error.</div><div class="ttdef"><b>Definition</b> useful_funcs.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_bc44db7a319896f65d6399405f420353.html">calgine</a></li><li class="navelem"><a href="useful__funcs_8h.html">useful_funcs.h</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_bc44db7a319896f65d6399405f420353.html">calgine</a></li><li class="navelem"><a href="dir_fe3e7b99e6960e99508725422ff73900.html">core</a></li><li class="navelem"><a href="useful__funcs_8h.html">useful_funcs.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
