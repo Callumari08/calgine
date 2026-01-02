@@ -3,10 +3,21 @@
 #include <SDL3/SDL.h>
 #include <stdexcept>
 
+/**
+ * @brief prints the latest SDL error.
+ * 
+ * @param message 
+ */
 inline void throw_sdl_error(std::string message) {
   throw std::runtime_error(message + std::string(SDL_GetError()));
 }
 
+/**
+ * @brief allows for the name of an arbritrary type to be casted to a string, irrespective of the target machine/compiler. 
+ * 
+ * @tparam T 
+ * @return constexpr std::string_view 
+ */
 template<typename T>
 constexpr std::string_view type_name()
 {

@@ -10,6 +10,6 @@ void Behaviour::register_instance(Behaviour* behaviour) {
     BehaviourManager::get_instance().register_behaviour(behaviour);
 }
 
-void Behaviour::start() {}
-void Behaviour::tick() {}
+void Behaviour::start_tick() {}
+void Behaviour::update_tick() {}
 void Behaviour::late_tick() {}

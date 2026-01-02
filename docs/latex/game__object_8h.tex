@@ -3,8 +3,45 @@
 {\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
 {\ttfamily \#include $<$typeindex$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}behaviour.\+h"{}}\newline
+{\ttfamily \#include "{}useful\+\_\+funcs.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classGameObject}{Game\+Object}}
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53}{Tick\+Type}} \{ \mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a0e97c69c73117f6c0109b2d7d1d9cedc}{start}}
+, \mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a15edc24cdf7dea17a43c6c50580eba2b}{update}}
+, \mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a9fd3758bda6c303cef1eeea0afa94a3a}{late\+\_\+update}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{game__object_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53}\index{game\_object.h@{game\_object.h}!TickType@{TickType}}
+\index{TickType@{TickType}!game\_object.h@{game\_object.h}}
+\doxysubsubsection{\texorpdfstring{TickType}{TickType}}
+{\footnotesize\ttfamily \label{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53} 
+enum \mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53}{Tick\+Type}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{start@{start}!game\_object.h@{game\_object.h}}\index{game\_object.h@{game\_object.h}!start@{start}}}\Hypertarget{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a0e97c69c73117f6c0109b2d7d1d9cedc}\label{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a0e97c69c73117f6c0109b2d7d1d9cedc} 
+start&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{update@{update}!game\_object.h@{game\_object.h}}\index{game\_object.h@{game\_object.h}!update@{update}}}\Hypertarget{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a15edc24cdf7dea17a43c6c50580eba2b}\label{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a15edc24cdf7dea17a43c6c50580eba2b} 
+update&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{late\_update@{late\_update}!game\_object.h@{game\_object.h}}\index{game\_object.h@{game\_object.h}!late\_update@{late\_update}}}\Hypertarget{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a9fd3758bda6c303cef1eeea0afa94a3a}\label{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a9fd3758bda6c303cef1eeea0afa94a3a} 
+late\+\_\+update&\\
+\hline
+
+\end{DoxyEnumFields}

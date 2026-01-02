@@ -10,27 +10,27 @@
 \DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00014\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ register\_instance(\mbox{\hyperlink{classBehaviour_a57e050961bc1305993adaeac62658657}{Behaviour}}*\ b);}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ start();}
-\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ tick();}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ start\_tick();}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update\_tick();}
 \DoxyCodeLine{00018\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ late\_tick();}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBehaviour_a435b7d052d171d02d2e7cae17bd01d9c}{BehaviourManager}};}
-\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}};}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classBehaviour_a57e050961bc1305993adaeac62658657}{Behaviour}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classBehaviour_ab9099279876aa70410ab96ca589531df}{\string~Behaviour}}();}
-\DoxyCodeLine{00028\ \ \ }
-\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T,\ Behaviour>}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ T*\ \mbox{\hyperlink{classBehaviour_aa38d274ddb34a6231a92012d9cca61a9}{create}}(Args\&\&...\ args)\ \{}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \ \ T*\ obj\ =\ \textcolor{keyword}{new}\ T(std::forward<Args>(args)...);}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ register\_instance(obj);}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ obj;}
-\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T,\ Behaviour>}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{static}\ T*\ create(Args\&\&...\ args)\ }
+\DoxyCodeLine{00023\ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ T*\ obj\ =\ \textcolor{keyword}{new}\ T(std::forward<Args>(args)...);}
+\DoxyCodeLine{00025\ \ \ \ \ register\_instance(obj);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ obj;}
+\DoxyCodeLine{00027\ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBehaviour_a435b7d052d171d02d2e7cae17bd01d9c}{BehaviourManager}};}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classBehaviour_a57e050961bc1305993adaeac62658657}{Behaviour}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classBehaviour_ab9099279876aa70410ab96ca589531df}{\string~Behaviour}}();}
 \DoxyCodeLine{00037\ \};}
 
 \end{DoxyCode}

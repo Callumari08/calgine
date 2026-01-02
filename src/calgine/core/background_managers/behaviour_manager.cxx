@@ -22,7 +22,7 @@ void BehaviourManager::start_all()
 {
   for (Behaviour* behaviour : behaviours)
   {
-    behaviour->start();
+    behaviour->start_tick();
   }
 }
 
@@ -30,7 +30,7 @@ void BehaviourManager::update_tick()
 {
   for (Behaviour* behaviour : behaviours)
   {
-    behaviour->tick();
+    behaviour->update_tick();
   }
 }
 

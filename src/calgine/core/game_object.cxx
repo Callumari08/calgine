@@ -1,53 +1,29 @@
 #include "game_object.h"
-#include "behaviour.h"
-#include "useful_funcs.h"
+#include "calgine/core/behaviour.h"
+#include <memory>
 
-#include <iostream>
-
-template<typename T_behaviour, typename... Args>
-requires std::derived_from<T_behaviour, Behaviour>
-bool GameObject::add_behaviour(Args&&... args)
+void GameObject::tick_self_and_children(TickType tick_type)
 {
-    auto [it, inserted] = behaviours.emplace(
-      typeid(T_behaviour),
-      nullptr
-    );
-
-    if (!inserted) 
+  for (auto& [type, behaviour] : behaviours)
+  {
+    switch (tick_type) 
     {
-      std::cout << "Type: `" << type_name<T_behaviour>() << "` already exists on this GameObject\n";
-      return false;
+      case TickType::update: 
+        behaviour->update_tick();
+        break;
+      case TickType::late_update: 
+        behaviour->late_tick();
+        break;
+      // We call start_tick last because start is only called once, which skips a check every frame, except for the first.
+      case TickType::start: 
+        behaviour->start_tick();
+        break;
     }
-
-    std::unique_ptr<Behaviour> owned;
-
-    try 
-    {
-      owned.reset(Behaviour::create<T_behaviour>(std::forward<Args>(args)...));
-    }
-    catch (...) {
-    behaviours.erase(it);
-    throw;
   }
 
-  it->second = std::move(owned);
-  return true;
+  for (auto& go : children)
+  {
+    go->tick_self_and_children(tick_type);
+  }
 }
 
-template<typename T_behaviour>
-requires std::derived_from<T_behaviour, Behaviour>
-T_behaviour* GameObject::get_behaviour() const
-{
-  auto it = behaviours.find(typeid(T_behaviour));
-  if (it == behaviours.end())
-    return nullptr;
-
-  return static_cast<T_behaviour*>(it->second.get());
-}
-
-template<typename T_behaviour>
-requires std::derived_from<T_behaviour, Behaviour>
-bool GameObject::has_behaviour() const
-{
-  return behaviours.contains(typeid(T_behaviour));
-}
