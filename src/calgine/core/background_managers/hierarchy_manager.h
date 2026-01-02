@@ -4,6 +4,8 @@
 
 class RootGameObject : public GameObject
 {
+public:
+  RootGameObject() : GameObject(nullptr) {}
 private:
   using GameObject::set_parent;
 };
@@ -13,7 +15,7 @@ class Hierarchy final
 private:
   RootGameObject root;
 
-  Hierarchy() = default;
+  Hierarchy();
 
 public:
   static Hierarchy& get_instance();

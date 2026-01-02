@@ -24,11 +24,14 @@ private:
   GameObject* parent = nullptr;
 
 public:
-  GameObject() = default;
-  ~GameObject() = default;
+  explicit GameObject(GameObject* _parent);
+  virtual ~GameObject();
 
   GameObject(const GameObject&) = delete;
   GameObject& operator=(const GameObject&) = delete;
+
+  GameObject(GameObject&&) = default;
+  GameObject& operator=(GameObject&&) = default;
 
   template<typename T_behaviour, typename... Args>
   requires std::derived_from<T_behaviour, Behaviour>
@@ -41,6 +44,16 @@ public:
   template<typename T_behaviour>
   requires std::derived_from<T_behaviour, Behaviour>
   bool has_behaviour() const;
+
+  template<typename T = GameObject, typename... Args>
+  requires std::derived_from<T, GameObject>
+  T& emplace_child(Args&&... args)
+  {
+    auto child = std::make_unique<T>(this, std::forward<Args>(args)...);
+    T& ref = *child;
+    children.push_back(std::move(child));
+    return ref;
+  }
 
   void tick_self_and_children(TickType tick_type);
 
