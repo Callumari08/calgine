@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['throw_5fsdl_5ferror_0',['throw_sdl_error',['../useful__funcs_8h.html#ae762bca92696e0c19c4e90f546a855af',1,'useful_funcs.h']]],
-  ['tick_5fself_5fand_5fchildren_1',['tick_self_and_children',['../classGameObject.html#adca86db978c803349cd1668e08987154',1,'GameObject']]],
-  ['type_5fname_2',['type_name',['../useful__funcs_8h.html#a76b4d07bdea899ac27cd17e96f56954b',1,'useful_funcs.h']]]
+  ['operator_3d_0',['operator=',['../classHierarchy.html#abc5a9b80b5d3b80b8b00ebaa1975ef82',1,'Hierarchy::operator=()'],['../classGameObject.html#a0839af580baf87eb19faff2c996c0afd',1,'GameObject::operator=(const GameObject &amp;)=delete'],['../classGameObject.html#af593d5fdc4daefe74d9f8c037f15d209',1,'GameObject::operator=(GameObject &amp;&amp;)=default'],['../classWindowHandler.html#a40ad5f834383115893643e4d66924378',1,'WindowHandler::operator=()']]]
 ];

@@ -96,39 +96,49 @@ $(function(){initNavTree('hierarchy__manager_8h_source.html','',''); });
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="game__object_8h.html">../game_object.h</a>&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classRootGameObject.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="classRootGameObject.html">RootGameObject</a> : <span class="keyword">public</span> <a class="code hl_function" href="classGameObject.html#a49f0fc91c3048ec583044e7a1b9c2518">GameObject</a></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classRootGameObject.html">    5</a></span><span class="keyword">class </span><a class="code hl_function" href="classRootGameObject.html#a1bda931462c1e557cfe195c292b6cac8">RootGameObject</a> : <span class="keyword">public</span> <a class="code hl_function" href="classGameObject.html#a5f22a072bd0460a2b5e38d5ae04109c9">GameObject</a></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <span class="keyword">using </span><a class="code hl_function" href="classGameObject.html#a790ad71d6dc44f644ac5ded8c4d13484">GameObject::set_parent</a>;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>};</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classRootGameObject.html#a1bda931462c1e557cfe195c292b6cac8">    8</a></span>  <a class="code hl_function" href="classRootGameObject.html#a1bda931462c1e557cfe195c292b6cac8">RootGameObject</a>() : <a class="code hl_function" href="classGameObject.html#a5f22a072bd0460a2b5e38d5ae04109c9">GameObject</a>(nullptr) {}</div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classRootGameObject.html#a1a4c9dbdeb717bcd4fe1581182fa2d02">    9</a></span>  std::string <a class="code hl_function" href="classRootGameObject.html#a1a4c9dbdeb717bcd4fe1581182fa2d02">get_name</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Root&quot;</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  }</div>
 </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classHierarchy.html">   11</a></span><span class="keyword">class </span>Hierarchy final</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <a class="code hl_class" href="classRootGameObject.html">RootGameObject</a> root;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  Hierarchy() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keyword">static</span> Hierarchy&amp; <a class="code hl_function" href="classHierarchy.html#a236c6e4dffff2fb091cf95b434124cf3">get_instance</a>();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <a class="code hl_class" href="classGameObject.html">GameObject</a>&amp; <a class="code hl_function" href="classHierarchy.html#a96335744ac510018bc0252593fc60ee3">get_hierarchy_root</a>();</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classHierarchy.html#a072aef47995ccaf9d1237cd154737f15">   23</a></span>  <a class="code hl_function" href="classHierarchy.html#a072aef47995ccaf9d1237cd154737f15">Hierarchy</a>(<span class="keyword">const</span> Hierarchy&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classHierarchy.html#abc5a9b80b5d3b80b8b00ebaa1975ef82">   24</a></span>  Hierarchy&amp; <a class="code hl_function" href="classHierarchy.html#abc5a9b80b5d3b80b8b00ebaa1975ef82">operator=</a>(<span class="keyword">const</span> Hierarchy&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keyword">using </span><a class="code hl_function" href="classGameObject.html#a790ad71d6dc44f644ac5ded8c4d13484">GameObject::set_parent</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
 </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classHierarchy.html">   17</a></span><span class="keyword">class </span>Hierarchy final</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <a class="code hl_class" href="classRootGameObject.html">RootGameObject</a> root;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  Hierarchy();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keyword">static</span> Hierarchy&amp; <a class="code hl_function" href="classHierarchy.html#a236c6e4dffff2fb091cf95b434124cf3">get_instance</a>();</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <a class="code hl_class" href="classGameObject.html">GameObject</a>&amp; <a class="code hl_function" href="classHierarchy.html#a96335744ac510018bc0252593fc60ee3">get_hierarchy_root</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classHierarchy.html#a072aef47995ccaf9d1237cd154737f15">   29</a></span>  <a class="code hl_function" href="classHierarchy.html#a072aef47995ccaf9d1237cd154737f15">Hierarchy</a>(<span class="keyword">const</span> Hierarchy&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classHierarchy.html#abc5a9b80b5d3b80b8b00ebaa1975ef82">   30</a></span>  Hierarchy&amp; <a class="code hl_function" href="classHierarchy.html#abc5a9b80b5d3b80b8b00ebaa1975ef82">operator=</a>(<span class="keyword">const</span> Hierarchy&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
+</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="ttc" id="aclassGameObject_html"><div class="ttname"><a href="classGameObject.html">GameObject</a></div><div class="ttdef"><b>Definition</b> game_object.h:20</div></div>
-<div class="ttc" id="aclassGameObject_html_a49f0fc91c3048ec583044e7a1b9c2518"><div class="ttname"><a href="classGameObject.html#a49f0fc91c3048ec583044e7a1b9c2518">GameObject::GameObject</a></div><div class="ttdeci">GameObject()=default</div></div>
-<div class="ttc" id="aclassGameObject_html_a790ad71d6dc44f644ac5ded8c4d13484"><div class="ttname"><a href="classGameObject.html#a790ad71d6dc44f644ac5ded8c4d13484">GameObject::set_parent</a></div><div class="ttdeci">void set_parent(GameObject *_parent)</div><div class="ttdef"><b>Definition</b> game_object.cxx:30</div></div>
+<div class="ttc" id="aclassGameObject_html_a5f22a072bd0460a2b5e38d5ae04109c9"><div class="ttname"><a href="classGameObject.html#a5f22a072bd0460a2b5e38d5ae04109c9">GameObject::GameObject</a></div><div class="ttdeci">GameObject(GameObject *_parent)</div><div class="ttdef"><b>Definition</b> game_object.cxx:12</div></div>
+<div class="ttc" id="aclassGameObject_html_a790ad71d6dc44f644ac5ded8c4d13484"><div class="ttname"><a href="classGameObject.html#a790ad71d6dc44f644ac5ded8c4d13484">GameObject::set_parent</a></div><div class="ttdeci">void set_parent(GameObject *_parent)</div><div class="ttdef"><b>Definition</b> game_object.cxx:128</div></div>
 <div class="ttc" id="aclassHierarchy_html_a072aef47995ccaf9d1237cd154737f15"><div class="ttname"><a href="classHierarchy.html#a072aef47995ccaf9d1237cd154737f15">Hierarchy::Hierarchy</a></div><div class="ttdeci">Hierarchy(const Hierarchy &amp;)=delete</div></div>
-<div class="ttc" id="aclassHierarchy_html_a236c6e4dffff2fb091cf95b434124cf3"><div class="ttname"><a href="classHierarchy.html#a236c6e4dffff2fb091cf95b434124cf3">Hierarchy::get_instance</a></div><div class="ttdeci">static Hierarchy &amp; get_instance()</div><div class="ttdef"><b>Definition</b> hierarchy_manager.cxx:4</div></div>
-<div class="ttc" id="aclassHierarchy_html_a96335744ac510018bc0252593fc60ee3"><div class="ttname"><a href="classHierarchy.html#a96335744ac510018bc0252593fc60ee3">Hierarchy::get_hierarchy_root</a></div><div class="ttdeci">GameObject &amp; get_hierarchy_root()</div><div class="ttdef"><b>Definition</b> hierarchy_manager.cxx:10</div></div>
+<div class="ttc" id="aclassHierarchy_html_a236c6e4dffff2fb091cf95b434124cf3"><div class="ttname"><a href="classHierarchy.html#a236c6e4dffff2fb091cf95b434124cf3">Hierarchy::get_instance</a></div><div class="ttdeci">static Hierarchy &amp; get_instance()</div><div class="ttdef"><b>Definition</b> hierarchy_manager.cxx:6</div></div>
+<div class="ttc" id="aclassHierarchy_html_a96335744ac510018bc0252593fc60ee3"><div class="ttname"><a href="classHierarchy.html#a96335744ac510018bc0252593fc60ee3">Hierarchy::get_hierarchy_root</a></div><div class="ttdeci">GameObject &amp; get_hierarchy_root()</div><div class="ttdef"><b>Definition</b> hierarchy_manager.cxx:14</div></div>
 <div class="ttc" id="aclassHierarchy_html_abc5a9b80b5d3b80b8b00ebaa1975ef82"><div class="ttname"><a href="classHierarchy.html#abc5a9b80b5d3b80b8b00ebaa1975ef82">Hierarchy::operator=</a></div><div class="ttdeci">Hierarchy &amp; operator=(const Hierarchy &amp;)=delete</div></div>
 <div class="ttc" id="aclassRootGameObject_html"><div class="ttname"><a href="classRootGameObject.html">RootGameObject</a></div><div class="ttdef"><b>Definition</b> hierarchy_manager.h:6</div></div>
+<div class="ttc" id="aclassRootGameObject_html_a1a4c9dbdeb717bcd4fe1581182fa2d02"><div class="ttname"><a href="classRootGameObject.html#a1a4c9dbdeb717bcd4fe1581182fa2d02">RootGameObject::get_name</a></div><div class="ttdeci">std::string get_name() override</div><div class="ttdoc">Get the name of the GameObject.</div><div class="ttdef"><b>Definition</b> hierarchy_manager.h:9</div></div>
+<div class="ttc" id="aclassRootGameObject_html_a1bda931462c1e557cfe195c292b6cac8"><div class="ttname"><a href="classRootGameObject.html#a1bda931462c1e557cfe195c292b6cac8">RootGameObject::RootGameObject</a></div><div class="ttdeci">RootGameObject()</div><div class="ttdef"><b>Definition</b> hierarchy_manager.h:8</div></div>
 <div class="ttc" id="agame__object_8h_html"><div class="ttname"><a href="game__object_8h.html">game_object.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

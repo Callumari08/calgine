@@ -1,13 +1,13 @@
 #pragma once
 
+#include "behaviour.h"
+#include <sys/types.h>
 #include <unordered_map>
 #include <typeindex>
 #include <memory>
 #include <utility>
 #include <vector>
 #include <optional>
-
-class Behaviour;
 
 enum TickType
 {
@@ -19,13 +19,35 @@ enum TickType
 class GameObject
 {
 private:
+  // use for debugging purpouses only
+  static u_int32_t num_game_objects;
+
+  bool destroyed = false;
+
+  std::string name = "";
   std::unordered_map<std::type_index, std::unique_ptr<Behaviour>> behaviours;
   std::vector<std::unique_ptr<GameObject>> children;
   GameObject* parent = nullptr;
 
+  // queue to hold objects whose memory must be released AFTER their member functions finish
+  static inline std::vector<std::unique_ptr<GameObject>> s_pending_deletes;
+
 public:
   explicit GameObject(GameObject* _parent);
   virtual ~GameObject();
+
+  /**
+   * @brief frees all deleted game objects allocated memory.
+   * @warning must be called after all update ticks, once per frame. do NOT call in gamecode, this is to be part of app.h only.
+   */
+  static void process_pending_deletes();
+
+  void destroy();
+
+  std::unique_ptr<GameObject> detach_child(GameObject* child);
+
+  // convenience: immediately erase and delete child (use only if caller is external owner)
+  bool remove_child_immediate(GameObject* child);
 
   GameObject(const GameObject&) = delete;
   GameObject& operator=(const GameObject&) = delete;
@@ -33,9 +55,9 @@ public:
   GameObject(GameObject&&) = default;
   GameObject& operator=(GameObject&&) = default;
 
-  template<typename T_behaviour, typename... Args>
+  template<typename T_behaviour>
   requires std::derived_from<T_behaviour, Behaviour>
-  bool add_behaviour(Args&&... args);
+  bool add_behaviour();
 
   template<typename T_behaviour>
   requires std::derived_from<T_behaviour, Behaviour>
@@ -47,7 +69,7 @@ public:
 
   template<typename T = GameObject, typename... Args>
   requires std::derived_from<T, GameObject>
-  T& emplace_child(Args&&... args)
+  T& instantiate_child(Args&&... args)
   {
     auto child = std::make_unique<T>(this, std::forward<Args>(args)...);
     T& ref = *child;
@@ -60,18 +82,33 @@ public:
   void set_parent(GameObject* _parent);
 
   std::optional<std::reference_wrapper<GameObject>> get_parent() const;
+
+  /**
+   * @brief Get the name of the GameObject
+   * @warning THIS FUNCTION CAUSES SEGFAULTS. DO NOT USE IN ANY CIRCUMSTANCE!
+   * @warning ONLY use name for debugging purpouses, do not try to implement a `find(std::string name)` feature. This will end badly.
+   *
+   *
+   * 
+   * @return std::string 
+   */
+  virtual std::string get_name()
+  {
+    return name;
+  }
+
+  void set_name(std::string _name);
 };
 
 // Templates
 
-#include "behaviour.h"
 #include "useful_funcs.h"
 
 #include <iostream>
 
-template<typename T_behaviour, typename... Args>
+template<typename T_behaviour>
 requires std::derived_from<T_behaviour, Behaviour>
-bool GameObject::add_behaviour(Args&&... args)
+bool GameObject::add_behaviour()
 {
     auto [it, inserted] = behaviours.emplace(
       typeid(T_behaviour),
@@ -80,7 +117,7 @@ bool GameObject::add_behaviour(Args&&... args)
 
     if (!inserted) 
     {
-      std::cout << "Type: `" << type_name<T_behaviour>() << "` already exists on this GameObject\n";
+      std::cout << "Type: `" << type_name<T_behaviour>() << "` already exists on " << get_name() << "\n";
       return false;
     }
 
@@ -88,7 +125,8 @@ bool GameObject::add_behaviour(Args&&... args)
 
     try 
     {
-      owned.reset(Behaviour::create<T_behaviour>(std::forward<Args>(args)...));
+      owned.reset(Behaviour::create<T_behaviour>());
+      owned->attach_owner(this);
     }
     catch (...) {
     behaviours.erase(it);

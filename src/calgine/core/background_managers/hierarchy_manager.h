@@ -6,6 +6,10 @@ class RootGameObject : public GameObject
 {
 public:
   RootGameObject() : GameObject(nullptr) {}
+  std::string get_name() override
+  {
+    return "Root";
+  }
 private:
   using GameObject::set_parent;
 };

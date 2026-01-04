@@ -10,20 +10,36 @@ Inheritance diagram for Root\+Game\+Object\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{classRootGameObject}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRootGameObject_a1bda931462c1e557cfe195c292b6cac8}{Root\+Game\+Object}} ()
+\item 
+std\+::string \mbox{\hyperlink{classRootGameObject_a1a4c9dbdeb717bcd4fe1581182fa2d02}{get\+\_\+name}} () override
+\begin{DoxyCompactList}\small\item\em Get the name of the \doxylink{classGameObject}{Game\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classGameObject}{Game\+Object}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classGameObject_a49f0fc91c3048ec583044e7a1b9c2518}{Game\+Object}} ()=default
+\mbox{\hyperlink{classGameObject_a5f22a072bd0460a2b5e38d5ae04109c9}{Game\+Object}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}\+\_\+parent)
 \item 
-\mbox{\hyperlink{classGameObject_aac8336499118faec34e0f406c022a25a}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+virtual \mbox{\hyperlink{classGameObject_ab82dfdb656f9051c0587e6593b2dda97}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()
+\item 
+void \mbox{\hyperlink{classGameObject_a16bed5462eb42d7c42ef2aea5d4df76d}{destroy}} ()
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classGameObject}{Game\+Object}} $>$ \mbox{\hyperlink{classGameObject_a332c4e12ab4a51ead3b51f31b0b992a7}{detach\+\_\+child}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}child)
+\item 
+bool \mbox{\hyperlink{classGameObject_a8d3f8a2512c4b824885e4a1d0e81a2fc}{remove\+\_\+child\+\_\+immediate}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}child)
 \item 
 \mbox{\hyperlink{classGameObject_aae3335f16f4c318950ef8b9b5fd1d368}{Game\+Object}} (const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&)=delete
 \item 
 \mbox{\hyperlink{classGameObject}{Game\+Object}} \& \mbox{\hyperlink{classGameObject_a0839af580baf87eb19faff2c996c0afd}{operator=}} (const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&)=delete
 \item 
-{\footnotesize template$<$typename T\+\_\+behaviour, typename... Args$>$ \newline
-requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classGameObject_abe18c226465699e82ebf7a470f6a7c79}{add\+\_\+behaviour}} (Args \&\&... args)
+\mbox{\hyperlink{classGameObject_aec073a2a8dd3d4874540cb8b650ff1e4}{Game\+Object}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \&\&)=default
+\item 
+\mbox{\hyperlink{classGameObject}{Game\+Object}} \& \mbox{\hyperlink{classGameObject_af593d5fdc4daefe74d9f8c037f15d209}{operator=}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \&\&)=default
+\item 
+{\footnotesize template$<$typename T\+\_\+behaviour$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classGameObject_aba3ba093f8abad5aa04c6913b339bc9f}{add\+\_\+behaviour}} ()
 \item 
 {\footnotesize template$<$typename T\+\_\+behaviour$>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\T\+\_\+behaviour \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGameObject_a4cd22676f498c36c369bec2cf3a7fdba}{get\+\_\+behaviour}} () const
@@ -31,12 +47,61 @@ requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBeha
 {\footnotesize template$<$typename T\+\_\+behaviour$>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classGameObject_ae7477b159ae17bbf083f54dfbde24008}{has\+\_\+behaviour}} () const
 \item 
+{\footnotesize template$<$typename T = Game\+Object, typename... Args$>$ \newline
+requires std\+::derived\+\_\+from$<$T, \mbox{\hyperlink{classGameObject}{Game\+Object}}$>$}\\T \& \mbox{\hyperlink{classGameObject_ae1fc403d5b5d30efb24e774cd4a701ef}{instantiate\+\_\+child}} (Args \&\&... args)
+\item 
 void \mbox{\hyperlink{classGameObject_adca86db978c803349cd1668e08987154}{tick\+\_\+self\+\_\+and\+\_\+children}} (\mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53}{Tick\+Type}} tick\+\_\+type)
 \item 
 void \mbox{\hyperlink{classGameObject_a790ad71d6dc44f644ac5ded8c4d13484}{set\+\_\+parent}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}\+\_\+parent)
 \item 
 std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classGameObject}{Game\+Object}} $>$ $>$ \mbox{\hyperlink{classGameObject_a94d5a5ae3d3d3e6c53a04289afa206de}{get\+\_\+parent}} () const
+\item 
+void \mbox{\hyperlink{classGameObject_aa0c5ed97457d4446ceea337fa782af48}{set\+\_\+name}} (std\+::string \+\_\+name)
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classGameObject}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classGameObject_ac690a213f91a43fc49928dd769027377}{process\+\_\+pending\+\_\+deletes}} ()
+\begin{DoxyCompactList}\small\item\em frees all deleted game objects allocated memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classRootGameObject_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRootGameObject_a1bda931462c1e557cfe195c292b6cac8}\index{RootGameObject@{RootGameObject}!RootGameObject@{RootGameObject}}
+\index{RootGameObject@{RootGameObject}!RootGameObject@{RootGameObject}}
+\doxysubsubsection{\texorpdfstring{RootGameObject()}{RootGameObject()}}
+{\footnotesize\ttfamily \label{classRootGameObject_a1bda931462c1e557cfe195c292b6cac8} 
+Root\+Game\+Object\+::\+Root\+Game\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classRootGameObject_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRootGameObject_a1a4c9dbdeb717bcd4fe1581182fa2d02}\index{RootGameObject@{RootGameObject}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!RootGameObject@{RootGameObject}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
+{\footnotesize\ttfamily \label{classRootGameObject_a1a4c9dbdeb717bcd4fe1581182fa2d02} 
+std\+::string Root\+Game\+Object\+::get\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the name of the \doxylink{classGameObject}{Game\+Object}. 
+
+\begin{DoxyWarning}{Warning}
+THIS FUNCTION CAUSES SEGFAULTS. DO NOT USE IN ANY CIRCUMSTANCE! 
+
+ONLY use name for debugging purpouses, do not try to implement a {\ttfamily find(std\+::string name)} feature. This will end badly.
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classGameObject_ab9f9c0d7602a747da6635a10a6b87179}{Game\+Object}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
