@@ -13,16 +13,26 @@ Inheritance diagram for Game\+Object\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classGameObject_a49f0fc91c3048ec583044e7a1b9c2518}{Game\+Object}} ()=default
+\mbox{\hyperlink{classGameObject_a5f22a072bd0460a2b5e38d5ae04109c9}{Game\+Object}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}\+\_\+parent)
 \item 
-\mbox{\hyperlink{classGameObject_aac8336499118faec34e0f406c022a25a}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+virtual \mbox{\hyperlink{classGameObject_ab82dfdb656f9051c0587e6593b2dda97}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()
+\item 
+void \mbox{\hyperlink{classGameObject_a16bed5462eb42d7c42ef2aea5d4df76d}{destroy}} ()
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classGameObject}{Game\+Object}} $>$ \mbox{\hyperlink{classGameObject_a332c4e12ab4a51ead3b51f31b0b992a7}{detach\+\_\+child}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}child)
+\item 
+bool \mbox{\hyperlink{classGameObject_a8d3f8a2512c4b824885e4a1d0e81a2fc}{remove\+\_\+child\+\_\+immediate}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}child)
 \item 
 \mbox{\hyperlink{classGameObject_aae3335f16f4c318950ef8b9b5fd1d368}{Game\+Object}} (const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&)=delete
 \item 
 \mbox{\hyperlink{classGameObject}{Game\+Object}} \& \mbox{\hyperlink{classGameObject_a0839af580baf87eb19faff2c996c0afd}{operator=}} (const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&)=delete
 \item 
-{\footnotesize template$<$typename T\+\_\+behaviour, typename... Args$>$ \newline
-requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classGameObject_abe18c226465699e82ebf7a470f6a7c79}{add\+\_\+behaviour}} (Args \&\&... args)
+\mbox{\hyperlink{classGameObject_aec073a2a8dd3d4874540cb8b650ff1e4}{Game\+Object}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \&\&)=default
+\item 
+\mbox{\hyperlink{classGameObject}{Game\+Object}} \& \mbox{\hyperlink{classGameObject_af593d5fdc4daefe74d9f8c037f15d209}{operator=}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \&\&)=default
+\item 
+{\footnotesize template$<$typename T\+\_\+behaviour$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classGameObject_aba3ba093f8abad5aa04c6913b339bc9f}{add\+\_\+behaviour}} ()
 \item 
 {\footnotesize template$<$typename T\+\_\+behaviour$>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\T\+\_\+behaviour \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGameObject_a4cd22676f498c36c369bec2cf3a7fdba}{get\+\_\+behaviour}} () const
@@ -30,47 +40,77 @@ requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBeha
 {\footnotesize template$<$typename T\+\_\+behaviour$>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classGameObject_ae7477b159ae17bbf083f54dfbde24008}{has\+\_\+behaviour}} () const
 \item 
+{\footnotesize template$<$typename T = Game\+Object, typename... Args$>$ \newline
+requires std\+::derived\+\_\+from$<$T, \mbox{\hyperlink{classGameObject}{Game\+Object}}$>$}\\T \& \mbox{\hyperlink{classGameObject_ae1fc403d5b5d30efb24e774cd4a701ef}{instantiate\+\_\+child}} (Args \&\&... args)
+\item 
 void \mbox{\hyperlink{classGameObject_adca86db978c803349cd1668e08987154}{tick\+\_\+self\+\_\+and\+\_\+children}} (\mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53}{Tick\+Type}} tick\+\_\+type)
 \item 
 void \mbox{\hyperlink{classGameObject_a790ad71d6dc44f644ac5ded8c4d13484}{set\+\_\+parent}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}\+\_\+parent)
 \item 
 std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classGameObject}{Game\+Object}} $>$ $>$ \mbox{\hyperlink{classGameObject_a94d5a5ae3d3d3e6c53a04289afa206de}{get\+\_\+parent}} () const
+\item 
+virtual std\+::string \mbox{\hyperlink{classGameObject_ab9f9c0d7602a747da6635a10a6b87179}{get\+\_\+name}} ()
+\begin{DoxyCompactList}\small\item\em Get the name of the \doxylink{classGameObject}{Game\+Object}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameObject_aa0c5ed97457d4446ceea337fa782af48}{set\+\_\+name}} (std\+::string \+\_\+name)
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classGameObject_ac690a213f91a43fc49928dd769027377}{process\+\_\+pending\+\_\+deletes}} ()
+\begin{DoxyCompactList}\small\item\em frees all deleted game objects allocated memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \label{doc-constructors}
 \Hypertarget{classGameObject_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classGameObject_a49f0fc91c3048ec583044e7a1b9c2518}\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\Hypertarget{classGameObject_a5f22a072bd0460a2b5e38d5ae04109c9}\index{GameObject@{GameObject}!GameObject@{GameObject}}
 \index{GameObject@{GameObject}!GameObject@{GameObject}}
-\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{classGameObject_a49f0fc91c3048ec583044e7a1b9c2518} 
-Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classGameObject_a5f22a072bd0460a2b5e38d5ae04109c9} 
+Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{\+\_\+parent}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
-\Hypertarget{classGameObject_aac8336499118faec34e0f406c022a25a}\index{GameObject@{GameObject}!````~GameObject@{\texorpdfstring{$\sim$}{\string~}GameObject}}
+\Hypertarget{classGameObject_ab82dfdb656f9051c0587e6593b2dda97}\index{GameObject@{GameObject}!````~GameObject@{\texorpdfstring{$\sim$}{\string~}GameObject}}
 \index{````~GameObject@{\texorpdfstring{$\sim$}{\string~}GameObject}!GameObject@{GameObject}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GameObject()}{\string~GameObject()}}
-{\footnotesize\ttfamily \label{classGameObject_aac8336499118faec34e0f406c022a25a} 
-Game\+Object\+::\texorpdfstring{$\sim$}{\string~}\+Game\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+{\footnotesize\ttfamily \label{classGameObject_ab82dfdb656f9051c0587e6593b2dda97} 
+Game\+Object\+::\texorpdfstring{$\sim$}{\string~}\+Game\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 \Hypertarget{classGameObject_aae3335f16f4c318950ef8b9b5fd1d368}\index{GameObject@{GameObject}!GameObject@{GameObject}}
 \index{GameObject@{GameObject}!GameObject@{GameObject}}
-\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily \label{classGameObject_aae3335f16f4c318950ef8b9b5fd1d368} 
 Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classGameObject_aec073a2a8dd3d4874540cb8b650ff1e4}\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classGameObject_aec073a2a8dd3d4874540cb8b650ff1e4} 
+Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 
 
 \label{doc-func-members}
 \Hypertarget{classGameObject_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classGameObject_abe18c226465699e82ebf7a470f6a7c79}\index{GameObject@{GameObject}!add\_behaviour@{add\_behaviour}}
+\Hypertarget{classGameObject_aba3ba093f8abad5aa04c6913b339bc9f}\index{GameObject@{GameObject}!add\_behaviour@{add\_behaviour}}
 \index{add\_behaviour@{add\_behaviour}!GameObject@{GameObject}}
 \doxysubsubsection{\texorpdfstring{add\_behaviour()}{add\_behaviour()}}
-{\footnotesize\ttfamily \label{classGameObject_abe18c226465699e82ebf7a470f6a7c79} 
-template$<$typename T\+\_\+behaviour, typename... Args$>$ \newline
+{\footnotesize\ttfamily \label{classGameObject_aba3ba093f8abad5aa04c6913b339bc9f} 
+template$<$typename T\+\_\+behaviour$>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$\\
-bool Game\+Object\+::add\+\_\+behaviour (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})}
+bool Game\+Object\+::add\+\_\+behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classGameObject_a16bed5462eb42d7c42ef2aea5d4df76d}\index{GameObject@{GameObject}!destroy@{destroy}}
+\index{destroy@{destroy}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{classGameObject_a16bed5462eb42d7c42ef2aea5d4df76d} 
+void Game\+Object\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classGameObject_a332c4e12ab4a51ead3b51f31b0b992a7}\index{GameObject@{GameObject}!detach\_child@{detach\_child}}
+\index{detach\_child@{detach\_child}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{detach\_child()}{detach\_child()}}
+{\footnotesize\ttfamily \label{classGameObject_a332c4e12ab4a51ead3b51f31b0b992a7} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classGameObject}{Game\+Object}} $>$ Game\+Object\+::detach\+\_\+child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{child}{}\end{DoxyParamCaption})}
 
 \Hypertarget{classGameObject_a4cd22676f498c36c369bec2cf3a7fdba}\index{GameObject@{GameObject}!get\_behaviour@{get\_behaviour}}
 \index{get\_behaviour@{get\_behaviour}!GameObject@{GameObject}}
@@ -79,6 +119,28 @@ bool Game\+Object\+::add\+\_\+behaviour (\begin{DoxyParamCaption}\item[{Args \&\
 template$<$typename T\+\_\+behaviour$>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$\\
 T\+\_\+behaviour \texorpdfstring{$\ast$}{*} Game\+Object\+::get\+\_\+behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classGameObject_ab9f9c0d7602a747da6635a10a6b87179}\index{GameObject@{GameObject}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
+{\footnotesize\ttfamily \label{classGameObject_ab9f9c0d7602a747da6635a10a6b87179} 
+virtual std\+::string Game\+Object\+::get\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the name of the \doxylink{classGameObject}{Game\+Object}. 
+
+\begin{DoxyWarning}{Warning}
+THIS FUNCTION CAUSES SEGFAULTS. DO NOT USE IN ANY CIRCUMSTANCE! 
+
+ONLY use name for debugging purpouses, do not try to implement a {\ttfamily find(std\+::string name)} feature. This will end badly.
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classRootGameObject_a1a4c9dbdeb717bcd4fe1581182fa2d02}{Root\+Game\+Object}}.
 
 \Hypertarget{classGameObject_a94d5a5ae3d3d3e6c53a04289afa206de}\index{GameObject@{GameObject}!get\_parent@{get\_parent}}
 \index{get\_parent@{get\_parent}!GameObject@{GameObject}}
@@ -94,11 +156,50 @@ template$<$typename T\+\_\+behaviour$>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classBehaviour}{Behaviour}}$>$\\
 bool Game\+Object\+::has\+\_\+behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
+\Hypertarget{classGameObject_ae1fc403d5b5d30efb24e774cd4a701ef}\index{GameObject@{GameObject}!instantiate\_child@{instantiate\_child}}
+\index{instantiate\_child@{instantiate\_child}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{instantiate\_child()}{instantiate\_child()}}
+{\footnotesize\ttfamily \label{classGameObject_ae1fc403d5b5d30efb24e774cd4a701ef} 
+template$<$typename T = Game\+Object, typename... Args$>$ \newline
+requires std\+::derived\+\_\+from$<$T, \mbox{\hyperlink{classGameObject}{Game\+Object}}$>$\\
+T \& Game\+Object\+::instantiate\+\_\+child (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 \Hypertarget{classGameObject_a0839af580baf87eb19faff2c996c0afd}\index{GameObject@{GameObject}!operator=@{operator=}}
 \index{operator=@{operator=}!GameObject@{GameObject}}
-\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \label{classGameObject_a0839af580baf87eb19faff2c996c0afd} 
 \mbox{\hyperlink{classGameObject}{Game\+Object}} \& Game\+Object\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGameObject}{Game\+Object}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classGameObject_af593d5fdc4daefe74d9f8c037f15d209}\index{GameObject@{GameObject}!operator=@{operator=}}
+\index{operator=@{operator=}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classGameObject_af593d5fdc4daefe74d9f8c037f15d209} 
+\mbox{\hyperlink{classGameObject}{Game\+Object}} \& Game\+Object\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classGameObject_ac690a213f91a43fc49928dd769027377}\index{GameObject@{GameObject}!process\_pending\_deletes@{process\_pending\_deletes}}
+\index{process\_pending\_deletes@{process\_pending\_deletes}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{process\_pending\_deletes()}{process\_pending\_deletes()}}
+{\footnotesize\ttfamily \label{classGameObject_ac690a213f91a43fc49928dd769027377} 
+void Game\+Object\+::process\+\_\+pending\+\_\+deletes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+frees all deleted game objects allocated memory. 
+
+\begin{DoxyWarning}{Warning}
+must be called after all update ticks, once per frame. do NOT call in gamecode, this is to be part of \doxylink{app_8h}{app.\+h} only. 
+\end{DoxyWarning}
+\Hypertarget{classGameObject_a8d3f8a2512c4b824885e4a1d0e81a2fc}\index{GameObject@{GameObject}!remove\_child\_immediate@{remove\_child\_immediate}}
+\index{remove\_child\_immediate@{remove\_child\_immediate}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{remove\_child\_immediate()}{remove\_child\_immediate()}}
+{\footnotesize\ttfamily \label{classGameObject_a8d3f8a2512c4b824885e4a1d0e81a2fc} 
+bool Game\+Object\+::remove\+\_\+child\+\_\+immediate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{child}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classGameObject_aa0c5ed97457d4446ceea337fa782af48}\index{GameObject@{GameObject}!set\_name@{set\_name}}
+\index{set\_name@{set\_name}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{set\_name()}{set\_name()}}
+{\footnotesize\ttfamily \label{classGameObject_aa0c5ed97457d4446ceea337fa782af48} 
+void Game\+Object\+::set\+\_\+name (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+name}{}\end{DoxyParamCaption})}
 
 \Hypertarget{classGameObject_a790ad71d6dc44f644ac5ded8c4d13484}\index{GameObject@{GameObject}!set\_parent@{set\_parent}}
 \index{set\_parent@{set\_parent}!GameObject@{GameObject}}

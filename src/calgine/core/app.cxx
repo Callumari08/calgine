@@ -1,12 +1,12 @@
 #include "app.h"
 
 #include <SDL3/SDL_video.h>
-#include <glad/gl.h>
 #include <SDL3/SDL.h>
-#include <stdexcept>
-#include <iostream>
 #include <SDL3/SDL_error.h>
 #include <SDL3/SDL.h>
+#include <glad/gl.h>
+#include <stdexcept>
+#include <iostream>
 #include "calgine/core/background_managers/hierarchy_manager.h"
 #include "calgine/core/game_object.h"
 #include "setup/window_handler.h"
@@ -21,6 +21,10 @@ void App::main_loop()
 
 
   // Instead of doing this here, I should implement a scene manager.
+  //
+  // (Later comment) I actually think it'd be a good idea to keep root for as long as the program runs,
+  // and the GameObjects directly below root is the scene, root can have its own behaviours that can
+  // manage the scenes. 
   root.tick_self_and_children(TickType::start);
 
   bool running = true;
@@ -37,6 +41,8 @@ void App::main_loop()
 
     root.tick_self_and_children(TickType::update);
     root.tick_self_and_children(TickType::late_update);
+
+    GameObject::process_pending_deletes();
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

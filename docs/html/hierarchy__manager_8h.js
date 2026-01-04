@@ -1,5 +1,5 @@
 var hierarchy__manager_8h =
 [
-    [ "RootGameObject", "classRootGameObject.html", null ],
+    [ "RootGameObject", "classRootGameObject.html", "classRootGameObject" ],
     [ "Hierarchy", "classHierarchy.html", "classHierarchy" ]
 ];

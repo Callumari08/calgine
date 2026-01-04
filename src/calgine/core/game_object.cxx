@@ -3,33 +3,116 @@
 #include <cassert>
 #include <memory>
 #include <algorithm>
+#include <bits/stdc++.h>
+#include <string>
+#include <sys/types.h>
 
-GameObject::GameObject(GameObject* _parent) : parent(_parent) {}
+u_int32_t GameObject::num_game_objects = 0;
+
+GameObject::GameObject(GameObject* _parent) : parent(_parent) 
+{
+  num_game_objects++;
+  name = "GameObject" + std::to_string(num_game_objects);
+  std::cout << get_name() << "\n";
+}
 
 GameObject::~GameObject()
 {
+}
+
+void GameObject::destroy()
+{
+  if (destroyed) return;
+  destroyed = true;
+
   for (auto& child : children)
   {
-    child->set_parent(nullptr);
+    if (child) child->destroy();
   }
 
-  assert(parent == nullptr && "GameObject destroyed while still parented");
+  for (auto& [type, behaviour] : behaviours)
+  {
+    if (behaviour) behaviour->on_destroy();
+  }
+
+  name.clear();
+
+  --num_game_objects;
+
+  if (parent)
+  {
+    // claims ownership
+    std::unique_ptr<GameObject> owner = parent->detach_child(this);
+
+    if (owner) 
+      s_pending_deletes.push_back(std::move(owner));
+
+    parent = nullptr;
+  }
+}
+
+std::unique_ptr<GameObject> GameObject::detach_child(GameObject* child)
+{
+  if (!child) return nullptr;
+
+  auto it = std::find_if(
+    children.begin(), children.end(),
+    [child](const std::unique_ptr<GameObject>& p) { return p.get() == child; }
+  );
+
+  if (it == children.end()) return nullptr;
+
+  // take ownership out of the parent's vector
+  std::unique_ptr<GameObject> result = std::move(*it);
+  // erase the slot (vector shrinks)
+  children.erase(it);
+
+  // sever back-pointer (child still lives until result destroyed)
+  if (result) result->parent = nullptr;
+
+  return result;
+}
+
+bool GameObject::remove_child_immediate(GameObject* child)
+{
+  if (!child) return false;
+
+  auto it = std::find_if(
+    children.begin(), children.end(),
+    [child](const std::unique_ptr<GameObject>& ptr) { return ptr.get() == child; }
+  );
+
+  if (it == children.end()) return false;
+
+  (*it)->parent = nullptr;
+  children.erase(it);
+
+  return true;
+}
+
+
+void GameObject::process_pending_deletes()
+{
+  s_pending_deletes.clear();
 }
 
 void GameObject::tick_self_and_children(TickType tick_type)
 {
   for (auto& [type, behaviour] : behaviours)
   {
+    if (!behaviour)
+      continue;
+
     switch (tick_type) 
     {
-      case TickType::update: 
+      case TickType::update:
         behaviour->update_tick();
         break;
       case TickType::late_update: 
         behaviour->late_tick();
         break;
       // We call start_tick last because start is only called once, which skips a check every frame, except for the first.
-      case TickType::start: 
+      case TickType::start:
         behaviour->start_tick();
         break;
     }
@@ -40,6 +123,7 @@ void GameObject::tick_self_and_children(TickType tick_type)
     go->tick_self_and_children(tick_type);
   }
 }
+
 
 void GameObject::set_parent(GameObject* _parent)
 {
@@ -67,7 +151,7 @@ void GameObject::set_parent(GameObject* _parent)
     siblings.erase(it);
   }
 
-    parent = _parent;
+  parent = _parent;
 
   if (parent)
   {
@@ -81,4 +165,9 @@ std::optional<std::reference_wrapper<GameObject>> GameObject::get_parent() const
     return *parent;
 
   return std::nullopt;
+}
+
+void GameObject::set_name(std::string _name)
+{
+  name = _name;
 }

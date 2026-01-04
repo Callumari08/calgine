@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d_0',['operator=',['../classHierarchy.html#abc5a9b80b5d3b80b8b00ebaa1975ef82',1,'Hierarchy::operator=()'],['../classGameObject.html#a0839af580baf87eb19faff2c996c0afd',1,'GameObject::operator=()'],['../classWindowHandler.html#a40ad5f834383115893643e4d66924378',1,'WindowHandler::operator=()']]]
+  ['instantiate_5fchild_0',['instantiate_child',['../classGameObject.html#ae1fc403d5b5d30efb24e774cd4a701ef',1,'GameObject']]]
 ];

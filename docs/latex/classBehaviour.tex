@@ -12,6 +12,10 @@ Gives access to tick updates for users.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classBehaviour_a487f25f7d5fd799e814c65eeadfe2dcc}{get\+\_\+game\+\_\+object}} ()
+\item 
+void \mbox{\hyperlink{classBehaviour_a869112cdc7add82f5f3a9cd0173fce5d}{attach\+\_\+owner}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}\+\_\+game\+\_\+object)
+\item 
 virtual \mbox{\hyperlink{classBehaviour_ab9099279876aa70410ab96ca589531df}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
@@ -21,8 +25,6 @@ virtual \mbox{\hyperlink{classBehaviour_ab9099279876aa70410ab96ca589531df}{\texo
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
-\item 
-class \mbox{\hyperlink{classBehaviour_a435b7d052d171d02d2e7cae17bd01d9c}{Behaviour\+Manager}}
 \item 
 class \mbox{\hyperlink{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{Game\+Object}}
 \end{DoxyCompactItemize}
@@ -55,15 +57,26 @@ Behaviour\+::\texorpdfstring{$\sim$}{\string~}\+Behaviour (\begin{DoxyParamCapti
 
 
 
+\label{doc-func-members}
+\Hypertarget{classBehaviour_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBehaviour_a869112cdc7add82f5f3a9cd0173fce5d}\index{Behaviour@{Behaviour}!attach\_owner@{attach\_owner}}
+\index{attach\_owner@{attach\_owner}!Behaviour@{Behaviour}}
+\doxysubsubsection{\texorpdfstring{attach\_owner()}{attach\_owner()}}
+{\footnotesize\ttfamily \label{classBehaviour_a869112cdc7add82f5f3a9cd0173fce5d} 
+void Behaviour\+::attach\+\_\+owner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{\+\_\+game\+\_\+object}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classBehaviour_a487f25f7d5fd799e814c65eeadfe2dcc}\index{Behaviour@{Behaviour}!get\_game\_object@{get\_game\_object}}
+\index{get\_game\_object@{get\_game\_object}!Behaviour@{Behaviour}}
+\doxysubsubsection{\texorpdfstring{get\_game\_object()}{get\_game\_object()}}
+{\footnotesize\ttfamily \label{classBehaviour_a487f25f7d5fd799e814c65eeadfe2dcc} 
+\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} Behaviour\+::get\+\_\+game\+\_\+object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
 \label{doc-related-members}
 \Hypertarget{classBehaviour_doc-related-members}
 \doxysubsection{Friends And Related Symbol Documentation}
-\Hypertarget{classBehaviour_a435b7d052d171d02d2e7cae17bd01d9c}\index{Behaviour@{Behaviour}!BehaviourManager@{BehaviourManager}}
-\index{BehaviourManager@{BehaviourManager}!Behaviour@{Behaviour}}
-\doxysubsubsection{\texorpdfstring{BehaviourManager}{BehaviourManager}}
-{\footnotesize\ttfamily \label{classBehaviour_a435b7d052d171d02d2e7cae17bd01d9c} 
-friend class Behaviour\+Manager\hspace{0.3cm}{\ttfamily [friend]}}
-
 \Hypertarget{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}\index{Behaviour@{Behaviour}!GameObject@{GameObject}}
 \index{GameObject@{GameObject}!Behaviour@{Behaviour}}
 \doxysubsubsection{\texorpdfstring{GameObject}{GameObject}}
