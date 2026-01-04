@@ -1,0 +1,40 @@
+\doxysection{Scene\+Manager Class Reference}
+\hypertarget{classSceneManager}{}\label{classSceneManager}\index{SceneManager@{SceneManager}}
+
+
+{\ttfamily \#include $<$scene\+\_\+manager.\+h$>$}
+
+Inheritance diagram for Scene\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSceneManager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classBehaviour}{Behaviour}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classBehaviour_ab9099279876aa70410ab96ca589531df}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
+\item 
+\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classBehaviour_a487f25f7d5fd799e814c65eeadfe2dcc}{get\+\_\+game\+\_\+object}} ()
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the \doxylink{classGameObject}{Game\+Object} that this behaviour is attached to. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classBehaviour}{Behaviour}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBehaviour_a57e050961bc1305993adaeac62658657}{Behaviour}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classBehaviour_a57d00960cd1587011f400f36317580f4}{preloop\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called before the main loop (see \doxylink{classApp}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBehaviour_a6fbde92e12d7864a4d06e1fc944242ed}{start\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called when this gameobject is instantitated. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBehaviour_aeb6e822ecee00baaefe6918ea60a6d7e}{update\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called every frame, before \doxylink{classBehaviour_af0a5c00b95a5c10858e7d75f3266854f}{late\+\_\+tick()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBehaviour_af0a5c00b95a5c10858e7d75f3266854f}{late\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called every frame, after \doxylink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a15edc24cdf7dea17a43c6c50580eba2b}{update()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBehaviour_adea490546ea1540ad1ef10f092202ac5}{on\+\_\+destroy}} ()
+\begin{DoxyCompactList}\small\item\em Gets called when game\+\_\+object is being destroyed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/background\+\_\+managers/\mbox{\hyperlink{scene__manager_8h}{scene\+\_\+manager.\+h}}\end{DoxyCompactItemize}

@@ -12,34 +12,34 @@
 \DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBehaviour_a57e050961bc1305993adaeac62658657}{Behaviour}}\ \ }
 \DoxyCodeLine{00016\ \{}
 \DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}}*\ \mbox{\hyperlink{classBehaviour_a487f25f7d5fd799e814c65eeadfe2dcc}{get\_game\_object}}();}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBehaviour_a869112cdc7add82f5f3a9cd0173fce5d}{attach\_owner}}(\mbox{\hyperlink{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}}*\ \_game\_object);}
-\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}}*\ game\_object;}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ start\_tick();}
-\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update\_tick();}
-\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ late\_tick();}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ on\_attach\_owner();}
-\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ on\_destroy();}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T,\ Behaviour>}
-\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{static}\ T*\ create()\ }
-\DoxyCodeLine{00034\ \ \ \{}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_default\_constructible\_v<T>,\ \textcolor{stringliteral}{"{}Behaviour\ must\ be\ default-\/constructable."{}});}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ T();}
-\DoxyCodeLine{00038\ \ \ \}}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classBehaviour_ab9099279876aa70410ab96ca589531df}{\string~Behaviour}}();}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}}*\ \mbox{\hyperlink{classBehaviour_a487f25f7d5fd799e814c65eeadfe2dcc}{get\_game\_object}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}}*\ game\_object;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T,\ Behaviour>}
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{static}\ T*\ create()\ }
+\DoxyCodeLine{00032\ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_default\_constructible\_v<T>,\ \textcolor{stringliteral}{"{}Behaviour\ must\ be\ default-\/constructable."{}});}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ T();}
+\DoxyCodeLine{00036\ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ attach\_owner(\mbox{\hyperlink{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}}*\ \_game\_object);}
 \DoxyCodeLine{00039\ }
 \DoxyCodeLine{00040\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBehaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}};}
 \DoxyCodeLine{00041\ }
 \DoxyCodeLine{00042\ \textcolor{keyword}{protected}:}
 \DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classBehaviour_a57e050961bc1305993adaeac62658657}{Behaviour}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00044\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classBehaviour_ab9099279876aa70410ab96ca589531df}{\string~Behaviour}}();}
-\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBehaviour_a57d00960cd1587011f400f36317580f4}{preloop\_tick}}();}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBehaviour_a6fbde92e12d7864a4d06e1fc944242ed}{start\_tick}}();}
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBehaviour_aeb6e822ecee00baaefe6918ea60a6d7e}{update\_tick}}();}
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBehaviour_af0a5c00b95a5c10858e7d75f3266854f}{late\_tick}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBehaviour_adea490546ea1540ad1ef10f092202ac5}{on\_destroy}}();}
+\DoxyCodeLine{00068\ \};}
 
 \end{DoxyCode}

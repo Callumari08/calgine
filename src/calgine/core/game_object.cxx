@@ -6,6 +6,7 @@
 #include <bits/stdc++.h>
 #include <string>
 #include <sys/types.h>
+#include <vector>
 
 u_int32_t GameObject::num_game_objects = 0;
 
@@ -13,7 +14,6 @@ GameObject::GameObject(GameObject* _parent) : parent(_parent)
 {
   num_game_objects++;
   name = "GameObject" + std::to_string(num_game_objects);
-  std::cout << get_name() << "\n";
 }
 
 GameObject::~GameObject()
@@ -25,7 +25,7 @@ void GameObject::destroy()
   if (destroyed) return;
   destroyed = true;
 
-  for (auto& child : children)
+  for (std::unique_ptr<GameObject>& child : children)
   {
     if (child) child->destroy();
   }
@@ -111,9 +111,9 @@ void GameObject::tick_self_and_children(TickType tick_type)
       case TickType::late_update: 
         behaviour->late_tick();
         break;
-      // We call start_tick last because start is only called once, which skips a check every frame, except for the first.
-      case TickType::start:
-        behaviour->start_tick();
+      // We call start_tick last because awake is only called once, which skips a check every frame, except for the first.
+      case TickType::preloop:
+        behaviour->preloop_tick();
         break;
     }
   }
@@ -134,7 +134,7 @@ void GameObject::set_parent(GameObject* _parent)
 
   if (parent)
   {
-    auto& siblings = parent->children;
+    std::vector<std::unique_ptr<GameObject>>& siblings = parent->children;
 
     auto it = std::find_if(
       siblings.begin(),

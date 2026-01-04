@@ -1,6 +1,7 @@
 #pragma once
 
 #include "behaviour.h"
+
 #include <sys/types.h>
 #include <unordered_map>
 #include <typeindex>
@@ -11,11 +12,14 @@
 
 enum TickType
 {
-  start,
+  preloop,
   update,
   late_update,
 };
 
+/**
+ * @brief GameObjects are objects within the @link Heirarchy @endlink that have multiple @link Behaviour @endlink subclasses attched to them which execute code.
+ */
 class GameObject
 {
 private:
@@ -85,11 +89,8 @@ public:
 
   /**
    * @brief Get the name of the GameObject
-   * @warning THIS FUNCTION CAUSES SEGFAULTS. DO NOT USE IN ANY CIRCUMSTANCE!
-   * @warning ONLY use name for debugging purpouses, do not try to implement a `find(std::string name)` feature. This will end badly.
+   * @warning ONLY use name for debugging purpouses, do not try to implement a `Gameobject* find(std::string name)` feature. This will end badly.
    *
-   *
-   * 
    * @return std::string 
    */
   virtual std::string get_name()

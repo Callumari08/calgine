@@ -2,6 +2,11 @@
 \hypertarget{classGameObject}{}\label{classGameObject}\index{GameObject@{GameObject}}
 
 
+Game\+Objects are objects within the \doxylink{}{Heirarchy} that have multiple \doxylink{classBehaviour}{Behaviour} subclasses attched to them which execute code.  
+
+
+
+
 {\ttfamily \#include $<$game\+\_\+object.\+h$>$}
 
 Inheritance diagram for Game\+Object\+:\begin{figure}[H]
@@ -59,6 +64,9 @@ void \mbox{\hyperlink{classGameObject_aa0c5ed97457d4446ceea337fa782af48}{set\+\_
 static void \mbox{\hyperlink{classGameObject_ac690a213f91a43fc49928dd769027377}{process\+\_\+pending\+\_\+deletes}} ()
 \begin{DoxyCompactList}\small\item\em frees all deleted game objects allocated memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Game\+Objects are objects within the \doxylink{}{Heirarchy} that have multiple \doxylink{classBehaviour}{Behaviour} subclasses attched to them which execute code. 
 
 \label{doc-constructors}
 \Hypertarget{classGameObject_doc-constructors}
@@ -131,9 +139,7 @@ virtual std\+::string Game\+Object\+::get\+\_\+name (\begin{DoxyParamCaption}{}{
 Get the name of the \doxylink{classGameObject}{Game\+Object}. 
 
 \begin{DoxyWarning}{Warning}
-THIS FUNCTION CAUSES SEGFAULTS. DO NOT USE IN ANY CIRCUMSTANCE! 
-
-ONLY use name for debugging purpouses, do not try to implement a {\ttfamily find(std\+::string name)} feature. This will end badly.
+ONLY use name for debugging purpouses, do not try to implement a {\ttfamily Gameobject\texorpdfstring{$\ast$}{*} find(std\+::string name)} feature. This will end badly.
 \end{DoxyWarning}
 \begin{DoxyReturn}{Returns}
 std\+::string 

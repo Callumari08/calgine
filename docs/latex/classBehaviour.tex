@@ -9,20 +9,34 @@ Gives access to tick updates for users.
 
 {\ttfamily \#include $<$behaviour.\+h$>$}
 
+Inheritance diagram for Behaviour\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBehaviour}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classBehaviour_a487f25f7d5fd799e814c65eeadfe2dcc}{get\+\_\+game\+\_\+object}} ()
-\item 
-void \mbox{\hyperlink{classBehaviour_a869112cdc7add82f5f3a9cd0173fce5d}{attach\+\_\+owner}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}\+\_\+game\+\_\+object)
-\item 
 virtual \mbox{\hyperlink{classBehaviour_ab9099279876aa70410ab96ca589531df}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
-\end{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classBehaviour_a487f25f7d5fd799e814c65eeadfe2dcc}{get\+\_\+game\+\_\+object}} ()
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the \doxylink{classGameObject}{Game\+Object} that this behaviour is attached to. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classBehaviour_a57e050961bc1305993adaeac62658657}{Behaviour}} ()=default
-\end{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classBehaviour_a57d00960cd1587011f400f36317580f4}{preloop\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called before the main loop (see \doxylink{classApp}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBehaviour_a6fbde92e12d7864a4d06e1fc944242ed}{start\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called when this gameobject is instantitated. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBehaviour_aeb6e822ecee00baaefe6918ea60a6d7e}{update\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called every frame, before \doxylink{classBehaviour_af0a5c00b95a5c10858e7d75f3266854f}{late\+\_\+tick()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBehaviour_af0a5c00b95a5c10858e7d75f3266854f}{late\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called every frame, after \doxylink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a15edc24cdf7dea17a43c6c50580eba2b}{update()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBehaviour_adea490546ea1540ad1ef10f092202ac5}{on\+\_\+destroy}} ()
+\begin{DoxyCompactList}\small\item\em Gets called when game\+\_\+object is being destroyed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -43,34 +57,88 @@ Gives access to tick updates for users.
 \label{doc-constructors}
 \Hypertarget{classBehaviour_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classBehaviour_a57e050961bc1305993adaeac62658657}\index{Behaviour@{Behaviour}!Behaviour@{Behaviour}}
-\index{Behaviour@{Behaviour}!Behaviour@{Behaviour}}
-\doxysubsubsection{\texorpdfstring{Behaviour()}{Behaviour()}}
-{\footnotesize\ttfamily \label{classBehaviour_a57e050961bc1305993adaeac62658657} 
-Behaviour\+::\+Behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
-
 \Hypertarget{classBehaviour_ab9099279876aa70410ab96ca589531df}\index{Behaviour@{Behaviour}!````~Behaviour@{\texorpdfstring{$\sim$}{\string~}Behaviour}}
 \index{````~Behaviour@{\texorpdfstring{$\sim$}{\string~}Behaviour}!Behaviour@{Behaviour}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Behaviour()}{\string~Behaviour()}}
 {\footnotesize\ttfamily \label{classBehaviour_ab9099279876aa70410ab96ca589531df} 
 Behaviour\+::\texorpdfstring{$\sim$}{\string~}\+Behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+\Hypertarget{classBehaviour_a57e050961bc1305993adaeac62658657}\index{Behaviour@{Behaviour}!Behaviour@{Behaviour}}
+\index{Behaviour@{Behaviour}!Behaviour@{Behaviour}}
+\doxysubsubsection{\texorpdfstring{Behaviour()}{Behaviour()}}
+{\footnotesize\ttfamily \label{classBehaviour_a57e050961bc1305993adaeac62658657} 
+Behaviour\+::\+Behaviour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+
 
 
 \label{doc-func-members}
 \Hypertarget{classBehaviour_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classBehaviour_a869112cdc7add82f5f3a9cd0173fce5d}\index{Behaviour@{Behaviour}!attach\_owner@{attach\_owner}}
-\index{attach\_owner@{attach\_owner}!Behaviour@{Behaviour}}
-\doxysubsubsection{\texorpdfstring{attach\_owner()}{attach\_owner()}}
-{\footnotesize\ttfamily \label{classBehaviour_a869112cdc7add82f5f3a9cd0173fce5d} 
-void Behaviour\+::attach\+\_\+owner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{\+\_\+game\+\_\+object}{}\end{DoxyParamCaption})}
-
 \Hypertarget{classBehaviour_a487f25f7d5fd799e814c65eeadfe2dcc}\index{Behaviour@{Behaviour}!get\_game\_object@{get\_game\_object}}
 \index{get\_game\_object@{get\_game\_object}!Behaviour@{Behaviour}}
 \doxysubsubsection{\texorpdfstring{get\_game\_object()}{get\_game\_object()}}
 {\footnotesize\ttfamily \label{classBehaviour_a487f25f7d5fd799e814c65eeadfe2dcc} 
 \mbox{\hyperlink{classGameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} Behaviour\+::get\+\_\+game\+\_\+object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns a pointer to the \doxylink{classGameObject}{Game\+Object} that this behaviour is attached to. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classGameObject}{Game\+Object}\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{classBehaviour_af0a5c00b95a5c10858e7d75f3266854f}\index{Behaviour@{Behaviour}!late\_tick@{late\_tick}}
+\index{late\_tick@{late\_tick}!Behaviour@{Behaviour}}
+\doxysubsubsection{\texorpdfstring{late\_tick()}{late\_tick()}}
+{\footnotesize\ttfamily \label{classBehaviour_af0a5c00b95a5c10858e7d75f3266854f} 
+void Behaviour\+::late\+\_\+tick (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Gets called every frame, after \doxylink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a15edc24cdf7dea17a43c6c50580eba2b}{update()}. 
+
+\Hypertarget{classBehaviour_adea490546ea1540ad1ef10f092202ac5}\index{Behaviour@{Behaviour}!on\_destroy@{on\_destroy}}
+\index{on\_destroy@{on\_destroy}!Behaviour@{Behaviour}}
+\doxysubsubsection{\texorpdfstring{on\_destroy()}{on\_destroy()}}
+{\footnotesize\ttfamily \label{classBehaviour_adea490546ea1540ad1ef10f092202ac5} 
+void Behaviour\+::on\+\_\+destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Gets called when game\+\_\+object is being destroyed. 
+
+\begin{DoxyNote}{Note}
+You can safely assume that game\+\_\+object has not changed by this point. 
+\end{DoxyNote}
+\Hypertarget{classBehaviour_a57d00960cd1587011f400f36317580f4}\index{Behaviour@{Behaviour}!preloop\_tick@{preloop\_tick}}
+\index{preloop\_tick@{preloop\_tick}!Behaviour@{Behaviour}}
+\doxysubsubsection{\texorpdfstring{preloop\_tick()}{preloop\_tick()}}
+{\footnotesize\ttfamily \label{classBehaviour_a57d00960cd1587011f400f36317580f4} 
+void Behaviour\+::preloop\+\_\+tick (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Gets called before the main loop (see \doxylink{classApp}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. 
+
+\Hypertarget{classBehaviour_a6fbde92e12d7864a4d06e1fc944242ed}\index{Behaviour@{Behaviour}!start\_tick@{start\_tick}}
+\index{start\_tick@{start\_tick}!Behaviour@{Behaviour}}
+\doxysubsubsection{\texorpdfstring{start\_tick()}{start\_tick()}}
+{\footnotesize\ttfamily \label{classBehaviour_a6fbde92e12d7864a4d06e1fc944242ed} 
+void Behaviour\+::start\+\_\+tick (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Gets called when this gameobject is instantitated. 
+
+\Hypertarget{classBehaviour_aeb6e822ecee00baaefe6918ea60a6d7e}\index{Behaviour@{Behaviour}!update\_tick@{update\_tick}}
+\index{update\_tick@{update\_tick}!Behaviour@{Behaviour}}
+\doxysubsubsection{\texorpdfstring{update\_tick()}{update\_tick()}}
+{\footnotesize\ttfamily \label{classBehaviour_aeb6e822ecee00baaefe6918ea60a6d7e} 
+void Behaviour\+::update\+\_\+tick (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Gets called every frame, before \doxylink{classBehaviour_af0a5c00b95a5c10858e7d75f3266854f}{late\+\_\+tick()}. 
 
 
 

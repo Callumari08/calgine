@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['throw_5fsdl_5ferror_0',['throw_sdl_error',['../useful__funcs_8h.html#ae762bca92696e0c19c4e90f546a855af',1,'useful_funcs.h']]],
-  ['tick_5fself_5fand_5fchildren_1',['tick_self_and_children',['../classGameObject.html#adca86db978c803349cd1668e08987154',1,'GameObject']]],
-  ['type_5fname_2',['type_name',['../useful__funcs_8h.html#a76b4d07bdea899ac27cd17e96f56954b',1,'useful_funcs.h']]]
+  ['set_5fname_0',['set_name',['../classGameObject.html#aa0c5ed97457d4446ceea337fa782af48',1,'GameObject']]],
+  ['set_5fparent_1',['set_parent',['../classGameObject.html#a790ad71d6dc44f644ac5ded8c4d13484',1,'GameObject']]],
+  ['set_5fvsync_5fstate_2',['set_vsync_state',['../classWindowHandler.html#af8827c2331dad02f7ae49e2999c1577d',1,'WindowHandler']]],
+  ['start_5ftick_3',['start_tick',['../classBehaviour.html#a6fbde92e12d7864a4d06e1fc944242ed',1,'Behaviour']]],
+  ['systems_5finit_4',['systems_init',['../classApp.html#a80bce247230188c2d289aed2978f9a59',1,'App']]]
 ];

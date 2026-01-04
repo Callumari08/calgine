@@ -19,13 +19,12 @@ void App::main_loop()
 
   glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
 
-
   // Instead of doing this here, I should implement a scene manager.
   //
   // (Later comment) I actually think it'd be a good idea to keep root for as long as the program runs,
   // and the GameObjects directly below root is the scene, root can have its own behaviours that can
   // manage the scenes. 
-  root.tick_self_and_children(TickType::start);
+  root.tick_self_and_children(TickType::preloop);
 
   bool running = true;
   while (running) 

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['remove_5fchild_5fimmediate_0',['remove_child_immediate',['../classGameObject.html#a8d3f8a2512c4b824885e4a1d0e81a2fc',1,'GameObject']]],
-  ['rootgameobject_1',['RootGameObject',['../classRootGameObject.html#a1bda931462c1e557cfe195c292b6cac8',1,'RootGameObject']]]
+  ['preloop_5ftick_0',['preloop_tick',['../classBehaviour.html#a57d00960cd1587011f400f36317580f4',1,'Behaviour']]],
+  ['process_5fpending_5fdeletes_1',['process_pending_deletes',['../classGameObject.html#ac690a213f91a43fc49928dd769027377',1,'GameObject']]]
 ];

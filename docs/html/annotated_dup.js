@@ -5,5 +5,6 @@ var annotated_dup =
     [ "GameObject", "classGameObject.html", "classGameObject" ],
     [ "Hierarchy", "classHierarchy.html", "classHierarchy" ],
     [ "RootGameObject", "classRootGameObject.html", "classRootGameObject" ],
+    [ "SceneManager", "classSceneManager.html", null ],
     [ "WindowHandler", "classWindowHandler.html", "classWindowHandler" ]
 ];

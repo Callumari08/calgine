@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['windowhandler_0',['WindowHandler',['../classWindowHandler.html',1,'']]]
+  ['scenemanager_0',['SceneManager',['../classSceneManager.html',1,'']]]
 ];
