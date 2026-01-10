@@ -1,12 +1,9 @@
+#include "calgine_pch.h"
+
 #include "window_handler.h"
 #include "../useful_funcs.h"
+#include "calgine/core/log.h"
 #include <SDL3/SDL_video.h>
-#include <cstddef>
-#include <mutex>
-#include <ostream>
-#include <stdexcept>
-#include <iostream>
-#include <string>
 
 WindowHandler* WindowHandler::instance = nullptr;
 std::mutex WindowHandler::instance_mutex;
@@ -42,7 +39,7 @@ SDL_Window* WindowHandler::get_window()
     return window;
   }
 
-  std::cout << "Creating window\n";
+  Log::get_engine_logger()->info("Creating window");
 
   window = SDL_CreateWindow(
     window_name.c_str(),
@@ -67,11 +64,13 @@ SDL_GLContext WindowHandler::get_gl_context()
 
   if (window == nullptr)
   {
-    throw std::runtime_error("Window does not exist. You need to call get_window for this function to work.");
+    std::string msg = "Window does not exist.";
+    Log::get_engine_logger()->error("{} You first must call `get_window` if you haven't already.", msg);
+    throw std::runtime_error(msg);
     quit_gracefully(window, gl_context);
   }
 
-  std::cout << "Creating GL Context\n";
+  Log::get_engine_logger()->info("Creating GL Context");
 
   gl_context = SDL_GL_CreateContext(window);
 

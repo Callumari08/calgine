@@ -5,12 +5,16 @@
 #include <SDL3/SDL_error.h>
 #include <SDL3/SDL.h>
 #include <glad/gl.h>
-#include <stdexcept>
-#include <iostream>
 #include "calgine/core/background_managers/hierarchy_manager.h"
 #include "calgine/core/game_object.h"
 #include "setup/window_handler.h"
 #include "useful_funcs.h"
+#include "log.h"
+
+/*App* App::create()
+{
+}*/
+
 
 void App::main_loop()
 {
@@ -52,6 +56,10 @@ void App::main_loop()
 // Should only be used for setting up libraries such as SDL and OpenGL, nothing else.
 void App::systems_init()
 {
+  // Loggers
+  Log::init(this->get_app_name());
+
+  // SDL
   if (!SDL_Init(SDL_INIT_VIDEO)) 
   {
     throw_sdl_error("SDL_Init Failed: ");
@@ -64,18 +72,25 @@ void App::systems_init()
   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
   SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 
+  // Window Init handles SDL functions
+
   WindowHandler* window_handler = WindowHandler::get_instance();
 
   window_handler->get_window();
   window_handler->get_gl_context();
   window_handler->set_vsync_state(VsyncState::enabled);
 
-  std::cout << "Initializing GLAD2\n";
+  // GLAD
+
+  Log::get_engine_logger()->info("Initializing GLAD2");
 
   if (!gladLoadGL((GLADloadfunc) SDL_GL_GetProcAddress)) 
   {
-    throw std::runtime_error("Failed to load OpenGL via GLAD2");
+    std::string msg = "Failed to load OpenGL via GLAD2";
+    Log::get_engine_logger()->error(msg);
+    throw std::runtime_error(msg);
   } 
 
-  std::cout << "OpenGL Version " << glGetString(GL_VERSION) << std::endl;
+  Log::get_engine_logger()->info("OpenGL Version {}", 
+    convert_unsigned_char_ptr_to_str(glGetString(GL_VERSION)));
 }

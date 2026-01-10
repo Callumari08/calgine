@@ -1,14 +1,8 @@
 #pragma once
 
-#include "behaviour.h"
+#include "calgine_pch.h"
 
-#include <sys/types.h>
-#include <unordered_map>
-#include <typeindex>
-#include <memory>
-#include <utility>
-#include <vector>
-#include <optional>
+#include "behaviour.h"
 
 enum TickType
 {
@@ -105,7 +99,6 @@ public:
 
 #include "useful_funcs.h"
 
-#include <iostream>
 
 template<typename T_behaviour>
 requires std::derived_from<T_behaviour, Behaviour>

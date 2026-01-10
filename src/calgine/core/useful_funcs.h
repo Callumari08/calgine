@@ -1,7 +1,7 @@
 #pragma once
 
+#include "calgine/core/log.h"
 #include <SDL3/SDL.h>
-#include <stdexcept>
 
 /**
  * @brief prints the latest SDL error.
@@ -9,6 +9,7 @@
  * @param message 
  */
 inline void throw_sdl_error(std::string message) {
+  Log::get_engine_logger()->error(message);
   throw std::runtime_error(message + std::string(SDL_GetError()));
 }
 
@@ -33,4 +34,11 @@ constexpr std::string_view type_name()
 #else
     return "unknown";
 #endif
+}
+
+inline std::string convert_unsigned_char_ptr_to_str(const unsigned char* str)
+{
+  std::string value(reinterpret_cast<const char*>(str));
+
+  return value;
 }

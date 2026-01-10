@@ -26,6 +26,11 @@ glad_add_library(glad
 )
 
 # ---- Dependencies ----
+
+if(NOT TARGET spdlog)
+    # Stand-alone build
+    find_package(spdlog REQUIRED)
+endif()
 find_package(OpenGL REQUIRED)
 find_package(SDL3 CONFIG REQUIRED)
 
@@ -48,6 +53,7 @@ target_link_libraries(Calgine
         glad
         OpenGL::GL
         SDL3::SDL3
+        spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>
     PRIVATE
         project_warnings
 )
@@ -56,6 +62,8 @@ target_include_directories(Calgine
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
+
+target_precompile_headers(Calgine PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/calgine_pch.h)
 
 # ---- Documentation (Doxygen) ----
 find_package(Doxygen QUIET)

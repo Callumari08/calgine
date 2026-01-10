@@ -1,5 +1,6 @@
+#include "calgine_pch.h"
+
 #include "behaviour.h"
-#include <cassert>
 
 Behaviour::~Behaviour() 
 {

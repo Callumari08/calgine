@@ -1,12 +1,6 @@
 #include "game_object.h"
 #include "calgine/core/behaviour.h"
-#include <cassert>
-#include <memory>
-#include <algorithm>
-#include <bits/stdc++.h>
-#include <string>
-#include <sys/types.h>
-#include <vector>
+
 
 u_int32_t GameObject::num_game_objects = 0;
 

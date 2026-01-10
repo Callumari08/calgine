@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include "calgine_pch.h"
 
 /**
  * @brief This is the class from which all user applications derive from.
@@ -14,13 +14,18 @@
  * @code{.cpp}
  * class MyApp : public App
  * {
+ * private:
  *   std::string app_name = "My App";
+ * public:
+ * std::string get_app_name() override
+ * {
+ *   return app_name;
+ * }
  *   // stuff related to your app can go here
  * }
  *
  * class MyBehaviour : public Behaviour
  * {
- *  int i = 0;
  *  void start() override
  *  {
  *    std::cout << "MyBehaviour Start!";
@@ -49,15 +54,10 @@
  * }
  * @endcode
  */
-class App
+class App // Abstract
 {
-private:
-  std::string app_name = "A Calgine App";
 public:
-  virtual std::string get_app_name()
-  {
-    return app_name;
-  }
+  virtual std::string get_app_name() = 0;
 
   void systems_init();
   void main_loop();
