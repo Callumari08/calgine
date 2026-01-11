@@ -44,31 +44,22 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(eventpp)
 
-# ---- spdlog: prefer system if requested, otherwise use vendored submodule or FetchContent ----
+# ---- spdlog: prefer system if requested, otherwise use FetchContent ----
 if(USE_SYSTEM_SPDLOG)
     find_package(spdlog CONFIG QUIET)
 endif()
 
 if(NOT TARGET spdlog::spdlog)
-    # If repo contains a vendor copy (submodule) use it, otherwise fetch it
-    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/spdlog/CMakeLists.txt")
-        # Use the vendored submodule
-        set(SPDLOG_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-        set(SPDLOG_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-        set(SPDLOG_BUILD_BENCH OFF CACHE BOOL "" FORCE)
-        add_subdirectory(src/vendor/spdlog)
-    else()
-        # Fetch from upstream (tag can be changed)
-        set(SPDLOG_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-        set(SPDLOG_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-        set(SPDLOG_BUILD_BENCH OFF CACHE BOOL "" FORCE)
-        FetchContent_Declare(
-            spdlog
-            GIT_REPOSITORY https://github.com/gabime/spdlog.git
-            GIT_TAG v1.12.0
-        )
-        FetchContent_MakeAvailable(spdlog)
-    endif()
+    set(SPDLOG_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+    set(SPDLOG_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+    set(SPDLOG_BUILD_BENCH OFF CACHE BOOL "" FORCE)
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+    FetchContent_Declare(
+        spdlog
+        GIT_REPOSITORY https://github.com/gabime/spdlog.git
+        GIT_TAG v1.12.0
+    )
+    FetchContent_MakeAvailable(spdlog)
 endif()
 
 # ---- SDL3: prefer system if requested, otherwise fetch via FetchContent ----
@@ -96,7 +87,7 @@ if(NOT TARGET SDL3::SDL3)
         FetchContent_Declare(
             SDL3
             GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
-            GIT_TAG release-3.2.0
+            GIT_TAG ca537d651b82f28bc280685391665eb25c856e00
         )
         FetchContent_MakeAvailable(SDL3)
     endif()
