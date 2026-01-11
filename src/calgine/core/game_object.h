@@ -1,8 +1,8 @@
 #pragma once
 
+#include "calgine/core/log.h"
 #include "calgine_pch.h"
 #include "calgine_api.h"
-#include "useful_funcs.h"
 
 #include "behaviour.h"
 
@@ -112,7 +112,7 @@ bool GameObject::add_behaviour()
 
     if (!inserted) 
     {
-      std::cout << "Type: `" << type_name<T_behaviour>() << "` already exists on " << get_name() << "\n";
+      Log::get_engine_logger()->warn("Behaviour already exists on GameObject: {}", get_name());
       return false;
     }
 

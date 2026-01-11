@@ -93,11 +93,12 @@ void App::systems_init()
     throw std::runtime_error(msg);
   } 
 
-  Log::get_engine_logger()->info("OpenGL Version {}", 
-    convert_unsigned_char_ptr_to_str(glGetString(GL_VERSION)));
+  // Warning still occurs here:
+  std::string gl_version = convert_GLubyte_ptr_to_str(glGetString(GL_VERSION));
+  Log::get_engine_logger()->info("OpenGL Version {}", gl_version);
   
-  Log::get_engine_logger()->info("Renderer Device: {}",
-    convert_unsigned_char_ptr_to_str(glGetString(GL_RENDERER)));
+  std::string renderer = convert_GLubyte_ptr_to_str(glGetString(GL_RENDERER));
+  Log::get_engine_logger()->info("Renderer Device: {}", renderer);
 }
 
 } // namespace Calgine

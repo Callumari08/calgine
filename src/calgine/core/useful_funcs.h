@@ -3,30 +3,10 @@
 #include "calgine/core/log.h"
 #include <SDL3/SDL.h>
 
-/**
- * @brief allows for the name of an arbritrary type to be casted to a string, irrespective of the target machine/compiler. 
- * 
- * @tparam T 
- * @return constexpr std::string_view 
- */
-template<typename T>
-constexpr std::string_view type_name()
-{
-#if defined(__clang__)
-    std::string_view p = __PRETTY_FUNCTION__;
-    return p.substr(p.find("T = ") + 4, p.rfind(']') - (p.find("T = ") + 4));
-#elif defined(__GNUC__)
-    std::string_view p = __PRETTY_FUNCTION__;
-    return p.substr(p.find("with T = ") + 9, p.rfind(';') - (p.find("with T = ") + 9));
-#elif defined(_MSC_VER)
-    std::string_view p = __FUNCSIG__;
-    return p.substr(p.find("<") + 1, p.rfind(">") - (p.find("<") + 1));
-#else
-    return "unknown";
-#endif
-}
+// Having a file called "useful_funcs.h" is obviously stupid, but to be honest I don't know what else to do...
+// Could just call it "utilities.h", which is kind of the equivalent of sweeping trash under rug
 
-inline std::string convert_unsigned_char_ptr_to_str(const unsigned char* str)
+inline std::string convert_GLubyte_ptr_to_str(const unsigned char* str)
 {
   std::string value(reinterpret_cast<const char*>(str));
 
