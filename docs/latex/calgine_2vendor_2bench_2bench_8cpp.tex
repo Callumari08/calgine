@@ -1,0 +1,62 @@
+\doxysection{src/calgine/vendor/bench/bench.cpp File Reference}
+\hypertarget{calgine_2vendor_2bench_2bench_8cpp}{}\label{calgine_2vendor_2bench_2bench_8cpp}\index{src/calgine/vendor/bench/bench.cpp@{src/calgine/vendor/bench/bench.cpp}}
+{\ttfamily \#include "{}spdlog/spdlog.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/sinks/basic\+\_\+file\+\_\+sink.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/sinks/daily\+\_\+file\+\_\+sink.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/sinks/null\+\_\+sink.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/sinks/rotating\+\_\+file\+\_\+sink.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/fmt/bundled/format.\+h"{}}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{calgine_2vendor_2bench_2bench_8cpp_a7319bfe51ec9511b35f5c12e521065f6}{bench}} (int howmany, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ log)
+\item 
+void \mbox{\hyperlink{calgine_2vendor_2bench_2bench_8cpp_a6fd114fb26c7c46f894e9bd33afa794b}{bench\+\_\+mt}} (int howmany, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ log, size\+\_\+t thread\+\_\+count)
+\item 
+void \mbox{\hyperlink{calgine_2vendor_2bench_2bench_8cpp_a2ff08f98f9450575018aeaf80382301c}{bench\+\_\+threaded\+\_\+logging}} (size\+\_\+t threads, int iters)
+\item 
+void \mbox{\hyperlink{calgine_2vendor_2bench_2bench_8cpp_a579dbdcca06263202a96f4b95e31c4c4}{bench\+\_\+single\+\_\+threaded}} (int iters)
+\item 
+int \mbox{\hyperlink{calgine_2vendor_2bench_2bench_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{calgine_2vendor_2bench_2bench_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{calgine_2vendor_2bench_2bench_8cpp_a7319bfe51ec9511b35f5c12e521065f6}\index{bench.cpp@{bench.cpp}!bench@{bench}}
+\index{bench@{bench}!bench.cpp@{bench.cpp}}
+\doxysubsubsection{\texorpdfstring{bench()}{bench()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2bench_2bench_8cpp_a7319bfe51ec9511b35f5c12e521065f6} 
+void bench (\begin{DoxyParamCaption}\item[{int}]{howmany}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$}]{log}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2bench_2bench_8cpp_a6fd114fb26c7c46f894e9bd33afa794b}\index{bench.cpp@{bench.cpp}!bench\_mt@{bench\_mt}}
+\index{bench\_mt@{bench\_mt}!bench.cpp@{bench.cpp}}
+\doxysubsubsection{\texorpdfstring{bench\_mt()}{bench\_mt()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2bench_2bench_8cpp_a6fd114fb26c7c46f894e9bd33afa794b} 
+void bench\+\_\+mt (\begin{DoxyParamCaption}\item[{int}]{howmany}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$}]{log}{, }\item[{size\+\_\+t}]{thread\+\_\+count}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2bench_2bench_8cpp_a579dbdcca06263202a96f4b95e31c4c4}\index{bench.cpp@{bench.cpp}!bench\_single\_threaded@{bench\_single\_threaded}}
+\index{bench\_single\_threaded@{bench\_single\_threaded}!bench.cpp@{bench.cpp}}
+\doxysubsubsection{\texorpdfstring{bench\_single\_threaded()}{bench\_single\_threaded()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2bench_2bench_8cpp_a579dbdcca06263202a96f4b95e31c4c4} 
+void bench\+\_\+single\+\_\+threaded (\begin{DoxyParamCaption}\item[{int}]{iters}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2bench_2bench_8cpp_a2ff08f98f9450575018aeaf80382301c}\index{bench.cpp@{bench.cpp}!bench\_threaded\_logging@{bench\_threaded\_logging}}
+\index{bench\_threaded\_logging@{bench\_threaded\_logging}!bench.cpp@{bench.cpp}}
+\doxysubsubsection{\texorpdfstring{bench\_threaded\_logging()}{bench\_threaded\_logging()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2bench_2bench_8cpp_a2ff08f98f9450575018aeaf80382301c} 
+void bench\+\_\+threaded\+\_\+logging (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{threads}{, }\item[{int}]{iters}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2bench_2bench_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{bench.cpp@{bench.cpp}!main@{main}}
+\index{main@{main}!bench.cpp@{bench.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2bench_2bench_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+

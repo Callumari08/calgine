@@ -1,0 +1,4 @@
+var calgine_2vendor_2include_2spdlog_2details_2periodic__worker_8h =
+[
+    [ "spdlog::details::periodic_worker", "classspdlog_1_1details_1_1periodic__worker.html", "classspdlog_1_1details_1_1periodic__worker" ]
+];

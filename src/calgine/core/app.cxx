@@ -11,6 +11,8 @@
 #include "useful_funcs.h"
 #include "log.h"
 
+namespace Calgine {
+
 /*App* App::create()
 {
 }*/
@@ -93,4 +95,9 @@ void App::systems_init()
 
   Log::get_engine_logger()->info("OpenGL Version {}", 
     convert_unsigned_char_ptr_to_str(glGetString(GL_VERSION)));
+  
+  Log::get_engine_logger()->info("Renderer Device: {}",
+    convert_unsigned_char_ptr_to_str(glGetString(GL_RENDERER)));
 }
+
+} // namespace Calgine

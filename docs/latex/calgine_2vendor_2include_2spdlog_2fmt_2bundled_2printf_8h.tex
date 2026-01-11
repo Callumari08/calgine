@@ -1,0 +1,187 @@
+\doxysection{src/calgine/vendor/include/spdlog/fmt/bundled/printf.h File Reference}
+\hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h}{}\label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h}\index{src/calgine/vendor/include/spdlog/fmt/bundled/printf.h@{src/calgine/vendor/include/spdlog/fmt/bundled/printf.h}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include "{}format.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context$<$ Char $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1int__checker}{detail\+::int\+\_\+checker$<$ IS\+\_\+\+SIGNED $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1int__checker_3_01true_01_4}{detail\+::int\+\_\+checker$<$ true $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1printf__precision__handler}{detail\+::printf\+\_\+precision\+\_\+handler}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__zero__int}{detail\+::is\+\_\+zero\+\_\+int}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1make__unsigned__or__bool}{detail\+::make\+\_\+unsigned\+\_\+or\+\_\+bool$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1make__unsigned__or__bool_3_01bool_01_4}{detail\+::make\+\_\+unsigned\+\_\+or\+\_\+bool$<$ bool $>$}}
+\item 
+class \mbox{\hyperlink{classdetail_1_1arg__converter}{detail\+::arg\+\_\+converter$<$ T, Context $>$}}
+\item 
+class \mbox{\hyperlink{classdetail_1_1char__converter}{detail\+::char\+\_\+converter$<$ Context $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1get__cstring}{detail\+::get\+\_\+cstring$<$ Char $>$}}
+\item 
+class \mbox{\hyperlink{classdetail_1_1printf__width__handler}{detail\+::printf\+\_\+width\+\_\+handler}}
+\item 
+class \mbox{\hyperlink{classdetail_1_1printf__arg__formatter}{detail\+::printf\+\_\+arg\+\_\+formatter$<$ Char $>$}}
+\item 
+struct \mbox{\hyperlink{structvprintf__args}{vprintf\+\_\+args$<$ Char $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_ad3f75e5f59a8909a1885cb25717857e0}{printf\+\_\+context}} = \mbox{\hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context}}$<$char$>$
+\item 
+using \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_aea80c28d848e44bcf2885609470c502e}{wprintf\+\_\+context}} = \mbox{\hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context}}$<$wchar\+\_\+t$>$
+\item 
+using \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a6e093b81d518db186bd7a4df46693d36}{printf\+\_\+args}} = \mbox{\hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}}$<$\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_ad3f75e5f59a8909a1885cb25717857e0}{printf\+\_\+context}}$>$
+\item 
+using \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a2f2c17979fd4518c4bf1b770ba9bb566}{wprintf\+\_\+args}} = \mbox{\hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}}$<$\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_aea80c28d848e44bcf2885609470c502e}{wprintf\+\_\+context}}$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$bool IS\+\_\+\+CONSTEXPR, typename T, typename Ptr = const T\texorpdfstring{$\ast$}{*}$>$ }\\\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto \mbox{\hyperlink{namespacedetail_a6b71952fab3dc32f3edb2c3e9811d8d9}{detail\+::find}} (Ptr \mbox{\hyperlink{namespacedetail_a60723b6bea116099ad1a7f720cc7df24}{first}}, Ptr last, T \mbox{\hyperlink{classdetail_1_1value}{value}}, Ptr \&out) -\/$>$ bool
+\item 
+template$<$$>$ auto \mbox{\hyperlink{namespacedetail_aff79e3811065cba6148365bbde944e25}{detail\+::find$<$ false, char $>$}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacedetail_a60723b6bea116099ad1a7f720cc7df24}{first}}, const char \texorpdfstring{$\ast$}{*}last, char \mbox{\hyperlink{classdetail_1_1value}{value}}, const char \texorpdfstring{$\ast$}{*}\&out) -\/$>$ bool
+\item 
+{\footnotesize template$<$typename T, typename Context, typename Char$>$ }\\void \mbox{\hyperlink{namespacedetail_a03c11572c9a664266d6925f327dec7f3}{detail\+::convert\+\_\+arg}} (\mbox{\hyperlink{classbasic__format__arg}{basic\+\_\+format\+\_\+arg}}$<$ Context $>$ \&\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}, Char \mbox{\hyperlink{namespacedetail_ad46d232fb6116de4dac0c43dbde8e7a9}{type}})
+\item 
+{\footnotesize template$<$typename Char$>$ }\\auto \mbox{\hyperlink{namespacedetail_a1ceb6e1ac6f915edf1558d0b05fd1fe6}{detail\+::make\+\_\+arg\+\_\+formatter}} (\mbox{\hyperlink{classbasic__appender}{basic\+\_\+appender}}$<$ Char $>$ iter, \mbox{\hyperlink{structformat__specs}{format\+\_\+specs}} \&s) -\/$>$ \mbox{\hyperlink{structdetail_1_1arg__formatter}{arg\+\_\+formatter}}$<$ Char $>$
+\item 
+{\footnotesize template$<$typename Char$>$ }\\void \mbox{\hyperlink{namespacedetail_a4213daed116a37e1767881da51238261}{detail\+::parse\+\_\+flags}} (\mbox{\hyperlink{structformat__specs}{format\+\_\+specs}} \&specs, const Char \texorpdfstring{$\ast$}{*}\&it, const Char \texorpdfstring{$\ast$}{*}end)
+\item 
+{\footnotesize template$<$typename Char, typename Get\+Arg$>$ }\\auto \mbox{\hyperlink{namespacedetail_afc9d93e58b8edb8077f8bc8eee7f4035}{detail\+::parse\+\_\+header}} (const Char \texorpdfstring{$\ast$}{*}\&it, const Char \texorpdfstring{$\ast$}{*}end, \mbox{\hyperlink{structformat__specs}{format\+\_\+specs}} \&specs, Get\+Arg get\+\_\+arg) -\/$>$ int
+\item 
+auto \mbox{\hyperlink{namespacedetail_aa2cb095169b23e3a66260ad7078f44cc}{detail\+::parse\+\_\+printf\+\_\+presentation\+\_\+type}} (char c, \mbox{\hyperlink{namespacedetail_ad46d232fb6116de4dac0c43dbde8e7a9}{type}} t, bool \&upper) -\/$>$ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_adfa139c9a1902753b3696794759b2c48}{presentation\+\_\+type}}
+\item 
+{\footnotesize template$<$typename Char, typename Context$>$ }\\void \mbox{\hyperlink{namespacedetail_a1c8c2218e4c822aa8f743fb9c573717f}{detail\+::vprintf}} (\mbox{\hyperlink{classdetail_1_1buffer}{buffer}}$<$ Char $>$ \&buf, \mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2color_8h_a680fd35ea38d8c3b75d640cacfab53fd}{format}}, \mbox{\hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}}$<$ Context $>$ args)
+\item 
+{\footnotesize template$<$typename Char = char, typename... T$>$ }\\auto \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a27dcc0efcda04388971dbea3c875f122}{make\+\_\+printf\+\_\+args}} (T \&... args) -\/$>$ decltype(\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_afff7b568500a64ae28dae14dc16c68fd}{fmt\+::make\+\_\+format\+\_\+args}}$<$ \mbox{\hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context}}$<$ Char $>$ $>$(args...))
+\item 
+{\footnotesize template$<$typename Char$>$ }\\auto \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a5e1075a6c1fce5050424f97a2fac648f}{vsprintf}} (\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$ \mbox{\hyperlink{namespacefmt}{fmt}}, typename \mbox{\hyperlink{structvprintf__args}{vprintf\+\_\+args}}$<$ Char $>$\+::type args) -\/$>$ std\+::basic\+\_\+string$<$ Char $>$
+\item 
+{\footnotesize template$<$typename... T$>$ }\\auto \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_af0892aee69ebedaca9662751d5b7f653}{sprintf}} (\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a204ca715c2febee035464fa53dfc50c4}{string\+\_\+view}} \mbox{\hyperlink{namespacefmt}{fmt}}, const T \&... args) -\/$>$ std\+::string
+\item 
+{\footnotesize template$<$typename... T$>$ }\\\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a8aba8a78c514e176e0dd0a159de7a369}{FMT\+\_\+\+DEPRECATED}} auto \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a90e1d577a1ae5ac2190fe47aaff759f3}{sprintf}} (\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ wchar\+\_\+t $>$ \mbox{\hyperlink{namespacefmt}{fmt}}, const T \&... args) -\/$>$ std\+::wstring
+\item 
+{\footnotesize template$<$typename Char$>$ }\\auto \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_abb30aad964fc771fb52cf3ad88649df2}{vfprintf}} (std\+::\+FILE \texorpdfstring{$\ast$}{*}f, \mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$ \mbox{\hyperlink{namespacefmt}{fmt}}, typename \mbox{\hyperlink{structvprintf__args}{vprintf\+\_\+args}}$<$ Char $>$\+::type args) -\/$>$ int
+\item 
+{\footnotesize template$<$typename... T$>$ }\\auto \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_af780f142dab726c6d4c98ee3d6dc72b2}{fprintf}} (std\+::\+FILE \texorpdfstring{$\ast$}{*}f, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a204ca715c2febee035464fa53dfc50c4}{string\+\_\+view}} \mbox{\hyperlink{namespacefmt}{fmt}}, const T \&... args) -\/$>$ int
+\item 
+{\footnotesize template$<$typename... T$>$ }\\\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a8aba8a78c514e176e0dd0a159de7a369}{FMT\+\_\+\+DEPRECATED}} auto \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_ae922ca89c0e917aba6b841477fa374e6}{fprintf}} (std\+::\+FILE \texorpdfstring{$\ast$}{*}f, \mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ wchar\+\_\+t $>$ \mbox{\hyperlink{namespacefmt}{fmt}}, const T \&... args) -\/$>$ int
+\item 
+{\footnotesize template$<$typename... T$>$ }\\auto \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_aee3ed3a831f25f07e7be3919fff2203a}{printf}} (\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a204ca715c2febee035464fa53dfc50c4}{string\+\_\+view}} \mbox{\hyperlink{namespacefmt}{fmt}}, const T \&... args) -\/$>$ int
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a6e093b81d518db186bd7a4df46693d36}\index{printf.h@{printf.h}!printf\_args@{printf\_args}}
+\index{printf\_args@{printf\_args}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{printf\_args}{printf\_args}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a6e093b81d518db186bd7a4df46693d36} 
+using \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a6e093b81d518db186bd7a4df46693d36}{printf\+\_\+args}} = \mbox{\hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}}$<$\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_ad3f75e5f59a8909a1885cb25717857e0}{printf\+\_\+context}}$>$}
+
+\Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_ad3f75e5f59a8909a1885cb25717857e0}\index{printf.h@{printf.h}!printf\_context@{printf\_context}}
+\index{printf\_context@{printf\_context}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{printf\_context}{printf\_context}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_ad3f75e5f59a8909a1885cb25717857e0} 
+using \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_ad3f75e5f59a8909a1885cb25717857e0}{printf\+\_\+context}} = \mbox{\hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context}}$<$char$>$}
+
+\Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a2f2c17979fd4518c4bf1b770ba9bb566}\index{printf.h@{printf.h}!wprintf\_args@{wprintf\_args}}
+\index{wprintf\_args@{wprintf\_args}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{wprintf\_args}{wprintf\_args}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a2f2c17979fd4518c4bf1b770ba9bb566} 
+using \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a2f2c17979fd4518c4bf1b770ba9bb566}{wprintf\+\_\+args}} = \mbox{\hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}}$<$\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_aea80c28d848e44bcf2885609470c502e}{wprintf\+\_\+context}}$>$}
+
+\Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_aea80c28d848e44bcf2885609470c502e}\index{printf.h@{printf.h}!wprintf\_context@{wprintf\_context}}
+\index{wprintf\_context@{wprintf\_context}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{wprintf\_context}{wprintf\_context}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_aea80c28d848e44bcf2885609470c502e} 
+using \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_aea80c28d848e44bcf2885609470c502e}{wprintf\+\_\+context}} = \mbox{\hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context}}$<$wchar\+\_\+t$>$}
+
+
+
+\label{doc-func-members}
+\Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_ae922ca89c0e917aba6b841477fa374e6}\index{printf.h@{printf.h}!fprintf@{fprintf}}
+\index{fprintf@{fprintf}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{fprintf()}{fprintf()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_ae922ca89c0e917aba6b841477fa374e6} 
+template$<$typename... T$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a8aba8a78c514e176e0dd0a159de7a369}{FMT\+\_\+\+DEPRECATED}} auto fprintf (\begin{DoxyParamCaption}\item[{std\+::\+FILE \texorpdfstring{$\ast$}{*}}]{f}{, }\item[{\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ wchar\+\_\+t $>$}]{fmt}{, }\item[{const T \&...}]{args}{}\end{DoxyParamCaption})-\/$>$int}
+
+\Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_af780f142dab726c6d4c98ee3d6dc72b2}\index{printf.h@{printf.h}!fprintf@{fprintf}}
+\index{fprintf@{fprintf}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{fprintf()}{fprintf()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_af780f142dab726c6d4c98ee3d6dc72b2} 
+template$<$typename... T$>$ \\
+auto fprintf (\begin{DoxyParamCaption}\item[{std\+::\+FILE \texorpdfstring{$\ast$}{*}}]{f}{, }\item[{\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a204ca715c2febee035464fa53dfc50c4}{string\+\_\+view}}}]{fmt}{, }\item[{const T \&...}]{args}{}\end{DoxyParamCaption})-\/$>$int\hspace{0.3cm}{\ttfamily [inline]}}
+
+Formats {\ttfamily args} according to specifications in {\ttfamily \doxylink{namespacefmt}{fmt}} and writes the output to {\ttfamily f}.
+
+{\bfseries{Example}}\+: \begin{DoxyVerb}fmt::fprintf(stderr, "Don't %s!", "panic");
+\end{DoxyVerb}
+ \Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a27dcc0efcda04388971dbea3c875f122}\index{printf.h@{printf.h}!make\_printf\_args@{make\_printf\_args}}
+\index{make\_printf\_args@{make\_printf\_args}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{make\_printf\_args()}{make\_printf\_args()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a27dcc0efcda04388971dbea3c875f122} 
+template$<$typename Char = char, typename... T$>$ \\
+auto make\+\_\+printf\+\_\+args (\begin{DoxyParamCaption}\item[{T \&...}]{args}{}\end{DoxyParamCaption})-\/$>$decltype(\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_afff7b568500a64ae28dae14dc16c68fd}{fmt\+::make\+\_\+format\+\_\+args}}$<$ \mbox{\hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context}}$<$ Char $>$ $>$(args...))\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructs an {\ttfamily format\+\_\+arg\+\_\+store} object that contains references to arguments and can be implicitly converted to {\ttfamily \doxylink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a6e093b81d518db186bd7a4df46693d36}{printf\+\_\+args}}. \Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_aee3ed3a831f25f07e7be3919fff2203a}\index{printf.h@{printf.h}!printf@{printf}}
+\index{printf@{printf}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{printf()}{printf()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_aee3ed3a831f25f07e7be3919fff2203a} 
+template$<$typename... T$>$ \\
+auto printf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a204ca715c2febee035464fa53dfc50c4}{string\+\_\+view}}}]{fmt}{, }\item[{const T \&...}]{args}{}\end{DoxyParamCaption})-\/$>$int\hspace{0.3cm}{\ttfamily [inline]}}
+
+Formats {\ttfamily args} according to specifications in {\ttfamily \doxylink{namespacefmt}{fmt}} and writes the output to {\ttfamily stdout}.
+
+{\bfseries{Example}}\+:
+
+fmt\+::printf("{}\+Elapsed time\+: \%.\+2f seconds"{}, 1.\+23); \Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a90e1d577a1ae5ac2190fe47aaff759f3}\index{printf.h@{printf.h}!sprintf@{sprintf}}
+\index{sprintf@{sprintf}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{sprintf()}{sprintf()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a90e1d577a1ae5ac2190fe47aaff759f3} 
+template$<$typename... T$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a8aba8a78c514e176e0dd0a159de7a369}{FMT\+\_\+\+DEPRECATED}} auto sprintf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ wchar\+\_\+t $>$}]{fmt}{, }\item[{const T \&...}]{args}{}\end{DoxyParamCaption})-\/$>$std\+::wstring}
+
+\Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_af0892aee69ebedaca9662751d5b7f653}\index{printf.h@{printf.h}!sprintf@{sprintf}}
+\index{sprintf@{sprintf}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{sprintf()}{sprintf()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_af0892aee69ebedaca9662751d5b7f653} 
+template$<$typename... T$>$ \\
+auto sprintf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a204ca715c2febee035464fa53dfc50c4}{string\+\_\+view}}}]{fmt}{, }\item[{const T \&...}]{args}{}\end{DoxyParamCaption})-\/$>$std\+::string\hspace{0.3cm}{\ttfamily [inline]}}
+
+Formats {\ttfamily args} according to specifications in {\ttfamily \doxylink{namespacefmt}{fmt}} and returns the result as as string.
+
+{\bfseries{Example}}\+: \begin{DoxyVerb}std::string message = fmt::sprintf("The answer is %d", 42);
+\end{DoxyVerb}
+ \Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_abb30aad964fc771fb52cf3ad88649df2}\index{printf.h@{printf.h}!vfprintf@{vfprintf}}
+\index{vfprintf@{vfprintf}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{vfprintf()}{vfprintf()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_abb30aad964fc771fb52cf3ad88649df2} 
+template$<$typename Char$>$ \\
+auto vfprintf (\begin{DoxyParamCaption}\item[{std\+::\+FILE \texorpdfstring{$\ast$}{*}}]{f}{, }\item[{\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$}]{fmt}{, }\item[{typename \mbox{\hyperlink{structvprintf__args}{vprintf\+\_\+args}}$<$ Char $>$\+::type}]{args}{}\end{DoxyParamCaption})-\/$>$int}
+
+\Hypertarget{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a5e1075a6c1fce5050424f97a2fac648f}\index{printf.h@{printf.h}!vsprintf@{vsprintf}}
+\index{vsprintf@{vsprintf}!printf.h@{printf.h}}
+\doxysubsubsection{\texorpdfstring{vsprintf()}{vsprintf()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2printf_8h_a5e1075a6c1fce5050424f97a2fac648f} 
+template$<$typename Char$>$ \\
+auto vsprintf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$}]{fmt}{, }\item[{typename \mbox{\hyperlink{structvprintf__args}{vprintf\+\_\+args}}$<$ Char $>$\+::type}]{args}{}\end{DoxyParamCaption})-\/$>$std\+::basic\+\_\+string$<$ Char $>$\hspace{0.3cm}{\ttfamily [inline]}}
+

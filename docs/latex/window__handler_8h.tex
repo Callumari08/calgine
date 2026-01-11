@@ -3,10 +3,16 @@
 {\ttfamily \#include $<$SDL3/\+SDL\+\_\+video.\+h$>$}\newline
 {\ttfamily \#include $<$mutex$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}calgine\+\_\+api.\+h"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classWindowHandler}{Window\+Handler}}
+class \mbox{\hyperlink{classCalgine_1_1WindowHandler}{Calgine\+::\+Window\+Handler}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCalgine}{Calgine}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
@@ -18,8 +24,8 @@ class \mbox{\hyperlink{classWindowHandler}{Window\+Handler}}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{Vsync\+State}} \{ \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d}{disabled}}
-, \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc}{enabled}}
+enum \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{Calgine\+::\+Vsync\+State}} \{ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a10b9abd0304ae803c941c4503dc3fc8b}{Calgine\+::disabled}}
+, \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544}{Calgine\+::enabled}}
  \}
 \end{DoxyCompactItemize}
 
@@ -39,24 +45,3 @@ enum \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{Vsyn
 {\footnotesize\ttfamily \label{window__handler_8h_a498d9f026138406895e9a34b504ac6a6} 
 \#define WINDOW\+\_\+\+WIDTH~800}
 
-
-
-\label{doc-enum-members}
-\Hypertarget{window__handler_8h_doc-enum-members}
-\doxysubsection{Enumeration Type Documentation}
-\Hypertarget{window__handler_8h_aa900384132ecccf295941ecb99b94459}\index{window\_handler.h@{window\_handler.h}!VsyncState@{VsyncState}}
-\index{VsyncState@{VsyncState}!window\_handler.h@{window\_handler.h}}
-\doxysubsubsection{\texorpdfstring{VsyncState}{VsyncState}}
-{\footnotesize\ttfamily \label{window__handler_8h_aa900384132ecccf295941ecb99b94459} 
-enum \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{Vsync\+State}}}
-
-\begin{DoxyEnumFields}[2]{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{disabled@{disabled}!window\_handler.h@{window\_handler.h}}\index{window\_handler.h@{window\_handler.h}!disabled@{disabled}}}\Hypertarget{window__handler_8h_aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d}\label{window__handler_8h_aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d} 
-disabled&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{enabled@{enabled}!window\_handler.h@{window\_handler.h}}\index{window\_handler.h@{window\_handler.h}!enabled@{enabled}}}\Hypertarget{window__handler_8h_aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc}\label{window__handler_8h_aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc} 
-enabled&\\
-\hline
-
-\end{DoxyEnumFields}

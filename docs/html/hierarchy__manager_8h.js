@@ -1,5 +1,5 @@
 var hierarchy__manager_8h =
 [
-    [ "RootGameObject", "classRootGameObject.html", "classRootGameObject" ],
-    [ "Hierarchy", "classHierarchy.html", "classHierarchy" ]
+    [ "Calgine::RootGameObject", "classCalgine_1_1RootGameObject.html", "classCalgine_1_1RootGameObject" ],
+    [ "Calgine::Hierarchy", "classCalgine_1_1Hierarchy.html", "classCalgine_1_1Hierarchy" ]
 ];

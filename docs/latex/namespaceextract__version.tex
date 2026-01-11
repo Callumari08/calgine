@@ -1,0 +1,50 @@
+\doxysection{extract\+\_\+version Namespace Reference}
+\hypertarget{namespaceextract__version}{}\label{namespaceextract__version}\index{extract\_version@{extract\_version}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceextract__version_a1334ff1ed3fa8bbe21eae75a6c01ab3b}{base\+\_\+path}} = os.\+path.\+abspath(os.\+path.\+join(os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+), \textquotesingle{}..\textquotesingle{}))
+\item 
+\mbox{\hyperlink{namespaceextract__version_ad512f1cbf156fc9a4f995cf5305c8e38}{config\+\_\+h}} = os.\+path.\+join(\mbox{\hyperlink{namespaceextract__version_a1334ff1ed3fa8bbe21eae75a6c01ab3b}{base\+\_\+path}}, \textquotesingle{}include\textquotesingle{}, \textquotesingle{}\mbox{\hyperlink{namespacespdlog}{spdlog}}\textquotesingle{}, \textquotesingle{}version.\+h\textquotesingle{})
+\item 
+dict \mbox{\hyperlink{namespaceextract__version_aa8a4d004950d37b7089510136f5da258}{data}} = \{\textquotesingle{}MAJOR\textquotesingle{}\+: 0, \textquotesingle{}MINOR\textquotesingle{}\+: 0, \textquotesingle{}PATCH\textquotesingle{}\+: 0\}
+\item 
+\mbox{\hyperlink{namespaceextract__version_a03f9baa5f4595b2661f9d0f196fa206a}{reg}} = re.\+compile(r\textquotesingle{}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}s\texorpdfstring{$\ast$}{*}\#define\textbackslash{}s+SPDLOG\+\_\+\+VER\+\_\+(\mbox{[}A-\/Z\mbox{]}+)\textbackslash{}s+(\mbox{[}0-\/9\mbox{]}+).\texorpdfstring{$\ast$}{*}\$\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespaceextract__version_a27c8751092f8474c13d1c2d7c6b35dc3}{m}} = reg.\+match(l)
+\end{DoxyCompactItemize}
+
+
+\label{doc-var-members}
+\Hypertarget{namespaceextract__version_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceextract__version_a1334ff1ed3fa8bbe21eae75a6c01ab3b}\index{extract\_version@{extract\_version}!base\_path@{base\_path}}
+\index{base\_path@{base\_path}!extract\_version@{extract\_version}}
+\doxysubsubsection{\texorpdfstring{base\_path}{base\_path}}
+{\footnotesize\ttfamily \label{namespaceextract__version_a1334ff1ed3fa8bbe21eae75a6c01ab3b} 
+extract\+\_\+version.\+base\+\_\+path = os.\+path.\+abspath(os.\+path.\+join(os.\+path.\+dirname(\+\_\+\+\_\+file\+\_\+\+\_\+), \textquotesingle{}..\textquotesingle{}))}
+
+\Hypertarget{namespaceextract__version_ad512f1cbf156fc9a4f995cf5305c8e38}\index{extract\_version@{extract\_version}!config\_h@{config\_h}}
+\index{config\_h@{config\_h}!extract\_version@{extract\_version}}
+\doxysubsubsection{\texorpdfstring{config\_h}{config\_h}}
+{\footnotesize\ttfamily \label{namespaceextract__version_ad512f1cbf156fc9a4f995cf5305c8e38} 
+extract\+\_\+version.\+config\+\_\+h = os.\+path.\+join(\mbox{\hyperlink{namespaceextract__version_a1334ff1ed3fa8bbe21eae75a6c01ab3b}{base\+\_\+path}}, \textquotesingle{}include\textquotesingle{}, \textquotesingle{}\mbox{\hyperlink{namespacespdlog}{spdlog}}\textquotesingle{}, \textquotesingle{}version.\+h\textquotesingle{})}
+
+\Hypertarget{namespaceextract__version_aa8a4d004950d37b7089510136f5da258}\index{extract\_version@{extract\_version}!data@{data}}
+\index{data@{data}!extract\_version@{extract\_version}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \label{namespaceextract__version_aa8a4d004950d37b7089510136f5da258} 
+dict extract\+\_\+version.\+data = \{\textquotesingle{}MAJOR\textquotesingle{}\+: 0, \textquotesingle{}MINOR\textquotesingle{}\+: 0, \textquotesingle{}PATCH\textquotesingle{}\+: 0\}}
+
+\Hypertarget{namespaceextract__version_a27c8751092f8474c13d1c2d7c6b35dc3}\index{extract\_version@{extract\_version}!m@{m}}
+\index{m@{m}!extract\_version@{extract\_version}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily \label{namespaceextract__version_a27c8751092f8474c13d1c2d7c6b35dc3} 
+extract\+\_\+version.\+m = reg.\+match(l)}
+
+\Hypertarget{namespaceextract__version_a03f9baa5f4595b2661f9d0f196fa206a}\index{extract\_version@{extract\_version}!reg@{reg}}
+\index{reg@{reg}!extract\_version@{extract\_version}}
+\doxysubsubsection{\texorpdfstring{reg}{reg}}
+{\footnotesize\ttfamily \label{namespaceextract__version_a03f9baa5f4595b2661f9d0f196fa206a} 
+extract\+\_\+version.\+reg = re.\+compile(r\textquotesingle{}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}s\texorpdfstring{$\ast$}{*}\#define\textbackslash{}s+SPDLOG\+\_\+\+VER\+\_\+(\mbox{[}A-\/Z\mbox{]}+)\textbackslash{}s+(\mbox{[}0-\/9\mbox{]}+).\texorpdfstring{$\ast$}{*}\$\textquotesingle{})}
+

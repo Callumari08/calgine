@@ -1,0 +1,35 @@
+\doxysection{detail\+::count\+\_\+fractional\+\_\+digits\texorpdfstring{$<$}{<} Num, Den, N, Enabled \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structdetail_1_1count__fractional__digits}{}\label{structdetail_1_1count__fractional__digits}\index{detail::count\_fractional\_digits$<$ Num, Den, N, Enabled $>$@{detail::count\_fractional\_digits$<$ Num, Den, N, Enabled $>$}}
+
+
+{\ttfamily \#include $<$chrono.\+h$>$}
+
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \mbox{\hyperlink{structdetail_1_1count__fractional__digits_a04719727c581a0184e95bea6a2e6b82c}{value}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-variable-members}
+\Hypertarget{structdetail_1_1count__fractional__digits_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structdetail_1_1count__fractional__digits_a04719727c581a0184e95bea6a2e6b82c}\index{detail::count\_fractional\_digits$<$ Num, Den, N, Enabled $>$@{detail::count\_fractional\_digits$<$ Num, Den, N, Enabled $>$}!value@{value}}
+\index{value@{value}!detail::count\_fractional\_digits$<$ Num, Den, N, Enabled $>$@{detail::count\_fractional\_digits$<$ Num, Den, N, Enabled $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily \label{structdetail_1_1count__fractional__digits_a04719727c581a0184e95bea6a2e6b82c} 
+template$<$long long Num, long long Den, int N = 0, bool Enabled = (\+N $<$ 19) \&\& (\+Num $<$= max\+\_\+value$<$long long$>$() / 10)$>$ \\
+constexpr int \mbox{\hyperlink{structdetail_1_1count__fractional__digits}{detail\+::count\+\_\+fractional\+\_\+digits}}$<$ Num, Den, N, Enabled $>$\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ Num\ \%\ Den\ ==\ 0\ ?\ N\ :\ \mbox{\hyperlink{structdetail_1_1count__fractional__digits_a04719727c581a0184e95bea6a2e6b82c}{count\_fractional\_digits<Num\ *\ 10,\ Den,\ N\ +\ 1>::value}}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/fmt/bundled/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2chrono_8h}{chrono.\+h}}\item 
+src/vendor/spdlog/include/spdlog/fmt/bundled/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2chrono_8h}{chrono.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,153 @@
+\doxysection{spdlog\+::sinks\+::wincolor\+\_\+stdout\+\_\+sink\texorpdfstring{$<$}{<} Console\+Mutex \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classspdlog_1_1sinks_1_1wincolor__stdout__sink}{}\label{classspdlog_1_1sinks_1_1wincolor__stdout__sink}\index{spdlog::sinks::wincolor\_stdout\_sink$<$ ConsoleMutex $>$@{spdlog::sinks::wincolor\_stdout\_sink$<$ ConsoleMutex $>$}}
+
+
+{\ttfamily \#include $<$wincolor\+\_\+sink.\+h$>$}
+
+Inheritance diagram for spdlog\+::sinks\+::wincolor\+\_\+stdout\+\_\+sink\texorpdfstring{$<$}{<} Console\+Mutex \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.320755cm]{classspdlog_1_1sinks_1_1wincolor__stdout__sink}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__stdout__sink_a76ef0089437f3073f37ce95e3c9ff044}{wincolor\+\_\+stdout\+\_\+sink}} (\mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\+\_\+mode}} mode=\mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0a2bd9c0ed00116be1258e0cc66617d7c8}{color\+\_\+mode\+::automatic}})
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__stdout__sink_a69dd9aea64736b87caaf300f7128a06a}{wincolor\+\_\+stdout\+\_\+sink}} (\mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\+\_\+mode}} mode=\mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0a2bd9c0ed00116be1258e0cc66617d7c8}{color\+\_\+mode\+::automatic}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink}{spdlog\+::sinks\+::wincolor\+\_\+sink$<$ Console\+Mutex $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_ad400c046bf018fef46af88109472bf7b}{wincolor\+\_\+sink}} (void \texorpdfstring{$\ast$}{*}out\+\_\+handle, \mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\+\_\+mode}} mode)
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_aa9a0326259c5c8dd5d302e935ed43751}{\texorpdfstring{$\sim$}{\string~}wincolor\+\_\+sink}} () override
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a82cb0661d5cc108b0b866b4561919fda}{wincolor\+\_\+sink}} (const wincolor\+\_\+sink \&other)=delete
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_ad400c046bf018fef46af88109472bf7b}{wincolor\+\_\+sink}} \& \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a46380cf5d3e340542548dc15aef61d82}{operator=}} (const \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_ad400c046bf018fef46af88109472bf7b}{wincolor\+\_\+sink}} \&other)=delete
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_ae60504680bd2e37a9d08ac670c7b21ed}{set\+\_\+color}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a8b9693e7ea883ce02234bed0e3b3348d}{level}}, std\+::uint16\+\_\+t \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2color_8h_a80d1dc5f416b97f92939a4166d41203c}{color}})
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a901da12d894581f22c6df12232e013b3}{log}} (const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg}} \&msg) override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a277d257423d4567ed88a32a604e4b21f}{flush}} () override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a02547ccaedaf6269324cf49b08e20905}{set\+\_\+pattern}} (const std\+::string \&pattern) override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a286dec0a5489276307e71c13eeebf404}{set\+\_\+formatter}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter}} $>$ sink\+\_\+formatter) override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_aca6e9e0251b747eabe4ee859cb7306b0}{set\+\_\+color\+\_\+mode}} (\mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\+\_\+mode}} mode)
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_adb44f96abe1be6f041d9bab86b584466}{wincolor\+\_\+sink}} (void \texorpdfstring{$\ast$}{*}out\+\_\+handle, \mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\+\_\+mode}} mode)
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a5fb37ad5fb897bf017d5679359319414}{\texorpdfstring{$\sim$}{\string~}wincolor\+\_\+sink}} () override
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a82cb0661d5cc108b0b866b4561919fda}{wincolor\+\_\+sink}} (const wincolor\+\_\+sink \&other)=delete
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_ad400c046bf018fef46af88109472bf7b}{wincolor\+\_\+sink}} \& \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a46380cf5d3e340542548dc15aef61d82}{operator=}} (const \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_ad400c046bf018fef46af88109472bf7b}{wincolor\+\_\+sink}} \&other)=delete
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_aeb453a6ba625857ee444c0c7523a5023}{set\+\_\+color}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a8b9693e7ea883ce02234bed0e3b3348d}{level}}, std\+::uint16\+\_\+t \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2color_8h_a80d1dc5f416b97f92939a4166d41203c}{color}})
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a049ca2f0862bb1d94290fff882d57297}{log}} (const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg}} \&msg) override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a6f1fbec3d111b69f79b602a6d1ad4475}{flush}} () override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a5345fdd42456590f011825d3a493f090}{set\+\_\+pattern}} (const std\+::string \&pattern) override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_adba212d5f3e326c8e7f4b660def88ddd}{set\+\_\+formatter}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter}} $>$ sink\+\_\+formatter) override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a2b09449517e3e691e47ab21fcc76dcd7}{set\+\_\+color\+\_\+mode}} (\mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\+\_\+mode}} mode)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink}{spdlog\+::sinks\+::sink}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a2637af0973ac863eedd76ee683279c0b}{\texorpdfstring{$\sim$}{\string~}sink}} ()=default
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a862aa1ac5ed27de35f1bd3b1aaeb7dc1}{set\+\_\+level}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} log\+\_\+level)
+\item 
+\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a8b9693e7ea883ce02234bed0e3b3348d}{level}} () const
+\item 
+bool \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a9e6824420e6352e0f5cbb436a0b5d0a4}{should\+\_\+log}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} msg\+\_\+level) const
+\item 
+virtual \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a2637af0973ac863eedd76ee683279c0b}{\texorpdfstring{$\sim$}{\string~}sink}} ()=default
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a038a91409395dca18a7ccca81622fd83}{set\+\_\+level}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} log\+\_\+level)
+\item 
+\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_ae59ca2b418c5cdfed1c04e49a444be1c}{level}} () const
+\item 
+bool \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a1c932f19f67057fbe7518999bdd5c422}{should\+\_\+log}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} msg\+\_\+level) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Types inherited from \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink}{spdlog\+::sinks\+::wincolor\+\_\+sink$<$ Console\+Mutex $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_ae79569edf4d5eeaf89ef6dbd15d2192d}{mutex\+\_\+t}} = typename Console\+Mutex\+::mutex\+\_\+t
+\item 
+using \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_ae79569edf4d5eeaf89ef6dbd15d2192d}{mutex\+\_\+t}} = typename Console\+Mutex\+::mutex\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink}{spdlog\+::sinks\+::wincolor\+\_\+sink$<$ Console\+Mutex $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::uint16\+\_\+t \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_abafb58a232230b81f7b68cae6d530b4d}{set\+\_\+foreground\+\_\+color\+\_\+}} (std\+::uint16\+\_\+t attribs)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a83f157973bbc72592e58d7cc02485944}{print\+\_\+range\+\_\+}} (const \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\+\_\+buf\+\_\+t}} \&formatted, size\+\_\+t start, size\+\_\+t end)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a5cf97fd57b3863ba2a288d357ec0e579}{write\+\_\+to\+\_\+file\+\_\+}} (const \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\+\_\+buf\+\_\+t}} \&formatted)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a677567a40e732b832cfbe123df0cf560}{set\+\_\+color\+\_\+mode\+\_\+impl}} (\mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\+\_\+mode}} mode)
+\item 
+std\+::uint16\+\_\+t \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_ab6a591746977feb2b7168808627a7ae2}{set\+\_\+foreground\+\_\+color\+\_\+}} (std\+::uint16\+\_\+t attribs)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a2fa60ad043a15f65e05de8d23428b1c1}{print\+\_\+range\+\_\+}} (const \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\+\_\+buf\+\_\+t}} \&formatted, size\+\_\+t start, size\+\_\+t end)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a5e69eb2787aa371b42e01f8afc0d4c38}{write\+\_\+to\+\_\+file\+\_\+}} (const \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\+\_\+buf\+\_\+t}} \&formatted)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a86a89001be38df567f18895a867b9d43}{set\+\_\+color\+\_\+mode\+\_\+impl}} (\mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\+\_\+mode}} mode)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink}{spdlog\+::sinks\+::wincolor\+\_\+sink$<$ Console\+Mutex $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a5c7db5e6680d441ccc3ae1a1b6b14faf}{out\+\_\+handle\+\_\+}}
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_ae79569edf4d5eeaf89ef6dbd15d2192d}{mutex\+\_\+t}} \& \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a988de5ad2c2323281108091df1f2d863}{mutex\+\_\+}}
+\item 
+bool \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a0cc52ce74e7c4d84867252697fe8ecf1}{should\+\_\+do\+\_\+colors\+\_\+}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter}} $>$ \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_ae7131b5b8a16c17e85ce27ffa8598e6c}{formatter\+\_\+}}
+\item 
+std\+::array$<$ std\+::uint16\+\_\+t, \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861ac6c5ffd893fda19fb271c02b0ee5cbac}{level\+::n\+\_\+levels}} $>$ \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink_a7f4911212ab7d88693ee1e026d3d3e7c}{colors\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink}{spdlog\+::sinks\+::sink}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacespdlog_abacbd76841573991ecd1e204c60363c6}{level\+\_\+t}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a435da07b59e1165b38d53635cdada30a}{level\+\_\+}} \{\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861ade78ca2c1173761c121b4e5e91eb58f4}{level\+::trace}}\}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classspdlog_1_1sinks_1_1wincolor__stdout__sink_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classspdlog_1_1sinks_1_1wincolor__stdout__sink_a76ef0089437f3073f37ce95e3c9ff044}\index{spdlog::sinks::wincolor\_stdout\_sink$<$ ConsoleMutex $>$@{spdlog::sinks::wincolor\_stdout\_sink$<$ ConsoleMutex $>$}!wincolor\_stdout\_sink@{wincolor\_stdout\_sink}}
+\index{wincolor\_stdout\_sink@{wincolor\_stdout\_sink}!spdlog::sinks::wincolor\_stdout\_sink$<$ ConsoleMutex $>$@{spdlog::sinks::wincolor\_stdout\_sink$<$ ConsoleMutex $>$}}
+\doxysubsubsection{\texorpdfstring{wincolor\_stdout\_sink()}{wincolor\_stdout\_sink()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1wincolor__stdout__sink_a76ef0089437f3073f37ce95e3c9ff044} 
+template$<$typename Console\+Mutex$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__stdout__sink}{spdlog\+::sinks\+::wincolor\+\_\+stdout\+\_\+sink}}$<$ Console\+Mutex $>$\+::wincolor\+\_\+stdout\+\_\+sink (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\+\_\+mode}}}]{mode}{ = {\ttfamily \mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0a2bd9c0ed00116be1258e0cc66617d7c8}{color\+\_\+mode\+::automatic}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\Hypertarget{classspdlog_1_1sinks_1_1wincolor__stdout__sink_a69dd9aea64736b87caaf300f7128a06a}\index{spdlog::sinks::wincolor\_stdout\_sink$<$ ConsoleMutex $>$@{spdlog::sinks::wincolor\_stdout\_sink$<$ ConsoleMutex $>$}!wincolor\_stdout\_sink@{wincolor\_stdout\_sink}}
+\index{wincolor\_stdout\_sink@{wincolor\_stdout\_sink}!spdlog::sinks::wincolor\_stdout\_sink$<$ ConsoleMutex $>$@{spdlog::sinks::wincolor\_stdout\_sink$<$ ConsoleMutex $>$}}
+\doxysubsubsection{\texorpdfstring{wincolor\_stdout\_sink()}{wincolor\_stdout\_sink()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1wincolor__stdout__sink_a69dd9aea64736b87caaf300f7128a06a} 
+template$<$typename Console\+Mutex$>$ \\
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1wincolor__stdout__sink}{spdlog\+::sinks\+::wincolor\+\_\+stdout\+\_\+sink}}$<$ Console\+Mutex $>$\+::wincolor\+\_\+stdout\+\_\+sink (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\+\_\+mode}}}]{mode}{ = {\ttfamily \mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0a2bd9c0ed00116be1258e0cc66617d7c8}{color\+\_\+mode\+::automatic}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/sinks/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2sinks_2wincolor__sink_8h}{wincolor\+\_\+sink.\+h}}\item 
+src/vendor/spdlog/include/spdlog/sinks/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2sinks_2wincolor__sink_8h}{wincolor\+\_\+sink.\+h}}\item 
+src/calgine/vendor/include/spdlog/sinks/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2sinks_2wincolor__sink-inl_8h}{wincolor\+\_\+sink-\/inl.\+h}}\item 
+src/vendor/spdlog/include/spdlog/sinks/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2sinks_2wincolor__sink-inl_8h}{wincolor\+\_\+sink-\/inl.\+h}}\end{DoxyCompactItemize}

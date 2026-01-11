@@ -1,0 +1,111 @@
+\doxysection{detail\+::counting\+\_\+buffer\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classdetail_1_1counting__buffer}{}\label{classdetail_1_1counting__buffer}\index{detail::counting\_buffer$<$ T $>$@{detail::counting\_buffer$<$ T $>$}}
+
+
+{\ttfamily \#include $<$base.\+h$>$}
+
+Inheritance diagram for detail\+::counting\+\_\+buffer\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classdetail_1_1counting__buffer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classdetail_1_1counting__buffer_a27586c0c7bb59bca98c14dd7a3a91e82}{counting\+\_\+buffer}} ()
+\item 
+constexpr auto \mbox{\hyperlink{classdetail_1_1counting__buffer_ac5caa7bdfd7e1cb4019287c3dcb4ff5d}{count}} () const noexcept -\/$>$ size\+\_\+t
+\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classdetail_1_1counting__buffer_a27586c0c7bb59bca98c14dd7a3a91e82}{counting\+\_\+buffer}} ()
+\item 
+constexpr auto \mbox{\hyperlink{classdetail_1_1counting__buffer_ac5caa7bdfd7e1cb4019287c3dcb4ff5d}{count}} () const noexcept -\/$>$ size\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classdetail_1_1buffer}{detail\+::buffer$<$ char $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdetail_1_1buffer_ae4f118f6f8c274d20bcfd85ecf889f13}{operator=}} (const \mbox{\hyperlink{classdetail_1_1buffer_a00e1cc577f5d24dbbb494b8fc8569946}{buffer}} \&)=delete
+\item 
+auto \mbox{\hyperlink{classdetail_1_1buffer_adf353302bef0b99c405ca999d07b39ed}{begin}} () noexcept -\/$>$ char \texorpdfstring{$\ast$}{*}
+\item 
+auto \mbox{\hyperlink{classdetail_1_1buffer_ac2b183d544845677a3b7d1137b17d16d}{end}} () noexcept -\/$>$ char \texorpdfstring{$\ast$}{*}
+\item 
+constexpr auto \mbox{\hyperlink{classdetail_1_1buffer_a8685285932360c284d19003fc4ba3edc}{size}} () const noexcept -\/$>$ size\+\_\+t
+\begin{DoxyCompactList}\small\item\em Returns the size of this buffer. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{classdetail_1_1buffer_ac7ff14268d6b32d3d878291445ff4dd3}{capacity}} () const noexcept -\/$>$ size\+\_\+t
+\begin{DoxyCompactList}\small\item\em Returns the capacity of this buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto \mbox{\hyperlink{classdetail_1_1buffer_aeb33e0a2d2be2bbca9e0236c148089c8}{data}} () noexcept -\/$>$ char \texorpdfstring{$\ast$}{*}
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the buffer data (not null-\/terminated). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classdetail_1_1buffer_af53aad71d2441a653570f07d76db1844}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears this buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classdetail_1_1buffer_ac48c33ebe198a142029794f99ec73c31}{try\+\_\+resize}} (size\+\_\+t \mbox{\hyperlink{namespacedetail_adecb5dbdc5faeb0d252ab0f4cb92c8a9}{count}})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classdetail_1_1buffer_a91bcecc177b01b84d693028111fbd8eb}{try\+\_\+reserve}} (size\+\_\+t new\+\_\+capacity)
+\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classdetail_1_1buffer_a49016d0c600f79917e00d9e3458c8c92}{push\+\_\+back}} (const char \&\mbox{\hyperlink{classdetail_1_1value}{value}})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_acebe0f930dd6aecc374db251062e9d10}{FMT\+\_\+\+CONSTEXPR20}} void \mbox{\hyperlink{classdetail_1_1buffer_a2591580c2a3516c85bac8f7af1a7bb4f}{append}} (const U \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classdetail_1_1buffer_adf353302bef0b99c405ca999d07b39ed}{begin}}, const U \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classdetail_1_1buffer_ac2b183d544845677a3b7d1137b17d16d}{end}})
+\begin{DoxyCompactList}\small\item\em Appends data to the end of the buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto \mbox{\hyperlink{classdetail_1_1buffer_ae2c5fb40e845fc318a3d1a5f26f7ea0e}{operator\mbox{[}$\,$\mbox{]}}} (Idx index) -\/$>$ char \&
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classdetail_1_1buffer}{detail\+::buffer$<$ char $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classdetail_1_1buffer_a5924000772700e59f02fcfb81599e622}{value\+\_\+type}}
+\item 
+using \mbox{\hyperlink{classdetail_1_1buffer_ae0c5b968a30278a20a93f125e5fcb6d7}{const\+\_\+reference}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classdetail_1_1buffer}{detail\+::buffer$<$ char $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classdetail_1_1buffer_a00e1cc577f5d24dbbb494b8fc8569946}{buffer}} (grow\+\_\+fun grow, size\+\_\+t sz) noexcept
+\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_acebe0f930dd6aecc374db251062e9d10}{FMT\+\_\+\+CONSTEXPR20}} \mbox{\hyperlink{classdetail_1_1buffer_ac973ea8a6b76dda58250ea7c3662d841}{\texorpdfstring{$\sim$}{\string~}buffer}} ()=default
+\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classdetail_1_1buffer_a5c82aec716b07079ac88194eb9aa7feb}{set}} (char \texorpdfstring{$\ast$}{*}buf\+\_\+data, size\+\_\+t buf\+\_\+capacity) noexcept
+\begin{DoxyCompactList}\small\item\em Sets the buffer data and capacity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classdetail_1_1counting__buffer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdetail_1_1counting__buffer_a27586c0c7bb59bca98c14dd7a3a91e82}\index{detail::counting\_buffer$<$ T $>$@{detail::counting\_buffer$<$ T $>$}!counting\_buffer@{counting\_buffer}}
+\index{counting\_buffer@{counting\_buffer}!detail::counting\_buffer$<$ T $>$@{detail::counting\_buffer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{counting\_buffer()}{counting\_buffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1counting__buffer_a27586c0c7bb59bca98c14dd7a3a91e82} 
+template$<$typename T = char$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classdetail_1_1counting__buffer}{detail\+::counting\+\_\+buffer}}$<$ T $>$\+::counting\+\_\+buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1counting__buffer_a27586c0c7bb59bca98c14dd7a3a91e82}\index{detail::counting\_buffer$<$ T $>$@{detail::counting\_buffer$<$ T $>$}!counting\_buffer@{counting\_buffer}}
+\index{counting\_buffer@{counting\_buffer}!detail::counting\_buffer$<$ T $>$@{detail::counting\_buffer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{counting\_buffer()}{counting\_buffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1counting__buffer_a27586c0c7bb59bca98c14dd7a3a91e82} 
+template$<$typename T = char$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classdetail_1_1counting__buffer}{detail\+::counting\+\_\+buffer}}$<$ T $>$\+::counting\+\_\+buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classdetail_1_1counting__buffer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdetail_1_1counting__buffer_ac5caa7bdfd7e1cb4019287c3dcb4ff5d}\index{detail::counting\_buffer$<$ T $>$@{detail::counting\_buffer$<$ T $>$}!count@{count}}
+\index{count@{count}!detail::counting\_buffer$<$ T $>$@{detail::counting\_buffer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1counting__buffer_ac5caa7bdfd7e1cb4019287c3dcb4ff5d} 
+template$<$typename T = char$>$ \\
+auto \mbox{\hyperlink{classdetail_1_1counting__buffer}{detail\+::counting\+\_\+buffer}}$<$ T $>$\+::count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$size\+\_\+t\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{classdetail_1_1counting__buffer_ac5caa7bdfd7e1cb4019287c3dcb4ff5d}\index{detail::counting\_buffer$<$ T $>$@{detail::counting\_buffer$<$ T $>$}!count@{count}}
+\index{count@{count}!detail::counting\_buffer$<$ T $>$@{detail::counting\_buffer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1counting__buffer_ac5caa7bdfd7e1cb4019287c3dcb4ff5d} 
+template$<$typename T = char$>$ \\
+auto \mbox{\hyperlink{classdetail_1_1counting__buffer}{detail\+::counting\+\_\+buffer}}$<$ T $>$\+::count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$size\+\_\+t\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/fmt/bundled/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h}{base.\+h}}\item 
+src/vendor/spdlog/include/spdlog/fmt/bundled/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h}{base.\+h}}\end{DoxyCompactItemize}

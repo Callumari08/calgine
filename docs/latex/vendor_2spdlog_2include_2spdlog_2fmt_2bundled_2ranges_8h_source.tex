@@ -1,0 +1,823 @@
+\doxysection{ranges.\+h}
+\hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2ranges_8h_source}{}\label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2ranges_8h_source}\index{src/vendor/spdlog/include/spdlog/fmt/bundled/ranges.h@{src/vendor/spdlog/include/spdlog/fmt/bundled/ranges.h}}
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2ranges_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Formatting\ library\ for\ C++\ -\/\ range\ and\ tuple\ support}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Copyright\ (c)\ 2012\ -\/\ present,\ Victor\ Zverovich\ and\ \{fmt\}\ contributors}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ For\ the\ license\ information\ refer\ to\ format.h.}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ FMT\_RANGES\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ FMT\_RANGES\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ FMT\_MODULE}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#\ \ include\ <initializer\_list>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#\ \ include\ <iterator>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#\ \ include\ <tuple>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#\ \ include\ <type\_traits>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#\ \ include\ <utility>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2format_8h}{format.h}}"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#if\ FMT\_HAS\_CPP\_ATTRIBUTE(clang::lifetimebound)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#\ \ define\ FMT\_LIFETIMEBOUND\ [[clang::lifetimebound]]}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#\ \ define\ FMT\_LIFETIMEBOUND}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a15fa0c81b2312f67f285561732db841f}{FMT\_PRAGMA\_CLANG}}(diagnostic\ error\ \textcolor{stringliteral}{"{}-\/Wreturn-\/stack-\/address"{}})}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a887c191adf8cfaf06ed40b5c4d487343}{FMT\_BEGIN\_NAMESPACE}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_af9ca42737dd564744496ba899c540086}{FMT\_EXPORT}}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4d}{range\_format}}\ \{\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da075ae3d2fc31640504f814f60e5ef713}{disabled}},\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}},\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4dacdaeeeba9b4a4c5ebf042c0215a7bb0e}{set}},\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4dafa1c731ead93e333a9180e16f968c01e}{sequence}},\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4dab45cffe084dd3d20d928bee85e7b0f21}{string}},\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4daa23944d02095b1044f8d7dbfff7d953f}{debug\_string}}\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedetail}{detail}}\ \{}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdetail_1_1is__map}{is\_map}}\ \{}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ check(U*)\ -\/>\ \textcolor{keyword}{typename}\ U::mapped\_type;}
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check(...);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdetail_1_1is__map_aa5e286404f44202e0a00e9b4933242b8}{value}}\ =}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ !std::is\_void<decltype(check<T>(\textcolor{keyword}{nullptr}))>\mbox{\hyperlink{classdetail_1_1is__map_aa5e286404f44202e0a00e9b4933242b8}{::value}};}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdetail_1_1is__set}{is\_set}}\ \{}
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ check(U*)\ -\/>\ \textcolor{keyword}{typename}\ U::key\_type;}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check(...);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdetail_1_1is__set_a8c2b3ada9b3c5f480a84480ded497192}{value}}\ =}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ !std::is\_void<decltype(check<T>(\textcolor{keyword}{nullptr}))>\mbox{\hyperlink{classdetail_1_1is__set_a8c2b3ada9b3c5f480a84480ded497192}{::value}}\ \&\&\ !\mbox{\hyperlink{classdetail_1_1is__map_aa5e286404f44202e0a00e9b4933242b8}{is\_map<T>::value}};}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ C\ array\ overload}}
+\DoxyCodeLine{00054\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00055\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacedetail_a379579c5cd4dea85f22752fc3382e845}{range\_begin}}(\textcolor{keyword}{const}\ T\ (\&arr)[N])\ -\/>\ \textcolor{keyword}{const}\ T*\ \{}
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordflow}{return}\ arr;}
+\DoxyCodeLine{00057\ \}}
+\DoxyCodeLine{00058\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacedetail_a9b512d17ca26dca29464f452833cc5c3}{range\_end}}(\textcolor{keyword}{const}\ T\ (\&arr)[N])\ -\/>\ \textcolor{keyword}{const}\ T*\ \{}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordflow}{return}\ arr\ +\ N;}
+\DoxyCodeLine{00060\ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Enable\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{00063\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1has__member__fn__begin__end__t}{has\_member\_fn\_begin\_end\_t}}\ :\ std::false\_type\ \{\};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00066\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1has__member__fn__begin__end__t}{has\_member\_fn\_begin\_end\_t}}<T,\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab8ddf9531fc4ac7ce28574db20c8f20e}{void\_t}}<decltype(*std::declval<T>().begin()),}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{decltype}(std::declval<T>().end())>>}
+\DoxyCodeLine{00068\ \ \ \ \ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ Member\ function\ overloads.}}
+\DoxyCodeLine{00071\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00072\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacedetail_a379579c5cd4dea85f22752fc3382e845}{range\_begin}}(T\&\&\ rng)\ -\/>\ \textcolor{keyword}{decltype}(\textcolor{keyword}{static\_cast<}T\&\&\textcolor{keyword}{>}(rng).begin())\ \{}
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}T\&\&\textcolor{keyword}{>}(rng).begin();}
+\DoxyCodeLine{00074\ \}}
+\DoxyCodeLine{00075\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00076\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacedetail_a9b512d17ca26dca29464f452833cc5c3}{range\_end}}(T\&\&\ rng)\ -\/>\ \textcolor{keyword}{decltype}(\textcolor{keyword}{static\_cast<}T\&\&\textcolor{keyword}{>}(rng).end())\ \{}
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}T\&\&\textcolor{keyword}{>}(rng).end();}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ ADL\ overloads.\ Only\ participate\ in\ overload\ resolution\ if\ member\ functions}}
+\DoxyCodeLine{00081\ \textcolor{comment}{//\ are\ not\ found.}}
+\DoxyCodeLine{00082\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00083\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacedetail_a379579c5cd4dea85f22752fc3382e845}{range\_begin}}(T\&\&\ rng)}
+\DoxyCodeLine{00084\ \ \ \ \ -\/>\ enable\_if\_t<!has\_member\_fn\_begin\_end\_t<T\&\&>::value,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{decltype}(begin(\textcolor{keyword}{static\_cast<}T\&\&\textcolor{keyword}{>}(rng)))>\ \{}
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordflow}{return}\ begin(\textcolor{keyword}{static\_cast<}T\&\&\textcolor{keyword}{>}(rng));}
+\DoxyCodeLine{00087\ \}}
+\DoxyCodeLine{00088\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00089\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacedetail_a9b512d17ca26dca29464f452833cc5c3}{range\_end}}(T\&\&\ rng)\ -\/>\ enable\_if\_t<!has\_member\_fn\_begin\_end\_t<T\&\&>::value,}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{decltype}(end(\textcolor{keyword}{static\_cast<}T\&\&\textcolor{keyword}{>}(rng)))>\ \{}
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordflow}{return}\ end(\textcolor{keyword}{static\_cast<}T\&\&\textcolor{keyword}{>}(rng));}
+\DoxyCodeLine{00092\ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Enable\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{00095\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1has__const__begin__end}{has\_const\_begin\_end}}\ :\ std::false\_type\ \{\};}
+\DoxyCodeLine{00096\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Enable\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{00097\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1has__mutable__begin__end}{has\_mutable\_begin\_end}}\ :\ std::false\_type\ \{\};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00100\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1has__const__begin__end}{has\_const\_begin\_end}}<}
+\DoxyCodeLine{00101\ \ \ \ \ T,\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab8ddf9531fc4ac7ce28574db20c8f20e}{void\_t}}<decltype(*\mbox{\hyperlink{namespacedetail_a379579c5cd4dea85f22752fc3382e845}{detail::range\_begin}}(}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::declval<\textcolor{keyword}{const}\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a66fd080cbd291b1ead147865f0c1b497}{remove\_cvref\_t<T>}}\&>())),}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespacedetail_a9b512d17ca26dca29464f452833cc5c3}{detail::range\_end}}(}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::declval<\textcolor{keyword}{const}\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a66fd080cbd291b1ead147865f0c1b497}{remove\_cvref\_t<T>}}\&>()))>>}
+\DoxyCodeLine{00105\ \ \ \ \ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00108\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1has__mutable__begin__end}{has\_mutable\_begin\_end}}<}
+\DoxyCodeLine{00109\ \ \ \ \ T,\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab8ddf9531fc4ac7ce28574db20c8f20e}{void\_t}}<decltype(*\mbox{\hyperlink{namespacedetail_a379579c5cd4dea85f22752fc3382e845}{detail::range\_begin}}(std::declval<T\&>())),}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespacedetail_a9b512d17ca26dca29464f452833cc5c3}{detail::range\_end}}(std::declval<T\&>())),}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ extra\ int\ here\ is\ because\ older\ versions\ of\ MSVC\ don't}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SFINAE\ properly\ unless\ there\ are\ distinct\ types}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}>>\ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ \_\ =\ \textcolor{keywordtype}{void}>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1is__range__}{is\_range\_}}\ :\ std::false\_type\ \{\};}
+\DoxyCodeLine{00116\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00117\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1is__range__}{is\_range\_}}<T,\ void>}
+\DoxyCodeLine{00118\ \ \ \ \ :\ std::integral\_constant<bool,\ (has\_const\_begin\_end<T>::value\ ||}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ has\_mutable\_begin\_end<T>::value)>\ \{\};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{comment}{//\ tuple\_size\ and\ tuple\_element\ check.}}
+\DoxyCodeLine{00122\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdetail_1_1is__tuple__like__}{is\_tuple\_like\_}}\ \{}
+\DoxyCodeLine{00123\ \ \ template\ <typename\ U,\ typename\ V\ =\ typename\ std::remove\_cv<U>::type>}
+\DoxyCodeLine{00124\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ check(U*\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}})\ -\/>\ \textcolor{keyword}{decltype}(std::tuple\_size<V>::value,\ 0);}
+\DoxyCodeLine{00125\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check(...);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00128\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdetail_1_1is__tuple__like___a55d0041fd3b88b448e67e4f6a52690c3}{value}}\ =}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ !std::is\_void<decltype(check<T>(\textcolor{keyword}{nullptr}))>\mbox{\hyperlink{classdetail_1_1is__tuple__like___a55d0041fd3b88b448e67e4f6a52690c3}{::value}};}
+\DoxyCodeLine{00130\ \};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{comment}{//\ Check\ for\ integer\_sequence}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#if\ defined(\_\_cpp\_lib\_integer\_sequence)\ ||\ FMT\_MSC\_VERSION\ >=\ 1900}}
+\DoxyCodeLine{00134\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ T...\ N>}
+\DoxyCodeLine{00135\ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdetail_1_1integer__sequence}{integer\_sequence}}\ =\ std::integer\_sequence<T,\ N...>;}
+\DoxyCodeLine{00136\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}...\ N>\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a1b1fe960e08e9f9baa570dba9d74c378}{index\_sequence}}\ =\ std::index\_sequence<N...>;}
+\DoxyCodeLine{00137\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ N>\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a030b306641c6a638c81056a354c0631b}{make\_index\_sequence}}\ =\ std::make\_index\_sequence<N>;}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00139\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ T...\ N>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1integer__sequence}{integer\_sequence}}\ \{}
+\DoxyCodeLine{00140\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdetail_1_1integer__sequence_ad1483b15cf25402cf653f8ec3b485241}{value\_type}}\ =\ T;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structdetail_1_1integer__sequence_a7464005b33ba7134c0a7352b74b52a13}{size}}()\ -\/>\ \textcolor{keywordtype}{size\_t}\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{sizeof}...(N);\ \}}
+\DoxyCodeLine{00143\ \};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}...\ N>\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a1b1fe960e08e9f9baa570dba9d74c378}{index\_sequence}}\ =\ integer\_sequence<size\_t,\ N...>;}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N,\ T...\ Ns>}
+\DoxyCodeLine{00148\ \textcolor{keyword}{struct\ }make\_integer\_sequence\ :\ make\_integer\_sequence<T,\ N\ -\/\ 1,\ N\ -\/\ 1,\ Ns...>\ \{\};}
+\DoxyCodeLine{00149\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ T...\ Ns>}
+\DoxyCodeLine{00150\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1make__integer__sequence}{make\_integer\_sequence}}<T,\ 0,\ Ns...>\ :\ \mbox{\hyperlink{structdetail_1_1integer__sequence}{integer\_sequence}}<T,\ Ns...>\ \{\};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00153\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a030b306641c6a638c81056a354c0631b}{make\_index\_sequence}}\ =\ \mbox{\hyperlink{structdetail_1_1make__integer__sequence}{make\_integer\_sequence<size\_t,\ N>}};}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00157\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a2b406d4e067dec16414d088e26824519}{tuple\_index\_sequence}}\ =\ \mbox{\hyperlink{namespacedetail_a030b306641c6a638c81056a354c0631b}{make\_index\_sequence<std::tuple\_size<T>::value}}>;}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ template\ <typename\ T,\ typename\ C,\ bool\ =\ is\_tuple\_like\_<T>::value>}
+\DoxyCodeLine{00160\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdetail_1_1is__tuple__formattable__}{is\_tuple\_formattable\_}}\ \{}
+\DoxyCodeLine{00161\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00162\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdetail_1_1is__tuple__formattable___a227aecb00fd9a13fa09e53cf8641a881}{value}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00163\ \};}
+\DoxyCodeLine{00164\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ C>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdetail_1_1is__tuple__formattable__}{is\_tuple\_formattable\_}}<T,\ C,\ true>\ \{}
+\DoxyCodeLine{00165\ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}...\ Is>}
+\DoxyCodeLine{00166\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ all\_true(\mbox{\hyperlink{namespacedetail_a1b1fe960e08e9f9baa570dba9d74c378}{index\_sequence<Is...>}},}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ integer\_sequence<\textcolor{keywordtype}{bool},\ (Is\ >=\ 0)...>)\ -\/>\ std::true\_type;}
+\DoxyCodeLine{00168\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ all\_true(...)\ -\/>\ std::false\_type;}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}...\ Is>}
+\DoxyCodeLine{00171\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ check(\mbox{\hyperlink{namespacedetail_a1b1fe960e08e9f9baa570dba9d74c378}{index\_sequence<Is...>}})\ -\/>\ \textcolor{keyword}{decltype}(all\_true(}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \mbox{\hyperlink{namespacedetail_a1b1fe960e08e9f9baa570dba9d74c378}{index\_sequence<Is...>}}\{\},}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ integer\_sequence<bool,}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (is\_formattable<typename\ std::tuple\_element<Is,\ T>::type,}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C>\mbox{\hyperlink{classdetail_1_1is__tuple__formattable___a227aecb00fd9a13fa09e53cf8641a881}{::value}})...>\{\}));}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00178\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdetail_1_1is__tuple__formattable___a227aecb00fd9a13fa09e53cf8641a881}{value}}\ =}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \textcolor{keyword}{decltype}(check(\mbox{\hyperlink{namespacedetail_a2b406d4e067dec16414d088e26824519}{tuple\_index\_sequence<T>}}\{\}))\mbox{\hyperlink{classdetail_1_1is__tuple__formattable___a227aecb00fd9a13fa09e53cf8641a881}{::value}};}
+\DoxyCodeLine{00180\ \};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Tuple,\ \textcolor{keyword}{typename}\ F,\ \textcolor{keywordtype}{size\_t}...\ Is>}
+\DoxyCodeLine{00183\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacedetail_a526368839e35eb3302e7fa7109feffc6}{for\_each}}(\mbox{\hyperlink{namespacedetail_a1b1fe960e08e9f9baa570dba9d74c378}{index\_sequence<Is...>}},\ Tuple\&\&\ t,\ F\&\&\ f)\ \{}
+\DoxyCodeLine{00184\ \ \ \textcolor{keyword}{using\ }std::get;}
+\DoxyCodeLine{00185\ \ \ \textcolor{comment}{//\ Using\ a\ free\ function\ get<Is>(Tuple)\ now.}}
+\DoxyCodeLine{00186\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ unused[]\ =\ \{0,\ ((void)f(get<Is>(t)),\ 0)...\};}
+\DoxyCodeLine{00187\ \ \ \mbox{\hyperlink{namespacedetail_a1fe84ebaf96215ce0665d95b3124c2df}{ignore\_unused}}(unused);}
+\DoxyCodeLine{00188\ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Tuple,\ \textcolor{keyword}{typename}\ F>}
+\DoxyCodeLine{00191\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacedetail_a526368839e35eb3302e7fa7109feffc6}{for\_each}}(Tuple\&\&\ t,\ F\&\&\ f)\ \{}
+\DoxyCodeLine{00192\ \ \ \mbox{\hyperlink{namespacedetail_a526368839e35eb3302e7fa7109feffc6}{for\_each}}(\mbox{\hyperlink{namespacedetail_a2b406d4e067dec16414d088e26824519}{tuple\_index\_sequence}}<\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a66fd080cbd291b1ead147865f0c1b497}{remove\_cvref\_t<Tuple>}}>(),}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ std::forward<Tuple>(t),\ std::forward<F>(f));}
+\DoxyCodeLine{00194\ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Tuple1,\ \textcolor{keyword}{typename}\ Tuple2,\ \textcolor{keyword}{typename}\ F,\ \textcolor{keywordtype}{size\_t}...\ Is>}
+\DoxyCodeLine{00197\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacedetail_aadc1c40c6182e15f42669091f9da9f63}{for\_each2}}(\mbox{\hyperlink{namespacedetail_a1b1fe960e08e9f9baa570dba9d74c378}{index\_sequence<Is...>}},\ Tuple1\&\&\ t1,\ Tuple2\&\&\ t2,\ F\&\&\ f)\ \{}
+\DoxyCodeLine{00198\ \ \ \textcolor{keyword}{using\ }std::get;}
+\DoxyCodeLine{00199\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ unused[]\ =\ \{0,\ ((void)f(get<Is>(t1),\ get<Is>(t2)),\ 0)...\};}
+\DoxyCodeLine{00200\ \ \ \mbox{\hyperlink{namespacedetail_a1fe84ebaf96215ce0665d95b3124c2df}{ignore\_unused}}(unused);}
+\DoxyCodeLine{00201\ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Tuple1,\ \textcolor{keyword}{typename}\ Tuple2,\ \textcolor{keyword}{typename}\ F>}
+\DoxyCodeLine{00204\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacedetail_aadc1c40c6182e15f42669091f9da9f63}{for\_each2}}(Tuple1\&\&\ t1,\ Tuple2\&\&\ t2,\ F\&\&\ f)\ \{}
+\DoxyCodeLine{00205\ \ \ \mbox{\hyperlink{namespacedetail_aadc1c40c6182e15f42669091f9da9f63}{for\_each2}}(\mbox{\hyperlink{namespacedetail_a2b406d4e067dec16414d088e26824519}{tuple\_index\_sequence}}<\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a66fd080cbd291b1ead147865f0c1b497}{remove\_cvref\_t<Tuple1>}}>(),}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Tuple1>(t1),\ std::forward<Tuple2>(t2),}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<F>(f));}
+\DoxyCodeLine{00208\ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedetail_1_1tuple}{tuple}}\ \{}
+\DoxyCodeLine{00211\ \textcolor{comment}{//\ Workaround\ a\ bug\ in\ MSVC\ 2019\ (v140).}}
+\DoxyCodeLine{00212\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Char,\ \textcolor{keyword}{typename}...\ T>}
+\DoxyCodeLine{00213\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_1_1tuple_ac93b229833d53059279ae4d04b4cf680}{result\_t}}\ =\ std::tuple<formatter<remove\_cvref\_t<T>,\ Char>...>;}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{keyword}{using\ }std::get;}
+\DoxyCodeLine{00216\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Tuple,\ \textcolor{keyword}{typename}\ Char,\ \textcolor{keywordtype}{size\_t}...\ Is>}
+\DoxyCodeLine{00217\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacedetail_1_1tuple_ad54589c2dc022589a999b250ac149a57}{get\_formatters}}(\mbox{\hyperlink{namespacedetail_a1b1fe960e08e9f9baa570dba9d74c378}{index\_sequence<Is...>}})}
+\DoxyCodeLine{00218\ \ \ \ \ -\/>\ \mbox{\hyperlink{namespacedetail_1_1tuple_ac93b229833d53059279ae4d04b4cf680}{result\_t<Char,\ decltype(get<Is>}}(std::declval<Tuple>()))...>;}
+\DoxyCodeLine{00219\ \}\ \ \textcolor{comment}{//\ namespace\ tuple}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#if\ FMT\_MSC\_VERSION\ \&\&\ FMT\_MSC\_VERSION\ <\ 1920}}
+\DoxyCodeLine{00222\ \textcolor{comment}{//\ Older\ MSVC\ doesn't\ get\ the\ reference\ type\ correctly\ for\ arrays.}}
+\DoxyCodeLine{00223\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R>\ \textcolor{keyword}{struct\ }range\_reference\_type\_impl\ \{}
+\DoxyCodeLine{00224\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_ad46d232fb6116de4dac0c43dbde8e7a9}{type}}\ =\ \textcolor{keyword}{decltype}(*\mbox{\hyperlink{namespacedetail_a379579c5cd4dea85f22752fc3382e845}{detail::range\_begin}}(std::declval<R\&>()));}
+\DoxyCodeLine{00225\ \};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \textcolor{keyword}{struct\ }range\_reference\_type\_impl<T[N]>\ \{}
+\DoxyCodeLine{00228\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_ad46d232fb6116de4dac0c43dbde8e7a9}{type}}\ =\ T\&;}
+\DoxyCodeLine{00229\ \};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00232\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a266aa9a2fd821bb9dc00ed75fa1b50aa}{range\_reference\_type}}\ =\ \textcolor{keyword}{typename}\ range\_reference\_type\_impl<T>::type;}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00234\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Range>}
+\DoxyCodeLine{00235\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a266aa9a2fd821bb9dc00ed75fa1b50aa}{range\_reference\_type}}\ =}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keyword}{decltype}(*\mbox{\hyperlink{namespacedetail_a379579c5cd4dea85f22752fc3382e845}{detail::range\_begin}}(std::declval<Range\&>()));}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{comment}{//\ We\ don't\ use\ the\ Range's\ value\_type\ for\ anything,\ but\ we\ do\ need\ the\ Range's}}
+\DoxyCodeLine{00240\ \textcolor{comment}{//\ reference\ type,\ with\ cv-\/ref\ stripped.}}
+\DoxyCodeLine{00241\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Range>}
+\DoxyCodeLine{00242\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a1f15bab902992734ec8265b0ad7bce6b}{uncvref\_type}}\ =\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a66fd080cbd291b1ead147865f0c1b497}{remove\_cvref\_t<range\_reference\_type<Range>}}>;}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00245\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1range__format__kind__}{range\_format\_kind\_}}}
+\DoxyCodeLine{00246\ \ \ \ \ :\ std::integral\_constant<range\_format,}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_same<uncvref\_type<T>,\ T>::value}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ range\_format::disabled}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ is\_map<T>::value\ ?\ range\_format::map}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ is\_set<T>::value\ ?\ range\_format::set}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ range\_format::sequence>\ \{\};}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \textcolor{keyword}{template}\ <range\_format\ K>}
+\DoxyCodeLine{00254\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_ac18ec4bbb230b77cf76721e8ae63cc5c}{range\_format\_constant}}\ =\ std::integral\_constant<range\_format,\ K>;}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \textcolor{comment}{//\ These\ are\ not\ generic\ lambdas\ for\ compatibility\ with\ C++11.}}
+\DoxyCodeLine{00257\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Char>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1parse__empty__specs}{parse\_empty\_specs}}\ \{}
+\DoxyCodeLine{00258\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Formatter>\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structdetail_1_1parse__empty__specs_ad45d500e9aaf3c03aeddd207b7b6b11a}{operator()}}(Formatter\&\ f)\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ f.parse(\mbox{\hyperlink{structdetail_1_1parse__empty__specs_ac040e3307d614e03d158013af8107f35}{ctx}});}
+\DoxyCodeLine{00260\ \ \ \ \ \mbox{\hyperlink{namespacedetail_ae3d5545bd6f40925b8dc2240f9b64a41}{detail::maybe\_set\_debug\_format}}(f,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00261\ \ \ \}}
+\DoxyCodeLine{00262\ \ \ \mbox{\hyperlink{classparse__context}{parse\_context<Char>}}\&\ \mbox{\hyperlink{structdetail_1_1parse__empty__specs_ac040e3307d614e03d158013af8107f35}{ctx}};}
+\DoxyCodeLine{00263\ \};}
+\DoxyCodeLine{00264\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>\ \textcolor{keyword}{struct\ }format\_tuple\_element\ \{}
+\DoxyCodeLine{00265\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdetail_1_1format__tuple__element_ae880a3444e23ec1a88b66e19112b6d85}{char\_type}}\ =\ \textcolor{keyword}{typename}\ FormatContext::char\_type;}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00268\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structdetail_1_1format__tuple__element_ad3778aeb8fcd14bb5c47f2738b08da08}{operator()}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structformatter}{formatter<T,\ char\_type>}}\&\ f,\ \textcolor{keyword}{const}\ T\&\ v)\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structdetail_1_1format__tuple__element_a79344ee3f442584d0abfbdfb2c006c1e}{i}}\ >\ 0)\ \mbox{\hyperlink{structdetail_1_1format__tuple__element_ab5d1b7c348b0f4f0f4821be68a83a3a8}{ctx}}.advance\_to(\mbox{\hyperlink{namespacedetail_a99c9eb385532e77a130cab09c2e4bb4a}{detail::copy<char\_type>}}(\mbox{\hyperlink{structdetail_1_1format__tuple__element_a4b4c19d0f0a9b99e5ba442c2b868c6ce}{separator}},\ \mbox{\hyperlink{structdetail_1_1format__tuple__element_ab5d1b7c348b0f4f0f4821be68a83a3a8}{ctx}}.out()));}
+\DoxyCodeLine{00270\ \ \ \ \ \mbox{\hyperlink{structdetail_1_1format__tuple__element_ab5d1b7c348b0f4f0f4821be68a83a3a8}{ctx}}.advance\_to(f.format(v,\ \mbox{\hyperlink{structdetail_1_1format__tuple__element_ab5d1b7c348b0f4f0f4821be68a83a3a8}{ctx}}));}
+\DoxyCodeLine{00271\ \ \ \ \ ++\mbox{\hyperlink{structdetail_1_1format__tuple__element_a79344ee3f442584d0abfbdfb2c006c1e}{i}};}
+\DoxyCodeLine{00272\ \ \ \}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structdetail_1_1format__tuple__element_a79344ee3f442584d0abfbdfb2c006c1e}{i}};}
+\DoxyCodeLine{00275\ \ \ FormatContext\&\ \mbox{\hyperlink{structdetail_1_1format__tuple__element_ab5d1b7c348b0f4f0f4821be68a83a3a8}{ctx}};}
+\DoxyCodeLine{00276\ \ \ \mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<char\_type>}}\ \mbox{\hyperlink{structdetail_1_1format__tuple__element_a4b4c19d0f0a9b99e5ba442c2b868c6ce}{separator}};}
+\DoxyCodeLine{00277\ \};}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_af9ca42737dd564744496ba899c540086}{FMT\_EXPORT}}}
+\DoxyCodeLine{00282\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structis__tuple__like}{is\_tuple\_like}}\ \{}
+\DoxyCodeLine{00283\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structis__tuple__like_aff66a325971a3e99e2ceed0325f622a2}{value}}\ =}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \mbox{\hyperlink{classdetail_1_1is__tuple__like___a55d0041fd3b88b448e67e4f6a52690c3}{detail::is\_tuple\_like\_<T>::value}}\ \&\&\ !detail::is\_range\_<T>::value;}
+\DoxyCodeLine{00285\ \};}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_af9ca42737dd564744496ba899c540086}{FMT\_EXPORT}}}
+\DoxyCodeLine{00288\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ C>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structis__tuple__formattable}{is\_tuple\_formattable}}\ \{}
+\DoxyCodeLine{00289\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structis__tuple__formattable_aa847b8b5daca436ad7274916265bd753}{value}}\ =\ \mbox{\hyperlink{classdetail_1_1is__tuple__formattable___a227aecb00fd9a13fa09e53cf8641a881}{detail::is\_tuple\_formattable\_<T,\ C>::value}};}
+\DoxyCodeLine{00290\ \};}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Tuple,\ \textcolor{keyword}{typename}\ Char>}
+\DoxyCodeLine{00293\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structformatter}{formatter}}<Tuple,\ Char,}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a012819c9e8b5e04872a271f50f8b8196}{enable\_if\_t}}<\mbox{\hyperlink{namespacefmt}{fmt}}::\mbox{\hyperlink{structis__tuple__like}{is\_tuple\_like}}<Tuple>::value\ \&\&}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fmt::is\_tuple\_formattable<Tuple,\ Char>::value>>\ \{}
+\DoxyCodeLine{00296\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00297\ \ \ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespacedetail_1_1tuple_ad54589c2dc022589a999b250ac149a57}{detail::tuple::get\_formatters<Tuple,\ Char>}}(}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \mbox{\hyperlink{namespacedetail_a2b406d4e067dec16414d088e26824519}{detail::tuple\_index\_sequence<Tuple>}}()))\ formatters\_;}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ basic\_string\_view<Char>\ separator\_\ =\ detail::string\_literal<Char,\ \textcolor{charliteral}{','},\ \textcolor{charliteral}{'\ '}>\{\};}
+\DoxyCodeLine{00301\ \ \ basic\_string\_view<Char>\ opening\_bracket\_\ =}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ detail::string\_literal<Char,\ \textcolor{charliteral}{'('}>\{\};}
+\DoxyCodeLine{00303\ \ \ basic\_string\_view<Char>\ closing\_bracket\_\ =}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ detail::string\_literal<Char,\ \textcolor{charliteral}{')'}>\{\};}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00307\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \mbox{\hyperlink{structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7_a7aab555dd69f6199c18839d6b6a87dbd}{formatter}}()\ \{\}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7_a709fe7746b61cc11b6ae2bf7f08ca4a2}{set\_separator}}(\mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<Char>}}\ sep)\ \{}
+\DoxyCodeLine{00310\ \ \ \ \ separator\_\ =\ sep;}
+\DoxyCodeLine{00311\ \ \ \}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7_a385ac63a4631424bafc37094a59ec8f2}{set\_brackets}}(\mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<Char>}}\ open,}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<Char>}}\ close)\ \{}
+\DoxyCodeLine{00315\ \ \ \ \ opening\_bracket\_\ =\ open;}
+\DoxyCodeLine{00316\ \ \ \ \ closing\_bracket\_\ =\ close;}
+\DoxyCodeLine{00317\ \ \ \}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7_a7947943a9fe3e9521fb8ffd65353e71f}{parse}}(\mbox{\hyperlink{classparse__context}{parse\_context<Char>}}\&\ ctx)\ -\/>\ \textcolor{keyword}{const}\ Char*\ \{}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ ctx.begin();}
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ ctx.end();}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ end\ \&\&\ \mbox{\hyperlink{namespacedetail_a1321aa4e75fb308917211597b64600b3}{detail::to\_ascii}}(*it)\ ==\ \textcolor{charliteral}{'n'})\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \mbox{\hyperlink{structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7_a385ac63a4631424bafc37094a59ec8f2}{set\_brackets}}(\{\},\ \{\});}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \mbox{\hyperlink{structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7_a709fe7746b61cc11b6ae2bf7f08ca4a2}{set\_separator}}(\{\});}
+\DoxyCodeLine{00326\ \ \ \ \ \}}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ end\ \&\&\ *it\ !=\ \textcolor{charliteral}{'\}'})\ \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a840ce9cfe04f418f49000772a3cf87e1}{report\_error}}(\textcolor{stringliteral}{"{}invalid\ format\ specifier"{}});}
+\DoxyCodeLine{00328\ \ \ \ \ ctx.advance\_to(it);}
+\DoxyCodeLine{00329\ \ \ \ \ \mbox{\hyperlink{namespacedetail_a526368839e35eb3302e7fa7109feffc6}{detail::for\_each}}(formatters\_,\ \mbox{\hyperlink{structdetail_1_1parse__empty__specs}{detail::parse\_empty\_specs<Char>}}\{ctx\});}
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00331\ \ \ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00334\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7_a44d56ae74cb6f1d0d82959f6b687b0dc}{format}}(\textcolor{keyword}{const}\ Tuple\&\ value,\ FormatContext\&\ ctx)\ \textcolor{keyword}{const}}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ -\/>\ \textcolor{keyword}{decltype}(ctx.out())\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ ctx.advance\_to(\mbox{\hyperlink{namespacedetail_a99c9eb385532e77a130cab09c2e4bb4a}{detail::copy<Char>}}(opening\_bracket\_,\ ctx.out()));}
+\DoxyCodeLine{00337\ \ \ \ \ \mbox{\hyperlink{namespacedetail_aadc1c40c6182e15f42669091f9da9f63}{detail::for\_each2}}(}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ formatters\_,\ value,}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdetail_1_1format__tuple__element}{detail::format\_tuple\_element<FormatContext>}}\{0,\ ctx,\ separator\_\});}
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacedetail_a99c9eb385532e77a130cab09c2e4bb4a}{detail::copy<Char>}}(closing\_bracket\_,\ ctx.out());}
+\DoxyCodeLine{00341\ \ \ \}}
+\DoxyCodeLine{00342\ \};}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_af9ca42737dd564744496ba899c540086}{FMT\_EXPORT}}}
+\DoxyCodeLine{00345\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Char>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structis__range}{is\_range}}\ \{}
+\DoxyCodeLine{00346\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structis__range_aa9c099ace38127a7630f62d244a332da}{value}}\ =}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ detail::is\_range\_<T>::value\ \&\&\ !detail::has\_to\_string\_view<T>::value;}
+\DoxyCodeLine{00348\ \};}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedetail}{detail}}\ \{}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Char,\ \textcolor{keyword}{typename}\ Element>}
+\DoxyCodeLine{00353\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_aaf9daf3ba4bc7b9131efce228d576160}{range\_formatter\_type}}\ =\ formatter<remove\_cvref\_t<Element>,\ Char>;}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R>}
+\DoxyCodeLine{00356\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a9141cbb33b7f3e6a8c307633e9579e8c}{maybe\_const\_range}}\ =}
+\DoxyCodeLine{00357\ \ \ \ \ conditional\_t<has\_const\_begin\_end<R>::value,\ \textcolor{keyword}{const}\ R,\ R>;}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}\ Char>}
+\DoxyCodeLine{00360\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1is__formattable__delayed}{is\_formattable\_delayed}}}
+\DoxyCodeLine{00361\ \ \ \ \ :\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_afba1605a28aa8a48adab807e9f39ce6c}{is\_formattable}}<uncvref\_type<maybe\_const\_range<R>>,\ Char>\ \{\};}
+\DoxyCodeLine{00362\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structconjunction}{conjunction}}\ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{00365\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ P>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structconjunction}{conjunction<P>}}\ :\ P\ \{\};}
+\DoxyCodeLine{00366\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ P1,\ \textcolor{keyword}{typename}...\ Pn>}
+\DoxyCodeLine{00367\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structconjunction}{conjunction}}<P1,\ Pn...>}
+\DoxyCodeLine{00368\ \ \ \ \ :\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_acdb0eff728aec08ed6fff07d2885ea9d}{conditional\_t}}<bool(P1::value),\ conjunction<Pn...>,\ P1>\ \{\};}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_af9ca42737dd564744496ba899c540086}{FMT\_EXPORT}}}
+\DoxyCodeLine{00371\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Char,\ \textcolor{keyword}{typename}\ Enable\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{00372\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrange__formatter}{range\_formatter}};}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Char>}
+\DoxyCodeLine{00375\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrange__formatter}{range\_formatter}}<}
+\DoxyCodeLine{00376\ \ \ \ \ T,\ Char,}
+\DoxyCodeLine{00377\ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a012819c9e8b5e04872a271f50f8b8196}{enable\_if\_t}}<\mbox{\hyperlink{structconjunction}{conjunction}}<\mbox{\hyperlink{namespacestd}{std}}::is\_same<T,\ remove\_cvref\_t<T>>,}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_afba1605a28aa8a48adab807e9f39ce6c}{is\_formattable}}<T,\ Char>>::value>>\ \{}
+\DoxyCodeLine{00379\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00380\ \ \ \mbox{\hyperlink{namespacedetail_aaf9daf3ba4bc7b9131efce228d576160}{detail::range\_formatter\_type<Char,\ T>}}\ underlying\_;}
+\DoxyCodeLine{00381\ \ \ basic\_string\_view<Char>\ separator\_\ =\ detail::string\_literal<Char,\ \textcolor{charliteral}{','},\ \textcolor{charliteral}{'\ '}>\{\};}
+\DoxyCodeLine{00382\ \ \ basic\_string\_view<Char>\ opening\_bracket\_\ =}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ detail::string\_literal<Char,\ \textcolor{charliteral}{'['}>\{\};}
+\DoxyCodeLine{00384\ \ \ basic\_string\_view<Char>\ closing\_bracket\_\ =}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ detail::string\_literal<Char,\ \textcolor{charliteral}{']'}>\{\};}
+\DoxyCodeLine{00386\ \ \ \textcolor{keywordtype}{bool}\ is\_debug\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Output,\ \textcolor{keyword}{typename}\ It,\ \textcolor{keyword}{typename}\ Sentinel,\ \textcolor{keyword}{typename}\ U\ =\ T,}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\_ENABLE\_IF}}(std::is\_same<U,\ Char>::value)>}
+\DoxyCodeLine{00390\ \ \ \textcolor{keyword}{auto}\ write\_debug\_string(Output\&\ out,\ It\ it,\ Sentinel\ end)\ \textcolor{keyword}{const}\ -\/>\ Output\ \{}
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keyword}{auto}\ buf\ =\ basic\_memory\_buffer<Char>();}
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ it\ !=\ end;\ ++it)\ buf.push\_back(*it);}
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keyword}{auto}\ specs\ =\ format\_specs();}
+\DoxyCodeLine{00394\ \ \ \ \ specs.set\_type(\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_adfa139c9a1902753b3696794759b2c48aad42f6697b035b7580e4fef93be20b4d}{presentation\_type::debug}});}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacedetail_a29dacf26eedc9e3575fb57329a5ca0a3}{detail::write<Char>}}(}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ out,\ basic\_string\_view<Char>(buf.data(),\ buf.size()),\ specs);}
+\DoxyCodeLine{00397\ \ \ \}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Output,\ \textcolor{keyword}{typename}\ It,\ \textcolor{keyword}{typename}\ Sentinel,\ \textcolor{keyword}{typename}\ U\ =\ T,}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\_ENABLE\_IF}}(!std::is\_same<U,\ Char>::value)>}
+\DoxyCodeLine{00401\ \ \ \textcolor{keyword}{auto}\ write\_debug\_string(Output\&\ out,\ It,\ Sentinel)\ \textcolor{keyword}{const}\ -\/>\ Output\ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00403\ \ \ \}}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00406\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \mbox{\hyperlink{structrange__formatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01std_1_1is__same_3_3cf3a20f6ea4950448b9f85e13a8c815_a66dfb5559b07c5ff41e0c1407a6b76e1}{range\_formatter}}()\ \{\}}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structrange__formatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01std_1_1is__same_3_3cf3a20f6ea4950448b9f85e13a8c815_a2bd8e661ae1b24d27a43e1e7adc1138c}{underlying}}()\ -\/>\ \mbox{\hyperlink{namespacedetail_aaf9daf3ba4bc7b9131efce228d576160}{detail::range\_formatter\_type<Char,\ T>}}\&\ \{}
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordflow}{return}\ underlying\_;}
+\DoxyCodeLine{00410\ \ \ \}}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structrange__formatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01std_1_1is__same_3_3cf3a20f6ea4950448b9f85e13a8c815_a3a77cef86a3b12e35e90f5a60eb4d9af}{set\_separator}}(\mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<Char>}}\ sep)\ \{}
+\DoxyCodeLine{00413\ \ \ \ \ separator\_\ =\ sep;}
+\DoxyCodeLine{00414\ \ \ \}}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structrange__formatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01std_1_1is__same_3_3cf3a20f6ea4950448b9f85e13a8c815_a9035c593d22988a874e4007022d04d07}{set\_brackets}}(\mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<Char>}}\ open,}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<Char>}}\ close)\ \{}
+\DoxyCodeLine{00418\ \ \ \ \ opening\_bracket\_\ =\ open;}
+\DoxyCodeLine{00419\ \ \ \ \ closing\_bracket\_\ =\ close;}
+\DoxyCodeLine{00420\ \ \ \}}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structrange__formatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01std_1_1is__same_3_3cf3a20f6ea4950448b9f85e13a8c815_a0849ee84cc64103f4aba499aad5c7ef8}{parse}}(\mbox{\hyperlink{classparse__context}{parse\_context<Char>}}\&\ ctx)\ -\/>\ \textcolor{keyword}{const}\ Char*\ \{}
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ ctx.begin();}
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ ctx.end();}
+\DoxyCodeLine{00425\ \ \ \ \ \mbox{\hyperlink{namespacedetail_ae3d5545bd6f40925b8dc2240f9b64a41}{detail::maybe\_set\_debug\_format}}(underlying\_,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ end)\ \textcolor{keywordflow}{return}\ underlying\_.parse(ctx);}
+\DoxyCodeLine{00427\ }
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{namespacedetail_a1321aa4e75fb308917211597b64600b3}{detail::to\_ascii}}(*it))\ \{}
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'n'}:}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \mbox{\hyperlink{structrange__formatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01std_1_1is__same_3_3cf3a20f6ea4950448b9f85e13a8c815_a9035c593d22988a874e4007022d04d07}{set\_brackets}}(\{\},\ \{\});}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'?'}:}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ is\_debug\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \mbox{\hyperlink{structrange__formatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01std_1_1is__same_3_3cf3a20f6ea4950448b9f85e13a8c815_a9035c593d22988a874e4007022d04d07}{set\_brackets}}(\{\},\ \{\});}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ end\ ||\ *it\ !=\ \textcolor{charliteral}{'s'})\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a840ce9cfe04f418f49000772a3cf87e1}{report\_error}}(\textcolor{stringliteral}{"{}invalid\ format\ specifier"{}});}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a35d4bc2bf717ac7731de7713c54175bb}{FMT\_FALLTHROUGH}};}
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'s'}:}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::is\_same<T,\ Char>::value)}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a840ce9cfe04f418f49000772a3cf87e1}{report\_error}}(\textcolor{stringliteral}{"{}invalid\ format\ specifier"{}});}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!is\_debug)\ \{}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrange__formatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01std_1_1is__same_3_3cf3a20f6ea4950448b9f85e13a8c815_a9035c593d22988a874e4007022d04d07}{set\_brackets}}(\mbox{\hyperlink{structdetail_1_1string__literal}{detail::string\_literal}}<Char,\ \textcolor{charliteral}{'"{}'}>\{\},}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdetail_1_1string__literal}{detail::string\_literal}}<Char,\ \textcolor{charliteral}{'"{}'}>\{\});}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrange__formatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01std_1_1is__same_3_3cf3a20f6ea4950448b9f85e13a8c815_a3a77cef86a3b12e35e90f5a60eb4d9af}{set\_separator}}(\{\});}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedetail_ae3d5545bd6f40925b8dc2240f9b64a41}{detail::maybe\_set\_debug\_format}}(underlying\_,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00450\ \ \ \ \ \}}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ end\ \&\&\ *it\ !=\ \textcolor{charliteral}{'\}'})\ \{}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*it\ !=\ \textcolor{charliteral}{':'})\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a840ce9cfe04f418f49000772a3cf87e1}{report\_error}}(\textcolor{stringliteral}{"{}invalid\ format\ specifier"{}});}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \mbox{\hyperlink{namespacedetail_ae3d5545bd6f40925b8dc2240f9b64a41}{detail::maybe\_set\_debug\_format}}(underlying\_,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{00456\ \ \ \ \ \}}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \ \ \ \ ctx.advance\_to(it);}
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keywordflow}{return}\ underlying\_.parse(ctx);}
+\DoxyCodeLine{00460\ \ \ \}}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00463\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structrange__formatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01std_1_1is__same_3_3cf3a20f6ea4950448b9f85e13a8c815_a062cc7a277cc589cb5aa932a5bdcc198}{format}}(R\&\&\ range,\ FormatContext\&\ ctx)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keyword}{decltype}(ctx.out())\ \{}
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keyword}{auto}\ out\ =\ ctx.out();}
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{namespacedetail_a379579c5cd4dea85f22752fc3382e845}{detail::range\_begin}}(range);}
+\DoxyCodeLine{00466\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ \mbox{\hyperlink{namespacedetail_a9b512d17ca26dca29464f452833cc5c3}{detail::range\_end}}(range);}
+\DoxyCodeLine{00467\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_debug)\ \textcolor{keywordflow}{return}\ write\_debug\_string(out,\ std::move(it),\ end);}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \ \ \ \ out\ =\ \mbox{\hyperlink{namespacedetail_a99c9eb385532e77a130cab09c2e4bb4a}{detail::copy<Char>}}(opening\_bracket\_,\ out);}
+\DoxyCodeLine{00470\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00471\ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ it\ !=\ end;\ ++it)\ \{}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 0)\ out\ =\ \mbox{\hyperlink{namespacedetail_a99c9eb385532e77a130cab09c2e4bb4a}{detail::copy<Char>}}(separator\_,\ out);}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ ctx.advance\_to(out);}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\&\ item\ =\ *it;\ \ \textcolor{comment}{//\ Need\ an\ lvalue}}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ out\ =\ underlying\_.format(item,\ ctx);}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ ++i;}
+\DoxyCodeLine{00477\ \ \ \ \ \}}
+\DoxyCodeLine{00478\ \ \ \ \ out\ =\ \mbox{\hyperlink{namespacedetail_a99c9eb385532e77a130cab09c2e4bb4a}{detail::copy<Char>}}(closing\_bracket\_,\ out);}
+\DoxyCodeLine{00479\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00480\ \ \ \}}
+\DoxyCodeLine{00481\ \};}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_af9ca42737dd564744496ba899c540086}{FMT\_EXPORT}}}
+\DoxyCodeLine{00484\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Char,\ \textcolor{keyword}{typename}\ Enable\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{00485\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrange__format__kind}{range\_format\_kind}}}
+\DoxyCodeLine{00486\ \ \ \ \ :\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_acdb0eff728aec08ed6fff07d2885ea9d}{conditional\_t}}<}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ is\_range<T,\ Char>::value,\ detail::range\_format\_kind\_<T>,}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ std::integral\_constant<range\_format,\ range\_format::disabled>>\ \{\};}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00490\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}\ Char>}
+\DoxyCodeLine{00491\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structformatter}{formatter}}<}
+\DoxyCodeLine{00492\ \ \ \ \ R,\ Char,}
+\DoxyCodeLine{00493\ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a012819c9e8b5e04872a271f50f8b8196}{enable\_if\_t}}<\mbox{\hyperlink{structconjunction}{conjunction}}<}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a0d337b508cc2fb5a92d8e72db201e53b}{bool\_constant}}<}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrange__format__kind}{range\_format\_kind}}<R,\ Char>::value\ !=\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da075ae3d2fc31640504f814f60e5ef713}{range\_format::disabled}}\ \&\&}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrange__format__kind}{range\_format\_kind}}<R,\ Char>::value\ !=\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{range\_format::map}}\ \&\&}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrange__format__kind}{range\_format\_kind}}<R,\ Char>::value\ !=\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4dab45cffe084dd3d20d928bee85e7b0f21}{range\_format::string}}\ \&\&}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrange__format__kind}{range\_format\_kind}}<R,\ Char>::value\ !=\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4daa23944d02095b1044f8d7dbfff7d953f}{range\_format::debug\_string}}>,}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdetail_1_1is__formattable__delayed}{detail::is\_formattable\_delayed}}<R,\ Char>>::value>>\ \{}
+\DoxyCodeLine{00500\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00501\ \ \ \textcolor{keyword}{using\ }range\_type\ =\ \mbox{\hyperlink{namespacedetail_a9141cbb33b7f3e6a8c307633e9579e8c}{detail::maybe\_const\_range<R>}};}
+\DoxyCodeLine{00502\ \ \ range\_formatter<detail::uncvref\_type<range\_type>,\ Char>\ range\_formatter\_;}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00504\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00505\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structformatter_3_01R_00_01Char_00_01enable__if__t_3_01conjunction_3_01bool__constant_3_01range_a5b7636befa25215ae7558075fc3d4e6_a36af364e3358044cf113b106c63dc7ac}{nonlocking}}\ =\ void;}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \mbox{\hyperlink{structformatter_3_01R_00_01Char_00_01enable__if__t_3_01conjunction_3_01bool__constant_3_01range_a5b7636befa25215ae7558075fc3d4e6_a6a41cde75f99d97312737ec1e70ecb38}{formatter}}()\ \{}
+\DoxyCodeLine{00508\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacedetail_a8a0f6a5093c0390e04f2d2091e0a42e0}{detail::const\_check}}(\mbox{\hyperlink{structrange__format__kind}{range\_format\_kind<R,\ Char>::value}}\ !=}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4dacdaeeeba9b4a4c5ebf042c0215a7bb0e}{range\_format::set}}))}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00511\ \ \ \ \ range\_formatter\_.set\_brackets(\mbox{\hyperlink{structdetail_1_1string__literal}{detail::string\_literal}}<Char,\ \textcolor{charliteral}{'\{'}>\{\},}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdetail_1_1string__literal}{detail::string\_literal}}<Char,\ \textcolor{charliteral}{'\}'}>\{\});}
+\DoxyCodeLine{00513\ \ \ \}}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01R_00_01Char_00_01enable__if__t_3_01conjunction_3_01bool__constant_3_01range_a5b7636befa25215ae7558075fc3d4e6_a8b4921acdec68118a7cf963a2c605d59}{parse}}(\mbox{\hyperlink{classparse__context}{parse\_context<Char>}}\&\ ctx)\ -\/>\ \textcolor{keyword}{const}\ Char*\ \{}
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{keywordflow}{return}\ range\_formatter\_.parse(ctx);}
+\DoxyCodeLine{00517\ \ \ \}}
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00519\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00520\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01R_00_01Char_00_01enable__if__t_3_01conjunction_3_01bool__constant_3_01range_a5b7636befa25215ae7558075fc3d4e6_a14f2169a071ac017598ca8923ef1c47e}{format}}(range\_type\&\ range,\ FormatContext\&\ ctx)\ \textcolor{keyword}{const}}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ -\/>\ \textcolor{keyword}{decltype}(ctx.out())\ \{}
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keywordflow}{return}\ range\_formatter\_.format(range,\ ctx);}
+\DoxyCodeLine{00523\ \ \ \}}
+\DoxyCodeLine{00524\ \};}
+\DoxyCodeLine{00525\ }
+\DoxyCodeLine{00526\ \textcolor{comment}{//\ A\ map\ formatter.}}
+\DoxyCodeLine{00527\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}\ Char>}
+\DoxyCodeLine{00528\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structformatter}{formatter}}<}
+\DoxyCodeLine{00529\ \ \ \ \ R,\ Char,}
+\DoxyCodeLine{00530\ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a012819c9e8b5e04872a271f50f8b8196}{enable\_if\_t}}<\mbox{\hyperlink{structconjunction}{conjunction}}<}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a0d337b508cc2fb5a92d8e72db201e53b}{bool\_constant}}<\mbox{\hyperlink{structrange__format__kind}{range\_format\_kind}}<R,\ Char>::value\ ==\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{range\_format::map}}>,}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdetail_1_1is__formattable__delayed}{detail::is\_formattable\_delayed}}<R,\ Char>>::value>>\ \{}
+\DoxyCodeLine{00533\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00534\ \ \ \textcolor{keyword}{using\ }map\_type\ =\ \mbox{\hyperlink{namespacedetail_a9141cbb33b7f3e6a8c307633e9579e8c}{detail::maybe\_const\_range<R>}};}
+\DoxyCodeLine{00535\ \ \ \textcolor{keyword}{using\ }element\_type\ =\ \mbox{\hyperlink{namespacedetail_a1f15bab902992734ec8265b0ad7bce6b}{detail::uncvref\_type<map\_type>}};}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00537\ \ \ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespacedetail_1_1tuple_ad54589c2dc022589a999b250ac149a57}{detail::tuple::get\_formatters<element\_type,\ Char>}}(}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \mbox{\hyperlink{namespacedetail_a2b406d4e067dec16414d088e26824519}{detail::tuple\_index\_sequence<element\_type>}}()))\ formatters\_;}
+\DoxyCodeLine{00539\ \ \ \textcolor{keywordtype}{bool}\ no\_delimiters\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00540\ }
+\DoxyCodeLine{00541\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00542\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \mbox{\hyperlink{structformatter_3_01R_00_01Char_00_01enable__if__t_3_01conjunction_3_01bool__constant_3_01range_a13f0e31fda27b580a18b8a82ce44337_a3bde2961dbf543b49390a084d4312086}{formatter}}()\ \{\}}
+\DoxyCodeLine{00543\ }
+\DoxyCodeLine{00544\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01R_00_01Char_00_01enable__if__t_3_01conjunction_3_01bool__constant_3_01range_a13f0e31fda27b580a18b8a82ce44337_aa3b8454bdeeedea0eb5ed6ecc0ac2f83}{parse}}(\mbox{\hyperlink{classparse__context}{parse\_context<Char>}}\&\ ctx)\ -\/>\ \textcolor{keyword}{const}\ Char*\ \{}
+\DoxyCodeLine{00545\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ ctx.begin();}
+\DoxyCodeLine{00546\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ ctx.end();}
+\DoxyCodeLine{00547\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ end)\ \{}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacedetail_a1321aa4e75fb308917211597b64600b3}{detail::to\_ascii}}(*it)\ ==\ \textcolor{charliteral}{'n'})\ \{}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ no\_delimiters\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ end\ \&\&\ *it\ !=\ \textcolor{charliteral}{'\}'})\ \{}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*it\ !=\ \textcolor{charliteral}{':'})\ \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a840ce9cfe04f418f49000772a3cf87e1}{report\_error}}(\textcolor{stringliteral}{"{}invalid\ format\ specifier"{}});}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ ctx.advance\_to(it);}
+\DoxyCodeLine{00557\ \ \ \ \ \}}
+\DoxyCodeLine{00558\ \ \ \ \ \mbox{\hyperlink{namespacedetail_a526368839e35eb3302e7fa7109feffc6}{detail::for\_each}}(formatters\_,\ \mbox{\hyperlink{structdetail_1_1parse__empty__specs}{detail::parse\_empty\_specs<Char>}}\{ctx\});}
+\DoxyCodeLine{00559\ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00560\ \ \ \}}
+\DoxyCodeLine{00561\ }
+\DoxyCodeLine{00562\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00563\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01R_00_01Char_00_01enable__if__t_3_01conjunction_3_01bool__constant_3_01range_a13f0e31fda27b580a18b8a82ce44337_aa1669c485ca23b86e120b75998183ea9}{format}}(map\_type\&\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}},\ FormatContext\&\ ctx)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keyword}{decltype}(ctx.out())\ \{}
+\DoxyCodeLine{00564\ \ \ \ \ \textcolor{keyword}{auto}\ out\ =\ ctx.out();}
+\DoxyCodeLine{00565\ \ \ \ \ \mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<Char>}}\ open\ =\ \mbox{\hyperlink{structdetail_1_1string__literal}{detail::string\_literal}}<Char,\ \textcolor{charliteral}{'\{'}>\{\};}
+\DoxyCodeLine{00566\ \ \ \ \ \textcolor{keywordflow}{if}\ (!no\_delimiters\_)\ out\ =\ \mbox{\hyperlink{namespacedetail_a99c9eb385532e77a130cab09c2e4bb4a}{detail::copy<Char>}}(open,\ out);}
+\DoxyCodeLine{00567\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00568\ \ \ \ \ \mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<Char>}}\ sep\ =\ \mbox{\hyperlink{structdetail_1_1string__literal}{detail::string\_literal}}<Char,\ \textcolor{charliteral}{','},\ \textcolor{charliteral}{'\ '}>\{\};}
+\DoxyCodeLine{00569\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\&\ value\ :\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})\ \{}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 0)\ out\ =\ \mbox{\hyperlink{namespacedetail_a99c9eb385532e77a130cab09c2e4bb4a}{detail::copy<Char>}}(sep,\ out);}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ ctx.advance\_to(out);}
+\DoxyCodeLine{00572\ \ \ \ \ \ \ \mbox{\hyperlink{namespacedetail_aadc1c40c6182e15f42669091f9da9f63}{detail::for\_each2}}(formatters\_,\ value,}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdetail_1_1format__tuple__element}{detail::format\_tuple\_element<FormatContext>}}\{}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ ctx,\ \mbox{\hyperlink{structdetail_1_1string__literal}{detail::string\_literal}}<Char,\ \textcolor{charliteral}{':'},\ \textcolor{charliteral}{'\ '}>\{\}\});}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ ++i;}
+\DoxyCodeLine{00576\ \ \ \ \ \}}
+\DoxyCodeLine{00577\ \ \ \ \ \mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<Char>}}\ close\ =\ \mbox{\hyperlink{structdetail_1_1string__literal}{detail::string\_literal}}<Char,\ \textcolor{charliteral}{'\}'}>\{\};}
+\DoxyCodeLine{00578\ \ \ \ \ \textcolor{keywordflow}{if}\ (!no\_delimiters\_)\ out\ =\ \mbox{\hyperlink{namespacedetail_a99c9eb385532e77a130cab09c2e4bb4a}{detail::copy<Char>}}(close,\ out);}
+\DoxyCodeLine{00579\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00580\ \ \ \}}
+\DoxyCodeLine{00581\ \};}
+\DoxyCodeLine{00582\ }
+\DoxyCodeLine{00583\ \textcolor{comment}{//\ A\ (debug\_)string\ formatter.}}
+\DoxyCodeLine{00584\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}\ Char>}
+\DoxyCodeLine{00585\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structformatter}{formatter}}<}
+\DoxyCodeLine{00586\ \ \ \ \ R,\ Char,}
+\DoxyCodeLine{00587\ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a012819c9e8b5e04872a271f50f8b8196}{enable\_if\_t}}<\mbox{\hyperlink{structrange__format__kind}{range\_format\_kind}}<R,\ Char>::value\ ==\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4dab45cffe084dd3d20d928bee85e7b0f21}{range\_format::string}}\ ||}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrange__format__kind}{range\_format\_kind}}<R,\ Char>::value\ ==}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4daa23944d02095b1044f8d7dbfff7d953f}{range\_format::debug\_string}}>>\ \{}
+\DoxyCodeLine{00590\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00591\ \ \ \textcolor{keyword}{using\ }range\_type\ =\ \mbox{\hyperlink{namespacedetail_a9141cbb33b7f3e6a8c307633e9579e8c}{detail::maybe\_const\_range<R>}};}
+\DoxyCodeLine{00592\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_ad46d232fb6116de4dac0c43dbde8e7a9a4771e2c3115bb1af6ce17d9d35a0eb48}{string\_type}}\ =}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_acdb0eff728aec08ed6fff07d2885ea9d}{conditional\_t}}<std::is\_constructible<}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ detail::std\_string\_view<Char>,}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespacedetail_a379579c5cd4dea85f22752fc3382e845}{detail::range\_begin}}(std::declval<R>())),}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespacedetail_a9b512d17ca26dca29464f452833cc5c3}{detail::range\_end}}(std::declval<R>()))>::value,}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ detail::std\_string\_view<Char>,\ std::basic\_string<Char>>;}
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00599\ \ \ \mbox{\hyperlink{structformatter_a7ddc442868c51825dcd1f4b3911436f1}{formatter<string\_type,\ Char>}}\ underlying\_;}
+\DoxyCodeLine{00600\ }
+\DoxyCodeLine{00601\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00602\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01R_00_01Char_00_01enable__if__t_3_01range__format__kind_3_01R_00_01Char_01_4_8a0e8f2a8ca103b5e70565cb4749a622_a448d80e36858d208e0ccf9489b79537d}{parse}}(\mbox{\hyperlink{classparse__context}{parse\_context<Char>}}\&\ ctx)\ -\/>\ \textcolor{keyword}{const}\ Char*\ \{}
+\DoxyCodeLine{00603\ \ \ \ \ \textcolor{keywordflow}{return}\ underlying\_.parse(ctx);}
+\DoxyCodeLine{00604\ \ \ \}}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00606\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00607\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01R_00_01Char_00_01enable__if__t_3_01range__format__kind_3_01R_00_01Char_01_4_8a0e8f2a8ca103b5e70565cb4749a622_a209e33e4951ec74d42f414a5b21e7276}{format}}(range\_type\&\ range,\ FormatContext\&\ ctx)\ \textcolor{keyword}{const}}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ -\/>\ \textcolor{keyword}{decltype}(ctx.out())\ \{}
+\DoxyCodeLine{00609\ \ \ \ \ \textcolor{keyword}{auto}\ out\ =\ ctx.out();}
+\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacedetail_a8a0f6a5093c0390e04f2d2091e0a42e0}{detail::const\_check}}(\mbox{\hyperlink{structrange__format__kind}{range\_format\_kind<R,\ Char>::value}}\ ==}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4daa23944d02095b1044f8d7dbfff7d953f}{range\_format::debug\_string}}))}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ *out++\ =\ \textcolor{charliteral}{'"{}'};}
+\DoxyCodeLine{00613\ \ \ \ \ out\ =\ underlying\_.format(}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ string\_type\{\mbox{\hyperlink{namespacedetail_a379579c5cd4dea85f22752fc3382e845}{detail::range\_begin}}(range),\ \mbox{\hyperlink{namespacedetail_a9b512d17ca26dca29464f452833cc5c3}{detail::range\_end}}(range)\},\ ctx);}
+\DoxyCodeLine{00615\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacedetail_a8a0f6a5093c0390e04f2d2091e0a42e0}{detail::const\_check}}(\mbox{\hyperlink{structrange__format__kind}{range\_format\_kind<R,\ Char>::value}}\ ==}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4daa23944d02095b1044f8d7dbfff7d953f}{range\_format::debug\_string}}))}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ *out++\ =\ \textcolor{charliteral}{'"{}'};}
+\DoxyCodeLine{00618\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00619\ \ \ \}}
+\DoxyCodeLine{00620\ \};}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00622\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ It,\ \textcolor{keyword}{typename}\ Sentinel,\ \textcolor{keyword}{typename}\ Char\ =\ \textcolor{keywordtype}{char}>}
+\DoxyCodeLine{00623\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structjoin__view}{join\_view}}\ :\ \mbox{\hyperlink{structdetail_1_1view}{detail::view}}\ \{}
+\DoxyCodeLine{00624\ \ \ It\ \mbox{\hyperlink{structjoin__view_a228866dfb9958a016ea4fc9703bc9590}{begin}};}
+\DoxyCodeLine{00625\ \ \ Sentinel\ \mbox{\hyperlink{structjoin__view_a9eca47071ad8811c82e8449e257fc469}{end}};}
+\DoxyCodeLine{00626\ \ \ basic\_string\_view<Char>\ \mbox{\hyperlink{structjoin__view_a2170f3b8439d35317c4ce09ea5d4d9f0}{sep}};}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00628\ \ \ \mbox{\hyperlink{structjoin__view_a44c6331d74f29c6bbcae157d76f8969e}{join\_view}}(It\ b,\ Sentinel\ e,\ \mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<Char>}}\ s)}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ :\ \mbox{\hyperlink{structjoin__view_a228866dfb9958a016ea4fc9703bc9590}{begin}}(\mbox{\hyperlink{namespacestd}{std}}::move(b)),\ \mbox{\hyperlink{structjoin__view_a9eca47071ad8811c82e8449e257fc469}{end}}(e),\ \mbox{\hyperlink{structjoin__view_a2170f3b8439d35317c4ce09ea5d4d9f0}{sep}}(s)\ \{\}}
+\DoxyCodeLine{00630\ \};}
+\DoxyCodeLine{00631\ }
+\DoxyCodeLine{00632\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ It,\ \textcolor{keyword}{typename}\ Sentinel,\ \textcolor{keyword}{typename}\ Char>}
+\DoxyCodeLine{00633\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structformatter}{formatter}}<\mbox{\hyperlink{structjoin__view}{join\_view}}<It,\ Sentinel,\ Char>,\ Char>\ \{}
+\DoxyCodeLine{00634\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00635\ \ \ \textcolor{keyword}{using\ }value\_type\ =}
+\DoxyCodeLine{00636\ \textcolor{preprocessor}{\#ifdef\ \_\_cpp\_lib\_ranges}}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ std::iter\_value\_t<It>;}
+\DoxyCodeLine{00638\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ std::iterator\_traits<It>::value\_type;}
+\DoxyCodeLine{00640\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00641\ \ \ \mbox{\hyperlink{structformatter_a7ddc442868c51825dcd1f4b3911436f1}{formatter<remove\_cvref\_t<value\_type>}},\ Char>\ value\_formatter\_;}
+\DoxyCodeLine{00642\ }
+\DoxyCodeLine{00643\ \ \ \textcolor{keyword}{using\ }view\ =\ conditional\_t<std::is\_copy\_constructible<It>::value,}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ join\_view<It,\ Sentinel,\ Char>,}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ join\_view<It,\ Sentinel,\ Char>>;}
+\DoxyCodeLine{00646\ }
+\DoxyCodeLine{00647\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00648\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structformatter_3_01join__view_3_01It_00_01Sentinel_00_01Char_01_4_00_01Char_01_4_a301562c148084e4121f0e42871bb83f5}{nonlocking}}\ =\ void;}
+\DoxyCodeLine{00649\ }
+\DoxyCodeLine{00650\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01join__view_3_01It_00_01Sentinel_00_01Char_01_4_00_01Char_01_4_ac4a4779813aa561f157cb2383469792c}{parse}}(\mbox{\hyperlink{classparse__context}{parse\_context<Char>}}\&\ ctx)\ -\/>\ \textcolor{keyword}{const}\ Char*\ \{}
+\DoxyCodeLine{00651\ \ \ \ \ \textcolor{keywordflow}{return}\ value\_formatter\_.parse(ctx);}
+\DoxyCodeLine{00652\ \ \ \}}
+\DoxyCodeLine{00653\ }
+\DoxyCodeLine{00654\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00655\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01join__view_3_01It_00_01Sentinel_00_01Char_01_4_00_01Char_01_4_af73cf7086c8a5237f220f4cfa6d7b81e}{format}}(view\&\ value,\ FormatContext\&\ ctx)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keyword}{decltype}(ctx.out())\ \{}
+\DoxyCodeLine{00656\ \ \ \ \ \textcolor{keyword}{using\ }iter\ =}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_acdb0eff728aec08ed6fff07d2885ea9d}{conditional\_t<std::is\_copy\_constructible<view>::value}},\ It,\ It\&>;}
+\DoxyCodeLine{00658\ \ \ \ \ iter\ it\ =\ value.begin;}
+\DoxyCodeLine{00659\ \ \ \ \ \textcolor{keyword}{auto}\ out\ =\ ctx.out();}
+\DoxyCodeLine{00660\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ value.end)\ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00661\ \ \ \ \ out\ =\ value\_formatter\_.format(*it,\ ctx);}
+\DoxyCodeLine{00662\ \ \ \ \ ++it;}
+\DoxyCodeLine{00663\ \ \ \ \ \textcolor{keywordflow}{while}\ (it\ !=\ value.end)\ \{}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ out\ =\ \mbox{\hyperlink{namespacedetail_a99c9eb385532e77a130cab09c2e4bb4a}{detail::copy<Char>}}(value.sep.begin(),\ value.sep.end(),\ out);}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ ctx.advance\_to(out);}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ out\ =\ value\_formatter\_.format(*it,\ ctx);}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{00668\ \ \ \ \ \}}
+\DoxyCodeLine{00669\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00670\ \ \ \}}
+\DoxyCodeLine{00671\ \};}
+\DoxyCodeLine{00672\ }
+\DoxyCodeLine{00673\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_af9ca42737dd564744496ba899c540086}{FMT\_EXPORT}}}
+\DoxyCodeLine{00674\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Tuple,\ \textcolor{keyword}{typename}\ Char>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtuple__join__view}{tuple\_join\_view}}\ :\ \mbox{\hyperlink{structdetail_1_1view}{detail::view}}\ \{}
+\DoxyCodeLine{00675\ \ \ \textcolor{keyword}{const}\ Tuple\&\ \mbox{\hyperlink{structtuple__join__view_a302add9fece2f5eb440d7bdfe1116861}{tuple}};}
+\DoxyCodeLine{00676\ \ \ basic\_string\_view<Char>\ \mbox{\hyperlink{structtuple__join__view_a09345c7ae67fc72e312dbdc41f7201ca}{sep}};}
+\DoxyCodeLine{00677\ }
+\DoxyCodeLine{00678\ \ \ \mbox{\hyperlink{structtuple__join__view_a5c917e647c4b64491fd3dcbf61eac0dd}{tuple\_join\_view}}(\textcolor{keyword}{const}\ Tuple\&\ t,\ \mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<Char>}}\ s)}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ :\ \mbox{\hyperlink{structtuple__join__view_a302add9fece2f5eb440d7bdfe1116861}{tuple}}(t),\ \mbox{\hyperlink{structtuple__join__view_a09345c7ae67fc72e312dbdc41f7201ca}{sep}}\{s\}\ \{\}}
+\DoxyCodeLine{00680\ \};}
+\DoxyCodeLine{00681\ }
+\DoxyCodeLine{00682\ \textcolor{comment}{//\ Define\ FMT\_TUPLE\_JOIN\_SPECIFIERS\ to\ enable\ experimental\ format\ specifiers}}
+\DoxyCodeLine{00683\ \textcolor{comment}{//\ support\ in\ tuple\_join.\ It\ is\ disabled\ by\ default\ because\ of\ issues\ with}}
+\DoxyCodeLine{00684\ \textcolor{comment}{//\ the\ dynamic\ width\ and\ precision.}}
+\DoxyCodeLine{00685\ \textcolor{preprocessor}{\#ifndef\ FMT\_TUPLE\_JOIN\_SPECIFIERS}}
+\DoxyCodeLine{00686\ \textcolor{preprocessor}{\#\ \ define\ FMT\_TUPLE\_JOIN\_SPECIFIERS\ 0}}
+\DoxyCodeLine{00687\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00688\ }
+\DoxyCodeLine{00689\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Tuple,\ \textcolor{keyword}{typename}\ Char>}
+\DoxyCodeLine{00690\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structformatter}{formatter}}<\mbox{\hyperlink{structtuple__join__view}{tuple\_join\_view}}<Tuple,\ Char>,\ Char,}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a012819c9e8b5e04872a271f50f8b8196}{enable\_if\_t}}<\mbox{\hyperlink{structis__tuple__like}{is\_tuple\_like}}<Tuple>::value>>\ \{}
+\DoxyCodeLine{00692\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01tuple__join__view_3_01Tuple_00_01Char_01_4_00_01Char_00_01enable__if__t_3_01e9db29a1267ddd9f0848b4b61b239430_af03ed0783ce9dc120a40f34ccf9d2552}{parse}}(\mbox{\hyperlink{classparse__context}{parse\_context<Char>}}\&\ ctx)\ -\/>\ \textcolor{keyword}{const}\ Char*\ \{}
+\DoxyCodeLine{00693\ \ \ \ \ \textcolor{keywordflow}{return}\ do\_parse(ctx,\ std::tuple\_size<Tuple>());}
+\DoxyCodeLine{00694\ \ \ \}}
+\DoxyCodeLine{00695\ }
+\DoxyCodeLine{00696\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00697\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01tuple__join__view_3_01Tuple_00_01Char_01_4_00_01Char_00_01enable__if__t_3_01e9db29a1267ddd9f0848b4b61b239430_aa3c6c7b6ce159d0d59108a1d9938a163}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtuple__join__view}{tuple\_join\_view<Tuple,\ Char>}}\&\ value,}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FormatContext\&\ ctx)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keyword}{typename}\ FormatContext::iterator\ \{}
+\DoxyCodeLine{00699\ \ \ \ \ \textcolor{keywordflow}{return}\ do\_format(value,\ ctx,\ std::tuple\_size<Tuple>());}
+\DoxyCodeLine{00700\ \ \ \}}
+\DoxyCodeLine{00701\ }
+\DoxyCodeLine{00702\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00703\ \ \ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespacedetail_1_1tuple_ad54589c2dc022589a999b250ac149a57}{detail::tuple::get\_formatters<Tuple,\ Char>}}(}
+\DoxyCodeLine{00704\ \ \ \ \ \ \ \mbox{\hyperlink{namespacedetail_a2b406d4e067dec16414d088e26824519}{detail::tuple\_index\_sequence<Tuple>}}()))\ formatters\_;}
+\DoxyCodeLine{00705\ }
+\DoxyCodeLine{00706\ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keyword}{auto}\ do\_parse(\mbox{\hyperlink{classparse__context}{parse\_context<Char>}}\&\ ctx,}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integral\_constant<size\_t,\ 0>)}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ -\/>\ \textcolor{keyword}{const}\ Char*\ \{}
+\DoxyCodeLine{00709\ \ \ \ \ \textcolor{keywordflow}{return}\ ctx.begin();}
+\DoxyCodeLine{00710\ \ \ \}}
+\DoxyCodeLine{00711\ }
+\DoxyCodeLine{00712\ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00713\ \ \ \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keyword}{auto}\ do\_parse(parse\_context<Char>\&\ ctx,}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integral\_constant<size\_t,\ N>)}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ -\/>\ \textcolor{keyword}{const}\ Char*\ \{}
+\DoxyCodeLine{00716\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ ctx.begin();}
+\DoxyCodeLine{00717\ \textcolor{preprocessor}{\#if\ FMT\_TUPLE\_JOIN\_SPECIFIERS}}
+\DoxyCodeLine{00718\ \ \ \ \ end\ =\ std::get<std::tuple\_size<Tuple>::value\ -\/\ N>(formatters\_).parse(ctx);}
+\DoxyCodeLine{00719\ \ \ \ \ \textcolor{keywordflow}{if}\ (N\ >\ 1)\ \{}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ end1\ =\ do\_parse(ctx,\ std::integral\_constant<size\_t,\ N\ -\/\ 1>());}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (end\ !=\ end1)}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a840ce9cfe04f418f49000772a3cf87e1}{report\_error}}(\textcolor{stringliteral}{"{}incompatible\ format\ specs\ for\ tuple\ elements"{}});}
+\DoxyCodeLine{00723\ \ \ \ \ \}}
+\DoxyCodeLine{00724\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00725\ \ \ \ \ \textcolor{keywordflow}{return}\ end;}
+\DoxyCodeLine{00726\ \ \ \}}
+\DoxyCodeLine{00727\ }
+\DoxyCodeLine{00728\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00729\ \ \ \textcolor{keyword}{auto}\ do\_format(\textcolor{keyword}{const}\ tuple\_join\_view<Tuple,\ Char>\&,\ FormatContext\&\ ctx,}
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integral\_constant<size\_t,\ 0>)\ \textcolor{keyword}{const}\ -\/>}
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ FormatContext::iterator\ \{}
+\DoxyCodeLine{00732\ \ \ \ \ \textcolor{keywordflow}{return}\ ctx.out();}
+\DoxyCodeLine{00733\ \ \ \}}
+\DoxyCodeLine{00734\ }
+\DoxyCodeLine{00735\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00736\ \ \ \textcolor{keyword}{auto}\ do\_format(\textcolor{keyword}{const}\ tuple\_join\_view<Tuple,\ Char>\&\ value,\ FormatContext\&\ ctx,}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integral\_constant<size\_t,\ N>)\ \textcolor{keyword}{const}\ -\/>}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ FormatContext::iterator\ \{}
+\DoxyCodeLine{00739\ \ \ \ \ \textcolor{keyword}{using\ }std::get;}
+\DoxyCodeLine{00740\ \ \ \ \ \textcolor{keyword}{auto}\ out\ =}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ std::get<std::tuple\_size<Tuple>::value\ -\/\ N>(formatters\_)}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2color_8h_a680fd35ea38d8c3b75d640cacfab53fd}{format}}(get<std::tuple\_size<Tuple>::value\ -\/\ N>(value.tuple),\ ctx);}
+\DoxyCodeLine{00743\ \ \ \ \ \textcolor{keywordflow}{if}\ (N\ <=\ 1)\ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00744\ \ \ \ \ out\ =\ \mbox{\hyperlink{namespacedetail_a99c9eb385532e77a130cab09c2e4bb4a}{detail::copy<Char>}}(value.sep,\ out);}
+\DoxyCodeLine{00745\ \ \ \ \ ctx.advance\_to(out);}
+\DoxyCodeLine{00746\ \ \ \ \ \textcolor{keywordflow}{return}\ do\_format(value,\ ctx,\ std::integral\_constant<size\_t,\ N\ -\/\ 1>());}
+\DoxyCodeLine{00747\ \ \ \}}
+\DoxyCodeLine{00748\ \};}
+\DoxyCodeLine{00749\ }
+\DoxyCodeLine{00750\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedetail}{detail}}\ \{}
+\DoxyCodeLine{00751\ \textcolor{comment}{//\ Check\ if\ T\ has\ an\ interface\ like\ a\ container\ adaptor\ (e.g.\ std::stack,}}
+\DoxyCodeLine{00752\ \textcolor{comment}{//\ std::queue,\ std::priority\_queue).}}
+\DoxyCodeLine{00753\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdetail_1_1is__container__adaptor__like}{is\_container\_adaptor\_like}}\ \{}
+\DoxyCodeLine{00754\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>\ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ check(U*\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}})\ -\/>\ \textcolor{keyword}{typename}\ U::container\_type;}
+\DoxyCodeLine{00755\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check(...);}
+\DoxyCodeLine{00756\ }
+\DoxyCodeLine{00757\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00758\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdetail_1_1is__container__adaptor__like_a434905c61314e9a3fae11d9fdb48cde9}{value}}\ =}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ !std::is\_void<decltype(check<T>(\textcolor{keyword}{nullptr}))>\mbox{\hyperlink{classdetail_1_1is__container__adaptor__like_a434905c61314e9a3fae11d9fdb48cde9}{::value}};}
+\DoxyCodeLine{00760\ \};}
+\DoxyCodeLine{00761\ }
+\DoxyCodeLine{00762\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Container>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1all}{all}}\ \{}
+\DoxyCodeLine{00763\ \ \ \textcolor{keyword}{const}\ Container\&\ \mbox{\hyperlink{structdetail_1_1all_a2fa4dd890a8507262713650aefca8c1d}{c}};}
+\DoxyCodeLine{00764\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structdetail_1_1all_a358fcae12667f38a9d5297e976767543}{begin}}()\ const\ -\/>\ typename\ Container::const\_iterator\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdetail_1_1all_a2fa4dd890a8507262713650aefca8c1d}{c}}.begin();\ \}}
+\DoxyCodeLine{00765\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structdetail_1_1all_af130360cd2c9c5e8b07cb26096461269}{end}}()\ const\ -\/>\ typename\ Container::const\_iterator\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdetail_1_1all_a2fa4dd890a8507262713650aefca8c1d}{c}}.end();\ \}}
+\DoxyCodeLine{00766\ \};}
+\DoxyCodeLine{00767\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{00768\ }
+\DoxyCodeLine{00769\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Char>}
+\DoxyCodeLine{00770\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structformatter}{formatter}}<}
+\DoxyCodeLine{00771\ \ \ \ \ T,\ Char,}
+\DoxyCodeLine{00772\ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a012819c9e8b5e04872a271f50f8b8196}{enable\_if\_t}}<\mbox{\hyperlink{structconjunction}{conjunction}}<\mbox{\hyperlink{namespacedetail}{detail}}::is\_container\_adaptor\_like<T>,}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a0d337b508cc2fb5a92d8e72db201e53b}{bool\_constant}}<range\_format\_kind<T,\ Char>::value\ ==}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ range\_format::disabled>>::value>>}
+\DoxyCodeLine{00775\ \ \ \ \ :\ \mbox{\hyperlink{structformatter}{formatter}}<detail::all<typename\ T::container\_type>,\ Char>\ \{}
+\DoxyCodeLine{00776\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structformatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01detail_1_1is__container__621a5d85fc7e9c6a2a3d6f4b47e12a86_a9b552972ac7c1d81a5bbac66ce293fcf}{all}}\ =\ \mbox{\hyperlink{structdetail_1_1all}{detail::all<typename\ T::container\_type>}};}
+\DoxyCodeLine{00777\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00778\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structformatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01detail_1_1is__container__621a5d85fc7e9c6a2a3d6f4b47e12a86_a78b99c0d9b7cb5cab96453d09030b17f}{format}}(\textcolor{keyword}{const}\ T\&\ value,\ FormatContext\&\ ctx)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keyword}{decltype}(ctx.out())\ \{}
+\DoxyCodeLine{00779\ \ \ \ \ \textcolor{keyword}{struct\ }getter\ :\ T\ \{}
+\DoxyCodeLine{00780\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ get(\textcolor{keyword}{const}\ T\&\ v)\ -\/>\ \mbox{\hyperlink{structformatter_3_01T_00_01Char_00_01enable__if__t_3_01conjunction_3_01detail_1_1is__container__621a5d85fc7e9c6a2a3d6f4b47e12a86_a9b552972ac7c1d81a5bbac66ce293fcf}{all}}\ \{}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{v.*(\&getter::c)\};\ \ \textcolor{comment}{//\ Access\ c\ through\ the\ derived\ class.}}
+\DoxyCodeLine{00782\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00783\ \ \ \ \ \};}
+\DoxyCodeLine{00784\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structformatter_a7ddc442868c51825dcd1f4b3911436f1}{formatter<all>::format}}(getter::get(value),\ ctx);}
+\DoxyCodeLine{00785\ \ \ \}}
+\DoxyCodeLine{00786\ \};}
+\DoxyCodeLine{00787\ }
+\DoxyCodeLine{00788\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab09e1860f362e7828106dfa9963d884f}{FMT\_BEGIN\_EXPORT}}}
+\DoxyCodeLine{00789\ }
+\DoxyCodeLine{00792\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ It,\ \textcolor{keyword}{typename}\ Sentinel>}
+\DoxyCodeLine{00793\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a703e3555a519a55eae7986580660994c}{join}}(It\ begin,\ Sentinel\ end,\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a204ca715c2febee035464fa53dfc50c4}{string\_view}}\ sep)\ -\/>\ \mbox{\hyperlink{structjoin__view}{join\_view<It,\ Sentinel>}}\ \{}
+\DoxyCodeLine{00794\ \ \ \textcolor{keywordflow}{return}\ \{std::move(begin),\ end,\ sep\};}
+\DoxyCodeLine{00795\ \}}
+\DoxyCodeLine{00796\ }
+\DoxyCodeLine{00811\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Range,\ FMT\_ENABLE\_IF(!is\_tuple\_like<Range>::value)>}
+\DoxyCodeLine{00812\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a703e3555a519a55eae7986580660994c}{join}}(Range\&\&\ r,\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a204ca715c2febee035464fa53dfc50c4}{string\_view}}\ sep)}
+\DoxyCodeLine{00813\ \ \ \ \ -\/>\ \mbox{\hyperlink{structjoin__view}{join\_view}}<\textcolor{keyword}{decltype}(\mbox{\hyperlink{namespacedetail_a379579c5cd4dea85f22752fc3382e845}{detail::range\_begin}}(r)),}
+\DoxyCodeLine{00814\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespacedetail_a9b512d17ca26dca29464f452833cc5c3}{detail::range\_end}}(r))>\ \{}
+\DoxyCodeLine{00815\ \ \ \textcolor{keywordflow}{return}\ \{\mbox{\hyperlink{namespacedetail_a379579c5cd4dea85f22752fc3382e845}{detail::range\_begin}}(r),\ \mbox{\hyperlink{namespacedetail_a9b512d17ca26dca29464f452833cc5c3}{detail::range\_end}}(r),\ sep\};}
+\DoxyCodeLine{00816\ \}}
+\DoxyCodeLine{00817\ }
+\DoxyCodeLine{00827\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Tuple,\ FMT\_ENABLE\_IF(is\_tuple\_like<Tuple>::value)>}
+\DoxyCodeLine{00828\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a703e3555a519a55eae7986580660994c}{join}}(\textcolor{keyword}{const}\ Tuple\&\ tuple\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_aa52129cde924b9a79a049ba6fe238083}{FMT\_LIFETIMEBOUND}},\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a204ca715c2febee035464fa53dfc50c4}{string\_view}}\ sep)}
+\DoxyCodeLine{00829\ \ \ \ \ -\/>\ \mbox{\hyperlink{structtuple__join__view}{tuple\_join\_view<Tuple,\ char>}}\ \{}
+\DoxyCodeLine{00830\ \ \ \textcolor{keywordflow}{return}\ \{tuple,\ sep\};}
+\DoxyCodeLine{00831\ \}}
+\DoxyCodeLine{00832\ }
+\DoxyCodeLine{00842\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00843\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a703e3555a519a55eae7986580660994c}{join}}(std::initializer\_list<T>\ list,\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a204ca715c2febee035464fa53dfc50c4}{string\_view}}\ sep)}
+\DoxyCodeLine{00844\ \ \ \ \ -\/>\ \mbox{\hyperlink{structjoin__view}{join\_view<const\ T*,\ const\ T*>}}\ \{}
+\DoxyCodeLine{00845\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2ranges_8h_a703e3555a519a55eae7986580660994c}{join}}(std::begin(list),\ std::end(list),\ sep);}
+\DoxyCodeLine{00846\ \}}
+\DoxyCodeLine{00847\ }
+\DoxyCodeLine{00848\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a06c2cd8d4ba997d81bcb06c0cdb47410}{FMT\_END\_EXPORT}}}
+\DoxyCodeLine{00849\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ae0d2fbdf031547a949fc7e1c0b3c97f1}{FMT\_END\_NAMESPACE}}}
+\DoxyCodeLine{00850\ }
+\DoxyCodeLine{00851\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ FMT\_RANGES\_H\_}}
+
+\end{DoxyCode}

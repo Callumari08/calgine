@@ -1,0 +1,91 @@
+\doxysection{src/vendor/spdlog/tests/test\+\_\+errors.cpp File Reference}
+\hypertarget{vendor_2spdlog_2tests_2test__errors_8cpp}{}\label{vendor_2spdlog_2tests_2test__errors_8cpp}\index{src/vendor/spdlog/tests/test\_errors.cpp@{src/vendor/spdlog/tests/test\_errors.cpp}}
+{\ttfamily \#include "{}includes.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classfailing__sink}{failing\+\_\+sink}}
+\item 
+struct \mbox{\hyperlink{structcustom__ex}{custom\+\_\+ex}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{vendor_2spdlog_2tests_2test__errors_8cpp_a0f6abede014528e4384d18289bee1cc8}{SIMPLE\+\_\+\+LOG}}~"{}test\+\_\+logs/simple\+\_\+log.\+txt"{}
+\item 
+\#define \mbox{\hyperlink{vendor_2spdlog_2tests_2test__errors_8cpp_acd027118a9adbaa88b37bc0820c88e14}{SIMPLE\+\_\+\+ASYNC\+\_\+\+LOG}}~"{}test\+\_\+logs/simple\+\_\+async\+\_\+log.\+txt"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{vendor_2spdlog_2tests_2test__errors_8cpp_ae476c87ccd8b46b678da880f47845833}{TEST\+\_\+\+CASE}} ("{}default\+\_\+error\+\_\+handler"{}, "{}\mbox{[}errors\mbox{]}"{})
+\item 
+\mbox{\hyperlink{vendor_2spdlog_2tests_2test__errors_8cpp_af1bb706a0421498d317de7d8cea8b3ac}{TEST\+\_\+\+CASE}} ("{}custom\+\_\+error\+\_\+handler"{}, "{}\mbox{[}errors\mbox{]}"{})
+\item 
+\mbox{\hyperlink{vendor_2spdlog_2tests_2test__errors_8cpp_a5760ebf8d9742ad3bd1d9c25c096386d}{TEST\+\_\+\+CASE}} ("{}default\+\_\+error\+\_\+handler2"{}, "{}\mbox{[}errors\mbox{]}"{})
+\item 
+\mbox{\hyperlink{vendor_2spdlog_2tests_2test__errors_8cpp_a3d5248d8021691cbbd12596454538fdd}{TEST\+\_\+\+CASE}} ("{}flush\+\_\+error\+\_\+handler"{}, "{}\mbox{[}errors\mbox{]}"{})
+\item 
+\mbox{\hyperlink{vendor_2spdlog_2tests_2test__errors_8cpp_a27cf1ecc9145f14fe2eff5d1f7d11039}{TEST\+\_\+\+CASE}} ("{}async\+\_\+error\+\_\+handler"{}, "{}\mbox{[}errors\mbox{]}"{})
+\item 
+\mbox{\hyperlink{vendor_2spdlog_2tests_2test__errors_8cpp_a816b8318640dcebdab71fc3b96b698b6}{TEST\+\_\+\+CASE}} ("{}async\+\_\+error\+\_\+handler2"{}, "{}\mbox{[}errors\mbox{]}"{})
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{vendor_2spdlog_2tests_2test__errors_8cpp_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{vendor_2spdlog_2tests_2test__errors_8cpp_acd027118a9adbaa88b37bc0820c88e14}\index{test\_errors.cpp@{test\_errors.cpp}!SIMPLE\_ASYNC\_LOG@{SIMPLE\_ASYNC\_LOG}}
+\index{SIMPLE\_ASYNC\_LOG@{SIMPLE\_ASYNC\_LOG}!test\_errors.cpp@{test\_errors.cpp}}
+\doxysubsubsection{\texorpdfstring{SIMPLE\_ASYNC\_LOG}{SIMPLE\_ASYNC\_LOG}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2tests_2test__errors_8cpp_acd027118a9adbaa88b37bc0820c88e14} 
+\#define SIMPLE\+\_\+\+ASYNC\+\_\+\+LOG~"{}test\+\_\+logs/simple\+\_\+async\+\_\+log.\+txt"{}}
+
+\Hypertarget{vendor_2spdlog_2tests_2test__errors_8cpp_a0f6abede014528e4384d18289bee1cc8}\index{test\_errors.cpp@{test\_errors.cpp}!SIMPLE\_LOG@{SIMPLE\_LOG}}
+\index{SIMPLE\_LOG@{SIMPLE\_LOG}!test\_errors.cpp@{test\_errors.cpp}}
+\doxysubsubsection{\texorpdfstring{SIMPLE\_LOG}{SIMPLE\_LOG}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2tests_2test__errors_8cpp_a0f6abede014528e4384d18289bee1cc8} 
+\#define SIMPLE\+\_\+\+LOG~"{}test\+\_\+logs/simple\+\_\+log.\+txt"{}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{vendor_2spdlog_2tests_2test__errors_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{vendor_2spdlog_2tests_2test__errors_8cpp_a27cf1ecc9145f14fe2eff5d1f7d11039}\index{test\_errors.cpp@{test\_errors.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_errors.cpp@{test\_errors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2tests_2test__errors_8cpp_a27cf1ecc9145f14fe2eff5d1f7d11039} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}async\+\_\+error\+\_\+handler"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}errors\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{vendor_2spdlog_2tests_2test__errors_8cpp_a816b8318640dcebdab71fc3b96b698b6}\index{test\_errors.cpp@{test\_errors.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_errors.cpp@{test\_errors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2tests_2test__errors_8cpp_a816b8318640dcebdab71fc3b96b698b6} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}async\+\_\+error\+\_\+handler2"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}errors\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{vendor_2spdlog_2tests_2test__errors_8cpp_af1bb706a0421498d317de7d8cea8b3ac}\index{test\_errors.cpp@{test\_errors.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_errors.cpp@{test\_errors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2tests_2test__errors_8cpp_af1bb706a0421498d317de7d8cea8b3ac} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}custom\+\_\+error\+\_\+handler"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}errors\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{vendor_2spdlog_2tests_2test__errors_8cpp_ae476c87ccd8b46b678da880f47845833}\index{test\_errors.cpp@{test\_errors.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_errors.cpp@{test\_errors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2tests_2test__errors_8cpp_ae476c87ccd8b46b678da880f47845833} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}default\+\_\+error\+\_\+handler"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}errors\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{vendor_2spdlog_2tests_2test__errors_8cpp_a5760ebf8d9742ad3bd1d9c25c096386d}\index{test\_errors.cpp@{test\_errors.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_errors.cpp@{test\_errors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2tests_2test__errors_8cpp_a5760ebf8d9742ad3bd1d9c25c096386d} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}default\+\_\+error\+\_\+handler2"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}errors\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{vendor_2spdlog_2tests_2test__errors_8cpp_a3d5248d8021691cbbd12596454538fdd}\index{test\_errors.cpp@{test\_errors.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_errors.cpp@{test\_errors.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2tests_2test__errors_8cpp_a3d5248d8021691cbbd12596454538fdd} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}flush\+\_\+error\+\_\+handler"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}errors\mbox{]}}\end{DoxyParamCaption})}
+

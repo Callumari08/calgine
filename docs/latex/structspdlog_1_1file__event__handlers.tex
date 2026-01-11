@@ -1,0 +1,76 @@
+\doxysection{spdlog\+::file\+\_\+event\+\_\+handlers Struct Reference}
+\hypertarget{structspdlog_1_1file__event__handlers}{}\label{structspdlog_1_1file__event__handlers}\index{spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}}
+
+
+{\ttfamily \#include $<$common.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structspdlog_1_1file__event__handlers_ada602f56f0e936d54f50f088ff411e49}{file\+\_\+event\+\_\+handlers}} ()
+\item 
+\mbox{\hyperlink{structspdlog_1_1file__event__handlers_ada602f56f0e936d54f50f088ff411e49}{file\+\_\+event\+\_\+handlers}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ void(const \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \&filename)$>$ \mbox{\hyperlink{structspdlog_1_1file__event__handlers_a742635e153589d0ee0be4a6311ecd220}{before\+\_\+open}}
+\item 
+std\+::function$<$ void(const \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \&filename, std\+::\+FILE \texorpdfstring{$\ast$}{*}file\+\_\+stream)$>$ \mbox{\hyperlink{structspdlog_1_1file__event__handlers_acdec314aeb55c0a74bd7c1355dbc9bea}{after\+\_\+open}}
+\item 
+std\+::function$<$ void(const \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \&filename, std\+::\+FILE \texorpdfstring{$\ast$}{*}file\+\_\+stream)$>$ \mbox{\hyperlink{structspdlog_1_1file__event__handlers_a9a8284f04a493046f47ea4a7c4f75934}{before\+\_\+close}}
+\item 
+std\+::function$<$ void(const \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \&filename)$>$ \mbox{\hyperlink{structspdlog_1_1file__event__handlers_af9cbbc1e447df2481f402e25f84d762c}{after\+\_\+close}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{structspdlog_1_1file__event__handlers_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structspdlog_1_1file__event__handlers_ada602f56f0e936d54f50f088ff411e49}\index{spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}!file\_event\_handlers@{file\_event\_handlers}}
+\index{file\_event\_handlers@{file\_event\_handlers}!spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}}
+\doxysubsubsection{\texorpdfstring{file\_event\_handlers()}{file\_event\_handlers()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structspdlog_1_1file__event__handlers_ada602f56f0e936d54f50f088ff411e49} 
+spdlog\+::file\+\_\+event\+\_\+handlers\+::file\+\_\+event\+\_\+handlers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structspdlog_1_1file__event__handlers_ada602f56f0e936d54f50f088ff411e49}\index{spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}!file\_event\_handlers@{file\_event\_handlers}}
+\index{file\_event\_handlers@{file\_event\_handlers}!spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}}
+\doxysubsubsection{\texorpdfstring{file\_event\_handlers()}{file\_event\_handlers()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structspdlog_1_1file__event__handlers_ada602f56f0e936d54f50f088ff411e49} 
+spdlog\+::file\+\_\+event\+\_\+handlers\+::file\+\_\+event\+\_\+handlers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structspdlog_1_1file__event__handlers_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structspdlog_1_1file__event__handlers_af9cbbc1e447df2481f402e25f84d762c}\index{spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}!after\_close@{after\_close}}
+\index{after\_close@{after\_close}!spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}}
+\doxysubsubsection{\texorpdfstring{after\_close}{after\_close}}
+{\footnotesize\ttfamily \label{structspdlog_1_1file__event__handlers_af9cbbc1e447df2481f402e25f84d762c} 
+std\+::function$<$ void(const \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \&filename)$>$ spdlog\+::file\+\_\+event\+\_\+handlers\+::after\+\_\+close}
+
+\Hypertarget{structspdlog_1_1file__event__handlers_acdec314aeb55c0a74bd7c1355dbc9bea}\index{spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}!after\_open@{after\_open}}
+\index{after\_open@{after\_open}!spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}}
+\doxysubsubsection{\texorpdfstring{after\_open}{after\_open}}
+{\footnotesize\ttfamily \label{structspdlog_1_1file__event__handlers_acdec314aeb55c0a74bd7c1355dbc9bea} 
+std\+::function$<$ void(const \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \&filename, std\+::\+FILE \texorpdfstring{$\ast$}{*}file\+\_\+stream)$>$ spdlog\+::file\+\_\+event\+\_\+handlers\+::after\+\_\+open}
+
+\Hypertarget{structspdlog_1_1file__event__handlers_a9a8284f04a493046f47ea4a7c4f75934}\index{spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}!before\_close@{before\_close}}
+\index{before\_close@{before\_close}!spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}}
+\doxysubsubsection{\texorpdfstring{before\_close}{before\_close}}
+{\footnotesize\ttfamily \label{structspdlog_1_1file__event__handlers_a9a8284f04a493046f47ea4a7c4f75934} 
+std\+::function$<$ void(const \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \&filename, std\+::\+FILE \texorpdfstring{$\ast$}{*}file\+\_\+stream)$>$ spdlog\+::file\+\_\+event\+\_\+handlers\+::before\+\_\+close}
+
+\Hypertarget{structspdlog_1_1file__event__handlers_a742635e153589d0ee0be4a6311ecd220}\index{spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}!before\_open@{before\_open}}
+\index{before\_open@{before\_open}!spdlog::file\_event\_handlers@{spdlog::file\_event\_handlers}}
+\doxysubsubsection{\texorpdfstring{before\_open}{before\_open}}
+{\footnotesize\ttfamily \label{structspdlog_1_1file__event__handlers_a742635e153589d0ee0be4a6311ecd220} 
+std\+::function$<$ void(const \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \&filename)$>$ spdlog\+::file\+\_\+event\+\_\+handlers\+::before\+\_\+open}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h}{common.\+h}}\item 
+src/vendor/spdlog/include/spdlog/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2common_8h}{common.\+h}}\end{DoxyCompactItemize}

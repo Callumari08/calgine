@@ -4,20 +4,20 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classApp}{App}}}
-\DoxyCodeLine{00053\ \{}
-\DoxyCodeLine{00054\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00055\ \ \ std::string\ app\_name\ =\ \textcolor{stringliteral}{"{}A\ Calgine\ App"{}};}
-\DoxyCodeLine{00056\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classApp_af65a5aada9d59de5f2f1a536b049f13d}{get\_app\_name}}()}
-\DoxyCodeLine{00058\ \ \ \{}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ app\_name;}
-\DoxyCodeLine{00060\ \ \ \}}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classApp_a80bce247230188c2d289aed2978f9a59}{systems\_init}}();}
-\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classApp_a719ee7a1bfeacae564b0b03955e83a08}{main\_loop}}();}
-\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1App}{App}}\ \textcolor{comment}{//\ Abstract}}
+\DoxyCodeLine{00061\ \{}
+\DoxyCodeLine{00062\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classCalgine_1_1App_ad750de26c7a790a725dd7c52a116324b}{get\_app\_name}}()\ =\ 0;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\_init}}();}
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\_loop}}();}
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
 
 \end{DoxyCode}

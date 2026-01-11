@@ -1,0 +1,234 @@
+\doxysection{parse\+\_\+context\texorpdfstring{$<$}{<} Char \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classparse__context}{}\label{classparse__context}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+
+
+{\ttfamily \#include $<$base.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classparse__context_ab02d52cac39a1b923d5ab3ae91e0ee21}{char\+\_\+type}} = Char
+\item 
+using \mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}} = const Char\texorpdfstring{$\ast$}{*}
+\item 
+using \mbox{\hyperlink{classparse__context_ab02d52cac39a1b923d5ab3ae91e0ee21}{char\+\_\+type}} = Char
+\item 
+using \mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}} = const Char\texorpdfstring{$\ast$}{*}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{classparse__context_a9da9230b8f03bb6579efdcaae4b18003}{parse\+\_\+context}} (\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$ \mbox{\hyperlink{namespacefmt}{fmt}}, int \mbox{\hyperlink{classparse__context_a82d4f9e430de64a4bd3820fe69b5f669}{next\+\_\+arg\+\_\+id}}=0)
+\item 
+constexpr auto \mbox{\hyperlink{classparse__context_a1d66dcf5888a1473d1ac88ee7848426b}{begin}} () const noexcept -\/$>$ \mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}}
+\item 
+constexpr auto \mbox{\hyperlink{classparse__context_ad10a0f3a57fbac77c207ae4bf8475bc2}{end}} () const noexcept -\/$>$ \mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}}
+\begin{DoxyCompactList}\small\item\em Returns an iterator past the end of the format string range being parsed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context_aa797d1308d9cd7a7755327c6db352665}{advance\+\_\+to}} (\mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}} it)
+\begin{DoxyCompactList}\small\item\em Advances the begin iterator to {\ttfamily it}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto \mbox{\hyperlink{classparse__context_a82d4f9e430de64a4bd3820fe69b5f669}{next\+\_\+arg\+\_\+id}} () -\/$>$ int
+\item 
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context_a7f7a652c7a771f339fd1ae4114816be4}{check\+\_\+arg\+\_\+id}} (int \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format-inl_8h_abe6272f4163dcc8a1267174ed709f885}{id}})
+\item 
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context_a3b91d8f4ab3305ed13804661d6117c8e}{check\+\_\+arg\+\_\+id}} (\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$)
+\item 
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context_a52025a3a898439996ed188ea3136d3aa}{check\+\_\+dynamic\+\_\+spec}} (int arg\+\_\+id)
+\item 
+constexpr \mbox{\hyperlink{classparse__context_a9da9230b8f03bb6579efdcaae4b18003}{parse\+\_\+context}} (\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$ \mbox{\hyperlink{namespacefmt}{fmt}}, int \mbox{\hyperlink{classparse__context_a82d4f9e430de64a4bd3820fe69b5f669}{next\+\_\+arg\+\_\+id}}=0)
+\item 
+constexpr auto \mbox{\hyperlink{classparse__context_a1d66dcf5888a1473d1ac88ee7848426b}{begin}} () const noexcept -\/$>$ \mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}}
+\item 
+constexpr auto \mbox{\hyperlink{classparse__context_ad10a0f3a57fbac77c207ae4bf8475bc2}{end}} () const noexcept -\/$>$ \mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}}
+\begin{DoxyCompactList}\small\item\em Returns an iterator past the end of the format string range being parsed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context_aa797d1308d9cd7a7755327c6db352665}{advance\+\_\+to}} (\mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}} it)
+\begin{DoxyCompactList}\small\item\em Advances the begin iterator to {\ttfamily it}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto \mbox{\hyperlink{classparse__context_a82d4f9e430de64a4bd3820fe69b5f669}{next\+\_\+arg\+\_\+id}} () -\/$>$ int
+\item 
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context_a7f7a652c7a771f339fd1ae4114816be4}{check\+\_\+arg\+\_\+id}} (int \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format-inl_8h_abe6272f4163dcc8a1267174ed709f885}{id}})
+\item 
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context_a3b91d8f4ab3305ed13804661d6117c8e}{check\+\_\+arg\+\_\+id}} (\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$)
+\item 
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context_a52025a3a898439996ed188ea3136d3aa}{check\+\_\+dynamic\+\_\+spec}} (int arg\+\_\+id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Char = char$>$\newline
+class parse\+\_\+context$<$ Char $>$}
+Parsing context consisting of a format string range being parsed and an argument counter for automatic indexing. 
+
+\label{doc-typedef-members}
+\Hypertarget{classparse__context_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classparse__context_ab02d52cac39a1b923d5ab3ae91e0ee21}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!char\_type@{char\_type}}
+\index{char\_type@{char\_type}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{char\_type}{char\_type}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classparse__context_ab02d52cac39a1b923d5ab3ae91e0ee21} 
+template$<$typename Char = char$>$ \\
+using \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::char\+\_\+type = Char}
+
+\Hypertarget{classparse__context_ab02d52cac39a1b923d5ab3ae91e0ee21}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!char\_type@{char\_type}}
+\index{char\_type@{char\_type}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{char\_type}{char\_type}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classparse__context_ab02d52cac39a1b923d5ab3ae91e0ee21} 
+template$<$typename Char = char$>$ \\
+using \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::char\+\_\+type = Char}
+
+\Hypertarget{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687} 
+template$<$typename Char = char$>$ \\
+using \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::iterator = const Char\texorpdfstring{$\ast$}{*}}
+
+\Hypertarget{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687} 
+template$<$typename Char = char$>$ \\
+using \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::iterator = const Char\texorpdfstring{$\ast$}{*}}
+
+
+
+\label{doc-constructors}
+\Hypertarget{classparse__context_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classparse__context_a9da9230b8f03bb6579efdcaae4b18003}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!parse\_context@{parse\_context}}
+\index{parse\_context@{parse\_context}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{parse\_context()}{parse\_context()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classparse__context_a9da9230b8f03bb6579efdcaae4b18003} 
+template$<$typename Char = char$>$ \\
+\mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::parse\+\_\+context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$}]{fmt}{, }\item[{int}]{next\+\_\+arg\+\_\+id}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{classparse__context_a9da9230b8f03bb6579efdcaae4b18003}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!parse\_context@{parse\_context}}
+\index{parse\_context@{parse\_context}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{parse\_context()}{parse\_context()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classparse__context_a9da9230b8f03bb6579efdcaae4b18003} 
+template$<$typename Char = char$>$ \\
+\mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::parse\+\_\+context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$}]{fmt}{, }\item[{int}]{next\+\_\+arg\+\_\+id}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [constexpr]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classparse__context_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classparse__context_aa797d1308d9cd7a7755327c6db352665}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!advance\_to@{advance\_to}}
+\index{advance\_to@{advance\_to}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{advance\_to()}{advance\_to()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classparse__context_aa797d1308d9cd7a7755327c6db352665} 
+template$<$typename Char = char$>$ \\
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::advance\+\_\+to (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}}}]{it}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Advances the begin iterator to {\ttfamily it}. 
+
+\Hypertarget{classparse__context_aa797d1308d9cd7a7755327c6db352665}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!advance\_to@{advance\_to}}
+\index{advance\_to@{advance\_to}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{advance\_to()}{advance\_to()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classparse__context_aa797d1308d9cd7a7755327c6db352665} 
+template$<$typename Char = char$>$ \\
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::advance\+\_\+to (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}}}]{it}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Advances the begin iterator to {\ttfamily it}. 
+
+\Hypertarget{classparse__context_a1d66dcf5888a1473d1ac88ee7848426b}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!begin@{begin}}
+\index{begin@{begin}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classparse__context_a1d66dcf5888a1473d1ac88ee7848426b} 
+template$<$typename Char = char$>$ \\
+auto \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$\mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+Returns an iterator to the beginning of the format string range being parsed. \Hypertarget{classparse__context_a1d66dcf5888a1473d1ac88ee7848426b}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!begin@{begin}}
+\index{begin@{begin}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classparse__context_a1d66dcf5888a1473d1ac88ee7848426b} 
+template$<$typename Char = char$>$ \\
+auto \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$\mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+Returns an iterator to the beginning of the format string range being parsed. \Hypertarget{classparse__context_a3b91d8f4ab3305ed13804661d6117c8e}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!check\_arg\_id@{check\_arg\_id}}
+\index{check\_arg\_id@{check\_arg\_id}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{check\_arg\_id()}{check\_arg\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{classparse__context_a3b91d8f4ab3305ed13804661d6117c8e} 
+template$<$typename Char = char$>$ \\
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::check\+\_\+arg\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classparse__context_a3b91d8f4ab3305ed13804661d6117c8e}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!check\_arg\_id@{check\_arg\_id}}
+\index{check\_arg\_id@{check\_arg\_id}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{check\_arg\_id()}{check\_arg\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{classparse__context_a3b91d8f4ab3305ed13804661d6117c8e} 
+template$<$typename Char = char$>$ \\
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::check\+\_\+arg\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}}$<$ Char $>$}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classparse__context_a7f7a652c7a771f339fd1ae4114816be4}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!check\_arg\_id@{check\_arg\_id}}
+\index{check\_arg\_id@{check\_arg\_id}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{check\_arg\_id()}{check\_arg\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{classparse__context_a7f7a652c7a771f339fd1ae4114816be4} 
+template$<$typename Char = char$>$ \\
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::check\+\_\+arg\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reports an error if using the automatic argument indexing; otherwise switches to the manual indexing. \Hypertarget{classparse__context_a7f7a652c7a771f339fd1ae4114816be4}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!check\_arg\_id@{check\_arg\_id}}
+\index{check\_arg\_id@{check\_arg\_id}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{check\_arg\_id()}{check\_arg\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{classparse__context_a7f7a652c7a771f339fd1ae4114816be4} 
+template$<$typename Char = char$>$ \\
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::check\+\_\+arg\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reports an error if using the automatic argument indexing; otherwise switches to the manual indexing. \Hypertarget{classparse__context_a52025a3a898439996ed188ea3136d3aa}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!check\_dynamic\_spec@{check\_dynamic\_spec}}
+\index{check\_dynamic\_spec@{check\_dynamic\_spec}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{check\_dynamic\_spec()}{check\_dynamic\_spec()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classparse__context_a52025a3a898439996ed188ea3136d3aa} 
+template$<$typename Char$>$ \\
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::check\+\_\+dynamic\+\_\+spec (\begin{DoxyParamCaption}\item[{int}]{arg\+\_\+id}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classparse__context_a52025a3a898439996ed188ea3136d3aa}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!check\_dynamic\_spec@{check\_dynamic\_spec}}
+\index{check\_dynamic\_spec@{check\_dynamic\_spec}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{check\_dynamic\_spec()}{check\_dynamic\_spec()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classparse__context_a52025a3a898439996ed188ea3136d3aa} 
+template$<$typename Char = char$>$ \\
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::check\+\_\+dynamic\+\_\+spec (\begin{DoxyParamCaption}\item[{int}]{arg\+\_\+id}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classparse__context_ad10a0f3a57fbac77c207ae4bf8475bc2}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!end@{end}}
+\index{end@{end}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classparse__context_ad10a0f3a57fbac77c207ae4bf8475bc2} 
+template$<$typename Char = char$>$ \\
+auto \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$\mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Returns an iterator past the end of the format string range being parsed. 
+
+\Hypertarget{classparse__context_ad10a0f3a57fbac77c207ae4bf8475bc2}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!end@{end}}
+\index{end@{end}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classparse__context_ad10a0f3a57fbac77c207ae4bf8475bc2} 
+template$<$typename Char = char$>$ \\
+auto \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$\mbox{\hyperlink{classparse__context_a1948d1cb86a3b2bac7e25bc196ead687}{iterator}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Returns an iterator past the end of the format string range being parsed. 
+
+\Hypertarget{classparse__context_a82d4f9e430de64a4bd3820fe69b5f669}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!next\_arg\_id@{next\_arg\_id}}
+\index{next\_arg\_id@{next\_arg\_id}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{next\_arg\_id()}{next\_arg\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classparse__context_a82d4f9e430de64a4bd3820fe69b5f669} 
+template$<$typename Char = char$>$ \\
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::next\+\_\+arg\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})-\/$>$int\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reports an error if using the manual argument indexing; otherwise returns the next argument index and switches to the automatic indexing. \Hypertarget{classparse__context_a82d4f9e430de64a4bd3820fe69b5f669}\index{parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}!next\_arg\_id@{next\_arg\_id}}
+\index{next\_arg\_id@{next\_arg\_id}!parse\_context$<$ Char $>$@{parse\_context$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{next\_arg\_id()}{next\_arg\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classparse__context_a82d4f9e430de64a4bd3820fe69b5f669} 
+template$<$typename Char = char$>$ \\
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto \mbox{\hyperlink{classparse__context}{parse\+\_\+context}}$<$ Char $>$\+::next\+\_\+arg\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})-\/$>$int\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reports an error if using the manual argument indexing; otherwise returns the next argument index and switches to the automatic indexing. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/fmt/bundled/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h}{base.\+h}}\item 
+src/vendor/spdlog/include/spdlog/fmt/bundled/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h}{base.\+h}}\end{DoxyCompactItemize}

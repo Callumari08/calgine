@@ -1,4 +1,30 @@
 var searchData=
 [
-  ['app_0',['App',['../classApp.html',1,'']]]
+  ['a_5fformatter_0',['A_formatter',['../classspdlog_1_1details_1_1A__formatter.html',1,'spdlog::details']]],
+  ['a_5fformatter_1',['a_formatter',['../classspdlog_1_1details_1_1a__formatter.html',1,'spdlog::details']]],
+  ['aggregate_5fformatter_2',['aggregate_formatter',['../classspdlog_1_1details_1_1aggregate__formatter.html',1,'spdlog::details']]],
+  ['all_3',['all',['../structdetail_1_1all.html',1,'detail']]],
+  ['all_3c_20typename_20t_3a_3acontainer_5ftype_20_3e_4',['all&lt; typename T::container_type &gt;',['../structdetail_1_1all.html',1,'detail']]],
+  ['ansi_5fcolor_5fescape_5',['ansi_color_escape',['../structdetail_1_1ansi__color__escape.html',1,'detail']]],
+  ['ansicolor_5fsink_6',['ansicolor_sink',['../classspdlog_1_1sinks_1_1ansicolor__sink.html',1,'spdlog::sinks']]],
+  ['ansicolor_5fstderr_5fsink_7',['ansicolor_stderr_sink',['../classspdlog_1_1sinks_1_1ansicolor__stderr__sink.html',1,'spdlog::sinks']]],
+  ['ansicolor_5fstderr_5fsink_3c_20details_3a_3aconsole_5fmutex_20_3e_8',['ansicolor_stderr_sink&lt; details::console_mutex &gt;',['../classspdlog_1_1sinks_1_1ansicolor__stderr__sink.html',1,'spdlog::sinks']]],
+  ['ansicolor_5fstderr_5fsink_3c_20details_3a_3aconsole_5fnullmutex_20_3e_9',['ansicolor_stderr_sink&lt; details::console_nullmutex &gt;',['../classspdlog_1_1sinks_1_1ansicolor__stderr__sink.html',1,'spdlog::sinks']]],
+  ['ansicolor_5fstdout_5fsink_10',['ansicolor_stdout_sink',['../classspdlog_1_1sinks_1_1ansicolor__stdout__sink.html',1,'spdlog::sinks']]],
+  ['ansicolor_5fstdout_5fsink_3c_20details_3a_3aconsole_5fmutex_20_3e_11',['ansicolor_stdout_sink&lt; details::console_mutex &gt;',['../classspdlog_1_1sinks_1_1ansicolor__stdout__sink.html',1,'spdlog::sinks']]],
+  ['ansicolor_5fstdout_5fsink_3c_20details_3a_3aconsole_5fnullmutex_20_3e_12',['ansicolor_stdout_sink&lt; details::console_nullmutex &gt;',['../classspdlog_1_1sinks_1_1ansicolor__stdout__sink.html',1,'spdlog::sinks']]],
+  ['app_13',['App',['../classCalgine_1_1App.html',1,'Calgine']]],
+  ['apple_5ffile_14',['apple_file',['../classdetail_1_1apple__file.html',1,'detail']]],
+  ['arg_5fconverter_15',['arg_converter',['../classdetail_1_1arg__converter.html',1,'detail']]],
+  ['arg_5fformatter_16',['arg_formatter',['../structdetail_1_1arg__formatter.html',1,'detail']]],
+  ['arg_5fpack_17',['arg_pack',['../structdetail_1_1arg__pack.html',1,'detail']]],
+  ['arg_5fpack_3c_20t_2e_2e_2e_20_3e_18',['arg_pack&lt; T... &gt;',['../structdetail_1_1arg__pack.html',1,'detail']]],
+  ['arg_5fref_19',['arg_ref',['../uniondetail_1_1arg__ref.html',1,'detail']]],
+  ['arg_5fref_3c_20char_20_3e_20',['arg_ref&lt; char &gt;',['../uniondetail_1_1arg__ref.html',1,'detail']]],
+  ['async_5ffactory_5fimpl_21',['async_factory_impl',['../structspdlog_1_1async__factory__impl.html',1,'spdlog']]],
+  ['async_5ffactory_5fimpl_3c_20async_5foverflow_5fpolicy_3a_3ablock_20_3e_22',['async_factory_impl&lt; async_overflow_policy::block &gt;',['../structspdlog_1_1async__factory__impl.html',1,'spdlog']]],
+  ['async_5ffactory_5fimpl_3c_20async_5foverflow_5fpolicy_3a_3aoverrun_5foldest_20_3e_23',['async_factory_impl&lt; async_overflow_policy::overrun_oldest &gt;',['../structspdlog_1_1async__factory__impl.html',1,'spdlog']]],
+  ['async_5flogger_24',['async_logger',['../classspdlog_1_1async__logger.html',1,'spdlog']]],
+  ['async_5fmsg_25',['async_msg',['../structspdlog_1_1details_1_1async__msg.html',1,'spdlog::details']]],
+  ['auto_5fcloser_26',['auto_closer',['../structauto__closer.html',1,'']]]
 ];

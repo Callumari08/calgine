@@ -1,0 +1,65 @@
+\doxysection{src/calgine/vendor/bench/latency.cpp File Reference}
+\hypertarget{calgine_2vendor_2bench_2latency_8cpp}{}\label{calgine_2vendor_2bench_2latency_8cpp}\index{src/calgine/vendor/bench/latency.cpp@{src/calgine/vendor/bench/latency.cpp}}
+{\ttfamily \#include "{}benchmark/benchmark.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/spdlog.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/async.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/sinks/basic\+\_\+file\+\_\+sink.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/sinks/daily\+\_\+file\+\_\+sink.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/sinks/null\+\_\+sink.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/sinks/rotating\+\_\+file\+\_\+sink.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{calgine_2vendor_2bench_2latency_8cpp_af3fea32944dfe7b562114b528f95faac}{bench\+\_\+c\+\_\+string}} (benchmark\+::\+State \&state, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ logger)
+\item 
+void \mbox{\hyperlink{calgine_2vendor_2bench_2latency_8cpp_a0cd85645c17cd15bbe49baafdeee94fb}{bench\+\_\+logger}} (benchmark\+::\+State \&state, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ logger)
+\item 
+void \mbox{\hyperlink{calgine_2vendor_2bench_2latency_8cpp_a86fe687b6dfe56b2d11b7aaa3dac41e6}{bench\+\_\+global\+\_\+logger}} (benchmark\+::\+State \&state, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ logger)
+\item 
+void \mbox{\hyperlink{calgine_2vendor_2bench_2latency_8cpp_a9d8c0120620b41a0073c7c4d60b3bf01}{bench\+\_\+disabled\+\_\+macro}} (benchmark\+::\+State \&state, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ logger)
+\item 
+void \mbox{\hyperlink{calgine_2vendor_2bench_2latency_8cpp_aca2305e9bb013ea04dcbc0db69c1e518}{bench\+\_\+disabled\+\_\+macro\+\_\+global\+\_\+logger}} (benchmark\+::\+State \&state, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ logger)
+\item 
+int \mbox{\hyperlink{calgine_2vendor_2bench_2latency_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{calgine_2vendor_2bench_2latency_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{calgine_2vendor_2bench_2latency_8cpp_af3fea32944dfe7b562114b528f95faac}\index{latency.cpp@{latency.cpp}!bench\_c\_string@{bench\_c\_string}}
+\index{bench\_c\_string@{bench\_c\_string}!latency.cpp@{latency.cpp}}
+\doxysubsubsection{\texorpdfstring{bench\_c\_string()}{bench\_c\_string()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2bench_2latency_8cpp_af3fea32944dfe7b562114b528f95faac} 
+void bench\+\_\+c\+\_\+string (\begin{DoxyParamCaption}\item[{benchmark\+::\+State \&}]{state}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$}]{logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2bench_2latency_8cpp_a9d8c0120620b41a0073c7c4d60b3bf01}\index{latency.cpp@{latency.cpp}!bench\_disabled\_macro@{bench\_disabled\_macro}}
+\index{bench\_disabled\_macro@{bench\_disabled\_macro}!latency.cpp@{latency.cpp}}
+\doxysubsubsection{\texorpdfstring{bench\_disabled\_macro()}{bench\_disabled\_macro()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2bench_2latency_8cpp_a9d8c0120620b41a0073c7c4d60b3bf01} 
+void bench\+\_\+disabled\+\_\+macro (\begin{DoxyParamCaption}\item[{benchmark\+::\+State \&}]{state}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$}]{logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2bench_2latency_8cpp_aca2305e9bb013ea04dcbc0db69c1e518}\index{latency.cpp@{latency.cpp}!bench\_disabled\_macro\_global\_logger@{bench\_disabled\_macro\_global\_logger}}
+\index{bench\_disabled\_macro\_global\_logger@{bench\_disabled\_macro\_global\_logger}!latency.cpp@{latency.cpp}}
+\doxysubsubsection{\texorpdfstring{bench\_disabled\_macro\_global\_logger()}{bench\_disabled\_macro\_global\_logger()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2bench_2latency_8cpp_aca2305e9bb013ea04dcbc0db69c1e518} 
+void bench\+\_\+disabled\+\_\+macro\+\_\+global\+\_\+logger (\begin{DoxyParamCaption}\item[{benchmark\+::\+State \&}]{state}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$}]{logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2bench_2latency_8cpp_a86fe687b6dfe56b2d11b7aaa3dac41e6}\index{latency.cpp@{latency.cpp}!bench\_global\_logger@{bench\_global\_logger}}
+\index{bench\_global\_logger@{bench\_global\_logger}!latency.cpp@{latency.cpp}}
+\doxysubsubsection{\texorpdfstring{bench\_global\_logger()}{bench\_global\_logger()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2bench_2latency_8cpp_a86fe687b6dfe56b2d11b7aaa3dac41e6} 
+void bench\+\_\+global\+\_\+logger (\begin{DoxyParamCaption}\item[{benchmark\+::\+State \&}]{state}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$}]{logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2bench_2latency_8cpp_a0cd85645c17cd15bbe49baafdeee94fb}\index{latency.cpp@{latency.cpp}!bench\_logger@{bench\_logger}}
+\index{bench\_logger@{bench\_logger}!latency.cpp@{latency.cpp}}
+\doxysubsubsection{\texorpdfstring{bench\_logger()}{bench\_logger()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2bench_2latency_8cpp_a0cd85645c17cd15bbe49baafdeee94fb} 
+void bench\+\_\+logger (\begin{DoxyParamCaption}\item[{benchmark\+::\+State \&}]{state}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$}]{logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2bench_2latency_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{latency.cpp@{latency.cpp}!main@{main}}
+\index{main@{main}!latency.cpp@{latency.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2bench_2latency_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+

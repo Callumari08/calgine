@@ -1,0 +1,33 @@
+\doxysection{src/vendor/spdlog/include/spdlog/sinks/stdout\+\_\+sinks.h File Reference}
+\hypertarget{vendor_2spdlog_2include_2spdlog_2sinks_2stdout__sinks_8h}{}\label{vendor_2spdlog_2include_2spdlog_2sinks_2stdout__sinks_8h}\index{src/vendor/spdlog/include/spdlog/sinks/stdout\_sinks.h@{src/vendor/spdlog/include/spdlog/sinks/stdout\_sinks.h}}
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$spdlog/details/console\+\_\+globals.\+h$>$}\newline
+{\ttfamily \#include $<$spdlog/details/synchronous\+\_\+factory.\+h$>$}\newline
+{\ttfamily \#include $<$spdlog/sinks/sink.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base}{spdlog\+::sinks\+::stdout\+\_\+sink\+\_\+base$<$ Console\+Mutex $>$}}
+\item 
+class \mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink}{spdlog\+::sinks\+::stdout\+\_\+sink$<$ Console\+Mutex $>$}}
+\item 
+class \mbox{\hyperlink{classspdlog_1_1sinks_1_1stderr__sink}{spdlog\+::sinks\+::stderr\+\_\+sink$<$ Console\+Mutex $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacespdlog}{spdlog}}
+\item 
+namespace \mbox{\hyperlink{namespacespdlog_1_1sinks}{spdlog\+::sinks}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Factory = spdlog\+::synchronous\+\_\+factory$>$ }\\std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{namespacespdlog_a12568bcc67950ec896044eb5f0bb1762}{spdlog\+::stdout\+\_\+logger\+\_\+mt}} (const std\+::string \&logger\+\_\+name)
+\item 
+{\footnotesize template$<$typename Factory = spdlog\+::synchronous\+\_\+factory$>$ }\\std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{namespacespdlog_aecc40776b11842c2a000c7631339a883}{spdlog\+::stdout\+\_\+logger\+\_\+st}} (const std\+::string \&logger\+\_\+name)
+\item 
+{\footnotesize template$<$typename Factory = spdlog\+::synchronous\+\_\+factory$>$ }\\std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{namespacespdlog_a241db0aed3fd1767d02861af390f7bd8}{spdlog\+::stderr\+\_\+logger\+\_\+mt}} (const std\+::string \&logger\+\_\+name)
+\item 
+{\footnotesize template$<$typename Factory = spdlog\+::synchronous\+\_\+factory$>$ }\\std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{namespacespdlog_a24b357ea84f505a96424f0f1e1ea6d5e}{spdlog\+::stderr\+\_\+logger\+\_\+st}} (const std\+::string \&logger\+\_\+name)
+\end{DoxyCompactItemize}

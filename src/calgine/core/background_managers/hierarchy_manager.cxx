@@ -1,6 +1,8 @@
 #include "hierarchy_manager.h"
 #include "calgine/core/game_object.h"
 
+namespace Calgine {
+
 Hierarchy::Hierarchy() : root() 
 {
 }
@@ -17,3 +19,5 @@ GameObject& Hierarchy::get_hierarchy_root()
 {
   return root;
 }
+
+} // namespace Calgine

@@ -1,0 +1,187 @@
+\doxysection{spdlog\+::details\+::backtracer Class Reference}
+\hypertarget{classspdlog_1_1details_1_1backtracer}{}\label{classspdlog_1_1details_1_1backtracer}\index{spdlog::details::backtracer@{spdlog::details::backtracer}}
+
+
+{\ttfamily \#include $<$backtracer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac}{backtracer}} ()=default
+\item 
+\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a3e37c0ea03980c490602bcd2fcc20e01}{backtracer}} (const backtracer \&other)
+\item 
+\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_adfe10df58ca31f02f178e51bed405c64}{backtracer}} (backtracer \&\&other) \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a15d2dc432e6bb83beb5130be9a4ca8d6}{SPDLOG\+\_\+\+NOEXCEPT}}
+\item 
+\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac}{backtracer}} \& \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a49695dceff886eeef9cf4ad179d1a644}{operator=}} (\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac}{backtracer}} other)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a7cb69ae682f696ea13ea771b90fbc579}{enable}} (size\+\_\+t size)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a0e3655183f41ef75b568a6571cc67eb6}{disable}} ()
+\item 
+bool \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a78c514131543b5682d0143e93a7365ba}{enabled}} () const
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a1f3b157c3fcd6b013d6d16302b8e1a10}{push\+\_\+back}} (const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{log\+\_\+msg}} \&msg)
+\item 
+bool \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a9a182593791d6458233ad59715cbf443}{empty}} () const
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_aa18d7036db805e0af39a967c7cf2f7c8}{foreach\+\_\+pop}} (std\+::function$<$ void(const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg}} \&)$>$ fun)
+\item 
+\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac}{backtracer}} ()=default
+\item 
+\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a94cbafa2387a731685804f7398ae8993}{backtracer}} (const backtracer \&other)
+\item 
+\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_affa5666a43a03ea863fa8e01729166a4}{backtracer}} (backtracer \&\&other) \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a15d2dc432e6bb83beb5130be9a4ca8d6}{SPDLOG\+\_\+\+NOEXCEPT}}
+\item 
+\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac}{backtracer}} \& \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a76cdb9123dcc26a78f9d8997c4fba349}{operator=}} (\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac}{backtracer}} other)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a30c55b2bec0efb0258d896407aa0e9fc}{enable}} (size\+\_\+t size)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_acedf19a222b2aa03aaf291b4969f8bee}{disable}} ()
+\item 
+bool \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_ab64c9d1556cc57ce9937b40c85ecbd92}{enabled}} () const
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a19b4bceb13e48947b544bdc2c8ba1c06}{push\+\_\+back}} (const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{log\+\_\+msg}} \&msg)
+\item 
+bool \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a0b478f522c6dbce2c074de2c748ec461}{empty}} () const
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a859af6f04f6ffc9cf6106351eccaa759}{foreach\+\_\+pop}} (std\+::function$<$ void(const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg}} \&)$>$ fun)
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classspdlog_1_1details_1_1backtracer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!backtracer@{backtracer}}
+\index{backtracer@{backtracer}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{backtracer()}{backtracer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac} 
+spdlog\+::details\+::backtracer\+::backtracer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a3e37c0ea03980c490602bcd2fcc20e01}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!backtracer@{backtracer}}
+\index{backtracer@{backtracer}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{backtracer()}{backtracer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a3e37c0ea03980c490602bcd2fcc20e01} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} spdlog\+::details\+::backtracer\+::backtracer (\begin{DoxyParamCaption}\item[{const backtracer \&}]{other}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_adfe10df58ca31f02f178e51bed405c64}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!backtracer@{backtracer}}
+\index{backtracer@{backtracer}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{backtracer()}{backtracer()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_adfe10df58ca31f02f178e51bed405c64} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} spdlog\+::details\+::backtracer\+::backtracer (\begin{DoxyParamCaption}\item[{backtracer \&\&}]{other}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!backtracer@{backtracer}}
+\index{backtracer@{backtracer}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{backtracer()}{backtracer()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac} 
+spdlog\+::details\+::backtracer\+::backtracer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a94cbafa2387a731685804f7398ae8993}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!backtracer@{backtracer}}
+\index{backtracer@{backtracer}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{backtracer()}{backtracer()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a94cbafa2387a731685804f7398ae8993} 
+spdlog\+::details\+::backtracer\+::backtracer (\begin{DoxyParamCaption}\item[{const backtracer \&}]{other}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_affa5666a43a03ea863fa8e01729166a4}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!backtracer@{backtracer}}
+\index{backtracer@{backtracer}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{backtracer()}{backtracer()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_affa5666a43a03ea863fa8e01729166a4} 
+spdlog\+::details\+::backtracer\+::backtracer (\begin{DoxyParamCaption}\item[{backtracer \&\&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classspdlog_1_1details_1_1backtracer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a0e3655183f41ef75b568a6571cc67eb6}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!disable@{disable}}
+\index{disable@{disable}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{disable()}{disable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a0e3655183f41ef75b568a6571cc67eb6} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::backtracer\+::disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_acedf19a222b2aa03aaf291b4969f8bee}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!disable@{disable}}
+\index{disable@{disable}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{disable()}{disable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_acedf19a222b2aa03aaf291b4969f8bee} 
+void spdlog\+::details\+::backtracer\+::disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a9a182593791d6458233ad59715cbf443}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!empty@{empty}}
+\index{empty@{empty}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a9a182593791d6458233ad59715cbf443} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} bool spdlog\+::details\+::backtracer\+::empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a0b478f522c6dbce2c074de2c748ec461}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!empty@{empty}}
+\index{empty@{empty}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a0b478f522c6dbce2c074de2c748ec461} 
+bool spdlog\+::details\+::backtracer\+::empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a7cb69ae682f696ea13ea771b90fbc579}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!enable@{enable}}
+\index{enable@{enable}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{enable()}{enable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a7cb69ae682f696ea13ea771b90fbc579} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::backtracer\+::enable (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a30c55b2bec0efb0258d896407aa0e9fc}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!enable@{enable}}
+\index{enable@{enable}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{enable()}{enable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a30c55b2bec0efb0258d896407aa0e9fc} 
+void spdlog\+::details\+::backtracer\+::enable (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a78c514131543b5682d0143e93a7365ba}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!enabled@{enabled}}
+\index{enabled@{enabled}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{enabled()}{enabled()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a78c514131543b5682d0143e93a7365ba} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} bool spdlog\+::details\+::backtracer\+::enabled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_ab64c9d1556cc57ce9937b40c85ecbd92}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!enabled@{enabled}}
+\index{enabled@{enabled}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{enabled()}{enabled()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_ab64c9d1556cc57ce9937b40c85ecbd92} 
+bool spdlog\+::details\+::backtracer\+::enabled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_aa18d7036db805e0af39a967c7cf2f7c8}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!foreach\_pop@{foreach\_pop}}
+\index{foreach\_pop@{foreach\_pop}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{foreach\_pop()}{foreach\_pop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_aa18d7036db805e0af39a967c7cf2f7c8} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::backtracer\+::foreach\+\_\+pop (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg}} \&)$>$}]{fun}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a859af6f04f6ffc9cf6106351eccaa759}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!foreach\_pop@{foreach\_pop}}
+\index{foreach\_pop@{foreach\_pop}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{foreach\_pop()}{foreach\_pop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a859af6f04f6ffc9cf6106351eccaa759} 
+void spdlog\+::details\+::backtracer\+::foreach\+\_\+pop (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg}} \&)$>$}]{fun}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a49695dceff886eeef9cf4ad179d1a644}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!operator=@{operator=}}
+\index{operator=@{operator=}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a49695dceff886eeef9cf4ad179d1a644} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} \mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac}{backtracer}} \& spdlog\+::details\+::backtracer\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac}{backtracer}}}]{other}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a76cdb9123dcc26a78f9d8997c4fba349}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!operator=@{operator=}}
+\index{operator=@{operator=}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a76cdb9123dcc26a78f9d8997c4fba349} 
+\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac}{backtracer}} \& spdlog\+::details\+::backtracer\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a70cbdaa0ebbfd262969d612c3099daac}{backtracer}}}]{other}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a1f3b157c3fcd6b013d6d16302b8e1a10}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!push\_back@{push\_back}}
+\index{push\_back@{push\_back}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{push\_back()}{push\_back()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a1f3b157c3fcd6b013d6d16302b8e1a10} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::backtracer\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{log\+\_\+msg}} \&}]{msg}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1backtracer_a19b4bceb13e48947b544bdc2c8ba1c06}\index{spdlog::details::backtracer@{spdlog::details::backtracer}!push\_back@{push\_back}}
+\index{push\_back@{push\_back}!spdlog::details::backtracer@{spdlog::details::backtracer}}
+\doxysubsubsection{\texorpdfstring{push\_back()}{push\_back()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1backtracer_a19b4bceb13e48947b544bdc2c8ba1c06} 
+void spdlog\+::details\+::backtracer\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{log\+\_\+msg}} \&}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/details/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2details_2backtracer_8h}{backtracer.\+h}}\item 
+src/vendor/spdlog/include/spdlog/details/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2details_2backtracer_8h}{backtracer.\+h}}\item 
+src/calgine/vendor/include/spdlog/details/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2details_2backtracer-inl_8h}{backtracer-\/inl.\+h}}\item 
+src/vendor/spdlog/include/spdlog/details/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2details_2backtracer-inl_8h}{backtracer-\/inl.\+h}}\end{DoxyCompactItemize}

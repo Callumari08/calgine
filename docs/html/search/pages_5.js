@@ -1,0 +1,12 @@
+var searchData=
+[
+  ['faster_20compile_20times_0',['faster compile times',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md3',1,'Compiled version (recommended - much faster compile times)'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md65',1,'Compiled version (recommended - much faster compile times)']]],
+  ['features_1',['Features',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md6',1,'Features'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md68',1,'Features']]],
+  ['file_20logger_2',['file logger',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md12',1,'Basic file logger'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md74',1,'Basic file logger']]],
+  ['file_20open_20close_20event_20handlers_3',['file open close event handlers',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md48',1,'Log file open/close event handlers'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md110',1,'Log file open/close event handlers']]],
+  ['files_4',['files',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md16',1,'Daily files'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md78',1,'Daily files'],['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md14',1,'Rotating files'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md76',1,'Rotating files']]],
+  ['flags_20in_20the_20log_20pattern_5',['flags in the log pattern',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md38',1,'User-defined flags in the log pattern'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md100',1,'User-defined flags in the log pattern']]],
+  ['flush_6',['flush',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md20',1,'Periodic flush'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md82',1,'Periodic flush']]],
+  ['format_20and_20log_20level_7',['format and log level',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md26',1,'Logger with multi sinks - each with a different format and log level'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md88',1,'Logger with multi sinks - each with a different format and log level']]],
+  ['from_20the_20env_20variable_20or_20argv_8',['from the env variable or argv',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md46',1,'Load log levels from the env variable or argv'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md108',1,'Load log levels from the env variable or argv']]]
+];

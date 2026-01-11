@@ -1,0 +1,96 @@
+\doxysection{src/calgine/vendor/tests/test\+\_\+daily\+\_\+logger.cpp File Reference}
+\hypertarget{calgine_2vendor_2tests_2test__daily__logger_8cpp}{}\label{calgine_2vendor_2tests_2test__daily__logger_8cpp}\index{src/calgine/vendor/tests/test\_daily\_logger.cpp@{src/calgine/vendor/tests/test\_daily\_logger.cpp}}
+{\ttfamily \#include "{}includes.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcustom__daily__file__name__calculator}{custom\+\_\+daily\+\_\+file\+\_\+name\+\_\+calculator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{calgine_2vendor_2tests_2test__daily__logger_8cpp_aea17589ceec826c08b5d38eda7d85e15}{filename\+\_\+memory\+\_\+buf\+\_\+t}} = fmt\+::basic\+\_\+memory\+\_\+buffer$<$spdlog\+::filename\+\_\+t\+::value\+\_\+type, 250$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{calgine_2vendor_2tests_2test__daily__logger_8cpp_a9e2ca24d11f2a1d181b6ce7aaba11138}{filename\+\_\+buf\+\_\+to\+\_\+utf8string}} (const \mbox{\hyperlink{calgine_2vendor_2tests_2test__daily__logger_8cpp_aea17589ceec826c08b5d38eda7d85e15}{filename\+\_\+memory\+\_\+buf\+\_\+t}} \&w)
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__daily__logger_8cpp_a3e00a172d78913fbc71be2206727fd86}{TEST\+\_\+\+CASE}} ("{}daily\+\_\+logger with dateonly calculator"{}, "{}\mbox{[}daily\+\_\+logger\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__daily__logger_8cpp_a9acbbbeba0113806bb3d93ef50f09917}{TEST\+\_\+\+CASE}} ("{}daily\+\_\+logger with custom calculator"{}, "{}\mbox{[}daily\+\_\+logger\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__daily__logger_8cpp_a639bbffc3c9e01eec320421ba930a1de}{TEST\+\_\+\+CASE}} ("{}rotating\+\_\+file\+\_\+sink\+::calc\+\_\+filename1"{}, "{}\mbox{[}rotating\+\_\+file\+\_\+sink\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__daily__logger_8cpp_a2d071455376cbad6a99c5b46116489f0}{TEST\+\_\+\+CASE}} ("{}rotating\+\_\+file\+\_\+sink\+::calc\+\_\+filename2"{}, "{}\mbox{[}rotating\+\_\+file\+\_\+sink\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__daily__logger_8cpp_ae58cbecc6b34669c746c2cbafa631fc7}{TEST\+\_\+\+CASE}} ("{}rotating\+\_\+file\+\_\+sink\+::calc\+\_\+filename3"{}, "{}\mbox{[}rotating\+\_\+file\+\_\+sink\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__daily__logger_8cpp_a1aaf4b839e6ec56026b7116fb07d6725}{TEST\+\_\+\+CASE}} ("{}daily\+\_\+file\+\_\+sink\+::daily\+\_\+filename\+\_\+format\+\_\+calculator"{}, "{}\mbox{[}daily\+\_\+file\+\_\+sink\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__daily__logger_8cpp_ad574d5bc816e0d2ca0d6fdf9cb6e20e5}{TEST\+\_\+\+CASE}} ("{}daily\+\_\+logger rotate"{}, "{}\mbox{[}daily\+\_\+file\+\_\+sink\mbox{]}"{})
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{calgine_2vendor_2tests_2test__daily__logger_8cpp_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{calgine_2vendor_2tests_2test__daily__logger_8cpp_aea17589ceec826c08b5d38eda7d85e15}\index{test\_daily\_logger.cpp@{test\_daily\_logger.cpp}!filename\_memory\_buf\_t@{filename\_memory\_buf\_t}}
+\index{filename\_memory\_buf\_t@{filename\_memory\_buf\_t}!test\_daily\_logger.cpp@{test\_daily\_logger.cpp}}
+\doxysubsubsection{\texorpdfstring{filename\_memory\_buf\_t}{filename\_memory\_buf\_t}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__daily__logger_8cpp_aea17589ceec826c08b5d38eda7d85e15} 
+using \mbox{\hyperlink{calgine_2vendor_2tests_2test__daily__logger_8cpp_aea17589ceec826c08b5d38eda7d85e15}{filename\+\_\+memory\+\_\+buf\+\_\+t}} = fmt\+::basic\+\_\+memory\+\_\+buffer$<$spdlog\+::filename\+\_\+t\+::value\+\_\+type, 250$>$}
+
+
+
+\label{doc-func-members}
+\Hypertarget{calgine_2vendor_2tests_2test__daily__logger_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{calgine_2vendor_2tests_2test__daily__logger_8cpp_a9e2ca24d11f2a1d181b6ce7aaba11138}\index{test\_daily\_logger.cpp@{test\_daily\_logger.cpp}!filename\_buf\_to\_utf8string@{filename\_buf\_to\_utf8string}}
+\index{filename\_buf\_to\_utf8string@{filename\_buf\_to\_utf8string}!test\_daily\_logger.cpp@{test\_daily\_logger.cpp}}
+\doxysubsubsection{\texorpdfstring{filename\_buf\_to\_utf8string()}{filename\_buf\_to\_utf8string()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__daily__logger_8cpp_a9e2ca24d11f2a1d181b6ce7aaba11138} 
+std\+::string filename\+\_\+buf\+\_\+to\+\_\+utf8string (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{calgine_2vendor_2tests_2test__daily__logger_8cpp_aea17589ceec826c08b5d38eda7d85e15}{filename\+\_\+memory\+\_\+buf\+\_\+t}} \&}]{w}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__daily__logger_8cpp_a1aaf4b839e6ec56026b7116fb07d6725}\index{test\_daily\_logger.cpp@{test\_daily\_logger.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_daily\_logger.cpp@{test\_daily\_logger.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__daily__logger_8cpp_a1aaf4b839e6ec56026b7116fb07d6725} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}daily\+\_\+file\+\_\+sink\+::daily\+\_\+filename\+\_\+format\+\_\+calculator"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}daily\+\_\+file\+\_\+sink\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__daily__logger_8cpp_ad574d5bc816e0d2ca0d6fdf9cb6e20e5}\index{test\_daily\_logger.cpp@{test\_daily\_logger.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_daily\_logger.cpp@{test\_daily\_logger.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__daily__logger_8cpp_ad574d5bc816e0d2ca0d6fdf9cb6e20e5} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}daily\+\_\+logger rotate"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}daily\+\_\+file\+\_\+sink\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__daily__logger_8cpp_a9acbbbeba0113806bb3d93ef50f09917}\index{test\_daily\_logger.cpp@{test\_daily\_logger.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_daily\_logger.cpp@{test\_daily\_logger.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__daily__logger_8cpp_a9acbbbeba0113806bb3d93ef50f09917} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}daily\+\_\+logger with custom calculator"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}daily\+\_\+logger\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__daily__logger_8cpp_a3e00a172d78913fbc71be2206727fd86}\index{test\_daily\_logger.cpp@{test\_daily\_logger.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_daily\_logger.cpp@{test\_daily\_logger.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__daily__logger_8cpp_a3e00a172d78913fbc71be2206727fd86} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}daily\+\_\+logger with dateonly calculator"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}daily\+\_\+logger\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__daily__logger_8cpp_a639bbffc3c9e01eec320421ba930a1de}\index{test\_daily\_logger.cpp@{test\_daily\_logger.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_daily\_logger.cpp@{test\_daily\_logger.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__daily__logger_8cpp_a639bbffc3c9e01eec320421ba930a1de} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}rotating\+\_\+file\+\_\+sink\+::calc\+\_\+filename1"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}rotating\+\_\+file\+\_\+sink\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__daily__logger_8cpp_a2d071455376cbad6a99c5b46116489f0}\index{test\_daily\_logger.cpp@{test\_daily\_logger.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_daily\_logger.cpp@{test\_daily\_logger.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__daily__logger_8cpp_a2d071455376cbad6a99c5b46116489f0} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}rotating\+\_\+file\+\_\+sink\+::calc\+\_\+filename2"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}rotating\+\_\+file\+\_\+sink\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__daily__logger_8cpp_ae58cbecc6b34669c746c2cbafa631fc7}\index{test\_daily\_logger.cpp@{test\_daily\_logger.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_daily\_logger.cpp@{test\_daily\_logger.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__daily__logger_8cpp_ae58cbecc6b34669c746c2cbafa631fc7} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}rotating\+\_\+file\+\_\+sink\+::calc\+\_\+filename3"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}rotating\+\_\+file\+\_\+sink\mbox{]}}\end{DoxyParamCaption})}
+

@@ -4,6 +4,12 @@ project(Calgine LANGUAGES C CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# ---- Shared Library Configuration ----
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
+set(CMAKE_C_VISIBILITY_PRESET hidden)
+set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+
 include(FetchContent)
 
 # ---- Fetch glad (glad2) ----
@@ -13,7 +19,15 @@ FetchContent_Declare(
     GIT_TAG v2.0.6
 )
 
+# ---- Fetch eventpp (c++ event system) ----
+FetchContent_Declare(
+    eventpp
+    GIT_REPOSITORY https://github.com/wqking/eventpp
+    GIT_TAG        d2db8af2a46c79f8dc75759019fba487948e9442 # v0.1.3
+)
+
 FetchContent_MakeAvailable(glad)
+FetchContent_MakeAvailable(eventpp)
 
 if(NOT COMMAND glad_add_library)
     add_subdirectory(${glad_SOURCE_DIR}/cmake ${glad_BINARY_DIR}/glad_cmake EXCLUDE_FROM_ALL)
@@ -46,7 +60,9 @@ target_compile_options(project_warnings INTERFACE -Wall -Wextra -Wpedantic)
 # ---- Library ----
 file(GLOB_RECURSE CALGINE_SOURCES CONFIGURE_DEPENDS src/*.cxx)
 
-add_library(Calgine ${CALGINE_SOURCES})
+add_library(Calgine SHARED ${CALGINE_SOURCES})
+
+target_compile_definitions(Calgine PRIVATE CALGINE_EXPORTS)
 
 target_link_libraries(Calgine
     PUBLIC
@@ -54,6 +70,7 @@ target_link_libraries(Calgine
         OpenGL::GL
         SDL3::SDL3
         spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>
+        eventpp
     PRIVATE
         project_warnings
 )

@@ -1,0 +1,36 @@
+\doxysection{detail\+::is\+\_\+bit\+\_\+reference\+\_\+like\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structdetail_1_1is__bit__reference__like}{}\label{structdetail_1_1is__bit__reference__like}\index{detail::is\_bit\_reference\_like$<$ T $>$@{detail::is\_bit\_reference\_like$<$ T $>$}}
+
+
+{\ttfamily \#include $<$std.\+h$>$}
+
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr bool \mbox{\hyperlink{structdetail_1_1is__bit__reference__like_a52788e09f31fed15bf1f57e8485c6c3e}{value}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-variable-members}
+\Hypertarget{structdetail_1_1is__bit__reference__like_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structdetail_1_1is__bit__reference__like_a52788e09f31fed15bf1f57e8485c6c3e}\index{detail::is\_bit\_reference\_like$<$ T $>$@{detail::is\_bit\_reference\_like$<$ T $>$}!value@{value}}
+\index{value@{value}!detail::is\_bit\_reference\_like$<$ T $>$@{detail::is\_bit\_reference\_like$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily \label{structdetail_1_1is__bit__reference__like_a52788e09f31fed15bf1f57e8485c6c3e} 
+template$<$typename T$>$ \\
+constexpr bool \mbox{\hyperlink{structdetail_1_1is__bit__reference__like}{detail\+::is\+\_\+bit\+\_\+reference\+\_\+like}}$<$ T $>$\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ std::is\_convertible<T,\ bool>::value\ \&\&}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_nothrow\_assignable<T,\ bool>::value\ \&\&}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdetail_1_1has__flip}{has\_flip<T>::value}}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/fmt/bundled/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2std_8h}{std.\+h}}\item 
+src/vendor/spdlog/include/spdlog/fmt/bundled/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h}{std.\+h}}\end{DoxyCompactItemize}

@@ -1,4 +1,31 @@
 var searchData=
 [
-  ['hierarchy_0',['Hierarchy',['../classHierarchy.html',1,'']]]
+  ['d_5fformatter_0',['D_formatter',['../classspdlog_1_1details_1_1D__formatter.html',1,'spdlog::details']]],
+  ['d_5fformatter_1',['d_formatter',['../classspdlog_1_1details_1_1d__formatter.html',1,'spdlog::details']]],
+  ['daily_5ffile_5fsink_2',['daily_file_sink',['../classspdlog_1_1sinks_1_1daily__file__sink.html',1,'spdlog::sinks']]],
+  ['daily_5ffile_5fsink_3c_20details_3a_3anull_5fmutex_20_3e_3',['daily_file_sink&lt; details::null_mutex &gt;',['../classspdlog_1_1sinks_1_1daily__file__sink.html',1,'spdlog::sinks']]],
+  ['daily_5ffile_5fsink_3c_20details_3a_3anull_5fmutex_2c_20daily_5ffilename_5fformat_5fcalculator_20_3e_4',['daily_file_sink&lt; details::null_mutex, daily_filename_format_calculator &gt;',['../classspdlog_1_1sinks_1_1daily__file__sink.html',1,'spdlog::sinks']]],
+  ['daily_5ffile_5fsink_3c_20std_3a_3amutex_20_3e_5',['daily_file_sink&lt; std::mutex &gt;',['../classspdlog_1_1sinks_1_1daily__file__sink.html',1,'spdlog::sinks']]],
+  ['daily_5ffile_5fsink_3c_20std_3a_3amutex_2c_20daily_5ffilename_5fformat_5fcalculator_20_3e_6',['daily_file_sink&lt; std::mutex, daily_filename_format_calculator &gt;',['../classspdlog_1_1sinks_1_1daily__file__sink.html',1,'spdlog::sinks']]],
+  ['daily_5ffilename_5fcalculator_7',['daily_filename_calculator',['../structspdlog_1_1sinks_1_1daily__filename__calculator.html',1,'spdlog::sinks']]],
+  ['daily_5ffilename_5fformat_5fcalculator_8',['daily_filename_format_calculator',['../structspdlog_1_1sinks_1_1daily__filename__format__calculator.html',1,'spdlog::sinks']]],
+  ['day_9',['day',['../classday.html',1,'']]],
+  ['decimal_5ffp_10',['decimal_fp',['../structdetail_1_1dragonbox_1_1decimal__fp.html',1,'detail::dragonbox']]],
+  ['default_5farg_5fformatter_11',['default_arg_formatter',['../structdetail_1_1default__arg__formatter.html',1,'detail']]],
+  ['digit_5fgrouping_12',['digit_grouping',['../classdetail_1_1digit__grouping.html',1,'detail']]],
+  ['dist_5fsink_13',['dist_sink',['../classspdlog_1_1sinks_1_1dist__sink.html',1,'spdlog::sinks']]],
+  ['dist_5fsink_3c_20details_3a_3anull_5fmutex_20_3e_14',['dist_sink&lt; details::null_mutex &gt;',['../classspdlog_1_1sinks_1_1dist__sink.html',1,'spdlog::sinks']]],
+  ['dist_5fsink_3c_20std_3a_3amutex_20_3e_15',['dist_sink&lt; std::mutex &gt;',['../classspdlog_1_1sinks_1_1dist__sink.html',1,'spdlog::sinks']]],
+  ['div_5fsmall_5fpow10_5finfos_5fstruct_16',['div_small_pow10_infos_struct',['../structdetail_1_1dragonbox_1_1div__small__pow10__infos__struct.html',1,'detail::dragonbox']]],
+  ['dump_5finfo_17',['dump_info',['../classspdlog_1_1details_1_1dump__info.html',1,'spdlog::details']]],
+  ['dup_5ffilter_5fsink_18',['dup_filter_sink',['../classspdlog_1_1sinks_1_1dup__filter__sink.html',1,'spdlog::sinks']]],
+  ['dup_5ffilter_5fsink_3c_20details_3a_3anull_5fmutex_20_3e_19',['dup_filter_sink&lt; details::null_mutex &gt;',['../classspdlog_1_1sinks_1_1dup__filter__sink.html',1,'spdlog::sinks']]],
+  ['dup_5ffilter_5fsink_3c_20std_3a_3amutex_20_3e_20',['dup_filter_sink&lt; std::mutex &gt;',['../classspdlog_1_1sinks_1_1dup__filter__sink.html',1,'spdlog::sinks']]],
+  ['duration_5fformatter_21',['duration_formatter',['../structdetail_1_1duration__formatter.html',1,'detail']]],
+  ['dynamic_5farg_5flist_22',['dynamic_arg_list',['../classdetail_1_1dynamic__arg__list.html',1,'detail']]],
+  ['dynamic_5fformat_5farg_5fstore_23',['dynamic_format_arg_store',['../classdynamic__format__arg__store.html',1,'']]],
+  ['dynamic_5fformat_5fspecs_24',['dynamic_format_specs',['../structdetail_1_1dynamic__format__specs.html',1,'detail']]],
+  ['dynamic_5fformat_5fspecs_3c_20char_20_3e_25',['dynamic_format_specs&lt; Char &gt;',['../structdetail_1_1dynamic__format__specs.html',1,'detail']]],
+  ['dynamic_5fspec_5fgetter_26',['dynamic_spec_getter',['../structdetail_1_1dynamic__spec__getter.html',1,'detail']]],
+  ['dynamic_5fspec_5fhandler_27',['dynamic_spec_handler',['../structdetail_1_1dynamic__spec__handler.html',1,'detail']]]
 ];

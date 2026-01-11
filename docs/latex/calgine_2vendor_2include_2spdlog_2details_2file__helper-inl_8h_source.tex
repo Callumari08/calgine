@@ -1,0 +1,157 @@
+\doxysection{file\+\_\+helper-\/inl.h}
+\hypertarget{calgine_2vendor_2include_2spdlog_2details_2file__helper-inl_8h_source}{}\label{calgine_2vendor_2include_2spdlog_2details_2file__helper-inl_8h_source}\index{src/calgine/vendor/include/spdlog/details/file\_helper-\/inl.h@{src/calgine/vendor/include/spdlog/details/file\_helper-\/inl.h}}
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2details_2file__helper-inl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_HEADER\_ONLY}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <spdlog/details/file\_helper.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <spdlog/common.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <spdlog/details/os.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cerrno>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog_1_1details}{details}}\ \{}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_aa11a5129c9d7492638a68d849d66d47d}{file\_helper::file\_helper}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1file__event__handlers}{file\_event\_handlers}}\ \&event\_handlers)}
+\DoxyCodeLine{00022\ \ \ \ \ :\ event\_handlers\_(event\_handlers)\ \{\}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_ae58b04833dfb874e4b4aa9116263e302}{file\_helper::\string~file\_helper}}()\ \{\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_ae6fbd8dfff6be4433befee5dffec739b}{close}}();\ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_aecf4df8af7f7bd49ce59986d412ce74a}{file\_helper::open}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ \&fname,\ \textcolor{keywordtype}{bool}\ truncate)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_ae6fbd8dfff6be4433befee5dffec739b}{close}}();}
+\DoxyCodeLine{00028\ \ \ \ \ filename\_\ =\ fname;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{auto}\ *mode\ =\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a63d60ea1c1a925d3db13864d37bd2da2}{SPDLOG\_FILENAME\_T}}(\textcolor{stringliteral}{"{}ab"{}});}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{auto}\ *trunc\_mode\ =\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a63d60ea1c1a925d3db13864d37bd2da2}{SPDLOG\_FILENAME\_T}}(\textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (event\_handlers\_.before\_open)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ event\_handlers\_.before\_open(filename\_);}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ tries\ =\ 0;\ tries\ <\ open\_tries\_;\ ++tries)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ create\ containing\ folder\ if\ not\ exists\ already.}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_ab4f82e1542283f3c7a128331b8fd9678}{os::create\_dir}}(\mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a0bd167603459a10c6dfe4b9bd01dc82c}{os::dir\_name}}(fname));}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (truncate)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Truncate\ by\ opening-\/and-\/closing\ a\ tmp\ file\ in\ "{}wb"{}\ mode,\ always}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ opening\ the\ actual\ log-\/we-\/write-\/to\ in\ "{}ab"{}\ mode,\ since\ that}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ interacts\ more\ politely\ with\ eternal\ processes\ that\ might}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ rotate/truncate\ the\ file\ underneath\ us.}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ std::FILE\ *tmp;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a276daad8ea206e618d56ff6f01914044}{os::fopen\_s}}(\&tmp,\ fname,\ trunc\_mode))\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ std::fclose(tmp);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a276daad8ea206e618d56ff6f01914044}{os::fopen\_s}}(\&fd\_,\ fname,\ mode))\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event\_handlers\_.after\_open)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ event\_handlers\_.after\_open(filename\_,\ fd\_);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_af2da5579c7ea1726de7699f3fbf3afb6}{details::os::sleep\_for\_millis}}(open\_interval\_);}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}Failed\ opening\ file\ "{}}\ +\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a1b7269cc914fd057cc37f936c5b1bf9c}{os::filename\_to\_str}}(filename\_)\ +\ \textcolor{stringliteral}{"{}\ for\ writing"{}},}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ errno);}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_a414172c77533a3b31e96af33afb5ed16}{file\_helper::reopen}}(\textcolor{keywordtype}{bool}\ truncate)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (filename\_.empty())\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}Failed\ re\ opening\ file\ -\/\ was\ not\ opened\ before"{}});}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ this-\/>\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_aecf4df8af7f7bd49ce59986d412ce74a}{open}}(filename\_,\ truncate);}
+\DoxyCodeLine{00069\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_a457bfb2e4f85cd593cb4708909f9591e}{file\_helper::flush}}()\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (std::fflush(fd\_)\ !=\ 0)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}Failed\ flush\ to\ file\ "{}}\ +\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a1b7269cc914fd057cc37f936c5b1bf9c}{os::filename\_to\_str}}(filename\_),\ errno);}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_ae747221113dee1324a00db17d01b7cbe}{file\_helper::sync}}()\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacespdlog_1_1details_1_1os_ae41292a48cd401cb4bb041d52cfd6b02}{os::fsync}}(fd\_))\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}Failed\ to\ fsync\ file\ "{}}\ +\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a1b7269cc914fd057cc37f936c5b1bf9c}{os::filename\_to\_str}}(filename\_),\ errno);}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_ae6fbd8dfff6be4433befee5dffec739b}{file\_helper::close}}()\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{if}\ (fd\_\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event\_handlers\_.before\_close)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ event\_handlers\_.before\_close(filename\_,\ fd\_);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ std::fclose(fd\_);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ fd\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (event\_handlers\_.after\_close)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ event\_handlers\_.after\_close(filename\_);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_a499a3174f627b9a4749fc592fc9f52c1}{file\_helper::write}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&buf)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{if}\ (fd\_\ ==\ \textcolor{keyword}{nullptr})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ msg\_size\ =\ buf.size();}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{auto}\ data\ =\ buf.data();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacespdlog_1_1details_1_1os_ac88e8b6306bb8f057dd9ea0b1c8c2dac}{details::os::fwrite\_bytes}}(data,\ msg\_size,\ fd\_))\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}Failed\ writing\ to\ file\ "{}}\ +\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a1b7269cc914fd057cc37f936c5b1bf9c}{os::filename\_to\_str}}(filename\_),\ errno);}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_a3811a1dab9dee7435b60eb474d2cc347}{file\_helper::size}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{if}\ (fd\_\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}Cannot\ use\ size()\ on\ closed\ file\ "{}}\ +\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a1b7269cc914fd057cc37f936c5b1bf9c}{os::filename\_to\_str}}(filename\_));}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a37ff3adb558f4b7ce30bf048e913e076}{os::filesize}}(fd\_);}
+\DoxyCodeLine{00113\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ \&\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_a0a68a8681c1f8baca0c4e8c4176085dd}{file\_helper::filename}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ filename\_;\ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{comment}{//}}
+\DoxyCodeLine{00118\ \textcolor{comment}{//\ return\ file\ path\ and\ its\ extension:}}
+\DoxyCodeLine{00119\ \textcolor{comment}{//}}
+\DoxyCodeLine{00120\ \textcolor{comment}{//\ "{}mylog.txt"{}\ =>\ ("{}mylog"{},\ "{}.txt"{})}}
+\DoxyCodeLine{00121\ \textcolor{comment}{//\ "{}mylog"{}\ =>\ ("{}mylog"{},\ "{}"{})}}
+\DoxyCodeLine{00122\ \textcolor{comment}{//\ "{}mylog."{}\ =>\ ("{}mylog."{},\ "{}"{})}}
+\DoxyCodeLine{00123\ \textcolor{comment}{//\ "{}/dir1/dir2/mylog.txt"{}\ =>\ ("{}/dir1/dir2/mylog"{},\ "{}.txt"{})}}
+\DoxyCodeLine{00124\ \textcolor{comment}{//}}
+\DoxyCodeLine{00125\ \textcolor{comment}{//\ the\ starting\ dot\ in\ filenames\ is\ ignored\ (hidden\ files):}}
+\DoxyCodeLine{00126\ \textcolor{comment}{//}}
+\DoxyCodeLine{00127\ \textcolor{comment}{//\ "{}.mylog"{}\ =>\ ("{}.mylog"{}.\ "{}"{})}}
+\DoxyCodeLine{00128\ \textcolor{comment}{//\ "{}my\_folder/.mylog"{}\ =>\ ("{}my\_folder/.mylog"{},\ "{}"{})}}
+\DoxyCodeLine{00129\ \textcolor{comment}{//\ "{}my\_folder/.mylog.txt"{}\ =>\ ("{}my\_folder/.mylog"{},\ "{}.txt"{})}}
+\DoxyCodeLine{00130\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ std::tuple<filename\_t,\ filename\_t>\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_a8e8a852ddd73ca81061a62a9c1ca51c5}{file\_helper::split\_by\_extension}}(}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ \&fname)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{auto}\ ext\_index\ =\ fname.rfind(\textcolor{charliteral}{'.'});}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ no\ valid\ extension\ found\ -\/\ return\ whole\ path\ and\ empty\ string\ as}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ extension}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (ext\_index\ ==\ filename\_t::npos\ ||\ ext\_index\ ==\ 0\ ||\ ext\_index\ ==\ fname.size()\ -\/\ 1)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(fname,\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}());}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ treat\ cases\ like\ "{}/etc/rc.d/somelogfile\ or\ "{}/abc/.hiddenfile"{}}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{auto}\ folder\_index\ =\ fname.find\_last\_of(details::os::folder\_seps\_filename);}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{if}\ (folder\_index\ !=\ filename\_t::npos\ \&\&\ folder\_index\ >=\ ext\_index\ -\/\ 1)\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(fname,\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}());}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//\ finally\ -\/\ return\ a\ valid\ base\ and\ extension\ tuple}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_tuple(fname.substr(0,\ ext\_index),\ fname.substr(ext\_index));}
+\DoxyCodeLine{00148\ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \}\ \ \textcolor{comment}{//\ namespace\ details}}
+\DoxyCodeLine{00151\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+
+\end{DoxyCode}

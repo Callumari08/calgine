@@ -1,0 +1,53 @@
+\doxysection{src/calgine/vendor/include/spdlog/logger.h File Reference}
+\hypertarget{calgine_2vendor_2include_2spdlog_2logger_8h}{}\label{calgine_2vendor_2include_2spdlog_2logger_8h}\index{src/calgine/vendor/include/spdlog/logger.h@{src/calgine/vendor/include/spdlog/logger.h}}
+{\ttfamily \#include $<$spdlog/common.\+h$>$}\newline
+{\ttfamily \#include $<$spdlog/details/backtracer.\+h$>$}\newline
+{\ttfamily \#include $<$spdlog/details/log\+\_\+msg.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacespdlog}{spdlog}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2logger_8h_a5c51810e21b98f4506f2d2940afc86a1}{SPDLOG\+\_\+\+LOGGER\+\_\+\+CATCH}}(location)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void \mbox{\hyperlink{namespacespdlog_a50048bf125dc240c11f6daffe3598d2b}{spdlog\+::swap}} (\mbox{\hyperlink{classspdlog_1_1logger}{logger}} \&a, \mbox{\hyperlink{classspdlog_1_1logger}{logger}} \&b) noexcept
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{calgine_2vendor_2include_2spdlog_2logger_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{calgine_2vendor_2include_2spdlog_2logger_8h_a5c51810e21b98f4506f2d2940afc86a1}\index{logger.h@{logger.h}!SPDLOG\_LOGGER\_CATCH@{SPDLOG\_LOGGER\_CATCH}}
+\index{SPDLOG\_LOGGER\_CATCH@{SPDLOG\_LOGGER\_CATCH}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{SPDLOG\_LOGGER\_CATCH}{SPDLOG\_LOGGER\_CATCH}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2include_2spdlog_2logger_8h_a5c51810e21b98f4506f2d2940afc86a1} 
+\#define SPDLOG\+\_\+\+LOGGER\+\_\+\+CATCH(\begin{DoxyParamCaption}\item[{}]{location}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&ex)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (location.filename)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ err\_handler\_(fmt\_lib::format(\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a5ff91abe74112cbf8c0ff54f86d2bf52}{SPDLOG\_FMT\_STRING}}(\textcolor{stringliteral}{"{}\{\}\ [\{\}(\{\})]"{}}),\ ex.what(),\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ location.filename,\ location.line));\ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ err\_handler\_(ex.what());\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ catch\ (...)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ err\_handler\_(\textcolor{stringliteral}{"{}Rethrowing\ unknown\ exception\ in\ logger"{}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}

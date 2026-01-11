@@ -1,0 +1,29 @@
+\doxysection{src/vendor/spdlog/include/spdlog/sinks/udp\+\_\+sink.h File Reference}
+\hypertarget{vendor_2spdlog_2include_2spdlog_2sinks_2udp__sink_8h}{}\label{vendor_2spdlog_2include_2spdlog_2sinks_2udp__sink_8h}\index{src/vendor/spdlog/include/spdlog/sinks/udp\_sink.h@{src/vendor/spdlog/include/spdlog/sinks/udp\_sink.h}}
+{\ttfamily \#include $<$spdlog/common.\+h$>$}\newline
+{\ttfamily \#include $<$spdlog/details/null\+\_\+mutex.\+h$>$}\newline
+{\ttfamily \#include $<$spdlog/sinks/base\+\_\+sink.\+h$>$}\newline
+{\ttfamily \#include $<$spdlog/details/udp\+\_\+client.\+h$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structspdlog_1_1sinks_1_1udp__sink__config}{spdlog\+::sinks\+::udp\+\_\+sink\+\_\+config}}
+\item 
+class \mbox{\hyperlink{classspdlog_1_1sinks_1_1udp__sink}{spdlog\+::sinks\+::udp\+\_\+sink$<$ Mutex $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacespdlog}{spdlog}}
+\item 
+namespace \mbox{\hyperlink{namespacespdlog_1_1sinks}{spdlog\+::sinks}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Factory = spdlog\+::synchronous\+\_\+factory$>$ }\\std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{namespacespdlog_ac0f76381612ccf7bd3d77c916ee94884}{spdlog\+::udp\+\_\+logger\+\_\+mt}} (const std\+::string \&logger\+\_\+name, \mbox{\hyperlink{structspdlog_1_1sinks_1_1udp__sink__config}{sinks\+::udp\+\_\+sink\+\_\+config}} skin\+\_\+config)
+\end{DoxyCompactItemize}

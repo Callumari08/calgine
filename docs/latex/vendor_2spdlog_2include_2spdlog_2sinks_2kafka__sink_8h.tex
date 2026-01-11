@@ -1,0 +1,35 @@
+\doxysection{src/vendor/spdlog/include/spdlog/sinks/kafka\+\_\+sink.h File Reference}
+\hypertarget{vendor_2spdlog_2include_2spdlog_2sinks_2kafka__sink_8h}{}\label{vendor_2spdlog_2include_2spdlog_2sinks_2kafka__sink_8h}\index{src/vendor/spdlog/include/spdlog/sinks/kafka\_sink.h@{src/vendor/spdlog/include/spdlog/sinks/kafka\_sink.h}}
+{\ttfamily \#include "{}spdlog/async.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/details/log\+\_\+msg.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/details/null\+\_\+mutex.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/details/synchronous\+\_\+factory.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/sinks/base\+\_\+sink.\+h"{}}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$spdlog/common.\+h$>$}\newline
+{\ttfamily \#include $<$librdkafka/rdkafkacpp.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{spdlog\+::sinks\+::kafka\+\_\+sink\+\_\+config}}
+\item 
+class \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink}{spdlog\+::sinks\+::kafka\+\_\+sink$<$ Mutex $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacespdlog}{spdlog}}
+\item 
+namespace \mbox{\hyperlink{namespacespdlog_1_1sinks}{spdlog\+::sinks}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Factory = spdlog\+::synchronous\+\_\+factory$>$ }\\std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{namespacespdlog_a9fc5b0947b3108fd064e83ed85409b64}{spdlog\+::kafka\+\_\+logger\+\_\+mt}} (const std\+::string \&logger\+\_\+name, \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{spdlog\+::sinks\+::kafka\+\_\+sink\+\_\+config}} config)
+\item 
+{\footnotesize template$<$typename Factory = spdlog\+::synchronous\+\_\+factory$>$ }\\std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{namespacespdlog_af58d88cc4e968cd97f9a76bf7cd4ba2a}{spdlog\+::kafka\+\_\+logger\+\_\+st}} (const std\+::string \&logger\+\_\+name, \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{spdlog\+::sinks\+::kafka\+\_\+sink\+\_\+config}} config)
+\item 
+{\footnotesize template$<$typename Factory = spdlog\+::async\+\_\+factory$>$ }\\std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{namespacespdlog_ad22ce892ff09f2d8b4475f61b502b02c}{spdlog\+::kafka\+\_\+logger\+\_\+async\+\_\+mt}} (std\+::string logger\+\_\+name, \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{spdlog\+::sinks\+::kafka\+\_\+sink\+\_\+config}} config)
+\item 
+{\footnotesize template$<$typename Factory = spdlog\+::async\+\_\+factory$>$ }\\std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{namespacespdlog_a91768e5b04631154ad1bc25ecb9f841e}{spdlog\+::kafka\+\_\+logger\+\_\+async\+\_\+st}} (std\+::string logger\+\_\+name, \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{spdlog\+::sinks\+::kafka\+\_\+sink\+\_\+config}} config)
+\end{DoxyCompactItemize}

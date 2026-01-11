@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['seconds_0',['seconds',['../structdetail_1_1duration__formatter.html#af4d7a39512c22b6237e59165e4ba3cf0',1,'detail::duration_formatter::seconds'],['../structdetail_1_1duration__formatter.html#af4d7a39512c22b6237e59165e4ba3cf0',1,'detail::duration_formatter::seconds']]],
+  ['significand_5ftype_1',['significand_type',['../structdetail_1_1dragonbox_1_1decimal__fp.html#ac76d233464776427ee705d60eb1a5d9b',1,'detail::dragonbox::decimal_fp::significand_type'],['../structdetail_1_1dragonbox_1_1decimal__fp.html#ac76d233464776427ee705d60eb1a5d9b',1,'detail::dragonbox::decimal_fp::significand_type']]],
+  ['sink_5fptr_2',['sink_ptr',['../namespacespdlog.html#af2c8ef75fdf4b851e8bd5d2e417da8e0',1,'spdlog']]],
+  ['sinks_5finit_5flist_3',['sinks_init_list',['../namespacespdlog.html#a6b41f59bab8dee405a345cd5d3dd64c9',1,'spdlog']]],
+  ['stderr_5fcolor_5fsink_5fmt_4',['stderr_color_sink_mt',['../namespacespdlog_1_1sinks.html#a533b57002217645cbff09b04cc155725',1,'spdlog::sinks']]],
+  ['stderr_5fcolor_5fsink_5fst_5',['stderr_color_sink_st',['../namespacespdlog_1_1sinks.html#ab6ed268645cf1442b4b5be202d86edc6',1,'spdlog::sinks']]],
+  ['stderr_5fsink_5fmt_6',['stderr_sink_mt',['../namespacespdlog_1_1sinks.html#a8d184dcdd3cc44581f96ff1a2fbb5596',1,'spdlog::sinks']]],
+  ['stderr_5fsink_5fst_7',['stderr_sink_st',['../namespacespdlog_1_1sinks.html#ac2db30ddfe1df91b2ea8cd2b5f4f9e92',1,'spdlog::sinks']]],
+  ['stdout_5fcolor_5fsink_5fmt_8',['stdout_color_sink_mt',['../namespacespdlog_1_1sinks.html#a977886ea24b6fa93b9075f8033c9b1e2',1,'spdlog::sinks']]],
+  ['stdout_5fcolor_5fsink_5fst_9',['stdout_color_sink_st',['../namespacespdlog_1_1sinks.html#a18f04adf8e41f131b7ce337000422240',1,'spdlog::sinks']]],
+  ['stdout_5fsink_5fmt_10',['stdout_sink_mt',['../namespacespdlog_1_1sinks.html#a3b5bf4c760602c78e9f6ff2c3c18f62f',1,'spdlog::sinks']]],
+  ['stdout_5fsink_5fst_11',['stdout_sink_st',['../namespacespdlog_1_1sinks.html#a6ea59fceab85dbfbddbe13c698df8cd3',1,'spdlog::sinks']]],
+  ['stored_5ftype_5fconstant_12',['stored_type_constant',['../namespacedetail.html#af629814e7e117d8d2172f35bf82505fd',1,'detail']]],
+  ['string_5fview_13',['string_view',['../calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h.html#a204ca715c2febee035464fa53dfc50c4',1,'string_view:&#160;base.h'],['../vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2base_8h.html#a204ca715c2febee035464fa53dfc50c4',1,'string_view:&#160;base.h']]],
+  ['string_5fview_5ft_14',['string_view_t',['../namespacespdlog.html#ad49d31a236e1029e975963300be34525',1,'spdlog']]],
+  ['sys_5ftime_15',['sys_time',['../calgine_2vendor_2include_2spdlog_2fmt_2bundled_2chrono_8h.html#a5b17f601f1dd7b4172bf79026388b90b',1,'sys_time:&#160;chrono.h'],['../vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2chrono_8h.html#a5b17f601f1dd7b4172bf79026388b90b',1,'sys_time:&#160;chrono.h']]],
+  ['syslog_5fsink_5fmt_16',['syslog_sink_mt',['../namespacespdlog_1_1sinks.html#aadb2ffb59a2d1eb7cf4739be375ee117',1,'spdlog::sinks']]],
+  ['syslog_5fsink_5fst_17',['syslog_sink_st',['../namespacespdlog_1_1sinks.html#aaaa881ea4233740779b59cdf99b12a14',1,'spdlog::sinks']]],
+  ['systemd_5fsink_5fmt_18',['systemd_sink_mt',['../namespacespdlog_1_1sinks.html#a3f96efaeb9abd2ef9206448363349d0f',1,'spdlog::sinks']]],
+  ['systemd_5fsink_5fst_19',['systemd_sink_st',['../namespacespdlog_1_1sinks.html#a2c4c7f26cf2affb515a2cc134d26b465',1,'spdlog::sinks']]]
+];

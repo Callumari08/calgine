@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['set_5fname_0',['set_name',['../classGameObject.html#aa0c5ed97457d4446ceea337fa782af48',1,'GameObject']]],
-  ['set_5fparent_1',['set_parent',['../classGameObject.html#a790ad71d6dc44f644ac5ded8c4d13484',1,'GameObject']]],
-  ['set_5fvsync_5fstate_2',['set_vsync_state',['../classWindowHandler.html#af8827c2331dad02f7ae49e2999c1577d',1,'WindowHandler']]],
-  ['start_5ftick_3',['start_tick',['../classBehaviour.html#a6fbde92e12d7864a4d06e1fc944242ed',1,'Behaviour']]],
-  ['systems_5finit_4',['systems_init',['../classApp.html#a80bce247230188c2d289aed2978f9a59',1,'App']]]
+  ['kafka_5flogger_5fasync_5fmt_0',['kafka_logger_async_mt',['../namespacespdlog.html#ad22ce892ff09f2d8b4475f61b502b02c',1,'spdlog']]],
+  ['kafka_5flogger_5fasync_5fst_1',['kafka_logger_async_st',['../namespacespdlog.html#a91768e5b04631154ad1bc25ecb9f841e',1,'spdlog']]],
+  ['kafka_5flogger_5fmt_2',['kafka_logger_mt',['../namespacespdlog.html#a9fc5b0947b3108fd064e83ed85409b64',1,'spdlog']]],
+  ['kafka_5flogger_5fst_3',['kafka_logger_st',['../namespacespdlog.html#af58d88cc4e968cd97f9a76bf7cd4ba2a',1,'spdlog']]],
+  ['kafka_5fsink_4',['kafka_sink',['../classspdlog_1_1sinks_1_1kafka__sink.html#a80a2ab94df37d12307cc952c4c479f13',1,'spdlog::sinks::kafka_sink::kafka_sink(kafka_sink_config config)'],['../classspdlog_1_1sinks_1_1kafka__sink.html#a80a2ab94df37d12307cc952c4c479f13',1,'spdlog::sinks::kafka_sink::kafka_sink(kafka_sink_config config)']]],
+  ['kafka_5fsink_5fconfig_5',['kafka_sink_config',['../structspdlog_1_1sinks_1_1kafka__sink__config.html#a2f9778ec0f89da8ea556f3f553d82b9a',1,'spdlog::sinks::kafka_sink_config::kafka_sink_config(std::string addr, std::string topic, int flush_timeout_ms=1000)'],['../structspdlog_1_1sinks_1_1kafka__sink__config.html#a2f9778ec0f89da8ea556f3f553d82b9a',1,'spdlog::sinks::kafka_sink_config::kafka_sink_config(std::string addr, std::string topic, int flush_timeout_ms=1000)']]]
 ];

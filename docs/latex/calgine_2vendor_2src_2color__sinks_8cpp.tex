@@ -1,0 +1,79 @@
+\doxysection{src/calgine/vendor/src/color\+\_\+sinks.cpp File Reference}
+\hypertarget{calgine_2vendor_2src_2color__sinks_8cpp}{}\label{calgine_2vendor_2src_2color__sinks_8cpp}\index{src/calgine/vendor/src/color\_sinks.cpp@{src/calgine/vendor/src/color\_sinks.cpp}}
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$spdlog/async.\+h$>$}\newline
+{\ttfamily \#include $<$spdlog/details/null\+\_\+mutex.\+h$>$}\newline
+{\ttfamily \#include "{}spdlog/sinks/ansicolor\+\_\+sink-\/inl.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/sinks/stdout\+\_\+color\+\_\+sinks-\/inl.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{calgine_2vendor_2src_2color__sinks_8cpp_a091fe5ccdc7c58e7f4bdfef6a07080ce}{spdlog\+::stdout\+\_\+color\+\_\+mt$<$ spdlog\+::synchronous\+\_\+factory $>$}} (const std\+::string \&logger\+\_\+name, color\+\_\+mode mode)
+\item 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{calgine_2vendor_2src_2color__sinks_8cpp_a5d9d9313c254b6a1e8d37eb816f4781f}{spdlog\+::stdout\+\_\+color\+\_\+st$<$ spdlog\+::synchronous\+\_\+factory $>$}} (const std\+::string \&logger\+\_\+name, color\+\_\+mode mode)
+\item 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{calgine_2vendor_2src_2color__sinks_8cpp_a5c00f90694b241ae37201373b40ea759}{spdlog\+::stderr\+\_\+color\+\_\+mt$<$ spdlog\+::synchronous\+\_\+factory $>$}} (const std\+::string \&logger\+\_\+name, color\+\_\+mode mode)
+\item 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{calgine_2vendor_2src_2color__sinks_8cpp_ac828783b1ff04ee073f5c6543f453fc4}{spdlog\+::stderr\+\_\+color\+\_\+st$<$ spdlog\+::synchronous\+\_\+factory $>$}} (const std\+::string \&logger\+\_\+name, color\+\_\+mode mode)
+\item 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{calgine_2vendor_2src_2color__sinks_8cpp_aa4373d7f89d3c2479a458fe9b9965389}{spdlog\+::stdout\+\_\+color\+\_\+mt$<$ spdlog\+::async\+\_\+factory $>$}} (const std\+::string \&logger\+\_\+name, color\+\_\+mode mode)
+\item 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{calgine_2vendor_2src_2color__sinks_8cpp_a1d975615eed5eea3589bb3ec02d70adc}{spdlog\+::stdout\+\_\+color\+\_\+st$<$ spdlog\+::async\+\_\+factory $>$}} (const std\+::string \&logger\+\_\+name, color\+\_\+mode mode)
+\item 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{calgine_2vendor_2src_2color__sinks_8cpp_ae7e5f5244ed302a9e71858afa86e2646}{spdlog\+::stderr\+\_\+color\+\_\+mt$<$ spdlog\+::async\+\_\+factory $>$}} (const std\+::string \&logger\+\_\+name, color\+\_\+mode mode)
+\item 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{calgine_2vendor_2src_2color__sinks_8cpp_a28ec0b364d29e1e6f1e49a5cc3a0f94d}{spdlog\+::stderr\+\_\+color\+\_\+st$<$ spdlog\+::async\+\_\+factory $>$}} (const std\+::string \&logger\+\_\+name, color\+\_\+mode mode)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{calgine_2vendor_2src_2color__sinks_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{calgine_2vendor_2src_2color__sinks_8cpp_ae7e5f5244ed302a9e71858afa86e2646}\index{color\_sinks.cpp@{color\_sinks.cpp}!spdlog::stderr\_color\_mt$<$ spdlog::async\_factory $>$@{spdlog::stderr\_color\_mt$<$ spdlog::async\_factory $>$}}
+\index{spdlog::stderr\_color\_mt$<$ spdlog::async\_factory $>$@{spdlog::stderr\_color\_mt$<$ spdlog::async\_factory $>$}!color\_sinks.cpp@{color\_sinks.cpp}}
+\doxysubsubsection{\texorpdfstring{spdlog::stderr\_color\_mt$<$ spdlog::async\_factory $>$()}{spdlog::stderr\_color\_mt< spdlog::async\_factory >()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2src_2color__sinks_8cpp_ae7e5f5244ed302a9e71858afa86e2646} 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{namespacespdlog_a6bd2afc2351f7646a8b8e4a694c31238}{spdlog\+::stderr\+\_\+color\+\_\+mt}}$<$ \mbox{\hyperlink{namespacespdlog_a7e9d35c1357a069766a96c2170dfb998}{spdlog\+::async\+\_\+factory}} $>$ (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{logger\+\_\+name}{, }\item[{color\+\_\+mode}]{mode}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2src_2color__sinks_8cpp_a5c00f90694b241ae37201373b40ea759}\index{color\_sinks.cpp@{color\_sinks.cpp}!spdlog::stderr\_color\_mt$<$ spdlog::synchronous\_factory $>$@{spdlog::stderr\_color\_mt$<$ spdlog::synchronous\_factory $>$}}
+\index{spdlog::stderr\_color\_mt$<$ spdlog::synchronous\_factory $>$@{spdlog::stderr\_color\_mt$<$ spdlog::synchronous\_factory $>$}!color\_sinks.cpp@{color\_sinks.cpp}}
+\doxysubsubsection{\texorpdfstring{spdlog::stderr\_color\_mt$<$ spdlog::synchronous\_factory $>$()}{spdlog::stderr\_color\_mt< spdlog::synchronous\_factory >()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2src_2color__sinks_8cpp_a5c00f90694b241ae37201373b40ea759} 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{namespacespdlog_a6bd2afc2351f7646a8b8e4a694c31238}{spdlog\+::stderr\+\_\+color\+\_\+mt}}$<$ \mbox{\hyperlink{structspdlog_1_1synchronous__factory}{spdlog\+::synchronous\+\_\+factory}} $>$ (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{logger\+\_\+name}{, }\item[{color\+\_\+mode}]{mode}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2src_2color__sinks_8cpp_a28ec0b364d29e1e6f1e49a5cc3a0f94d}\index{color\_sinks.cpp@{color\_sinks.cpp}!spdlog::stderr\_color\_st$<$ spdlog::async\_factory $>$@{spdlog::stderr\_color\_st$<$ spdlog::async\_factory $>$}}
+\index{spdlog::stderr\_color\_st$<$ spdlog::async\_factory $>$@{spdlog::stderr\_color\_st$<$ spdlog::async\_factory $>$}!color\_sinks.cpp@{color\_sinks.cpp}}
+\doxysubsubsection{\texorpdfstring{spdlog::stderr\_color\_st$<$ spdlog::async\_factory $>$()}{spdlog::stderr\_color\_st< spdlog::async\_factory >()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2src_2color__sinks_8cpp_a28ec0b364d29e1e6f1e49a5cc3a0f94d} 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{namespacespdlog_a564e6b6e5807399cb074502015ab4490}{spdlog\+::stderr\+\_\+color\+\_\+st}}$<$ \mbox{\hyperlink{namespacespdlog_a7e9d35c1357a069766a96c2170dfb998}{spdlog\+::async\+\_\+factory}} $>$ (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{logger\+\_\+name}{, }\item[{color\+\_\+mode}]{mode}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2src_2color__sinks_8cpp_ac828783b1ff04ee073f5c6543f453fc4}\index{color\_sinks.cpp@{color\_sinks.cpp}!spdlog::stderr\_color\_st$<$ spdlog::synchronous\_factory $>$@{spdlog::stderr\_color\_st$<$ spdlog::synchronous\_factory $>$}}
+\index{spdlog::stderr\_color\_st$<$ spdlog::synchronous\_factory $>$@{spdlog::stderr\_color\_st$<$ spdlog::synchronous\_factory $>$}!color\_sinks.cpp@{color\_sinks.cpp}}
+\doxysubsubsection{\texorpdfstring{spdlog::stderr\_color\_st$<$ spdlog::synchronous\_factory $>$()}{spdlog::stderr\_color\_st< spdlog::synchronous\_factory >()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2src_2color__sinks_8cpp_ac828783b1ff04ee073f5c6543f453fc4} 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{namespacespdlog_a564e6b6e5807399cb074502015ab4490}{spdlog\+::stderr\+\_\+color\+\_\+st}}$<$ \mbox{\hyperlink{structspdlog_1_1synchronous__factory}{spdlog\+::synchronous\+\_\+factory}} $>$ (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{logger\+\_\+name}{, }\item[{color\+\_\+mode}]{mode}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2src_2color__sinks_8cpp_aa4373d7f89d3c2479a458fe9b9965389}\index{color\_sinks.cpp@{color\_sinks.cpp}!spdlog::stdout\_color\_mt$<$ spdlog::async\_factory $>$@{spdlog::stdout\_color\_mt$<$ spdlog::async\_factory $>$}}
+\index{spdlog::stdout\_color\_mt$<$ spdlog::async\_factory $>$@{spdlog::stdout\_color\_mt$<$ spdlog::async\_factory $>$}!color\_sinks.cpp@{color\_sinks.cpp}}
+\doxysubsubsection{\texorpdfstring{spdlog::stdout\_color\_mt$<$ spdlog::async\_factory $>$()}{spdlog::stdout\_color\_mt< spdlog::async\_factory >()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2src_2color__sinks_8cpp_aa4373d7f89d3c2479a458fe9b9965389} 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{namespacespdlog_a343c512a2450fe6e48c0d7543c30bb4d}{spdlog\+::stdout\+\_\+color\+\_\+mt}}$<$ \mbox{\hyperlink{namespacespdlog_a7e9d35c1357a069766a96c2170dfb998}{spdlog\+::async\+\_\+factory}} $>$ (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{logger\+\_\+name}{, }\item[{color\+\_\+mode}]{mode}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2src_2color__sinks_8cpp_a091fe5ccdc7c58e7f4bdfef6a07080ce}\index{color\_sinks.cpp@{color\_sinks.cpp}!spdlog::stdout\_color\_mt$<$ spdlog::synchronous\_factory $>$@{spdlog::stdout\_color\_mt$<$ spdlog::synchronous\_factory $>$}}
+\index{spdlog::stdout\_color\_mt$<$ spdlog::synchronous\_factory $>$@{spdlog::stdout\_color\_mt$<$ spdlog::synchronous\_factory $>$}!color\_sinks.cpp@{color\_sinks.cpp}}
+\doxysubsubsection{\texorpdfstring{spdlog::stdout\_color\_mt$<$ spdlog::synchronous\_factory $>$()}{spdlog::stdout\_color\_mt< spdlog::synchronous\_factory >()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2src_2color__sinks_8cpp_a091fe5ccdc7c58e7f4bdfef6a07080ce} 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{namespacespdlog_a343c512a2450fe6e48c0d7543c30bb4d}{spdlog\+::stdout\+\_\+color\+\_\+mt}}$<$ \mbox{\hyperlink{structspdlog_1_1synchronous__factory}{spdlog\+::synchronous\+\_\+factory}} $>$ (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{logger\+\_\+name}{, }\item[{color\+\_\+mode}]{mode}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2src_2color__sinks_8cpp_a1d975615eed5eea3589bb3ec02d70adc}\index{color\_sinks.cpp@{color\_sinks.cpp}!spdlog::stdout\_color\_st$<$ spdlog::async\_factory $>$@{spdlog::stdout\_color\_st$<$ spdlog::async\_factory $>$}}
+\index{spdlog::stdout\_color\_st$<$ spdlog::async\_factory $>$@{spdlog::stdout\_color\_st$<$ spdlog::async\_factory $>$}!color\_sinks.cpp@{color\_sinks.cpp}}
+\doxysubsubsection{\texorpdfstring{spdlog::stdout\_color\_st$<$ spdlog::async\_factory $>$()}{spdlog::stdout\_color\_st< spdlog::async\_factory >()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2src_2color__sinks_8cpp_a1d975615eed5eea3589bb3ec02d70adc} 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{namespacespdlog_a614d4af1a7531f9277bafc480a979aac}{spdlog\+::stdout\+\_\+color\+\_\+st}}$<$ \mbox{\hyperlink{namespacespdlog_a7e9d35c1357a069766a96c2170dfb998}{spdlog\+::async\+\_\+factory}} $>$ (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{logger\+\_\+name}{, }\item[{color\+\_\+mode}]{mode}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2src_2color__sinks_8cpp_a5d9d9313c254b6a1e8d37eb816f4781f}\index{color\_sinks.cpp@{color\_sinks.cpp}!spdlog::stdout\_color\_st$<$ spdlog::synchronous\_factory $>$@{spdlog::stdout\_color\_st$<$ spdlog::synchronous\_factory $>$}}
+\index{spdlog::stdout\_color\_st$<$ spdlog::synchronous\_factory $>$@{spdlog::stdout\_color\_st$<$ spdlog::synchronous\_factory $>$}!color\_sinks.cpp@{color\_sinks.cpp}}
+\doxysubsubsection{\texorpdfstring{spdlog::stdout\_color\_st$<$ spdlog::synchronous\_factory $>$()}{spdlog::stdout\_color\_st< spdlog::synchronous\_factory >()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2src_2color__sinks_8cpp_a5d9d9313c254b6a1e8d37eb816f4781f} 
+template \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{namespacespdlog_a614d4af1a7531f9277bafc480a979aac}{spdlog\+::stdout\+\_\+color\+\_\+st}}$<$ \mbox{\hyperlink{structspdlog_1_1synchronous__factory}{spdlog\+::synchronous\+\_\+factory}} $>$ (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{logger\+\_\+name}{, }\item[{color\+\_\+mode}]{mode}{}\end{DoxyParamCaption})}
+

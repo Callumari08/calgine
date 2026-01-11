@@ -1,8 +1,11 @@
 #pragma once
 
 #include <spdlog/logger.h>
+#include "calgine_api.h"
 
-class Log
+namespace Calgine {
+
+class CALGINE_API Log
 {
 public:
   static void init(std::string app_name);
@@ -14,3 +17,5 @@ private:
   static std::shared_ptr<spdlog::logger> S_engine_logger;
   static std::shared_ptr<spdlog::logger> S_app_logger;
 };
+
+} // namespace Calgine

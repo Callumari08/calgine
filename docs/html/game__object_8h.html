@@ -91,51 +91,29 @@ $(function(){initNavTree('game__object_8h.html','',''); });
   <div class="headertitle"><div class="title">game_object.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="behaviour_8h_source.html">behaviour.h</a>&quot;</code><br />
-<code>#include &lt;sys/types.h&gt;</code><br />
-<code>#include &lt;unordered_map&gt;</code><br />
-<code>#include &lt;typeindex&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;utility&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;optional&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="calgine__pch_8h_source.html">calgine_pch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="calgine__api_8h_source.html">calgine_api.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="useful__funcs_8h_source.html">useful_funcs.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
+<code>#include &quot;<a class="el" href="behaviour_8h_source.html">behaviour.h</a>&quot;</code><br />
 </div>
 <p><a href="game__object_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:GameObject" id="r_GameObject"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameObject.html">GameObject</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObjects are objects within the <a class="el" href="">Heirarchy</a> that have multiple <a class="el" href="classBehaviour.html">Behaviour</a> subclasses attched to them which execute code.  <a href="classGameObject.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Calgine_3A_3AGameObject" id="r_Calgine_3A_3AGameObject"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html">Calgine::GameObject</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObjects are objects within the <a class="el" href="">Heirarchy</a> that have multiple <a class="el" href="classCalgine_1_1Behaviour.html">Behaviour</a> subclasses attched to them which execute code.  <a href="classCalgine_1_1GameObject.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:Calgine" id="r_Calgine"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCalgine.html">Calgine</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ab2e4bfcb18c10326708bfba9aadbdd53" id="r_ab2e4bfcb18c10326708bfba9aadbdd53"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2e4bfcb18c10326708bfba9aadbdd53">TickType</a> { <a class="el" href="#ab2e4bfcb18c10326708bfba9aadbdd53a51bade6f80883944b272e2d1df93a0ac">preloop</a>
-, <a class="el" href="#ab2e4bfcb18c10326708bfba9aadbdd53a15edc24cdf7dea17a43c6c50580eba2b">update</a>
-, <a class="el" href="#ab2e4bfcb18c10326708bfba9aadbdd53a9fd3758bda6c303cef1eeea0afa94a3a">late_update</a>
+<tr class="memitem:a4cfccbfde5fcb069c854a2d7fb0c4861" id="r_a4cfccbfde5fcb069c854a2d7fb0c4861"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">Calgine::TickType</a> { <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92">Calgine::preloop</a>
+, <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d">Calgine::update</a>
+, <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc">Calgine::late_update</a>
  }</td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
-<a id="ab2e4bfcb18c10326708bfba9aadbdd53" name="ab2e4bfcb18c10326708bfba9aadbdd53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2e4bfcb18c10326708bfba9aadbdd53">&#9670;&#160;</a></span>TickType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="#ab2e4bfcb18c10326708bfba9aadbdd53">TickType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab2e4bfcb18c10326708bfba9aadbdd53a51bade6f80883944b272e2d1df93a0ac" name="ab2e4bfcb18c10326708bfba9aadbdd53a51bade6f80883944b272e2d1df93a0ac"></a>preloop&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab2e4bfcb18c10326708bfba9aadbdd53a15edc24cdf7dea17a43c6c50580eba2b" name="ab2e4bfcb18c10326708bfba9aadbdd53a15edc24cdf7dea17a43c6c50580eba2b"></a>update&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab2e4bfcb18c10326708bfba9aadbdd53a9fd3758bda6c303cef1eeea0afa94a3a" name="ab2e4bfcb18c10326708bfba9aadbdd53a9fd3758bda6c303cef1eeea0afa94a3a"></a>late_update&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

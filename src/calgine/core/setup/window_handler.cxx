@@ -5,6 +5,8 @@
 #include "calgine/core/log.h"
 #include <SDL3/SDL_video.h>
 
+namespace Calgine {
+
 WindowHandler* WindowHandler::instance = nullptr;
 std::mutex WindowHandler::instance_mutex;
 
@@ -106,3 +108,5 @@ void WindowHandler::quit_gracefully(SDL_Window* window, SDL_GLContext ctx)
 
   SDL_Quit();
 }
+
+} // namespace Calgine

@@ -1,50 +1,24 @@
 \doxysection{src/calgine/core/game\+\_\+object.h File Reference}
 \hypertarget{game__object_8h}{}\label{game__object_8h}\index{src/calgine/core/game\_object.h@{src/calgine/core/game\_object.h}}
-{\ttfamily \#include "{}behaviour.\+h"{}}\newline
-{\ttfamily \#include $<$sys/types.\+h$>$}\newline
-{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
-{\ttfamily \#include $<$typeindex$>$}\newline
-{\ttfamily \#include $<$memory$>$}\newline
-{\ttfamily \#include $<$utility$>$}\newline
-{\ttfamily \#include $<$vector$>$}\newline
-{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include "{}calgine\+\_\+pch.\+h"{}}\newline
+{\ttfamily \#include "{}calgine\+\_\+api.\+h"{}}\newline
 {\ttfamily \#include "{}useful\+\_\+funcs.\+h"{}}\newline
-{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}behaviour.\+h"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classGameObject}{Game\+Object}}
-\begin{DoxyCompactList}\small\item\em Game\+Objects are objects within the \doxylink{}{Heirarchy} that have multiple \doxylink{classBehaviour}{Behaviour} subclasses attched to them which execute code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+class \mbox{\hyperlink{classCalgine_1_1GameObject}{Calgine\+::\+Game\+Object}}
+\begin{DoxyCompactList}\small\item\em Game\+Objects are objects within the \doxylink{}{Heirarchy} that have multiple \doxylink{classCalgine_1_1Behaviour}{Behaviour} subclasses attched to them which execute code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCalgine}{Calgine}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53}{Tick\+Type}} \{ \mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a51bade6f80883944b272e2d1df93a0ac}{preloop}}
-, \mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a15edc24cdf7dea17a43c6c50580eba2b}{update}}
-, \mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a9fd3758bda6c303cef1eeea0afa94a3a}{late\+\_\+update}}
+enum \mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861}{Calgine\+::\+Tick\+Type}} \{ \mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92}{Calgine\+::preloop}}
+, \mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d}{Calgine\+::update}}
+, \mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc}{Calgine\+::late\+\_\+update}}
  \}
 \end{DoxyCompactItemize}
-
-
-\label{doc-enum-members}
-\Hypertarget{game__object_8h_doc-enum-members}
-\doxysubsection{Enumeration Type Documentation}
-\Hypertarget{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53}\index{game\_object.h@{game\_object.h}!TickType@{TickType}}
-\index{TickType@{TickType}!game\_object.h@{game\_object.h}}
-\doxysubsubsection{\texorpdfstring{TickType}{TickType}}
-{\footnotesize\ttfamily \label{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53} 
-enum \mbox{\hyperlink{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53}{Tick\+Type}}}
-
-\begin{DoxyEnumFields}[2]{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{preloop@{preloop}!game\_object.h@{game\_object.h}}\index{game\_object.h@{game\_object.h}!preloop@{preloop}}}\Hypertarget{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a51bade6f80883944b272e2d1df93a0ac}\label{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a51bade6f80883944b272e2d1df93a0ac} 
-preloop&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{update@{update}!game\_object.h@{game\_object.h}}\index{game\_object.h@{game\_object.h}!update@{update}}}\Hypertarget{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a15edc24cdf7dea17a43c6c50580eba2b}\label{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a15edc24cdf7dea17a43c6c50580eba2b} 
-update&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{late\_update@{late\_update}!game\_object.h@{game\_object.h}}\index{game\_object.h@{game\_object.h}!late\_update@{late\_update}}}\Hypertarget{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a9fd3758bda6c303cef1eeea0afa94a3a}\label{game__object_8h_ab2e4bfcb18c10326708bfba9aadbdd53a9fd3758bda6c303cef1eeea0afa94a3a} 
-late\+\_\+update&\\
-\hline
-
-\end{DoxyEnumFields}

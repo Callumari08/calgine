@@ -1,0 +1,1353 @@
+\doxysection{pattern\+\_\+formatter-\/inl.h}
+\hypertarget{calgine_2vendor_2include_2spdlog_2pattern__formatter-inl_8h_source}{}\label{calgine_2vendor_2include_2spdlog_2pattern__formatter-inl_8h_source}\index{src/calgine/vendor/include/spdlog/pattern\_formatter-\/inl.h@{src/calgine/vendor/include/spdlog/pattern\_formatter-\/inl.h}}
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2pattern__formatter-inl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_HEADER\_ONLY}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <spdlog/pattern\_formatter.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <spdlog/details/fmt\_helper.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <spdlog/details/log\_msg.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <spdlog/details/os.h>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_NO\_TLS}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <spdlog/mdc.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <spdlog/fmt/fmt.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <spdlog/formatter.h>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <cctype>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <iterator>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog_1_1details}{details}}\ \{}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ name\ \&\ level\ pattern\ appender}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1scoped__padder_a000deb6179bef70b262263a2394cb577}{scoped\_padder}}\ \{}
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1scoped__padder_a000deb6179bef70b262263a2394cb577}{scoped\_padder}}(\textcolor{keywordtype}{size\_t}\ wrapped\_size,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ \&padinfo,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ :\ padinfo\_(padinfo),}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ dest\_(dest)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ remaining\_pad\_\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\textcolor{keyword}{>}(padinfo.\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info_afe275f65c0a28ca79281c7a7fa7904a7}{width\_}})\ -\/\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\textcolor{keyword}{>}(wrapped\_size);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (remaining\_pad\_\ <=\ 0)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (padinfo\_.side\_\ ==\ \mbox{\hyperlink{structspdlog_1_1details_1_1padding__info_aa2ad84ba80fb8fc36b753d1a34e4942ea811882fecd5c7618d7099ebbd39ea254}{padding\_info::pad\_side::left}})\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ pad\_it(remaining\_pad\_);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ remaining\_pad\_\ =\ 0;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ if\ (padinfo\_.side\_\ ==\ \mbox{\hyperlink{structspdlog_1_1details_1_1padding__info_aa2ad84ba80fb8fc36b753d1a34e4942eaadb115059e28d960fa8badfac5516667}{padding\_info::pad\_side::center}})\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ auto\ half\_pad\ =\ remaining\_pad\_\ /\ 2;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ auto\ reminder\ =\ remaining\_pad\_\ \&\ 1;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ pad\_it(half\_pad);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ remaining\_pad\_\ =\ half\_pad\ +\ reminder;\ \ \textcolor{comment}{//\ for\ the\ right\ side}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classspdlog_1_1details_1_1scoped__padder_a10b54904351bf27e1490ea6125b606bd}{count\_digits}}(T\ n)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_a494c0b35db9de57fcc0402a0bd2971d1}{fmt\_helper::count\_digits}}(n);}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1scoped__padder_a8b4251a90bcb72f23c30ea80c4e7bc34}{\string~scoped\_padder}}()\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (remaining\_pad\_\ >=\ 0)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ pad\_it(remaining\_pad\_);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (padinfo\_.truncate\_)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ new\_size\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\textcolor{keyword}{>}(dest\_.size())\ +\ remaining\_pad\_;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_size\ <\ 0)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_size\ =\ 0;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ dest\_.resize(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(new\_size));}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ pad\_it(\textcolor{keywordtype}{long}\ count)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(\mbox{\hyperlink{namespacespdlog_ad49d31a236e1029e975963300be34525}{string\_view\_t}}(spaces\_.data(),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(count)),}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dest\_);}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{const}\ padding\_info\ \&padinfo\_;}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest\_;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{long}\ remaining\_pad\_;}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ad49d31a236e1029e975963300be34525}{string\_view\_t}}\ spaces\_\{\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}},\ 64\};}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structspdlog_1_1details_1_1null__scoped__padder_a363ff2b1cec00dc7d6523b4eb644fb0a}{null\_scoped\_padder}}\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1null__scoped__padder_a363ff2b1cec00dc7d6523b4eb644fb0a}{null\_scoped\_padder}}(\textcolor{keywordtype}{size\_t}\ \textcolor{comment}{/*wrapped\_size*/},}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ \&\ \textcolor{comment}{/*padinfo*/},}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&\ \textcolor{comment}{/*dest*/})\ \{\}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structspdlog_1_1details_1_1null__scoped__padder_a388beedf19ce246f1da5625ae7308007}{count\_digits}}(T\ \textcolor{comment}{/*\ number\ */})\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00104\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1name__formatter_afb6d743649ac7a915af5cc8d698b1847}{name\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00105\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1name__formatter_afb6d743649ac7a915af5cc8d698b1847}{name\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1name__formatter_a94ac8aa27ffe7833b15ba09eda3253dd}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a88ba7c1e423119fdb42957336f380277}{logger\_name}}.size(),\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a88ba7c1e423119fdb42957336f380277}{logger\_name}},\ dest);}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ log\ level\ appender}}
+\DoxyCodeLine{00116\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00117\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1level__formatter_a525f5622677202953cab0207f26ebd37}{level\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00118\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1level__formatter_a525f5622677202953cab0207f26ebd37}{level\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1level__formatter_a051b5822e83ffc9ba0ff5742701858eb}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_ad49d31a236e1029e975963300be34525}{string\_view\_t}}\ \&level\_name\ =\ \mbox{\hyperlink{namespacespdlog_1_1level_a2becc02ca6b8d552a7653ebfc0f043b0}{level::to\_string\_view}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a4142f4d66140a1ea24053311ebea5706}{level}});}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(level\_name.size(),\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(level\_name,\ dest);}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{comment}{//\ short\ log\ level\ appender}}
+\DoxyCodeLine{00130\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00131\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1short__level__formatter_a032f832473705767d44fcac63d1f2ba8}{short\_level\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00132\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1short__level__formatter_a032f832473705767d44fcac63d1f2ba8}{short\_level\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1short__level__formatter_ab936960c134c830d7adad7a8cb554166}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ad49d31a236e1029e975963300be34525}{string\_view\_t}}\ level\_name\{\mbox{\hyperlink{namespacespdlog_1_1level_aa55bac2323a4852704e48cc3ee8254e4}{level::to\_short\_c\_str}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a4142f4d66140a1ea24053311ebea5706}{level}})\};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(level\_name.size(),\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(level\_name,\ dest);}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00144\ \textcolor{comment}{//\ Date\ time\ pattern\ appenders}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *ampm(\textcolor{keyword}{const}\ tm\ \&t)\ \{\ \textcolor{keywordflow}{return}\ t.tm\_hour\ >=\ 12\ ?\ \textcolor{stringliteral}{"{}PM"{}}\ :\ \textcolor{stringliteral}{"{}AM"{}};\ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ to12h(\textcolor{keyword}{const}\ tm\ \&t)\ \{\ \textcolor{keywordflow}{return}\ t.tm\_hour\ >\ 12\ ?\ t.tm\_hour\ -\/\ 12\ :\ t.tm\_hour;\ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{comment}{//\ Abbreviated\ weekday\ name}}
+\DoxyCodeLine{00152\ \textcolor{keyword}{static}\ std::array<const\ char\ *,\ 7>\ days\{\{\textcolor{stringliteral}{"{}Sun"{}},\ \textcolor{stringliteral}{"{}Mon"{}},\ \textcolor{stringliteral}{"{}Tue"{}},\ \textcolor{stringliteral}{"{}Wed"{}},\ \textcolor{stringliteral}{"{}Thu"{}},\ \textcolor{stringliteral}{"{}Fri"{}},\ \textcolor{stringliteral}{"{}Sat"{}}\}\};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00155\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1a__formatter_a57a2680c1bb85976f848f3bc970f18a7}{a\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00156\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1a__formatter_a57a2680c1bb85976f848f3bc970f18a7}{a\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1a__formatter_aed130b61af8c4b9b55bcd2dbaacd43da}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ad49d31a236e1029e975963300be34525}{string\_view\_t}}\ field\_value\{days[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(tm\_time.tm\_wday)]\};}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_value.size(),\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(field\_value,\ dest);}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{comment}{//\ Full\ weekday\ name}}
+\DoxyCodeLine{00168\ \textcolor{keyword}{static}\ std::array<const\ char\ *,\ 7>\ full\_days\{}
+\DoxyCodeLine{00169\ \ \ \ \ \{\textcolor{stringliteral}{"{}Sunday"{}},\ \textcolor{stringliteral}{"{}Monday"{}},\ \textcolor{stringliteral}{"{}Tuesday"{}},\ \textcolor{stringliteral}{"{}Wednesday"{}},\ \textcolor{stringliteral}{"{}Thursday"{}},\ \textcolor{stringliteral}{"{}Friday"{}},\ \textcolor{stringliteral}{"{}Saturday"{}}\}\};}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00172\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1A__formatter_a352cb8c757604f6e7fbea65103c9cace}{A\_formatter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00173\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1A__formatter_a352cb8c757604f6e7fbea65103c9cace}{A\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1A__formatter_a6f05661d11df0bac9d22e41e0fce9318}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ad49d31a236e1029e975963300be34525}{string\_view\_t}}\ field\_value\{full\_days[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(tm\_time.tm\_wday)]\};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_value.size(),\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(field\_value,\ dest);}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{comment}{//\ Abbreviated\ month}}
+\DoxyCodeLine{00185\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::array<const\ char\ *,\ 12>\ months\{}
+\DoxyCodeLine{00186\ \ \ \ \ \{\textcolor{stringliteral}{"{}Jan"{}},\ \textcolor{stringliteral}{"{}Feb"{}},\ \textcolor{stringliteral}{"{}Mar"{}},\ \textcolor{stringliteral}{"{}Apr"{}},\ \textcolor{stringliteral}{"{}May"{}},\ \textcolor{stringliteral}{"{}Jun"{}},\ \textcolor{stringliteral}{"{}Jul"{}},\ \textcolor{stringliteral}{"{}Aug"{}},\ \textcolor{stringliteral}{"{}Sep"{}},\ \textcolor{stringliteral}{"{}Oct"{}},\ \textcolor{stringliteral}{"{}Nov"{}},\ \textcolor{stringliteral}{"{}Dec"{}}\}\};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00189\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1b__formatter_a861dea16182de4ab36f42d5a12199824}{b\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00190\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1b__formatter_a861dea16182de4ab36f42d5a12199824}{b\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1b__formatter_a2d238ab8edb40bae9d2c7cb53c545fe8}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ad49d31a236e1029e975963300be34525}{string\_view\_t}}\ field\_value\{months[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(tm\_time.tm\_mon)]\};}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_value.size(),\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(field\_value,\ dest);}
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+\DoxyCodeLine{00199\ \};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{comment}{//\ Full\ month\ name}}
+\DoxyCodeLine{00202\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::array<const\ char\ *,\ 12>\ full\_months\{\{\textcolor{stringliteral}{"{}January"{}},\ \textcolor{stringliteral}{"{}February"{}},\ \textcolor{stringliteral}{"{}March"{}},\ \textcolor{stringliteral}{"{}April"{}},}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}May"{}},\ \textcolor{stringliteral}{"{}June"{}},\ \textcolor{stringliteral}{"{}July"{}},\ \textcolor{stringliteral}{"{}August"{}},\ \textcolor{stringliteral}{"{}September"{}},}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}October"{}},\ \textcolor{stringliteral}{"{}November"{}},\ \textcolor{stringliteral}{"{}December"{}}\}\};}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00207\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1B__formatter_a07e4a5e633ad09006d63c682ed27295c}{B\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00208\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1B__formatter_a07e4a5e633ad09006d63c682ed27295c}{B\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1B__formatter_a4755159b22b8e77459a7687fb1ccbea3}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ad49d31a236e1029e975963300be34525}{string\_view\_t}}\ field\_value\{full\_months[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(tm\_time.tm\_mon)]\};}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_value.size(),\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(field\_value,\ dest);}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \};}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \textcolor{comment}{//\ Date\ and\ time\ representation\ (Thu\ Aug\ 23\ 15:35:46\ 2014)}}
+\DoxyCodeLine{00220\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00221\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1c__formatter_a05376d8124476773f809e2e682f66cf1}{c\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00222\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1c__formatter_a05376d8124476773f809e2e682f66cf1}{c\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1c__formatter_a6e0ffe10f8dd394d233f2b86ef097185}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 24;}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(days[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(tm\_time.tm\_wday)],\ dest);}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(months[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(tm\_time.tm\_mon)],\ dest);}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ae6d3ce6a4de130bdd15a9426c3228610}{fmt\_helper::append\_int}}(tm\_time.tm\_mday,\ dest);}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ time}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_hour,\ dest);}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_min,\ dest);}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_sec,\ dest);}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ae6d3ce6a4de130bdd15a9426c3228610}{fmt\_helper::append\_int}}(tm\_time.tm\_year\ +\ 1900,\ dest);}
+\DoxyCodeLine{00245\ \ \ \ \ \}}
+\DoxyCodeLine{00246\ \};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{comment}{//\ year\ -\/\ 2\ digit}}
+\DoxyCodeLine{00249\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00250\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1C__formatter_a250be4952f5c2db04edda3e380d9bd1b}{C\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00251\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1C__formatter_a250be4952f5c2db04edda3e380d9bd1b}{C\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1C__formatter_a0ada263f6e78da633eeb38ffa4681413}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 2;}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_year\ \%\ 100,\ dest);}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \};}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{comment}{//\ Short\ MM/DD/YY\ date,\ equivalent\ to\ \%m/\%d/\%y\ 08/23/01}}
+\DoxyCodeLine{00263\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00264\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1D__formatter_a7ef81810724512ddca71f77634c17807}{D\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00265\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1D__formatter_a7ef81810724512ddca71f77634c17807}{D\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1D__formatter_a95d0c29b6e6865d8bb9244d93baac193}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 8;}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_mon\ +\ 1,\ dest);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'/'});}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_mday,\ dest);}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'/'});}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_year\ \%\ 100,\ dest);}
+\DoxyCodeLine{00278\ \ \ \ \ \}}
+\DoxyCodeLine{00279\ \};}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \textcolor{comment}{//\ year\ -\/\ 4\ digit}}
+\DoxyCodeLine{00282\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00283\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1Y__formatter_ad099d544ed342957b967b6f7cd8426b4}{Y\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00284\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1Y__formatter_ad099d544ed342957b967b6f7cd8426b4}{Y\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1Y__formatter_ac64b600ce6140ee81e118f81ada8ea23}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 4;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ae6d3ce6a4de130bdd15a9426c3228610}{fmt\_helper::append\_int}}(tm\_time.tm\_year\ +\ 1900,\ dest);}
+\DoxyCodeLine{00292\ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \};}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \textcolor{comment}{//\ month\ 1-\/12}}
+\DoxyCodeLine{00296\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00297\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1m__formatter_a1772628199ec13f7ac375f84244bf21a}{m\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00298\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1m__formatter_a1772628199ec13f7ac375f84244bf21a}{m\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1m__formatter_a92b2971eb1c25717606fe701fad906e9}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 2;}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_mon\ +\ 1,\ dest);}
+\DoxyCodeLine{00306\ \ \ \ \ \}}
+\DoxyCodeLine{00307\ \};}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \textcolor{comment}{//\ day\ of\ month\ 1-\/31}}
+\DoxyCodeLine{00310\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00311\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1d__formatter_ae76fa31e4f7a580659fb4066d6570124}{d\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00312\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1d__formatter_ae76fa31e4f7a580659fb4066d6570124}{d\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1d__formatter_ab1f765ee77d0b6fcd0535211ae1a39e8}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 2;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_mday,\ dest);}
+\DoxyCodeLine{00320\ \ \ \ \ \}}
+\DoxyCodeLine{00321\ \};}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \textcolor{comment}{//\ hours\ in\ 24\ format\ 0-\/23}}
+\DoxyCodeLine{00324\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00325\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1H__formatter_af6d9a10bec349feb321b42deeb854574}{H\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00326\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1H__formatter_af6d9a10bec349feb321b42deeb854574}{H\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1H__formatter_af130a49202b8ac6599fa98bcdaa7364e}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 2;}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_hour,\ dest);}
+\DoxyCodeLine{00334\ \ \ \ \ \}}
+\DoxyCodeLine{00335\ \};}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \textcolor{comment}{//\ hours\ in\ 12\ format\ 1-\/12}}
+\DoxyCodeLine{00338\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00339\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1I__formatter_a11ce76cd8a5e465884c33503e58365a2}{I\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00340\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1I__formatter_a11ce76cd8a5e465884c33503e58365a2}{I\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1I__formatter_afde3bcb8c4949fb413a0a106072b897d}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 2;}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(to12h(tm\_time),\ dest);}
+\DoxyCodeLine{00348\ \ \ \ \ \}}
+\DoxyCodeLine{00349\ \};}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \textcolor{comment}{//\ minutes\ 0-\/59}}
+\DoxyCodeLine{00352\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00353\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1M__formatter_a014b408b30c81a53b8093dbee4020656}{M\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00354\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1M__formatter_a014b408b30c81a53b8093dbee4020656}{M\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1M__formatter_afaefe35465d9a87029bd36865f9d33e7}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 2;}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_min,\ dest);}
+\DoxyCodeLine{00362\ \ \ \ \ \}}
+\DoxyCodeLine{00363\ \};}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \textcolor{comment}{//\ seconds\ 0-\/59}}
+\DoxyCodeLine{00366\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00367\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1S__formatter_a99092cf2a5feba75422e10822005751e}{S\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00368\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1S__formatter_a99092cf2a5feba75422e10822005751e}{S\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1S__formatter_ad3f7bc8f62aba78f7fb5d8531e7632b6}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 2;}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_sec,\ dest);}
+\DoxyCodeLine{00376\ \ \ \ \ \}}
+\DoxyCodeLine{00377\ \};}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \textcolor{comment}{//\ milliseconds}}
+\DoxyCodeLine{00380\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00381\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1e__formatter_a12f3c8c85670f3f57164ff564a16874f}{e\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00382\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1e__formatter_a12f3c8c85670f3f57164ff564a16874f}{e\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1e__formatter_aeae8b76aa3290f593c971b90fc8c20f6}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ millis\ =\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aafd642d47fa4ed2d426a71aaadcd5316}{fmt\_helper::time\_fraction<std::chrono::milliseconds>}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a25fadb26e6ce94657af5475d4a581313}{time}});}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 3;}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_a5f864dacf93567cc8f1e7dee70fdb572}{fmt\_helper::pad3}}(\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(millis.count()),\ dest);}
+\DoxyCodeLine{00391\ \ \ \ \ \}}
+\DoxyCodeLine{00392\ \};}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \textcolor{comment}{//\ microseconds}}
+\DoxyCodeLine{00395\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00396\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1f__formatter_a1c8b0e2c63449db88fce07177065776e}{f\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00397\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1f__formatter_a1c8b0e2c63449db88fce07177065776e}{f\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1f__formatter_a61949e26c76a7bf34ecb78827b394840}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ micros\ =\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aafd642d47fa4ed2d426a71aaadcd5316}{fmt\_helper::time\_fraction<std::chrono::microseconds>}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a25fadb26e6ce94657af5475d4a581313}{time}});}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 6;}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_a199589a356798ed484a331205906a038}{fmt\_helper::pad6}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(micros.count()),\ dest);}
+\DoxyCodeLine{00407\ \ \ \ \ \}}
+\DoxyCodeLine{00408\ \};}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00410\ \textcolor{comment}{//\ nanoseconds}}
+\DoxyCodeLine{00411\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00412\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1F__formatter_a78a85bf33410cebd8bc249a2ad852591}{F\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00413\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1F__formatter_a78a85bf33410cebd8bc249a2ad852591}{F\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1F__formatter_adfaea16432ddff87c52aa6e1a047cc7a}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ns\ =\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aafd642d47fa4ed2d426a71aaadcd5316}{fmt\_helper::time\_fraction<std::chrono::nanoseconds>}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a25fadb26e6ce94657af5475d4a581313}{time}});}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 9;}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_acdbe48d23414f391994242c794748a00}{fmt\_helper::pad9}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(ns.count()),\ dest);}
+\DoxyCodeLine{00422\ \ \ \ \ \}}
+\DoxyCodeLine{00423\ \};}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00425\ \textcolor{comment}{//\ seconds\ since\ epoch}}
+\DoxyCodeLine{00426\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00427\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1E__formatter_a5f8fc59bdb707c106afc66e2bea7fdda}{E\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00428\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1E__formatter_a5f8fc59bdb707c106afc66e2bea7fdda}{E\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1E__formatter_a7e31fd13e64f3fcfb0b4ed4ff6c157b1}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 10;}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ duration\ =\ msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a25fadb26e6ce94657af5475d4a581313}{time}}.time\_since\_epoch();}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ seconds\ =\ std::chrono::duration\_cast<std::chrono::seconds>(duration).count();}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ae6d3ce6a4de130bdd15a9426c3228610}{fmt\_helper::append\_int}}(seconds,\ dest);}
+\DoxyCodeLine{00438\ \ \ \ \ \}}
+\DoxyCodeLine{00439\ \};}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \textcolor{comment}{//\ AM/PM}}
+\DoxyCodeLine{00442\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00443\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1p__formatter_a69c06cbc5f9c7cba49b9d3b8d4b55f5b}{p\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00444\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1p__formatter_a69c06cbc5f9c7cba49b9d3b8d4b55f5b}{p\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1p__formatter_a6bf3d32e0dbab6ad1df546cb9d3d2120}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 2;}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(ampm(tm\_time),\ dest);}
+\DoxyCodeLine{00452\ \ \ \ \ \}}
+\DoxyCodeLine{00453\ \};}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \textcolor{comment}{//\ 12\ hour\ clock\ 02:55:02\ pm}}
+\DoxyCodeLine{00456\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00457\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1r__formatter_a31efe7e794dee64a1edf858840daef0e}{r\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00458\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1r__formatter_a31efe7e794dee64a1edf858840daef0e}{r\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1r__formatter_a10ae69cf35e258582f1caa005a8617ff}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 11;}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(to12h(tm\_time),\ dest);}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_min,\ dest);}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_sec,\ dest);}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(ampm(tm\_time),\ dest);}
+\DoxyCodeLine{00473\ \ \ \ \ \}}
+\DoxyCodeLine{00474\ \};}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00476\ \textcolor{comment}{//\ 24-\/hour\ HH:MM\ time,\ equivalent\ to\ \%H:\%M}}
+\DoxyCodeLine{00477\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00478\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1R__formatter_a06066fae5bfa91f132dc8d3ecfe27b0d}{R\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00479\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00480\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1R__formatter_a06066fae5bfa91f132dc8d3ecfe27b0d}{R\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1R__formatter_abf15352272216c3d34ad5b99ea9144c0}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 5;}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_hour,\ dest);}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_min,\ dest);}
+\DoxyCodeLine{00490\ \ \ \ \ \}}
+\DoxyCodeLine{00491\ \};}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \textcolor{comment}{//\ ISO\ 8601\ time\ format\ (HH:MM:SS),\ equivalent\ to\ \%H:\%M:\%S}}
+\DoxyCodeLine{00494\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00495\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1T__formatter_ad35d83b6e45180223912181dc209eec0}{T\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00496\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1T__formatter_ad35d83b6e45180223912181dc209eec0}{T\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1T__formatter_af1a8d22f82b0edc69b737fb5b61980b2}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 8;}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_hour,\ dest);}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_min,\ dest);}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_sec,\ dest);}
+\DoxyCodeLine{00509\ \ \ \ \ \}}
+\DoxyCodeLine{00510\ \};}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \textcolor{comment}{//\ ISO\ 8601\ offset\ from\ UTC\ in\ timezone\ (+-\/HH:MM)}}
+\DoxyCodeLine{00513\ \textcolor{comment}{//\ If\ SPDLOG\_NO\_TZ\_OFFSET\ is\ defined,\ print\ "{}+??.??"{}\ instead.}}
+\DoxyCodeLine{00514\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00515\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1z__formatter_abcc12e06ee33b6b244808b5d4ab9e5a1}{z\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00516\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00517\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1z__formatter_abcc12e06ee33b6b244808b5d4ab9e5a1}{z\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo,\ \mbox{\hyperlink{namespacespdlog_ad598fbd8338772e66ae09e8723a07ced}{pattern\_time\_type}}\ time\_type)}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo),}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ time\_type\_(time\_type)\ \{\}}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1z__formatter_a3085f7157d3518725b6613a8bc18eca4}{z\_formatter}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00522\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1z__formatter_a9bbc0082721cc9bb7233aa9406fb93ab}{z\_formatter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classspdlog_1_1details_1_1z__formatter_abcc12e06ee33b6b244808b5d4ab9e5a1}{z\_formatter}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00523\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1z__formatter_abcc12e06ee33b6b244808b5d4ab9e5a1}{z\_formatter}}\ \&\mbox{\hyperlink{classspdlog_1_1details_1_1z__formatter_a046d4a7c18d1556e984ae47eae69480a}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classspdlog_1_1details_1_1z__formatter_abcc12e06ee33b6b244808b5d4ab9e5a1}{z\_formatter}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1z__formatter_ab78901be4e998d0d48a04d1b0201bec8}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ field\_size\ =\ 6;}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00528\ \textcolor{preprocessor}{\#ifdef\ SPDLOG\_NO\_TZ\_OFFSET}}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str\ =\ \textcolor{stringliteral}{"{}+??:??"{}};}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ dest.append(str,\ str\ +\ 6);}
+\DoxyCodeLine{00531\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time\_type\_\ ==\ \mbox{\hyperlink{namespacespdlog_ad598fbd8338772e66ae09e8723a07ceda52d33cb937bbdab234ab1729a0f8225b}{pattern\_time\_type::utc}})\ \{}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *zeroes\ =\ \textcolor{stringliteral}{"{}+00:00"{}};}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ dest.append(zeroes,\ zeroes\ +\ 6);}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ total\_minutes\ =\ get\_cached\_offset(msg,\ tm\_time);}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_negative\ =\ total\_minutes\ <\ 0;}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_negative)\ \{}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \ \ \ \ total\_minutes\ =\ -\/total\_minutes;}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'-\/'});}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'+'});}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00545\ }
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(total\_minutes\ /\ 60,\ dest);\ \ \textcolor{comment}{//\ hours}}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(total\_minutes\ \%\ 60,\ dest);\ \ \textcolor{comment}{//\ minutes}}
+\DoxyCodeLine{00549\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ SPDLOG\_NO\_TZ\_OFFSET}}
+\DoxyCodeLine{00550\ \ \ \ \ \}}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00553\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ad598fbd8338772e66ae09e8723a07ced}{pattern\_time\_type}}\ time\_type\_;}
+\DoxyCodeLine{00554\ \ \ \ \ log\_clock::time\_point\ last\_update\_\{std::chrono::seconds(0)\};}
+\DoxyCodeLine{00555\ \ \ \ \ \textcolor{keywordtype}{int}\ offset\_minutes\_\{0\};}
+\DoxyCodeLine{00556\ }
+\DoxyCodeLine{00557\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_cached\_offset(\textcolor{keyword}{const}\ log\_msg\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time)\ \{}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ refresh\ every\ 10\ seconds}}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (msg.time\ -\/\ last\_update\_\ >=\ std::chrono::seconds(10))\ \{}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ \ \ \ offset\_minutes\_\ =\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a4159ab79ba30eae7397c90ca78df2494}{os::utc\_minutes\_offset}}(tm\_time);}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \ \ \ \ last\_update\_\ =\ msg.time;}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ offset\_minutes\_;}
+\DoxyCodeLine{00564\ \ \ \ \ \}}
+\DoxyCodeLine{00565\ \};}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00567\ \textcolor{comment}{//\ Thread\ id}}
+\DoxyCodeLine{00568\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00569\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1t__formatter_aeaf2992c6885333fa5eb628a6a5be689}{t\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00570\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00571\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1t__formatter_aeaf2992c6885333fa5eb628a6a5be689}{t\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00572\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00574\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1t__formatter_acd881b29965aae80e4a0185c8fbca224}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ field\_size\ =\ ScopedPadder::count\_digits(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_ab8474cd689276f61021bca37e1993eef}{thread\_id}});}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ae6d3ce6a4de130bdd15a9426c3228610}{fmt\_helper::append\_int}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_ab8474cd689276f61021bca37e1993eef}{thread\_id}},\ dest);}
+\DoxyCodeLine{00578\ \ \ \ \ \}}
+\DoxyCodeLine{00579\ \};}
+\DoxyCodeLine{00580\ }
+\DoxyCodeLine{00581\ \textcolor{comment}{//\ Current\ pid}}
+\DoxyCodeLine{00582\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00583\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1pid__formatter_a7c766c8c3cee871f9bec5be21fc4e1d8}{pid\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00584\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00585\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1pid__formatter_a7c766c8c3cee871f9bec5be21fc4e1d8}{pid\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1pid__formatter_a42ad11ddf5be8a8837367ffe3e9273e4}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ pid\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\mbox{\hyperlink{namespacespdlog_1_1details_1_1os_adbde86613bd4e98205cffb43184df625}{details::os::pid}}());}
+\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ field\_size\ =\ ScopedPadder::count\_digits(pid);}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ae6d3ce6a4de130bdd15a9426c3228610}{fmt\_helper::append\_int}}(pid,\ dest);}
+\DoxyCodeLine{00593\ \ \ \ \ \}}
+\DoxyCodeLine{00594\ \};}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00596\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00597\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1v__formatter_a51a7272c85996c49b1d8c22d4fddf67f}{v\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00598\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00599\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1v__formatter_a51a7272c85996c49b1d8c22d4fddf67f}{v\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00601\ }
+\DoxyCodeLine{00602\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1v__formatter_a00865b962a4e9187799718910fd9a48c}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a3f3bc29f5bf45e8a3dc976d544b8faed}{payload}}.size(),\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a3f3bc29f5bf45e8a3dc976d544b8faed}{payload}},\ dest);}
+\DoxyCodeLine{00605\ \ \ \ \ \}}
+\DoxyCodeLine{00606\ \};}
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00608\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1ch__formatter_a0ea7f88fed22209cce188238bf103a35}{ch\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00609\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1ch__formatter_a0ea7f88fed22209cce188238bf103a35}{ch\_formatter}}(\textcolor{keywordtype}{char}\ ch)}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ :\ ch\_(ch)\ \{\}}
+\DoxyCodeLine{00612\ }
+\DoxyCodeLine{00613\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1ch__formatter_a199e86a077b01332f764ef91dce61059}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ dest.push\_back(ch\_);}
+\DoxyCodeLine{00615\ \ \ \ \ \}}
+\DoxyCodeLine{00616\ }
+\DoxyCodeLine{00617\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00618\ \ \ \ \ \textcolor{keywordtype}{char}\ ch\_;}
+\DoxyCodeLine{00619\ \};}
+\DoxyCodeLine{00620\ }
+\DoxyCodeLine{00621\ \textcolor{comment}{//\ aggregate\ user\ chars\ to\ display\ as\ is}}
+\DoxyCodeLine{00622\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1aggregate__formatter_a068c157540411ecb4932860266effb82}{aggregate\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00623\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00624\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1aggregate__formatter_a068c157540411ecb4932860266effb82}{aggregate\_formatter}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1aggregate__formatter_aa4a450cafac2ed6ef1fdc6dbda962ac6}{add\_ch}}(\textcolor{keywordtype}{char}\ ch)\ \{\ str\_\ +=\ ch;\ \}}
+\DoxyCodeLine{00627\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1aggregate__formatter_aa6d1b6b363434cdd34f296e91386c67f}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(str\_,\ dest);}
+\DoxyCodeLine{00629\ \ \ \ \ \}}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00631\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00632\ \ \ \ \ std::string\ str\_;}
+\DoxyCodeLine{00633\ \};}
+\DoxyCodeLine{00634\ }
+\DoxyCodeLine{00635\ \textcolor{comment}{//\ mark\ the\ color\ range.\ expect\ it\ to\ be\ in\ the\ form\ of\ "{}\%\string^colored\ text\%\$"{}}}
+\DoxyCodeLine{00636\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1color__start__formatter_a5222b004ac21f1b4db466400a324ad21}{color\_start\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00637\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00638\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1color__start__formatter_a5222b004ac21f1b4db466400a324ad21}{color\_start\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00640\ }
+\DoxyCodeLine{00641\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1color__start__formatter_a574161b1f5e1ab9e51ca1e5659519c9d}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a87cb1c5f1ecd7415412722123e35d491}{color\_range\_start}}\ =\ dest.size();}
+\DoxyCodeLine{00643\ \ \ \ \ \}}
+\DoxyCodeLine{00644\ \};}
+\DoxyCodeLine{00645\ }
+\DoxyCodeLine{00646\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1color__stop__formatter_ae91bec8b6dec2965b7406026925d1cdc}{color\_stop\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00647\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00648\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1color__stop__formatter_ae91bec8b6dec2965b7406026925d1cdc}{color\_stop\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1color__stop__formatter_a44951ad881623156402af9a6a8c1a4f6}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a0dfc2763f8e6b73ca34e4cb7c5a9950a}{color\_range\_end}}\ =\ dest.size();}
+\DoxyCodeLine{00653\ \ \ \ \ \}}
+\DoxyCodeLine{00654\ \};}
+\DoxyCodeLine{00655\ }
+\DoxyCodeLine{00656\ \textcolor{comment}{//\ print\ source\ location}}
+\DoxyCodeLine{00657\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00658\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1source__location__formatter_af8a36f302ad4fe4788abcd4a254eb27b}{source\_location\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00659\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00660\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1source__location__formatter_af8a36f302ad4fe4788abcd4a254eb27b}{source\_location\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00662\ }
+\DoxyCodeLine{00663\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1source__location__formatter_a3446aeec393fddbde9fa3a6808109a87}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a87cedeee3cb80521f33c3cf86651ae96}{empty}}())\ \{}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(0,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00668\ }
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ text\_size;}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}}.enabled())\ \{}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ calc\ text\ size\ for\ padding\ based\ on\ "{}filename:line"{}}}
+\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ \ \ \ \ text\_size\ =\ std::char\_traits<char>::length(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a96b5406e7ba9a23840baa7659accde08}{filename}})\ +}
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ScopedPadder::count\_digits(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a2f45855435225f5e000c054d9323cbe6}{line}})\ +\ 1;}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \ \ \ \ text\_size\ =\ 0;}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00677\ }
+\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(text\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a96b5406e7ba9a23840baa7659accde08}{filename}},\ dest);}
+\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ae6d3ce6a4de130bdd15a9426c3228610}{fmt\_helper::append\_int}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a2f45855435225f5e000c054d9323cbe6}{line}},\ dest);}
+\DoxyCodeLine{00682\ \ \ \ \ \}}
+\DoxyCodeLine{00683\ \};}
+\DoxyCodeLine{00684\ }
+\DoxyCodeLine{00685\ \textcolor{comment}{//\ print\ source\ filename}}
+\DoxyCodeLine{00686\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00687\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1source__filename__formatter_a527e3f48d6e4b839892ae41f9be49d34}{source\_filename\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00688\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00689\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1source__filename__formatter_a527e3f48d6e4b839892ae41f9be49d34}{source\_filename\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00691\ }
+\DoxyCodeLine{00692\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1source__filename__formatter_a864ad464fec761b91b348aff789e4cd0}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a87cedeee3cb80521f33c3cf86651ae96}{empty}}())\ \{}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(0,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ text\_size\ =}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}}.enabled()\ ?\ std::char\_traits<char>::length(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a96b5406e7ba9a23840baa7659accde08}{filename}})\ :\ 0;}
+\DoxyCodeLine{00699\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(text\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a96b5406e7ba9a23840baa7659accde08}{filename}},\ dest);}
+\DoxyCodeLine{00701\ \ \ \ \ \}}
+\DoxyCodeLine{00702\ \};}
+\DoxyCodeLine{00703\ }
+\DoxyCodeLine{00704\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00705\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1short__filename__formatter_a61dc34f056dd558dd8b084f8eb0af0b7}{short\_filename\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00706\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00707\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1short__filename__formatter_a61dc34f056dd558dd8b084f8eb0af0b7}{short\_filename\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00709\ }
+\DoxyCodeLine{00710\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00711\ \textcolor{preprocessor}{\#pragma\ warning(push)}}
+\DoxyCodeLine{00712\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4127)\ \ }\textcolor{comment}{//\ consider\ using\ 'if\ constexpr'\ instead}}
+\DoxyCodeLine{00713\ \textcolor{preprocessor}{\#endif\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ \_MSC\_VER}}
+\DoxyCodeLine{00714\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classspdlog_1_1details_1_1short__filename__formatter_ad9ea968d569d9742b86dfa25c9c79485}{basename}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename)\ \{}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ the\ size\ is\ 2\ (1\ character\ +\ null\ terminator)\ we\ can\ use\ the\ more\ efficient\ strrchr}}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ branch\ will\ be\ elided\ by\ optimizations}}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{sizeof}(os::folder\_seps)\ ==\ 2)\ \{}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *rv\ =\ std::strrchr(filename,\ os::folder\_seps[0]);}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rv\ !=\ \textcolor{keyword}{nullptr}\ ?\ rv\ +\ 1\ :\ filename;}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::reverse\_iterator<const\ char\ *>\ begin(filename\ +\ std::strlen(filename));}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::reverse\_iterator<const\ char\ *>\ end(filename);}
+\DoxyCodeLine{00723\ }
+\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ it\ =\ std::find\_first\_of(begin,\ end,\ std::begin(os::folder\_seps),}
+\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::end(os::folder\_seps)\ -\/\ 1);}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it\ !=\ end\ ?\ it.base()\ :\ filename;}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00728\ \ \ \ \ \}}
+\DoxyCodeLine{00729\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00730\ \textcolor{preprocessor}{\#pragma\ warning(pop)}}
+\DoxyCodeLine{00731\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_MSC\_VER}}
+\DoxyCodeLine{00732\ }
+\DoxyCodeLine{00733\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1short__filename__formatter_a8c0e11e5649ce92186badbaba2fba4c0}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a87cedeee3cb80521f33c3cf86651ae96}{empty}}())\ \{}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(0,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ filename\ =\ \mbox{\hyperlink{classspdlog_1_1details_1_1short__filename__formatter_ad9ea968d569d9742b86dfa25c9c79485}{basename}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a96b5406e7ba9a23840baa7659accde08}{filename}});}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ text\_size\ =\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}}.enabled()\ ?\ std::char\_traits<char>::length(filename)\ :\ 0;}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(text\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(filename,\ dest);}
+\DoxyCodeLine{00742\ \ \ \ \ \}}
+\DoxyCodeLine{00743\ \};}
+\DoxyCodeLine{00744\ }
+\DoxyCodeLine{00745\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00746\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1source__linenum__formatter_a906aff3ca741315e5752ff462e5dfdd6}{source\_linenum\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00747\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00748\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1source__linenum__formatter_a906aff3ca741315e5752ff462e5dfdd6}{source\_linenum\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00750\ }
+\DoxyCodeLine{00751\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1source__linenum__formatter_a6ed7c7c64e66ae7a8b417f3d4982e6a2}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a87cedeee3cb80521f33c3cf86651ae96}{empty}}())\ \{}
+\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(0,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00756\ }
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ field\_size\ =\ ScopedPadder::count\_digits(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a2f45855435225f5e000c054d9323cbe6}{line}});}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(field\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ae6d3ce6a4de130bdd15a9426c3228610}{fmt\_helper::append\_int}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a2f45855435225f5e000c054d9323cbe6}{line}},\ dest);}
+\DoxyCodeLine{00760\ \ \ \ \ \}}
+\DoxyCodeLine{00761\ \};}
+\DoxyCodeLine{00762\ }
+\DoxyCodeLine{00763\ \textcolor{comment}{//\ print\ source\ funcname}}
+\DoxyCodeLine{00764\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00765\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1source__funcname__formatter_ac64b91e85233fb88a4dc67c47ed1b630}{source\_funcname\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00766\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00767\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1source__funcname__formatter_ac64b91e85233fb88a4dc67c47ed1b630}{source\_funcname\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00769\ }
+\DoxyCodeLine{00770\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1source__funcname__formatter_a1f7af1a53b0efee121f726e9ebe260fc}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a87cedeee3cb80521f33c3cf86651ae96}{empty}}())\ \{}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(0,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ text\_size\ =}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}}.enabled()\ ?\ std::char\_traits<char>::length(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a32297eddfbc4b38ff608e08cf779d624}{funcname}})\ :\ 0;}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(text\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a32297eddfbc4b38ff608e08cf779d624}{funcname}},\ dest);}
+\DoxyCodeLine{00779\ \ \ \ \ \}}
+\DoxyCodeLine{00780\ \};}
+\DoxyCodeLine{00781\ }
+\DoxyCodeLine{00782\ \textcolor{comment}{//\ print\ elapsed\ time\ since\ last\ message}}
+\DoxyCodeLine{00783\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder,\ \textcolor{keyword}{typename}\ Units>}
+\DoxyCodeLine{00784\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1elapsed__formatter_af69fcc31745c91aa750ad2a13f2cc4e1}{elapsed\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00785\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00786\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classspdlog_1_1details_1_1elapsed__formatter_a506373833c7ef5b6055b9a0946cb5730}{DurationUnits}}\ =\ Units;}
+\DoxyCodeLine{00787\ }
+\DoxyCodeLine{00788\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1elapsed__formatter_af69fcc31745c91aa750ad2a13f2cc4e1}{elapsed\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00789\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo),}
+\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \ \ last\_message\_time\_(\mbox{\hyperlink{namespacespdlog_a8c1e92e5d6d4397a218a1b953c588cd9}{log\_clock}}::now())\ \{\}}
+\DoxyCodeLine{00791\ }
+\DoxyCodeLine{00792\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1elapsed__formatter_a18925fb4f611dff65ebe7cd2437c24a8}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00793\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ delta\ =\ (std::max)(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a25fadb26e6ce94657af5475d4a581313}{time}}\ -\/\ last\_message\_time\_,\ log\_clock::duration::zero());}
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ delta\_units\ =\ std::chrono::duration\_cast<DurationUnits>(delta);}
+\DoxyCodeLine{00795\ \ \ \ \ \ \ \ \ last\_message\_time\_\ =\ msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a25fadb26e6ce94657af5475d4a581313}{time}};}
+\DoxyCodeLine{00796\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ delta\_count\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(delta\_units.count());}
+\DoxyCodeLine{00797\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ n\_digits\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(ScopedPadder::count\_digits(delta\_count));}
+\DoxyCodeLine{00798\ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(n\_digits,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00799\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ae6d3ce6a4de130bdd15a9426c3228610}{fmt\_helper::append\_int}}(delta\_count,\ dest);}
+\DoxyCodeLine{00800\ \ \ \ \ \}}
+\DoxyCodeLine{00801\ }
+\DoxyCodeLine{00802\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00803\ \ \ \ \ log\_clock::time\_point\ last\_message\_time\_;}
+\DoxyCodeLine{00804\ \};}
+\DoxyCodeLine{00805\ }
+\DoxyCodeLine{00806\ \textcolor{comment}{//\ Class\ for\ formatting\ Mapped\ Diagnostic\ Context\ (MDC)\ in\ log\ messages.}}
+\DoxyCodeLine{00807\ \textcolor{comment}{//\ Example:\ [logger-\/name]\ [info]\ [mdc\_key\_1:mdc\_value\_1\ mdc\_key\_2:mdc\_value\_2]\ some\ message}}
+\DoxyCodeLine{00808\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_NO\_TLS}}
+\DoxyCodeLine{00809\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ScopedPadder>}
+\DoxyCodeLine{00810\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1mdc__formatter_a1b25a958bcd42c3e571e1761cebb1914}{mdc\_formatter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00811\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00812\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1mdc__formatter_a1b25a958bcd42c3e571e1761cebb1914}{mdc\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00813\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00814\ }
+\DoxyCodeLine{00815\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1mdc__formatter_a12e2923286dcfcfc1b3e3653f6a7abd2}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&,\ \textcolor{keyword}{const}\ std::tm\ \&,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00816\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&mdc\_map\ =\ \mbox{\hyperlink{classspdlog_1_1mdc_a3efc61f555d65f08a00af012b98b97f5}{mdc::get\_context}}();}
+\DoxyCodeLine{00817\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mdc\_map.empty())\ \{}
+\DoxyCodeLine{00818\ \ \ \ \ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(0,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00819\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00820\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1mdc__formatter_a2248151c8bf4ab151648ee407d0b1690}{format\_mdc}}(mdc\_map,\ dest);}
+\DoxyCodeLine{00822\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00823\ \ \ \ \ \}}
+\DoxyCodeLine{00824\ }
+\DoxyCodeLine{00825\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1mdc__formatter_a2248151c8bf4ab151648ee407d0b1690}{format\_mdc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classspdlog_1_1mdc_a4889886d85ddbb0b5f6037282aa4a63c}{mdc::mdc\_map\_t}}\ \&mdc\_map,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\ \{}
+\DoxyCodeLine{00826\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ last\_element\ =\ -\/-\/mdc\_map.end();}
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ mdc\_map.begin();\ it\ !=\ mdc\_map.end();\ ++it)\ \{}
+\DoxyCodeLine{00828\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&pair\ =\ *it;}
+\DoxyCodeLine{00829\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&key\ =\ pair.first;}
+\DoxyCodeLine{00830\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&value\ =\ pair.second;}
+\DoxyCodeLine{00831\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ content\_size\ =\ key.size()\ +\ value.size()\ +\ 1;\ \ \textcolor{comment}{//\ 1\ for\ ':'}}
+\DoxyCodeLine{00832\ }
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ last\_element)\ \{}
+\DoxyCodeLine{00834\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content\_size++;\ \ \textcolor{comment}{//\ 1\ for\ '\ '}}
+\DoxyCodeLine{00835\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00836\ }
+\DoxyCodeLine{00837\ \ \ \ \ \ \ \ \ \ \ \ \ ScopedPadder\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}(content\_size,\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a80f1166212df85f665d87f2826240567}{padinfo\_}},\ dest);}
+\DoxyCodeLine{00838\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(key,\ dest);}
+\DoxyCodeLine{00839\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(\textcolor{stringliteral}{"{}:"{}},\ dest);}
+\DoxyCodeLine{00840\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(value,\ dest);}
+\DoxyCodeLine{00841\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ last\_element)\ \{}
+\DoxyCodeLine{00842\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(\textcolor{stringliteral}{"{}\ "{}},\ dest);}
+\DoxyCodeLine{00843\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00844\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00845\ \ \ \ \ \}}
+\DoxyCodeLine{00846\ \};}
+\DoxyCodeLine{00847\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00848\ }
+\DoxyCodeLine{00849\ \textcolor{comment}{//\ Full\ info\ formatter}}
+\DoxyCodeLine{00850\ \textcolor{comment}{//\ pattern:\ [\%Y-\/\%m-\/\%d\ \%H:\%M:\%S.\%e]\ [\%n]\ [\%l]\ [\%s:\%\#]\ \%v}}
+\DoxyCodeLine{00851\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1details_1_1full__formatter_ac0212ed0f1efbb64726ddd73b62b20a0}{full\_formatter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}\ \{}
+\DoxyCodeLine{00852\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00853\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1full__formatter_ac0212ed0f1efbb64726ddd73b62b20a0}{full\_formatter}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{padding\_info}}\ padinfo)}
+\DoxyCodeLine{00854\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1flag__formatter_a7f775ab8ad4027546c3490f2f299bf43}{flag\_formatter}}(padinfo)\ \{\}}
+\DoxyCodeLine{00855\ }
+\DoxyCodeLine{00856\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1full__formatter_a4c2c0e4ae5c39e4b6457196c3ab748ff}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \textcolor{keyword}{const}\ std::tm\ \&tm\_time,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00857\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::chrono::duration\_cast;}
+\DoxyCodeLine{00858\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::chrono::milliseconds;}
+\DoxyCodeLine{00859\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::chrono::seconds;}
+\DoxyCodeLine{00860\ }
+\DoxyCodeLine{00861\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cache\ the\ date/time\ part\ for\ the\ next\ second.}}
+\DoxyCodeLine{00862\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ duration\ =\ msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a25fadb26e6ce94657af5475d4a581313}{time}}.time\_since\_epoch();}
+\DoxyCodeLine{00863\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ secs\ =\ duration\_cast<seconds>(duration);}
+\DoxyCodeLine{00864\ }
+\DoxyCodeLine{00865\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cache\_timestamp\_\ !=\ secs\ ||\ cached\_datetime\_.size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00866\ \ \ \ \ \ \ \ \ \ \ \ \ cached\_datetime\_.clear();}
+\DoxyCodeLine{00867\ \ \ \ \ \ \ \ \ \ \ \ \ cached\_datetime\_.push\_back(\textcolor{charliteral}{'['});}
+\DoxyCodeLine{00868\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ae6d3ce6a4de130bdd15a9426c3228610}{fmt\_helper::append\_int}}(tm\_time.tm\_year\ +\ 1900,\ cached\_datetime\_);}
+\DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ \ \ \ \ cached\_datetime\_.push\_back(\textcolor{charliteral}{'-\/'});}
+\DoxyCodeLine{00870\ }
+\DoxyCodeLine{00871\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_mon\ +\ 1,\ cached\_datetime\_);}
+\DoxyCodeLine{00872\ \ \ \ \ \ \ \ \ \ \ \ \ cached\_datetime\_.push\_back(\textcolor{charliteral}{'-\/'});}
+\DoxyCodeLine{00873\ }
+\DoxyCodeLine{00874\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_mday,\ cached\_datetime\_);}
+\DoxyCodeLine{00875\ \ \ \ \ \ \ \ \ \ \ \ \ cached\_datetime\_.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00876\ }
+\DoxyCodeLine{00877\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_hour,\ cached\_datetime\_);}
+\DoxyCodeLine{00878\ \ \ \ \ \ \ \ \ \ \ \ \ cached\_datetime\_.push\_back(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{00879\ }
+\DoxyCodeLine{00880\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_min,\ cached\_datetime\_);}
+\DoxyCodeLine{00881\ \ \ \ \ \ \ \ \ \ \ \ \ cached\_datetime\_.push\_back(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{00882\ }
+\DoxyCodeLine{00883\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ad60d022e216b4490b05805a2c04e9560}{fmt\_helper::pad2}}(tm\_time.tm\_sec,\ cached\_datetime\_);}
+\DoxyCodeLine{00884\ \ \ \ \ \ \ \ \ \ \ \ \ cached\_datetime\_.push\_back(\textcolor{charliteral}{'.'});}
+\DoxyCodeLine{00885\ }
+\DoxyCodeLine{00886\ \ \ \ \ \ \ \ \ \ \ \ \ cache\_timestamp\_\ =\ secs;}
+\DoxyCodeLine{00887\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00888\ \ \ \ \ \ \ \ \ dest.append(cached\_datetime\_.begin(),\ cached\_datetime\_.end());}
+\DoxyCodeLine{00889\ }
+\DoxyCodeLine{00890\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ millis\ =\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aafd642d47fa4ed2d426a71aaadcd5316}{fmt\_helper::time\_fraction<milliseconds>}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a25fadb26e6ce94657af5475d4a581313}{time}});}
+\DoxyCodeLine{00891\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_a5f864dacf93567cc8f1e7dee70fdb572}{fmt\_helper::pad3}}(\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(millis.count()),\ dest);}
+\DoxyCodeLine{00892\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{']'});}
+\DoxyCodeLine{00893\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00894\ }
+\DoxyCodeLine{00895\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ append\ logger\ name\ if\ exists}}
+\DoxyCodeLine{00896\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a88ba7c1e423119fdb42957336f380277}{logger\_name}}.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00897\ \ \ \ \ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'['});}
+\DoxyCodeLine{00898\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a88ba7c1e423119fdb42957336f380277}{logger\_name}},\ dest);}
+\DoxyCodeLine{00899\ \ \ \ \ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{']'});}
+\DoxyCodeLine{00900\ \ \ \ \ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00901\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00902\ }
+\DoxyCodeLine{00903\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'['});}
+\DoxyCodeLine{00904\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ wrap\ the\ level\ name\ with\ color}}
+\DoxyCodeLine{00905\ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a87cb1c5f1ecd7415412722123e35d491}{color\_range\_start}}\ =\ dest.size();}
+\DoxyCodeLine{00906\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ fmt\_helper::append\_string\_view(level::to\_c\_str(msg.level),\ dest);}}
+\DoxyCodeLine{00907\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(\mbox{\hyperlink{namespacespdlog_1_1level_a2becc02ca6b8d552a7653ebfc0f043b0}{level::to\_string\_view}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a4142f4d66140a1ea24053311ebea5706}{level}}),\ dest);}
+\DoxyCodeLine{00908\ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a0dfc2763f8e6b73ca34e4cb7c5a9950a}{color\_range\_end}}\ =\ dest.size();}
+\DoxyCodeLine{00909\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{']'});}
+\DoxyCodeLine{00910\ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00911\ }
+\DoxyCodeLine{00912\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ add\ source\ location\ if\ present}}
+\DoxyCodeLine{00913\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a87cedeee3cb80521f33c3cf86651ae96}{empty}}())\ \{}
+\DoxyCodeLine{00914\ \ \ \ \ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'['});}
+\DoxyCodeLine{00915\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename\ =}
+\DoxyCodeLine{00916\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1short__filename__formatter_ad9ea968d569d9742b86dfa25c9c79485}{details::short\_filename\_formatter<details::null\_scoped\_padder>::basename}}(}
+\DoxyCodeLine{00917\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a96b5406e7ba9a23840baa7659accde08}{filename}});}
+\DoxyCodeLine{00918\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(filename,\ dest);}
+\DoxyCodeLine{00919\ \ \ \ \ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{00920\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_ae6d3ce6a4de130bdd15a9426c3228610}{fmt\_helper::append\_int}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}}.\mbox{\hyperlink{structspdlog_1_1source__loc_a2f45855435225f5e000c054d9323cbe6}{line}},\ dest);}
+\DoxyCodeLine{00921\ \ \ \ \ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{']'});}
+\DoxyCodeLine{00922\ \ \ \ \ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00923\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00924\ }
+\DoxyCodeLine{00925\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_NO\_TLS}}
+\DoxyCodeLine{00926\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ add\ mdc\ if\ present}}
+\DoxyCodeLine{00927\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&mdc\_map\ =\ \mbox{\hyperlink{classspdlog_1_1mdc_a3efc61f555d65f08a00af012b98b97f5}{mdc::get\_context}}();}
+\DoxyCodeLine{00928\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mdc\_map.empty())\ \{}
+\DoxyCodeLine{00929\ \ \ \ \ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'['});}
+\DoxyCodeLine{00930\ \ \ \ \ \ \ \ \ \ \ \ \ mdc\_formatter\_.format\_mdc(mdc\_map,\ dest);}
+\DoxyCodeLine{00931\ \ \ \ \ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{']'});}
+\DoxyCodeLine{00932\ \ \ \ \ \ \ \ \ \ \ \ \ dest.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00933\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00934\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00935\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ fmt\_helper::append\_string\_view(msg.msg(),\ dest);}}
+\DoxyCodeLine{00936\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{fmt\_helper::append\_string\_view}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a3f3bc29f5bf45e8a3dc976d544b8faed}{payload}},\ dest);}
+\DoxyCodeLine{00937\ \ \ \ \ \}}
+\DoxyCodeLine{00938\ }
+\DoxyCodeLine{00939\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00940\ \ \ \ \ std::chrono::seconds\ cache\_timestamp\_\{0\};}
+\DoxyCodeLine{00941\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ cached\_datetime\_;}
+\DoxyCodeLine{00942\ }
+\DoxyCodeLine{00943\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_NO\_TLS}}
+\DoxyCodeLine{00944\ \ \ \ \ mdc\_formatter<null\_scoped\_padder>\ mdc\_formatter\_\{padding\_info\ \{\}\};}
+\DoxyCodeLine{00945\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00946\ \};}
+\DoxyCodeLine{00947\ }
+\DoxyCodeLine{00948\ \}\ \ \textcolor{comment}{//\ namespace\ details}}
+\DoxyCodeLine{00949\ }
+\DoxyCodeLine{00950\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1pattern__formatter_a6b771ba51328cb9cd4b766dae4f1aa61}{pattern\_formatter::pattern\_formatter}}(std::string\ pattern,}
+\DoxyCodeLine{00951\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ad598fbd8338772e66ae09e8723a07ced}{pattern\_time\_type}}\ time\_type,}
+\DoxyCodeLine{00952\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ eol,}
+\DoxyCodeLine{00953\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1pattern__formatter_abe4e378b3ae807272c67e1e89866d433}{custom\_flags}}\ custom\_user\_flags)}
+\DoxyCodeLine{00954\ \ \ \ \ :\ pattern\_(\mbox{\hyperlink{namespacestd}{std}}::move(pattern)),}
+\DoxyCodeLine{00955\ \ \ \ \ \ \ eol\_(\mbox{\hyperlink{namespacestd}{std}}::move(eol)),}
+\DoxyCodeLine{00956\ \ \ \ \ \ \ pattern\_time\_type\_(time\_type),}
+\DoxyCodeLine{00957\ \ \ \ \ \ \ need\_localtime\_(false),}
+\DoxyCodeLine{00958\ \ \ \ \ \ \ last\_log\_secs\_(0),}
+\DoxyCodeLine{00959\ \ \ \ \ \ \ custom\_handlers\_(\mbox{\hyperlink{namespacestd}{std}}::move(custom\_user\_flags))\ \{}
+\DoxyCodeLine{00960\ \ \ \ \ std::memset(\&cached\_tm\_,\ 0,\ \textcolor{keyword}{sizeof}(cached\_tm\_));}
+\DoxyCodeLine{00961\ \ \ \ \ compile\_pattern\_(pattern\_);}
+\DoxyCodeLine{00962\ \}}
+\DoxyCodeLine{00963\ }
+\DoxyCodeLine{00964\ \textcolor{comment}{//\ use\ by\ default\ full\ formatter\ for\ if\ pattern\ is\ not\ given}}
+\DoxyCodeLine{00965\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1pattern__formatter_a6b771ba51328cb9cd4b766dae4f1aa61}{pattern\_formatter::pattern\_formatter}}(\mbox{\hyperlink{namespacespdlog_ad598fbd8338772e66ae09e8723a07ced}{pattern\_time\_type}}\ time\_type,\ std::string\ eol)}
+\DoxyCodeLine{00966\ \ \ \ \ :\ pattern\_(\textcolor{stringliteral}{"{}\%+"{}}),}
+\DoxyCodeLine{00967\ \ \ \ \ \ \ eol\_(\mbox{\hyperlink{namespacestd}{std}}::move(eol)),}
+\DoxyCodeLine{00968\ \ \ \ \ \ \ pattern\_time\_type\_(time\_type),}
+\DoxyCodeLine{00969\ \ \ \ \ \ \ need\_localtime\_(true),}
+\DoxyCodeLine{00970\ \ \ \ \ \ \ last\_log\_secs\_(0)\ \{}
+\DoxyCodeLine{00971\ \ \ \ \ std::memset(\&cached\_tm\_,\ 0,\ \textcolor{keyword}{sizeof}(cached\_tm\_));}
+\DoxyCodeLine{00972\ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique<details::full\_formatter>}}(\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{details::padding\_info}}\{\}));}
+\DoxyCodeLine{00973\ \}}
+\DoxyCodeLine{00974\ }
+\DoxyCodeLine{00975\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ std::unique\_ptr<formatter>\ \mbox{\hyperlink{classspdlog_1_1pattern__formatter_aeb24b06fbf11bb3872c8fa82382350a8}{pattern\_formatter::clone}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00976\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1pattern__formatter_abe4e378b3ae807272c67e1e89866d433}{custom\_flags}}\ cloned\_custom\_formatters;}
+\DoxyCodeLine{00977\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&it\ :\ custom\_handlers\_)\ \{}
+\DoxyCodeLine{00978\ \ \ \ \ \ \ \ \ cloned\_custom\_formatters[it.first]\ =\ it.second-\/>clone();}
+\DoxyCodeLine{00979\ \ \ \ \ \}}
+\DoxyCodeLine{00980\ \ \ \ \ \textcolor{keyword}{auto}\ cloned\ =\ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique<pattern\_formatter>}}(pattern\_,\ pattern\_time\_type\_,\ eol\_,}
+\DoxyCodeLine{00981\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::move(cloned\_custom\_formatters));}
+\DoxyCodeLine{00982\ \ \ \ \ cloned-\/>need\_localtime(need\_localtime\_);}
+\DoxyCodeLine{00983\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)\ \&\&\ \_\_GNUC\_\_\ <\ 5}}
+\DoxyCodeLine{00984\ \ \ \ \ \textcolor{keywordflow}{return}\ std::move(cloned);}
+\DoxyCodeLine{00985\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00986\ \ \ \ \ \textcolor{keywordflow}{return}\ cloned;}
+\DoxyCodeLine{00987\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00988\ \}}
+\DoxyCodeLine{00989\ }
+\DoxyCodeLine{00990\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1pattern__formatter_af7468a5fffcc75c4d449343d7788b5dd}{pattern\_formatter::format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,\ \mbox{\hyperlink{namespacespdlog_a6a10a737c7e1471c8491ae251e06cff5}{memory\_buf\_t}}\ \&dest)\ \{}
+\DoxyCodeLine{00991\ \ \ \ \ \textcolor{keywordflow}{if}\ (need\_localtime\_)\ \{}
+\DoxyCodeLine{00992\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ secs\ =}
+\DoxyCodeLine{00993\ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::duration\_cast<std::chrono::seconds>(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a25fadb26e6ce94657af5475d4a581313}{time}}.time\_since\_epoch());}
+\DoxyCodeLine{00994\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (secs\ !=\ last\_log\_secs\_)\ \{}
+\DoxyCodeLine{00995\ \ \ \ \ \ \ \ \ \ \ \ \ cached\_tm\_\ =\ get\_time\_(msg);}
+\DoxyCodeLine{00996\ \ \ \ \ \ \ \ \ \ \ \ \ last\_log\_secs\_\ =\ secs;}
+\DoxyCodeLine{00997\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00998\ \ \ \ \ \}}
+\DoxyCodeLine{00999\ }
+\DoxyCodeLine{01000\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&f\ :\ formatters\_)\ \{}
+\DoxyCodeLine{01001\ \ \ \ \ \ \ \ \ f-\/>format(msg,\ cached\_tm\_,\ dest);}
+\DoxyCodeLine{01002\ \ \ \ \ \}}
+\DoxyCodeLine{01003\ \ \ \ \ \textcolor{comment}{//\ write\ eol}}
+\DoxyCodeLine{01004\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1fmt__helper_aa88d653712f3bbf2cef2b3c490752955}{details::fmt\_helper::append\_string\_view}}(eol\_,\ dest);}
+\DoxyCodeLine{01005\ \}}
+\DoxyCodeLine{01006\ }
+\DoxyCodeLine{01007\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1pattern__formatter_a374b378153d64904c26affa5741b24b2}{pattern\_formatter::set\_pattern}}(std::string\ pattern)\ \{}
+\DoxyCodeLine{01008\ \ \ \ \ pattern\_\ =\ std::move(pattern);}
+\DoxyCodeLine{01009\ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01010\ \ \ \ \ compile\_pattern\_(pattern\_);}
+\DoxyCodeLine{01011\ \}}
+\DoxyCodeLine{01012\ }
+\DoxyCodeLine{01013\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1pattern__formatter_a1d9c64f64bc0249a5020cd9ed7d14dbf}{pattern\_formatter::need\_localtime}}(\textcolor{keywordtype}{bool}\ need)\ \{\ need\_localtime\_\ =\ need;\ \}}
+\DoxyCodeLine{01014\ }
+\DoxyCodeLine{01015\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ std::tm\ pattern\_formatter::get\_time\_(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg)\ \{}
+\DoxyCodeLine{01016\ \ \ \ \ \textcolor{keywordflow}{if}\ (pattern\_time\_type\_\ ==\ \mbox{\hyperlink{namespacespdlog_ad598fbd8338772e66ae09e8723a07cedaf5ddaf0ca7929578b408c909429f68f2}{pattern\_time\_type::local}})\ \{}
+\DoxyCodeLine{01017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_ab090524da42b398917c5f90b3919599a}{details::os::localtime}}(log\_clock::to\_time\_t(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a25fadb26e6ce94657af5475d4a581313}{time}}));}
+\DoxyCodeLine{01018\ \ \ \ \ \}}
+\DoxyCodeLine{01019\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_ae2fdac746f03d004e2839c87177fc35a}{details::os::gmtime}}(log\_clock::to\_time\_t(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a25fadb26e6ce94657af5475d4a581313}{time}}));}
+\DoxyCodeLine{01020\ \}}
+\DoxyCodeLine{01021\ }
+\DoxyCodeLine{01022\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Padder>}
+\DoxyCodeLine{01023\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ pattern\_formatter::handle\_flag\_(\textcolor{keywordtype}{char}\ flag,\ \mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{details::padding\_info}}\ padding)\ \{}
+\DoxyCodeLine{01024\ \ \ \ \ \textcolor{comment}{//\ process\ custom\ flags}}
+\DoxyCodeLine{01025\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ custom\_handlers\_.find(flag);}
+\DoxyCodeLine{01026\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ custom\_handlers\_.end())\ \{}
+\DoxyCodeLine{01027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ custom\_handler\ =\ it-\/>second-\/>clone();}
+\DoxyCodeLine{01028\ \ \ \ \ \ \ \ \ custom\_handler-\/>set\_padding\_info(padding);}
+\DoxyCodeLine{01029\ \ \ \ \ \ \ \ \ formatters\_.push\_back(std::move(custom\_handler));}
+\DoxyCodeLine{01030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01031\ \ \ \ \ \}}
+\DoxyCodeLine{01032\ }
+\DoxyCodeLine{01033\ \ \ \ \ \textcolor{comment}{//\ process\ built-\/in\ flags}}
+\DoxyCodeLine{01034\ \ \ \ \ \textcolor{keywordflow}{switch}\ (flag)\ \{}
+\DoxyCodeLine{01035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'+'}):\ \ \textcolor{comment}{//\ default\ formatter}}
+\DoxyCodeLine{01036\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique<details::full\_formatter>}}(padding));}
+\DoxyCodeLine{01037\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01039\ }
+\DoxyCodeLine{01040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'n'}:\ \ \textcolor{comment}{//\ logger\ name}}
+\DoxyCodeLine{01041\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1name__formatter}{details::name\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01043\ }
+\DoxyCodeLine{01044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'l'}:\ \ \textcolor{comment}{//\ level}}
+\DoxyCodeLine{01045\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1level__formatter}{details::level\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01047\ }
+\DoxyCodeLine{01048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'L'}:\ \ \textcolor{comment}{//\ short\ level}}
+\DoxyCodeLine{01049\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(}
+\DoxyCodeLine{01050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1short__level__formatter}{details::short\_level\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01052\ }
+\DoxyCodeLine{01053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'t'}):\ \ \textcolor{comment}{//\ thread\ id}}
+\DoxyCodeLine{01054\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1t__formatter}{details::t\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01056\ }
+\DoxyCodeLine{01057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'v'}):\ \ \textcolor{comment}{//\ the\ message\ text}}
+\DoxyCodeLine{01058\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1v__formatter}{details::v\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01060\ }
+\DoxyCodeLine{01061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'a'}):\ \ \textcolor{comment}{//\ weekday}}
+\DoxyCodeLine{01062\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1a__formatter}{details::a\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01063\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01065\ }
+\DoxyCodeLine{01066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'A'}):\ \ \textcolor{comment}{//\ short\ weekday}}
+\DoxyCodeLine{01067\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1A__formatter}{details::A\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01068\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01070\ }
+\DoxyCodeLine{01071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'b'}):}
+\DoxyCodeLine{01072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'h'}):\ \ \textcolor{comment}{//\ month}}
+\DoxyCodeLine{01073\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1b__formatter}{details::b\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01074\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01076\ }
+\DoxyCodeLine{01077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'B'}):\ \ \textcolor{comment}{//\ short\ month}}
+\DoxyCodeLine{01078\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1B__formatter}{details::B\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01079\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01081\ }
+\DoxyCodeLine{01082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'c'}):\ \ \textcolor{comment}{//\ datetime}}
+\DoxyCodeLine{01083\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1c__formatter}{details::c\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01084\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01086\ }
+\DoxyCodeLine{01087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'C'}):\ \ \textcolor{comment}{//\ year\ 2\ digits}}
+\DoxyCodeLine{01088\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1C__formatter}{details::C\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01089\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01091\ }
+\DoxyCodeLine{01092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'Y'}):\ \ \textcolor{comment}{//\ year\ 4\ digits}}
+\DoxyCodeLine{01093\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1Y__formatter}{details::Y\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01094\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01096\ }
+\DoxyCodeLine{01097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'D'}):}
+\DoxyCodeLine{01098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'x'}):\ \ \textcolor{comment}{//\ datetime\ MM/DD/YY}}
+\DoxyCodeLine{01099\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1D__formatter}{details::D\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01100\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01102\ }
+\DoxyCodeLine{01103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'m'}):\ \ \textcolor{comment}{//\ month\ 1-\/12}}
+\DoxyCodeLine{01104\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1m__formatter}{details::m\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01105\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01107\ }
+\DoxyCodeLine{01108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'d'}):\ \ \textcolor{comment}{//\ day\ of\ month\ 1-\/31}}
+\DoxyCodeLine{01109\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1d__formatter}{details::d\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01110\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01112\ }
+\DoxyCodeLine{01113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'H'}):\ \ \textcolor{comment}{//\ hours\ 24}}
+\DoxyCodeLine{01114\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1H__formatter}{details::H\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01115\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01117\ }
+\DoxyCodeLine{01118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'I'}):\ \ \textcolor{comment}{//\ hours\ 12}}
+\DoxyCodeLine{01119\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1I__formatter}{details::I\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01120\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01122\ }
+\DoxyCodeLine{01123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'M'}):\ \ \textcolor{comment}{//\ minutes}}
+\DoxyCodeLine{01124\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1M__formatter}{details::M\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01125\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01127\ }
+\DoxyCodeLine{01128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'S'}):\ \ \textcolor{comment}{//\ seconds}}
+\DoxyCodeLine{01129\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1S__formatter}{details::S\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01130\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01132\ }
+\DoxyCodeLine{01133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'e'}):\ \ \textcolor{comment}{//\ milliseconds}}
+\DoxyCodeLine{01134\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1e__formatter}{details::e\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01136\ }
+\DoxyCodeLine{01137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'f'}):\ \ \textcolor{comment}{//\ microseconds}}
+\DoxyCodeLine{01138\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1f__formatter}{details::f\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01140\ }
+\DoxyCodeLine{01141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'F'}):\ \ \textcolor{comment}{//\ nanoseconds}}
+\DoxyCodeLine{01142\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1F__formatter}{details::F\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01144\ }
+\DoxyCodeLine{01145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'E'}):\ \ \textcolor{comment}{//\ seconds\ since\ epoch}}
+\DoxyCodeLine{01146\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1E__formatter}{details::E\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01148\ }
+\DoxyCodeLine{01149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'p'}):\ \ \textcolor{comment}{//\ am/pm}}
+\DoxyCodeLine{01150\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1p__formatter}{details::p\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01151\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01153\ }
+\DoxyCodeLine{01154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'r'}):\ \ \textcolor{comment}{//\ 12\ hour\ clock\ 02:55:02\ pm}}
+\DoxyCodeLine{01155\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1r__formatter}{details::r\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01156\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01158\ }
+\DoxyCodeLine{01159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'R'}):\ \ \textcolor{comment}{//\ 24-\/hour\ HH:MM\ time}}
+\DoxyCodeLine{01160\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1R__formatter}{details::R\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01161\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01163\ }
+\DoxyCodeLine{01164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'T'}):}
+\DoxyCodeLine{01165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'X'}):\ \ \textcolor{comment}{//\ ISO\ 8601\ time\ format\ (HH:MM:SS)}}
+\DoxyCodeLine{01166\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1T__formatter}{details::T\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01167\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'z'}):\ \ \textcolor{comment}{//\ timezone}}
+\DoxyCodeLine{01170\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(}
+\DoxyCodeLine{01171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1z__formatter}{details::z\_formatter<Padder>}}>(padding,\ pattern\_time\_type\_));}
+\DoxyCodeLine{01172\ \ \ \ \ \ \ \ \ \ \ \ \ need\_localtime\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'P'}):\ \ \textcolor{comment}{//\ pid}}
+\DoxyCodeLine{01175\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1pid__formatter}{details::pid\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01177\ }
+\DoxyCodeLine{01178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'\string^'}):\ \ \textcolor{comment}{//\ color\ range\ start}}
+\DoxyCodeLine{01179\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique<details::color\_start\_formatter>}}(padding));}
+\DoxyCodeLine{01180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01181\ }
+\DoxyCodeLine{01182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'\$'}):\ \ \textcolor{comment}{//\ color\ range\ end}}
+\DoxyCodeLine{01183\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique<details::color\_stop\_formatter>}}(padding));}
+\DoxyCodeLine{01184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01185\ }
+\DoxyCodeLine{01186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'@'}):\ \ \textcolor{comment}{//\ source\ location\ (filename:filenumber)}}
+\DoxyCodeLine{01187\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(}
+\DoxyCodeLine{01188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1source__location__formatter}{details::source\_location\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01190\ }
+\DoxyCodeLine{01191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'s'}):\ \ \textcolor{comment}{//\ short\ source\ filename\ -\/\ without\ directory\ name}}
+\DoxyCodeLine{01192\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(}
+\DoxyCodeLine{01193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1short__filename__formatter}{details::short\_filename\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01195\ }
+\DoxyCodeLine{01196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'g'}):\ \ \textcolor{comment}{//\ full\ source\ filename}}
+\DoxyCodeLine{01197\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(}
+\DoxyCodeLine{01198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1source__filename__formatter}{details::source\_filename\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01200\ }
+\DoxyCodeLine{01201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'\#'}):\ \ \textcolor{comment}{//\ source\ line\ number}}
+\DoxyCodeLine{01202\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(}
+\DoxyCodeLine{01203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1source__linenum__formatter}{details::source\_linenum\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01205\ }
+\DoxyCodeLine{01206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'!'}):\ \ \textcolor{comment}{//\ source\ funcname}}
+\DoxyCodeLine{01207\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(}
+\DoxyCodeLine{01208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1source__funcname__formatter}{details::source\_funcname\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01210\ }
+\DoxyCodeLine{01211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'\%'}):\ \ \textcolor{comment}{//\ \%\ char}}
+\DoxyCodeLine{01212\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique<details::ch\_formatter>}}(\textcolor{charliteral}{'\%'}));}
+\DoxyCodeLine{01213\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01214\ }
+\DoxyCodeLine{01215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'u'}):\ \ \textcolor{comment}{//\ elapsed\ time\ since\ last\ log\ message\ in\ nanos}}
+\DoxyCodeLine{01216\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(}
+\DoxyCodeLine{01217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1elapsed__formatter}{details::elapsed\_formatter<Padder,\ std::chrono::nanoseconds>}}>(}
+\DoxyCodeLine{01218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ padding));}
+\DoxyCodeLine{01219\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01220\ }
+\DoxyCodeLine{01221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'i'}):\ \ \textcolor{comment}{//\ elapsed\ time\ since\ last\ log\ message\ in\ micros}}
+\DoxyCodeLine{01222\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(}
+\DoxyCodeLine{01223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1elapsed__formatter}{details::elapsed\_formatter<Padder,\ std::chrono::microseconds>}}>(}
+\DoxyCodeLine{01224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ padding));}
+\DoxyCodeLine{01225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01226\ }
+\DoxyCodeLine{01227\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'o'}):\ \ \textcolor{comment}{//\ elapsed\ time\ since\ last\ log\ message\ in\ millis}}
+\DoxyCodeLine{01228\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(}
+\DoxyCodeLine{01229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1elapsed__formatter}{details::elapsed\_formatter<Padder,\ std::chrono::milliseconds>}}>(}
+\DoxyCodeLine{01230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ padding));}
+\DoxyCodeLine{01231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01232\ }
+\DoxyCodeLine{01233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'O'}):\ \ \textcolor{comment}{//\ elapsed\ time\ since\ last\ log\ message\ in\ seconds}}
+\DoxyCodeLine{01234\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(}
+\DoxyCodeLine{01235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1elapsed__formatter}{details::elapsed\_formatter<Padder,\ std::chrono::seconds>}}>(}
+\DoxyCodeLine{01236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ padding));}
+\DoxyCodeLine{01237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01238\ }
+\DoxyCodeLine{01239\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_NO\_TLS\ \ }\textcolor{comment}{//\ mdc\ formatter\ requires\ TLS\ support}}
+\DoxyCodeLine{01240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ (\textcolor{charliteral}{'\&'}):}
+\DoxyCodeLine{01241\ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(\mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1mdc__formatter}{details::mdc\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01243\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01244\ }
+\DoxyCodeLine{01245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \ \textcolor{comment}{//\ Unknown\ flag\ appears\ as\ is}}
+\DoxyCodeLine{01246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ unknown\_flag\ =\ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique<details::aggregate\_formatter>}}();}
+\DoxyCodeLine{01247\ }
+\DoxyCodeLine{01248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!padding.\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info_ae5795fe3248af99462b2ac324b3bccf8}{truncate\_}})\ \{}
+\DoxyCodeLine{01249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unknown\_flag-\/>add\_ch(\textcolor{charliteral}{'\%'});}
+\DoxyCodeLine{01250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unknown\_flag-\/>add\_ch(flag);}
+\DoxyCodeLine{01251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back((std::move(unknown\_flag)));}
+\DoxyCodeLine{01252\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ fix\ issue\ \#1617\ (prev\ char\ was\ '!'\ and\ should\ have\ been\ treated\ as\ funcname\ flag}}
+\DoxyCodeLine{01254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ instead\ of\ truncating\ flag)\ spdlog::set\_pattern("{}[\%10!]\ \%v"{})\ =>\ "{}[\ \ \ \ \ \ main]\ some}}
+\DoxyCodeLine{01255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ message"{}\ spdlog::set\_pattern("{}[\%3!!]\ \%v"{})\ =>\ "{}[mai]\ some\ message"{}}}
+\DoxyCodeLine{01256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ padding.\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info_ae5795fe3248af99462b2ac324b3bccf8}{truncate\_}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(}
+\DoxyCodeLine{01259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique}}<\mbox{\hyperlink{classspdlog_1_1details_1_1source__funcname__formatter}{details::source\_funcname\_formatter<Padder>}}>(padding));}
+\DoxyCodeLine{01260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unknown\_flag-\/>add\_ch(flag);}
+\DoxyCodeLine{01261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back((std::move(unknown\_flag)));}
+\DoxyCodeLine{01262\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01263\ }
+\DoxyCodeLine{01264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01265\ \ \ \ \ \}}
+\DoxyCodeLine{01266\ \}}
+\DoxyCodeLine{01267\ }
+\DoxyCodeLine{01268\ \textcolor{comment}{//\ Extract\ given\ pad\ spec\ (e.g.\ \%8X,\ \%=8X,\ \%-\/8!X,\ \%8!X,\ \%=8!X,\ \%-\/8!X,\ \%+8!X)}}
+\DoxyCodeLine{01269\ \textcolor{comment}{//\ Advance\ the\ given\ it\ pass\ the\ end\ of\ the\ padding\ spec\ found\ (if\ any)}}
+\DoxyCodeLine{01270\ \textcolor{comment}{//\ Return\ padding.}}
+\DoxyCodeLine{01271\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{details::padding\_info}}\ pattern\_formatter::handle\_padspec\_(}
+\DoxyCodeLine{01272\ \ \ \ \ std::string::const\_iterator\ \&it,\ std::string::const\_iterator\ end)\ \{}
+\DoxyCodeLine{01273\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structspdlog_1_1details_1_1padding__info}{details::padding\_info}};}
+\DoxyCodeLine{01274\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classspdlog_1_1details_1_1scoped__padder}{details::scoped\_padder}};}
+\DoxyCodeLine{01275\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ max\_width\ =\ 64;}
+\DoxyCodeLine{01276\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ end)\ \{}
+\DoxyCodeLine{01277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ padding\_info\{\};}
+\DoxyCodeLine{01278\ \ \ \ \ \}}
+\DoxyCodeLine{01279\ }
+\DoxyCodeLine{01280\ \ \ \ \ padding\_info::pad\_side\ side;}
+\DoxyCodeLine{01281\ \ \ \ \ \textcolor{keywordflow}{switch}\ (*it)\ \{}
+\DoxyCodeLine{01282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'-\/'}:}
+\DoxyCodeLine{01283\ \ \ \ \ \ \ \ \ \ \ \ \ side\ =\ padding\_info::pad\_side::right;}
+\DoxyCodeLine{01284\ \ \ \ \ \ \ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{01285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'='}:}
+\DoxyCodeLine{01287\ \ \ \ \ \ \ \ \ \ \ \ \ side\ =\ padding\_info::pad\_side::center;}
+\DoxyCodeLine{01288\ \ \ \ \ \ \ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{01289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{01291\ \ \ \ \ \ \ \ \ \ \ \ \ side\ =\ \mbox{\hyperlink{structspdlog_1_1details_1_1padding__info_aa2ad84ba80fb8fc36b753d1a34e4942ea811882fecd5c7618d7099ebbd39ea254}{details::padding\_info::pad\_side::left}};}
+\DoxyCodeLine{01292\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01293\ \ \ \ \ \}}
+\DoxyCodeLine{01294\ }
+\DoxyCodeLine{01295\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ end\ ||\ !std::isdigit(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(*it)))\ \{}
+\DoxyCodeLine{01296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ padding\_info\{\};\ \ \textcolor{comment}{//\ no\ padding\ if\ no\ digit\ found\ here}}
+\DoxyCodeLine{01297\ \ \ \ \ \}}
+\DoxyCodeLine{01298\ }
+\DoxyCodeLine{01299\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacedetail_ac742e301ae0a908dc31e49ac3a31fcc5aeaae26a6fb20ed3ef54fb23bfa0b1fcc}{width}}\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(*it)\ -\/\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{01300\ \ \ \ \ \textcolor{keywordflow}{for}\ (++it;\ it\ !=\ end\ \&\&\ std::isdigit(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(*it));\ ++it)\ \{}
+\DoxyCodeLine{01301\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ digit\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(*it)\ -\/\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{01302\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedetail_ac742e301ae0a908dc31e49ac3a31fcc5aeaae26a6fb20ed3ef54fb23bfa0b1fcc}{width}}\ =\ \mbox{\hyperlink{namespacedetail_ac742e301ae0a908dc31e49ac3a31fcc5aeaae26a6fb20ed3ef54fb23bfa0b1fcc}{width}}\ *\ 10\ +\ digit;}
+\DoxyCodeLine{01303\ \ \ \ \ \}}
+\DoxyCodeLine{01304\ }
+\DoxyCodeLine{01305\ \ \ \ \ \textcolor{comment}{//\ search\ for\ the\ optional\ truncate\ marker\ '!'}}
+\DoxyCodeLine{01306\ \ \ \ \ \textcolor{keywordtype}{bool}\ truncate;}
+\DoxyCodeLine{01307\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ end\ \&\&\ *it\ ==\ \textcolor{charliteral}{'!'})\ \{}
+\DoxyCodeLine{01308\ \ \ \ \ \ \ \ \ truncate\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01309\ \ \ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{01310\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01311\ \ \ \ \ \ \ \ \ truncate\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01312\ \ \ \ \ \}}
+\DoxyCodeLine{01313\ \ \ \ \ \textcolor{keywordflow}{return}\ details::padding\_info\{std::min<size\_t>(width,\ max\_width),\ side,\ truncate\};}
+\DoxyCodeLine{01314\ \}}
+\DoxyCodeLine{01315\ }
+\DoxyCodeLine{01316\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ pattern\_formatter::compile\_pattern\_(\textcolor{keyword}{const}\ std::string\ \&pattern)\ \{}
+\DoxyCodeLine{01317\ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ pattern.end();}
+\DoxyCodeLine{01318\ \ \ \ \ std::unique\_ptr<details::aggregate\_formatter>\ user\_chars;}
+\DoxyCodeLine{01319\ \ \ \ \ formatters\_.clear();}
+\DoxyCodeLine{01320\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ pattern.begin();\ it\ !=\ end;\ ++it)\ \{}
+\DoxyCodeLine{01321\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*it\ ==\ \textcolor{charliteral}{'\%'})\ \{}
+\DoxyCodeLine{01322\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (user\_chars)\ \ \textcolor{comment}{//\ append\ user\ chars\ found\ so\ far}}
+\DoxyCodeLine{01323\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ formatters\_.push\_back(std::move(user\_chars));}
+\DoxyCodeLine{01325\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01326\ }
+\DoxyCodeLine{01327\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ padding\ =\ handle\_padspec\_(++it,\ end);}
+\DoxyCodeLine{01328\ }
+\DoxyCodeLine{01329\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ end)\ \{}
+\DoxyCodeLine{01330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (padding.enabled())\ \{}
+\DoxyCodeLine{01331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ handle\_flag\_<details::scoped\_padder>(*it,\ padding);}
+\DoxyCodeLine{01332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ handle\_flag\_<details::null\_scoped\_padder>(*it,\ padding);}
+\DoxyCodeLine{01334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01335\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01337\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01338\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \ \textcolor{comment}{//\ chars\ not\ following\ the\ \%\ sign\ should\ be\ displayed\ as\ is}}
+\DoxyCodeLine{01339\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!user\_chars)\ \{}
+\DoxyCodeLine{01341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ user\_chars\ =\ \mbox{\hyperlink{namespacespdlog_1_1details_ac80ca96e75367f1d2de72eea3cb48fe7}{details::make\_unique<details::aggregate\_formatter>}}();}
+\DoxyCodeLine{01342\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01343\ \ \ \ \ \ \ \ \ \ \ \ \ user\_chars-\/>add\_ch(*it);}
+\DoxyCodeLine{01344\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01345\ \ \ \ \ \}}
+\DoxyCodeLine{01346\ \ \ \ \ \textcolor{keywordflow}{if}\ (user\_chars)\ \ \textcolor{comment}{//\ append\ raw\ chars\ found\ so\ far}}
+\DoxyCodeLine{01347\ \ \ \ \ \{}
+\DoxyCodeLine{01348\ \ \ \ \ \ \ \ \ formatters\_.push\_back(std::move(user\_chars));}
+\DoxyCodeLine{01349\ \ \ \ \ \}}
+\DoxyCodeLine{01350\ \}}
+\DoxyCodeLine{01351\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+
+\end{DoxyCode}

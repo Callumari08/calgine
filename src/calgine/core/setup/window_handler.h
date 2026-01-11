@@ -3,6 +3,9 @@
 #include <SDL3/SDL_video.h>
 #include <mutex>
 #include <string>
+#include "calgine_api.h"
+
+namespace Calgine {
 
 // could include different types of Vsync buffers here
 enum VsyncState {
@@ -13,7 +16,7 @@ enum VsyncState {
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 
-class WindowHandler 
+class CALGINE_API WindowHandler 
 {
 private:
   static WindowHandler* instance;
@@ -44,3 +47,5 @@ public:
   static VsyncState get_vsync_state();
   static void set_vsync_state(VsyncState state);
 };
+
+} // namespace Calgine

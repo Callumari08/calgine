@@ -1,0 +1,103 @@
+\doxysection{Calgine\+::App Class Reference}
+\hypertarget{classCalgine_1_1App}{}\label{classCalgine_1_1App}\index{Calgine::App@{Calgine::App}}
+
+
+This is the class from which all user applications derive from.  
+
+
+
+
+{\ttfamily \#include $<$app.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::string \mbox{\hyperlink{classCalgine_1_1App_ad750de26c7a790a725dd7c52a116324b}{get\+\_\+app\+\_\+name}} ()=0
+\item 
+void \mbox{\hyperlink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\+\_\+init}} ()
+\item 
+void \mbox{\hyperlink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\+\_\+loop}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the class from which all user applications derive from. 
+
+To get started with programming an application, create your own class that derives from {\ttfamily \doxylink{classCalgine_1_1App}{App}}.
+
+\begin{DoxyWarning}{Warning}
+This example is out of date. Please do not use it to understand how behaviours work.
+\end{DoxyWarning}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }MyApp\ :\ \textcolor{keyword}{public}\ Calgine::App}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ std::string\ app\_name\ =\ \textcolor{stringliteral}{"{}My\ App"{}};}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{std::string\ \mbox{\hyperlink{classCalgine_1_1App_ad750de26c7a790a725dd7c52a116324b}{get\_app\_name}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\textcolor{keyword}{}\{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ app\_name;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ stuff\ related\ to\ your\ app\ can\ go\ here}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }MyBehaviour\ :\ \textcolor{keyword}{public}\ Calgine::Behaviour}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacedetail_ac742e301ae0a908dc31e49ac3a31fcc5aea2b2676c28c0db26d39331a336c6b92}{start}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\textcolor{keyword}{\ }\{}
+\DoxyCodeLine{\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}MyBehaviour\ Start!"{}};}
+\DoxyCodeLine{\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \textcolor{keywordtype}{void}\ tick()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\textcolor{keyword}{\ }\{}
+\DoxyCodeLine{\ \ \ i++;}
+\DoxyCodeLine{\ \ \ std::cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{calgine_2vendor_2bench_2async__bench_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ MyApp\ myApp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \textcolor{comment}{//\ Intializes\ libraries}}
+\DoxyCodeLine{\ myApp.systems\_init();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \textcolor{comment}{//\ add\ behaviours\ here}}
+\DoxyCodeLine{\ MyBehaviour\ myBehaviour;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ myApp.main\_loop();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+\label{doc-func-members}
+\Hypertarget{classCalgine_1_1App_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1App_ad750de26c7a790a725dd7c52a116324b}\index{Calgine::App@{Calgine::App}!get\_app\_name@{get\_app\_name}}
+\index{get\_app\_name@{get\_app\_name}!Calgine::App@{Calgine::App}}
+\doxysubsubsection{\texorpdfstring{get\_app\_name()}{get\_app\_name()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1App_ad750de26c7a790a725dd7c52a116324b} 
+virtual std\+::string Calgine\+::\+App\+::get\+\_\+app\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}\index{Calgine::App@{Calgine::App}!main\_loop@{main\_loop}}
+\index{main\_loop@{main\_loop}!Calgine::App@{Calgine::App}}
+\doxysubsubsection{\texorpdfstring{main\_loop()}{main\_loop()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7} 
+void Calgine\+::\+App\+::main\+\_\+loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}\index{Calgine::App@{Calgine::App}!systems\_init@{systems\_init}}
+\index{systems\_init@{systems\_init}!Calgine::App@{Calgine::App}}
+\doxysubsubsection{\texorpdfstring{systems\_init()}{systems\_init()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f} 
+void Calgine\+::\+App\+::systems\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/\mbox{\hyperlink{app_8h}{app.\+h}}\item 
+src/calgine/core/\mbox{\hyperlink{app_8cxx}{app.\+cxx}}\end{DoxyCompactItemize}

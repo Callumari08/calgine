@@ -1,0 +1,91 @@
+\doxysection{src/calgine/vendor/tests/test\+\_\+timezone.cpp File Reference}
+\hypertarget{calgine_2vendor_2tests_2test__timezone_8cpp}{}\label{calgine_2vendor_2tests_2test__timezone_8cpp}\index{src/calgine/vendor/tests/test\_timezone.cpp@{src/calgine/vendor/tests/test\_timezone.cpp}}
+{\ttfamily \#include "{}includes.\+h"{}}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classScopedTZ}{Scoped\+TZ}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::tm \mbox{\hyperlink{calgine_2vendor_2tests_2test__timezone_8cpp_aad2a1b95e8471030ad552620b27bf7b5}{make\+\_\+tm}} (int \mbox{\hyperlink{classyear}{year}}, int \mbox{\hyperlink{classmonth}{month}}, int \mbox{\hyperlink{classday}{day}}, int hour, int minute)
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__timezone_8cpp_aba1821b7451187a90226ea3b91f9207b}{TEST\+\_\+\+CASE}} ("{}UTC Offset -\/ Western Hemisphere (USA -\/ Standard Time)"{}, "{}\mbox{[}timezone\mbox{]}\mbox{[}west\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__timezone_8cpp_a37a41183d41ab7ca89a4b602a60a6cd0}{TEST\+\_\+\+CASE}} ("{}UTC Offset -\/ Eastern Hemisphere (Europe/Israel -\/ Standard Time)"{}, "{}\mbox{[}timezone\mbox{]}\mbox{[}east\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__timezone_8cpp_a209781e910e0d3fbced5cc241e85df25}{TEST\+\_\+\+CASE}} ("{}UTC Offset -\/ Zero Offset (UTC/GMT)"{}, "{}\mbox{[}timezone\mbox{]}\mbox{[}utc\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__timezone_8cpp_af1ca1a78a48a2c4e883587ec4d1003a0}{TEST\+\_\+\+CASE}} ("{}UTC Offset -\/ Non-\/Integer Hour Offsets (India)"{}, "{}\mbox{[}timezone\mbox{]}\mbox{[}partial\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__timezone_8cpp_ab6da3a0ca54c60df4625c659aa0a586e}{TEST\+\_\+\+CASE}} ("{}UTC Offset -\/ Edge Case\+: Negative Offset Crossing Midnight"{}, "{}\mbox{[}timezone\mbox{]}\mbox{[}edge\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__timezone_8cpp_ad6528e1e31d0f985601eca9c2a3310a6}{TEST\+\_\+\+CASE}} ("{}UTC Offset -\/ Edge Case\+: Leap Year"{}, "{}\mbox{[}timezone\mbox{]}\mbox{[}edge\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2tests_2test__timezone_8cpp_a3c1058a778e343f2b77e19ff16fcb1fa}{TEST\+\_\+\+CASE}} ("{}UTC Offset -\/ Edge Case\+: Invalid Date (Pre-\/Epoch)"{}, "{}\mbox{[}timezone\mbox{]}\mbox{[}edge\mbox{]}"{})
+\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} int \mbox{\hyperlink{calgine_2vendor_2tests_2test__timezone_8cpp_a4159ab79ba30eae7397c90ca78df2494}{utc\+\_\+minutes\+\_\+offset}} (const std\+::tm \&tm)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{calgine_2vendor_2tests_2test__timezone_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{calgine_2vendor_2tests_2test__timezone_8cpp_aad2a1b95e8471030ad552620b27bf7b5}\index{test\_timezone.cpp@{test\_timezone.cpp}!make\_tm@{make\_tm}}
+\index{make\_tm@{make\_tm}!test\_timezone.cpp@{test\_timezone.cpp}}
+\doxysubsubsection{\texorpdfstring{make\_tm()}{make\_tm()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__timezone_8cpp_aad2a1b95e8471030ad552620b27bf7b5} 
+std\+::tm make\+\_\+tm (\begin{DoxyParamCaption}\item[{int}]{year}{, }\item[{int}]{month}{, }\item[{int}]{day}{, }\item[{int}]{hour}{, }\item[{int}]{minute}{}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__timezone_8cpp_a37a41183d41ab7ca89a4b602a60a6cd0}\index{test\_timezone.cpp@{test\_timezone.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_timezone.cpp@{test\_timezone.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__timezone_8cpp_a37a41183d41ab7ca89a4b602a60a6cd0} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}UTC Offset -\/ Eastern Hemisphere (Europe/Israel -\/ Standard Time)"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}timezone\mbox{]}\mbox{[}east\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__timezone_8cpp_a3c1058a778e343f2b77e19ff16fcb1fa}\index{test\_timezone.cpp@{test\_timezone.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_timezone.cpp@{test\_timezone.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__timezone_8cpp_a3c1058a778e343f2b77e19ff16fcb1fa} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}UTC Offset -\/ Edge Case\+: Invalid Date (Pre-\/Epoch)"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}timezone\mbox{]}\mbox{[}edge\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__timezone_8cpp_ad6528e1e31d0f985601eca9c2a3310a6}\index{test\_timezone.cpp@{test\_timezone.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_timezone.cpp@{test\_timezone.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__timezone_8cpp_ad6528e1e31d0f985601eca9c2a3310a6} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}UTC Offset -\/ Edge Case\+: Leap Year"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}timezone\mbox{]}\mbox{[}edge\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__timezone_8cpp_ab6da3a0ca54c60df4625c659aa0a586e}\index{test\_timezone.cpp@{test\_timezone.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_timezone.cpp@{test\_timezone.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__timezone_8cpp_ab6da3a0ca54c60df4625c659aa0a586e} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}UTC Offset -\/ Edge Case\+: Negative Offset Crossing Midnight"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}timezone\mbox{]}\mbox{[}edge\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__timezone_8cpp_af1ca1a78a48a2c4e883587ec4d1003a0}\index{test\_timezone.cpp@{test\_timezone.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_timezone.cpp@{test\_timezone.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__timezone_8cpp_af1ca1a78a48a2c4e883587ec4d1003a0} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}UTC Offset -\/ Non-\/Integer Hour Offsets (India)"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}timezone\mbox{]}\mbox{[}partial\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__timezone_8cpp_aba1821b7451187a90226ea3b91f9207b}\index{test\_timezone.cpp@{test\_timezone.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_timezone.cpp@{test\_timezone.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__timezone_8cpp_aba1821b7451187a90226ea3b91f9207b} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}UTC Offset -\/ Western Hemisphere (USA -\/ Standard Time)"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}timezone\mbox{]}\mbox{[}west\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__timezone_8cpp_a209781e910e0d3fbced5cc241e85df25}\index{test\_timezone.cpp@{test\_timezone.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!test\_timezone.cpp@{test\_timezone.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__timezone_8cpp_a209781e910e0d3fbced5cc241e85df25} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}UTC Offset -\/ Zero Offset (UTC/GMT)"{}}]{}{, }\item[{"{}"{}}]{}{\mbox{[}timezone\mbox{]}\mbox{[}utc\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{calgine_2vendor_2tests_2test__timezone_8cpp_a4159ab79ba30eae7397c90ca78df2494}\index{test\_timezone.cpp@{test\_timezone.cpp}!utc\_minutes\_offset@{utc\_minutes\_offset}}
+\index{utc\_minutes\_offset@{utc\_minutes\_offset}!test\_timezone.cpp@{test\_timezone.cpp}}
+\doxysubsubsection{\texorpdfstring{utc\_minutes\_offset()}{utc\_minutes\_offset()}}
+{\footnotesize\ttfamily \label{calgine_2vendor_2tests_2test__timezone_8cpp_a4159ab79ba30eae7397c90ca78df2494} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\+\_\+\+API}} int \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a4159ab79ba30eae7397c90ca78df2494}{spdlog\+::details\+::os\+::utc\+\_\+minutes\+\_\+offset}} (\begin{DoxyParamCaption}\item[{const std\+::tm \&}]{tm}{ = {\ttfamily details\+:\+:os\+:\+:localtime()}}\end{DoxyParamCaption})}
+

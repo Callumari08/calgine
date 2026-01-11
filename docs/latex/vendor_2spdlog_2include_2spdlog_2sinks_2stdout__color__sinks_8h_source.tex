@@ -1,0 +1,55 @@
+\doxysection{stdout\+\_\+color\+\_\+sinks.\+h}
+\hypertarget{vendor_2spdlog_2include_2spdlog_2sinks_2stdout__color__sinks_8h_source}{}\label{vendor_2spdlog_2include_2spdlog_2sinks_2stdout__color__sinks_8h_source}\index{src/vendor/spdlog/include/spdlog/sinks/stdout\_color\_sinks.h@{src/vendor/spdlog/include/spdlog/sinks/stdout\_color\_sinks.h}}
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2sinks_2stdout__color__sinks_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <spdlog/sinks/wincolor\_sink.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <spdlog/sinks/ansicolor\_sink.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <spdlog/details/synchronous\_factory.h>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog_1_1sinks}{sinks}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacespdlog_1_1sinks_a977886ea24b6fa93b9075f8033c9b1e2}{stdout\_color\_sink\_mt}}\ =\ \mbox{\hyperlink{namespacespdlog_1_1sinks_a31a6c4bacd66f9e195df8d78275e8bcd}{wincolor\_stdout\_sink\_mt}};}
+\DoxyCodeLine{00018\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacespdlog_1_1sinks_a18f04adf8e41f131b7ce337000422240}{stdout\_color\_sink\_st}}\ =\ \mbox{\hyperlink{namespacespdlog_1_1sinks_a9d8b5b31115773f4965a8e2bd8a41842}{wincolor\_stdout\_sink\_st}};}
+\DoxyCodeLine{00019\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacespdlog_1_1sinks_a533b57002217645cbff09b04cc155725}{stderr\_color\_sink\_mt}}\ =\ \mbox{\hyperlink{namespacespdlog_1_1sinks_a2dc40436614f42a1f3ab703f8e03456d}{wincolor\_stderr\_sink\_mt}};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacespdlog_1_1sinks_ab6ed268645cf1442b4b5be202d86edc6}{stderr\_color\_sink\_st}}\ =\ \mbox{\hyperlink{namespacespdlog_1_1sinks_ad19990f57e4cf9845697117ad81b1b67}{wincolor\_stderr\_sink\_st}};}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacespdlog_1_1sinks_a977886ea24b6fa93b9075f8033c9b1e2}{stdout\_color\_sink\_mt}}\ =\ \mbox{\hyperlink{namespacespdlog_1_1sinks_a2c89ca58e7f539c2f2f51b008fe510b0}{ansicolor\_stdout\_sink\_mt}};}
+\DoxyCodeLine{00023\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacespdlog_1_1sinks_a18f04adf8e41f131b7ce337000422240}{stdout\_color\_sink\_st}}\ =\ \mbox{\hyperlink{namespacespdlog_1_1sinks_a101acda7484b111e5142c31fd0ea9899}{ansicolor\_stdout\_sink\_st}};}
+\DoxyCodeLine{00024\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacespdlog_1_1sinks_a533b57002217645cbff09b04cc155725}{stderr\_color\_sink\_mt}}\ =\ \mbox{\hyperlink{namespacespdlog_1_1sinks_aa1ec64d1ca4bb4a3877cc789fe949ef9}{ansicolor\_stderr\_sink\_mt}};}
+\DoxyCodeLine{00025\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacespdlog_1_1sinks_ab6ed268645cf1442b4b5be202d86edc6}{stderr\_color\_sink\_st}}\ =\ \mbox{\hyperlink{namespacespdlog_1_1sinks_afea4ba92434884e73078fd33fa43d6e7}{ansicolor\_stderr\_sink\_st}};}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00027\ \}\ \ \textcolor{comment}{//\ namespace\ sinks}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{00030\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_a343c512a2450fe6e48c0d7543c30bb4d}{stdout\_color\_mt}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\_mode}}\ mode\ =\ \mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0a2bd9c0ed00116be1258e0cc66617d7c8}{color\_mode::automatic}});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{00034\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_a614d4af1a7531f9277bafc480a979aac}{stdout\_color\_st}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\_mode}}\ mode\ =\ \mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0a2bd9c0ed00116be1258e0cc66617d7c8}{color\_mode::automatic}});}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{00038\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_a6bd2afc2351f7646a8b8e4a694c31238}{stderr\_color\_mt}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\_mode}}\ mode\ =\ \mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0a2bd9c0ed00116be1258e0cc66617d7c8}{color\_mode::automatic}});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{00042\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_a564e6b6e5807399cb074502015ab4490}{stderr\_color\_st}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0}{color\_mode}}\ mode\ =\ \mbox{\hyperlink{namespacespdlog_ab7d59ff9d834b3a3f0e553bfc302edc0a2bd9c0ed00116be1258e0cc66617d7c8}{color\_mode::automatic}});}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#ifdef\ SPDLOG\_HEADER\_ONLY}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2sinks_2stdout__color__sinks-inl_8h}{stdout\_color\_sinks-\/inl.h}}"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

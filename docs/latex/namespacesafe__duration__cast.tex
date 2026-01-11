@@ -1,0 +1,80 @@
+\doxysection{safe\+\_\+duration\+\_\+cast Namespace Reference}
+\hypertarget{namespacesafe__duration__cast}{}\label{namespacesafe__duration__cast}\index{safe\_duration\_cast@{safe\_duration\_cast}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename To, typename From, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(!std\+::is\+\_\+same$<$ From, To $>$\+::value \&\& std\+::numeric\+\_\+limits$<$ From $>$\+::is\+\_\+signed== std\+::numeric\+\_\+limits$<$ To $>$\+::is\+\_\+signed)$>$ }\\\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto \mbox{\hyperlink{namespacesafe__duration__cast_ad9fbe9a58d2f046c1b477ec0bea62e0c}{lossless\+\_\+integral\+\_\+conversion}} (const From from, int \&ec) -\/$>$ To
+\item 
+{\footnotesize template$<$typename To, typename From, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(!std\+::is\+\_\+same$<$ From, To $>$\+::value \&\& std\+::numeric\+\_\+limits$<$ From $>$\+::is\+\_\+signed != std\+::numeric\+\_\+limits$<$ To $>$\+::is\+\_\+signed)$>$ }\\\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto \mbox{\hyperlink{namespacesafe__duration__cast_ad9fbe9a58d2f046c1b477ec0bea62e0c}{lossless\+\_\+integral\+\_\+conversion}} (const From from, int \&ec) -\/$>$ To
+\item 
+{\footnotesize template$<$typename To, typename From, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(std\+::is\+\_\+same$<$ From, To $>$\+::value)$>$ }\\\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto \mbox{\hyperlink{namespacesafe__duration__cast_ad9fbe9a58d2f046c1b477ec0bea62e0c}{lossless\+\_\+integral\+\_\+conversion}} (const From from, int \&ec) -\/$>$ To
+\item 
+{\footnotesize template$<$typename To, typename From, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(!std\+::is\+\_\+same$<$ From, To $>$\+::value)$>$ }\\\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto \mbox{\hyperlink{namespacesafe__duration__cast_a98daa09969ffc826ab1f539efa4ea826}{safe\+\_\+float\+\_\+conversion}} (const From from, int \&ec) -\/$>$ To
+\item 
+{\footnotesize template$<$typename To, typename From, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(std\+::is\+\_\+same$<$ From, To $>$\+::value)$>$ }\\\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto \mbox{\hyperlink{namespacesafe__duration__cast_a98daa09969ffc826ab1f539efa4ea826}{safe\+\_\+float\+\_\+conversion}} (const From from, int \&ec) -\/$>$ To
+\item 
+{\footnotesize template$<$typename To, typename From\+Rep, typename From\+Period, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(std\+::is\+\_\+floating\+\_\+point$<$ From\+Rep $>$\+::value), \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(std\+::is\+\_\+floating\+\_\+point$<$ typename To\+::rep $>$\+::value)$>$ }\\auto \mbox{\hyperlink{namespacesafe__duration__cast_a1059bf1770856ae2e6237c57390130c3}{safe\+\_\+duration\+\_\+cast}} (std\+::chrono\+::duration$<$ From\+Rep, From\+Period $>$ from, int \&ec) -\/$>$ To
+\begin{DoxyCompactList}\small\item\em Safe duration\+\_\+cast between floating point durations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespacesafe__duration__cast_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacesafe__duration__cast_ad9fbe9a58d2f046c1b477ec0bea62e0c}\index{safe\_duration\_cast@{safe\_duration\_cast}!lossless\_integral\_conversion@{lossless\_integral\_conversion}}
+\index{lossless\_integral\_conversion@{lossless\_integral\_conversion}!safe\_duration\_cast@{safe\_duration\_cast}}
+\doxysubsubsection{\texorpdfstring{lossless\_integral\_conversion()}{lossless\_integral\_conversion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{namespacesafe__duration__cast_ad9fbe9a58d2f046c1b477ec0bea62e0c} 
+template$<$typename To, typename From, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(std\+::is\+\_\+same$<$ From, To $>$\+::value)$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto safe\+\_\+duration\+\_\+cast\+::lossless\+\_\+integral\+\_\+conversion (\begin{DoxyParamCaption}\item[{const From}]{from}{, }\item[{int \&}]{ec}{}\end{DoxyParamCaption})-\/$>$To}
+
+\Hypertarget{namespacesafe__duration__cast_ad9fbe9a58d2f046c1b477ec0bea62e0c}\index{safe\_duration\_cast@{safe\_duration\_cast}!lossless\_integral\_conversion@{lossless\_integral\_conversion}}
+\index{lossless\_integral\_conversion@{lossless\_integral\_conversion}!safe\_duration\_cast@{safe\_duration\_cast}}
+\doxysubsubsection{\texorpdfstring{lossless\_integral\_conversion()}{lossless\_integral\_conversion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{namespacesafe__duration__cast_ad9fbe9a58d2f046c1b477ec0bea62e0c} 
+template$<$typename To, typename From, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(!std\+::is\+\_\+same$<$ From, To $>$\+::value \&\& std\+::numeric\+\_\+limits$<$ From $>$\+::is\+\_\+signed != std\+::numeric\+\_\+limits$<$ To $>$\+::is\+\_\+signed)$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto safe\+\_\+duration\+\_\+cast\+::lossless\+\_\+integral\+\_\+conversion (\begin{DoxyParamCaption}\item[{const From}]{from}{, }\item[{int \&}]{ec}{}\end{DoxyParamCaption})-\/$>$To}
+
+Converts From to To, without loss. If the dynamic value of from can\textquotesingle{}t be converted to To without loss, ec is set. \Hypertarget{namespacesafe__duration__cast_ad9fbe9a58d2f046c1b477ec0bea62e0c}\index{safe\_duration\_cast@{safe\_duration\_cast}!lossless\_integral\_conversion@{lossless\_integral\_conversion}}
+\index{lossless\_integral\_conversion@{lossless\_integral\_conversion}!safe\_duration\_cast@{safe\_duration\_cast}}
+\doxysubsubsection{\texorpdfstring{lossless\_integral\_conversion()}{lossless\_integral\_conversion()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{namespacesafe__duration__cast_ad9fbe9a58d2f046c1b477ec0bea62e0c} 
+template$<$typename To, typename From, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(!std\+::is\+\_\+same$<$ From, To $>$\+::value \&\& std\+::numeric\+\_\+limits$<$ From $>$\+::is\+\_\+signed== std\+::numeric\+\_\+limits$<$ To $>$\+::is\+\_\+signed)$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto safe\+\_\+duration\+\_\+cast\+::lossless\+\_\+integral\+\_\+conversion (\begin{DoxyParamCaption}\item[{const From}]{from}{, }\item[{int \&}]{ec}{}\end{DoxyParamCaption})-\/$>$To}
+
+Converts From to To, without loss. If the dynamic value of from can\textquotesingle{}t be converted to To without loss, ec is set. \Hypertarget{namespacesafe__duration__cast_a1059bf1770856ae2e6237c57390130c3}\index{safe\_duration\_cast@{safe\_duration\_cast}!safe\_duration\_cast@{safe\_duration\_cast}}
+\index{safe\_duration\_cast@{safe\_duration\_cast}!safe\_duration\_cast@{safe\_duration\_cast}}
+\doxysubsubsection{\texorpdfstring{safe\_duration\_cast()}{safe\_duration\_cast()}}
+{\footnotesize\ttfamily \label{namespacesafe__duration__cast_a1059bf1770856ae2e6237c57390130c3} 
+template$<$typename To, typename From\+Rep, typename From\+Period, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(std\+::is\+\_\+floating\+\_\+point$<$ From\+Rep $>$\+::value), \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(std\+::is\+\_\+floating\+\_\+point$<$ typename To\+::rep $>$\+::value)$>$ \\
+auto safe\+\_\+duration\+\_\+cast\+::safe\+\_\+duration\+\_\+cast (\begin{DoxyParamCaption}\item[{std\+::chrono\+::duration$<$ From\+Rep, From\+Period $>$}]{from}{, }\item[{int \&}]{ec}{}\end{DoxyParamCaption})-\/$>$To}
+
+
+
+Safe duration\+\_\+cast between floating point durations. 
+
+\Hypertarget{namespacesafe__duration__cast_a98daa09969ffc826ab1f539efa4ea826}\index{safe\_duration\_cast@{safe\_duration\_cast}!safe\_float\_conversion@{safe\_float\_conversion}}
+\index{safe\_float\_conversion@{safe\_float\_conversion}!safe\_duration\_cast@{safe\_duration\_cast}}
+\doxysubsubsection{\texorpdfstring{safe\_float\_conversion()}{safe\_float\_conversion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespacesafe__duration__cast_a98daa09969ffc826ab1f539efa4ea826} 
+template$<$typename To, typename From, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(std\+::is\+\_\+same$<$ From, To $>$\+::value)$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto safe\+\_\+duration\+\_\+cast\+::safe\+\_\+float\+\_\+conversion (\begin{DoxyParamCaption}\item[{const From}]{from}{, }\item[{int \&}]{ec}{}\end{DoxyParamCaption})-\/$>$To}
+
+\Hypertarget{namespacesafe__duration__cast_a98daa09969ffc826ab1f539efa4ea826}\index{safe\_duration\_cast@{safe\_duration\_cast}!safe\_float\_conversion@{safe\_float\_conversion}}
+\index{safe\_float\_conversion@{safe\_float\_conversion}!safe\_duration\_cast@{safe\_duration\_cast}}
+\doxysubsubsection{\texorpdfstring{safe\_float\_conversion()}{safe\_float\_conversion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespacesafe__duration__cast_a98daa09969ffc826ab1f539efa4ea826} 
+template$<$typename To, typename From, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(!std\+::is\+\_\+same$<$ From, To $>$\+::value)$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} auto safe\+\_\+duration\+\_\+cast\+::safe\+\_\+float\+\_\+conversion (\begin{DoxyParamCaption}\item[{const From}]{from}{, }\item[{int \&}]{ec}{}\end{DoxyParamCaption})-\/$>$To}
+
+converts From to To if possible, otherwise ec is set.
+
+
+\begin{DoxyTable}{2}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}input  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}output  \\
+NaN  &NaN  \\
+Inf  &Inf  \\
+normal, fits in output  &converted (possibly lossy)  \\
+normal, does not fit in output  &ec is set  \\
+subnormal  &best effort  \\
+-\/Inf  &-\/Inf  \\
+\end{DoxyTable}

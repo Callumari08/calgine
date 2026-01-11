@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['window_5fheight_0',['WINDOW_HEIGHT',['../window__handler_8h.html#a5473cf64fa979b48335079c99532e243',1,'window_handler.h']]],
-  ['window_5fwidth_1',['WINDOW_WIDTH',['../window__handler_8h.html#a498d9f026138406895e9a34b504ac6a6',1,'window_handler.h']]]
+  ['_5f_5fhas_5ffeature_0',['__has_feature',['../calgine_2vendor_2include_2spdlog_2details_2os-inl_8h.html#af989845e24678c452b9222afdac95e7f',1,'__has_feature:&#160;os-inl.h'],['../vendor_2spdlog_2include_2spdlog_2details_2os-inl_8h.html#af989845e24678c452b9222afdac95e7f',1,'__has_feature:&#160;os-inl.h']]],
+  ['_5flibcpp_5fremove_5ftransitive_5fincludes_1',['_LIBCPP_REMOVE_TRANSITIVE_INCLUDES',['../calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h.html#a85bc130fb2471b3852051b017960406f',1,'_LIBCPP_REMOVE_TRANSITIVE_INCLUDES:&#160;format.h'],['../vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2format_8h.html#a85bc130fb2471b3852051b017960406f',1,'_LIBCPP_REMOVE_TRANSITIVE_INCLUDES:&#160;format.h']]]
 ];

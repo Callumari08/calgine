@@ -1,0 +1,114 @@
+\doxysection{src/vendor/spdlog/include/spdlog/fmt/bundled/compile.h File Reference}
+\hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h}{}\label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h}\index{src/vendor/spdlog/include/spdlog/fmt/bundled/compile.h@{src/vendor/spdlog/include/spdlog/fmt/bundled/compile.h}}
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include "{}format.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcompiled__string}{compiled\+\_\+string}}
+\item 
+struct \mbox{\hyperlink{structis__compiled__string}{is\+\_\+compiled\+\_\+string$<$ S $>$}}
+\item 
+class \mbox{\hyperlink{classstatic__format__result}{static\+\_\+format\+\_\+result$<$ N $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_a7186ba53487a4df4602ae1d75658db29}{FMT\+\_\+\+COMPILE}}(s)
+\item 
+\#define \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_a4371f16d4f6415ce4ad40bb6fba048e2}{FMT\+\_\+\+STATIC\+\_\+\+FORMAT}}(fmt\+\_\+str, ...)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T, typename... Tail$>$ }\\constexpr auto \mbox{\hyperlink{namespacedetail_a60723b6bea116099ad1a7f720cc7df24}{detail\+::first}} (const T \&\mbox{\hyperlink{classdetail_1_1value}{value}}, const Tail \&...) -\/$>$ const T \&
+\item 
+{\footnotesize template$<$typename Output\+It, typename S, typename... T, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{structis__compiled__string}{is\+\_\+compiled\+\_\+string}}$<$ S $>$\+::value)$>$ }\\\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab09e1860f362e7828106dfa9963d884f}{FMT\+\_\+\+BEGIN\+\_\+\+EXPORT}} auto \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_ad4fdf174081c12508fbf69c66b2b159e}{format\+\_\+to\+\_\+n}} (Output\+It out, size\+\_\+t n, const S \&\mbox{\hyperlink{namespacefmt}{fmt}}, T \&\&... args) -\/$>$ \mbox{\hyperlink{structformat__to__n__result}{format\+\_\+to\+\_\+n\+\_\+result}}$<$ Output\+It $>$
+\item 
+{\footnotesize template$<$typename S, typename... T, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{structis__compiled__string}{is\+\_\+compiled\+\_\+string}}$<$ S $>$\+::value)$>$ }\\\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_acebe0f930dd6aecc374db251062e9d10}{FMT\+\_\+\+CONSTEXPR20}} auto \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_ab898fdcb82003fc6fbac14d5da66cbbb}{formatted\+\_\+size}} (const S \&\mbox{\hyperlink{namespacefmt}{fmt}}, T \&\&... args) -\/$>$ size\+\_\+t
+\item 
+{\footnotesize template$<$typename S, typename... T, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{structis__compiled__string}{is\+\_\+compiled\+\_\+string}}$<$ S $>$\+::value)$>$ }\\void \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_aafd70447a5d15c593712be146611663d}{print}} (std\+::\+FILE \texorpdfstring{$\ast$}{*}f, const S \&\mbox{\hyperlink{namespacefmt}{fmt}}, T \&\&... args)
+\item 
+{\footnotesize template$<$typename S, typename... T, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{structis__compiled__string}{is\+\_\+compiled\+\_\+string}}$<$ S $>$\+::value)$>$ }\\void \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_a9b96b9dab8916616fe681b7fb7cd0979}{print}} (const S \&\mbox{\hyperlink{namespacefmt}{fmt}}, T \&\&... args)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_a7186ba53487a4df4602ae1d75658db29}\index{compile.h@{compile.h}!FMT\_COMPILE@{FMT\_COMPILE}}
+\index{FMT\_COMPILE@{FMT\_COMPILE}!compile.h@{compile.h}}
+\doxysubsubsection{\texorpdfstring{FMT\_COMPILE}{FMT\_COMPILE}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_a7186ba53487a4df4602ae1d75658db29} 
+\#define FMT\+\_\+\+COMPILE(\begin{DoxyParamCaption}\item[{}]{s}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a09119ad072f708d17b88704fa898aff0}{FMT\_STRING}}(s)}
+
+\end{DoxyCode}
+Converts a string literal {\ttfamily s} into a format string that will be parsed at compile time and converted into efficient formatting code. Requires C++17 {\ttfamily constexpr if} compiler support.
+
+{\bfseries{Example}}\+: \begin{DoxyVerb}// Converts 42 into std::string using the most efficient method and no
+// runtime format string processing.
+std::string s = fmt::format(FMT_COMPILE("{}"), 42);
+\end{DoxyVerb}
+ \Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_a4371f16d4f6415ce4ad40bb6fba048e2}\index{compile.h@{compile.h}!FMT\_STATIC\_FORMAT@{FMT\_STATIC\_FORMAT}}
+\index{FMT\_STATIC\_FORMAT@{FMT\_STATIC\_FORMAT}!compile.h@{compile.h}}
+\doxysubsubsection{\texorpdfstring{FMT\_STATIC\_FORMAT}{FMT\_STATIC\_FORMAT}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_a4371f16d4f6415ce4ad40bb6fba048e2} 
+\#define FMT\+\_\+\+STATIC\+\_\+\+FORMAT(\begin{DoxyParamCaption}\item[{}]{fmt\+\_\+str}{, }\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ fmt::static\_format\_result<\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ fmt::formatted\_size(\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2compile_8h_a7186ba53487a4df4602ae1d75658db29}{FMT\_COMPILE}}(fmt\_str),\ \_\_VA\_ARGS\_\_)\ +\ 1>(\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ FMT\_COMPILE(fmt\_str),\ \_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+Formats arguments according to the format string {\ttfamily fmt\+\_\+str} and produces a string of the exact required size at compile time. Both the format string and the arguments must be compile-\/time expressions.
+
+The resulting string can be accessed as a C string via {\ttfamily c\+\_\+str()} or as a {\ttfamily fmt\+::string\+\_\+view} via {\ttfamily str()}.
+
+{\bfseries{Example}}\+: \begin{DoxyVerb}// Produces the static string "42" at compile time.
+static constexpr auto result = FMT_STATIC_FORMAT("{}", 42);
+const char* s = result.c_str();
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_ad4fdf174081c12508fbf69c66b2b159e}\index{compile.h@{compile.h}!format\_to\_n@{format\_to\_n}}
+\index{format\_to\_n@{format\_to\_n}!compile.h@{compile.h}}
+\doxysubsubsection{\texorpdfstring{format\_to\_n()}{format\_to\_n()}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_ad4fdf174081c12508fbf69c66b2b159e} 
+template$<$typename Output\+It, typename S, typename... T, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{structis__compiled__string}{is\+\_\+compiled\+\_\+string}}$<$ S $>$\+::value)$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab09e1860f362e7828106dfa9963d884f}{FMT\+\_\+\+BEGIN\+\_\+\+EXPORT}} auto format\+\_\+to\+\_\+n (\begin{DoxyParamCaption}\item[{Output\+It}]{out}{, }\item[{size\+\_\+t}]{n}{, }\item[{const S \&}]{fmt}{, }\item[{T \&\&...}]{args}{}\end{DoxyParamCaption})-\/$>$\mbox{\hyperlink{structformat__to__n__result}{format\+\_\+to\+\_\+n\+\_\+result}}$<$ Output\+It $>$}
+
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_ab898fdcb82003fc6fbac14d5da66cbbb}\index{compile.h@{compile.h}!formatted\_size@{formatted\_size}}
+\index{formatted\_size@{formatted\_size}!compile.h@{compile.h}}
+\doxysubsubsection{\texorpdfstring{formatted\_size()}{formatted\_size()}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_ab898fdcb82003fc6fbac14d5da66cbbb} 
+template$<$typename S, typename... T, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{structis__compiled__string}{is\+\_\+compiled\+\_\+string}}$<$ S $>$\+::value)$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_acebe0f930dd6aecc374db251062e9d10}{FMT\+\_\+\+CONSTEXPR20}} auto formatted\+\_\+size (\begin{DoxyParamCaption}\item[{const S \&}]{fmt}{, }\item[{T \&\&...}]{args}{}\end{DoxyParamCaption})-\/$>$size\+\_\+t}
+
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_a9b96b9dab8916616fe681b7fb7cd0979}\index{compile.h@{compile.h}!print@{print}}
+\index{print@{print}!compile.h@{compile.h}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_a9b96b9dab8916616fe681b7fb7cd0979} 
+template$<$typename S, typename... T, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{structis__compiled__string}{is\+\_\+compiled\+\_\+string}}$<$ S $>$\+::value)$>$ \\
+void print (\begin{DoxyParamCaption}\item[{const S \&}]{fmt}{, }\item[{T \&\&...}]{args}{}\end{DoxyParamCaption})}
+
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_aafd70447a5d15c593712be146611663d}\index{compile.h@{compile.h}!print@{print}}
+\index{print@{print}!compile.h@{compile.h}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2compile_8h_aafd70447a5d15c593712be146611663d} 
+template$<$typename S, typename... T, \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_ab02671eb0d43965fe2957e844f427451}{FMT\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{structis__compiled__string}{is\+\_\+compiled\+\_\+string}}$<$ S $>$\+::value)$>$ \\
+void print (\begin{DoxyParamCaption}\item[{std\+::\+FILE \texorpdfstring{$\ast$}{*}}]{f}{, }\item[{const S \&}]{fmt}{, }\item[{T \&\&...}]{args}{}\end{DoxyParamCaption})}
+

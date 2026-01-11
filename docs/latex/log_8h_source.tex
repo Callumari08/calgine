@@ -1,0 +1,27 @@
+\doxysection{log.\+h}
+\hypertarget{log_8h_source}{}\label{log_8h_source}\index{src/calgine/core/log.h@{src/calgine/core/log.h}}
+\mbox{\hyperlink{log_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <spdlog/logger.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1Log}{Log}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1Log_a180821f07929c1574c59983a68a83864}{init}}(std::string\ app\_name);}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\&\ \mbox{\hyperlink{classCalgine_1_1Log_a41f2a12df7fc534dc3179c7f4e80f84f}{get\_engine\_logger}}()\ \{\ \textcolor{keywordflow}{return}\ S\_engine\_logger;\ \}}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\&\ \mbox{\hyperlink{classCalgine_1_1Log_a4302cf6b0cf738b246c8b5c34c6a2f23}{get\_app\_logger}}()\ \{\ \textcolor{keywordflow}{return}\ S\_app\_logger;\ \}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\ S\_engine\_logger;}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<spdlog::logger>\ S\_app\_logger;}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
+
+\end{DoxyCode}

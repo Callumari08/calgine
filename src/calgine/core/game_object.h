@@ -1,8 +1,12 @@
 #pragma once
 
 #include "calgine_pch.h"
+#include "calgine_api.h"
+#include "useful_funcs.h"
 
 #include "behaviour.h"
+
+namespace Calgine {
 
 enum TickType
 {
@@ -14,7 +18,7 @@ enum TickType
 /**
  * @brief GameObjects are objects within the @link Heirarchy @endlink that have multiple @link Behaviour @endlink subclasses attched to them which execute code.
  */
-class GameObject
+class CALGINE_API GameObject
 {
 private:
   // use for debugging purpouses only
@@ -71,7 +75,7 @@ public:
   {
     auto child = std::make_unique<T>(this, std::forward<Args>(args)...);
     T& ref = *child;
-    children.push_back(std::move(child));
+    children.emplace_back(std::move(child));
     return ref;
   }
 
@@ -96,9 +100,6 @@ public:
 };
 
 // Templates
-
-#include "useful_funcs.h"
-
 
 template<typename T_behaviour>
 requires std::derived_from<T_behaviour, Behaviour>
@@ -148,3 +149,5 @@ bool GameObject::has_behaviour() const
 {
   return behaviours.contains(typeid(T_behaviour));
 }
+
+} // namespace Calgine

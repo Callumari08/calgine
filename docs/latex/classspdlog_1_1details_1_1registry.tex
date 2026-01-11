@@ -1,0 +1,520 @@
+\doxysection{spdlog\+::details\+::registry Class Reference}
+\hypertarget{classspdlog_1_1details_1_1registry}{}\label{classspdlog_1_1details_1_1registry}\index{spdlog::details::registry@{spdlog::details::registry}}
+
+
+{\ttfamily \#include $<$registry.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a83f20981dbeda258dc4ca11cd354eb98}{log\+\_\+levels}} = std\+::unordered\+\_\+map$<$std\+::string, \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}}$>$
+\item 
+using \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a83f20981dbeda258dc4ca11cd354eb98}{log\+\_\+levels}} = std\+::unordered\+\_\+map$<$std\+::string, \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}}$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} (const registry \&)=delete
+\item 
+\mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} \& \mbox{\hyperlink{classspdlog_1_1details_1_1registry_aa310dd416185100392d00af8fb67cafb}{operator=}} (const \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} \&)=delete
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_aab1ac59e4ee50c173b3ff1c32ca05ab5}{register\+\_\+logger}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ new\+\_\+logger)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a918306906400941aafc0e4c1257b0910}{register\+\_\+or\+\_\+replace}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ new\+\_\+logger)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_aff3103acaeb3d59e449e9ddc630c9e92}{initialize\+\_\+logger}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ new\+\_\+logger)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ae803a4b6f743a2e4289cf9aa74f97527}{get}} (const std\+::string \&logger\+\_\+name)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a0325433c66d277bb107cf94787ddfcf0}{default\+\_\+logger}} ()
+\item 
+\mbox{\hyperlink{classspdlog_1_1logger}{logger}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a4b75c50f0b310b84d2a93f3f1badd5a3}{get\+\_\+default\+\_\+raw}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a6aa709e8d71603cbe699e49f26223add}{set\+\_\+default\+\_\+logger}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ new\+\_\+default\+\_\+logger)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a4e5f3349b2d5d75cbd54994250fbb5a3}{set\+\_\+tp}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\+\_\+pool}} $>$ tp)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\+\_\+pool}} $>$ \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a7f9cefccc6f882c1e750601197488a5a}{get\+\_\+tp}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a2830cfb77b386e1c9dd93162e91a266c}{set\+\_\+formatter}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structformatter}{formatter}} $>$ \mbox{\hyperlink{structformatter}{formatter}})
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ae6dbe968bbe026a47d39592840a24126}{enable\+\_\+backtrace}} (size\+\_\+t n\+\_\+messages)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a58bbae0e839ff62701d1c89c0689f86e}{disable\+\_\+backtrace}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_af734fefd6c4c8c45edc2b32713a1982b}{set\+\_\+level}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} log\+\_\+level)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a209c92d89b1872573f077c86435e0d83}{flush\+\_\+on}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} log\+\_\+level)
+\item 
+{\footnotesize template$<$typename Rep, typename Period$>$ }\\void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a8f6bcd6fa183a4feed573ee73d7b369e}{flush\+\_\+every}} (std\+::chrono\+::duration$<$ Rep, Period $>$ interval)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1details_1_1periodic__worker}{periodic\+\_\+worker}} $>$ \& \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab49a73b6c9988f25fc26b5d85f6c8bd6}{get\+\_\+flusher}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a4531644dd1854f4abb54da0f43f9b669}{set\+\_\+error\+\_\+handler}} (\mbox{\hyperlink{namespacespdlog_aa96024a429a0fe4bdca8aa348e536fc9}{err\+\_\+handler}} handler)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ae227e31ce64b5568e31170927ee3fb5c}{apply\+\_\+all}} (const std\+::function$<$ void(const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$)$>$ \&fun)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab0a55ecfe3ded390d9d08303376de835}{flush\+\_\+all}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a54dd23ca57f53e6d74340f6853853130}{drop}} (const std\+::string \&logger\+\_\+name)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a301f502d1af4425459674b6f2f0280b5}{drop\+\_\+all}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_aa9844e5a01050826006c1db130f5f29f}{shutdown}} ()
+\item 
+std\+::recursive\+\_\+mutex \& \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a5367ffce169c5adaecee78cb573db9d7}{tp\+\_\+mutex}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a47c0702d31d07e2a9c503954d3d2aa62}{set\+\_\+automatic\+\_\+registration}} (bool automatic\+\_\+registration)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a3a00be6ddd689fd8e38b4f67624a3b2f}{set\+\_\+levels}} (\mbox{\hyperlink{classspdlog_1_1details_1_1registry_a83f20981dbeda258dc4ca11cd354eb98}{log\+\_\+levels}} levels, \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} \texorpdfstring{$\ast$}{*}global\+\_\+level)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a51fdf519f40f40f5c9bb983ffda68c06}{apply\+\_\+logger\+\_\+env\+\_\+levels}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ new\+\_\+logger)
+\item 
+\mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} (const registry \&)=delete
+\item 
+\mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} \& \mbox{\hyperlink{classspdlog_1_1details_1_1registry_aa310dd416185100392d00af8fb67cafb}{operator=}} (const \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} \&)=delete
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab77fb7513b2e3e6442a83f037543e391}{register\+\_\+logger}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ new\+\_\+logger)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a4a25c1309dbe6628ecac68ecc3344770}{register\+\_\+or\+\_\+replace}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ new\+\_\+logger)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a7e015c41e9c32c9f1e8e7f9adc578cee}{initialize\+\_\+logger}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ new\+\_\+logger)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{classspdlog_1_1details_1_1registry_abb2d888efce9d02a8161894e623b34eb}{get}} (const std\+::string \&logger\+\_\+name)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{classspdlog_1_1details_1_1registry_aaf8c926e1b4e1596a4dad91c079e40bd}{default\+\_\+logger}} ()
+\item 
+\mbox{\hyperlink{classspdlog_1_1logger}{logger}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a701421f003f421c17a63a3ffe3f2a624}{get\+\_\+default\+\_\+raw}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ae2a45628046a1d0cd3f8de81a5556acb}{set\+\_\+default\+\_\+logger}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ new\+\_\+default\+\_\+logger)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_aa5503db04a70a06f97e7c1218aa8cbe2}{set\+\_\+tp}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\+\_\+pool}} $>$ tp)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\+\_\+pool}} $>$ \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a213dde317aac58a3592eeb50d7c0527d}{get\+\_\+tp}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a8f8dcb7f6b7987716cfbcb92bbe96517}{set\+\_\+formatter}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structformatter}{formatter}} $>$ \mbox{\hyperlink{structformatter}{formatter}})
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ac466dee6daf82fbc9290283be925a0fb}{enable\+\_\+backtrace}} (size\+\_\+t n\+\_\+messages)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a722fea0b6818765aaadf22862d3931bb}{disable\+\_\+backtrace}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a4b8494e781ed3151586b307cca63edb7}{set\+\_\+level}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} log\+\_\+level)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a34841160632afca0f2063f1d55629d73}{flush\+\_\+on}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} log\+\_\+level)
+\item 
+{\footnotesize template$<$typename Rep, typename Period$>$ }\\void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a8f6bcd6fa183a4feed573ee73d7b369e}{flush\+\_\+every}} (std\+::chrono\+::duration$<$ Rep, Period $>$ interval)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1details_1_1periodic__worker}{periodic\+\_\+worker}} $>$ \& \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab49a73b6c9988f25fc26b5d85f6c8bd6}{get\+\_\+flusher}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a0ae827a5b0697e8bc1682463633c1947}{set\+\_\+error\+\_\+handler}} (\mbox{\hyperlink{namespacespdlog_aa96024a429a0fe4bdca8aa348e536fc9}{err\+\_\+handler}} handler)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a781454ea62603cfaebddf14ec2ec9985}{apply\+\_\+all}} (const std\+::function$<$ void(const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$)$>$ \&fun)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a3abe5826eebb056d51dd0dd75beed42d}{flush\+\_\+all}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a21f513aa5a7da6a21fe35a5077b2db74}{drop}} (const std\+::string \&logger\+\_\+name)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a127ccc3786f6ddef57f16d354ba4db91}{drop\+\_\+all}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ac93f888f316b0488414771ad6533b6a9}{shutdown}} ()
+\item 
+std\+::recursive\+\_\+mutex \& \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab93b1eb13c7ce5119ba8b1e508a366ae}{tp\+\_\+mutex}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_af0b75d4b20a40f044d6030e03342b858}{set\+\_\+automatic\+\_\+registration}} (bool automatic\+\_\+registration)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ac19b21fde102b5724e30574d4a2da9ad}{set\+\_\+levels}} (\mbox{\hyperlink{classspdlog_1_1details_1_1registry_a83f20981dbeda258dc4ca11cd354eb98}{log\+\_\+levels}} levels, \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} \texorpdfstring{$\ast$}{*}global\+\_\+level)
+\item 
+void \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a8249b1cae3359a5818417b2ec2b33901}{apply\+\_\+logger\+\_\+env\+\_\+levels}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ new\+\_\+logger)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} \& \mbox{\hyperlink{classspdlog_1_1details_1_1registry_aa03a75101aed166275ba27d0b2235e5d}{instance}} ()
+\item 
+static \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} \& \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a77b56e8250ec85401fd07c6c31edb914}{instance}} ()
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{classspdlog_1_1details_1_1registry_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classspdlog_1_1details_1_1registry_a83f20981dbeda258dc4ca11cd354eb98}\index{spdlog::details::registry@{spdlog::details::registry}!log\_levels@{log\_levels}}
+\index{log\_levels@{log\_levels}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{log\_levels}{log\_levels}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a83f20981dbeda258dc4ca11cd354eb98} 
+using \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a83f20981dbeda258dc4ca11cd354eb98}{spdlog\+::details\+::registry\+::log\+\_\+levels}} = std\+::unordered\+\_\+map$<$std\+::string, \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}}$>$}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a83f20981dbeda258dc4ca11cd354eb98}\index{spdlog::details::registry@{spdlog::details::registry}!log\_levels@{log\_levels}}
+\index{log\_levels@{log\_levels}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{log\_levels}{log\_levels}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a83f20981dbeda258dc4ca11cd354eb98} 
+using \mbox{\hyperlink{classspdlog_1_1details_1_1registry_a83f20981dbeda258dc4ca11cd354eb98}{spdlog\+::details\+::registry\+::log\+\_\+levels}} = std\+::unordered\+\_\+map$<$std\+::string, \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}}$>$}
+
+
+
+\label{doc-constructors}
+\Hypertarget{classspdlog_1_1details_1_1registry_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}\index{spdlog::details::registry@{spdlog::details::registry}!registry@{registry}}
+\index{registry@{registry}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{registry()}{registry()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b} 
+spdlog\+::details\+::registry\+::registry (\begin{DoxyParamCaption}\item[{const registry \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}\index{spdlog::details::registry@{spdlog::details::registry}!registry@{registry}}
+\index{registry@{registry}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{registry()}{registry()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b} 
+spdlog\+::details\+::registry\+::registry (\begin{DoxyParamCaption}\item[{const registry \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classspdlog_1_1details_1_1registry_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classspdlog_1_1details_1_1registry_ae227e31ce64b5568e31170927ee3fb5c}\index{spdlog::details::registry@{spdlog::details::registry}!apply\_all@{apply\_all}}
+\index{apply\_all@{apply\_all}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{apply\_all()}{apply\_all()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ae227e31ce64b5568e31170927ee3fb5c} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::apply\+\_\+all (\begin{DoxyParamCaption}\item[{const std\+::function$<$ void(const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$)$>$ \&}]{fun}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a781454ea62603cfaebddf14ec2ec9985}\index{spdlog::details::registry@{spdlog::details::registry}!apply\_all@{apply\_all}}
+\index{apply\_all@{apply\_all}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{apply\_all()}{apply\_all()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a781454ea62603cfaebddf14ec2ec9985} 
+void spdlog\+::details\+::registry\+::apply\+\_\+all (\begin{DoxyParamCaption}\item[{const std\+::function$<$ void(const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$)$>$ \&}]{fun}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a51fdf519f40f40f5c9bb983ffda68c06}\index{spdlog::details::registry@{spdlog::details::registry}!apply\_logger\_env\_levels@{apply\_logger\_env\_levels}}
+\index{apply\_logger\_env\_levels@{apply\_logger\_env\_levels}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{apply\_logger\_env\_levels()}{apply\_logger\_env\_levels()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a51fdf519f40f40f5c9bb983ffda68c06} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::apply\+\_\+logger\+\_\+env\+\_\+levels (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$}]{new\+\_\+logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a8249b1cae3359a5818417b2ec2b33901}\index{spdlog::details::registry@{spdlog::details::registry}!apply\_logger\_env\_levels@{apply\_logger\_env\_levels}}
+\index{apply\_logger\_env\_levels@{apply\_logger\_env\_levels}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{apply\_logger\_env\_levels()}{apply\_logger\_env\_levels()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a8249b1cae3359a5818417b2ec2b33901} 
+void spdlog\+::details\+::registry\+::apply\+\_\+logger\+\_\+env\+\_\+levels (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$}]{new\+\_\+logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a0325433c66d277bb107cf94787ddfcf0}\index{spdlog::details::registry@{spdlog::details::registry}!default\_logger@{default\_logger}}
+\index{default\_logger@{default\_logger}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{default\_logger()}{default\_logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a0325433c66d277bb107cf94787ddfcf0} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ spdlog\+::details\+::registry\+::default\+\_\+logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_aaf8c926e1b4e1596a4dad91c079e40bd}\index{spdlog::details::registry@{spdlog::details::registry}!default\_logger@{default\_logger}}
+\index{default\_logger@{default\_logger}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{default\_logger()}{default\_logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_aaf8c926e1b4e1596a4dad91c079e40bd} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ spdlog\+::details\+::registry\+::default\+\_\+logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a58bbae0e839ff62701d1c89c0689f86e}\index{spdlog::details::registry@{spdlog::details::registry}!disable\_backtrace@{disable\_backtrace}}
+\index{disable\_backtrace@{disable\_backtrace}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{disable\_backtrace()}{disable\_backtrace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a58bbae0e839ff62701d1c89c0689f86e} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::disable\+\_\+backtrace (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a722fea0b6818765aaadf22862d3931bb}\index{spdlog::details::registry@{spdlog::details::registry}!disable\_backtrace@{disable\_backtrace}}
+\index{disable\_backtrace@{disable\_backtrace}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{disable\_backtrace()}{disable\_backtrace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a722fea0b6818765aaadf22862d3931bb} 
+void spdlog\+::details\+::registry\+::disable\+\_\+backtrace (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a54dd23ca57f53e6d74340f6853853130}\index{spdlog::details::registry@{spdlog::details::registry}!drop@{drop}}
+\index{drop@{drop}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{drop()}{drop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a54dd23ca57f53e6d74340f6853853130} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::drop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{logger\+\_\+name}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a21f513aa5a7da6a21fe35a5077b2db74}\index{spdlog::details::registry@{spdlog::details::registry}!drop@{drop}}
+\index{drop@{drop}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{drop()}{drop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a21f513aa5a7da6a21fe35a5077b2db74} 
+void spdlog\+::details\+::registry\+::drop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{logger\+\_\+name}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a301f502d1af4425459674b6f2f0280b5}\index{spdlog::details::registry@{spdlog::details::registry}!drop\_all@{drop\_all}}
+\index{drop\_all@{drop\_all}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{drop\_all()}{drop\_all()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a301f502d1af4425459674b6f2f0280b5} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::drop\+\_\+all (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a127ccc3786f6ddef57f16d354ba4db91}\index{spdlog::details::registry@{spdlog::details::registry}!drop\_all@{drop\_all}}
+\index{drop\_all@{drop\_all}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{drop\_all()}{drop\_all()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a127ccc3786f6ddef57f16d354ba4db91} 
+void spdlog\+::details\+::registry\+::drop\+\_\+all (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_ae6dbe968bbe026a47d39592840a24126}\index{spdlog::details::registry@{spdlog::details::registry}!enable\_backtrace@{enable\_backtrace}}
+\index{enable\_backtrace@{enable\_backtrace}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{enable\_backtrace()}{enable\_backtrace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ae6dbe968bbe026a47d39592840a24126} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::enable\+\_\+backtrace (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n\+\_\+messages}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_ac466dee6daf82fbc9290283be925a0fb}\index{spdlog::details::registry@{spdlog::details::registry}!enable\_backtrace@{enable\_backtrace}}
+\index{enable\_backtrace@{enable\_backtrace}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{enable\_backtrace()}{enable\_backtrace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ac466dee6daf82fbc9290283be925a0fb} 
+void spdlog\+::details\+::registry\+::enable\+\_\+backtrace (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n\+\_\+messages}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_ab0a55ecfe3ded390d9d08303376de835}\index{spdlog::details::registry@{spdlog::details::registry}!flush\_all@{flush\_all}}
+\index{flush\_all@{flush\_all}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{flush\_all()}{flush\_all()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ab0a55ecfe3ded390d9d08303376de835} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::flush\+\_\+all (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a3abe5826eebb056d51dd0dd75beed42d}\index{spdlog::details::registry@{spdlog::details::registry}!flush\_all@{flush\_all}}
+\index{flush\_all@{flush\_all}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{flush\_all()}{flush\_all()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a3abe5826eebb056d51dd0dd75beed42d} 
+void spdlog\+::details\+::registry\+::flush\+\_\+all (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a8f6bcd6fa183a4feed573ee73d7b369e}\index{spdlog::details::registry@{spdlog::details::registry}!flush\_every@{flush\_every}}
+\index{flush\_every@{flush\_every}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{flush\_every()}{flush\_every()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a8f6bcd6fa183a4feed573ee73d7b369e} 
+template$<$typename Rep, typename Period$>$ \\
+void spdlog\+::details\+::registry\+::flush\+\_\+every (\begin{DoxyParamCaption}\item[{std\+::chrono\+::duration$<$ Rep, Period $>$}]{interval}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a8f6bcd6fa183a4feed573ee73d7b369e}\index{spdlog::details::registry@{spdlog::details::registry}!flush\_every@{flush\_every}}
+\index{flush\_every@{flush\_every}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{flush\_every()}{flush\_every()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a8f6bcd6fa183a4feed573ee73d7b369e} 
+template$<$typename Rep, typename Period$>$ \\
+void spdlog\+::details\+::registry\+::flush\+\_\+every (\begin{DoxyParamCaption}\item[{std\+::chrono\+::duration$<$ Rep, Period $>$}]{interval}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a209c92d89b1872573f077c86435e0d83}\index{spdlog::details::registry@{spdlog::details::registry}!flush\_on@{flush\_on}}
+\index{flush\_on@{flush\_on}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{flush\_on()}{flush\_on()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a209c92d89b1872573f077c86435e0d83} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::flush\+\_\+on (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}}}]{log\+\_\+level}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a34841160632afca0f2063f1d55629d73}\index{spdlog::details::registry@{spdlog::details::registry}!flush\_on@{flush\_on}}
+\index{flush\_on@{flush\_on}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{flush\_on()}{flush\_on()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a34841160632afca0f2063f1d55629d73} 
+void spdlog\+::details\+::registry\+::flush\+\_\+on (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}}}]{log\+\_\+level}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_ae803a4b6f743a2e4289cf9aa74f97527}\index{spdlog::details::registry@{spdlog::details::registry}!get@{get}}
+\index{get@{get}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ae803a4b6f743a2e4289cf9aa74f97527} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ spdlog\+::details\+::registry\+::get (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{logger\+\_\+name}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_abb2d888efce9d02a8161894e623b34eb}\index{spdlog::details::registry@{spdlog::details::registry}!get@{get}}
+\index{get@{get}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_abb2d888efce9d02a8161894e623b34eb} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ spdlog\+::details\+::registry\+::get (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{logger\+\_\+name}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a4b75c50f0b310b84d2a93f3f1badd5a3}\index{spdlog::details::registry@{spdlog::details::registry}!get\_default\_raw@{get\_default\_raw}}
+\index{get\_default\_raw@{get\_default\_raw}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{get\_default\_raw()}{get\_default\_raw()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a4b75c50f0b310b84d2a93f3f1badd5a3} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} \mbox{\hyperlink{classspdlog_1_1logger}{logger}} \texorpdfstring{$\ast$}{*} spdlog\+::details\+::registry\+::get\+\_\+default\+\_\+raw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a701421f003f421c17a63a3ffe3f2a624}\index{spdlog::details::registry@{spdlog::details::registry}!get\_default\_raw@{get\_default\_raw}}
+\index{get\_default\_raw@{get\_default\_raw}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{get\_default\_raw()}{get\_default\_raw()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a701421f003f421c17a63a3ffe3f2a624} 
+\mbox{\hyperlink{classspdlog_1_1logger}{logger}} \texorpdfstring{$\ast$}{*} spdlog\+::details\+::registry\+::get\+\_\+default\+\_\+raw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_ab49a73b6c9988f25fc26b5d85f6c8bd6}\index{spdlog::details::registry@{spdlog::details::registry}!get\_flusher@{get\_flusher}}
+\index{get\_flusher@{get\_flusher}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{get\_flusher()}{get\_flusher()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ab49a73b6c9988f25fc26b5d85f6c8bd6} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1details_1_1periodic__worker}{periodic\+\_\+worker}} $>$ \& spdlog\+::details\+::registry\+::get\+\_\+flusher (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_ab49a73b6c9988f25fc26b5d85f6c8bd6}\index{spdlog::details::registry@{spdlog::details::registry}!get\_flusher@{get\_flusher}}
+\index{get\_flusher@{get\_flusher}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{get\_flusher()}{get\_flusher()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ab49a73b6c9988f25fc26b5d85f6c8bd6} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1details_1_1periodic__worker}{periodic\+\_\+worker}} $>$ \& spdlog\+::details\+::registry\+::get\+\_\+flusher (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a7f9cefccc6f882c1e750601197488a5a}\index{spdlog::details::registry@{spdlog::details::registry}!get\_tp@{get\_tp}}
+\index{get\_tp@{get\_tp}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{get\_tp()}{get\_tp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a7f9cefccc6f882c1e750601197488a5a} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\+\_\+pool}} $>$ spdlog\+::details\+::registry\+::get\+\_\+tp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a213dde317aac58a3592eeb50d7c0527d}\index{spdlog::details::registry@{spdlog::details::registry}!get\_tp@{get\_tp}}
+\index{get\_tp@{get\_tp}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{get\_tp()}{get\_tp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a213dde317aac58a3592eeb50d7c0527d} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\+\_\+pool}} $>$ spdlog\+::details\+::registry\+::get\+\_\+tp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_aff3103acaeb3d59e449e9ddc630c9e92}\index{spdlog::details::registry@{spdlog::details::registry}!initialize\_logger@{initialize\_logger}}
+\index{initialize\_logger@{initialize\_logger}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{initialize\_logger()}{initialize\_logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_aff3103acaeb3d59e449e9ddc630c9e92} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::initialize\+\_\+logger (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$}]{new\+\_\+logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a7e015c41e9c32c9f1e8e7f9adc578cee}\index{spdlog::details::registry@{spdlog::details::registry}!initialize\_logger@{initialize\_logger}}
+\index{initialize\_logger@{initialize\_logger}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{initialize\_logger()}{initialize\_logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a7e015c41e9c32c9f1e8e7f9adc578cee} 
+void spdlog\+::details\+::registry\+::initialize\+\_\+logger (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$}]{new\+\_\+logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_aa03a75101aed166275ba27d0b2235e5d}\index{spdlog::details::registry@{spdlog::details::registry}!instance@{instance}}
+\index{instance@{instance}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_aa03a75101aed166275ba27d0b2235e5d} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} \& spdlog\+::details\+::registry\+::instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a77b56e8250ec85401fd07c6c31edb914}\index{spdlog::details::registry@{spdlog::details::registry}!instance@{instance}}
+\index{instance@{instance}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a77b56e8250ec85401fd07c6c31edb914} 
+\mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} \& spdlog\+::details\+::registry\+::instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_aa310dd416185100392d00af8fb67cafb}\index{spdlog::details::registry@{spdlog::details::registry}!operator=@{operator=}}
+\index{operator=@{operator=}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_aa310dd416185100392d00af8fb67cafb} 
+\mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} \& spdlog\+::details\+::registry\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_aa310dd416185100392d00af8fb67cafb}\index{spdlog::details::registry@{spdlog::details::registry}!operator=@{operator=}}
+\index{operator=@{operator=}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_aa310dd416185100392d00af8fb67cafb} 
+\mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} \& spdlog\+::details\+::registry\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classspdlog_1_1details_1_1registry_ab5c1a2f7b8e2e9eec4e0fa75d9167f3b}{registry}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_aab1ac59e4ee50c173b3ff1c32ca05ab5}\index{spdlog::details::registry@{spdlog::details::registry}!register\_logger@{register\_logger}}
+\index{register\_logger@{register\_logger}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{register\_logger()}{register\_logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_aab1ac59e4ee50c173b3ff1c32ca05ab5} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::register\+\_\+logger (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$}]{new\+\_\+logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_ab77fb7513b2e3e6442a83f037543e391}\index{spdlog::details::registry@{spdlog::details::registry}!register\_logger@{register\_logger}}
+\index{register\_logger@{register\_logger}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{register\_logger()}{register\_logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ab77fb7513b2e3e6442a83f037543e391} 
+void spdlog\+::details\+::registry\+::register\+\_\+logger (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$}]{new\+\_\+logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a918306906400941aafc0e4c1257b0910}\index{spdlog::details::registry@{spdlog::details::registry}!register\_or\_replace@{register\_or\_replace}}
+\index{register\_or\_replace@{register\_or\_replace}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{register\_or\_replace()}{register\_or\_replace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a918306906400941aafc0e4c1257b0910} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::register\+\_\+or\+\_\+replace (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$}]{new\+\_\+logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a4a25c1309dbe6628ecac68ecc3344770}\index{spdlog::details::registry@{spdlog::details::registry}!register\_or\_replace@{register\_or\_replace}}
+\index{register\_or\_replace@{register\_or\_replace}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{register\_or\_replace()}{register\_or\_replace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a4a25c1309dbe6628ecac68ecc3344770} 
+void spdlog\+::details\+::registry\+::register\+\_\+or\+\_\+replace (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$}]{new\+\_\+logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a47c0702d31d07e2a9c503954d3d2aa62}\index{spdlog::details::registry@{spdlog::details::registry}!set\_automatic\_registration@{set\_automatic\_registration}}
+\index{set\_automatic\_registration@{set\_automatic\_registration}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_automatic\_registration()}{set\_automatic\_registration()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a47c0702d31d07e2a9c503954d3d2aa62} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::set\+\_\+automatic\+\_\+registration (\begin{DoxyParamCaption}\item[{bool}]{automatic\+\_\+registration}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_af0b75d4b20a40f044d6030e03342b858}\index{spdlog::details::registry@{spdlog::details::registry}!set\_automatic\_registration@{set\_automatic\_registration}}
+\index{set\_automatic\_registration@{set\_automatic\_registration}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_automatic\_registration()}{set\_automatic\_registration()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_af0b75d4b20a40f044d6030e03342b858} 
+void spdlog\+::details\+::registry\+::set\+\_\+automatic\+\_\+registration (\begin{DoxyParamCaption}\item[{bool}]{automatic\+\_\+registration}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a6aa709e8d71603cbe699e49f26223add}\index{spdlog::details::registry@{spdlog::details::registry}!set\_default\_logger@{set\_default\_logger}}
+\index{set\_default\_logger@{set\_default\_logger}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_default\_logger()}{set\_default\_logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a6aa709e8d71603cbe699e49f26223add} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::set\+\_\+default\+\_\+logger (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$}]{new\+\_\+default\+\_\+logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_ae2a45628046a1d0cd3f8de81a5556acb}\index{spdlog::details::registry@{spdlog::details::registry}!set\_default\_logger@{set\_default\_logger}}
+\index{set\_default\_logger@{set\_default\_logger}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_default\_logger()}{set\_default\_logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ae2a45628046a1d0cd3f8de81a5556acb} 
+void spdlog\+::details\+::registry\+::set\+\_\+default\+\_\+logger (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$}]{new\+\_\+default\+\_\+logger}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a4531644dd1854f4abb54da0f43f9b669}\index{spdlog::details::registry@{spdlog::details::registry}!set\_error\_handler@{set\_error\_handler}}
+\index{set\_error\_handler@{set\_error\_handler}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_error\_handler()}{set\_error\_handler()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a4531644dd1854f4abb54da0f43f9b669} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::set\+\_\+error\+\_\+handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacespdlog_aa96024a429a0fe4bdca8aa348e536fc9}{err\+\_\+handler}}}]{handler}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a0ae827a5b0697e8bc1682463633c1947}\index{spdlog::details::registry@{spdlog::details::registry}!set\_error\_handler@{set\_error\_handler}}
+\index{set\_error\_handler@{set\_error\_handler}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_error\_handler()}{set\_error\_handler()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a0ae827a5b0697e8bc1682463633c1947} 
+void spdlog\+::details\+::registry\+::set\+\_\+error\+\_\+handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacespdlog_aa96024a429a0fe4bdca8aa348e536fc9}{err\+\_\+handler}}}]{handler}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a2830cfb77b386e1c9dd93162e91a266c}\index{spdlog::details::registry@{spdlog::details::registry}!set\_formatter@{set\_formatter}}
+\index{set\_formatter@{set\_formatter}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_formatter()}{set\_formatter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a2830cfb77b386e1c9dd93162e91a266c} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::set\+\_\+formatter (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structformatter}{formatter}} $>$}]{formatter}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a8f8dcb7f6b7987716cfbcb92bbe96517}\index{spdlog::details::registry@{spdlog::details::registry}!set\_formatter@{set\_formatter}}
+\index{set\_formatter@{set\_formatter}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_formatter()}{set\_formatter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a8f8dcb7f6b7987716cfbcb92bbe96517} 
+void spdlog\+::details\+::registry\+::set\+\_\+formatter (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structformatter}{formatter}} $>$}]{formatter}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_af734fefd6c4c8c45edc2b32713a1982b}\index{spdlog::details::registry@{spdlog::details::registry}!set\_level@{set\_level}}
+\index{set\_level@{set\_level}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_level()}{set\_level()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_af734fefd6c4c8c45edc2b32713a1982b} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::set\+\_\+level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}}}]{log\+\_\+level}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a4b8494e781ed3151586b307cca63edb7}\index{spdlog::details::registry@{spdlog::details::registry}!set\_level@{set\_level}}
+\index{set\_level@{set\_level}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_level()}{set\_level()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a4b8494e781ed3151586b307cca63edb7} 
+void spdlog\+::details\+::registry\+::set\+\_\+level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}}}]{log\+\_\+level}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a3a00be6ddd689fd8e38b4f67624a3b2f}\index{spdlog::details::registry@{spdlog::details::registry}!set\_levels@{set\_levels}}
+\index{set\_levels@{set\_levels}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_levels()}{set\_levels()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a3a00be6ddd689fd8e38b4f67624a3b2f} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::set\+\_\+levels (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspdlog_1_1details_1_1registry_a83f20981dbeda258dc4ca11cd354eb98}{log\+\_\+levels}}}]{levels}{, }\item[{\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} \texorpdfstring{$\ast$}{*}}]{global\+\_\+level}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_ac19b21fde102b5724e30574d4a2da9ad}\index{spdlog::details::registry@{spdlog::details::registry}!set\_levels@{set\_levels}}
+\index{set\_levels@{set\_levels}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_levels()}{set\_levels()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ac19b21fde102b5724e30574d4a2da9ad} 
+void spdlog\+::details\+::registry\+::set\+\_\+levels (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspdlog_1_1details_1_1registry_a83f20981dbeda258dc4ca11cd354eb98}{log\+\_\+levels}}}]{levels}{, }\item[{\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} \texorpdfstring{$\ast$}{*}}]{global\+\_\+level}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a4e5f3349b2d5d75cbd54994250fbb5a3}\index{spdlog::details::registry@{spdlog::details::registry}!set\_tp@{set\_tp}}
+\index{set\_tp@{set\_tp}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_tp()}{set\_tp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a4e5f3349b2d5d75cbd54994250fbb5a3} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::set\+\_\+tp (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\+\_\+pool}} $>$}]{tp}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_aa5503db04a70a06f97e7c1218aa8cbe2}\index{spdlog::details::registry@{spdlog::details::registry}!set\_tp@{set\_tp}}
+\index{set\_tp@{set\_tp}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{set\_tp()}{set\_tp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_aa5503db04a70a06f97e7c1218aa8cbe2} 
+void spdlog\+::details\+::registry\+::set\+\_\+tp (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\+\_\+pool}} $>$}]{tp}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_aa9844e5a01050826006c1db130f5f29f}\index{spdlog::details::registry@{spdlog::details::registry}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_aa9844e5a01050826006c1db130f5f29f} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void spdlog\+::details\+::registry\+::shutdown (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_ac93f888f316b0488414771ad6533b6a9}\index{spdlog::details::registry@{spdlog::details::registry}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ac93f888f316b0488414771ad6533b6a9} 
+void spdlog\+::details\+::registry\+::shutdown (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_a5367ffce169c5adaecee78cb573db9d7}\index{spdlog::details::registry@{spdlog::details::registry}!tp\_mutex@{tp\_mutex}}
+\index{tp\_mutex@{tp\_mutex}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{tp\_mutex()}{tp\_mutex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_a5367ffce169c5adaecee78cb573db9d7} 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} std\+::recursive\+\_\+mutex \& spdlog\+::details\+::registry\+::tp\+\_\+mutex (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1details_1_1registry_ab93b1eb13c7ce5119ba8b1e508a366ae}\index{spdlog::details::registry@{spdlog::details::registry}!tp\_mutex@{tp\_mutex}}
+\index{tp\_mutex@{tp\_mutex}!spdlog::details::registry@{spdlog::details::registry}}
+\doxysubsubsection{\texorpdfstring{tp\_mutex()}{tp\_mutex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1details_1_1registry_ab93b1eb13c7ce5119ba8b1e508a366ae} 
+std\+::recursive\+\_\+mutex \& spdlog\+::details\+::registry\+::tp\+\_\+mutex (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/details/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2details_2registry_8h}{registry.\+h}}\item 
+src/vendor/spdlog/include/spdlog/details/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2details_2registry_8h}{registry.\+h}}\item 
+src/calgine/vendor/include/spdlog/details/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2details_2registry-inl_8h}{registry-\/inl.\+h}}\item 
+src/vendor/spdlog/include/spdlog/details/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2details_2registry-inl_8h}{registry-\/inl.\+h}}\end{DoxyCompactItemize}

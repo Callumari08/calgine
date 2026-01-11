@@ -1,0 +1,709 @@
+\doxysection{detail\+::tm\+\_\+writer\texorpdfstring{$<$}{<} Output\+It, Char, Duration \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classdetail_1_1tm__writer}{}\label{classdetail_1_1tm__writer}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+
+
+{\ttfamily \#include $<$chrono.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdetail_1_1tm__writer_a468e515151e04c723067c698b9009c61}{tm\+\_\+writer}} (const std\+::locale \&loc, Output\+It \mbox{\hyperlink{classdetail_1_1tm__writer_a6a3019a8970bcf9f993f87c1c3ba718f}{out}}, const std\+::tm \&tm, const Duration \texorpdfstring{$\ast$}{*}subsecs=nullptr)
+\item 
+auto \mbox{\hyperlink{classdetail_1_1tm__writer_a6a3019a8970bcf9f993f87c1c3ba718f}{out}} () const -\/$>$ Output\+It
+\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classdetail_1_1tm__writer_a61203fed071993c5b478689b6cb2c1df}{on\+\_\+text}} (const Char \texorpdfstring{$\ast$}{*}begin, const Char \texorpdfstring{$\ast$}{*}end)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a3220714c4f548444f3ea7dbcdcd906c5}{on\+\_\+abbr\+\_\+weekday}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a59eb3c2211d7aa292a371c6fdf835f1c}{on\+\_\+full\+\_\+weekday}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a422f16ffbd495ff610191c427bd18ebc}{on\+\_\+dec0\+\_\+weekday}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_ab7e21c09adf00d337e311afcaa51bde3}{on\+\_\+dec1\+\_\+weekday}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a20af039c85605e8764b9efd0417e2b12}{on\+\_\+abbr\+\_\+month}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_ad9dec04f13065358f9eb4a6019c84963}{on\+\_\+full\+\_\+month}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_af53d115957cdef5079ea641b12d8dce9}{on\+\_\+datetime}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_ad3f81bfcf9ee2f4be505b0b80e17f38c}{on\+\_\+loc\+\_\+date}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a67832bfe5da8fdfae46367a14fb35d48}{on\+\_\+loc\+\_\+time}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a472013df4de61a40940d291bb092b051}{on\+\_\+us\+\_\+date}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a23f9e904d6c3f7c990065e218ec30ac1}{on\+\_\+iso\+\_\+date}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_aebe9fb2bda32ce77bbceaf9e7e68dfa4}{on\+\_\+utc\+\_\+offset}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a7d74d491edc724f738ee990923696f25}{on\+\_\+tz\+\_\+name}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_ac00a57863b399a1d7f02bed57867e4d7}{on\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a8d4ef193ee061f07df1be84ae8facf97}{on\+\_\+short\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a045a4743f21ead52b44af8b783664a0e}{on\+\_\+offset\+\_\+year}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a9f26f90a1a3d4cc5ecccd639a0bf4faf}{on\+\_\+century}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a2be5b7ffe3afee0401124f3b27172b24}{on\+\_\+dec\+\_\+month}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a13b7b4b07ac04aefb6e96bdb1af8f513}{on\+\_\+dec0\+\_\+week\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_ab1e88baccb22446f04ffdcdf74267615}{on\+\_\+dec1\+\_\+week\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_afbb39bf7dba827d53464b089fbb4f6b5}{on\+\_\+iso\+\_\+week\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a286b8e12c2a447aa2a43fbc0253b834c}{on\+\_\+iso\+\_\+week\+\_\+based\+\_\+year}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a9343bd2d81bbbf6e86c1a33af1b067c1}{on\+\_\+iso\+\_\+week\+\_\+based\+\_\+short\+\_\+year}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a7f007c05f59ed7503b7432b77d7f0200}{on\+\_\+day\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a766dd2eed8f3d3c527391b6159592fe1}{on\+\_\+day\+\_\+of\+\_\+month}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_af168628f5995310e5588fe79d0374469}{on\+\_\+24\+\_\+hour}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a5a27ddb95af259a5da8c6403c594a50c}{on\+\_\+12\+\_\+hour}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_ab30118f298af7d816302860044a6bb88}{on\+\_\+minute}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a57084e1a4311b7439ef4217fa3018285}{on\+\_\+second}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a0bde45708906c93315b487f53fcf4057}{on\+\_\+12\+\_\+hour\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a563b39fdbd28a76257c855bfdca1d70a}{on\+\_\+24\+\_\+hour\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a4a0487e028e1502e59e0f29f896ff740}{on\+\_\+iso\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a3a496baade233fae1a2024df67a60a73}{on\+\_\+am\+\_\+pm}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_aed369750f8c0775a85949ed8ac3b04dc}{on\+\_\+duration\+\_\+value}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a4ad70bbb9faff20667d77cc56b274c9b}{on\+\_\+duration\+\_\+unit}} ()
+\item 
+\mbox{\hyperlink{classdetail_1_1tm__writer_a468e515151e04c723067c698b9009c61}{tm\+\_\+writer}} (const std\+::locale \&loc, Output\+It \mbox{\hyperlink{classdetail_1_1tm__writer_a6a3019a8970bcf9f993f87c1c3ba718f}{out}}, const std\+::tm \&tm, const Duration \texorpdfstring{$\ast$}{*}subsecs=nullptr)
+\item 
+auto \mbox{\hyperlink{classdetail_1_1tm__writer_a6a3019a8970bcf9f993f87c1c3ba718f}{out}} () const -\/$>$ Output\+It
+\item 
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classdetail_1_1tm__writer_a61203fed071993c5b478689b6cb2c1df}{on\+\_\+text}} (const Char \texorpdfstring{$\ast$}{*}begin, const Char \texorpdfstring{$\ast$}{*}end)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a3220714c4f548444f3ea7dbcdcd906c5}{on\+\_\+abbr\+\_\+weekday}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a59eb3c2211d7aa292a371c6fdf835f1c}{on\+\_\+full\+\_\+weekday}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a422f16ffbd495ff610191c427bd18ebc}{on\+\_\+dec0\+\_\+weekday}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_ab7e21c09adf00d337e311afcaa51bde3}{on\+\_\+dec1\+\_\+weekday}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a20af039c85605e8764b9efd0417e2b12}{on\+\_\+abbr\+\_\+month}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_ad9dec04f13065358f9eb4a6019c84963}{on\+\_\+full\+\_\+month}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_af53d115957cdef5079ea641b12d8dce9}{on\+\_\+datetime}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_ad3f81bfcf9ee2f4be505b0b80e17f38c}{on\+\_\+loc\+\_\+date}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a67832bfe5da8fdfae46367a14fb35d48}{on\+\_\+loc\+\_\+time}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a472013df4de61a40940d291bb092b051}{on\+\_\+us\+\_\+date}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a23f9e904d6c3f7c990065e218ec30ac1}{on\+\_\+iso\+\_\+date}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_aebe9fb2bda32ce77bbceaf9e7e68dfa4}{on\+\_\+utc\+\_\+offset}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a7d74d491edc724f738ee990923696f25}{on\+\_\+tz\+\_\+name}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_ac00a57863b399a1d7f02bed57867e4d7}{on\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a8d4ef193ee061f07df1be84ae8facf97}{on\+\_\+short\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a045a4743f21ead52b44af8b783664a0e}{on\+\_\+offset\+\_\+year}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a9f26f90a1a3d4cc5ecccd639a0bf4faf}{on\+\_\+century}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a2be5b7ffe3afee0401124f3b27172b24}{on\+\_\+dec\+\_\+month}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a13b7b4b07ac04aefb6e96bdb1af8f513}{on\+\_\+dec0\+\_\+week\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_ab1e88baccb22446f04ffdcdf74267615}{on\+\_\+dec1\+\_\+week\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_afbb39bf7dba827d53464b089fbb4f6b5}{on\+\_\+iso\+\_\+week\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a286b8e12c2a447aa2a43fbc0253b834c}{on\+\_\+iso\+\_\+week\+\_\+based\+\_\+year}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a9343bd2d81bbbf6e86c1a33af1b067c1}{on\+\_\+iso\+\_\+week\+\_\+based\+\_\+short\+\_\+year}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a7f007c05f59ed7503b7432b77d7f0200}{on\+\_\+day\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a766dd2eed8f3d3c527391b6159592fe1}{on\+\_\+day\+\_\+of\+\_\+month}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_af168628f5995310e5588fe79d0374469}{on\+\_\+24\+\_\+hour}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a5a27ddb95af259a5da8c6403c594a50c}{on\+\_\+12\+\_\+hour}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_ab30118f298af7d816302860044a6bb88}{on\+\_\+minute}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a57084e1a4311b7439ef4217fa3018285}{on\+\_\+second}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a0bde45708906c93315b487f53fcf4057}{on\+\_\+12\+\_\+hour\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a563b39fdbd28a76257c855bfdca1d70a}{on\+\_\+24\+\_\+hour\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a4a0487e028e1502e59e0f29f896ff740}{on\+\_\+iso\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a3a496baade233fae1a2024df67a60a73}{on\+\_\+am\+\_\+pm}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_aed369750f8c0775a85949ed8ac3b04dc}{on\+\_\+duration\+\_\+value}} ()
+\item 
+void \mbox{\hyperlink{classdetail_1_1tm__writer_a4ad70bbb9faff20667d77cc56b274c9b}{on\+\_\+duration\+\_\+unit}} ()
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classdetail_1_1tm__writer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdetail_1_1tm__writer_a468e515151e04c723067c698b9009c61}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!tm\_writer@{tm\_writer}}
+\index{tm\_writer@{tm\_writer}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{tm\_writer()}{tm\_writer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a468e515151e04c723067c698b9009c61} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+\mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::tm\+\_\+writer (\begin{DoxyParamCaption}\item[{const std\+::locale \&}]{loc}{, }\item[{Output\+It}]{out}{, }\item[{const std\+::tm \&}]{tm}{, }\item[{const Duration \texorpdfstring{$\ast$}{*}}]{subsecs}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a468e515151e04c723067c698b9009c61}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!tm\_writer@{tm\_writer}}
+\index{tm\_writer@{tm\_writer}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{tm\_writer()}{tm\_writer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a468e515151e04c723067c698b9009c61} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+\mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::tm\+\_\+writer (\begin{DoxyParamCaption}\item[{const std\+::locale \&}]{loc}{, }\item[{Output\+It}]{out}{, }\item[{const std\+::tm \&}]{tm}{, }\item[{const Duration \texorpdfstring{$\ast$}{*}}]{subsecs}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classdetail_1_1tm__writer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdetail_1_1tm__writer_a5a27ddb95af259a5da8c6403c594a50c}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_12\_hour@{on\_12\_hour}}
+\index{on\_12\_hour@{on\_12\_hour}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_12\_hour()}{on\_12\_hour()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a5a27ddb95af259a5da8c6403c594a50c} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+12\+\_\+hour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a5a27ddb95af259a5da8c6403c594a50c}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_12\_hour@{on\_12\_hour}}
+\index{on\_12\_hour@{on\_12\_hour}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_12\_hour()}{on\_12\_hour()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a5a27ddb95af259a5da8c6403c594a50c} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+12\+\_\+hour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a0bde45708906c93315b487f53fcf4057}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_12\_hour\_time@{on\_12\_hour\_time}}
+\index{on\_12\_hour\_time@{on\_12\_hour\_time}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_12\_hour\_time()}{on\_12\_hour\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a0bde45708906c93315b487f53fcf4057} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+12\+\_\+hour\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a0bde45708906c93315b487f53fcf4057}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_12\_hour\_time@{on\_12\_hour\_time}}
+\index{on\_12\_hour\_time@{on\_12\_hour\_time}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_12\_hour\_time()}{on\_12\_hour\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a0bde45708906c93315b487f53fcf4057} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+12\+\_\+hour\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_af168628f5995310e5588fe79d0374469}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_24\_hour@{on\_24\_hour}}
+\index{on\_24\_hour@{on\_24\_hour}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_24\_hour()}{on\_24\_hour()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_af168628f5995310e5588fe79d0374469} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+24\+\_\+hour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_af168628f5995310e5588fe79d0374469}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_24\_hour@{on\_24\_hour}}
+\index{on\_24\_hour@{on\_24\_hour}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_24\_hour()}{on\_24\_hour()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_af168628f5995310e5588fe79d0374469} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+24\+\_\+hour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a563b39fdbd28a76257c855bfdca1d70a}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_24\_hour\_time@{on\_24\_hour\_time}}
+\index{on\_24\_hour\_time@{on\_24\_hour\_time}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_24\_hour\_time()}{on\_24\_hour\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a563b39fdbd28a76257c855bfdca1d70a} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+24\+\_\+hour\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a563b39fdbd28a76257c855bfdca1d70a}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_24\_hour\_time@{on\_24\_hour\_time}}
+\index{on\_24\_hour\_time@{on\_24\_hour\_time}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_24\_hour\_time()}{on\_24\_hour\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a563b39fdbd28a76257c855bfdca1d70a} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+24\+\_\+hour\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a20af039c85605e8764b9efd0417e2b12}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_abbr\_month@{on\_abbr\_month}}
+\index{on\_abbr\_month@{on\_abbr\_month}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_abbr\_month()}{on\_abbr\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a20af039c85605e8764b9efd0417e2b12} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+abbr\+\_\+month (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a20af039c85605e8764b9efd0417e2b12}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_abbr\_month@{on\_abbr\_month}}
+\index{on\_abbr\_month@{on\_abbr\_month}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_abbr\_month()}{on\_abbr\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a20af039c85605e8764b9efd0417e2b12} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+abbr\+\_\+month (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a3220714c4f548444f3ea7dbcdcd906c5}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_abbr\_weekday@{on\_abbr\_weekday}}
+\index{on\_abbr\_weekday@{on\_abbr\_weekday}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_abbr\_weekday()}{on\_abbr\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a3220714c4f548444f3ea7dbcdcd906c5} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+abbr\+\_\+weekday (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a3220714c4f548444f3ea7dbcdcd906c5}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_abbr\_weekday@{on\_abbr\_weekday}}
+\index{on\_abbr\_weekday@{on\_abbr\_weekday}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_abbr\_weekday()}{on\_abbr\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a3220714c4f548444f3ea7dbcdcd906c5} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+abbr\+\_\+weekday (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a3a496baade233fae1a2024df67a60a73}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_am\_pm@{on\_am\_pm}}
+\index{on\_am\_pm@{on\_am\_pm}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_am\_pm()}{on\_am\_pm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a3a496baade233fae1a2024df67a60a73} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+am\+\_\+pm (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a3a496baade233fae1a2024df67a60a73}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_am\_pm@{on\_am\_pm}}
+\index{on\_am\_pm@{on\_am\_pm}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_am\_pm()}{on\_am\_pm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a3a496baade233fae1a2024df67a60a73} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+am\+\_\+pm (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a9f26f90a1a3d4cc5ecccd639a0bf4faf}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_century@{on\_century}}
+\index{on\_century@{on\_century}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_century()}{on\_century()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a9f26f90a1a3d4cc5ecccd639a0bf4faf} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+century (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a9f26f90a1a3d4cc5ecccd639a0bf4faf}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_century@{on\_century}}
+\index{on\_century@{on\_century}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_century()}{on\_century()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a9f26f90a1a3d4cc5ecccd639a0bf4faf} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+century (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_af53d115957cdef5079ea641b12d8dce9}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_datetime@{on\_datetime}}
+\index{on\_datetime@{on\_datetime}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_datetime()}{on\_datetime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_af53d115957cdef5079ea641b12d8dce9} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+datetime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_af53d115957cdef5079ea641b12d8dce9}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_datetime@{on\_datetime}}
+\index{on\_datetime@{on\_datetime}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_datetime()}{on\_datetime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_af53d115957cdef5079ea641b12d8dce9} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+datetime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a766dd2eed8f3d3c527391b6159592fe1}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_day\_of\_month@{on\_day\_of\_month}}
+\index{on\_day\_of\_month@{on\_day\_of\_month}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_day\_of\_month()}{on\_day\_of\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a766dd2eed8f3d3c527391b6159592fe1} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+day\+\_\+of\+\_\+month (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a766dd2eed8f3d3c527391b6159592fe1}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_day\_of\_month@{on\_day\_of\_month}}
+\index{on\_day\_of\_month@{on\_day\_of\_month}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_day\_of\_month()}{on\_day\_of\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a766dd2eed8f3d3c527391b6159592fe1} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+day\+\_\+of\+\_\+month (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a7f007c05f59ed7503b7432b77d7f0200}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_day\_of\_year@{on\_day\_of\_year}}
+\index{on\_day\_of\_year@{on\_day\_of\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_day\_of\_year()}{on\_day\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a7f007c05f59ed7503b7432b77d7f0200} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+day\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a7f007c05f59ed7503b7432b77d7f0200}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_day\_of\_year@{on\_day\_of\_year}}
+\index{on\_day\_of\_year@{on\_day\_of\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_day\_of\_year()}{on\_day\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a7f007c05f59ed7503b7432b77d7f0200} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+day\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a13b7b4b07ac04aefb6e96bdb1af8f513}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_dec0\_week\_of\_year@{on\_dec0\_week\_of\_year}}
+\index{on\_dec0\_week\_of\_year@{on\_dec0\_week\_of\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec0\_week\_of\_year()}{on\_dec0\_week\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a13b7b4b07ac04aefb6e96bdb1af8f513} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+dec0\+\_\+week\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a13b7b4b07ac04aefb6e96bdb1af8f513}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_dec0\_week\_of\_year@{on\_dec0\_week\_of\_year}}
+\index{on\_dec0\_week\_of\_year@{on\_dec0\_week\_of\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec0\_week\_of\_year()}{on\_dec0\_week\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a13b7b4b07ac04aefb6e96bdb1af8f513} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+dec0\+\_\+week\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a422f16ffbd495ff610191c427bd18ebc}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_dec0\_weekday@{on\_dec0\_weekday}}
+\index{on\_dec0\_weekday@{on\_dec0\_weekday}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec0\_weekday()}{on\_dec0\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a422f16ffbd495ff610191c427bd18ebc} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+dec0\+\_\+weekday (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a422f16ffbd495ff610191c427bd18ebc}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_dec0\_weekday@{on\_dec0\_weekday}}
+\index{on\_dec0\_weekday@{on\_dec0\_weekday}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec0\_weekday()}{on\_dec0\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a422f16ffbd495ff610191c427bd18ebc} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+dec0\+\_\+weekday (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_ab1e88baccb22446f04ffdcdf74267615}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_dec1\_week\_of\_year@{on\_dec1\_week\_of\_year}}
+\index{on\_dec1\_week\_of\_year@{on\_dec1\_week\_of\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec1\_week\_of\_year()}{on\_dec1\_week\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_ab1e88baccb22446f04ffdcdf74267615} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+dec1\+\_\+week\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_ab1e88baccb22446f04ffdcdf74267615}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_dec1\_week\_of\_year@{on\_dec1\_week\_of\_year}}
+\index{on\_dec1\_week\_of\_year@{on\_dec1\_week\_of\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec1\_week\_of\_year()}{on\_dec1\_week\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_ab1e88baccb22446f04ffdcdf74267615} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+dec1\+\_\+week\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_ab7e21c09adf00d337e311afcaa51bde3}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_dec1\_weekday@{on\_dec1\_weekday}}
+\index{on\_dec1\_weekday@{on\_dec1\_weekday}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec1\_weekday()}{on\_dec1\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_ab7e21c09adf00d337e311afcaa51bde3} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+dec1\+\_\+weekday (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_ab7e21c09adf00d337e311afcaa51bde3}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_dec1\_weekday@{on\_dec1\_weekday}}
+\index{on\_dec1\_weekday@{on\_dec1\_weekday}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec1\_weekday()}{on\_dec1\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_ab7e21c09adf00d337e311afcaa51bde3} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+dec1\+\_\+weekday (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a2be5b7ffe3afee0401124f3b27172b24}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_dec\_month@{on\_dec\_month}}
+\index{on\_dec\_month@{on\_dec\_month}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec\_month()}{on\_dec\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a2be5b7ffe3afee0401124f3b27172b24} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+dec\+\_\+month (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a2be5b7ffe3afee0401124f3b27172b24}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_dec\_month@{on\_dec\_month}}
+\index{on\_dec\_month@{on\_dec\_month}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec\_month()}{on\_dec\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a2be5b7ffe3afee0401124f3b27172b24} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+dec\+\_\+month (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a4ad70bbb9faff20667d77cc56b274c9b}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_duration\_unit@{on\_duration\_unit}}
+\index{on\_duration\_unit@{on\_duration\_unit}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_duration\_unit()}{on\_duration\_unit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a4ad70bbb9faff20667d77cc56b274c9b} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+duration\+\_\+unit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a4ad70bbb9faff20667d77cc56b274c9b}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_duration\_unit@{on\_duration\_unit}}
+\index{on\_duration\_unit@{on\_duration\_unit}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_duration\_unit()}{on\_duration\_unit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a4ad70bbb9faff20667d77cc56b274c9b} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+duration\+\_\+unit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_aed369750f8c0775a85949ed8ac3b04dc}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_duration\_value@{on\_duration\_value}}
+\index{on\_duration\_value@{on\_duration\_value}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_duration\_value()}{on\_duration\_value()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_aed369750f8c0775a85949ed8ac3b04dc} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+duration\+\_\+value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_aed369750f8c0775a85949ed8ac3b04dc}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_duration\_value@{on\_duration\_value}}
+\index{on\_duration\_value@{on\_duration\_value}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_duration\_value()}{on\_duration\_value()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_aed369750f8c0775a85949ed8ac3b04dc} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+duration\+\_\+value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_ad9dec04f13065358f9eb4a6019c84963}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_full\_month@{on\_full\_month}}
+\index{on\_full\_month@{on\_full\_month}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_full\_month()}{on\_full\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_ad9dec04f13065358f9eb4a6019c84963} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+full\+\_\+month (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_ad9dec04f13065358f9eb4a6019c84963}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_full\_month@{on\_full\_month}}
+\index{on\_full\_month@{on\_full\_month}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_full\_month()}{on\_full\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_ad9dec04f13065358f9eb4a6019c84963} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+full\+\_\+month (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a59eb3c2211d7aa292a371c6fdf835f1c}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_full\_weekday@{on\_full\_weekday}}
+\index{on\_full\_weekday@{on\_full\_weekday}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_full\_weekday()}{on\_full\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a59eb3c2211d7aa292a371c6fdf835f1c} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+full\+\_\+weekday (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a59eb3c2211d7aa292a371c6fdf835f1c}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_full\_weekday@{on\_full\_weekday}}
+\index{on\_full\_weekday@{on\_full\_weekday}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_full\_weekday()}{on\_full\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a59eb3c2211d7aa292a371c6fdf835f1c} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+full\+\_\+weekday (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a23f9e904d6c3f7c990065e218ec30ac1}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_iso\_date@{on\_iso\_date}}
+\index{on\_iso\_date@{on\_iso\_date}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_date()}{on\_iso\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a23f9e904d6c3f7c990065e218ec30ac1} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+iso\+\_\+date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a23f9e904d6c3f7c990065e218ec30ac1}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_iso\_date@{on\_iso\_date}}
+\index{on\_iso\_date@{on\_iso\_date}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_date()}{on\_iso\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a23f9e904d6c3f7c990065e218ec30ac1} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+iso\+\_\+date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a4a0487e028e1502e59e0f29f896ff740}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_iso\_time@{on\_iso\_time}}
+\index{on\_iso\_time@{on\_iso\_time}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_time()}{on\_iso\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a4a0487e028e1502e59e0f29f896ff740} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+iso\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a4a0487e028e1502e59e0f29f896ff740}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_iso\_time@{on\_iso\_time}}
+\index{on\_iso\_time@{on\_iso\_time}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_time()}{on\_iso\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a4a0487e028e1502e59e0f29f896ff740} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+iso\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a9343bd2d81bbbf6e86c1a33af1b067c1}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_iso\_week\_based\_short\_year@{on\_iso\_week\_based\_short\_year}}
+\index{on\_iso\_week\_based\_short\_year@{on\_iso\_week\_based\_short\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_week\_based\_short\_year()}{on\_iso\_week\_based\_short\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a9343bd2d81bbbf6e86c1a33af1b067c1} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+iso\+\_\+week\+\_\+based\+\_\+short\+\_\+year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a9343bd2d81bbbf6e86c1a33af1b067c1}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_iso\_week\_based\_short\_year@{on\_iso\_week\_based\_short\_year}}
+\index{on\_iso\_week\_based\_short\_year@{on\_iso\_week\_based\_short\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_week\_based\_short\_year()}{on\_iso\_week\_based\_short\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a9343bd2d81bbbf6e86c1a33af1b067c1} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+iso\+\_\+week\+\_\+based\+\_\+short\+\_\+year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a286b8e12c2a447aa2a43fbc0253b834c}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_iso\_week\_based\_year@{on\_iso\_week\_based\_year}}
+\index{on\_iso\_week\_based\_year@{on\_iso\_week\_based\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_week\_based\_year()}{on\_iso\_week\_based\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a286b8e12c2a447aa2a43fbc0253b834c} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+iso\+\_\+week\+\_\+based\+\_\+year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a286b8e12c2a447aa2a43fbc0253b834c}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_iso\_week\_based\_year@{on\_iso\_week\_based\_year}}
+\index{on\_iso\_week\_based\_year@{on\_iso\_week\_based\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_week\_based\_year()}{on\_iso\_week\_based\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a286b8e12c2a447aa2a43fbc0253b834c} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+iso\+\_\+week\+\_\+based\+\_\+year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_afbb39bf7dba827d53464b089fbb4f6b5}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_iso\_week\_of\_year@{on\_iso\_week\_of\_year}}
+\index{on\_iso\_week\_of\_year@{on\_iso\_week\_of\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_week\_of\_year()}{on\_iso\_week\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_afbb39bf7dba827d53464b089fbb4f6b5} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+iso\+\_\+week\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_afbb39bf7dba827d53464b089fbb4f6b5}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_iso\_week\_of\_year@{on\_iso\_week\_of\_year}}
+\index{on\_iso\_week\_of\_year@{on\_iso\_week\_of\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_week\_of\_year()}{on\_iso\_week\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_afbb39bf7dba827d53464b089fbb4f6b5} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+iso\+\_\+week\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_ad3f81bfcf9ee2f4be505b0b80e17f38c}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_loc\_date@{on\_loc\_date}}
+\index{on\_loc\_date@{on\_loc\_date}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_loc\_date()}{on\_loc\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_ad3f81bfcf9ee2f4be505b0b80e17f38c} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+loc\+\_\+date (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_ad3f81bfcf9ee2f4be505b0b80e17f38c}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_loc\_date@{on\_loc\_date}}
+\index{on\_loc\_date@{on\_loc\_date}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_loc\_date()}{on\_loc\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_ad3f81bfcf9ee2f4be505b0b80e17f38c} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+loc\+\_\+date (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a67832bfe5da8fdfae46367a14fb35d48}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_loc\_time@{on\_loc\_time}}
+\index{on\_loc\_time@{on\_loc\_time}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_loc\_time()}{on\_loc\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a67832bfe5da8fdfae46367a14fb35d48} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+loc\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a67832bfe5da8fdfae46367a14fb35d48}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_loc\_time@{on\_loc\_time}}
+\index{on\_loc\_time@{on\_loc\_time}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_loc\_time()}{on\_loc\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a67832bfe5da8fdfae46367a14fb35d48} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+loc\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_ab30118f298af7d816302860044a6bb88}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_minute@{on\_minute}}
+\index{on\_minute@{on\_minute}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_minute()}{on\_minute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_ab30118f298af7d816302860044a6bb88} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+minute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_ab30118f298af7d816302860044a6bb88}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_minute@{on\_minute}}
+\index{on\_minute@{on\_minute}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_minute()}{on\_minute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_ab30118f298af7d816302860044a6bb88} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+minute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a045a4743f21ead52b44af8b783664a0e}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_offset\_year@{on\_offset\_year}}
+\index{on\_offset\_year@{on\_offset\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_offset\_year()}{on\_offset\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a045a4743f21ead52b44af8b783664a0e} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+offset\+\_\+year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a045a4743f21ead52b44af8b783664a0e}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_offset\_year@{on\_offset\_year}}
+\index{on\_offset\_year@{on\_offset\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_offset\_year()}{on\_offset\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a045a4743f21ead52b44af8b783664a0e} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+offset\+\_\+year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a57084e1a4311b7439ef4217fa3018285}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_second@{on\_second}}
+\index{on\_second@{on\_second}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_second()}{on\_second()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a57084e1a4311b7439ef4217fa3018285} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+second (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a57084e1a4311b7439ef4217fa3018285}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_second@{on\_second}}
+\index{on\_second@{on\_second}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_second()}{on\_second()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a57084e1a4311b7439ef4217fa3018285} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+second (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a8d4ef193ee061f07df1be84ae8facf97}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_short\_year@{on\_short\_year}}
+\index{on\_short\_year@{on\_short\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_short\_year()}{on\_short\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a8d4ef193ee061f07df1be84ae8facf97} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+short\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a8d4ef193ee061f07df1be84ae8facf97}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_short\_year@{on\_short\_year}}
+\index{on\_short\_year@{on\_short\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_short\_year()}{on\_short\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a8d4ef193ee061f07df1be84ae8facf97} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+short\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a61203fed071993c5b478689b6cb2c1df}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_text@{on\_text}}
+\index{on\_text@{on\_text}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_text()}{on\_text()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a61203fed071993c5b478689b6cb2c1df} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+text (\begin{DoxyParamCaption}\item[{const Char \texorpdfstring{$\ast$}{*}}]{begin}{, }\item[{const Char \texorpdfstring{$\ast$}{*}}]{end}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a61203fed071993c5b478689b6cb2c1df}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_text@{on\_text}}
+\index{on\_text@{on\_text}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_text()}{on\_text()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a61203fed071993c5b478689b6cb2c1df} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\+\_\+\+CONSTEXPR}} void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+text (\begin{DoxyParamCaption}\item[{const Char \texorpdfstring{$\ast$}{*}}]{begin}{, }\item[{const Char \texorpdfstring{$\ast$}{*}}]{end}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a7d74d491edc724f738ee990923696f25}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_tz\_name@{on\_tz\_name}}
+\index{on\_tz\_name@{on\_tz\_name}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_tz\_name()}{on\_tz\_name()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a7d74d491edc724f738ee990923696f25} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+tz\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a7d74d491edc724f738ee990923696f25}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_tz\_name@{on\_tz\_name}}
+\index{on\_tz\_name@{on\_tz\_name}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_tz\_name()}{on\_tz\_name()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a7d74d491edc724f738ee990923696f25} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+tz\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a472013df4de61a40940d291bb092b051}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_us\_date@{on\_us\_date}}
+\index{on\_us\_date@{on\_us\_date}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_us\_date()}{on\_us\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a472013df4de61a40940d291bb092b051} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+us\+\_\+date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a472013df4de61a40940d291bb092b051}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_us\_date@{on\_us\_date}}
+\index{on\_us\_date@{on\_us\_date}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_us\_date()}{on\_us\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a472013df4de61a40940d291bb092b051} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+us\+\_\+date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_aebe9fb2bda32ce77bbceaf9e7e68dfa4}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_utc\_offset@{on\_utc\_offset}}
+\index{on\_utc\_offset@{on\_utc\_offset}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_utc\_offset()}{on\_utc\_offset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_aebe9fb2bda32ce77bbceaf9e7e68dfa4} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+utc\+\_\+offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_aebe9fb2bda32ce77bbceaf9e7e68dfa4}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_utc\_offset@{on\_utc\_offset}}
+\index{on\_utc\_offset@{on\_utc\_offset}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_utc\_offset()}{on\_utc\_offset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_aebe9fb2bda32ce77bbceaf9e7e68dfa4} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+utc\+\_\+offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_ac00a57863b399a1d7f02bed57867e4d7}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_year@{on\_year}}
+\index{on\_year@{on\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_year()}{on\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_ac00a57863b399a1d7f02bed57867e4d7} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_ac00a57863b399a1d7f02bed57867e4d7}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!on\_year@{on\_year}}
+\index{on\_year@{on\_year}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{on\_year()}{on\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_ac00a57863b399a1d7f02bed57867e4d7} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+void \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::on\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a6a3019a8970bcf9f993f87c1c3ba718f}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!out@{out}}
+\index{out@{out}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{out()}{out()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a6a3019a8970bcf9f993f87c1c3ba718f} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+auto \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::out (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$Output\+It\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classdetail_1_1tm__writer_a6a3019a8970bcf9f993f87c1c3ba718f}\index{detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}!out@{out}}
+\index{out@{out}!detail::tm\_writer$<$ OutputIt, Char, Duration $>$@{detail::tm\_writer$<$ OutputIt, Char, Duration $>$}}
+\doxysubsubsection{\texorpdfstring{out()}{out()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classdetail_1_1tm__writer_a6a3019a8970bcf9f993f87c1c3ba718f} 
+template$<$typename Output\+It, typename Char, typename Duration = std\+::chrono\+::seconds$>$ \\
+auto \mbox{\hyperlink{classdetail_1_1tm__writer}{detail\+::tm\+\_\+writer}}$<$ Output\+It, Char, Duration $>$\+::out (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$Output\+It\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/fmt/bundled/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2chrono_8h}{chrono.\+h}}\item 
+src/vendor/spdlog/include/spdlog/fmt/bundled/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2chrono_8h}{chrono.\+h}}\end{DoxyCompactItemize}

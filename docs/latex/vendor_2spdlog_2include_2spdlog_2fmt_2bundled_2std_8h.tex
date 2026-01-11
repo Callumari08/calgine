@@ -1,0 +1,102 @@
+\doxysection{src/vendor/spdlog/include/spdlog/fmt/bundled/std.h File Reference}
+\hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h}{}\label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h}\index{src/vendor/spdlog/include/spdlog/fmt/bundled/std.h@{src/vendor/spdlog/include/spdlog/fmt/bundled/std.h}}
+{\ttfamily \#include "{}format.\+h"{}}\newline
+{\ttfamily \#include "{}ostream.\+h"{}}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include $<$bitset$>$}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$typeinfo$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__flip}{detail\+::has\+\_\+flip$<$ T, Enable $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__flip_3_01T_00_01void__t_3_01decltype_07std_1_1declval_3_01T_01_4_07_08_8flip_07_08_08_4_01_4}{detail\+::has\+\_\+flip$<$ T, void\+\_\+t$<$ decltype(std\+::declval$<$ T $>$().\+flip())$>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__bit__reference__like}{detail\+::is\+\_\+bit\+\_\+reference\+\_\+like$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__format__as}{detail\+::has\+\_\+format\+\_\+as$<$ T, Enable $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__format__as_3_01T_00_01void__t_3_01decltype_07format__as_07std_1_1declval_3_16cce26347ba526ba2091c54285ee2ff}{detail\+::has\+\_\+format\+\_\+as$<$ T, void\+\_\+t$<$ decltype(format\+\_\+as(std\+::declval$<$ const T \& $>$()))$>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__format__as__member}{detail\+::has\+\_\+format\+\_\+as\+\_\+member$<$ T, Enable $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__format__as__member_3_01T_00_01void__t_3_01decltype_07formatter_3_01T_01_4_18a052957f4be734d213ff8cfd8253348}{detail\+::has\+\_\+format\+\_\+as\+\_\+member$<$ T, void\+\_\+t$<$ decltype(formatter$<$ T $>$\+::format\+\_\+as(std\+::declval$<$ const T \& $>$()))$>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structformatter_3_01std_1_1bitset_3_01N_01_4_00_01Char_01_4}{formatter$<$ std\+::bitset$<$ N $>$, Char $>$}}
+\item 
+struct \mbox{\hyperlink{structformatter_3_01std_1_1thread_1_1id_00_01Char_01_4}{formatter$<$ std\+::thread\+::id, Char $>$}}
+\item 
+struct \mbox{\hyperlink{structformatter_3_01std_1_1error__code_01_4}{formatter$<$ std\+::error\+\_\+code $>$}}
+\item 
+struct \mbox{\hyperlink{structformatter_3_01T_00_01char_00_01typename_01std_1_1enable__if_3_01std_1_1is__base__of_3_01std369b0d8e9c4d722950acabeda16337b}{formatter$<$ T, char, typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+base\+\_\+of$<$ std\+::exception, T $>$\+::value $>$\+::type $>$}}
+\item 
+struct \mbox{\hyperlink{structformatter_3_01BitRef_00_01Char_00_01enable__if__t_3_01detail_1_1is__bit__reference__like_3f2c684d9034798559b11bdb7e62d2aeb}{formatter$<$ Bit\+Ref, Char, enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+bit\+\_\+reference\+\_\+like$<$ Bit\+Ref $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structformatter_3_01std_1_1atomic_3_01T_01_4_00_01Char_00_01enable__if__t_3_01is__formattable_3_257bcb557ea9fb22d1a05bf1854906f1}{formatter$<$ std\+::atomic$<$ T $>$, Char, enable\+\_\+if\+\_\+t$<$ is\+\_\+formattable$<$ T, Char $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structformatter_3_01std_1_1complex_3_01T_01_4_00_01Char_01_4}{formatter$<$ std\+::complex$<$ T $>$, Char $>$}}
+\item 
+struct \mbox{\hyperlink{structformatter_3_01std_1_1reference__wrapper_3_01T_01_4_00_01Char_00_01enable__if__t_3_01is__fo287f894b4e8ca54069801ce9ec4a86d8}{formatter$<$ std\+::reference\+\_\+wrapper$<$ T $>$, Char, enable\+\_\+if\+\_\+t$<$ is\+\_\+formattable$<$ remove\+\_\+cvref\+\_\+t$<$ T $>$, Char $>$\+::value \&\&!detail\+::has\+\_\+format\+\_\+as$<$ T $>$\+::value \&\&!detail\+::has\+\_\+format\+\_\+as\+\_\+member$<$ T $>$\+::value $>$ $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_a55932ef8dae15d56401797171a8c025e}{FMT\+\_\+\+CPP\+\_\+\+LIB\+\_\+\+FILESYSTEM}}~0
+\item 
+\#define \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_ac3ed9ad2eda215f94232b2de58d8f702}{FMT\+\_\+\+CPP\+\_\+\+LIB\+\_\+\+VARIANT}}~0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T, typename Deleter$>$ }\\auto \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_a96bf2f807e1f6be446a267e468b67fe2}{ptr}} (const std\+::unique\+\_\+ptr$<$ T, Deleter $>$ \&\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}) -\/$>$ const void \texorpdfstring{$\ast$}{*}
+\item 
+{\footnotesize template$<$typename T$>$ }\\auto \mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_aa6ec2d4315570f27d9637ce3c770e787}{ptr}} (const std\+::shared\+\_\+ptr$<$ T $>$ \&\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}) -\/$>$ const void \texorpdfstring{$\ast$}{*}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_a55932ef8dae15d56401797171a8c025e}\index{std.h@{std.h}!FMT\_CPP\_LIB\_FILESYSTEM@{FMT\_CPP\_LIB\_FILESYSTEM}}
+\index{FMT\_CPP\_LIB\_FILESYSTEM@{FMT\_CPP\_LIB\_FILESYSTEM}!std.h@{std.h}}
+\doxysubsubsection{\texorpdfstring{FMT\_CPP\_LIB\_FILESYSTEM}{FMT\_CPP\_LIB\_FILESYSTEM}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_a55932ef8dae15d56401797171a8c025e} 
+\#define FMT\+\_\+\+CPP\+\_\+\+LIB\+\_\+\+FILESYSTEM~0}
+
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_ac3ed9ad2eda215f94232b2de58d8f702}\index{std.h@{std.h}!FMT\_CPP\_LIB\_VARIANT@{FMT\_CPP\_LIB\_VARIANT}}
+\index{FMT\_CPP\_LIB\_VARIANT@{FMT\_CPP\_LIB\_VARIANT}!std.h@{std.h}}
+\doxysubsubsection{\texorpdfstring{FMT\_CPP\_LIB\_VARIANT}{FMT\_CPP\_LIB\_VARIANT}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_ac3ed9ad2eda215f94232b2de58d8f702} 
+\#define FMT\+\_\+\+CPP\+\_\+\+LIB\+\_\+\+VARIANT~0}
+
+
+
+\label{doc-func-members}
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_aa6ec2d4315570f27d9637ce3c770e787}\index{std.h@{std.h}!ptr@{ptr}}
+\index{ptr@{ptr}!std.h@{std.h}}
+\doxysubsubsection{\texorpdfstring{ptr()}{ptr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_aa6ec2d4315570f27d9637ce3c770e787} 
+template$<$typename T$>$ \\
+auto ptr (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ T $>$ \&}]{p}{}\end{DoxyParamCaption})-\/$>$constvoid \texorpdfstring{$\ast$}{*}}
+
+\Hypertarget{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_a96bf2f807e1f6be446a267e468b67fe2}\index{std.h@{std.h}!ptr@{ptr}}
+\index{ptr@{ptr}!std.h@{std.h}}
+\doxysubsubsection{\texorpdfstring{ptr()}{ptr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2std_8h_a96bf2f807e1f6be446a267e468b67fe2} 
+template$<$typename T, typename Deleter$>$ \\
+auto ptr (\begin{DoxyParamCaption}\item[{const std\+::unique\+\_\+ptr$<$ T, Deleter $>$ \&}]{p}{}\end{DoxyParamCaption})-\/$>$constvoid \texorpdfstring{$\ast$}{*}}
+

@@ -1,0 +1,179 @@
+\doxysection{detail\+::dragonbox\+::cache\+\_\+accessor\texorpdfstring{$<$}{<} float \texorpdfstring{$>$}{>} Struct Reference}
+\hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4}{}\label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+
+
+{\ttfamily \#include $<$format-\/inl.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_1_1compute__mul__result}{compute\+\_\+mul\+\_\+result}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_1_1compute__mul__parity__result}{compute\+\_\+mul\+\_\+parity\+\_\+result}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}} = \mbox{\hyperlink{structdetail_1_1dragonbox_1_1float__info}{float\+\_\+info}}$<$float$>$\+::carrier\+\_\+uint
+\item 
+using \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} = uint64\+\_\+t
+\item 
+using \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}} = \mbox{\hyperlink{structdetail_1_1dragonbox_1_1float__info}{float\+\_\+info}}$<$float$>$\+::carrier\+\_\+uint
+\item 
+using \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} = uint64\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_af8b76e6ee7c93cf1b808c72da4f9c369}{get\+\_\+cached\+\_\+power}} (int k) noexcept -\/$>$ uint64\+\_\+t
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a8a10a5af08a2e3fe4c79137ab5fd96dc}{compute\+\_\+mul}} (\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}} u, const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&cache) noexcept -\/$>$ \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_1_1compute__mul__result}{compute\+\_\+mul\+\_\+result}}
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a3a4484e434ed9356e88eb1d8e855e573}{compute\+\_\+delta}} (const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&cache, int beta) noexcept -\/$>$ uint32\+\_\+t
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a499c53d4531a4b1359d3fcc60dfccbcc}{compute\+\_\+mul\+\_\+parity}} (\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}} two\+\_\+f, const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&cache, int beta) noexcept -\/$>$ \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_1_1compute__mul__parity__result}{compute\+\_\+mul\+\_\+parity\+\_\+result}}
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a9fbaea04bc46639a161258c7d9233747}{compute\+\_\+left\+\_\+endpoint\+\_\+for\+\_\+shorter\+\_\+interval\+\_\+case}} (const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&cache, int beta) noexcept -\/$>$ \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_ae0590b9ca8382f24be1976526ad853d7}{compute\+\_\+right\+\_\+endpoint\+\_\+for\+\_\+shorter\+\_\+interval\+\_\+case}} (const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&cache, int beta) noexcept -\/$>$ \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a4b89d081c357b1e2a547c5d74eafc76e}{compute\+\_\+round\+\_\+up\+\_\+for\+\_\+shorter\+\_\+interval\+\_\+case}} (const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&cache, int beta) noexcept -\/$>$ \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_af8b76e6ee7c93cf1b808c72da4f9c369}{get\+\_\+cached\+\_\+power}} (int k) noexcept -\/$>$ uint64\+\_\+t
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a8a10a5af08a2e3fe4c79137ab5fd96dc}{compute\+\_\+mul}} (\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}} u, const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&cache) noexcept -\/$>$ \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_1_1compute__mul__result}{compute\+\_\+mul\+\_\+result}}
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a3a4484e434ed9356e88eb1d8e855e573}{compute\+\_\+delta}} (const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&cache, int beta) noexcept -\/$>$ uint32\+\_\+t
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a499c53d4531a4b1359d3fcc60dfccbcc}{compute\+\_\+mul\+\_\+parity}} (\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}} two\+\_\+f, const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&cache, int beta) noexcept -\/$>$ \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_1_1compute__mul__parity__result}{compute\+\_\+mul\+\_\+parity\+\_\+result}}
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a9fbaea04bc46639a161258c7d9233747}{compute\+\_\+left\+\_\+endpoint\+\_\+for\+\_\+shorter\+\_\+interval\+\_\+case}} (const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&cache, int beta) noexcept -\/$>$ \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_ae0590b9ca8382f24be1976526ad853d7}{compute\+\_\+right\+\_\+endpoint\+\_\+for\+\_\+shorter\+\_\+interval\+\_\+case}} (const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&cache, int beta) noexcept -\/$>$ \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}
+\item 
+static auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a4b89d081c357b1e2a547c5d74eafc76e}{compute\+\_\+round\+\_\+up\+\_\+for\+\_\+shorter\+\_\+interval\+\_\+case}} (const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&cache, int beta) noexcept -\/$>$ \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!cache\_entry\_type@{cache\_entry\_type}}
+\index{cache\_entry\_type@{cache\_entry\_type}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{cache\_entry\_type}{cache\_entry\_type}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28} 
+using \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::cache\+\_\+entry\+\_\+type = uint64\+\_\+t}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!cache\_entry\_type@{cache\_entry\_type}}
+\index{cache\_entry\_type@{cache\_entry\_type}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{cache\_entry\_type}{cache\_entry\_type}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28} 
+using \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::cache\+\_\+entry\+\_\+type = uint64\+\_\+t}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!carrier\_uint@{carrier\_uint}}
+\index{carrier\_uint@{carrier\_uint}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{carrier\_uint}{carrier\_uint}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162} 
+using \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::carrier\+\_\+uint = \mbox{\hyperlink{structdetail_1_1dragonbox_1_1float__info}{float\+\_\+info}}$<$float$>$\+::carrier\+\_\+uint}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!carrier\_uint@{carrier\_uint}}
+\index{carrier\_uint@{carrier\_uint}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{carrier\_uint}{carrier\_uint}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162} 
+using \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::carrier\+\_\+uint = \mbox{\hyperlink{structdetail_1_1dragonbox_1_1float__info}{float\+\_\+info}}$<$float$>$\+::carrier\+\_\+uint}
+
+
+
+\label{doc-func-members}
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a3a4484e434ed9356e88eb1d8e855e573}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!compute\_delta@{compute\_delta}}
+\index{compute\_delta@{compute\_delta}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{compute\_delta()}{compute\_delta()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a3a4484e434ed9356e88eb1d8e855e573} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::compute\+\_\+delta (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&}]{cache}{, }\item[{int}]{beta}{}\end{DoxyParamCaption})-\/$>$uint32\+\_\+t\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a3a4484e434ed9356e88eb1d8e855e573}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!compute\_delta@{compute\_delta}}
+\index{compute\_delta@{compute\_delta}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{compute\_delta()}{compute\_delta()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a3a4484e434ed9356e88eb1d8e855e573} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::compute\+\_\+delta (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&}]{cache}{, }\item[{int}]{beta}{}\end{DoxyParamCaption})-\/$>$uint32\+\_\+t\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a9fbaea04bc46639a161258c7d9233747}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!compute\_left\_endpoint\_for\_shorter\_interval\_case@{compute\_left\_endpoint\_for\_shorter\_interval\_case}}
+\index{compute\_left\_endpoint\_for\_shorter\_interval\_case@{compute\_left\_endpoint\_for\_shorter\_interval\_case}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{compute\_left\_endpoint\_for\_shorter\_interval\_case()}{compute\_left\_endpoint\_for\_shorter\_interval\_case()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a9fbaea04bc46639a161258c7d9233747} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::compute\+\_\+left\+\_\+endpoint\+\_\+for\+\_\+shorter\+\_\+interval\+\_\+case (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&}]{cache}{, }\item[{int}]{beta}{}\end{DoxyParamCaption})-\/$>$\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a9fbaea04bc46639a161258c7d9233747}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!compute\_left\_endpoint\_for\_shorter\_interval\_case@{compute\_left\_endpoint\_for\_shorter\_interval\_case}}
+\index{compute\_left\_endpoint\_for\_shorter\_interval\_case@{compute\_left\_endpoint\_for\_shorter\_interval\_case}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{compute\_left\_endpoint\_for\_shorter\_interval\_case()}{compute\_left\_endpoint\_for\_shorter\_interval\_case()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a9fbaea04bc46639a161258c7d9233747} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::compute\+\_\+left\+\_\+endpoint\+\_\+for\+\_\+shorter\+\_\+interval\+\_\+case (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&}]{cache}{, }\item[{int}]{beta}{}\end{DoxyParamCaption})-\/$>$\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a8a10a5af08a2e3fe4c79137ab5fd96dc}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!compute\_mul@{compute\_mul}}
+\index{compute\_mul@{compute\_mul}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{compute\_mul()}{compute\_mul()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a8a10a5af08a2e3fe4c79137ab5fd96dc} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::compute\+\_\+mul (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}}]{u}{, }\item[{const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&}]{cache}{}\end{DoxyParamCaption})-\/$>$\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_1_1compute__mul__result}{compute\+\_\+mul\+\_\+result}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a8a10a5af08a2e3fe4c79137ab5fd96dc}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!compute\_mul@{compute\_mul}}
+\index{compute\_mul@{compute\_mul}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{compute\_mul()}{compute\_mul()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a8a10a5af08a2e3fe4c79137ab5fd96dc} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::compute\+\_\+mul (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}}]{u}{, }\item[{const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&}]{cache}{}\end{DoxyParamCaption})-\/$>$\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_1_1compute__mul__result}{compute\+\_\+mul\+\_\+result}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a499c53d4531a4b1359d3fcc60dfccbcc}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!compute\_mul\_parity@{compute\_mul\_parity}}
+\index{compute\_mul\_parity@{compute\_mul\_parity}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{compute\_mul\_parity()}{compute\_mul\_parity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a499c53d4531a4b1359d3fcc60dfccbcc} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::compute\+\_\+mul\+\_\+parity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}}]{two\+\_\+f}{, }\item[{const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&}]{cache}{, }\item[{int}]{beta}{}\end{DoxyParamCaption})-\/$>$\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_1_1compute__mul__parity__result}{compute\+\_\+mul\+\_\+parity\+\_\+result}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a499c53d4531a4b1359d3fcc60dfccbcc}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!compute\_mul\_parity@{compute\_mul\_parity}}
+\index{compute\_mul\_parity@{compute\_mul\_parity}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{compute\_mul\_parity()}{compute\_mul\_parity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a499c53d4531a4b1359d3fcc60dfccbcc} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::compute\+\_\+mul\+\_\+parity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}}]{two\+\_\+f}{, }\item[{const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&}]{cache}{, }\item[{int}]{beta}{}\end{DoxyParamCaption})-\/$>$\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_1_1compute__mul__parity__result}{compute\+\_\+mul\+\_\+parity\+\_\+result}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_ae0590b9ca8382f24be1976526ad853d7}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!compute\_right\_endpoint\_for\_shorter\_interval\_case@{compute\_right\_endpoint\_for\_shorter\_interval\_case}}
+\index{compute\_right\_endpoint\_for\_shorter\_interval\_case@{compute\_right\_endpoint\_for\_shorter\_interval\_case}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{compute\_right\_endpoint\_for\_shorter\_interval\_case()}{compute\_right\_endpoint\_for\_shorter\_interval\_case()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_ae0590b9ca8382f24be1976526ad853d7} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::compute\+\_\+right\+\_\+endpoint\+\_\+for\+\_\+shorter\+\_\+interval\+\_\+case (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&}]{cache}{, }\item[{int}]{beta}{}\end{DoxyParamCaption})-\/$>$\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_ae0590b9ca8382f24be1976526ad853d7}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!compute\_right\_endpoint\_for\_shorter\_interval\_case@{compute\_right\_endpoint\_for\_shorter\_interval\_case}}
+\index{compute\_right\_endpoint\_for\_shorter\_interval\_case@{compute\_right\_endpoint\_for\_shorter\_interval\_case}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{compute\_right\_endpoint\_for\_shorter\_interval\_case()}{compute\_right\_endpoint\_for\_shorter\_interval\_case()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_ae0590b9ca8382f24be1976526ad853d7} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::compute\+\_\+right\+\_\+endpoint\+\_\+for\+\_\+shorter\+\_\+interval\+\_\+case (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&}]{cache}{, }\item[{int}]{beta}{}\end{DoxyParamCaption})-\/$>$\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a4b89d081c357b1e2a547c5d74eafc76e}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!compute\_round\_up\_for\_shorter\_interval\_case@{compute\_round\_up\_for\_shorter\_interval\_case}}
+\index{compute\_round\_up\_for\_shorter\_interval\_case@{compute\_round\_up\_for\_shorter\_interval\_case}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{compute\_round\_up\_for\_shorter\_interval\_case()}{compute\_round\_up\_for\_shorter\_interval\_case()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a4b89d081c357b1e2a547c5d74eafc76e} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::compute\+\_\+round\+\_\+up\+\_\+for\+\_\+shorter\+\_\+interval\+\_\+case (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&}]{cache}{, }\item[{int}]{beta}{}\end{DoxyParamCaption})-\/$>$\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a4b89d081c357b1e2a547c5d74eafc76e}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!compute\_round\_up\_for\_shorter\_interval\_case@{compute\_round\_up\_for\_shorter\_interval\_case}}
+\index{compute\_round\_up\_for\_shorter\_interval\_case@{compute\_round\_up\_for\_shorter\_interval\_case}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{compute\_round\_up\_for\_shorter\_interval\_case()}{compute\_round\_up\_for\_shorter\_interval\_case()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a4b89d081c357b1e2a547c5d74eafc76e} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::compute\+\_\+round\+\_\+up\+\_\+for\+\_\+shorter\+\_\+interval\+\_\+case (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a6c027f9cf0f5ebe0ae62dfd934e78a28}{cache\+\_\+entry\+\_\+type}} \&}]{cache}{, }\item[{int}]{beta}{}\end{DoxyParamCaption})-\/$>$\mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_a0095c2d0e47957177413040100a0d162}{carrier\+\_\+uint}}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_af8b76e6ee7c93cf1b808c72da4f9c369}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!get\_cached\_power@{get\_cached\_power}}
+\index{get\_cached\_power@{get\_cached\_power}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{get\_cached\_power()}{get\_cached\_power()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_af8b76e6ee7c93cf1b808c72da4f9c369} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::get\+\_\+cached\+\_\+power (\begin{DoxyParamCaption}\item[{int}]{k}{}\end{DoxyParamCaption})-\/$>$uint64\+\_\+t\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_af8b76e6ee7c93cf1b808c72da4f9c369}\index{detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}!get\_cached\_power@{get\_cached\_power}}
+\index{get\_cached\_power@{get\_cached\_power}!detail::dragonbox::cache\_accessor$<$ float $>$@{detail::dragonbox::cache\_accessor$<$ float $>$}}
+\doxysubsubsection{\texorpdfstring{get\_cached\_power()}{get\_cached\_power()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1dragonbox_1_1cache__accessor_3_01float_01_4_af8b76e6ee7c93cf1b808c72da4f9c369} 
+auto \mbox{\hyperlink{structdetail_1_1dragonbox_1_1cache__accessor}{detail\+::dragonbox\+::cache\+\_\+accessor}}$<$ float $>$\+::get\+\_\+cached\+\_\+power (\begin{DoxyParamCaption}\item[{int}]{k}{}\end{DoxyParamCaption})-\/$>$uint64\+\_\+t\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/fmt/bundled/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format-inl_8h}{format-\/inl.\+h}}\item 
+src/vendor/spdlog/include/spdlog/fmt/bundled/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2format-inl_8h}{format-\/inl.\+h}}\end{DoxyCompactItemize}

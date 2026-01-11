@@ -1,6 +1,9 @@
 #pragma once
 
 #include "calgine_pch.h"
+#include "calgine_api.h"
+
+namespace Calgine {
 
 /**
  * @brief This is the class from which all user applications derive from.
@@ -12,7 +15,7 @@
  * @warning This example is out of date. Please do not use it to understand how behaviours work.
  *
  * @code{.cpp}
- * class MyApp : public App
+ * class MyApp : public Calgine::App
  * {
  * private:
  *   std::string app_name = "My App";
@@ -24,7 +27,7 @@
  *   // stuff related to your app can go here
  * }
  *
- * class MyBehaviour : public Behaviour
+ * class MyBehaviour : public Calgine::Behaviour
  * {
  *  void start() override
  *  {
@@ -54,7 +57,7 @@
  * }
  * @endcode
  */
-class App // Abstract
+class CALGINE_API App // Abstract
 {
 public:
   virtual std::string get_app_name() = 0;
@@ -62,3 +65,5 @@ public:
   void systems_init();
   void main_loop();
 };
+
+} // namespace Calgine

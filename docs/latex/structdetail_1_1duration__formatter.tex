@@ -1,0 +1,1074 @@
+\doxysection{detail\+::duration\+\_\+formatter\texorpdfstring{$<$}{<} Char, Rep, Period \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structdetail_1_1duration__formatter}{}\label{structdetail_1_1duration__formatter}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+
+
+{\ttfamily \#include $<$chrono.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}{iterator}} = \mbox{\hyperlink{classbasic__appender}{basic\+\_\+appender}}$<$Char$>$
+\item 
+using \mbox{\hyperlink{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}{rep}}
+\item 
+using \mbox{\hyperlink{structdetail_1_1duration__formatter_af4d7a39512c22b6237e59165e4ba3cf0}{seconds}} = std\+::chrono\+::duration$<$\mbox{\hyperlink{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}{rep}}$>$
+\item 
+using \mbox{\hyperlink{structdetail_1_1duration__formatter_aa9712122ecbf5d3392d7ac02348786ef}{milliseconds}} = std\+::chrono\+::duration$<$\mbox{\hyperlink{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}{rep}}, std\+::milli$>$
+\item 
+using \mbox{\hyperlink{structdetail_1_1duration__formatter_a5057a585466e81baee323d8fde7950f7}{tm\+\_\+writer\+\_\+type}} = \mbox{\hyperlink{classdetail_1_1tm__writer}{tm\+\_\+writer}}$<$\mbox{\hyperlink{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}{iterator}}, Char$>$
+\item 
+using \mbox{\hyperlink{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}{iterator}} = \mbox{\hyperlink{classbasic__appender}{basic\+\_\+appender}}$<$Char$>$
+\item 
+using \mbox{\hyperlink{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}{rep}}
+\item 
+using \mbox{\hyperlink{structdetail_1_1duration__formatter_af4d7a39512c22b6237e59165e4ba3cf0}{seconds}} = std\+::chrono\+::duration$<$\mbox{\hyperlink{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}{rep}}$>$
+\item 
+using \mbox{\hyperlink{structdetail_1_1duration__formatter_aa9712122ecbf5d3392d7ac02348786ef}{milliseconds}} = std\+::chrono\+::duration$<$\mbox{\hyperlink{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}{rep}}, std\+::milli$>$
+\item 
+using \mbox{\hyperlink{structdetail_1_1duration__formatter_a5057a585466e81baee323d8fde7950f7}{tm\+\_\+writer\+\_\+type}} = \mbox{\hyperlink{classdetail_1_1tm__writer}{tm\+\_\+writer}}$<$\mbox{\hyperlink{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}{iterator}}, Char$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structdetail_1_1duration__formatter_a705affd3f8bf8aa0470116aa23f16d85}{duration\+\_\+formatter}} (\mbox{\hyperlink{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}{iterator}} o, std\+::chrono\+::duration$<$ Rep, Period $>$ d, \mbox{\hyperlink{classlocale__ref}{locale\+\_\+ref}} loc)
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_ad8e5cd79d50c37c7977ea4ce10713c65}{handle\+\_\+nan\+\_\+inf}} () -\/$>$ bool
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_ace6b072852bd3b176bc46ada9e9b5695}{days}} () const -\/$>$ Rep
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_aa5938aa9edf655999748a82e9fd3b5cd}{hour}} () const -\/$>$ Rep
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_ac397baf633b4ae19d0c45f502220a2b8}{hour12}} () const -\/$>$ Rep
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_a47cb61c80b0e66944475289798447acf}{minute}} () const -\/$>$ Rep
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_a7f8e1201347c69d3f20fe4ad616f0aa0}{second}} () const -\/$>$ Rep
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_a56603e2ddef5ce5f87010f1a9847c019}{time}} () const -\/$>$ std\+::tm
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ab4149b3b22fec57ef71cb791850681f9}{write\+\_\+sign}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a05833dd5c29a4b5991f31b3907f7c793}{write}} (Rep \mbox{\hyperlink{classdetail_1_1value}{value}}, int width, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad=\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70ad02c4c4cde7ae76252540d116a40f23a}{pad\+\_\+type\+::zero}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a0b52d0c33d00406ad4f227d8d9ac7245}{write\+\_\+nan}} ()
+\item 
+{\footnotesize template$<$typename Callback, typename... Args$>$ }\\void \mbox{\hyperlink{structdetail_1_1duration__formatter_a6dc31e10bdf9402a78ad29aa70a93340}{format\+\_\+tm}} (const tm \&\mbox{\hyperlink{structdetail_1_1duration__formatter_a56603e2ddef5ce5f87010f1a9847c019}{time}}, Callback cb, Args... args)
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_aaaab87d5764473e1f41a3a562a45c256}{on\+\_\+text}} (const Char \texorpdfstring{$\ast$}{*}begin, const Char \texorpdfstring{$\ast$}{*}end)
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_af4315c998003c40eb2d5fcab56869a76}{on\+\_\+abbr\+\_\+weekday}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_afa174ad55adaa9e7c8ab408480643c01}{on\+\_\+full\+\_\+weekday}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a04199ceeddc396a1552ed84c3b04cfd4}{on\+\_\+dec0\+\_\+weekday}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ab0c04b6c2e6749e853a0d947159babbc}{on\+\_\+dec1\+\_\+weekday}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ab04a2cfc1af54b9c4582f0747e348579}{on\+\_\+abbr\+\_\+month}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a6946769f5d1d3a620e6a1376d94b1e33}{on\+\_\+full\+\_\+month}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a0b09ad4da8863e7834150156b20018b7}{on\+\_\+datetime}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a4badc6bdfc9f8e3767086fc2dd05797a}{on\+\_\+loc\+\_\+date}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a2b021a123fdca9fa4d4ad8be346f3d99}{on\+\_\+loc\+\_\+time}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ad47b47b524d98c40ecc0551280fb3a2a}{on\+\_\+us\+\_\+date}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_aa236a83d0037713fd4f47137632167cc}{on\+\_\+iso\+\_\+date}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_af7172d083513792b2f88d6cbba3f8275}{on\+\_\+utc\+\_\+offset}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a2d942d3dc68d3c329638315e3b4723f2}{on\+\_\+tz\+\_\+name}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a7b4a4de5f4c6ccf258aa27524f219c5b}{on\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ac318e01529cb2a057ce6d8ac740a7e3c}{on\+\_\+short\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_afef93db9942fe456a1e2a40c0729e588}{on\+\_\+offset\+\_\+year}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a9fbdf3e1c89a9c10fff5737d2651627b}{on\+\_\+century}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_afa6f0ce1427a87c385b126fec2f3148c}{on\+\_\+iso\+\_\+week\+\_\+based\+\_\+year}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ae8b727ca96ff9d55d4ef6d29114972af}{on\+\_\+iso\+\_\+week\+\_\+based\+\_\+short\+\_\+year}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a78d35d8b443ec7c4d7a79e494200f545}{on\+\_\+dec\+\_\+month}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_abb46add7538c2cb9b9186f4b2f66423c}{on\+\_\+dec0\+\_\+week\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_acda90e9eb6ce00ca9bca9f78bca906c5}{on\+\_\+dec1\+\_\+week\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ad8d6b6b90bd491866be9ff3bc4aed002}{on\+\_\+iso\+\_\+week\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a162272e046c1941f5cb051765d7707e0}{on\+\_\+day\+\_\+of\+\_\+month}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a27bb9bcca257513d9966428a0d705089}{on\+\_\+day\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ae0a16e2a89a6aaa61d36dc069d70421f}{on\+\_\+24\+\_\+hour}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a826af0d208367e0816601e6fe710665d}{on\+\_\+12\+\_\+hour}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_abe4a8e5797458144ae64f6c10ede01f1}{on\+\_\+minute}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a5eaa3651f2774bf273f23c4a6cb232a2}{on\+\_\+second}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ad9e131f8bfd982dc0e64790dba0a9329}{on\+\_\+12\+\_\+hour\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a46f7670012d8edd7186c2961725c8894}{on\+\_\+24\+\_\+hour\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a8044d0b686a0080acbb954da3cab168d}{on\+\_\+iso\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a3f21115b4f82e34f3b86a3d269ae82fd}{on\+\_\+am\+\_\+pm}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ac825a1b64912178dd2ed23c317b8ef96}{on\+\_\+duration\+\_\+value}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a13b6a7977c61f137fdf6b0b474c15392}{on\+\_\+duration\+\_\+unit}} ()
+\item 
+\mbox{\hyperlink{structdetail_1_1duration__formatter_a705affd3f8bf8aa0470116aa23f16d85}{duration\+\_\+formatter}} (\mbox{\hyperlink{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}{iterator}} o, std\+::chrono\+::duration$<$ Rep, Period $>$ d, \mbox{\hyperlink{classlocale__ref}{locale\+\_\+ref}} loc)
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_ad8e5cd79d50c37c7977ea4ce10713c65}{handle\+\_\+nan\+\_\+inf}} () -\/$>$ bool
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_ace6b072852bd3b176bc46ada9e9b5695}{days}} () const -\/$>$ Rep
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_aa5938aa9edf655999748a82e9fd3b5cd}{hour}} () const -\/$>$ Rep
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_ac397baf633b4ae19d0c45f502220a2b8}{hour12}} () const -\/$>$ Rep
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_a47cb61c80b0e66944475289798447acf}{minute}} () const -\/$>$ Rep
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_a7f8e1201347c69d3f20fe4ad616f0aa0}{second}} () const -\/$>$ Rep
+\item 
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter_a56603e2ddef5ce5f87010f1a9847c019}{time}} () const -\/$>$ std\+::tm
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ab4149b3b22fec57ef71cb791850681f9}{write\+\_\+sign}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a05833dd5c29a4b5991f31b3907f7c793}{write}} (Rep \mbox{\hyperlink{classdetail_1_1value}{value}}, int width, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad=\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70ad02c4c4cde7ae76252540d116a40f23a}{pad\+\_\+type\+::zero}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a0b52d0c33d00406ad4f227d8d9ac7245}{write\+\_\+nan}} ()
+\item 
+{\footnotesize template$<$typename Callback, typename... Args$>$ }\\void \mbox{\hyperlink{structdetail_1_1duration__formatter_a6dc31e10bdf9402a78ad29aa70a93340}{format\+\_\+tm}} (const tm \&\mbox{\hyperlink{structdetail_1_1duration__formatter_a56603e2ddef5ce5f87010f1a9847c019}{time}}, Callback cb, Args... args)
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_aaaab87d5764473e1f41a3a562a45c256}{on\+\_\+text}} (const Char \texorpdfstring{$\ast$}{*}begin, const Char \texorpdfstring{$\ast$}{*}end)
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_af4315c998003c40eb2d5fcab56869a76}{on\+\_\+abbr\+\_\+weekday}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_afa174ad55adaa9e7c8ab408480643c01}{on\+\_\+full\+\_\+weekday}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a04199ceeddc396a1552ed84c3b04cfd4}{on\+\_\+dec0\+\_\+weekday}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ab0c04b6c2e6749e853a0d947159babbc}{on\+\_\+dec1\+\_\+weekday}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ab04a2cfc1af54b9c4582f0747e348579}{on\+\_\+abbr\+\_\+month}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a6946769f5d1d3a620e6a1376d94b1e33}{on\+\_\+full\+\_\+month}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a0b09ad4da8863e7834150156b20018b7}{on\+\_\+datetime}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a4badc6bdfc9f8e3767086fc2dd05797a}{on\+\_\+loc\+\_\+date}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a2b021a123fdca9fa4d4ad8be346f3d99}{on\+\_\+loc\+\_\+time}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ad47b47b524d98c40ecc0551280fb3a2a}{on\+\_\+us\+\_\+date}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_aa236a83d0037713fd4f47137632167cc}{on\+\_\+iso\+\_\+date}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_af7172d083513792b2f88d6cbba3f8275}{on\+\_\+utc\+\_\+offset}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a2d942d3dc68d3c329638315e3b4723f2}{on\+\_\+tz\+\_\+name}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a7b4a4de5f4c6ccf258aa27524f219c5b}{on\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ac318e01529cb2a057ce6d8ac740a7e3c}{on\+\_\+short\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_afef93db9942fe456a1e2a40c0729e588}{on\+\_\+offset\+\_\+year}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a9fbdf3e1c89a9c10fff5737d2651627b}{on\+\_\+century}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_afa6f0ce1427a87c385b126fec2f3148c}{on\+\_\+iso\+\_\+week\+\_\+based\+\_\+year}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ae8b727ca96ff9d55d4ef6d29114972af}{on\+\_\+iso\+\_\+week\+\_\+based\+\_\+short\+\_\+year}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a78d35d8b443ec7c4d7a79e494200f545}{on\+\_\+dec\+\_\+month}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_abb46add7538c2cb9b9186f4b2f66423c}{on\+\_\+dec0\+\_\+week\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_acda90e9eb6ce00ca9bca9f78bca906c5}{on\+\_\+dec1\+\_\+week\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ad8d6b6b90bd491866be9ff3bc4aed002}{on\+\_\+iso\+\_\+week\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a162272e046c1941f5cb051765d7707e0}{on\+\_\+day\+\_\+of\+\_\+month}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a27bb9bcca257513d9966428a0d705089}{on\+\_\+day\+\_\+of\+\_\+year}} (\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}})
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ae0a16e2a89a6aaa61d36dc069d70421f}{on\+\_\+24\+\_\+hour}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a826af0d208367e0816601e6fe710665d}{on\+\_\+12\+\_\+hour}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_abe4a8e5797458144ae64f6c10ede01f1}{on\+\_\+minute}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a5eaa3651f2774bf273f23c4a6cb232a2}{on\+\_\+second}} (\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}} ns, \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}} pad)
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ad9e131f8bfd982dc0e64790dba0a9329}{on\+\_\+12\+\_\+hour\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a46f7670012d8edd7186c2961725c8894}{on\+\_\+24\+\_\+hour\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a8044d0b686a0080acbb954da3cab168d}{on\+\_\+iso\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a3f21115b4f82e34f3b86a3d269ae82fd}{on\+\_\+am\+\_\+pm}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_ac825a1b64912178dd2ed23c317b8ef96}{on\+\_\+duration\+\_\+value}} ()
+\item 
+void \mbox{\hyperlink{structdetail_1_1duration__formatter_a13b6a7977c61f137fdf6b0b474c15392}{on\+\_\+duration\+\_\+unit}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}{iterator}} \mbox{\hyperlink{structdetail_1_1duration__formatter_aaef99937752957c8d4caa87b8b3ee31c}{out}}
+\item 
+\mbox{\hyperlink{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}{rep}} \mbox{\hyperlink{structdetail_1_1duration__formatter_ad19b0fdbf4da677e9cdd48ab0bfe297c}{val}}
+\item 
+int \mbox{\hyperlink{structdetail_1_1duration__formatter_ac104669dea9caab776f23adecda8f4f5}{precision}}
+\item 
+\mbox{\hyperlink{classlocale__ref}{locale\+\_\+ref}} \mbox{\hyperlink{structdetail_1_1duration__formatter_ac669bcea2c333e6f6ab676fe82cfc481}{locale}}
+\item 
+bool \mbox{\hyperlink{structdetail_1_1duration__formatter_a9774bcb8a08eb1f55afaca31800928cb}{localized}} = false
+\item 
+\mbox{\hyperlink{structdetail_1_1duration__formatter_af4d7a39512c22b6237e59165e4ba3cf0}{seconds}} \mbox{\hyperlink{structdetail_1_1duration__formatter_ac54d517e9d24af02428c31c11ed611ce}{s}}
+\item 
+bool \mbox{\hyperlink{structdetail_1_1duration__formatter_ad2e4f7d382ef6d674a057734bec5805c}{negative}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{structdetail_1_1duration__formatter_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+using \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::iterator = \mbox{\hyperlink{classbasic__appender}{basic\+\_\+appender}}$<$Char$>$}
+
+\Hypertarget{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+using \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::iterator = \mbox{\hyperlink{classbasic__appender}{basic\+\_\+appender}}$<$Char$>$}
+
+\Hypertarget{structdetail_1_1duration__formatter_aa9712122ecbf5d3392d7ac02348786ef}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!milliseconds@{milliseconds}}
+\index{milliseconds@{milliseconds}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{milliseconds}{milliseconds}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_aa9712122ecbf5d3392d7ac02348786ef} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+using \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::milliseconds = std\+::chrono\+::duration$<$\mbox{\hyperlink{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}{rep}}, std\+::milli$>$}
+
+\Hypertarget{structdetail_1_1duration__formatter_aa9712122ecbf5d3392d7ac02348786ef}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!milliseconds@{milliseconds}}
+\index{milliseconds@{milliseconds}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{milliseconds}{milliseconds}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_aa9712122ecbf5d3392d7ac02348786ef} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+using \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::milliseconds = std\+::chrono\+::duration$<$\mbox{\hyperlink{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}{rep}}, std\+::milli$>$}
+
+\Hypertarget{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!rep@{rep}}
+\index{rep@{rep}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{rep}{rep}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+using \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::rep}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_acdb0eff728aec08ed6fff07d2885ea9d}{conditional\_t<std::is\_integral<Rep>::value}}\ \&\&\ \textcolor{keyword}{sizeof}(Rep)\ <\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned,\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structdetail_1_1make__unsigned__or__unchanged_a76f8c2352d357582a9521d3e3608bdaf}{make\_unsigned\_or\_unchanged<Rep>::type}}>}
+
+\end{DoxyCode}
+\Hypertarget{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!rep@{rep}}
+\index{rep@{rep}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{rep}{rep}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+using \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::rep}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2base_8h_acdb0eff728aec08ed6fff07d2885ea9d}{conditional\_t<std::is\_integral<Rep>::value}}\ \&\&\ \textcolor{keyword}{sizeof}(Rep)\ <\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unsigned,\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structdetail_1_1make__unsigned__or__unchanged_a76f8c2352d357582a9521d3e3608bdaf}{make\_unsigned\_or\_unchanged<Rep>::type}}>}
+
+\end{DoxyCode}
+\Hypertarget{structdetail_1_1duration__formatter_af4d7a39512c22b6237e59165e4ba3cf0}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!seconds@{seconds}}
+\index{seconds@{seconds}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{seconds}{seconds}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_af4d7a39512c22b6237e59165e4ba3cf0} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+using \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::seconds = std\+::chrono\+::duration$<$\mbox{\hyperlink{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}{rep}}$>$}
+
+\Hypertarget{structdetail_1_1duration__formatter_af4d7a39512c22b6237e59165e4ba3cf0}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!seconds@{seconds}}
+\index{seconds@{seconds}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{seconds}{seconds}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_af4d7a39512c22b6237e59165e4ba3cf0} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+using \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::seconds = std\+::chrono\+::duration$<$\mbox{\hyperlink{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}{rep}}$>$}
+
+\Hypertarget{structdetail_1_1duration__formatter_a5057a585466e81baee323d8fde7950f7}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!tm\_writer\_type@{tm\_writer\_type}}
+\index{tm\_writer\_type@{tm\_writer\_type}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{tm\_writer\_type}{tm\_writer\_type}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a5057a585466e81baee323d8fde7950f7} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+using \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::tm\+\_\+writer\+\_\+type = \mbox{\hyperlink{classdetail_1_1tm__writer}{tm\+\_\+writer}}$<$\mbox{\hyperlink{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}{iterator}}, Char$>$}
+
+\Hypertarget{structdetail_1_1duration__formatter_a5057a585466e81baee323d8fde7950f7}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!tm\_writer\_type@{tm\_writer\_type}}
+\index{tm\_writer\_type@{tm\_writer\_type}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{tm\_writer\_type}{tm\_writer\_type}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a5057a585466e81baee323d8fde7950f7} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+using \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::tm\+\_\+writer\+\_\+type = \mbox{\hyperlink{classdetail_1_1tm__writer}{tm\+\_\+writer}}$<$\mbox{\hyperlink{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}{iterator}}, Char$>$}
+
+
+
+\label{doc-constructors}
+\Hypertarget{structdetail_1_1duration__formatter_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structdetail_1_1duration__formatter_a705affd3f8bf8aa0470116aa23f16d85}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!duration\_formatter@{duration\_formatter}}
+\index{duration\_formatter@{duration\_formatter}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{duration\_formatter()}{duration\_formatter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a705affd3f8bf8aa0470116aa23f16d85} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+\mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::duration\+\_\+formatter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}{iterator}}}]{o}{, }\item[{std\+::chrono\+::duration$<$ Rep, Period $>$}]{d}{, }\item[{\mbox{\hyperlink{classlocale__ref}{locale\+\_\+ref}}}]{loc}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a705affd3f8bf8aa0470116aa23f16d85}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!duration\_formatter@{duration\_formatter}}
+\index{duration\_formatter@{duration\_formatter}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{duration\_formatter()}{duration\_formatter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a705affd3f8bf8aa0470116aa23f16d85} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+\mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::duration\+\_\+formatter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}{iterator}}}]{o}{, }\item[{std\+::chrono\+::duration$<$ Rep, Period $>$}]{d}{, }\item[{\mbox{\hyperlink{classlocale__ref}{locale\+\_\+ref}}}]{loc}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{structdetail_1_1duration__formatter_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structdetail_1_1duration__formatter_ace6b072852bd3b176bc46ada9e9b5695}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!days@{days}}
+\index{days@{days}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{days()}{days()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ace6b072852bd3b176bc46ada9e9b5695} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::days (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$Rep\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ace6b072852bd3b176bc46ada9e9b5695}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!days@{days}}
+\index{days@{days}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{days()}{days()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ace6b072852bd3b176bc46ada9e9b5695} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::days (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$Rep\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a6dc31e10bdf9402a78ad29aa70a93340}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!format\_tm@{format\_tm}}
+\index{format\_tm@{format\_tm}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{format\_tm()}{format\_tm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a6dc31e10bdf9402a78ad29aa70a93340} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+template$<$typename Callback, typename... Args$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::format\+\_\+tm (\begin{DoxyParamCaption}\item[{const tm \&}]{time}{, }\item[{Callback}]{cb}{, }\item[{Args...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a6dc31e10bdf9402a78ad29aa70a93340}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!format\_tm@{format\_tm}}
+\index{format\_tm@{format\_tm}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{format\_tm()}{format\_tm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a6dc31e10bdf9402a78ad29aa70a93340} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+template$<$typename Callback, typename... Args$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::format\+\_\+tm (\begin{DoxyParamCaption}\item[{const tm \&}]{time}{, }\item[{Callback}]{cb}{, }\item[{Args...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ad8e5cd79d50c37c7977ea4ce10713c65}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!handle\_nan\_inf@{handle\_nan\_inf}}
+\index{handle\_nan\_inf@{handle\_nan\_inf}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{handle\_nan\_inf()}{handle\_nan\_inf()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ad8e5cd79d50c37c7977ea4ce10713c65} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::handle\+\_\+nan\+\_\+inf (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})-\/$>$bool\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ad8e5cd79d50c37c7977ea4ce10713c65}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!handle\_nan\_inf@{handle\_nan\_inf}}
+\index{handle\_nan\_inf@{handle\_nan\_inf}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{handle\_nan\_inf()}{handle\_nan\_inf()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ad8e5cd79d50c37c7977ea4ce10713c65} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::handle\+\_\+nan\+\_\+inf (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})-\/$>$bool\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_aa5938aa9edf655999748a82e9fd3b5cd}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!hour@{hour}}
+\index{hour@{hour}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{hour()}{hour()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_aa5938aa9edf655999748a82e9fd3b5cd} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::hour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$Rep\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_aa5938aa9edf655999748a82e9fd3b5cd}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!hour@{hour}}
+\index{hour@{hour}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{hour()}{hour()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_aa5938aa9edf655999748a82e9fd3b5cd} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::hour (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$Rep\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ac397baf633b4ae19d0c45f502220a2b8}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!hour12@{hour12}}
+\index{hour12@{hour12}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{hour12()}{hour12()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ac397baf633b4ae19d0c45f502220a2b8} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::hour12 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$Rep\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ac397baf633b4ae19d0c45f502220a2b8}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!hour12@{hour12}}
+\index{hour12@{hour12}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{hour12()}{hour12()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ac397baf633b4ae19d0c45f502220a2b8} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::hour12 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$Rep\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a47cb61c80b0e66944475289798447acf}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!minute@{minute}}
+\index{minute@{minute}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{minute()}{minute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a47cb61c80b0e66944475289798447acf} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::minute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$Rep\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a47cb61c80b0e66944475289798447acf}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!minute@{minute}}
+\index{minute@{minute}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{minute()}{minute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a47cb61c80b0e66944475289798447acf} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::minute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$Rep\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a826af0d208367e0816601e6fe710665d}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_12\_hour@{on\_12\_hour}}
+\index{on\_12\_hour@{on\_12\_hour}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_12\_hour()}{on\_12\_hour()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a826af0d208367e0816601e6fe710665d} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+12\+\_\+hour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a826af0d208367e0816601e6fe710665d}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_12\_hour@{on\_12\_hour}}
+\index{on\_12\_hour@{on\_12\_hour}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_12\_hour()}{on\_12\_hour()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a826af0d208367e0816601e6fe710665d} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+12\+\_\+hour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ad9e131f8bfd982dc0e64790dba0a9329}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_12\_hour\_time@{on\_12\_hour\_time}}
+\index{on\_12\_hour\_time@{on\_12\_hour\_time}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_12\_hour\_time()}{on\_12\_hour\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ad9e131f8bfd982dc0e64790dba0a9329} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+12\+\_\+hour\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ad9e131f8bfd982dc0e64790dba0a9329}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_12\_hour\_time@{on\_12\_hour\_time}}
+\index{on\_12\_hour\_time@{on\_12\_hour\_time}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_12\_hour\_time()}{on\_12\_hour\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ad9e131f8bfd982dc0e64790dba0a9329} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+12\+\_\+hour\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ae0a16e2a89a6aaa61d36dc069d70421f}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_24\_hour@{on\_24\_hour}}
+\index{on\_24\_hour@{on\_24\_hour}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_24\_hour()}{on\_24\_hour()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ae0a16e2a89a6aaa61d36dc069d70421f} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+24\+\_\+hour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ae0a16e2a89a6aaa61d36dc069d70421f}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_24\_hour@{on\_24\_hour}}
+\index{on\_24\_hour@{on\_24\_hour}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_24\_hour()}{on\_24\_hour()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ae0a16e2a89a6aaa61d36dc069d70421f} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+24\+\_\+hour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a46f7670012d8edd7186c2961725c8894}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_24\_hour\_time@{on\_24\_hour\_time}}
+\index{on\_24\_hour\_time@{on\_24\_hour\_time}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_24\_hour\_time()}{on\_24\_hour\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a46f7670012d8edd7186c2961725c8894} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+24\+\_\+hour\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a46f7670012d8edd7186c2961725c8894}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_24\_hour\_time@{on\_24\_hour\_time}}
+\index{on\_24\_hour\_time@{on\_24\_hour\_time}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_24\_hour\_time()}{on\_24\_hour\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a46f7670012d8edd7186c2961725c8894} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+24\+\_\+hour\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ab04a2cfc1af54b9c4582f0747e348579}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_abbr\_month@{on\_abbr\_month}}
+\index{on\_abbr\_month@{on\_abbr\_month}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_abbr\_month()}{on\_abbr\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ab04a2cfc1af54b9c4582f0747e348579} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+abbr\+\_\+month (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ab04a2cfc1af54b9c4582f0747e348579}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_abbr\_month@{on\_abbr\_month}}
+\index{on\_abbr\_month@{on\_abbr\_month}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_abbr\_month()}{on\_abbr\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ab04a2cfc1af54b9c4582f0747e348579} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+abbr\+\_\+month (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_af4315c998003c40eb2d5fcab56869a76}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_abbr\_weekday@{on\_abbr\_weekday}}
+\index{on\_abbr\_weekday@{on\_abbr\_weekday}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_abbr\_weekday()}{on\_abbr\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_af4315c998003c40eb2d5fcab56869a76} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+abbr\+\_\+weekday (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_af4315c998003c40eb2d5fcab56869a76}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_abbr\_weekday@{on\_abbr\_weekday}}
+\index{on\_abbr\_weekday@{on\_abbr\_weekday}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_abbr\_weekday()}{on\_abbr\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_af4315c998003c40eb2d5fcab56869a76} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+abbr\+\_\+weekday (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a3f21115b4f82e34f3b86a3d269ae82fd}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_am\_pm@{on\_am\_pm}}
+\index{on\_am\_pm@{on\_am\_pm}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_am\_pm()}{on\_am\_pm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a3f21115b4f82e34f3b86a3d269ae82fd} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+am\+\_\+pm (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a3f21115b4f82e34f3b86a3d269ae82fd}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_am\_pm@{on\_am\_pm}}
+\index{on\_am\_pm@{on\_am\_pm}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_am\_pm()}{on\_am\_pm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a3f21115b4f82e34f3b86a3d269ae82fd} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+am\+\_\+pm (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a9fbdf3e1c89a9c10fff5737d2651627b}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_century@{on\_century}}
+\index{on\_century@{on\_century}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_century()}{on\_century()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a9fbdf3e1c89a9c10fff5737d2651627b} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+century (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a9fbdf3e1c89a9c10fff5737d2651627b}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_century@{on\_century}}
+\index{on\_century@{on\_century}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_century()}{on\_century()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a9fbdf3e1c89a9c10fff5737d2651627b} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+century (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a0b09ad4da8863e7834150156b20018b7}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_datetime@{on\_datetime}}
+\index{on\_datetime@{on\_datetime}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_datetime()}{on\_datetime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a0b09ad4da8863e7834150156b20018b7} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+datetime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a0b09ad4da8863e7834150156b20018b7}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_datetime@{on\_datetime}}
+\index{on\_datetime@{on\_datetime}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_datetime()}{on\_datetime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a0b09ad4da8863e7834150156b20018b7} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+datetime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a162272e046c1941f5cb051765d7707e0}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_day\_of\_month@{on\_day\_of\_month}}
+\index{on\_day\_of\_month@{on\_day\_of\_month}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_day\_of\_month()}{on\_day\_of\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a162272e046c1941f5cb051765d7707e0} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+day\+\_\+of\+\_\+month (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a162272e046c1941f5cb051765d7707e0}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_day\_of\_month@{on\_day\_of\_month}}
+\index{on\_day\_of\_month@{on\_day\_of\_month}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_day\_of\_month()}{on\_day\_of\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a162272e046c1941f5cb051765d7707e0} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+day\+\_\+of\+\_\+month (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a27bb9bcca257513d9966428a0d705089}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_day\_of\_year@{on\_day\_of\_year}}
+\index{on\_day\_of\_year@{on\_day\_of\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_day\_of\_year()}{on\_day\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a27bb9bcca257513d9966428a0d705089} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+day\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a27bb9bcca257513d9966428a0d705089}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_day\_of\_year@{on\_day\_of\_year}}
+\index{on\_day\_of\_year@{on\_day\_of\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_day\_of\_year()}{on\_day\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a27bb9bcca257513d9966428a0d705089} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+day\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_abb46add7538c2cb9b9186f4b2f66423c}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_dec0\_week\_of\_year@{on\_dec0\_week\_of\_year}}
+\index{on\_dec0\_week\_of\_year@{on\_dec0\_week\_of\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec0\_week\_of\_year()}{on\_dec0\_week\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_abb46add7538c2cb9b9186f4b2f66423c} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+dec0\+\_\+week\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_abb46add7538c2cb9b9186f4b2f66423c}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_dec0\_week\_of\_year@{on\_dec0\_week\_of\_year}}
+\index{on\_dec0\_week\_of\_year@{on\_dec0\_week\_of\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec0\_week\_of\_year()}{on\_dec0\_week\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_abb46add7538c2cb9b9186f4b2f66423c} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+dec0\+\_\+week\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a04199ceeddc396a1552ed84c3b04cfd4}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_dec0\_weekday@{on\_dec0\_weekday}}
+\index{on\_dec0\_weekday@{on\_dec0\_weekday}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec0\_weekday()}{on\_dec0\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a04199ceeddc396a1552ed84c3b04cfd4} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+dec0\+\_\+weekday (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a04199ceeddc396a1552ed84c3b04cfd4}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_dec0\_weekday@{on\_dec0\_weekday}}
+\index{on\_dec0\_weekday@{on\_dec0\_weekday}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec0\_weekday()}{on\_dec0\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a04199ceeddc396a1552ed84c3b04cfd4} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+dec0\+\_\+weekday (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_acda90e9eb6ce00ca9bca9f78bca906c5}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_dec1\_week\_of\_year@{on\_dec1\_week\_of\_year}}
+\index{on\_dec1\_week\_of\_year@{on\_dec1\_week\_of\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec1\_week\_of\_year()}{on\_dec1\_week\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_acda90e9eb6ce00ca9bca9f78bca906c5} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+dec1\+\_\+week\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_acda90e9eb6ce00ca9bca9f78bca906c5}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_dec1\_week\_of\_year@{on\_dec1\_week\_of\_year}}
+\index{on\_dec1\_week\_of\_year@{on\_dec1\_week\_of\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec1\_week\_of\_year()}{on\_dec1\_week\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_acda90e9eb6ce00ca9bca9f78bca906c5} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+dec1\+\_\+week\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ab0c04b6c2e6749e853a0d947159babbc}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_dec1\_weekday@{on\_dec1\_weekday}}
+\index{on\_dec1\_weekday@{on\_dec1\_weekday}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec1\_weekday()}{on\_dec1\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ab0c04b6c2e6749e853a0d947159babbc} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+dec1\+\_\+weekday (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ab0c04b6c2e6749e853a0d947159babbc}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_dec1\_weekday@{on\_dec1\_weekday}}
+\index{on\_dec1\_weekday@{on\_dec1\_weekday}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec1\_weekday()}{on\_dec1\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ab0c04b6c2e6749e853a0d947159babbc} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+dec1\+\_\+weekday (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a78d35d8b443ec7c4d7a79e494200f545}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_dec\_month@{on\_dec\_month}}
+\index{on\_dec\_month@{on\_dec\_month}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec\_month()}{on\_dec\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a78d35d8b443ec7c4d7a79e494200f545} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+dec\+\_\+month (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a78d35d8b443ec7c4d7a79e494200f545}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_dec\_month@{on\_dec\_month}}
+\index{on\_dec\_month@{on\_dec\_month}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_dec\_month()}{on\_dec\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a78d35d8b443ec7c4d7a79e494200f545} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+dec\+\_\+month (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a13b6a7977c61f137fdf6b0b474c15392}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_duration\_unit@{on\_duration\_unit}}
+\index{on\_duration\_unit@{on\_duration\_unit}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_duration\_unit()}{on\_duration\_unit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a13b6a7977c61f137fdf6b0b474c15392} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+duration\+\_\+unit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a13b6a7977c61f137fdf6b0b474c15392}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_duration\_unit@{on\_duration\_unit}}
+\index{on\_duration\_unit@{on\_duration\_unit}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_duration\_unit()}{on\_duration\_unit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a13b6a7977c61f137fdf6b0b474c15392} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+duration\+\_\+unit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ac825a1b64912178dd2ed23c317b8ef96}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_duration\_value@{on\_duration\_value}}
+\index{on\_duration\_value@{on\_duration\_value}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_duration\_value()}{on\_duration\_value()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ac825a1b64912178dd2ed23c317b8ef96} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+duration\+\_\+value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ac825a1b64912178dd2ed23c317b8ef96}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_duration\_value@{on\_duration\_value}}
+\index{on\_duration\_value@{on\_duration\_value}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_duration\_value()}{on\_duration\_value()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ac825a1b64912178dd2ed23c317b8ef96} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+duration\+\_\+value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a6946769f5d1d3a620e6a1376d94b1e33}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_full\_month@{on\_full\_month}}
+\index{on\_full\_month@{on\_full\_month}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_full\_month()}{on\_full\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a6946769f5d1d3a620e6a1376d94b1e33} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+full\+\_\+month (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a6946769f5d1d3a620e6a1376d94b1e33}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_full\_month@{on\_full\_month}}
+\index{on\_full\_month@{on\_full\_month}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_full\_month()}{on\_full\_month()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a6946769f5d1d3a620e6a1376d94b1e33} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+full\+\_\+month (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_afa174ad55adaa9e7c8ab408480643c01}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_full\_weekday@{on\_full\_weekday}}
+\index{on\_full\_weekday@{on\_full\_weekday}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_full\_weekday()}{on\_full\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_afa174ad55adaa9e7c8ab408480643c01} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+full\+\_\+weekday (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_afa174ad55adaa9e7c8ab408480643c01}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_full\_weekday@{on\_full\_weekday}}
+\index{on\_full\_weekday@{on\_full\_weekday}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_full\_weekday()}{on\_full\_weekday()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_afa174ad55adaa9e7c8ab408480643c01} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+full\+\_\+weekday (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_aa236a83d0037713fd4f47137632167cc}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_iso\_date@{on\_iso\_date}}
+\index{on\_iso\_date@{on\_iso\_date}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_date()}{on\_iso\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_aa236a83d0037713fd4f47137632167cc} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+iso\+\_\+date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_aa236a83d0037713fd4f47137632167cc}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_iso\_date@{on\_iso\_date}}
+\index{on\_iso\_date@{on\_iso\_date}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_date()}{on\_iso\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_aa236a83d0037713fd4f47137632167cc} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+iso\+\_\+date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a8044d0b686a0080acbb954da3cab168d}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_iso\_time@{on\_iso\_time}}
+\index{on\_iso\_time@{on\_iso\_time}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_time()}{on\_iso\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a8044d0b686a0080acbb954da3cab168d} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+iso\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a8044d0b686a0080acbb954da3cab168d}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_iso\_time@{on\_iso\_time}}
+\index{on\_iso\_time@{on\_iso\_time}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_time()}{on\_iso\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a8044d0b686a0080acbb954da3cab168d} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+iso\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ae8b727ca96ff9d55d4ef6d29114972af}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_iso\_week\_based\_short\_year@{on\_iso\_week\_based\_short\_year}}
+\index{on\_iso\_week\_based\_short\_year@{on\_iso\_week\_based\_short\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_week\_based\_short\_year()}{on\_iso\_week\_based\_short\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ae8b727ca96ff9d55d4ef6d29114972af} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+iso\+\_\+week\+\_\+based\+\_\+short\+\_\+year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ae8b727ca96ff9d55d4ef6d29114972af}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_iso\_week\_based\_short\_year@{on\_iso\_week\_based\_short\_year}}
+\index{on\_iso\_week\_based\_short\_year@{on\_iso\_week\_based\_short\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_week\_based\_short\_year()}{on\_iso\_week\_based\_short\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ae8b727ca96ff9d55d4ef6d29114972af} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+iso\+\_\+week\+\_\+based\+\_\+short\+\_\+year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_afa6f0ce1427a87c385b126fec2f3148c}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_iso\_week\_based\_year@{on\_iso\_week\_based\_year}}
+\index{on\_iso\_week\_based\_year@{on\_iso\_week\_based\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_week\_based\_year()}{on\_iso\_week\_based\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_afa6f0ce1427a87c385b126fec2f3148c} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+iso\+\_\+week\+\_\+based\+\_\+year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_afa6f0ce1427a87c385b126fec2f3148c}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_iso\_week\_based\_year@{on\_iso\_week\_based\_year}}
+\index{on\_iso\_week\_based\_year@{on\_iso\_week\_based\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_week\_based\_year()}{on\_iso\_week\_based\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_afa6f0ce1427a87c385b126fec2f3148c} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+iso\+\_\+week\+\_\+based\+\_\+year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ad8d6b6b90bd491866be9ff3bc4aed002}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_iso\_week\_of\_year@{on\_iso\_week\_of\_year}}
+\index{on\_iso\_week\_of\_year@{on\_iso\_week\_of\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_week\_of\_year()}{on\_iso\_week\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ad8d6b6b90bd491866be9ff3bc4aed002} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+iso\+\_\+week\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ad8d6b6b90bd491866be9ff3bc4aed002}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_iso\_week\_of\_year@{on\_iso\_week\_of\_year}}
+\index{on\_iso\_week\_of\_year@{on\_iso\_week\_of\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_iso\_week\_of\_year()}{on\_iso\_week\_of\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ad8d6b6b90bd491866be9ff3bc4aed002} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+iso\+\_\+week\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a4badc6bdfc9f8e3767086fc2dd05797a}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_loc\_date@{on\_loc\_date}}
+\index{on\_loc\_date@{on\_loc\_date}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_loc\_date()}{on\_loc\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a4badc6bdfc9f8e3767086fc2dd05797a} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+loc\+\_\+date (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a4badc6bdfc9f8e3767086fc2dd05797a}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_loc\_date@{on\_loc\_date}}
+\index{on\_loc\_date@{on\_loc\_date}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_loc\_date()}{on\_loc\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a4badc6bdfc9f8e3767086fc2dd05797a} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+loc\+\_\+date (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a2b021a123fdca9fa4d4ad8be346f3d99}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_loc\_time@{on\_loc\_time}}
+\index{on\_loc\_time@{on\_loc\_time}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_loc\_time()}{on\_loc\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a2b021a123fdca9fa4d4ad8be346f3d99} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+loc\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a2b021a123fdca9fa4d4ad8be346f3d99}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_loc\_time@{on\_loc\_time}}
+\index{on\_loc\_time@{on\_loc\_time}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_loc\_time()}{on\_loc\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a2b021a123fdca9fa4d4ad8be346f3d99} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+loc\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_abe4a8e5797458144ae64f6c10ede01f1}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_minute@{on\_minute}}
+\index{on\_minute@{on\_minute}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_minute()}{on\_minute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_abe4a8e5797458144ae64f6c10ede01f1} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+minute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_abe4a8e5797458144ae64f6c10ede01f1}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_minute@{on\_minute}}
+\index{on\_minute@{on\_minute}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_minute()}{on\_minute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_abe4a8e5797458144ae64f6c10ede01f1} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+minute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_afef93db9942fe456a1e2a40c0729e588}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_offset\_year@{on\_offset\_year}}
+\index{on\_offset\_year@{on\_offset\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_offset\_year()}{on\_offset\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_afef93db9942fe456a1e2a40c0729e588} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+offset\+\_\+year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_afef93db9942fe456a1e2a40c0729e588}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_offset\_year@{on\_offset\_year}}
+\index{on\_offset\_year@{on\_offset\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_offset\_year()}{on\_offset\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_afef93db9942fe456a1e2a40c0729e588} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+offset\+\_\+year (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a5eaa3651f2774bf273f23c4a6cb232a2}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_second@{on\_second}}
+\index{on\_second@{on\_second}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_second()}{on\_second()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a5eaa3651f2774bf273f23c4a6cb232a2} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+second (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a5eaa3651f2774bf273f23c4a6cb232a2}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_second@{on\_second}}
+\index{on\_second@{on\_second}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_second()}{on\_second()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a5eaa3651f2774bf273f23c4a6cb232a2} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+second (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{ns}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ac318e01529cb2a057ce6d8ac740a7e3c}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_short\_year@{on\_short\_year}}
+\index{on\_short\_year@{on\_short\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_short\_year()}{on\_short\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ac318e01529cb2a057ce6d8ac740a7e3c} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+short\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ac318e01529cb2a057ce6d8ac740a7e3c}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_short\_year@{on\_short\_year}}
+\index{on\_short\_year@{on\_short\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_short\_year()}{on\_short\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ac318e01529cb2a057ce6d8ac740a7e3c} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+short\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_aaaab87d5764473e1f41a3a562a45c256}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_text@{on\_text}}
+\index{on\_text@{on\_text}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_text()}{on\_text()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_aaaab87d5764473e1f41a3a562a45c256} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+text (\begin{DoxyParamCaption}\item[{const Char \texorpdfstring{$\ast$}{*}}]{begin}{, }\item[{const Char \texorpdfstring{$\ast$}{*}}]{end}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_aaaab87d5764473e1f41a3a562a45c256}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_text@{on\_text}}
+\index{on\_text@{on\_text}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_text()}{on\_text()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_aaaab87d5764473e1f41a3a562a45c256} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+text (\begin{DoxyParamCaption}\item[{const Char \texorpdfstring{$\ast$}{*}}]{begin}{, }\item[{const Char \texorpdfstring{$\ast$}{*}}]{end}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a2d942d3dc68d3c329638315e3b4723f2}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_tz\_name@{on\_tz\_name}}
+\index{on\_tz\_name@{on\_tz\_name}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_tz\_name()}{on\_tz\_name()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a2d942d3dc68d3c329638315e3b4723f2} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+tz\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a2d942d3dc68d3c329638315e3b4723f2}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_tz\_name@{on\_tz\_name}}
+\index{on\_tz\_name@{on\_tz\_name}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_tz\_name()}{on\_tz\_name()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a2d942d3dc68d3c329638315e3b4723f2} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+tz\+\_\+name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ad47b47b524d98c40ecc0551280fb3a2a}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_us\_date@{on\_us\_date}}
+\index{on\_us\_date@{on\_us\_date}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_us\_date()}{on\_us\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ad47b47b524d98c40ecc0551280fb3a2a} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+us\+\_\+date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ad47b47b524d98c40ecc0551280fb3a2a}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_us\_date@{on\_us\_date}}
+\index{on\_us\_date@{on\_us\_date}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_us\_date()}{on\_us\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ad47b47b524d98c40ecc0551280fb3a2a} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+us\+\_\+date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_af7172d083513792b2f88d6cbba3f8275}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_utc\_offset@{on\_utc\_offset}}
+\index{on\_utc\_offset@{on\_utc\_offset}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_utc\_offset()}{on\_utc\_offset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_af7172d083513792b2f88d6cbba3f8275} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+utc\+\_\+offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_af7172d083513792b2f88d6cbba3f8275}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_utc\_offset@{on\_utc\_offset}}
+\index{on\_utc\_offset@{on\_utc\_offset}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_utc\_offset()}{on\_utc\_offset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_af7172d083513792b2f88d6cbba3f8275} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+utc\+\_\+offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a7b4a4de5f4c6ccf258aa27524f219c5b}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_year@{on\_year}}
+\index{on\_year@{on\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_year()}{on\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a7b4a4de5f4c6ccf258aa27524f219c5b} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a7b4a4de5f4c6ccf258aa27524f219c5b}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!on\_year@{on\_year}}
+\index{on\_year@{on\_year}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{on\_year()}{on\_year()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a7b4a4de5f4c6ccf258aa27524f219c5b} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::on\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacedetail_a4938659a89541ba388c06c6a33e0c8ad}{numeric\+\_\+system}}}]{}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a7f8e1201347c69d3f20fe4ad616f0aa0}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!second@{second}}
+\index{second@{second}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{second()}{second()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a7f8e1201347c69d3f20fe4ad616f0aa0} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::second (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$Rep\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a7f8e1201347c69d3f20fe4ad616f0aa0}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!second@{second}}
+\index{second@{second}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{second()}{second()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a7f8e1201347c69d3f20fe4ad616f0aa0} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::second (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$Rep\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a56603e2ddef5ce5f87010f1a9847c019}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!time@{time}}
+\index{time@{time}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{time()}{time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a56603e2ddef5ce5f87010f1a9847c019} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$std\+::tm\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a56603e2ddef5ce5f87010f1a9847c019}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!time@{time}}
+\index{time@{time}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{time()}{time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a56603e2ddef5ce5f87010f1a9847c019} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+auto \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$std\+::tm\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a05833dd5c29a4b5991f31b3907f7c793}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!write@{write}}
+\index{write@{write}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a05833dd5c29a4b5991f31b3907f7c793} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::write (\begin{DoxyParamCaption}\item[{Rep}]{value}{, }\item[{int}]{width}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{ = {\ttfamily \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70ad02c4c4cde7ae76252540d116a40f23a}{pad\+\_\+type\+::zero}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a05833dd5c29a4b5991f31b3907f7c793}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!write@{write}}
+\index{write@{write}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a05833dd5c29a4b5991f31b3907f7c793} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::write (\begin{DoxyParamCaption}\item[{Rep}]{value}{, }\item[{int}]{width}{, }\item[{\mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70}{pad\+\_\+type}}}]{pad}{ = {\ttfamily \mbox{\hyperlink{namespacedetail_a35d6744b07eecf4599d6b03f7ce0de70ad02c4c4cde7ae76252540d116a40f23a}{pad\+\_\+type\+::zero}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a0b52d0c33d00406ad4f227d8d9ac7245}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!write\_nan@{write\_nan}}
+\index{write\_nan@{write\_nan}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{write\_nan()}{write\_nan()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a0b52d0c33d00406ad4f227d8d9ac7245} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::write\+\_\+nan (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_a0b52d0c33d00406ad4f227d8d9ac7245}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!write\_nan@{write\_nan}}
+\index{write\_nan@{write\_nan}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{write\_nan()}{write\_nan()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a0b52d0c33d00406ad4f227d8d9ac7245} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::write\+\_\+nan (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ab4149b3b22fec57ef71cb791850681f9}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!write\_sign@{write\_sign}}
+\index{write\_sign@{write\_sign}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{write\_sign()}{write\_sign()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ab4149b3b22fec57ef71cb791850681f9} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::write\+\_\+sign (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structdetail_1_1duration__formatter_ab4149b3b22fec57ef71cb791850681f9}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!write\_sign@{write\_sign}}
+\index{write\_sign@{write\_sign}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{write\_sign()}{write\_sign()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ab4149b3b22fec57ef71cb791850681f9} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+void \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::write\+\_\+sign (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structdetail_1_1duration__formatter_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structdetail_1_1duration__formatter_ac669bcea2c333e6f6ab676fe82cfc481}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!locale@{locale}}
+\index{locale@{locale}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{locale}{locale}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ac669bcea2c333e6f6ab676fe82cfc481} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+\mbox{\hyperlink{classlocale__ref}{locale\+\_\+ref}} \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::locale}
+
+\Hypertarget{structdetail_1_1duration__formatter_a9774bcb8a08eb1f55afaca31800928cb}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!localized@{localized}}
+\index{localized@{localized}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{localized}{localized}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_a9774bcb8a08eb1f55afaca31800928cb} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+bool \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::localized = false}
+
+\Hypertarget{structdetail_1_1duration__formatter_ad2e4f7d382ef6d674a057734bec5805c}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!negative@{negative}}
+\index{negative@{negative}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{negative}{negative}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ad2e4f7d382ef6d674a057734bec5805c} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+bool \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::negative}
+
+\Hypertarget{structdetail_1_1duration__formatter_aaef99937752957c8d4caa87b8b3ee31c}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!out@{out}}
+\index{out@{out}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{out}{out}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_aaef99937752957c8d4caa87b8b3ee31c} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+\mbox{\hyperlink{structdetail_1_1duration__formatter_a4f2cd6fbba9aa78644a189cd8f9af099}{iterator}} \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::out}
+
+\Hypertarget{structdetail_1_1duration__formatter_ac104669dea9caab776f23adecda8f4f5}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!precision@{precision}}
+\index{precision@{precision}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{precision}{precision}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ac104669dea9caab776f23adecda8f4f5} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+int \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::precision}
+
+\Hypertarget{structdetail_1_1duration__formatter_ac54d517e9d24af02428c31c11ed611ce}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!s@{s}}
+\index{s@{s}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{s}{s}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ac54d517e9d24af02428c31c11ed611ce} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+\mbox{\hyperlink{structdetail_1_1duration__formatter_af4d7a39512c22b6237e59165e4ba3cf0}{seconds}} \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::s}
+
+\Hypertarget{structdetail_1_1duration__formatter_ad19b0fdbf4da677e9cdd48ab0bfe297c}\index{detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}!val@{val}}
+\index{val@{val}!detail::duration\_formatter$<$ Char, Rep, Period $>$@{detail::duration\_formatter$<$ Char, Rep, Period $>$}}
+\doxysubsubsection{\texorpdfstring{val}{val}}
+{\footnotesize\ttfamily \label{structdetail_1_1duration__formatter_ad19b0fdbf4da677e9cdd48ab0bfe297c} 
+template$<$typename Char, typename Rep, typename Period$>$ \\
+\mbox{\hyperlink{structdetail_1_1duration__formatter_a9fabee19959edd1f8c13e431786907ad}{rep}} \mbox{\hyperlink{structdetail_1_1duration__formatter}{detail\+::duration\+\_\+formatter}}$<$ Char, Rep, Period $>$\+::val}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/fmt/bundled/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2chrono_8h}{chrono.\+h}}\item 
+src/vendor/spdlog/include/spdlog/fmt/bundled/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2chrono_8h}{chrono.\+h}}\end{DoxyCompactItemize}

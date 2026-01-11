@@ -1,0 +1,13 @@
+var structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7 =
+[
+    [ "formatter", "structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7.html#a7aab555dd69f6199c18839d6b6a87dbd", null ],
+    [ "formatter", "structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7.html#a7aab555dd69f6199c18839d6b6a87dbd", null ],
+    [ "format", "structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7.html#a44d56ae74cb6f1d0d82959f6b687b0dc", null ],
+    [ "format", "structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7.html#a44d56ae74cb6f1d0d82959f6b687b0dc", null ],
+    [ "parse", "structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7.html#a7947943a9fe3e9521fb8ffd65353e71f", null ],
+    [ "parse", "structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7.html#a7947943a9fe3e9521fb8ffd65353e71f", null ],
+    [ "set_brackets", "structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7.html#a385ac63a4631424bafc37094a59ec8f2", null ],
+    [ "set_brackets", "structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7.html#a385ac63a4631424bafc37094a59ec8f2", null ],
+    [ "set_separator", "structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7.html#a709fe7746b61cc11b6ae2bf7f08ca4a2", null ],
+    [ "set_separator", "structformatter_3_01Tuple_00_01Char_00_01enable__if__t_3_01fmt_1_1is__tuple__like_3_01Tuple_01_47d3c15699decdc1f07f707ead66758b7.html#a709fe7746b61cc11b6ae2bf7f08ca4a2", null ]
+];

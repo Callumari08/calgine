@@ -1,0 +1,33 @@
+\doxysection{src/vendor/spdlog/include/spdlog/sinks/mongo\+\_\+sink.h File Reference}
+\hypertarget{vendor_2spdlog_2include_2spdlog_2sinks_2mongo__sink_8h}{}\label{vendor_2spdlog_2include_2spdlog_2sinks_2mongo__sink_8h}\index{src/vendor/spdlog/include/spdlog/sinks/mongo\_sink.h@{src/vendor/spdlog/include/spdlog/sinks/mongo\_sink.h}}
+{\ttfamily \#include "{}spdlog/common.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/details/log\+\_\+msg.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/sinks/base\+\_\+sink.\+h"{}}\newline
+{\ttfamily \#include $<$spdlog/details/synchronous\+\_\+factory.\+h$>$}\newline
+{\ttfamily \#include $<$bsoncxx/builder/stream/document.\+hpp$>$}\newline
+{\ttfamily \#include $<$bsoncxx/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$bsoncxx/view\+\_\+or\+\_\+value.\+hpp$>$}\newline
+{\ttfamily \#include $<$mongocxx/client.\+hpp$>$}\newline
+{\ttfamily \#include $<$mongocxx/instance.\+hpp$>$}\newline
+{\ttfamily \#include $<$mongocxx/uri.\+hpp$>$}\newline
+{\ttfamily \#include "{}spdlog/details/null\+\_\+mutex.\+h"{}}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classspdlog_1_1sinks_1_1mongo__sink}{spdlog\+::sinks\+::mongo\+\_\+sink$<$ Mutex $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacespdlog}{spdlog}}
+\item 
+namespace \mbox{\hyperlink{namespacespdlog_1_1sinks}{spdlog\+::sinks}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Factory = spdlog\+::synchronous\+\_\+factory$>$ }\\std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{namespacespdlog_a7b6dc01feb47b7edf1e81f12fc5ba01d}{spdlog\+::mongo\+\_\+logger\+\_\+mt}} (const std\+::string \&logger\+\_\+name, const std\+::string \&db\+\_\+name, const std\+::string \&collection\+\_\+name, const std\+::string \&uri="{}mongodb\+://localhost\+:27017"{})
+\item 
+{\footnotesize template$<$typename Factory = spdlog\+::synchronous\+\_\+factory$>$ }\\std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}} $>$ \mbox{\hyperlink{namespacespdlog_ac7fd607a05c6d8b2aabfac20da088070}{spdlog\+::mongo\+\_\+logger\+\_\+st}} (const std\+::string \&logger\+\_\+name, const std\+::string \&db\+\_\+name, const std\+::string \&collection\+\_\+name, const std\+::string \&uri="{}mongodb\+://localhost\+:27017"{})
+\end{DoxyCompactItemize}

@@ -1,0 +1,17 @@
+\doxysection{calgine\+\_\+api.\+h}
+\hypertarget{calgine__api_8h_source}{}\label{calgine__api_8h_source}\index{src/calgine\_api.h@{src/calgine\_api.h}}
+\mbox{\hyperlink{calgine__api_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \#ifdef\ CALGINE\_EXPORTS}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#define\ CALGINE\_API\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#define\ CALGINE\_API\ \_\_declspec(dllimport)}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \#define\ CALGINE\_API\ \_\_attribute\_\_((visibility("{}default"{})))}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

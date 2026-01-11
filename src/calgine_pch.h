@@ -11,6 +11,8 @@
 #include <cassert>
 #include <sys/types.h>
 #include <optional>
+#include <functional>
+#include <cstdint>
 
 #include <string>
 #include <vector>

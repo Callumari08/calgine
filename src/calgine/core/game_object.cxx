@@ -1,6 +1,7 @@
 #include "game_object.h"
 #include "calgine/core/behaviour.h"
 
+namespace Calgine {
 
 u_int32_t GameObject::num_game_objects = 0;
 
@@ -39,7 +40,7 @@ void GameObject::destroy()
     std::unique_ptr<GameObject> owner = parent->detach_child(this);
 
     if (owner) 
-      s_pending_deletes.push_back(std::move(owner));
+      s_pending_deletes.emplace_back(std::move(owner));
 
     parent = nullptr;
   }
@@ -149,7 +150,7 @@ void GameObject::set_parent(GameObject* _parent)
 
   if (parent)
   {
-    parent->children.push_back(std::move(owned_self));
+    parent->children.emplace_back(std::move(owned_self));
   }
 }
 
@@ -165,3 +166,5 @@ void GameObject::set_name(std::string _name)
 {
   name = _name;
 }
+
+} // namespace Calgine

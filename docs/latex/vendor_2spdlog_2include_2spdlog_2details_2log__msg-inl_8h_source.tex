@@ -1,0 +1,50 @@
+\doxysection{log\+\_\+msg-\/inl.h}
+\hypertarget{vendor_2spdlog_2include_2spdlog_2details_2log__msg-inl_8h_source}{}\label{vendor_2spdlog_2include_2spdlog_2details_2log__msg-inl_8h_source}\index{src/vendor/spdlog/include/spdlog/details/log\_msg-\/inl.h@{src/vendor/spdlog/include/spdlog/details/log\_msg-\/inl.h}}
+\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2details_2log__msg-inl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_HEADER\_ONLY}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <spdlog/details/log\_msg.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <spdlog/details/os.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog_1_1details}{details}}\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_af1ec7119f1b0ce74732795837bc24300}{log\_msg::log\_msg}}(spdlog::log\_clock::time\_point\ log\_time,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spdlog::source\_loc\ loc,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ad49d31a236e1029e975963300be34525}{string\_view\_t}}\ a\_logger\_name,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{spdlog::level::level\_enum}}\ lvl,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ad49d31a236e1029e975963300be34525}{spdlog::string\_view\_t}}\ msg)}
+\DoxyCodeLine{00020\ \ \ \ \ :\ logger\_name(a\_logger\_name),}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ level(lvl),}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ time(log\_time)}
+\DoxyCodeLine{00023\ \#ifndef\ SPDLOG\_NO\_THREAD\_ID}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_acc534524a0a282483dbefe5048517339}{thread\_id}}(\mbox{\hyperlink{namespacespdlog_1_1details_1_1os}{os}}::\mbox{\hyperlink{namespacespdlog_1_1details_1_1os_acc534524a0a282483dbefe5048517339}{thread\_id}}())}
+\DoxyCodeLine{00026\ \#endif}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ ,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ source(loc),}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ payload(msg)\ \{}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ log\_msg::log\_msg(\mbox{\hyperlink{structspdlog_1_1source__loc}{spdlog::source\_loc}}\ loc,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ string\_view\_t\ a\_logger\_name,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{spdlog::level::level\_enum}}\ lvl,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ad49d31a236e1029e975963300be34525}{spdlog::string\_view\_t}}\ msg)}
+\DoxyCodeLine{00036\ \ \ \ \ :\ log\_msg(os::\mbox{\hyperlink{namespacespdlog_1_1details_1_1os_aa8e51fe363f1c951f14fffea69ab19ca}{now}}(),\ loc,\ a\_logger\_name,\ lvl,\ msg)\ \{\}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ log\_msg::log\_msg(string\_view\_t\ a\_logger\_name,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{spdlog::level::level\_enum}}\ lvl,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ad49d31a236e1029e975963300be34525}{spdlog::string\_view\_t}}\ msg)}
+\DoxyCodeLine{00041\ \ \ \ \ :\ log\_msg(os::\mbox{\hyperlink{namespacespdlog_1_1details_1_1os_aa8e51fe363f1c951f14fffea69ab19ca}{now}}(),\ source\_loc\{\},\ a\_logger\_name,\ lvl,\ msg)\ \{\}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \}\ \ \textcolor{comment}{//\ namespace\ details}}
+\DoxyCodeLine{00044\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+
+\end{DoxyCode}

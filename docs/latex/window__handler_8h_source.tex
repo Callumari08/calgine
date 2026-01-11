@@ -7,46 +7,51 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL3/SDL\_video.h>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <mutex>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{comment}{//\ could\ include\ different\ types\ of\ Vsync\ buffers\ here}}
-\DoxyCodeLine{00008\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{VsyncState}}\ \{}
-\DoxyCodeLine{00009\ \ \ \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459a18b72413eef3b883fe2e6e15d6373c6d}{disabled}},}
-\DoxyCodeLine{00010\ \ \ \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459aba6a78ff01a05c6cc4cfb2f4ca21cedc}{enabled}},}
-\DoxyCodeLine{00011\ \};}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ WINDOW\_WIDTH\ 800}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ WINDOW\_HEIGHT\ 600}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ could\ include\ different\ types\ of\ Vsync\ buffers\ here}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{VsyncState}}\ \{}
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a10b9abd0304ae803c941c4503dc3fc8b}{disabled}},}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544}{enabled}},}
+\DoxyCodeLine{00014\ \};}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }WindowHandler\ }
-\DoxyCodeLine{00017\ \{}
-\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{static}\ WindowHandler*\ instance;}
-\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{static}\ std::mutex\ instance\_mutex;}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \textcolor{comment}{//\ Private\ constructor\ to\ prevent\ instantiation}}
-\DoxyCodeLine{00023\ \ \ WindowHandler()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ WINDOW\_WIDTH\ 800}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ WINDOW\_HEIGHT\ 600}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ WindowHandler\ }
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{static}\ WindowHandler*\ instance;}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{static}\ std::mutex\ instance\_mutex;}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{static}\ SDL\_Window*\ window;}
-\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{static}\ SDL\_GLContext\ gl\_context;}
-\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{VsyncState}}\ vsync\_state;}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ quit\_gracefully(SDL\_Window*\ window,\ SDL\_GLContext\ ctx);}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classWindowHandler_a33b33e31a70c6c27b64dcaf66ad66704}{window\_name}};}
-\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classWindowHandler_aa9eee2c27935bc87d29923403b1b166c}{WindowHandler}}(\textcolor{keyword}{const}\ WindowHandler\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00034\ \ \ WindowHandler\&\ \mbox{\hyperlink{classWindowHandler_a40ad5f834383115893643e4d66924378}{operator=}}(\textcolor{keyword}{const}\ WindowHandler\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ Returns\ the\ singleton\ instance\ of\ WindowHandler}}
-\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{static}\ WindowHandler*\ \mbox{\hyperlink{classWindowHandler_a48f483e312836d2855f929ecc54c3b1d}{get\_instance}}();}
+\DoxyCodeLine{00025\ \ \ \textcolor{comment}{//\ Private\ constructor\ to\ prevent\ instantiation}}
+\DoxyCodeLine{00026\ \ \ WindowHandler()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{static}\ SDL\_Window*\ window;}
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{static}\ SDL\_GLContext\ gl\_context;}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{VsyncState}}\ vsync\_state;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ quit\_gracefully(SDL\_Window*\ window,\ SDL\_GLContext\ ctx);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classCalgine_1_1WindowHandler_a1e43a98cddb8d596641a78fc35cdcca1}{window\_name}};}
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{classCalgine_1_1WindowHandler_a50d3de3e0a5006a9ac0354adf18a6f77}{WindowHandler}}(\textcolor{keyword}{const}\ WindowHandler\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00037\ \ \ WindowHandler\&\ \mbox{\hyperlink{classCalgine_1_1WindowHandler_a3bf8daede725665edd93a223f9b5c441}{operator=}}(\textcolor{keyword}{const}\ WindowHandler\&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ Returns\ an\ \`{}SDL\_Window`\ if\ one\ exists,\ otherwise\ it\ creates\ one.}}
-\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{static}\ SDL\_Window*\ \mbox{\hyperlink{classWindowHandler_a3156947484fbd22dddea591b39ba1cd7}{get\_window}}();}
-\DoxyCodeLine{00041\ \ \ \textcolor{comment}{//\ Returns\ an\ \`{}SDL\_GLContext`\ if\ one\ exists,\ otherwise\ it\ creates\ one.}}
-\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ \`{}window`\ mustn't\ be\ NULL,\ otherwise\ this\ function\ will\ throw\ an\ exception\ (TODO)}}
-\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{static}\ SDL\_GLContext\ \mbox{\hyperlink{classWindowHandler_ad88477904c27a3475530ffd20d8fe217}{get\_gl\_context}}();}
-\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{VsyncState}}\ \mbox{\hyperlink{classWindowHandler_ae3a8d2cd19411745c0e2cd1325b47964}{get\_vsync\_state}}();}
-\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWindowHandler_af8827c2331dad02f7ae49e2999c1577d}{set\_vsync\_state}}(\mbox{\hyperlink{window__handler_8h_aa900384132ecccf295941ecb99b94459}{VsyncState}}\ state);}
-\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ Returns\ the\ singleton\ instance\ of\ WindowHandler}}
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{static}\ WindowHandler*\ \mbox{\hyperlink{classCalgine_1_1WindowHandler_adb55f8b573d44f71278f65f6953501e5}{get\_instance}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ Returns\ an\ \`{}SDL\_Window`\ if\ one\ exists,\ otherwise\ it\ creates\ one.}}
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{static}\ SDL\_Window*\ \mbox{\hyperlink{classCalgine_1_1WindowHandler_a914e757659553f5eb9c4eb88201038f6}{get\_window}}();}
+\DoxyCodeLine{00044\ \ \ \textcolor{comment}{//\ Returns\ an\ \`{}SDL\_GLContext`\ if\ one\ exists,\ otherwise\ it\ creates\ one.}}
+\DoxyCodeLine{00045\ \ \ \textcolor{comment}{//\ \`{}window`\ mustn't\ be\ NULL,\ otherwise\ this\ function\ will\ throw\ an\ exception\ (TODO)}}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{static}\ SDL\_GLContext\ \mbox{\hyperlink{classCalgine_1_1WindowHandler_a67650160749d02a3953f74de34fdb8d5}{get\_gl\_context}}();}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{VsyncState}}\ \mbox{\hyperlink{classCalgine_1_1WindowHandler_a3ca23323606df476cb840a9cac052f54}{get\_vsync\_state}}();}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1WindowHandler_ada8e10dcf9c69404fd0bb9c4fc144fb9}{set\_vsync\_state}}(\mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{VsyncState}}\ state);}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
 
 \end{DoxyCode}

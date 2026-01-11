@@ -1,0 +1,12 @@
+var searchData=
+[
+  ['callbacks_20about_20log_20events_0',['callbacks about log events',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md30',1,'User-defined callbacks about log events'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md92',1,'User-defined callbacks about log events']]],
+  ['change_20global_20level_1',['change global level',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md28',1,'Register several loggers - change global level'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md90',1,'Register several loggers - change global level']]],
+  ['close_20event_20handlers_2',['close event handlers',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md48',1,'Log file open/close event handlers'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md110',1,'Log file open/close event handlers']]],
+  ['colors_3',['colors',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md52',1,'Log to Qt with nice colors'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md114',1,'Log to Qt with nice colors']]],
+  ['compile_20times_4',['compile times',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md3',1,'Compiled version (recommended - much faster compile times)'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md65',1,'Compiled version (recommended - much faster compile times)']]],
+  ['compiled_20version_20recommended_20much_20faster_20compile_20times_5',['Compiled version recommended much faster compile times',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md3',1,'Compiled version (recommended - much faster compile times)'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md65',1,'Compiled version (recommended - much faster compile times)']]],
+  ['context_6',['Context',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md54',1,'Mapped Diagnostic Context'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md116',1,'Mapped Diagnostic Context']]],
+  ['create_20stdout_20stderr_20logger_20object_7',['Create stdout stderr logger object',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md10',1,'Create stdout/stderr logger object'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md72',1,'Create stdout/stderr logger object']]],
+  ['custom_20error_20handler_8',['Custom error handler',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md40',1,'Custom error handler'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md102',1,'Custom error handler']]]
+];

@@ -1,6 +1,9 @@
 #pragma once
 
 #include "../game_object.h"
+#include "calgine_api.h"
+
+namespace Calgine {
 
 class RootGameObject : public GameObject
 {
@@ -14,7 +17,7 @@ private:
   using GameObject::set_parent;
 };
 
-class Hierarchy final
+class CALGINE_API Hierarchy final
 {
 private:
   RootGameObject root;
@@ -30,3 +33,4 @@ public:
   Hierarchy& operator=(const Hierarchy&) = delete;
 };
 
+} // namespace Calgine

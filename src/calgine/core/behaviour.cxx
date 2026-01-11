@@ -2,6 +2,8 @@
 
 #include "behaviour.h"
 
+namespace Calgine {
+
 Behaviour::~Behaviour() 
 {
   game_object = nullptr;
@@ -26,3 +28,5 @@ GameObject* Behaviour::get_game_object()
   assert(game_object && "Behaviour not attached yet");
   return game_object;
 }
+
+} // namespace Calgine

@@ -1,4 +1,4 @@
 var behaviour_8h =
 [
-    [ "Behaviour", "classBehaviour.html", "classBehaviour" ]
+    [ "Calgine::Behaviour", "classCalgine_1_1Behaviour.html", "classCalgine_1_1Behaviour" ]
 ];

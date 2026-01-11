@@ -1,0 +1,60 @@
+\doxysection{src/vendor/spdlog/bench/async\+\_\+bench.cpp File Reference}
+\hypertarget{vendor_2spdlog_2bench_2async__bench_8cpp}{}\label{vendor_2spdlog_2bench_2async__bench_8cpp}\index{src/vendor/spdlog/bench/async\_bench.cpp@{src/vendor/spdlog/bench/async\_bench.cpp}}
+{\ttfamily \#include "{}spdlog/spdlog.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/async.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/sinks/basic\+\_\+file\+\_\+sink.\+h"{}}\newline
+{\ttfamily \#include "{}spdlog/fmt/bundled/format.\+h"{}}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{vendor_2spdlog_2bench_2async__bench_8cpp_a87be032cecc2ffc9b5fe137148fa2b1a}{bench\+\_\+mt}} (int howmany, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{namespacespdlog_af49a2d8edb18994d66be6ab2b96d0970}{log}}, int thread\+\_\+count)
+\item 
+int \mbox{\hyperlink{vendor_2spdlog_2bench_2async__bench_8cpp_a6729b5c59b0e398b79fd37ec206969c1}{count\+\_\+lines}} (const char \texorpdfstring{$\ast$}{*}filename)
+\item 
+void \mbox{\hyperlink{vendor_2spdlog_2bench_2async__bench_8cpp_aac43ff8b2046f80b198edfd804d9c109}{verify\+\_\+file}} (const char \texorpdfstring{$\ast$}{*}filename, int expected\+\_\+count)
+\item 
+int \mbox{\hyperlink{vendor_2spdlog_2bench_2async__bench_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{vendor_2spdlog_2bench_2async__bench_8cpp_a190a4f1ae4e7b70f574f380da9ca6e9c}{thread\+\_\+fun}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$ \mbox{\hyperlink{classspdlog_1_1logger}{logger}}, int howmany)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{vendor_2spdlog_2bench_2async__bench_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{vendor_2spdlog_2bench_2async__bench_8cpp_a87be032cecc2ffc9b5fe137148fa2b1a}\index{async\_bench.cpp@{async\_bench.cpp}!bench\_mt@{bench\_mt}}
+\index{bench\_mt@{bench\_mt}!async\_bench.cpp@{async\_bench.cpp}}
+\doxysubsubsection{\texorpdfstring{bench\_mt()}{bench\_mt()}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2bench_2async__bench_8cpp_a87be032cecc2ffc9b5fe137148fa2b1a} 
+void bench\+\_\+mt (\begin{DoxyParamCaption}\item[{int}]{howmany}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$}]{log}{, }\item[{int}]{thread\+\_\+count}{}\end{DoxyParamCaption})}
+
+\Hypertarget{vendor_2spdlog_2bench_2async__bench_8cpp_a6729b5c59b0e398b79fd37ec206969c1}\index{async\_bench.cpp@{async\_bench.cpp}!count\_lines@{count\_lines}}
+\index{count\_lines@{count\_lines}!async\_bench.cpp@{async\_bench.cpp}}
+\doxysubsubsection{\texorpdfstring{count\_lines()}{count\_lines()}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2bench_2async__bench_8cpp_a6729b5c59b0e398b79fd37ec206969c1} 
+int count\+\_\+lines (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+\Hypertarget{vendor_2spdlog_2bench_2async__bench_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{async\_bench.cpp@{async\_bench.cpp}!main@{main}}
+\index{main@{main}!async\_bench.cpp@{async\_bench.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2bench_2async__bench_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+\Hypertarget{vendor_2spdlog_2bench_2async__bench_8cpp_a190a4f1ae4e7b70f574f380da9ca6e9c}\index{async\_bench.cpp@{async\_bench.cpp}!thread\_fun@{thread\_fun}}
+\index{thread\_fun@{thread\_fun}!async\_bench.cpp@{async\_bench.cpp}}
+\doxysubsubsection{\texorpdfstring{thread\_fun()}{thread\_fun()}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2bench_2async__bench_8cpp_a190a4f1ae4e7b70f574f380da9ca6e9c} 
+void thread\+\_\+fun (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1logger}{spdlog\+::logger}} $>$}]{logger}{, }\item[{int}]{howmany}{}\end{DoxyParamCaption})}
+
+\Hypertarget{vendor_2spdlog_2bench_2async__bench_8cpp_aac43ff8b2046f80b198edfd804d9c109}\index{async\_bench.cpp@{async\_bench.cpp}!verify\_file@{verify\_file}}
+\index{verify\_file@{verify\_file}!async\_bench.cpp@{async\_bench.cpp}}
+\doxysubsubsection{\texorpdfstring{verify\_file()}{verify\_file()}}
+{\footnotesize\ttfamily \label{vendor_2spdlog_2bench_2async__bench_8cpp_aac43ff8b2046f80b198edfd804d9c109} 
+void verify\+\_\+file (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{int}]{expected\+\_\+count}{}\end{DoxyParamCaption})}
+

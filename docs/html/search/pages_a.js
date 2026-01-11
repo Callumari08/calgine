@@ -1,0 +1,9 @@
+var searchData=
+[
+  ['managers_3a_0',['managers:',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md5',1,'Package managers:'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md67',1,'Package managers:']]],
+  ['mapped_20diagnostic_20context_1',['Mapped Diagnostic Context',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md54',1,'Mapped Diagnostic Context'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md116',1,'Mapped Diagnostic Context']]],
+  ['mode_2',['mode',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md58',1,'Asynchronous mode'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md120',1,'Asynchronous mode'],['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md57',1,'Synchronous mode'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md119',1,'Synchronous mode']]],
+  ['much_20faster_20compile_20times_3',['much faster compile times',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md3',1,'Compiled version (recommended - much faster compile times)'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md65',1,'Compiled version (recommended - much faster compile times)']]],
+  ['multi_20sinks_4',['multi sinks',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md34',1,'Asynchronous logger with multi sinks'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md96',1,'Asynchronous logger with multi sinks']]],
+  ['multi_20sinks_20each_20with_20a_20different_20format_20and_20log_20level_5',['multi sinks each with a different format and log level',['../dir_af27930cbb235b7df8438e992d16487d.html#autotoc_md26',1,'Logger with multi sinks - each with a different format and log level'],['../dir_6377df36c64708b62d0419b46de52700.html#autotoc_md88',1,'Logger with multi sinks - each with a different format and log level']]]
+];

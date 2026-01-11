@@ -1,0 +1,114 @@
+\doxysection{basic\+\_\+cstring\+\_\+view\texorpdfstring{$<$}{<} Char \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classbasic__cstring__view}{}\label{classbasic__cstring__view}\index{basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}}
+
+
+{\ttfamily \#include $<$os.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbasic__cstring__view_ab464b2378652892cec4716d3e3d475c7}{basic\+\_\+cstring\+\_\+view}} (const Char \texorpdfstring{$\ast$}{*}s)
+\begin{DoxyCompactList}\small\item\em Constructs a string reference object from a C string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbasic__cstring__view_a10b92cc0e3e67789601984099b9ed339}{basic\+\_\+cstring\+\_\+view}} (const std\+::basic\+\_\+string$<$ Char $>$ \&s)
+\begin{DoxyCompactList}\small\item\em Constructs a string reference from an {\ttfamily std\+::string} object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classbasic__cstring__view_afee1380c4722894a55b8b6895f6bf255}{c\+\_\+str}} () const -\/$>$ const Char \texorpdfstring{$\ast$}{*}
+\begin{DoxyCompactList}\small\item\em Returns the pointer to a C string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbasic__cstring__view_ab464b2378652892cec4716d3e3d475c7}{basic\+\_\+cstring\+\_\+view}} (const Char \texorpdfstring{$\ast$}{*}s)
+\begin{DoxyCompactList}\small\item\em Constructs a string reference object from a C string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbasic__cstring__view_a10b92cc0e3e67789601984099b9ed339}{basic\+\_\+cstring\+\_\+view}} (const std\+::basic\+\_\+string$<$ Char $>$ \&s)
+\begin{DoxyCompactList}\small\item\em Constructs a string reference from an {\ttfamily std\+::string} object. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classbasic__cstring__view_afee1380c4722894a55b8b6895f6bf255}{c\+\_\+str}} () const -\/$>$ const Char \texorpdfstring{$\ast$}{*}
+\begin{DoxyCompactList}\small\item\em Returns the pointer to a C string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Char$>$\newline
+class basic\+\_\+cstring\+\_\+view$<$ Char $>$}
+A reference to a null-\/terminated string. It can be constructed from a C string or {\ttfamily std\+::string}.
+
+You can use one of the following type aliases for common character types\+:
+
++-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} Type \texorpdfstring{$\vert$}{|} Definition \texorpdfstring{$\vert$}{|} +===============+=============================+ \texorpdfstring{$\vert$}{|} \doxylink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2os_8h_ab5093e382f19cf769bbb8fed27dd7b1f}{cstring\+\_\+view} \texorpdfstring{$\vert$}{|} \doxylink{classbasic__cstring__view}{basic\+\_\+cstring\+\_\+view$<$char$>$} \texorpdfstring{$\vert$}{|} +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} \doxylink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2os_8h_a98fc52506266131c4391a72514b66272}{wcstring\+\_\+view} \texorpdfstring{$\vert$}{|} \doxylink{classbasic__cstring__view}{basic\+\_\+cstring\+\_\+view$<$wchar\+\_\+t$>$} \texorpdfstring{$\vert$}{|} +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+
+
+This class is most useful as a parameter type for functions that wrap C APIs. 
+
+\label{doc-constructors}
+\Hypertarget{classbasic__cstring__view_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classbasic__cstring__view_ab464b2378652892cec4716d3e3d475c7}\index{basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}!basic\_cstring\_view@{basic\_cstring\_view}}
+\index{basic\_cstring\_view@{basic\_cstring\_view}!basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_cstring\_view()}{basic\_cstring\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{classbasic__cstring__view_ab464b2378652892cec4716d3e3d475c7} 
+template$<$typename Char$>$ \\
+\mbox{\hyperlink{classbasic__cstring__view}{basic\+\_\+cstring\+\_\+view}}$<$ Char $>$\+::basic\+\_\+cstring\+\_\+view (\begin{DoxyParamCaption}\item[{const Char \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a string reference object from a C string. 
+
+\Hypertarget{classbasic__cstring__view_a10b92cc0e3e67789601984099b9ed339}\index{basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}!basic\_cstring\_view@{basic\_cstring\_view}}
+\index{basic\_cstring\_view@{basic\_cstring\_view}!basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_cstring\_view()}{basic\_cstring\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{classbasic__cstring__view_a10b92cc0e3e67789601984099b9ed339} 
+template$<$typename Char$>$ \\
+\mbox{\hyperlink{classbasic__cstring__view}{basic\+\_\+cstring\+\_\+view}}$<$ Char $>$\+::basic\+\_\+cstring\+\_\+view (\begin{DoxyParamCaption}\item[{const std\+::basic\+\_\+string$<$ Char $>$ \&}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a string reference from an {\ttfamily std\+::string} object. 
+
+\Hypertarget{classbasic__cstring__view_ab464b2378652892cec4716d3e3d475c7}\index{basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}!basic\_cstring\_view@{basic\_cstring\_view}}
+\index{basic\_cstring\_view@{basic\_cstring\_view}!basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_cstring\_view()}{basic\_cstring\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{classbasic__cstring__view_ab464b2378652892cec4716d3e3d475c7} 
+template$<$typename Char$>$ \\
+\mbox{\hyperlink{classbasic__cstring__view}{basic\+\_\+cstring\+\_\+view}}$<$ Char $>$\+::basic\+\_\+cstring\+\_\+view (\begin{DoxyParamCaption}\item[{const Char \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a string reference object from a C string. 
+
+\Hypertarget{classbasic__cstring__view_a10b92cc0e3e67789601984099b9ed339}\index{basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}!basic\_cstring\_view@{basic\_cstring\_view}}
+\index{basic\_cstring\_view@{basic\_cstring\_view}!basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_cstring\_view()}{basic\_cstring\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{classbasic__cstring__view_a10b92cc0e3e67789601984099b9ed339} 
+template$<$typename Char$>$ \\
+\mbox{\hyperlink{classbasic__cstring__view}{basic\+\_\+cstring\+\_\+view}}$<$ Char $>$\+::basic\+\_\+cstring\+\_\+view (\begin{DoxyParamCaption}\item[{const std\+::basic\+\_\+string$<$ Char $>$ \&}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a string reference from an {\ttfamily std\+::string} object. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{classbasic__cstring__view_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classbasic__cstring__view_afee1380c4722894a55b8b6895f6bf255}\index{basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}!c\_str@{c\_str}}
+\index{c\_str@{c\_str}!basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{c\_str()}{c\_str()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classbasic__cstring__view_afee1380c4722894a55b8b6895f6bf255} 
+template$<$typename Char$>$ \\
+auto \mbox{\hyperlink{classbasic__cstring__view}{basic\+\_\+cstring\+\_\+view}}$<$ Char $>$\+::c\+\_\+str (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$const\+Char \texorpdfstring{$\ast$}{*}\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the pointer to a C string. 
+
+\Hypertarget{classbasic__cstring__view_afee1380c4722894a55b8b6895f6bf255}\index{basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}!c\_str@{c\_str}}
+\index{c\_str@{c\_str}!basic\_cstring\_view$<$ Char $>$@{basic\_cstring\_view$<$ Char $>$}}
+\doxysubsubsection{\texorpdfstring{c\_str()}{c\_str()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classbasic__cstring__view_afee1380c4722894a55b8b6895f6bf255} 
+template$<$typename Char$>$ \\
+auto \mbox{\hyperlink{classbasic__cstring__view}{basic\+\_\+cstring\+\_\+view}}$<$ Char $>$\+::c\+\_\+str (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const-\/$>$const\+Char \texorpdfstring{$\ast$}{*}\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the pointer to a C string. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/fmt/bundled/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2os_8h}{os.\+h}}\item 
+src/vendor/spdlog/include/spdlog/fmt/bundled/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2os_8h}{os.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,342 @@
+\doxysection{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink\texorpdfstring{$<$}{<} Mutex \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink}{}\label{classspdlog_1_1sinks_1_1rotating__file__sink}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+
+
+{\ttfamily \#include $<$rotating\+\_\+file\+\_\+sink.\+h$>$}
+
+Inheritance diagram for spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink\texorpdfstring{$<$}{<} Mutex \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.680000cm]{classspdlog_1_1sinks_1_1rotating__file__sink}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a8710f63c555669dff1e0704d42226044}{rotating\+\_\+file\+\_\+sink}} (\mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} base\+\_\+filename, std\+::size\+\_\+t max\+\_\+size, std\+::size\+\_\+t max\+\_\+files, bool rotate\+\_\+on\+\_\+open=false, const \mbox{\hyperlink{structspdlog_1_1file__event__handlers}{file\+\_\+event\+\_\+handlers}} \&event\+\_\+handlers=\{\})
+\item 
+\mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a7c0a9c699bb8c3a59325d9498db4cdcc}{filename}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a4d1318a2956dea9c9131018b11f928fd}{rotate\+\_\+now}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a82ebeecb510120a9d80eeca0e367f22f}{set\+\_\+max\+\_\+size}} (std\+::size\+\_\+t max\+\_\+size)
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_adc7b794c5ba13d9afa04f23f3a1b7868}{get\+\_\+max\+\_\+size}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_ac95a2bf67abba34979dcdf63be1914a8}{set\+\_\+max\+\_\+files}} (std\+::size\+\_\+t max\+\_\+files)
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_ac8a76049ad9e3de34a1eaee8b0e26c70}{get\+\_\+max\+\_\+files}} ()
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_ae0cc2f66a78dd0334205fb1613c848aa}{rotating\+\_\+file\+\_\+sink}} (\mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} base\+\_\+filename, std\+::size\+\_\+t max\+\_\+size, std\+::size\+\_\+t max\+\_\+files, bool rotate\+\_\+on\+\_\+open=false, const \mbox{\hyperlink{structspdlog_1_1file__event__handlers}{file\+\_\+event\+\_\+handlers}} \&event\+\_\+handlers=\{\})
+\item 
+\mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_adf6fb8dcd8df106cde7683a6e517d24b}{filename}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_aa5b0ca5cc28a7b69b2acd40ba5e9ed60}{rotate\+\_\+now}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a5f4da306a5ec658a153b35194f07f885}{set\+\_\+max\+\_\+size}} (std\+::size\+\_\+t max\+\_\+size)
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_aa8410a86cc1b6db26eb20f99e6d137a2}{get\+\_\+max\+\_\+size}} ()
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a83454ddc97bad5499d1097b4b5e2d96c}{set\+\_\+max\+\_\+files}} (std\+::size\+\_\+t max\+\_\+files)
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_ac8a76049ad9e3de34a1eaee8b0e26c70}{get\+\_\+max\+\_\+files}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{spdlog\+::sinks\+::base\+\_\+sink$<$ Mutex $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a0a4c703dc54edfbd0d3817770e36f3f7}{base\+\_\+sink}} ()
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a1ed084e2d363c7bc8fae9e83e8a5d846}{base\+\_\+sink}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter}} $>$ \mbox{\hyperlink{structformatter}{formatter}})
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_abfcf0803a5b328b965bd43fb8b77b208}{\texorpdfstring{$\sim$}{\string~}base\+\_\+sink}} () override=default
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a9639062f2ce3598203c0d958576491d1}{base\+\_\+sink}} (const base\+\_\+sink \&)=delete
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_ab75aabe29ad3dc165b4e9ce5b6f6a271}{base\+\_\+sink}} (base\+\_\+sink \&\&)=delete
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a0a4c703dc54edfbd0d3817770e36f3f7}{base\+\_\+sink}} \& \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a210609e44154b2138708a234fb0d46fb}{operator=}} (const \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a0a4c703dc54edfbd0d3817770e36f3f7}{base\+\_\+sink}} \&)=delete
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a0a4c703dc54edfbd0d3817770e36f3f7}{base\+\_\+sink}} \& \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a8a590ffe81bec5677d21d114f6f2e33d}{operator=}} (\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a0a4c703dc54edfbd0d3817770e36f3f7}{base\+\_\+sink}} \&\&)=delete
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a0ac492c26f6936dfd9ee05d3bb8b4d66}{log}} (const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg}} \&msg) final override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a80458dc16b39457466eebcd0950b7e26}{flush}} () final override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_aa585493304a15712498a206c9ab8ca68}{set\+\_\+pattern}} (const std\+::string \&pattern) final override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a8fd7e6d10ced3a7944aff87149fc2710}{set\+\_\+formatter}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter}} $>$ sink\+\_\+formatter) final override
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a6a4316a7710cd4968e4708f6effccb3d}{base\+\_\+sink}} ()
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a9681a2d9d07367eebeb72a436e4d80ca}{base\+\_\+sink}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter}} $>$ \mbox{\hyperlink{structformatter}{formatter}})
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_abfcf0803a5b328b965bd43fb8b77b208}{\texorpdfstring{$\sim$}{\string~}base\+\_\+sink}} () override=default
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a9639062f2ce3598203c0d958576491d1}{base\+\_\+sink}} (const base\+\_\+sink \&)=delete
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_ab75aabe29ad3dc165b4e9ce5b6f6a271}{base\+\_\+sink}} (base\+\_\+sink \&\&)=delete
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a0a4c703dc54edfbd0d3817770e36f3f7}{base\+\_\+sink}} \& \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a210609e44154b2138708a234fb0d46fb}{operator=}} (const \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a0a4c703dc54edfbd0d3817770e36f3f7}{base\+\_\+sink}} \&)=delete
+\item 
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a0a4c703dc54edfbd0d3817770e36f3f7}{base\+\_\+sink}} \& \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a8a590ffe81bec5677d21d114f6f2e33d}{operator=}} (\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a0a4c703dc54edfbd0d3817770e36f3f7}{base\+\_\+sink}} \&\&)=delete
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a0e3cd10a1d923721b08132ba211cc3a6}{log}} (const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg}} \&msg) final override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a4003627df27e14364bd9884557538bbf}{flush}} () final override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a29bec9dd943c626a6dd9941af227c6c6}{set\+\_\+pattern}} (const std\+::string \&pattern) final override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a592946a5d6b94d1cb88814287baa368c}{set\+\_\+formatter}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter}} $>$ sink\+\_\+formatter) final override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink}{spdlog\+::sinks\+::sink}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a2637af0973ac863eedd76ee683279c0b}{\texorpdfstring{$\sim$}{\string~}sink}} ()=default
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a862aa1ac5ed27de35f1bd3b1aaeb7dc1}{set\+\_\+level}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} log\+\_\+level)
+\item 
+\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a8b9693e7ea883ce02234bed0e3b3348d}{level}} () const
+\item 
+bool \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a9e6824420e6352e0f5cbb436a0b5d0a4}{should\+\_\+log}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} msg\+\_\+level) const
+\item 
+virtual \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a2637af0973ac863eedd76ee683279c0b}{\texorpdfstring{$\sim$}{\string~}sink}} ()=default
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a038a91409395dca18a7ccca81622fd83}{set\+\_\+level}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} log\+\_\+level)
+\item 
+\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_ae59ca2b418c5cdfed1c04e49a444be1c}{level}} () const
+\item 
+bool \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a1c932f19f67057fbe7518999bdd5c422}{should\+\_\+log}} (\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level\+::level\+\_\+enum}} msg\+\_\+level) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a7dc60b7e4c92116f2cb2a41c6a2e1a01}{calc\+\_\+filename}} (const \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \&\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a7c0a9c699bb8c3a59325d9498db4cdcc}{filename}}, std\+::size\+\_\+t index)
+\item 
+static \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a05d77d7013bc54f55cac702c122ac1c9}{calc\+\_\+filename}} (const \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \&\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a7c0a9c699bb8c3a59325d9498db4cdcc}{filename}}, std\+::size\+\_\+t index)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_aac363ecbbbe072661d33e67fba1c6b8d}{Max\+Files}} = 200000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_ac16afbf9b9a9bcfb1fae090151215e21}{sink\+\_\+it\+\_\+}} (const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg}} \&msg) override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a4460acd8ced94d958d6882871f6e9954}{flush\+\_\+}} () override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a3cf93e445ad92380c7d352f971cd76a4}{sink\+\_\+it\+\_\+}} (const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg}} \&msg) override
+\item 
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_ae93e4792b76f73bb0be8e50b5c5e889b}{flush\+\_\+}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{spdlog\+::sinks\+::base\+\_\+sink$<$ Mutex $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a9541fb9838aab62beb55f47ed1a143c6}{set\+\_\+pattern\+\_\+}} (const std\+::string \&pattern)
+\item 
+virtual void \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a008a9629bb406f0ca4a4e70e891a5630}{set\+\_\+formatter\+\_\+}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter}} $>$ sink\+\_\+formatter)
+\item 
+virtual void \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a56bc5fc8e03dc0aeb6679856ffee7fb4}{set\+\_\+pattern\+\_\+}} (const std\+::string \&pattern)
+\item 
+virtual void \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_aed93aabfba62b684e603eb525671c864}{set\+\_\+formatter\+\_\+}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter}} $>$ sink\+\_\+formatter)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{spdlog\+::sinks\+::base\+\_\+sink$<$ Mutex $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter}} $>$ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_ae4a534f4ac712f4d73a15937fc83bc73}{formatter\+\_\+}}
+\item 
+Mutex \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a929422554ce18d8bffd9b4d75cc7acf3}{mutex\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink}{spdlog\+::sinks\+::sink}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacespdlog_abacbd76841573991ecd1e204c60363c6}{level\+\_\+t}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a435da07b59e1165b38d53635cdada30a}{level\+\_\+}} \{\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861ade78ca2c1173761c121b4e5e91eb58f4}{level\+::trace}}\}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_a8710f63c555669dff1e0704d42226044}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!rotating\_file\_sink@{rotating\_file\_sink}}
+\index{rotating\_file\_sink@{rotating\_file\_sink}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{rotating\_file\_sink()}{rotating\_file\_sink()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_a8710f63c555669dff1e0704d42226044} 
+template$<$typename Mutex$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::rotating\+\_\+file\+\_\+sink (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}}}]{base\+\_\+filename}{, }\item[{std\+::size\+\_\+t}]{max\+\_\+size}{, }\item[{std\+::size\+\_\+t}]{max\+\_\+files}{, }\item[{bool}]{rotate\+\_\+on\+\_\+open}{ = {\ttfamily false}, }\item[{const \mbox{\hyperlink{structspdlog_1_1file__event__handlers}{file\+\_\+event\+\_\+handlers}} \&}]{event\+\_\+handlers}{ = {\ttfamily \{\}}}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_ae0cc2f66a78dd0334205fb1613c848aa}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!rotating\_file\_sink@{rotating\_file\_sink}}
+\index{rotating\_file\_sink@{rotating\_file\_sink}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{rotating\_file\_sink()}{rotating\_file\_sink()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_ae0cc2f66a78dd0334205fb1613c848aa} 
+template$<$typename Mutex$>$ \\
+\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::rotating\+\_\+file\+\_\+sink (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}}}]{base\+\_\+filename}{, }\item[{std\+::size\+\_\+t}]{max\+\_\+size}{, }\item[{std\+::size\+\_\+t}]{max\+\_\+files}{, }\item[{bool}]{rotate\+\_\+on\+\_\+open}{ = {\ttfamily false}, }\item[{const \mbox{\hyperlink{structspdlog_1_1file__event__handlers}{file\+\_\+event\+\_\+handlers}} \&}]{event\+\_\+handlers}{ = {\ttfamily \{\}}}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_a7dc60b7e4c92116f2cb2a41c6a2e1a01}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!calc\_filename@{calc\_filename}}
+\index{calc\_filename@{calc\_filename}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{calc\_filename()}{calc\_filename()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_a7dc60b7e4c92116f2cb2a41c6a2e1a01} 
+template$<$typename Mutex$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::calc\+\_\+filename (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \&}]{filename}{, }\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_a05d77d7013bc54f55cac702c122ac1c9}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!calc\_filename@{calc\_filename}}
+\index{calc\_filename@{calc\_filename}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{calc\_filename()}{calc\_filename()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_a05d77d7013bc54f55cac702c122ac1c9} 
+template$<$typename Mutex$>$ \\
+\mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::calc\+\_\+filename (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \&}]{filename}{, }\item[{std\+::size\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_a7c0a9c699bb8c3a59325d9498db4cdcc}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!filename@{filename}}
+\index{filename@{filename}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{filename()}{filename()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_a7c0a9c699bb8c3a59325d9498db4cdcc} 
+template$<$typename Mutex$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::filename (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_adf6fb8dcd8df106cde7683a6e517d24b}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!filename@{filename}}
+\index{filename@{filename}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{filename()}{filename()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_adf6fb8dcd8df106cde7683a6e517d24b} 
+template$<$typename Mutex$>$ \\
+\mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\+\_\+t}} \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::filename (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_a4460acd8ced94d958d6882871f6e9954}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!flush\_@{flush\_}}
+\index{flush\_@{flush\_}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{flush\_()}{flush\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_a4460acd8ced94d958d6882871f6e9954} 
+template$<$typename Mutex$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::flush\+\_\+ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a5ac2b237c60f68a18122a1ca09b812b4}{spdlog\+::sinks\+::base\+\_\+sink$<$ Mutex $>$}}.
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_ae93e4792b76f73bb0be8e50b5c5e889b}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!flush\_@{flush\_}}
+\index{flush\_@{flush\_}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{flush\_()}{flush\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_ae93e4792b76f73bb0be8e50b5c5e889b} 
+template$<$typename Mutex$>$ \\
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::flush\+\_\+ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a5ac2b237c60f68a18122a1ca09b812b4}{spdlog\+::sinks\+::base\+\_\+sink$<$ Mutex $>$}}.
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_ac8a76049ad9e3de34a1eaee8b0e26c70}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!get\_max\_files@{get\_max\_files}}
+\index{get\_max\_files@{get\_max\_files}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{get\_max\_files()}{get\_max\_files()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_ac8a76049ad9e3de34a1eaee8b0e26c70} 
+template$<$typename Mutex$>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::get\+\_\+max\+\_\+files (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_ac8a76049ad9e3de34a1eaee8b0e26c70}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!get\_max\_files@{get\_max\_files}}
+\index{get\_max\_files@{get\_max\_files}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{get\_max\_files()}{get\_max\_files()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_ac8a76049ad9e3de34a1eaee8b0e26c70} 
+template$<$typename Mutex$>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::get\+\_\+max\+\_\+files (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_adc7b794c5ba13d9afa04f23f3a1b7868}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!get\_max\_size@{get\_max\_size}}
+\index{get\_max\_size@{get\_max\_size}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{get\_max\_size()}{get\_max\_size()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_adc7b794c5ba13d9afa04f23f3a1b7868} 
+template$<$typename Mutex$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} std\+::size\+\_\+t \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::get\+\_\+max\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_aa8410a86cc1b6db26eb20f99e6d137a2}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!get\_max\_size@{get\_max\_size}}
+\index{get\_max\_size@{get\_max\_size}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{get\_max\_size()}{get\_max\_size()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_aa8410a86cc1b6db26eb20f99e6d137a2} 
+template$<$typename Mutex$>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::get\+\_\+max\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_a4d1318a2956dea9c9131018b11f928fd}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!rotate\_now@{rotate\_now}}
+\index{rotate\_now@{rotate\_now}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{rotate\_now()}{rotate\_now()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_a4d1318a2956dea9c9131018b11f928fd} 
+template$<$typename Mutex$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::rotate\+\_\+now (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_aa5b0ca5cc28a7b69b2acd40ba5e9ed60}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!rotate\_now@{rotate\_now}}
+\index{rotate\_now@{rotate\_now}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{rotate\_now()}{rotate\_now()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_aa5b0ca5cc28a7b69b2acd40ba5e9ed60} 
+template$<$typename Mutex$>$ \\
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::rotate\+\_\+now (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_ac95a2bf67abba34979dcdf63be1914a8}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!set\_max\_files@{set\_max\_files}}
+\index{set\_max\_files@{set\_max\_files}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{set\_max\_files()}{set\_max\_files()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_ac95a2bf67abba34979dcdf63be1914a8} 
+template$<$typename Mutex$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::set\+\_\+max\+\_\+files (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{max\+\_\+files}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_a83454ddc97bad5499d1097b4b5e2d96c}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!set\_max\_files@{set\_max\_files}}
+\index{set\_max\_files@{set\_max\_files}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{set\_max\_files()}{set\_max\_files()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_a83454ddc97bad5499d1097b4b5e2d96c} 
+template$<$typename Mutex$>$ \\
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::set\+\_\+max\+\_\+files (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{max\+\_\+files}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_a82ebeecb510120a9d80eeca0e367f22f}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!set\_max\_size@{set\_max\_size}}
+\index{set\_max\_size@{set\_max\_size}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{set\_max\_size()}{set\_max\_size()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_a82ebeecb510120a9d80eeca0e367f22f} 
+template$<$typename Mutex$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::set\+\_\+max\+\_\+size (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{max\+\_\+size}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_a5f4da306a5ec658a153b35194f07f885}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!set\_max\_size@{set\_max\_size}}
+\index{set\_max\_size@{set\_max\_size}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{set\_max\_size()}{set\_max\_size()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_a5f4da306a5ec658a153b35194f07f885} 
+template$<$typename Mutex$>$ \\
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::set\+\_\+max\+\_\+size (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{max\+\_\+size}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_ac16afbf9b9a9bcfb1fae090151215e21}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!sink\_it\_@{sink\_it\_}}
+\index{sink\_it\_@{sink\_it\_}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{sink\_it\_()}{sink\_it\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_ac16afbf9b9a9bcfb1fae090151215e21} 
+template$<$typename Mutex$>$ \\
+\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\+\_\+\+INLINE}} void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::sink\+\_\+it\+\_\+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg}} \&}]{msg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_ad698d300cb7f5e58b2aa1b9907cdbd87}{spdlog\+::sinks\+::base\+\_\+sink$<$ Mutex $>$}}.
+
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_a3cf93e445ad92380c7d352f971cd76a4}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!sink\_it\_@{sink\_it\_}}
+\index{sink\_it\_@{sink\_it\_}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{sink\_it\_()}{sink\_it\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_a3cf93e445ad92380c7d352f971cd76a4} 
+template$<$typename Mutex$>$ \\
+void \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::sink\+\_\+it\+\_\+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg}} \&}]{msg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_ad698d300cb7f5e58b2aa1b9907cdbd87}{spdlog\+::sinks\+::base\+\_\+sink$<$ Mutex $>$}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classspdlog_1_1sinks_1_1rotating__file__sink_aac363ecbbbe072661d33e67fba1c6b8d}\index{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}!MaxFiles@{MaxFiles}}
+\index{MaxFiles@{MaxFiles}!spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$@{spdlog::sinks::rotating\_file\_sink$<$ Mutex $>$}}
+\doxysubsubsection{\texorpdfstring{MaxFiles}{MaxFiles}}
+{\footnotesize\ttfamily \label{classspdlog_1_1sinks_1_1rotating__file__sink_aac363ecbbbe072661d33e67fba1c6b8d} 
+template$<$typename Mutex$>$ \\
+constexpr size\+\_\+t \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink}{spdlog\+::sinks\+::rotating\+\_\+file\+\_\+sink}}$<$ Mutex $>$\+::\+Max\+Files = 200000\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/vendor/include/spdlog/sinks/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2sinks_2rotating__file__sink_8h}{rotating\+\_\+file\+\_\+sink.\+h}}\item 
+src/vendor/spdlog/include/spdlog/sinks/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2sinks_2rotating__file__sink_8h}{rotating\+\_\+file\+\_\+sink.\+h}}\item 
+src/calgine/vendor/include/spdlog/sinks/\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2sinks_2rotating__file__sink-inl_8h}{rotating\+\_\+file\+\_\+sink-\/inl.\+h}}\item 
+src/vendor/spdlog/include/spdlog/sinks/\mbox{\hyperlink{vendor_2spdlog_2include_2spdlog_2sinks_2rotating__file__sink-inl_8h}{rotating\+\_\+file\+\_\+sink-\/inl.\+h}}\end{DoxyCompactItemize}

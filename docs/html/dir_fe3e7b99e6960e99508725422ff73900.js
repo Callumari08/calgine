@@ -8,6 +8,8 @@ var dir_fe3e7b99e6960e99508725422ff73900 =
     [ "behaviour.h", "behaviour_8h.html", "behaviour_8h" ],
     [ "game_object.cxx", "game__object_8cxx.html", null ],
     [ "game_object.h", "game__object_8h.html", "game__object_8h" ],
+    [ "log.cxx", "log_8cxx.html", null ],
+    [ "log.h", "log_8h.html", "log_8h" ],
     [ "useful_funcs.cxx", "useful__funcs_8cxx.html", null ],
     [ "useful_funcs.h", "useful__funcs_8h.html", "useful__funcs_8h" ]
 ];
