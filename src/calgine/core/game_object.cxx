@@ -3,7 +3,7 @@
 
 namespace Calgine {
 
-u_int32_t GameObject::num_game_objects = 0;
+uint32_t GameObject::num_game_objects = 0;
 
 GameObject::GameObject(GameObject* _parent) : parent(_parent) 
 {

@@ -10,6 +10,10 @@ set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
 set(CMAKE_C_VISIBILITY_PRESET hidden)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
+# ---- Options for using system libs or vendoring ----
+option(USE_SYSTEM_SPDLOG "If ON, try to use a system-installed spdlog via find_package(spdlog). If not found, fall back to vendoring." OFF)
+option(USE_SYSTEM_SDL3  "If ON, try to use a system-installed SDL3 via find_package(SDL3). If not found, fall back to vendoring." OFF)
+
 include(FetchContent)
 
 # ---- Fetch glad (glad2) ----
@@ -18,17 +22,9 @@ FetchContent_Declare(
     GIT_REPOSITORY https://github.com/Dav1dde/glad.git
     GIT_TAG v2.0.6
 )
-
-# ---- Fetch eventpp (c++ event system) ----
-FetchContent_Declare(
-    eventpp
-    GIT_REPOSITORY https://github.com/wqking/eventpp
-    GIT_TAG        d2db8af2a46c79f8dc75759019fba487948e9442 # v0.1.3
-)
-
 FetchContent_MakeAvailable(glad)
-FetchContent_MakeAvailable(eventpp)
 
+# If the glad helper macros are not installed by FetchContent, add the cmake subdir directly
 if(NOT COMMAND glad_add_library)
     add_subdirectory(${glad_SOURCE_DIR}/cmake ${glad_BINARY_DIR}/glad_cmake EXCLUDE_FROM_ALL)
 endif()
@@ -39,14 +35,77 @@ glad_add_library(glad
     API gl:core=4.6
 )
 
-# ---- Dependencies ----
+# ---- Fetch eventpp (c++ event system) ----
+FetchContent_Declare(
+    eventpp
+    GIT_REPOSITORY https://github.com/wqking/eventpp
+    # pinned commit to avoid surprises
+    GIT_TAG d2db8af2a46c79f8dc75759019fba487948e9442
+)
+FetchContent_MakeAvailable(eventpp)
 
-if(NOT TARGET spdlog)
-    # Stand-alone build
-    find_package(spdlog REQUIRED)
+# ---- spdlog: prefer system if requested, otherwise use vendored submodule or FetchContent ----
+if(USE_SYSTEM_SPDLOG)
+    find_package(spdlog CONFIG QUIET)
 endif()
+
+if(NOT TARGET spdlog::spdlog)
+    # If repo contains a vendor copy (submodule) use it, otherwise fetch it
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/spdlog/CMakeLists.txt")
+        # Use the vendored submodule
+        set(SPDLOG_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+        set(SPDLOG_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+        set(SPDLOG_BUILD_BENCH OFF CACHE BOOL "" FORCE)
+        add_subdirectory(src/vendor/spdlog)
+    else()
+        # Fetch from upstream (tag can be changed)
+        set(SPDLOG_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+        set(SPDLOG_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+        set(SPDLOG_BUILD_BENCH OFF CACHE BOOL "" FORCE)
+        FetchContent_Declare(
+            spdlog
+            GIT_REPOSITORY https://github.com/gabime/spdlog.git
+            GIT_TAG v1.12.0
+        )
+        FetchContent_MakeAvailable(spdlog)
+    endif()
+endif()
+
+# ---- SDL3: prefer system if requested, otherwise fetch via FetchContent ----
+if(USE_SYSTEM_SDL3)
+    find_package(SDL3 CONFIG QUIET)
+endif()
+
+if(NOT TARGET SDL3::SDL3)
+    # If you have a submodule copy in src/vendor/SDL or src/vendor/SDL3, prefer that:
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/SDL/CMakeLists.txt" OR EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/SDL3/CMakeLists.txt")
+        # Some repos keep SDL in src/vendor/SDL; adjust if necessary
+        set(SDL_TEST OFF CACHE BOOL "" FORCE)
+        set(SDL_TESTS OFF CACHE BOOL "" FORCE)
+        set(SDL_EXAMPLES OFF CACHE BOOL "" FORCE)
+        if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/vendor/SDL/CMakeLists.txt")
+            add_subdirectory(src/vendor/SDL)
+        else()
+            add_subdirectory(src/vendor/SDL3)
+        endif()
+    else()
+        # Fetch the official SDL repo (use a release tag appropriate to your needs)
+        set(SDL_TEST OFF CACHE BOOL "" FORCE)
+        set(SDL_TESTS OFF CACHE BOOL "" FORCE)
+        set(SDL_EXAMPLES OFF CACHE BOOL "" FORCE)
+        FetchContent_Declare(
+            SDL3
+            GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+            GIT_TAG release-3.2.0
+        )
+        FetchContent_MakeAvailable(SDL3)
+    endif()
+endif()
+
+# ---- OpenGL ----
+# Keep OpenGL as a find_package since OpenGL is typically provided by the system/driver.
+# Most systems provide an OpenGL config and the imported target OpenGL::GL
 find_package(OpenGL REQUIRED)
-find_package(SDL3 CONFIG REQUIRED)
 
 # ---- C++ Standard ----
 set(CMAKE_CXX_STANDARD 20)
@@ -62,14 +121,22 @@ file(GLOB_RECURSE CALGINE_SOURCES CONFIGURE_DEPENDS src/*.cxx)
 
 add_library(Calgine SHARED ${CALGINE_SOURCES})
 
+# Remove "lib" prefix
+set_target_properties(Calgine PROPERTIES
+    PREFIX ""
+)
+
 target_compile_definitions(Calgine PRIVATE CALGINE_EXPORTS)
 
+# Link libraries. spdlog::spdlog and SDL3::SDL3 will exist either because the system provided them
+# or because we added them via add_subdirectory/FetchContent above.
 target_link_libraries(Calgine
     PUBLIC
         glad
         OpenGL::GL
         SDL3::SDL3
-        spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>
+        spdlog::spdlog
+        $<$<BOOL:${MINGW}>:ws2_32>
         eventpp
     PRIVATE
         project_warnings
@@ -80,6 +147,7 @@ target_include_directories(Calgine
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
+# Precompiled headers (keep as in original)
 target_precompile_headers(Calgine PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/calgine_pch.h)
 
 # ---- Documentation (Doxygen) ----
@@ -94,4 +162,20 @@ if(DOXYGEN_FOUND)
     )
 else()
     message(STATUS "Doxygen not found — 'docs' target will be unavailable")
+endif()
+
+# ---- Helpful messages / diagnostics ----
+message(STATUS "CMake generator: ${CMAKE_GENERATOR}")
+message(STATUS "CMake build type: ${CMAKE_BUILD_TYPE}")
+message(STATUS "Using system spdlog: ${USE_SYSTEM_SPDLOG}")
+message(STATUS "Using system SDL3:  ${USE_SYSTEM_SDL3}")
+if(TARGET spdlog::spdlog)
+    message(STATUS "spdlog target available.")
+else()
+    message(WARNING "spdlog target NOT available. Build will likely fail.")
+endif()
+if(TARGET SDL3::SDL3)
+    message(STATUS "SDL3 target available.")
+else()
+    message(WARNING "SDL3 target NOT available. Build will likely fail.")
 endif()

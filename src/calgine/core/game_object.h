@@ -22,7 +22,7 @@ class CALGINE_API GameObject
 {
 private:
   // use for debugging purpouses only
-  static u_int32_t num_game_objects;
+  static uint32_t num_game_objects;
 
   bool destroyed = false;
 
