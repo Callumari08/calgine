@@ -36,7 +36,7 @@ void App::main_loop()
   while (running) 
   {
     SDL_Event event;
-    while (SDL_PollEvent(&event)) 
+    while (SDL_WaitEvent(&event)) 
     {
       if (event.type == SDL_EVENT_QUIT)
       {

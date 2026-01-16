@@ -5,6 +5,8 @@
 #include <string>
 #include "calgine_api.h"
 
+
+// DEMANDS A REWRITE IMMEDIATELY
 namespace Calgine {
 
 // could include different types of Vsync buffers here
