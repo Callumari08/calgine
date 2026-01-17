@@ -16,7 +16,8 @@ enum TickType
 };
 
 /**
- * @brief GameObjects are objects within the @link Heirarchy @endlink that have multiple @link Behaviour @endlink subclasses attched to them which execute code.
+ * @brief GameObjects are objects within the @link Heirarchy @endlink that have multiple @link Behaviour @endlink 
+ * subclasses attched to them which execute code.
  */
 class CALGINE_API GameObject
 {

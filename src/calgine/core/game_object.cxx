@@ -106,7 +106,6 @@ void GameObject::tick_self_and_children(TickType tick_type)
       case TickType::late_update: 
         behaviour->late_tick();
         break;
-      // We call start_tick last because awake is only called once, which skips a check every frame, except for the first.
       case TickType::preloop:
         behaviour->preloop_tick();
         break;

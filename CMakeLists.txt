@@ -161,6 +161,7 @@ target_link_libraries(Calgine
         $<$<BOOL:${MINGW}>:ws2_32>
         eventpp
         imgui
+        $<$<BOOL:${ENABLE_ASAN}>:asan_flags>
     PRIVATE
         project_warnings
 )
