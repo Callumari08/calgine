@@ -80,7 +80,7 @@ void App::render_windows()
 {
   for (auto& window : WindowHandler::get_instance()->get_windows())
   {
-    if (!window || window->should_close())
+    if (window->should_close())
       continue;
 
     SDL_GL_MakeCurrent(window->raw(), window->get_context());
