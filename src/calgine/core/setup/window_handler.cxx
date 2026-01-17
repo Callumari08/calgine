@@ -24,7 +24,7 @@ Window* WindowHandler::get_window(Uint32 id)
     if (window->get_id() == id)
       return window.get();
   }
-  throw std::runtime_error(std::format("Could not get window from id of: {}", id));
+  return nullptr;
 }
 
 void WindowHandler::cleanup_closed_windows()

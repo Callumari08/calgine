@@ -31,8 +31,11 @@ namespace Calgine {
 
   Window::~Window()
   {
-    SDL_GL_DestroyContext(gl_context);
-    SDL_DestroyWindow(sdl_window);
+    if (gl_context)
+      SDL_GL_DestroyContext(gl_context);
+    
+    if (sdl_window)
+      SDL_DestroyWindow(sdl_window);
   }
 
   void Window::request_close() 
@@ -57,7 +60,7 @@ namespace Calgine {
 
   Uint32 Window::get_id() const
   {
-    return SDL_GetWindowID(sdl_window);
+    return id;
   }
 
   int Window::width() const
@@ -74,7 +77,7 @@ namespace Calgine {
     return height;
   }
 
-  void Window::set_window_title(std::string& title)
+  void Window::set_window_title(const std::string& title)
   {
     SDL_SetWindowTitle(sdl_window, title.c_str());
   }

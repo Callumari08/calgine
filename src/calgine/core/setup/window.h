@@ -2,11 +2,8 @@
 
 #include <calgine_pch.h>
 #include "SDL3/SDL_stdinc.h"
-#include "calgine/core/setup/window_handler.h"
 #include "calgine_api.h"
 #include <SDL3/SDL_video.h>
-#include <cstddef>
-#include <sys/types.h>
 
 // WindowHandler should own all Windows (but I won't force it to here)
 
@@ -20,19 +17,18 @@ enum VsyncState
 };
 
 /**
- * @brief Window wrappper that abstracts SDL_Window from the application
+ * @brief Window wrapper that abstracts SDL_Window from the application
  */
 class CALGINE_API Window
 {
 #define DEFAULT_WINDOW_WIDTH 1600
-#define DEFAULT_WINDOW_HEIGHT 120
-#define MAX_TITLE_LENGTH 128
+#define DEFAULT_WINDOW_HEIGHT 900
 private:
   Uint32 id;
   bool close_requested = false;
 
-  SDL_Window* sdl_window;
-  SDL_GLContext gl_context;
+  SDL_Window* sdl_window = nullptr;
+  SDL_GLContext gl_context = nullptr;
 
   VsyncState vsync_state;
   
@@ -44,8 +40,8 @@ public:
   Window(const Window&) = delete;
   Window& operator=(const Window&) = delete;
 
-  Window(Window&&) noexcept;
-  Window& operator=(Window&&) noexcept;
+  Window(Window&&) noexcept = delete;
+  Window& operator=(Window&&) noexcept = delete;
 
   void request_close();
   bool should_close() const;
@@ -58,13 +54,11 @@ public:
   int width() const;
   int height() const;
 
-  void set_window_title(std::string& title);
+  void set_window_title(const std::string& title);
   std::string get_window_title() const;
 
   void set_vsync_state(VsyncState state);
-  VsyncState get_vsync_state();
-
-  size_t get_index() const;
+  VsyncState get_vsync_state() const;
 };
 
 }
