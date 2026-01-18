@@ -37,10 +37,10 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
       
-      - name: Commit documentation
+      - name: Commit and push documentation
         run: |
           git add docs/
-          git diff --staged --quiet || git commit -m "Update documentation"
-      
-      - name: Push changes
-        run: git push
+          if ! git diff --staged --quiet; then
+            git commit -m "Update documentation"
+            git push
+          fi
