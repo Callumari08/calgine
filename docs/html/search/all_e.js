@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['throw_5fsdl_5ferror_0',['throw_sdl_error',['../namespaceCalgine.html#a08cd20732442ef95f7ad6e630cf09e48',1,'Calgine']]],
-  ['tick_5fself_5fand_5fchildren_1',['tick_self_and_children',['../classCalgine_1_1GameObject.html#a6fe6259db00341689a2a17adb77c5d11',1,'Calgine::GameObject']]],
-  ['ticktype_2',['TickType',['../namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861',1,'Calgine']]]
+  ['raw_0',['raw',['../classCalgine_1_1Window.html#a56fa8c87faf7554e19965e5628e09f35',1,'Calgine::Window']]],
+  ['remove_5fchild_5fimmediate_1',['remove_child_immediate',['../classCalgine_1_1GameObject.html#a555c05fea69e691b93159506455d7ea7',1,'Calgine::GameObject']]],
+  ['request_5fclose_2',['request_close',['../classCalgine_1_1Window.html#ab526e6c21c5ad965acf3f370413972ac',1,'Calgine::Window']]],
+  ['rootgameobject_3',['rootgameobject',['../classCalgine_1_1RootGameObject.html',1,'Calgine::RootGameObject'],['../classCalgine_1_1RootGameObject.html#a3d50f23901739f6464c141b387d1f754',1,'Calgine::RootGameObject::RootGameObject()']]]
 ];

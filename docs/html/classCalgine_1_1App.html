@@ -126,7 +126,7 @@ Public Attributes</h2></td></tr>
 <li>Main loop execution with tick updates (preloop, update, late_update)</li>
 <li>SDL event processing (window close, quit events)</li>
 <li>Rendering for all active windows</li>
-<li><a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> hierarchy lifecycle management</li>
+<li><a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> hierarchy lifecycle management</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md0"></a>
 Configuration</h2>
@@ -140,7 +140,7 @@ Basic Usage</h2>
 <li>Create an <a class="el" href="classCalgine_1_1App.html" title="Base class for all Calgine applications.">App</a> instance (or derive from <a class="el" href="classCalgine_1_1App.html" title="Base class for all Calgine applications.">App</a> for custom functionality)</li>
 <li>Configure app settings (optional)</li>
 <li>Call <a class="el" href="classCalgine_1_1App.html#a52ea702157554748e98b84dc0132e39f" title="Initializes all required systems (SDL3, OpenGL, logging).">systems_init()</a> to initialize SDL, OpenGL, and create windows</li>
-<li>Set up your <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> hierarchy and attach <a class="el" href="classCalgine_1_1Behaviour.html" title="Gives access to tick updates for users.">Behaviour</a> components</li>
+<li>Set up your <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> hierarchy and attach <a class="el" href="classCalgine_1_1Behaviour.html" title="Base class for all behaviour components that can be attached to GameObjects.">Behaviour</a> components</li>
 <li>Call <a class="el" href="classCalgine_1_1App.html#a25b8f54a7509d91d9a577d85568c31b7" title="Runs the main application loop until all windows are closed.">main_loop()</a> to start the application</li>
 </ol>
 <div class="fragment"><div class="line"><span class="keyword">class </span>MyBehaviour : <span class="keyword">public</span> <a class="code hl_class" href="classCalgine_1_1Behaviour.html">Calgine::Behaviour</a></div>
@@ -182,11 +182,11 @@ Basic Usage</h2>
 <div class="ttc" id="aclassCalgine_1_1App_html_a25b8f54a7509d91d9a577d85568c31b7"><div class="ttname"><a href="classCalgine_1_1App.html#a25b8f54a7509d91d9a577d85568c31b7">Calgine::App::main_loop</a></div><div class="ttdeci">void main_loop()</div><div class="ttdoc">Runs the main application loop until all windows are closed.</div><div class="ttdef"><b>Definition</b> app.cxx:21</div></div>
 <div class="ttc" id="aclassCalgine_1_1App_html_a52ea702157554748e98b84dc0132e39f"><div class="ttname"><a href="classCalgine_1_1App.html#a52ea702157554748e98b84dc0132e39f">Calgine::App::systems_init</a></div><div class="ttdeci">void systems_init()</div><div class="ttdoc">Initializes all required systems (SDL3, OpenGL, logging).</div><div class="ttdef"><b>Definition</b> app.cxx:98</div></div>
 <div class="ttc" id="aclassCalgine_1_1App_html_aadb538d7a6dc9bc64243027c16dab9b8"><div class="ttname"><a href="classCalgine_1_1App.html#aadb538d7a6dc9bc64243027c16dab9b8">Calgine::App::settings</a></div><div class="ttdeci">AppSettings settings</div><div class="ttdoc">Application configuration settings.</div><div class="ttdef"><b>Definition</b> app.h:121</div></div>
-<div class="ttc" id="aclassCalgine_1_1Behaviour_html"><div class="ttname"><a href="classCalgine_1_1Behaviour.html">Calgine::Behaviour</a></div><div class="ttdoc">Gives access to tick updates for users.</div><div class="ttdef"><b>Definition</b> behaviour.h:18</div></div>
-<div class="ttc" id="aclassCalgine_1_1GameObject_html"><div class="ttname"><a href="classCalgine_1_1GameObject.html">Calgine::GameObject</a></div><div class="ttdoc">GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...</div><div class="ttdef"><b>Definition</b> game_object.h:23</div></div>
-<div class="ttc" id="aclassCalgine_1_1GameObject_html_a37886ebc4875a4c1f89743273151a119"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a37886ebc4875a4c1f89743273151a119">Calgine::GameObject::add_behaviour</a></div><div class="ttdeci">bool add_behaviour()</div><div class="ttdef"><b>Definition</b> game_object.h:112</div></div>
-<div class="ttc" id="aclassCalgine_1_1GameObject_html_accf41615441ecc4f14ae550a1c3dba5f"><div class="ttname"><a href="classCalgine_1_1GameObject.html#accf41615441ecc4f14ae550a1c3dba5f">Calgine::GameObject::instantiate_child</a></div><div class="ttdeci">T &amp; instantiate_child(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> game_object.h:80</div></div>
-<div class="ttc" id="aclassCalgine_1_1GameObject_html_ad97d52f6b23dd654ff552b0a7b9f95f4"><div class="ttname"><a href="classCalgine_1_1GameObject.html#ad97d52f6b23dd654ff552b0a7b9f95f4">Calgine::GameObject::set_name</a></div><div class="ttdeci">void set_name(std::string _name)</div><div class="ttdef"><b>Definition</b> game_object.cxx:190</div></div>
+<div class="ttc" id="aclassCalgine_1_1Behaviour_html"><div class="ttname"><a href="classCalgine_1_1Behaviour.html">Calgine::Behaviour</a></div><div class="ttdoc">Base class for all behaviour components that can be attached to GameObjects.</div><div class="ttdef"><b>Definition</b> behaviour.h:79</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html"><div class="ttname"><a href="classCalgine_1_1GameObject.html">Calgine::GameObject</a></div><div class="ttdoc">GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...</div><div class="ttdef"><b>Definition</b> game_object.h:60</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_a37886ebc4875a4c1f89743273151a119"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a37886ebc4875a4c1f89743273151a119">Calgine::GameObject::add_behaviour</a></div><div class="ttdeci">bool add_behaviour()</div><div class="ttdoc">Adds a new behaviour component to this GameObject.</div><div class="ttdef"><b>Definition</b> game_object.h:357</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_accf41615441ecc4f14ae550a1c3dba5f"><div class="ttname"><a href="classCalgine_1_1GameObject.html#accf41615441ecc4f14ae550a1c3dba5f">Calgine::GameObject::instantiate_child</a></div><div class="ttdeci">T &amp; instantiate_child(Args &amp;&amp;... args)</div><div class="ttdoc">Creates and instantiates a new child GameObject.</div><div class="ttdef"><b>Definition</b> game_object.h:270</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_ad97d52f6b23dd654ff552b0a7b9f95f4"><div class="ttname"><a href="classCalgine_1_1GameObject.html#ad97d52f6b23dd654ff552b0a7b9f95f4">Calgine::GameObject::set_name</a></div><div class="ttdeci">void set_name(std::string _name)</div><div class="ttdoc">Sets the debug name of this GameObject.</div><div class="ttdef"><b>Definition</b> game_object.cxx:190</div></div>
 <div class="ttc" id="aclassCalgine_1_1Hierarchy_html"><div class="ttname"><a href="classCalgine_1_1Hierarchy.html">Calgine::Hierarchy</a></div><div class="ttdef"><b>Definition</b> hierarchy_manager.h:21</div></div>
 <div class="ttc" id="aclassCalgine_1_1Hierarchy_html_a477844c026bb6e261bcccd687a2ea337"><div class="ttname"><a href="classCalgine_1_1Hierarchy.html#a477844c026bb6e261bcccd687a2ea337">Calgine::Hierarchy::get_instance</a></div><div class="ttdeci">static Hierarchy &amp; get_instance()</div><div class="ttdef"><b>Definition</b> hierarchy_manager.cxx:10</div></div>
 <div class="ttc" id="aclassCalgine_1_1Hierarchy_html_adfeead1113ce9ba920abfb124fe175ed"><div class="ttname"><a href="classCalgine_1_1Hierarchy.html#adfeead1113ce9ba920abfb124fe175ed">Calgine::Hierarchy::get_hierarchy_root</a></div><div class="ttdeci">GameObject &amp; get_hierarchy_root()</div><div class="ttdef"><b>Definition</b> hierarchy_manager.cxx:18</div></div>
@@ -195,11 +195,11 @@ Basic Usage</h2>
 <div class="ttc" id="astructCalgine_1_1AppSettings_html_ad560a2429bdcab617e286e5af9bf67c3"><div class="ttname"><a href="structCalgine_1_1AppSettings.html#ad560a2429bdcab617e286e5af9bf67c3">Calgine::AppSettings::default_vsync_state</a></div><div class="ttdeci">VsyncState default_vsync_state</div><div class="ttdoc">The default VSync state for windows. Can be enabled, disabled, or adaptive.</div><div class="ttdef"><b>Definition</b> app.h:23</div></div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="structCalgine_1_1AppSettings.html" title="Configuration settings for a Calgine application.">AppSettings</a> for application configuration options </dd>
 <dd>
-<a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> for information about the scene hierarchy </dd>
+<a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> for information about the scene hierarchy </dd>
 <dd>
-<a class="el" href="classCalgine_1_1Behaviour.html" title="Gives access to tick updates for users.">Behaviour</a> for creating game logic components </dd>
+<a class="el" href="classCalgine_1_1Behaviour.html" title="Base class for all behaviour components that can be attached to GameObjects.">Behaviour</a> for creating game logic components </dd>
 <dd>
-<a class="el" href="classCalgine_1_1Hierarchy.html">Hierarchy</a> for accessing the root <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> </dd></dl>
+<a class="el" href="classCalgine_1_1Hierarchy.html">Hierarchy</a> for accessing the root <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a25b8f54a7509d91d9a577d85568c31b7" name="a25b8f54a7509d91d9a577d85568c31b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a25b8f54a7509d91d9a577d85568c31b7">&#9670;&#160;</a></span>main_loop()</h2>
@@ -222,11 +222,11 @@ Basic Usage</h2>
 <li>Calls update_tick() on all Behaviours attached to GameObjects</li>
 <li>Calls late_tick() on all Behaviours attached to GameObjects</li>
 <li>Renders all active windows</li>
-<li>Processes pending <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> deletions</li>
+<li>Processes pending <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> deletions</li>
 <li>Cleans up closed windows</li>
 </ol>
 <p>The loop continues until either SDL_EVENT_QUIT is received or all windows have been closed.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCalgine_1_1GameObject.html#a6fe6259db00341689a2a17adb77c5d11">GameObject::tick_self_and_children()</a> for how tick methods are propagated through the hierarchy </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCalgine_1_1GameObject.html#a6fe6259db00341689a2a17adb77c5d11" title="Executes tick updates on this GameObject and all its children.">GameObject::tick_self_and_children()</a> for how tick methods are propagated through the hierarchy </dd></dl>
 
 </div>
 </div>
