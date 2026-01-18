@@ -107,7 +107,7 @@ public:
    * @brief Runs the main application loop until all windows are closed.
    * 
    * The main loop executes the following steps each frame:
-   * 1. Calls preloop_tick() on all GameObjects (only before first iteration)
+   * 1. Calls preloop_tick() on all GameObjects once (before the first iteration only)
    * 2. Processes SDL events (window close, quit, etc.)
    * 3. Calls update_tick() on all GameObjects in the hierarchy
    * 4. Calls late_tick() on all GameObjects
