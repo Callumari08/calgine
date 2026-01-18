@@ -1,39 +1,39 @@
 \doxysection{window\+\_\+handler.\+h}
 \hypertarget{window__handler_8h_source}{}\label{window__handler_8h_source}\index{src/calgine/core/setup/window\_handler.h@{src/calgine/core/setup/window\_handler.h}}
-\doxymbox{\hyperlink{window__handler_8h}{Go to the documentation of this file.}}
+\mbox{\hyperlink{window__handler_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}SDL3/SDL\_stdinc.h"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{window_8h}{window.h}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{window_8h}{window.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
-\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCalgine_1_1Window}{Window}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }Window;}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ WindowHandler\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1WindowHandler}{WindowHandler}}\ }
 \DoxyCodeLine{00024\ \{}
 \DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00026\ \ \ std::vector<std::unique\_ptr<Window>>\ windows;}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ WindowHandler()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{classCalgine_1_1WindowHandler}{WindowHandler}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00029\ }
 \DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00031\ \ \ \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_a50d3de3e0a5006a9ac0354adf18a6f77}{WindowHandler}}(\textcolor{keyword}{const}\ WindowHandler\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00032\ \ \ WindowHandler\&\ \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_a3bf8daede725665edd93a223f9b5c441}{operator=}}(\textcolor{keyword}{const}\ WindowHandler\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{classCalgine_1_1WindowHandler_a50d3de3e0a5006a9ac0354adf18a6f77}{WindowHandler}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1WindowHandler}{WindowHandler}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{classCalgine_1_1WindowHandler}{WindowHandler}}\&\ \mbox{\hyperlink{classCalgine_1_1WindowHandler_a3bf8daede725665edd93a223f9b5c441}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1WindowHandler}{WindowHandler}}\&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{static}\ WindowHandler*\ \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_adb55f8b573d44f71278f65f6953501e5}{get\_instance}}();}
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1WindowHandler}{WindowHandler}}*\ get\_instance();}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00046\ \ \ std::vector<std::unique\_ptr<Window>>\&\ \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_a7f81bd9dba723921499e0fb71e1ed23c}{get\_windows}}();}
+\DoxyCodeLine{00046\ \ \ std::vector<std::unique\_ptr<Window>>\&\ get\_windows();}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00054\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Window}{Window}}*\ \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_aa9a52687bdc4a26ca589674add2d14b8}{get\_window}}(Uint32\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00054\ \ \ \mbox{\hyperlink{classCalgine_1_1Window}{Window}}*\ get\_window(Uint32\ \textcolor{keywordtype}{id});}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_aef84b19d8dedf0ee870e748d5dba01ff}{cleanup\_closed\_windows}}();}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ cleanup\_closed\_windows();}
 \DoxyCodeLine{00065\ }
 \DoxyCodeLine{00078\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00079\ \ \ std::unique\_ptr<Window>\&\ \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_ab0de7b643f6a5b09ba0000fef0a3987b}{emplace\_new\_window}}(Args\&\&...\ args)}
+\DoxyCodeLine{00079\ \ \ std::unique\_ptr<Window>\&\ \mbox{\hyperlink{classCalgine_1_1WindowHandler_ab0de7b643f6a5b09ba0000fef0a3987b}{emplace\_new\_window}}(Args\&\&...\ args)}
 \DoxyCodeLine{00080\ \ \ \{}
 \DoxyCodeLine{00081\ \ \ \ \ windows.emplace\_back(}
 \DoxyCodeLine{00082\ \ \ \ \ \ \ std::make\_unique<Window>(std::forward<Args>(args)...)}

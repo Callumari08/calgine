@@ -1,4 +1,4 @@
-\doxysection{Calgine::\+Window\+Handler Class Reference}
+\doxysection{Calgine\+::Window\+Handler Class Reference}
 \hypertarget{classCalgine_1_1WindowHandler}{}\label{classCalgine_1_1WindowHandler}\index{Calgine::WindowHandler@{Calgine::WindowHandler}}
 
 
@@ -7,27 +7,27 @@ Singleton manager for all application windows.
 
 
 
-{\ttfamily \+\#include $<$window\+\_\+handler.\+h$>$}
+{\ttfamily \#include $<$window\+\_\+handler.\+h$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{classCalgine_1_1WindowHandler_a50d3de3e0a5006a9ac0354adf18a6f77}{Window\+Handler}} (const Window\+Handler \&)=delete
+\mbox{\hyperlink{classCalgine_1_1WindowHandler_a50d3de3e0a5006a9ac0354adf18a6f77}{Window\+Handler}} (const \mbox{\hyperlink{classCalgine_1_1WindowHandler}{Window\+Handler}} \&)=delete
 \item 
-Window\+Handler \& \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_a3bf8daede725665edd93a223f9b5c441}{operator=}} (const Window\+Handler \&)=delete
+\mbox{\hyperlink{classCalgine_1_1WindowHandler}{Window\+Handler}} \& \mbox{\hyperlink{classCalgine_1_1WindowHandler_a3bf8daede725665edd93a223f9b5c441}{operator=}} (const \mbox{\hyperlink{classCalgine_1_1WindowHandler}{Window\+Handler}} \&)=delete
 \item 
-std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classCalgine_1_1Window}{Window}} $>$ $>$ \& \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_a7f81bd9dba723921499e0fb71e1ed23c}{get\+\_\+windows}} ()
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Window}{Window}} $>$ $>$ \& \mbox{\hyperlink{classCalgine_1_1WindowHandler_a7f81bd9dba723921499e0fb71e1ed23c}{get\+\_\+windows}} ()
 \begin{DoxyCompactList}\small\item\em Get a reference to the vector of all managed windows. \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{classCalgine_1_1Window}{Window}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_aa9a52687bdc4a26ca589674add2d14b8}{get\+\_\+window}} (Uint32 id)
+\mbox{\hyperlink{classCalgine_1_1Window}{Window}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1WindowHandler_aa9a52687bdc4a26ca589674add2d14b8}{get\+\_\+window}} (Uint32 id)
 \begin{DoxyCompactList}\small\item\em Retrieve a window by its SDL window ID. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_aef84b19d8dedf0ee870e748d5dba01ff}{cleanup\+\_\+closed\+\_\+windows}} ()
+void \mbox{\hyperlink{classCalgine_1_1WindowHandler_aef84b19d8dedf0ee870e748d5dba01ff}{cleanup\+\_\+closed\+\_\+windows}} ()
 \begin{DoxyCompactList}\small\item\em Remove all windows that have been marked for closure. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename... Args$>$ }\\std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classCalgine_1_1Window}{Window}} $>$ \& \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_ab0de7b643f6a5b09ba0000fef0a3987b}{emplace\+\_\+new\+\_\+window}} (Args \&\&... args)
+{\footnotesize template$<$typename... Args$>$ }\\std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Window}{Window}} $>$ \& \mbox{\hyperlink{classCalgine_1_1WindowHandler_ab0de7b643f6a5b09ba0000fef0a3987b}{emplace\+\_\+new\+\_\+window}} (Args \&\&... args)
 \begin{DoxyCompactList}\small\item\em Create and add a new window to the handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static Window\+Handler \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalgine_1_1WindowHandler_adb55f8b573d44f71278f65f6953501e5}{get\+\_\+instance}} ()
+static \mbox{\hyperlink{classCalgine_1_1WindowHandler}{Window\+Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1WindowHandler_adb55f8b573d44f71278f65f6953501e5}{get\+\_\+instance}} ()
 \begin{DoxyCompactList}\small\item\em Get the singleton instance of \doxylink{classCalgine_1_1WindowHandler}{Window\+Handler}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -38,36 +38,32 @@ Singleton manager for all application windows.
 
 Windows are stored as unique\+\_\+ptr instances, with the \doxylink{classCalgine_1_1WindowHandler}{Window\+Handler} maintaining sole ownership of all managed windows. 
 
-\label{doc-constructors}
-\Hypertarget{classCalgine_1_1WindowHandler_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classCalgine_1_1WindowHandler_a50d3de3e0a5006a9ac0354adf18a6f77}\index{Calgine::WindowHandler@{Calgine::WindowHandler}!WindowHandler@{WindowHandler}}
+\Hypertarget{classCalgine_1_1WindowHandler_a50d3de3e0a5006a9ac0354adf18a6f77}\label{classCalgine_1_1WindowHandler_a50d3de3e0a5006a9ac0354adf18a6f77} 
+\index{Calgine::WindowHandler@{Calgine::WindowHandler}!WindowHandler@{WindowHandler}}
 \index{WindowHandler@{WindowHandler}!Calgine::WindowHandler@{Calgine::WindowHandler}}
 \doxysubsubsection{\texorpdfstring{WindowHandler()}{WindowHandler()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1WindowHandler_a50d3de3e0a5006a9ac0354adf18a6f77} 
-Calgine::\+\+Window\+Handler::\+\+Window\+Handler (\begin{DoxyParamCaption}\item[{const Window\+Handler \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+{\footnotesize\ttfamily Calgine\+::\+Window\+Handler\+::\+Window\+Handler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCalgine_1_1WindowHandler}{Window\+Handler}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
 
 
-\label{doc-func-members}
-\Hypertarget{classCalgine_1_1WindowHandler_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classCalgine_1_1WindowHandler_aef84b19d8dedf0ee870e748d5dba01ff}\index{Calgine::WindowHandler@{Calgine::WindowHandler}!cleanup\_closed\_windows@{cleanup\_closed\_windows}}
+\Hypertarget{classCalgine_1_1WindowHandler_aef84b19d8dedf0ee870e748d5dba01ff}\label{classCalgine_1_1WindowHandler_aef84b19d8dedf0ee870e748d5dba01ff} 
+\index{Calgine::WindowHandler@{Calgine::WindowHandler}!cleanup\_closed\_windows@{cleanup\_closed\_windows}}
 \index{cleanup\_closed\_windows@{cleanup\_closed\_windows}!Calgine::WindowHandler@{Calgine::WindowHandler}}
 \doxysubsubsection{\texorpdfstring{cleanup\_closed\_windows()}{cleanup\_closed\_windows()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1WindowHandler_aef84b19d8dedf0ee870e748d5dba01ff} 
-void Calgine::\+\+Window\+Handler::\+cleanup\+\_\+closed\+\_\+windows (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Calgine\+::\+Window\+Handler\+::cleanup\+\_\+closed\+\_\+windows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Remove all windows that have been marked for closure. 
 
-Iterates through all managed windows and removes those that have had request\+\_\+close() called on them. This frees the memory associated with closed windows. \Hypertarget{classCalgine_1_1WindowHandler_ab0de7b643f6a5b09ba0000fef0a3987b}\index{Calgine::WindowHandler@{Calgine::WindowHandler}!emplace\_new\_window@{emplace\_new\_window}}
+Iterates through all managed windows and removes those that have had request\+\_\+close() called on them. This frees the memory associated with closed windows. \Hypertarget{classCalgine_1_1WindowHandler_ab0de7b643f6a5b09ba0000fef0a3987b}\label{classCalgine_1_1WindowHandler_ab0de7b643f6a5b09ba0000fef0a3987b} 
+\index{Calgine::WindowHandler@{Calgine::WindowHandler}!emplace\_new\_window@{emplace\_new\_window}}
 \index{emplace\_new\_window@{emplace\_new\_window}!Calgine::WindowHandler@{Calgine::WindowHandler}}
 \doxysubsubsection{\texorpdfstring{emplace\_new\_window()}{emplace\_new\_window()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1WindowHandler_ab0de7b643f6a5b09ba0000fef0a3987b} 
-template$<$typename... Args$>$ \\
-std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classCalgine_1_1Window}{Window}} $>$ \& Calgine::\+\+Window\+Handler::\+emplace\+\_\+new\+\_\+window (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Window}{Window}} $>$ \& Calgine\+::\+Window\+Handler\+::emplace\+\_\+new\+\_\+window (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -84,13 +80,13 @@ Create and add a new window to the handler.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-std::\+unique\+\_\+ptr$<$\+Window$>$\& Reference to the newly created \doxylink{classCalgine_1_1Window}{Window}.
+std\+::unique\+\_\+ptr$<$\+Window$>$\& Reference to the newly created \doxylink{classCalgine_1_1Window}{Window}.
 \end{DoxyReturn}
-Creates a new \doxylink{classCalgine_1_1Window}{Window} instance using perfect forwarding of the provided arguments. The window is emplaced into the internal windows vector and ownership is managed by \doxylink{classCalgine_1_1WindowHandler}{Window\+Handler}. \Hypertarget{classCalgine_1_1WindowHandler_adb55f8b573d44f71278f65f6953501e5}\index{Calgine::WindowHandler@{Calgine::WindowHandler}!get\_instance@{get\_instance}}
+Creates a new \doxylink{classCalgine_1_1Window}{Window} instance using perfect forwarding of the provided arguments. The window is emplaced into the internal windows vector and ownership is managed by \doxylink{classCalgine_1_1WindowHandler}{Window\+Handler}. \Hypertarget{classCalgine_1_1WindowHandler_adb55f8b573d44f71278f65f6953501e5}\label{classCalgine_1_1WindowHandler_adb55f8b573d44f71278f65f6953501e5} 
+\index{Calgine::WindowHandler@{Calgine::WindowHandler}!get\_instance@{get\_instance}}
 \index{get\_instance@{get\_instance}!Calgine::WindowHandler@{Calgine::WindowHandler}}
 \doxysubsubsection{\texorpdfstring{get\_instance()}{get\_instance()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1WindowHandler_adb55f8b573d44f71278f65f6953501e5} 
-Window\+Handler \texorpdfstring{$\ast$}{*} Calgine::\+\+Window\+Handler::\+get\+\_\+instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1WindowHandler}{Window\+Handler}} \texorpdfstring{$\ast$}{*} Calgine\+::\+Window\+Handler\+::get\+\_\+instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -99,11 +95,11 @@ Get the singleton instance of \doxylink{classCalgine_1_1WindowHandler}{Window\+H
 \begin{DoxyReturn}{Returns}
 Window\+Handler\texorpdfstring{$\ast$}{*} Pointer to the singleton \doxylink{classCalgine_1_1WindowHandler}{Window\+Handler} instance. 
 \end{DoxyReturn}
-\Hypertarget{classCalgine_1_1WindowHandler_aa9a52687bdc4a26ca589674add2d14b8}\index{Calgine::WindowHandler@{Calgine::WindowHandler}!get\_window@{get\_window}}
+\Hypertarget{classCalgine_1_1WindowHandler_aa9a52687bdc4a26ca589674add2d14b8}\label{classCalgine_1_1WindowHandler_aa9a52687bdc4a26ca589674add2d14b8} 
+\index{Calgine::WindowHandler@{Calgine::WindowHandler}!get\_window@{get\_window}}
 \index{get\_window@{get\_window}!Calgine::WindowHandler@{Calgine::WindowHandler}}
 \doxysubsubsection{\texorpdfstring{get\_window()}{get\_window()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1WindowHandler_aa9a52687bdc4a26ca589674add2d14b8} 
-\doxymbox{\hyperlink{classCalgine_1_1Window}{Window}} \texorpdfstring{$\ast$}{*} Calgine::\+\+Window\+Handler::\+get\+\_\+window (\begin{DoxyParamCaption}\item[{Uint32}]{id}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1Window}{Window}} \texorpdfstring{$\ast$}{*} Calgine\+::\+Window\+Handler\+::get\+\_\+window (\begin{DoxyParamCaption}\item[{Uint32}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -117,28 +113,28 @@ Retrieve a window by its SDL window ID.
 \begin{DoxyReturn}{Returns}
 Window\texorpdfstring{$\ast$}{*} Pointer to the \doxylink{classCalgine_1_1Window}{Window} if found, nullptr otherwise. 
 \end{DoxyReturn}
-\Hypertarget{classCalgine_1_1WindowHandler_a7f81bd9dba723921499e0fb71e1ed23c}\index{Calgine::WindowHandler@{Calgine::WindowHandler}!get\_windows@{get\_windows}}
+\Hypertarget{classCalgine_1_1WindowHandler_a7f81bd9dba723921499e0fb71e1ed23c}\label{classCalgine_1_1WindowHandler_a7f81bd9dba723921499e0fb71e1ed23c} 
+\index{Calgine::WindowHandler@{Calgine::WindowHandler}!get\_windows@{get\_windows}}
 \index{get\_windows@{get\_windows}!Calgine::WindowHandler@{Calgine::WindowHandler}}
 \doxysubsubsection{\texorpdfstring{get\_windows()}{get\_windows()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1WindowHandler_a7f81bd9dba723921499e0fb71e1ed23c} 
-std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classCalgine_1_1Window}{Window}} $>$ $>$ \& Calgine::\+\+Window\+Handler::\+get\+\_\+windows (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Window}{Window}} $>$ $>$ \& Calgine\+::\+Window\+Handler\+::get\+\_\+windows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Get a reference to the vector of all managed windows. 
 
 \begin{DoxyReturn}{Returns}
-std::\+vector$<$std::\+unique\+\_\+ptr$<$\+Window$>$$>$\& Reference to the internal windows vector. 
+std\+::vector$<$std\+::unique\+\_\+ptr$<$\+Window$>$$>$\& Reference to the internal windows vector. 
 \end{DoxyReturn}
-\Hypertarget{classCalgine_1_1WindowHandler_a3bf8daede725665edd93a223f9b5c441}\index{Calgine::WindowHandler@{Calgine::WindowHandler}!operator=@{operator=}}
+\Hypertarget{classCalgine_1_1WindowHandler_a3bf8daede725665edd93a223f9b5c441}\label{classCalgine_1_1WindowHandler_a3bf8daede725665edd93a223f9b5c441} 
+\index{Calgine::WindowHandler@{Calgine::WindowHandler}!operator=@{operator=}}
 \index{operator=@{operator=}!Calgine::WindowHandler@{Calgine::WindowHandler}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1WindowHandler_a3bf8daede725665edd93a223f9b5c441} 
-Window\+Handler \& Calgine::\+\+Window\+Handler::\+operator= (\begin{DoxyParamCaption}\item[{const Window\+Handler \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1WindowHandler}{Window\+Handler}} \& Calgine\+::\+Window\+Handler\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCalgine_1_1WindowHandler}{Window\+Handler}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
 
 
-The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+calgine/\+core/\+setup/\+\doxymbox{\hyperlink{window__handler_8h}{window\+\_\+handler.\+h}}\item 
-src/\+calgine/\+core/\+setup/\+\doxymbox{\hyperlink{window__handler_8cxx}{window\+\_\+handler.\+cxx}}\end{DoxyCompactItemize}
+src/calgine/core/setup/\mbox{\hyperlink{window__handler_8h}{window\+\_\+handler.\+h}}\item 
+src/calgine/core/setup/\mbox{\hyperlink{window__handler_8cxx}{window\+\_\+handler.\+cxx}}\end{DoxyCompactItemize}

@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "Calgine::App", "classCalgine_1_1App.html", null ],
+    [ "Calgine::AppSettings", "structCalgine_1_1AppSettings.html", null ],
     [ "Calgine::Behaviour", "classCalgine_1_1Behaviour.html", null ],
     [ "Calgine::GameObject", "classCalgine_1_1GameObject.html", [
       [ "Calgine::RootGameObject", "classCalgine_1_1RootGameObject.html", null ]

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['app_0',['App',['../classCalgine_1_1App.html',1,'Calgine']]]
+  ['app_0',['App',['../classCalgine_1_1App.html',1,'Calgine']]],
+  ['appsettings_1',['AppSettings',['../structCalgine_1_1AppSettings.html',1,'Calgine']]]
 ];
