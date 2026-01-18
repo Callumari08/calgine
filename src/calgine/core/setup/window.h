@@ -14,6 +14,7 @@ enum VsyncState
 {
   disabled,
   enabled,
+  adaptive = -1,
 };
 
 /**
@@ -21,8 +22,8 @@ enum VsyncState
  */
 class CALGINE_API Window
 {
-#define DEFAULT_WINDOW_WIDTH 1600
-#define DEFAULT_WINDOW_HEIGHT 900
+#define DEFAULT_WINDOW_WIDTH 1920 / 2
+#define DEFAULT_WINDOW_HEIGHT 1080 / 2
 private:
   Uint32 id;
   bool close_requested = false;
