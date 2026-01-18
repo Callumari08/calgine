@@ -6,6 +6,7 @@ var namespaceCalgine =
     [ "Behaviour", "classCalgine_1_1Behaviour.html", "classCalgine_1_1Behaviour" ],
     [ "GameObject", "classCalgine_1_1GameObject.html", "classCalgine_1_1GameObject" ],
     [ "Log", "classCalgine_1_1Log.html", null ],
+    [ "Window", "classCalgine_1_1Window.html", "classCalgine_1_1Window" ],
     [ "WindowHandler", "classCalgine_1_1WindowHandler.html", "classCalgine_1_1WindowHandler" ],
     [ "TickType", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861", [
       [ "preloop", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92", null ],

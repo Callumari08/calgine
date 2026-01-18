@@ -1,43 +1,29 @@
 \doxysection{useful\+\_\+funcs.\+h}
 \hypertarget{useful__funcs_8h_source}{}\label{useful__funcs_8h_source}\index{src/calgine/core/useful\_funcs.h@{src/calgine/core/useful\_funcs.h}}
-\mbox{\hyperlink{useful__funcs_8h}{Go to the documentation of this file.}}
+\doxymbox{\hyperlink{useful__funcs_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log_8h}{calgine/core/log.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{log_8h}{calgine/core/log.h}}"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00013\ \textcolor{keyword}{constexpr}\ std::string\_view\ \mbox{\hyperlink{useful__funcs_8h_a76b4d07bdea899ac27cd17e96f56954b}{type\_name}}()}
-\DoxyCodeLine{00014\ \{}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#if\ defined(\_\_clang\_\_)}}
-\DoxyCodeLine{00016\ \ \ \ \ std::string\_view\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}\ =\ \_\_PRETTY\_FUNCTION\_\_;}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}.substr(\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}.find(\textcolor{stringliteral}{"{}T\ =\ "{}})\ +\ 4,\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}.rfind(\textcolor{charliteral}{']'})\ -\/\ (\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}.find(\textcolor{stringliteral}{"{}T\ =\ "{}})\ +\ 4));}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)}}
-\DoxyCodeLine{00019\ \ \ \ \ std::string\_view\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}\ =\ \_\_PRETTY\_FUNCTION\_\_;}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}.substr(\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}.find(\textcolor{stringliteral}{"{}with\ T\ =\ "{}})\ +\ 9,\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}.rfind(\textcolor{charliteral}{';'})\ -\/\ (\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}.find(\textcolor{stringliteral}{"{}with\ T\ =\ "{}})\ +\ 9));}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#elif\ defined(\_MSC\_VER)}}
-\DoxyCodeLine{00022\ \ \ \ \ std::string\_view\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}\ =\ \_\_FUNCSIG\_\_;}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}.substr(\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}.find(\textcolor{stringliteral}{"{}<"{}})\ +\ 1,\ \mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}.rfind(\textcolor{stringliteral}{"{}>"{}})\ -\/\ (\mbox{\hyperlink{calgine_2vendor_2include_2spdlog_2fmt_2bundled_2format_8h_a1feddf49e95d613ca1207313c0424d76}{p}}.find(\textcolor{stringliteral}{"{}<"{}})\ +\ 1));}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}unknown"{}};}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00027\ \}}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \textcolor{keyword}{inline}\ std::string\ \mbox{\hyperlink{useful__funcs_8h_ac08cb727aa8c67d6da671dee6914e16e}{convert\_unsigned\_char\_ptr\_to\_str}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ str)}
-\DoxyCodeLine{00030\ \{}
-\DoxyCodeLine{00031\ \ \ std::string\ value(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(str));}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \textcolor{keywordflow}{return}\ value;}
-\DoxyCodeLine{00034\ \}}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00043\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCalgine_a08cd20732442ef95f7ad6e630cf09e48}{throw\_sdl\_error}}(std::string\ message)\ \{}
-\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classCalgine_1_1Log_a41f2a12df7fc534dc3179c7f4e80f84f}{Log::get\_engine\_logger}}()-\/>error(message);}
-\DoxyCodeLine{00045\ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(message\ +\ std::string(SDL\_GetError()));}
-\DoxyCodeLine{00046\ \}}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Having\ a\ file\ called\ "{}useful\_funcs.h"{}\ is\ obviously\ stupid,\ but\ to\ be\ honest\ I\ don't\ know\ what\ else\ to\ do...}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Could\ just\ call\ it\ "{}utilities.h"{},\ which\ is\ kind\ of\ the\ equivalent\ of\ sweeping\ trash\ under\ rug}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{inline}\ std::string\ \doxymbox{\hyperlink{useful__funcs_8h_ab1f6132ebf8e7dac970c8e371d5b4d4f}{convert\_GLubyte\_ptr\_to\_str}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ str)}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ std::string\ value(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(str));}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{00014\ \}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespaceCalgine_a08cd20732442ef95f7ad6e630cf09e48}{throw\_sdl\_error}}(std::string\ message)\ \{}
+\DoxyCodeLine{00024\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Log_a41f2a12df7fc534dc3179c7f4e80f84f}{Log::get\_engine\_logger}}()-\/>error(message);}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(message\ +\ std::string(SDL\_GetError()));}
+\DoxyCodeLine{00026\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
 
 \end{DoxyCode}

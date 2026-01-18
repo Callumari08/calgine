@@ -1,17 +1,6 @@
 var searchData=
 [
-  ['kafka_5flogger_5fasync_5fmt_0',['kafka_logger_async_mt',['../namespacespdlog.html#ad22ce892ff09f2d8b4475f61b502b02c',1,'spdlog']]],
-  ['kafka_5flogger_5fasync_5fst_1',['kafka_logger_async_st',['../namespacespdlog.html#a91768e5b04631154ad1bc25ecb9f841e',1,'spdlog']]],
-  ['kafka_5flogger_5fmt_2',['kafka_logger_mt',['../namespacespdlog.html#a9fc5b0947b3108fd064e83ed85409b64',1,'spdlog']]],
-  ['kafka_5flogger_5fst_3',['kafka_logger_st',['../namespacespdlog.html#af58d88cc4e968cd97f9a76bf7cd4ba2a',1,'spdlog']]],
-  ['kafka_5fsink_4',['kafka_sink',['../classspdlog_1_1sinks_1_1kafka__sink.html',1,'spdlog::sinks::kafka_sink&lt; Mutex &gt;'],['../classspdlog_1_1sinks_1_1kafka__sink.html#a80a2ab94df37d12307cc952c4c479f13',1,'spdlog::sinks::kafka_sink::kafka_sink(kafka_sink_config config)'],['../classspdlog_1_1sinks_1_1kafka__sink.html#a80a2ab94df37d12307cc952c4c479f13',1,'spdlog::sinks::kafka_sink::kafka_sink(kafka_sink_config config)']]],
-  ['kafka_5fsink_2eh_5',['kafka_sink.h',['../calgine_2vendor_2include_2spdlog_2sinks_2kafka__sink_8h.html',1,'(Global Namespace)'],['../vendor_2spdlog_2include_2spdlog_2sinks_2kafka__sink_8h.html',1,'(Global Namespace)']]],
-  ['kafka_5fsink_3c_20spdlog_3a_3adetails_3a_3anull_5fmutex_20_3e_6',['kafka_sink&lt; spdlog::details::null_mutex &gt;',['../classspdlog_1_1sinks_1_1kafka__sink.html',1,'spdlog::sinks']]],
-  ['kafka_5fsink_3c_20std_3a_3amutex_20_3e_7',['kafka_sink&lt; std::mutex &gt;',['../classspdlog_1_1sinks_1_1kafka__sink.html',1,'spdlog::sinks']]],
-  ['kafka_5fsink_5fconfig_8',['kafka_sink_config',['../structspdlog_1_1sinks_1_1kafka__sink__config.html',1,'spdlog::sinks::kafka_sink_config'],['../structspdlog_1_1sinks_1_1kafka__sink__config.html#a2f9778ec0f89da8ea556f3f553d82b9a',1,'spdlog::sinks::kafka_sink_config::kafka_sink_config(std::string addr, std::string topic, int flush_timeout_ms=1000)'],['../structspdlog_1_1sinks_1_1kafka__sink__config.html#a2f9778ec0f89da8ea556f3f553d82b9a',1,'spdlog::sinks::kafka_sink_config::kafka_sink_config(std::string addr, std::string topic, int flush_timeout_ms=1000)']]],
-  ['kafka_5fsink_5fmt_9',['kafka_sink_mt',['../namespacespdlog_1_1sinks.html#a7fc281cb7621ea49e3e5ad6a6f3ae058',1,'spdlog::sinks']]],
-  ['kafka_5fsink_5fst_10',['kafka_sink_st',['../namespacespdlog_1_1sinks.html#a3e145ce7961e75d4d7997552cf98deaf',1,'spdlog::sinks']]],
-  ['kappa_11',['kappa',['../structdetail_1_1dragonbox_1_1float__info_3_01float_01_4.html#aec908547953afb7a8e7bc9b73874e1fe',1,'detail::dragonbox::float_info&lt; float &gt;::kappa'],['../structdetail_1_1dragonbox_1_1float__info_3_01double_01_4.html#a181f6dfb503f4c5e01f093c003ddb2d0',1,'detail::dragonbox::float_info&lt; double &gt;::kappa']]],
-  ['khaki_12',['khaki',['../calgine_2vendor_2include_2spdlog_2fmt_2bundled_2color_8h.html#a80d1dc5f416b97f92939a4166d41203ca12284913bfe16bebd8bc809573f0387a',1,'khaki:&#160;color.h'],['../vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2color_8h.html#a80d1dc5f416b97f92939a4166d41203ca12284913bfe16bebd8bc809573f0387a',1,'khaki:&#160;color.h'],['../calgine_2vendor_2include_2spdlog_2fmt_2bundled_2color_8h.html#a80d1dc5f416b97f92939a4166d41203ca12284913bfe16bebd8bc809573f0387a',1,'khaki:&#160;color.h'],['../vendor_2spdlog_2include_2spdlog_2fmt_2bundled_2color_8h.html#a80d1dc5f416b97f92939a4166d41203ca12284913bfe16bebd8bc809573f0387a',1,'khaki:&#160;color.h']]],
-  ['kind_13',['kind',['../structdetail_1_1dynamic__spec__handler.html#a1af4c7c69e245b0fdd7fb3f281dc9e00',1,'detail::dynamic_spec_handler::kind'],['../structdetail_1_1parse__dynamic__spec__result.html#ae7ebb586ec7ff6abb65910cde46b0c21',1,'detail::parse_dynamic_spec_result::kind']]]
+  ['preloop_0',['preloop',['../namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92',1,'Calgine']]],
+  ['preloop_5ftick_1',['preloop_tick',['../classCalgine_1_1Behaviour.html#a9f57fdc9e7cf4f2caae45df243baacea',1,'Calgine::Behaviour']]],
+  ['process_5fpending_5fdeletes_2',['process_pending_deletes',['../classCalgine_1_1GameObject.html#ad47e6d97336652e235aa1b5e20daa5ef',1,'Calgine::GameObject']]]
 ];

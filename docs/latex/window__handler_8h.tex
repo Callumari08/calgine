@@ -1,47 +1,16 @@
-\doxysection{src/calgine/core/setup/window\+\_\+handler.h File Reference}
+\doxysection{src/\+calgine/\+core/\+setup/\+window\+\_\+handler.h File Reference}
 \hypertarget{window__handler_8h}{}\label{window__handler_8h}\index{src/calgine/core/setup/window\_handler.h@{src/calgine/core/setup/window\_handler.h}}
-{\ttfamily \#include $<$SDL3/\+SDL\+\_\+video.\+h$>$}\newline
-{\ttfamily \#include $<$mutex$>$}\newline
-{\ttfamily \#include $<$string$>$}\newline
-{\ttfamily \#include "{}calgine\+\_\+api.\+h"{}}\newline
+{\ttfamily \+\#include "{}SDL3/\+\+SDL\+\_\+stdinc.\+h"{}}\newline
+{\ttfamily \+\#include "{}calgine\+\_\+pch.\+h"{}}\newline
+{\ttfamily \+\#include "{}window.\+h"{}}\newline
+{\ttfamily \+\#include "{}calgine\+\_\+api.\+h"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classCalgine_1_1WindowHandler}{Calgine\+::\+Window\+Handler}}
-\end{DoxyCompactItemize}
+class \doxymbox{\hyperlink{classCalgine_1_1WindowHandler}{Calgine::\+\+Window\+Handler}}
+\begin{DoxyCompactList}\small\item\em Singleton manager for all application windows. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
-namespace \mbox{\hyperlink{namespaceCalgine}{Calgine}}
+namespace \doxymbox{\hyperlink{namespaceCalgine}{Calgine}}
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \mbox{\hyperlink{window__handler_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\+\_\+\+WIDTH}}~800
-\item 
-\#define \mbox{\hyperlink{window__handler_8h_a5473cf64fa979b48335079c99532e243}{WINDOW\+\_\+\+HEIGHT}}~600
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Enumerations}
-\begin{DoxyCompactItemize}
-\item 
-enum \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{Calgine\+::\+Vsync\+State}} \{ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a10b9abd0304ae803c941c4503dc3fc8b}{Calgine\+::disabled}}
-, \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544}{Calgine\+::enabled}}
- \}
-\end{DoxyCompactItemize}
-
-
-\label{doc-define-members}
-\Hypertarget{window__handler_8h_doc-define-members}
-\doxysubsection{Macro Definition Documentation}
-\Hypertarget{window__handler_8h_a5473cf64fa979b48335079c99532e243}\index{window\_handler.h@{window\_handler.h}!WINDOW\_HEIGHT@{WINDOW\_HEIGHT}}
-\index{WINDOW\_HEIGHT@{WINDOW\_HEIGHT}!window\_handler.h@{window\_handler.h}}
-\doxysubsubsection{\texorpdfstring{WINDOW\_HEIGHT}{WINDOW\_HEIGHT}}
-{\footnotesize\ttfamily \label{window__handler_8h_a5473cf64fa979b48335079c99532e243} 
-\#define WINDOW\+\_\+\+HEIGHT~600}
-
-\Hypertarget{window__handler_8h_a498d9f026138406895e9a34b504ac6a6}\index{window\_handler.h@{window\_handler.h}!WINDOW\_WIDTH@{WINDOW\_WIDTH}}
-\index{WINDOW\_WIDTH@{WINDOW\_WIDTH}!window\_handler.h@{window\_handler.h}}
-\doxysubsubsection{\texorpdfstring{WINDOW\_WIDTH}{WINDOW\_WIDTH}}
-{\footnotesize\ttfamily \label{window__handler_8h_a498d9f026138406895e9a34b504ac6a6} 
-\#define WINDOW\+\_\+\+WIDTH~800}
-

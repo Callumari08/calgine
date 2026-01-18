@@ -1,5 +1,4 @@
 var dir_bc44db7a319896f65d6399405f420353 =
 [
-    [ "core", "dir_fe3e7b99e6960e99508725422ff73900.html", "dir_fe3e7b99e6960e99508725422ff73900" ],
-    [ "vendor", "dir_af27930cbb235b7df8438e992d16487d.html", "dir_af27930cbb235b7df8438e992d16487d" ]
+    [ "core", "dir_fe3e7b99e6960e99508725422ff73900.html", "dir_fe3e7b99e6960e99508725422ff73900" ]
 ];

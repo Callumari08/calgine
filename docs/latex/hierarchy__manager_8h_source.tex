@@ -1,40 +1,40 @@
 \doxysection{hierarchy\+\_\+manager.\+h}
 \hypertarget{hierarchy__manager_8h_source}{}\label{hierarchy__manager_8h_source}\index{src/calgine/core/background\_managers/hierarchy\_manager.h@{src/calgine/core/background\_managers/hierarchy\_manager.h}}
-\mbox{\hyperlink{hierarchy__manager_8h}{Go to the documentation of this file.}}
+\doxymbox{\hyperlink{hierarchy__manager_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{game__object_8h}{../game\_object.h}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{game__object_8h}{../game\_object.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1RootGameObject_a3d50f23901739f6464c141b387d1f754}{RootGameObject}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCalgine_1_1GameObject_af7c0a13eec1c88e508b3bfeb8146c760}{GameObject}}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCalgine_1_1RootGameObject_a3d50f23901739f6464c141b387d1f754}{RootGameObject}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classCalgine_1_1GameObject_af7c0a13eec1c88e508b3bfeb8146c760}{GameObject}}}
 \DoxyCodeLine{00009\ \{}
 \DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{classCalgine_1_1RootGameObject_a3d50f23901739f6464c141b387d1f754}{RootGameObject}}()\ :\ \mbox{\hyperlink{classCalgine_1_1GameObject_af7c0a13eec1c88e508b3bfeb8146c760}{GameObject}}(nullptr)\ \{\}}
-\DoxyCodeLine{00012\ \ \ std::string\ \mbox{\hyperlink{classCalgine_1_1RootGameObject_aee4f88ba1c4d798afd3fc4b0551d8c8c}{get\_name}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00011\ \ \ \doxymbox{\hyperlink{classCalgine_1_1RootGameObject_a3d50f23901739f6464c141b387d1f754}{RootGameObject}}()\ :\ \doxymbox{\hyperlink{classCalgine_1_1GameObject_af7c0a13eec1c88e508b3bfeb8146c760}{GameObject}}(nullptr)\ \{\}}
+\DoxyCodeLine{00012\ \ \ std::string\ \doxymbox{\hyperlink{classCalgine_1_1RootGameObject_aee4f88ba1c4d798afd3fc4b0551d8c8c}{get\_name}}()\textcolor{keyword}{\ override}}
 \DoxyCodeLine{00013\ \textcolor{keyword}{\ \ }\{}
 \DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Root"{}};}
 \DoxyCodeLine{00015\ \ \ \}}
 \DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classCalgine_1_1GameObject_a64874a410452502726b456cd0e52a49f}{GameObject::set\_parent}};}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{classCalgine_1_1GameObject_a64874a410452502726b456cd0e52a49f}{GameObject::set\_parent}};}
 \DoxyCodeLine{00018\ \};}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ Hierarchy\ final}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ Hierarchy\ final}
 \DoxyCodeLine{00021\ \{}
 \DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classCalgine_1_1RootGameObject}{RootGameObject}}\ root;}
+\DoxyCodeLine{00023\ \ \ \doxymbox{\hyperlink{classCalgine_1_1RootGameObject}{RootGameObject}}\ root;}
 \DoxyCodeLine{00024\ }
 \DoxyCodeLine{00025\ \ \ Hierarchy();}
 \DoxyCodeLine{00026\ }
 \DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{static}\ Hierarchy\&\ \mbox{\hyperlink{classCalgine_1_1Hierarchy_a477844c026bb6e261bcccd687a2ea337}{get\_instance}}();}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{static}\ Hierarchy\&\ \doxymbox{\hyperlink{classCalgine_1_1Hierarchy_a477844c026bb6e261bcccd687a2ea337}{get\_instance}}();}
 \DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ \mbox{\hyperlink{classCalgine_1_1Hierarchy_adfeead1113ce9ba920abfb124fe175ed}{get\_hierarchy\_root}}();}
+\DoxyCodeLine{00030\ \ \ \doxymbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ \doxymbox{\hyperlink{classCalgine_1_1Hierarchy_adfeead1113ce9ba920abfb124fe175ed}{get\_hierarchy\_root}}();}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{classCalgine_1_1Hierarchy_a15ef5a08b6509cf7b2fdf9b4648d46e9}{Hierarchy}}(\textcolor{keyword}{const}\ Hierarchy\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00033\ \ \ Hierarchy\&\ \mbox{\hyperlink{classCalgine_1_1Hierarchy_af85ef603de755124cd48376a24e0504e}{operator=}}(\textcolor{keyword}{const}\ Hierarchy\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00032\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Hierarchy_a15ef5a08b6509cf7b2fdf9b4648d46e9}{Hierarchy}}(\textcolor{keyword}{const}\ Hierarchy\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00033\ \ \ Hierarchy\&\ \doxymbox{\hyperlink{classCalgine_1_1Hierarchy_af85ef603de755124cd48376a24e0504e}{operator=}}(\textcolor{keyword}{const}\ Hierarchy\&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00034\ \};}
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00036\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
