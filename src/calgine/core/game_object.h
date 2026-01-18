@@ -26,6 +26,8 @@ private:
   static uint32_t num_game_objects;
 
   bool destroyed = false;
+  
+  bool enabled = true;
 
   std::string name = "";
   std::unordered_map<std::type_index, std::unique_ptr<Behaviour>> behaviours;
@@ -57,6 +59,9 @@ public:
 
   GameObject(GameObject&&) = default;
   GameObject& operator=(GameObject&&) = default;
+
+  bool is_enabled() const;
+  void set_active(const bool _enabled); 
 
   template<typename T_behaviour>
   requires std::derived_from<T_behaviour, Behaviour>

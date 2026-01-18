@@ -85,14 +85,40 @@ bool GameObject::remove_child_immediate(GameObject* child)
   return true;
 }
 
-
 void GameObject::process_pending_deletes()
 {
   s_pending_deletes.clear();
 }
 
+bool GameObject::is_enabled() const
+{
+  return enabled;
+}
+
+void GameObject::set_active(const bool _enabled)
+{
+  if (_enabled == enabled)
+    return;
+
+  if (_enabled && !parent->is_enabled())
+  {
+    Log::get_app_logger()->warn("Attempted to enable child of a disabled parent");
+    return;
+  }
+
+  enabled = _enabled;
+
+  for (auto& go : children)
+  {
+    go->set_active(_enabled);
+  }
+}
+
 void GameObject::tick_self_and_children(TickType tick_type)
 {
+  if (!is_enabled())
+    return;
+
   for (auto& [type, behaviour] : behaviours)
   {
     if (!behaviour)
