@@ -2,7 +2,7 @@
 \hypertarget{classCalgine_1_1GameObject}{}\label{classCalgine_1_1GameObject}\index{Calgine::GameObject@{Calgine::GameObject}}
 
 
-Game\+Objects are objects within the \doxylink{classCalgine_1_1Hierarchy}{Hierarchy} that have multiple \doxylink{classCalgine_1_1Behaviour}{Behaviour} subclasses attached to them which execute code.  
+Game\+Objects are objects within the \doxylink{}{Heirarchy} that have multiple \doxylink{classCalgine_1_1Behaviour}{Behaviour} subclasses attached to them which execute code.  
 
 
 
@@ -19,15 +19,15 @@ Inheritance diagram for Calgine\+::Game\+Object\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classCalgine_1_1GameObject_af7c0a13eec1c88e508b3bfeb8146c760}{Game\+Object}} (\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}\+\_\+parent)
-\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{classCalgine_1_1GameObject}{Game\+Object} with an optional parent. \end{DoxyCompactList}\item 
+\item 
 virtual \mbox{\hyperlink{classCalgine_1_1GameObject_a3c3629e366615e73aba89eb20f79ee34}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()
-\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\item 
+\item 
 void \mbox{\hyperlink{classCalgine_1_1GameObject_a97c1b01c0e3e8985d1a327ed75199bb7}{destroy}} ()
-\begin{DoxyCompactList}\small\item\em Marks this \doxylink{classCalgine_1_1GameObject}{Game\+Object} and all its children for destruction. \end{DoxyCompactList}\item 
+\item 
 std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} $>$ \mbox{\hyperlink{classCalgine_1_1GameObject_a5c0de648de09071b3b408c3ace1fbe22}{detach\+\_\+child}} (\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}child)
-\begin{DoxyCompactList}\small\item\em Detaches a child \doxylink{classCalgine_1_1GameObject}{Game\+Object} from this parent. \end{DoxyCompactList}\item 
+\item 
 bool \mbox{\hyperlink{classCalgine_1_1GameObject_a555c05fea69e691b93159506455d7ea7}{remove\+\_\+child\+\_\+immediate}} (\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}child)
-\begin{DoxyCompactList}\small\item\em Immediately removes and deletes a child \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\item 
+\item 
 \mbox{\hyperlink{classCalgine_1_1GameObject_a4aecf696b321ec1554a1a1caf46fd289}{Game\+Object}} (const \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \&)=delete
 \item 
 \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \& \mbox{\hyperlink{classCalgine_1_1GameObject_ae60d4b1987fbd4ec0458a13719d1239e}{operator=}} (const \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \&)=delete
@@ -37,31 +37,31 @@ bool \mbox{\hyperlink{classCalgine_1_1GameObject_a555c05fea69e691b93159506455d7e
 \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \& \mbox{\hyperlink{classCalgine_1_1GameObject_a03121f27fb122fb29542ca8c78b40e30}{operator=}} (\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \&\&)=default
 \item 
 bool \mbox{\hyperlink{classCalgine_1_1GameObject_a2166a4e0a26229a7b1ce8bbe7fb23914}{is\+\_\+enabled}} () const
-\begin{DoxyCompactList}\small\item\em Checks if this \doxylink{classCalgine_1_1GameObject}{Game\+Object} is currently enabled. \end{DoxyCompactList}\item 
+\item 
 void \mbox{\hyperlink{classCalgine_1_1GameObject_a006b039eb65917a3552e4a1666b69819}{set\+\_\+active}} (const bool \+\_\+enabled)
-\begin{DoxyCompactList}\small\item\em Sets the active state of this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T\+\_\+behaviour $>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classCalgine_1_1GameObject_a37886ebc4875a4c1f89743273151a119}{add\+\_\+behaviour}} ()
-\begin{DoxyCompactList}\small\item\em Adds a new behaviour component to this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T\+\_\+behaviour $>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$}\\T\+\_\+behaviour \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1GameObject_a7b9fc3d7cd0516f2166c93101ce514e2}{get\+\_\+behaviour}} () const
-\begin{DoxyCompactList}\small\item\em Retrieves a behaviour component from this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T\+\_\+behaviour $>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classCalgine_1_1GameObject_a640ffd517f6face466df2d6477d80d6d}{has\+\_\+behaviour}} () const
-\begin{DoxyCompactList}\small\item\em Checks if this \doxylink{classCalgine_1_1GameObject}{Game\+Object} has a specific behaviour component. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T  = Game\+Object, typename... Args$>$ \newline
 requires std\+::derived\+\_\+from$<$T, \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}}$>$}\\T \& \mbox{\hyperlink{classCalgine_1_1GameObject_accf41615441ecc4f14ae550a1c3dba5f}{instantiate\+\_\+child}} (Args \&\&... args)
-\begin{DoxyCompactList}\small\item\em Creates and instantiates a new child \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\item 
+\item 
 void \mbox{\hyperlink{classCalgine_1_1GameObject_a6fe6259db00341689a2a17adb77c5d11}{tick\+\_\+self\+\_\+and\+\_\+children}} (\mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861}{Tick\+Type}} tick\+\_\+type)
-\begin{DoxyCompactList}\small\item\em Executes tick updates on this \doxylink{classCalgine_1_1GameObject}{Game\+Object} and all its children. \end{DoxyCompactList}\item 
+\item 
 void \mbox{\hyperlink{classCalgine_1_1GameObject_a64874a410452502726b456cd0e52a49f}{set\+\_\+parent}} (\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}\+\_\+parent)
-\begin{DoxyCompactList}\small\item\em Sets or changes the parent of this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\item 
+\item 
 std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} $>$ $>$ \mbox{\hyperlink{classCalgine_1_1GameObject_aa9839057d87f7b0da2341c8247264401}{get\+\_\+parent}} () const
-\begin{DoxyCompactList}\small\item\em Retrieves the parent \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\item 
+\item 
 virtual std\+::string \mbox{\hyperlink{classCalgine_1_1GameObject_aa34deb782f6ee4aff3f225050ea0109d}{get\+\_\+name}} ()
 \begin{DoxyCompactList}\small\item\em Get the name of the \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCalgine_1_1GameObject_ad97d52f6b23dd654ff552b0a7b9f95f4}{set\+\_\+name}} (std\+::string \+\_\+name)
-\begin{DoxyCompactList}\small\item\em Sets the debug name of this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -70,41 +70,7 @@ static void \mbox{\hyperlink{classCalgine_1_1GameObject_ad47e6d97336652e235aa1b5
 
 
 \doxysubsection{Detailed Description}
-Game\+Objects are objects within the \doxylink{classCalgine_1_1Hierarchy}{Hierarchy} that have multiple \doxylink{classCalgine_1_1Behaviour}{Behaviour} subclasses attached to them which execute code. 
-
-\doxylink{classCalgine_1_1GameObject}{Game\+Object} is the fundamental building block of \doxylink{namespaceCalgine}{Calgine} applications. Game\+Objects form a hierarchical tree structure where each \doxylink{classCalgine_1_1GameObject}{Game\+Object} can have multiple child Game\+Objects and multiple attached \doxylink{classCalgine_1_1Behaviour}{Behaviour} components that define its functionality.\hypertarget{classCalgine_1_1GameObject_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{Key Features}{Key Features}}\label{classCalgine_1_1GameObject_autotoc_md6}
-
-\begin{DoxyItemize}
-\item {\bfseries{Hierarchical Structure}}\+: Game\+Objects can have parent and children relationships
-\item {\bfseries{Component System}}\+: Attach multiple \doxylink{classCalgine_1_1Behaviour}{Behaviour} subclasses to add functionality
-\item {\bfseries{Lifecycle Management}}\+: Automatic memory management with deferred deletion
-\item {\bfseries{Enable/\+Disable}}\+: Control whether a \doxylink{classCalgine_1_1GameObject}{Game\+Object} and its behaviours are active
-\end{DoxyItemize}\hypertarget{classCalgine_1_1GameObject_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{classCalgine_1_1GameObject_autotoc_md7}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{comment}{//\ Create\ a\ root\ GameObject}}
-\DoxyCodeLine{\mbox{\hyperlink{classCalgine_1_1GameObject_af7c0a13eec1c88e508b3bfeb8146c760}{GameObject}}\ root(\textcolor{keyword}{nullptr});}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ Add\ a\ custom\ behaviour}}
-\DoxyCodeLine{root.add\_behaviour<MyCustomBehaviour>();}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ Create\ a\ child\ GameObject}}
-\DoxyCodeLine{\mbox{\hyperlink{classCalgine_1_1GameObject_af7c0a13eec1c88e508b3bfeb8146c760}{GameObject}}\&\ child\ =\ root.instantiate\_child();}
-\DoxyCodeLine{child.set\_name(\textcolor{stringliteral}{"{}ChildObject"{}});}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ Access\ a\ behaviour}}
-\DoxyCodeLine{\textcolor{keyword}{auto}*\ behaviour\ =\ root.get\_behaviour<MyCustomBehaviour>();}
-
-\end{DoxyCode}
-
-
-\begin{DoxyWarning}{Warning}
-Do not directly delete Game\+Objects. Use \doxylink{classCalgine_1_1GameObject_a97c1b01c0e3e8985d1a327ed75199bb7}{destroy()} instead to ensure proper cleanup. 
-\end{DoxyWarning}
-\begin{DoxySeeAlso}{See also}
-\doxylink{classCalgine_1_1Behaviour}{Behaviour}, \doxylink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861}{Tick\+Type} 
-\end{DoxySeeAlso}
-
+Game\+Objects are objects within the \doxylink{}{Heirarchy} that have multiple \doxylink{classCalgine_1_1Behaviour}{Behaviour} subclasses attached to them which execute code. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classCalgine_1_1GameObject_af7c0a13eec1c88e508b3bfeb8146c760}\label{classCalgine_1_1GameObject_af7c0a13eec1c88e508b3bfeb8146c760} 
@@ -113,26 +79,13 @@ Do not directly delete Game\+Objects. Use \doxylink{classCalgine_1_1GameObject_a
 \doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily Calgine\+::\+Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{\+\_\+parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
-
-
-Constructs a new \doxylink{classCalgine_1_1GameObject}{Game\+Object} with an optional parent. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \+\_\+parent} & Pointer to the parent \doxylink{classCalgine_1_1GameObject}{Game\+Object}, or nullptr for root objects\\
-\hline
-\end{DoxyParams}
-Creates a new \doxylink{classCalgine_1_1GameObject}{Game\+Object} and automatically assigns it a unique debug name. If a parent is provided, this \doxylink{classCalgine_1_1GameObject}{Game\+Object} becomes part of that parent\textquotesingle{}s hierarchy. \Hypertarget{classCalgine_1_1GameObject_a3c3629e366615e73aba89eb20f79ee34}\label{classCalgine_1_1GameObject_a3c3629e366615e73aba89eb20f79ee34} 
+\Hypertarget{classCalgine_1_1GameObject_a3c3629e366615e73aba89eb20f79ee34}\label{classCalgine_1_1GameObject_a3c3629e366615e73aba89eb20f79ee34} 
 \index{Calgine::GameObject@{Calgine::GameObject}!````~GameObject@{\texorpdfstring{$\sim$}{\string~}GameObject}}
 \index{````~GameObject@{\texorpdfstring{$\sim$}{\string~}GameObject}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GameObject()}{\string~GameObject()}}
 {\footnotesize\ttfamily Calgine\+::\+Game\+Object\+::\texorpdfstring{$\sim$}{\string~}\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-
-
-Destroys the \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
-
-The destructor is called automatically when the \doxylink{classCalgine_1_1GameObject}{Game\+Object} is deleted. Prefer using \doxylink{classCalgine_1_1GameObject_a97c1b01c0e3e8985d1a327ed75199bb7}{destroy()} for explicit cleanup. \Hypertarget{classCalgine_1_1GameObject_a4aecf696b321ec1554a1a1caf46fd289}\label{classCalgine_1_1GameObject_a4aecf696b321ec1554a1a1caf46fd289} 
+\Hypertarget{classCalgine_1_1GameObject_a4aecf696b321ec1554a1a1caf46fd289}\label{classCalgine_1_1GameObject_a4aecf696b321ec1554a1a1caf46fd289} 
 \index{Calgine::GameObject@{Calgine::GameObject}!GameObject@{GameObject}}
 \index{GameObject@{GameObject}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
@@ -155,73 +108,19 @@ The destructor is called automatically when the \doxylink{classCalgine_1_1GameOb
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$\\
 bool Calgine\+::\+Game\+Object\+::add\+\_\+behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Adds a new behaviour component to this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T\+\_\+behaviour} & The type of \doxylink{classCalgine_1_1Behaviour}{Behaviour} to add (must derive from \doxylink{classCalgine_1_1Behaviour}{Behaviour}) \\
-\hline
-\end{DoxyTemplParams}
-\begin{DoxyReturn}{Returns}
-bool True if the behaviour was successfully added, false if it already exists
-\end{DoxyReturn}
-Creates and attaches a new instance of the specified \doxylink{classCalgine_1_1Behaviour}{Behaviour} type. Each \doxylink{classCalgine_1_1GameObject}{Game\+Object} can only have one instance of each behaviour type. After creation, the behaviour\textquotesingle{}s start\+\_\+tick() method is called.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\mbox{\hyperlink{classCalgine_1_1GameObject_af7c0a13eec1c88e508b3bfeb8146c760}{GameObject}}\ obj(\textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\textcolor{keywordflow}{if}\ (obj.add\_behaviour<MyBehaviour>())\ \{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classCalgine_1_1Log_a4302cf6b0cf738b246c8b5c34c6a2f23}{Log::get\_app\_logger}}()-\/>info(\textcolor{stringliteral}{"{}Behaviour\ added\ successfully"{}});}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-
-
-\begin{DoxyWarning}{Warning}
-The behaviour type must be default-\/constructible. 
-\end{DoxyWarning}
-\begin{DoxySeeAlso}{See also}
-\doxylink{classCalgine_1_1GameObject_a7b9fc3d7cd0516f2166c93101ce514e2}{get\+\_\+behaviour()}, \doxylink{classCalgine_1_1GameObject_a640ffd517f6face466df2d6477d80d6d}{has\+\_\+behaviour()} 
-\end{DoxySeeAlso}
 \Hypertarget{classCalgine_1_1GameObject_a97c1b01c0e3e8985d1a327ed75199bb7}\label{classCalgine_1_1GameObject_a97c1b01c0e3e8985d1a327ed75199bb7} 
 \index{Calgine::GameObject@{Calgine::GameObject}!destroy@{destroy}}
 \index{destroy@{destroy}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
 {\footnotesize\ttfamily void Calgine\+::\+Game\+Object\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Marks this \doxylink{classCalgine_1_1GameObject}{Game\+Object} and all its children for destruction. 
-
-Calls on\+\_\+destroy() on all attached behaviours, recursively destroys all children, and detaches from parent. The actual memory deallocation happens later via \doxylink{classCalgine_1_1GameObject_ad47e6d97336652e235aa1b5e20daa5ef}{process\+\_\+pending\+\_\+deletes()} to ensure safe cleanup during iteration.
-
-\begin{DoxyNote}{Note}
-This function is idempotent -\/ calling it multiple times has no additional effect. 
-\end{DoxyNote}
-\begin{DoxySeeAlso}{See also}
-\doxylink{classCalgine_1_1GameObject_ad47e6d97336652e235aa1b5e20daa5ef}{process\+\_\+pending\+\_\+deletes()} 
-\end{DoxySeeAlso}
 \Hypertarget{classCalgine_1_1GameObject_a5c0de648de09071b3b408c3ace1fbe22}\label{classCalgine_1_1GameObject_a5c0de648de09071b3b408c3ace1fbe22} 
 \index{Calgine::GameObject@{Calgine::GameObject}!detach\_child@{detach\_child}}
 \index{detach\_child@{detach\_child}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{detach\_child()}{detach\_child()}}
 {\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} $>$ Calgine\+::\+Game\+Object\+::detach\+\_\+child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{child }\end{DoxyParamCaption})}
 
-
-
-Detaches a child \doxylink{classCalgine_1_1GameObject}{Game\+Object} from this parent. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em child} & Pointer to the child \doxylink{classCalgine_1_1GameObject}{Game\+Object} to detach \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::unique\+\_\+ptr$<$\+Game\+Object$>$ Ownership of the detached child, or nullptr if not found
-\end{DoxyReturn}
-Removes the specified child from the children collection and returns ownership. The child\textquotesingle{}s parent pointer is NOT modified by this function. \Hypertarget{classCalgine_1_1GameObject_a7b9fc3d7cd0516f2166c93101ce514e2}\label{classCalgine_1_1GameObject_a7b9fc3d7cd0516f2166c93101ce514e2} 
+\Hypertarget{classCalgine_1_1GameObject_a7b9fc3d7cd0516f2166c93101ce514e2}\label{classCalgine_1_1GameObject_a7b9fc3d7cd0516f2166c93101ce514e2} 
 \index{Calgine::GameObject@{Calgine::GameObject}!get\_behaviour@{get\_behaviour}}
 \index{get\_behaviour@{get\_behaviour}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{get\_behaviour()}{get\_behaviour()}}
@@ -229,33 +128,6 @@ Removes the specified child from the children collection and returns ownership. 
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$\\
 T\+\_\+behaviour \texorpdfstring{$\ast$}{*} Calgine\+::\+Game\+Object\+::get\+\_\+behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-
-
-Retrieves a behaviour component from this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T\+\_\+behaviour} & The type of \doxylink{classCalgine_1_1Behaviour}{Behaviour} to retrieve (must derive from \doxylink{classCalgine_1_1Behaviour}{Behaviour}) \\
-\hline
-\end{DoxyTemplParams}
-\begin{DoxyReturn}{Returns}
-T\+\_\+behaviour\texorpdfstring{$\ast$}{*} Pointer to the behaviour if found, nullptr otherwise
-\end{DoxyReturn}
-Returns a pointer to the behaviour of the specified type if it exists on this \doxylink{classCalgine_1_1GameObject}{Game\+Object}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{auto}*\ behaviour\ =\ obj.get\_behaviour<MyBehaviour>();}
-\DoxyCodeLine{\textcolor{keywordflow}{if}\ (behaviour)\ \{}
-\DoxyCodeLine{\ \ \ \ behaviour-\/>do\_something();}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-
-
-\begin{DoxySeeAlso}{See also}
-\doxylink{classCalgine_1_1GameObject_a37886ebc4875a4c1f89743273151a119}{add\+\_\+behaviour()}, \doxylink{classCalgine_1_1GameObject_a640ffd517f6face466df2d6477d80d6d}{has\+\_\+behaviour()} 
-\end{DoxySeeAlso}
 \Hypertarget{classCalgine_1_1GameObject_aa34deb782f6ee4aff3f225050ea0109d}\label{classCalgine_1_1GameObject_aa34deb782f6ee4aff3f225050ea0109d} 
 \index{Calgine::GameObject@{Calgine::GameObject}!get\_name@{get\_name}}
 \index{get\_name@{get\_name}!Calgine::GameObject@{Calgine::GameObject}}
@@ -266,15 +138,12 @@ Returns a pointer to the behaviour of the specified type if it exists on this \d
 
 Get the name of the \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
 
-\begin{DoxyReturn}{Returns}
-std\+::string The \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s debug name
-\end{DoxyReturn}
 \begin{DoxyWarning}{Warning}
-ONLY use name for debugging purposes. Do not implement a Game\+Object\texorpdfstring{$\ast$}{*} find(std\+::string name) feature, as this would encourage poor design patterns and create performance issues.
+ONLY use name for debugging purpouses, do not try to implement a {\ttfamily Gameobject\texorpdfstring{$\ast$}{*} find(std\+::string name)} feature. This will end badly.
 \end{DoxyWarning}
-\begin{DoxySeeAlso}{See also}
-\doxylink{classCalgine_1_1GameObject_ad97d52f6b23dd654ff552b0a7b9f95f4}{set\+\_\+name()} 
-\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
 
 
 Reimplemented in \mbox{\hyperlink{classCalgine_1_1RootGameObject_aee4f88ba1c4d798afd3fc4b0551d8c8c}{Calgine\+::\+Root\+Game\+Object}}.
@@ -285,23 +154,7 @@ Reimplemented in \mbox{\hyperlink{classCalgine_1_1RootGameObject_aee4f88ba1c4d79
 \doxysubsubsection{\texorpdfstring{get\_parent()}{get\_parent()}}
 {\footnotesize\ttfamily std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} $>$ $>$ Calgine\+::\+Game\+Object\+::get\+\_\+parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-
-
-Retrieves the parent \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
-
-\begin{DoxyReturn}{Returns}
-std\+::optional$<$std\+::reference\+\_\+wrapper$<$\+Game\+Object$>$$>$ Optional reference to the parent, or std\+::nullopt if this is a root \doxylink{classCalgine_1_1GameObject}{Game\+Object}
-\end{DoxyReturn}
-Returns an optional reference to the parent \doxylink{classCalgine_1_1GameObject}{Game\+Object}. If this \doxylink{classCalgine_1_1GameObject}{Game\+Object} is a root (has no parent), returns std\+::nullopt.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ parent\ =\ obj.get\_parent())\ \{}
-\DoxyCodeLine{\ \ \ \ parent-\/>get().\mbox{\hyperlink{classCalgine_1_1GameObject_ad97d52f6b23dd654ff552b0a7b9f95f4}{set\_name}}(\textcolor{stringliteral}{"{}ParentObject"{}});}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
- \Hypertarget{classCalgine_1_1GameObject_a640ffd517f6face466df2d6477d80d6d}\label{classCalgine_1_1GameObject_a640ffd517f6face466df2d6477d80d6d} 
+\Hypertarget{classCalgine_1_1GameObject_a640ffd517f6face466df2d6477d80d6d}\label{classCalgine_1_1GameObject_a640ffd517f6face466df2d6477d80d6d} 
 \index{Calgine::GameObject@{Calgine::GameObject}!has\_behaviour@{has\_behaviour}}
 \index{has\_behaviour@{has\_behaviour}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{has\_behaviour()}{has\_behaviour()}}
@@ -309,33 +162,6 @@ Returns an optional reference to the parent \doxylink{classCalgine_1_1GameObject
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$\\
 bool Calgine\+::\+Game\+Object\+::has\+\_\+behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-
-
-Checks if this \doxylink{classCalgine_1_1GameObject}{Game\+Object} has a specific behaviour component. 
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T\+\_\+behaviour} & The type of \doxylink{classCalgine_1_1Behaviour}{Behaviour} to check for (must derive from \doxylink{classCalgine_1_1Behaviour}{Behaviour}) \\
-\hline
-\end{DoxyTemplParams}
-\begin{DoxyReturn}{Returns}
-bool True if the behaviour exists, false otherwise
-\end{DoxyReturn}
-Use this to check for the presence of a behaviour before attempting to use it.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordflow}{if}\ (obj.has\_behaviour<MyBehaviour>())\ \{}
-\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Safe\ to\ get\ and\ use\ the\ behaviour}}
-\DoxyCodeLine{\ \ \ \ obj.get\_behaviour<MyBehaviour>()-\/>do\_something();}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-
-
-\begin{DoxySeeAlso}{See also}
-\doxylink{classCalgine_1_1GameObject_a37886ebc4875a4c1f89743273151a119}{add\+\_\+behaviour()}, \doxylink{classCalgine_1_1GameObject_a7b9fc3d7cd0516f2166c93101ce514e2}{get\+\_\+behaviour()} 
-\end{DoxySeeAlso}
 \Hypertarget{classCalgine_1_1GameObject_accf41615441ecc4f14ae550a1c3dba5f}\label{classCalgine_1_1GameObject_accf41615441ecc4f14ae550a1c3dba5f} 
 \index{Calgine::GameObject@{Calgine::GameObject}!instantiate\_child@{instantiate\_child}}
 \index{instantiate\_child@{instantiate\_child}!Calgine::GameObject@{Calgine::GameObject}}
@@ -344,56 +170,13 @@ Use this to check for the presence of a behaviour before attempting to use it.
 requires std\+::derived\+\_\+from$<$T, \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}}$>$\\
 T \& Calgine\+::\+Game\+Object\+::instantiate\+\_\+child (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Creates and instantiates a new child \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & The \doxylink{classCalgine_1_1GameObject}{Game\+Object} type to instantiate (must derive from \doxylink{classCalgine_1_1GameObject}{Game\+Object}) \\
-\hline
-{\em Args} & Types of additional constructor arguments \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em args} & Additional arguments to forward to the child\textquotesingle{}s constructor \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-T\& Reference to the newly created child \doxylink{classCalgine_1_1GameObject}{Game\+Object}
-\end{DoxyReturn}
-Creates a child \doxylink{classCalgine_1_1GameObject}{Game\+Object} of the specified type and adds it to this \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s children collection. The child\textquotesingle{}s parent is automatically set to this \doxylink{classCalgine_1_1GameObject}{Game\+Object}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\mbox{\hyperlink{classCalgine_1_1GameObject_af7c0a13eec1c88e508b3bfeb8146c760}{GameObject}}\ root(\textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\mbox{\hyperlink{classCalgine_1_1GameObject_af7c0a13eec1c88e508b3bfeb8146c760}{GameObject}}\&\ child\ =\ root.instantiate\_child();}
-\DoxyCodeLine{child.set\_name(\textcolor{stringliteral}{"{}MyChild"{}});}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ Creating\ a\ custom\ GameObject\ type\ with\ additional\ constructor\ parameters}}
-\DoxyCodeLine{CustomGameObject\&\ custom\ =\ root.instantiate\_child<CustomGameObject>(arg1,\ arg2);}
-
-\end{DoxyCode}
-
-
-\begin{DoxyNote}{Note}
-The returned reference remains valid until the child is destroyed or detached. 
-\end{DoxyNote}
 \Hypertarget{classCalgine_1_1GameObject_a2166a4e0a26229a7b1ce8bbe7fb23914}\label{classCalgine_1_1GameObject_a2166a4e0a26229a7b1ce8bbe7fb23914} 
 \index{Calgine::GameObject@{Calgine::GameObject}!is\_enabled@{is\_enabled}}
 \index{is\_enabled@{is\_enabled}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{is\_enabled()}{is\_enabled()}}
 {\footnotesize\ttfamily bool Calgine\+::\+Game\+Object\+::is\+\_\+enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-
-
-Checks if this \doxylink{classCalgine_1_1GameObject}{Game\+Object} is currently enabled. 
-
-\begin{DoxyReturn}{Returns}
-bool True if enabled, false otherwise
-\end{DoxyReturn}
-When a \doxylink{classCalgine_1_1GameObject}{Game\+Object} is disabled, its behaviours will not receive tick updates. \Hypertarget{classCalgine_1_1GameObject_ae60d4b1987fbd4ec0458a13719d1239e}\label{classCalgine_1_1GameObject_ae60d4b1987fbd4ec0458a13719d1239e} 
+\Hypertarget{classCalgine_1_1GameObject_ae60d4b1987fbd4ec0458a13719d1239e}\label{classCalgine_1_1GameObject_ae60d4b1987fbd4ec0458a13719d1239e} 
 \index{Calgine::GameObject@{Calgine::GameObject}!operator=@{operator=}}
 \index{operator=@{operator=}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -424,99 +207,30 @@ must be called after all update ticks, once per frame. do NOT call in gamecode, 
 \doxysubsubsection{\texorpdfstring{remove\_child\_immediate()}{remove\_child\_immediate()}}
 {\footnotesize\ttfamily bool Calgine\+::\+Game\+Object\+::remove\+\_\+child\+\_\+immediate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{child }\end{DoxyParamCaption})}
 
-
-
-Immediately removes and deletes a child \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em child} & Pointer to the child \doxylink{classCalgine_1_1GameObject}{Game\+Object} to remove \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-bool True if the child was found and removed, false otherwise
-\end{DoxyReturn}
-\begin{DoxyWarning}{Warning}
-Only use this if the caller is the external owner of the child\textquotesingle{}s lifetime. For safe removal during iteration, use \doxylink{classCalgine_1_1GameObject_a97c1b01c0e3e8985d1a327ed75199bb7}{destroy()} instead. 
-\end{DoxyWarning}
 \Hypertarget{classCalgine_1_1GameObject_a006b039eb65917a3552e4a1666b69819}\label{classCalgine_1_1GameObject_a006b039eb65917a3552e4a1666b69819} 
 \index{Calgine::GameObject@{Calgine::GameObject}!set\_active@{set\_active}}
 \index{set\_active@{set\_active}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{set\_active()}{set\_active()}}
 {\footnotesize\ttfamily void Calgine\+::\+Game\+Object\+::set\+\_\+active (\begin{DoxyParamCaption}\item[{const bool}]{\+\_\+enabled }\end{DoxyParamCaption})}
 
-
-
-Sets the active state of this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \+\_\+enabled} & True to enable, false to disable\\
-\hline
-\end{DoxyParams}
-Disabling a \doxylink{classCalgine_1_1GameObject}{Game\+Object} prevents its behaviours from receiving tick updates but does not affect its children or destroy it. \Hypertarget{classCalgine_1_1GameObject_ad97d52f6b23dd654ff552b0a7b9f95f4}\label{classCalgine_1_1GameObject_ad97d52f6b23dd654ff552b0a7b9f95f4} 
+\Hypertarget{classCalgine_1_1GameObject_ad97d52f6b23dd654ff552b0a7b9f95f4}\label{classCalgine_1_1GameObject_ad97d52f6b23dd654ff552b0a7b9f95f4} 
 \index{Calgine::GameObject@{Calgine::GameObject}!set\_name@{set\_name}}
 \index{set\_name@{set\_name}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{set\_name()}{set\_name()}}
 {\footnotesize\ttfamily void Calgine\+::\+Game\+Object\+::set\+\_\+name (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+name }\end{DoxyParamCaption})}
 
-
-
-Sets the debug name of this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \+\_\+name} & The new name for this \doxylink{classCalgine_1_1GameObject}{Game\+Object}\\
-\hline
-\end{DoxyParams}
-Changes the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s debug name. This is useful for debugging and logging purposes.
-
-\begin{DoxySeeAlso}{See also}
-\doxylink{classCalgine_1_1GameObject_aa34deb782f6ee4aff3f225050ea0109d}{get\+\_\+name()} 
-\end{DoxySeeAlso}
 \Hypertarget{classCalgine_1_1GameObject_a64874a410452502726b456cd0e52a49f}\label{classCalgine_1_1GameObject_a64874a410452502726b456cd0e52a49f} 
 \index{Calgine::GameObject@{Calgine::GameObject}!set\_parent@{set\_parent}}
 \index{set\_parent@{set\_parent}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{set\_parent()}{set\_parent()}}
 {\footnotesize\ttfamily void Calgine\+::\+Game\+Object\+::set\+\_\+parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{\+\_\+parent }\end{DoxyParamCaption})}
 
-
-
-Sets or changes the parent of this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \+\_\+parent} & Pointer to the new parent \doxylink{classCalgine_1_1GameObject}{Game\+Object}\\
-\hline
-\end{DoxyParams}
-Changes this \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s parent in the hierarchy. This affects the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s position in the scene tree and which parent receives tick updates first.
-
-\begin{DoxyWarning}{Warning}
-Use with caution as it modifies the hierarchy structure. 
-\end{DoxyWarning}
 \Hypertarget{classCalgine_1_1GameObject_a6fe6259db00341689a2a17adb77c5d11}\label{classCalgine_1_1GameObject_a6fe6259db00341689a2a17adb77c5d11} 
 \index{Calgine::GameObject@{Calgine::GameObject}!tick\_self\_and\_children@{tick\_self\_and\_children}}
 \index{tick\_self\_and\_children@{tick\_self\_and\_children}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{tick\_self\_and\_children()}{tick\_self\_and\_children()}}
 {\footnotesize\ttfamily void Calgine\+::\+Game\+Object\+::tick\+\_\+self\+\_\+and\+\_\+children (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861}{Tick\+Type}}}]{tick\+\_\+type }\end{DoxyParamCaption})}
 
-
-
-Executes tick updates on this \doxylink{classCalgine_1_1GameObject}{Game\+Object} and all its children. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em tick\+\_\+type} & The type of tick update to execute (preloop, update, or late\+\_\+update)\\
-\hline
-\end{DoxyParams}
-Recursively calls the appropriate tick function on all enabled behaviours attached to this \doxylink{classCalgine_1_1GameObject}{Game\+Object} and its children, based on the specified tick type.
-
-\begin{DoxyWarning}{Warning}
-This is typically called by the \doxylink{classCalgine_1_1App}{App} class. Do not call manually in game code unless you have a specific reason to do so.
-\end{DoxyWarning}
-\begin{DoxySeeAlso}{See also}
-\doxylink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861}{Tick\+Type} 
-\end{DoxySeeAlso}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

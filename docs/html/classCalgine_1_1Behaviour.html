@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('classCalgine_1_1Behaviour.html',''); i
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for all behaviour components that can be attached to GameObjects.  
+<p>Gives access to tick updates for users.  
  <a href="classCalgine_1_1Behaviour.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="behaviour_8h_source.html">behaviour.h</a>&gt;</code></p>
@@ -106,31 +106,30 @@ $(document).ready(function(){initNavTree('classCalgine_1_1Behaviour.html',''); i
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f9a4ac36b5e9a7303c0708c9c9ca435" id="r_a5f9a4ac36b5e9a7303c0708c9c9ca435"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Behaviour.html#a5f9a4ac36b5e9a7303c0708c9c9ca435">~Behaviour</a> ()</td></tr>
-<tr class="memdesc:a5f9a4ac36b5e9a7303c0708c9c9ca435"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper cleanup of derived classes.  <br /></td></tr>
 <tr class="separator:a5f9a4ac36b5e9a7303c0708c9c9ca435"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5ddce8f5605e47c1727f93127634274" id="r_aa5ddce8f5605e47c1727f93127634274"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCalgine_1_1GameObject.html">GameObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Behaviour.html#aa5ddce8f5605e47c1727f93127634274">get_game_object</a> ()</td></tr>
-<tr class="memdesc:aa5ddce8f5605e47c1727f93127634274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> that this behaviour is attached to.  <br /></td></tr>
+<tr class="memdesc:aa5ddce8f5605e47c1727f93127634274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the <a class="el" href="classCalgine_1_1GameObject.html">GameObject</a> that this behaviour is attached to. <br  />
+  <br /></td></tr>
 <tr class="separator:aa5ddce8f5605e47c1727f93127634274"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:aaebea8438da19079178842f5879f15d3" id="r_aaebea8438da19079178842f5879f15d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Behaviour.html#aaebea8438da19079178842f5879f15d3">Behaviour</a> ()=default</td></tr>
-<tr class="memdesc:aaebea8438da19079178842f5879f15d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected default constructor.  <br /></td></tr>
 <tr class="separator:aaebea8438da19079178842f5879f15d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f57fdc9e7cf4f2caae45df243baacea" id="r_a9f57fdc9e7cf4f2caae45df243baacea"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Behaviour.html#a9f57fdc9e7cf4f2caae45df243baacea">preloop_tick</a> ()</td></tr>
-<tr class="memdesc:a9f57fdc9e7cf4f2caae45df243baacea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called once before the main loop starts.  <br /></td></tr>
+<tr class="memdesc:a9f57fdc9e7cf4f2caae45df243baacea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called before the main loop (see <a class="el" href="classCalgine_1_1App.html">App</a>). Behaviours that are instantiated after the mainloop has started will not have this function called.  <br /></td></tr>
 <tr class="separator:a9f57fdc9e7cf4f2caae45df243baacea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4ed175037ecf4cc620bbcd83b9943ba" id="r_ae4ed175037ecf4cc620bbcd83b9943ba"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Behaviour.html#ae4ed175037ecf4cc620bbcd83b9943ba">start_tick</a> ()</td></tr>
-<tr class="memdesc:ae4ed175037ecf4cc620bbcd83b9943ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called once when this behaviour is attached to a <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a>.  <br /></td></tr>
+<tr class="memdesc:ae4ed175037ecf4cc620bbcd83b9943ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when this gameobject is instantitated.  <br /></td></tr>
 <tr class="separator:ae4ed175037ecf4cc620bbcd83b9943ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61aeb7ae491ffb5b6a4b90d24a38c1bd" id="r_a61aeb7ae491ffb5b6a4b90d24a38c1bd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Behaviour.html#a61aeb7ae491ffb5b6a4b90d24a38c1bd">update_tick</a> ()</td></tr>
-<tr class="memdesc:a61aeb7ae491ffb5b6a4b90d24a38c1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called every frame during the update phase.  <br /></td></tr>
+<tr class="memdesc:a61aeb7ae491ffb5b6a4b90d24a38c1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called every frame, before <a class="el" href="classCalgine_1_1Behaviour.html#aebecb028feb9cc0087c227a80b663f6c" title="Gets called every frame, after update().">late_tick()</a>.  <br /></td></tr>
 <tr class="separator:a61aeb7ae491ffb5b6a4b90d24a38c1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebecb028feb9cc0087c227a80b663f6c" id="r_aebecb028feb9cc0087c227a80b663f6c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Behaviour.html#aebecb028feb9cc0087c227a80b663f6c">late_tick</a> ()</td></tr>
-<tr class="memdesc:aebecb028feb9cc0087c227a80b663f6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called every frame after the update phase.  <br /></td></tr>
+<tr class="memdesc:aebecb028feb9cc0087c227a80b663f6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called every frame, after <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d">update()</a>.  <br /></td></tr>
 <tr class="separator:aebecb028feb9cc0087c227a80b663f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab60143ff0527a6db745d286dec38fca" id="r_aab60143ff0527a6db745d286dec38fca"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Behaviour.html#aab60143ff0527a6db745d286dec38fca">on_destroy</a> ()</td></tr>
-<tr class="memdesc:aab60143ff0527a6db745d286dec38fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> this behaviour is attached to is being destroyed.  <br /></td></tr>
+<tr class="memdesc:aab60143ff0527a6db745d286dec38fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when game_object is being destroyed.  <br /></td></tr>
 <tr class="separator:aab60143ff0527a6db745d286dec38fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
@@ -139,74 +138,9 @@ Friends</h2></td></tr>
 <tr class="separator:a00df87c957d8f7ee0fc51f07a0542f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Base class for all behaviour components that can be attached to GameObjects. </p>
-<p><a class="el" href="classCalgine_1_1Behaviour.html" title="Base class for all behaviour components that can be attached to GameObjects.">Behaviour</a> provides the component-based functionality for GameObjects. By inheriting from <a class="el" href="classCalgine_1_1Behaviour.html" title="Base class for all behaviour components that can be attached to GameObjects.">Behaviour</a> and overriding its virtual tick methods, you can create custom game logic that responds to different phases of the game loop.</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
-Lifecycle</h2>
-<p>When a <a class="el" href="classCalgine_1_1Behaviour.html" title="Base class for all behaviour components that can be attached to GameObjects.">Behaviour</a> is added to a <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a>:</p><ol type="1">
-<li>The <a class="el" href="classCalgine_1_1Behaviour.html" title="Base class for all behaviour components that can be attached to GameObjects.">Behaviour</a> is constructed</li>
-<li>attach_owner() is called internally to link it to the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a></li>
-<li><a class="el" href="classCalgine_1_1Behaviour.html#ae4ed175037ecf4cc620bbcd83b9943ba" title="Called once when this behaviour is attached to a GameObject.">start_tick()</a> is called once</li>
-<li><a class="el" href="classCalgine_1_1Behaviour.html#a61aeb7ae491ffb5b6a4b90d24a38c1bd" title="Called every frame during the update phase.">update_tick()</a> and <a class="el" href="classCalgine_1_1Behaviour.html#aebecb028feb9cc0087c227a80b663f6c" title="Called every frame after the update phase.">late_tick()</a> are called every frame while enabled</li>
-<li><a class="el" href="classCalgine_1_1Behaviour.html#aab60143ff0527a6db745d286dec38fca" title="Called when the GameObject this behaviour is attached to is being destroyed.">on_destroy()</a> is called when the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> is destroyed</li>
-</ol>
-<h2><a class="anchor" id="autotoc_md3"></a>
-Tick Methods</h2>
-<p>Override these protected virtual methods to implement your game logic:</p><ul>
-<li><b><a class="el" href="classCalgine_1_1Behaviour.html#a9f57fdc9e7cf4f2caae45df243baacea" title="Called once before the main loop starts.">preloop_tick()</a></b>: Called once before the main loop starts (only for behaviours added before the loop)</li>
-<li><b><a class="el" href="classCalgine_1_1Behaviour.html#ae4ed175037ecf4cc620bbcd83b9943ba" title="Called once when this behaviour is attached to a GameObject.">start_tick()</a></b>: Called once when the behaviour is first attached</li>
-<li><b><a class="el" href="classCalgine_1_1Behaviour.html#a61aeb7ae491ffb5b6a4b90d24a38c1bd" title="Called every frame during the update phase.">update_tick()</a></b>: Called every frame during the update phase</li>
-<li><b><a class="el" href="classCalgine_1_1Behaviour.html#aebecb028feb9cc0087c227a80b663f6c" title="Called every frame after the update phase.">late_tick()</a></b>: Called every frame after update, useful for cameras and follow logic</li>
-<li><b><a class="el" href="classCalgine_1_1Behaviour.html#aab60143ff0527a6db745d286dec38fca" title="Called when the GameObject this behaviour is attached to is being destroyed.">on_destroy()</a></b>: Called when the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> is being destroyed</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
-Usage Example</h2>
-<div class="fragment"><div class="line"><span class="keyword">class </span>RotatingBehaviour : <span class="keyword">public</span> <a class="code hl_class" href="classCalgine_1_1Behaviour.html">Calgine::Behaviour</a> </div>
-<div class="line">{</div>
-<div class="line"><span class="keyword">protected</span>:</div>
-<div class="line">    <span class="keywordtype">void</span> <a class="code hl_function" href="classCalgine_1_1Behaviour.html#a61aeb7ae491ffb5b6a4b90d24a38c1bd">update_tick</a>()<span class="keyword"> override</span></div>
-<div class="line"><span class="keyword">    </span>{</div>
-<div class="line">        <span class="comment">// Access the owning GameObject</span></div>
-<div class="line">        <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* obj = <a class="code hl_function" href="classCalgine_1_1Behaviour.html#aa5ddce8f5605e47c1727f93127634274">get_game_object</a>();</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">// Log using the convenience macro</span></div>
-<div class="line">        <a class="code hl_define" href="behaviour_8h.html#a0eabd5db583e036746080f1d4f74cc92">print</a>(<span class="stringliteral">&quot;Updating rotation for {}&quot;</span>, obj-&gt;<a class="code hl_function" href="classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d">get_name</a>());</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">// Your update logic here</span></div>
-<div class="line">        rotation_angle += delta_time;</div>
-<div class="line">    }</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordtype">void</span> <a class="code hl_function" href="classCalgine_1_1Behaviour.html#aab60143ff0527a6db745d286dec38fca">on_destroy</a>()<span class="keyword"> override</span></div>
-<div class="line"><span class="keyword">    </span>{</div>
-<div class="line">        <a class="code hl_define" href="behaviour_8h.html#a0eabd5db583e036746080f1d4f74cc92">print</a>(<span class="stringliteral">&quot;Cleaning up RotatingBehaviour&quot;</span>);</div>
-<div class="line">    }</div>
-<div class="line">    </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line">    <span class="keywordtype">float</span> rotation_angle = 0.0f;</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Usage</span></div>
-<div class="line"><a class="code hl_friend" href="classCalgine_1_1Behaviour.html#a00df87c957d8f7ee0fc51f07a0542f4a">GameObject</a> obj(<span class="keyword">nullptr</span>);</div>
-<div class="line">obj.add_behaviour&lt;RotatingBehaviour&gt;();</div>
-<div class="ttc" id="abehaviour_8h_html_a0eabd5db583e036746080f1d4f74cc92"><div class="ttname"><a href="behaviour_8h.html#a0eabd5db583e036746080f1d4f74cc92">print</a></div><div class="ttdeci">#define print(...)</div><div class="ttdoc">Convenience macro for info-level logging in behaviours.</div><div class="ttdef"><b>Definition</b> behaviour.h:81</div></div>
-<div class="ttc" id="aclassCalgine_1_1Behaviour_html"><div class="ttname"><a href="classCalgine_1_1Behaviour.html">Calgine::Behaviour</a></div><div class="ttdoc">Base class for all behaviour components that can be attached to GameObjects.</div><div class="ttdef"><b>Definition</b> behaviour.h:79</div></div>
-<div class="ttc" id="aclassCalgine_1_1Behaviour_html_a00df87c957d8f7ee0fc51f07a0542f4a"><div class="ttname"><a href="classCalgine_1_1Behaviour.html#a00df87c957d8f7ee0fc51f07a0542f4a">Calgine::Behaviour::GameObject</a></div><div class="ttdeci">friend class GameObject</div><div class="ttdef"><b>Definition</b> behaviour.h:148</div></div>
-<div class="ttc" id="aclassCalgine_1_1Behaviour_html_a61aeb7ae491ffb5b6a4b90d24a38c1bd"><div class="ttname"><a href="classCalgine_1_1Behaviour.html#a61aeb7ae491ffb5b6a4b90d24a38c1bd">Calgine::Behaviour::update_tick</a></div><div class="ttdeci">virtual void update_tick()</div><div class="ttdoc">Called every frame during the update phase.</div><div class="ttdef"><b>Definition</b> behaviour.cxx:14</div></div>
-<div class="ttc" id="aclassCalgine_1_1Behaviour_html_aa5ddce8f5605e47c1727f93127634274"><div class="ttname"><a href="classCalgine_1_1Behaviour.html#aa5ddce8f5605e47c1727f93127634274">Calgine::Behaviour::get_game_object</a></div><div class="ttdeci">GameObject * get_game_object()</div><div class="ttdoc">Returns a pointer to the GameObject that this behaviour is attached to.</div><div class="ttdef"><b>Definition</b> behaviour.cxx:26</div></div>
-<div class="ttc" id="aclassCalgine_1_1Behaviour_html_aab60143ff0527a6db745d286dec38fca"><div class="ttname"><a href="classCalgine_1_1Behaviour.html#aab60143ff0527a6db745d286dec38fca">Calgine::Behaviour::on_destroy</a></div><div class="ttdeci">virtual void on_destroy()</div><div class="ttdoc">Called when the GameObject this behaviour is attached to is being destroyed.</div><div class="ttdef"><b>Definition</b> behaviour.cxx:17</div></div>
-<div class="ttc" id="aclassCalgine_1_1GameObject_html"><div class="ttname"><a href="classCalgine_1_1GameObject.html">Calgine::GameObject</a></div><div class="ttdoc">GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...</div><div class="ttdef"><b>Definition</b> game_object.h:60</div></div>
-<div class="ttc" id="aclassCalgine_1_1GameObject_html_aa34deb782f6ee4aff3f225050ea0109d"><div class="ttname"><a href="classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d">Calgine::GameObject::get_name</a></div><div class="ttdeci">virtual std::string get_name()</div><div class="ttdoc">Get the name of the GameObject.</div><div class="ttdef"><b>Definition</b> game_object.h:335</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
-Logging Macros</h2>
-<p>Three convenience macros are provided for logging within behaviours:</p><ul>
-<li><b><a class="el" href="behaviour_8h.html#a0eabd5db583e036746080f1d4f74cc92" title="Convenience macro for info-level logging in behaviours.">print(...)</a></b>: Info level logging</li>
-<li><b><a class="el" href="behaviour_8h.html#a6371f88db740fc56ed65103791e850de" title="Convenience macro for warning-level logging in behaviours.">print_warning(...)</a></b>: Warning level logging <br  />
-</li>
-<li><b><a class="el" href="behaviour_8h.html#a4b7221784007f247d98746f5857a8aad" title="Convenience macro for error-level logging in behaviours.">print_error(...)</a></b>: Error level logging</li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="classCalgine_1_1Behaviour.html" title="Base class for all behaviour components that can be attached to GameObjects.">Behaviour</a> subclasses must be default-constructible. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a>, <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861" title="Enumeration of tick update phases in the game loop.">TickType</a> </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock"><p>Gives access to tick updates for users. </p>
+<div class="fragment"><div class="line"><span class="comment">//TODO: Example </span></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5f9a4ac36b5e9a7303c0708c9c9ca435" name="a5f9a4ac36b5e9a7303c0708c9c9ca435"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f9a4ac36b5e9a7303c0708c9c9ca435">&#9670;&#160;</a></span>~Behaviour()</h2>
 
@@ -229,8 +163,6 @@ Logging Macros</h2>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Virtual destructor for proper cleanup of derived classes. </p>
 
 </div>
 </div>
@@ -257,9 +189,6 @@ Logging Macros</h2>
 </table>
 </div><div class="memdoc">
 
-<p>Protected default constructor. </p>
-<p>Behaviours can only be created through <a class="el" href="classCalgine_1_1GameObject.html#a37886ebc4875a4c1f89743273151a119" title="Adds a new behaviour component to this GameObject.">GameObject::add_behaviour()</a>. Derived classes should use the default constructor or provide their own. </p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -278,14 +207,9 @@ Logging Macros</h2>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a pointer to the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> that this behaviour is attached to. </p>
-<dl class="section return"><dt>Returns</dt><dd>GameObject* Pointer to the owning <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a></dd></dl>
-<p>Use this to access the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a>'s properties and methods from within the behaviour.</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> MyBehaviour::update_tick() {</div>
-<div class="line">    <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* obj = <a class="code hl_function" href="classCalgine_1_1Behaviour.html#aa5ddce8f5605e47c1727f93127634274">get_game_object</a>();</div>
-<div class="line">    <a class="code hl_define" href="behaviour_8h.html#a0eabd5db583e036746080f1d4f74cc92">print</a>(<span class="stringliteral">&quot;GameObject name: {}&quot;</span>, obj-&gt;<a class="code hl_function" href="classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d">get_name</a>());</div>
-<div class="line">}</div>
-</div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd>Asserts if called before the behaviour is attached to a <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a>. </dd></dl>
+<p>Returns a pointer to the <a class="el" href="classCalgine_1_1GameObject.html">GameObject</a> that this behaviour is attached to. <br  />
+ </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classCalgine_1_1GameObject.html">GameObject</a>* </dd></dl>
 
 </div>
 </div>
@@ -312,13 +236,7 @@ Logging Macros</h2>
 </table>
 </div><div class="memdoc">
 
-<p>Called every frame after the update phase. </p>
-<p>Override this method to implement logic that should run after all <a class="el" href="classCalgine_1_1Behaviour.html#a61aeb7ae491ffb5b6a4b90d24a38c1bd" title="Called every frame during the update phase.">update_tick()</a> calls. This is useful for cameras that need to follow objects, or any logic that depends on the results of <a class="el" href="classCalgine_1_1Behaviour.html#a61aeb7ae491ffb5b6a4b90d24a38c1bd" title="Called every frame during the update phase.">update_tick()</a>.</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> CameraBehaviour::late_tick() {</div>
-<div class="line">    <span class="comment">// Update camera position based on target&#39;s final position</span></div>
-<div class="line">    follow_target();</div>
-<div class="line">}</div>
-</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCalgine_1_1Behaviour.html#a61aeb7ae491ffb5b6a4b90d24a38c1bd" title="Called every frame during the update phase.">update_tick()</a> </dd></dl>
+<p>Gets called every frame, after <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d">update()</a>. </p>
 
 </div>
 </div>
@@ -345,13 +263,8 @@ Logging Macros</h2>
 </table>
 </div><div class="memdoc">
 
-<p>Called when the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> this behaviour is attached to is being destroyed. </p>
-<p>Override this method to perform cleanup when the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> is destroyed. At this point, the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> and all its properties are still valid.</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> MyBehaviour::on_destroy() {</div>
-<div class="line">    <a class="code hl_define" href="behaviour_8h.html#a0eabd5db583e036746080f1d4f74cc92">print</a>(<span class="stringliteral">&quot;Cleaning up resources&quot;</span>);</div>
-<div class="line">    <span class="comment">// Release resources, save state, etc.</span></div>
-<div class="line">}</div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>You can safely access <a class="el" href="classCalgine_1_1Behaviour.html#aa5ddce8f5605e47c1727f93127634274" title="Returns a pointer to the GameObject that this behaviour is attached to.">get_game_object()</a> in this method. </dd></dl>
+<p>Gets called when game_object is being destroyed. </p>
+<dl class="section note"><dt>Note</dt><dd>You can safely assume that game_object has not changed by this point. </dd></dl>
 
 </div>
 </div>
@@ -378,9 +291,7 @@ Logging Macros</h2>
 </table>
 </div><div class="memdoc">
 
-<p>Called once before the main loop starts. </p>
-<p>Override this method to perform initialization that should happen before the game loop begins. Only called for behaviours that exist before the main loop starts. Behaviours added during runtime will not have this method called.</p>
-<dl class="section note"><dt>Note</dt><dd>This is called before <a class="el" href="classCalgine_1_1Behaviour.html#ae4ed175037ecf4cc620bbcd83b9943ba" title="Called once when this behaviour is attached to a GameObject.">start_tick()</a>. </dd></dl>
+<p>Gets called before the main loop (see <a class="el" href="classCalgine_1_1App.html">App</a>). Behaviours that are instantiated after the mainloop has started will not have this function called. </p>
 
 </div>
 </div>
@@ -407,13 +318,8 @@ Logging Macros</h2>
 </table>
 </div><div class="memdoc">
 
-<p>Called once when this behaviour is attached to a <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a>. </p>
-<p>Override this method to perform initialization specific to this behaviour instance. This is called immediately after the behaviour is created and attached to a <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a>.</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> MyBehaviour::start_tick() {</div>
-<div class="line">    <a class="code hl_define" href="behaviour_8h.html#a0eabd5db583e036746080f1d4f74cc92">print</a>(<span class="stringliteral">&quot;MyBehaviour started on {}&quot;</span>, <a class="code hl_function" href="classCalgine_1_1Behaviour.html#aa5ddce8f5605e47c1727f93127634274">get_game_object</a>()-&gt;get_name());</div>
-<div class="line">    <span class="comment">// Initialize your behaviour here</span></div>
-<div class="line">}</div>
-</div><!-- fragment --> 
+<p>Gets called when this gameobject is instantitated. </p>
+
 </div>
 </div>
 <a id="a61aeb7ae491ffb5b6a4b90d24a38c1bd" name="a61aeb7ae491ffb5b6a4b90d24a38c1bd"></a>
@@ -439,14 +345,7 @@ Logging Macros</h2>
 </table>
 </div><div class="memdoc">
 
-<p>Called every frame during the update phase. </p>
-<p>Override this method to implement the main logic of your behaviour. This is called once per frame for all enabled GameObjects during the update tick.</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> MyBehaviour::update_tick() {</div>
-<div class="line">    <span class="comment">// Main game logic here</span></div>
-<div class="line">    process_input();</div>
-<div class="line">    update_physics();</div>
-<div class="line">}</div>
-</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCalgine_1_1Behaviour.html#aebecb028feb9cc0087c227a80b663f6c" title="Called every frame after the update phase.">late_tick()</a> </dd></dl>
+<p>Gets called every frame, before <a class="el" href="classCalgine_1_1Behaviour.html#aebecb028feb9cc0087c227a80b663f6c" title="Gets called every frame, after update().">late_tick()</a>. </p>
 
 </div>
 </div>

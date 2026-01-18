@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['preloop_0',['preloop',['../namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92',1,'Calgine']]],
-  ['preloop_5ftick_1',['preloop_tick',['../classCalgine_1_1Behaviour.html#a9f57fdc9e7cf4f2caae45df243baacea',1,'Calgine::Behaviour']]],
-  ['print_2',['print',['../behaviour_8h.html#a0eabd5db583e036746080f1d4f74cc92',1,'behaviour.h']]],
-  ['print_5ferror_3',['print_error',['../behaviour_8h.html#a4b7221784007f247d98746f5857a8aad',1,'behaviour.h']]],
-  ['print_5fwarning_4',['print_warning',['../behaviour_8h.html#a6371f88db740fc56ed65103791e850de',1,'behaviour.h']]],
-  ['process_5fpending_5fdeletes_5',['process_pending_deletes',['../classCalgine_1_1GameObject.html#ad47e6d97336652e235aa1b5e20daa5ef',1,'Calgine::GameObject']]]
+  ['set_5factive_0',['set_active',['../classCalgine_1_1GameObject.html#a006b039eb65917a3552e4a1666b69819',1,'Calgine::GameObject']]],
+  ['set_5fname_1',['set_name',['../classCalgine_1_1GameObject.html#ad97d52f6b23dd654ff552b0a7b9f95f4',1,'Calgine::GameObject']]],
+  ['set_5fparent_2',['set_parent',['../classCalgine_1_1GameObject.html#a64874a410452502726b456cd0e52a49f',1,'Calgine::GameObject']]],
+  ['set_5fvsync_5fstate_3',['set_vsync_state',['../classCalgine_1_1Window.html#aff148d8b94b00211a2481befbffde8b1',1,'Calgine::Window']]],
+  ['set_5fwindow_5ftitle_4',['set_window_title',['../classCalgine_1_1Window.html#a672a2dc900594a23d44b3d62d18c771d',1,'Calgine::Window']]],
+  ['settings_5',['settings',['../classCalgine_1_1App.html#aadb538d7a6dc9bc64243027c16dab9b8',1,'Calgine::App']]],
+  ['should_5fclose_6',['should_close',['../classCalgine_1_1Window.html#a7f15978b22338eb28f98e9836aff471b',1,'Calgine::Window']]],
+  ['start_5ftick_7',['start_tick',['../classCalgine_1_1Behaviour.html#ae4ed175037ecf4cc620bbcd83b9943ba',1,'Calgine::Behaviour']]],
+  ['systems_5finit_8',['systems_init',['../classCalgine_1_1App.html#a52ea702157554748e98b84dc0132e39f',1,'Calgine::App']]]
 ];

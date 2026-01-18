@@ -2,7 +2,7 @@
 \hypertarget{classCalgine_1_1Behaviour}{}\label{classCalgine_1_1Behaviour}\index{Calgine::Behaviour@{Calgine::Behaviour}}
 
 
-Base class for all behaviour components that can be attached to Game\+Objects.  
+Gives access to tick updates for users.  
 
 
 
@@ -13,24 +13,25 @@ Base class for all behaviour components that can be attached to Game\+Objects.
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classCalgine_1_1Behaviour_a5f9a4ac36b5e9a7303c0708c9c9ca435}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
-\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup of derived classes. \end{DoxyCompactList}\item 
+\item 
 \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\+\_\+game\+\_\+object}} ()
-\begin{DoxyCompactList}\small\item\em Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} that this behaviour is attached to. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} that this behaviour is attached to. ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classCalgine_1_1Behaviour_aaebea8438da19079178842f5879f15d3}{Behaviour}} ()=default
-\begin{DoxyCompactList}\small\item\em Protected default constructor. \end{DoxyCompactList}\item 
+\item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a9f57fdc9e7cf4f2caae45df243baacea}{preloop\+\_\+tick}} ()
-\begin{DoxyCompactList}\small\item\em Called once before the main loop starts. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets called before the main loop (see \doxylink{classCalgine_1_1App}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}{start\+\_\+tick}} ()
-\begin{DoxyCompactList}\small\item\em Called once when this behaviour is attached to a \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets called when this gameobject is instantitated. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}{update\+\_\+tick}} ()
-\begin{DoxyCompactList}\small\item\em Called every frame during the update phase. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets called every frame, before \doxylink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick()}. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick}} ()
-\begin{DoxyCompactList}\small\item\em Called every frame after the update phase. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets called every frame, after \doxylink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d}{update()}. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aab60143ff0527a6db745d286dec38fca}{on\+\_\+destroy}} ()
-\begin{DoxyCompactList}\small\item\em Called when the \doxylink{classCalgine_1_1GameObject}{Game\+Object} this behaviour is attached to is being destroyed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets called when game\+\_\+object is being destroyed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,72 +40,14 @@ class \mbox{\hyperlink{classCalgine_1_1Behaviour_a00df87c957d8f7ee0fc51f07a0542f
 
 
 \doxysubsection{Detailed Description}
-Base class for all behaviour components that can be attached to Game\+Objects. 
+Gives access to tick updates for users. 
 
-\doxylink{classCalgine_1_1Behaviour}{Behaviour} provides the component-\/based functionality for Game\+Objects. By inheriting from \doxylink{classCalgine_1_1Behaviour}{Behaviour} and overriding its virtual tick methods, you can create custom game logic that responds to different phases of the game loop.\hypertarget{classCalgine_1_1Behaviour_autotoc_md2}{}\doxysubsubsection{\texorpdfstring{Lifecycle}{Lifecycle}}\label{classCalgine_1_1Behaviour_autotoc_md2}
-When a \doxylink{classCalgine_1_1Behaviour}{Behaviour} is added to a \doxylink{classCalgine_1_1GameObject}{Game\+Object}\+:
-\begin{DoxyEnumerate}
-\item The \doxylink{classCalgine_1_1Behaviour}{Behaviour} is constructed
-\item attach\+\_\+owner() is called internally to link it to the \doxylink{classCalgine_1_1GameObject}{Game\+Object}
-\item \doxylink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}{start\+\_\+tick()} is called once
-\item \doxylink{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}{update\+\_\+tick()} and \doxylink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick()} are called every frame while enabled
-\item \doxylink{classCalgine_1_1Behaviour_aab60143ff0527a6db745d286dec38fca}{on\+\_\+destroy()} is called when the \doxylink{classCalgine_1_1GameObject}{Game\+Object} is destroyed
-\end{DoxyEnumerate}\hypertarget{classCalgine_1_1Behaviour_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{Tick Methods}{Tick Methods}}\label{classCalgine_1_1Behaviour_autotoc_md3}
-Override these protected virtual methods to implement your game logic\+:
-\begin{DoxyItemize}
-\item {\bfseries{\doxylink{classCalgine_1_1Behaviour_a9f57fdc9e7cf4f2caae45df243baacea}{preloop\+\_\+tick()}}}\+: Called once before the main loop starts (only for behaviours added before the loop)
-\item {\bfseries{\doxylink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}{start\+\_\+tick()}}}\+: Called once when the behaviour is first attached
-\item {\bfseries{\doxylink{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}{update\+\_\+tick()}}}\+: Called every frame during the update phase
-\item {\bfseries{\doxylink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick()}}}\+: Called every frame after update, useful for cameras and follow logic
-\item {\bfseries{\doxylink{classCalgine_1_1Behaviour_aab60143ff0527a6db745d286dec38fca}{on\+\_\+destroy()}}}\+: Called when the \doxylink{classCalgine_1_1GameObject}{Game\+Object} is being destroyed
-\end{DoxyItemize}\hypertarget{classCalgine_1_1Behaviour_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{classCalgine_1_1Behaviour_autotoc_md4}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{class\ }RotatingBehaviour\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine::Behaviour}}\ }
-\DoxyCodeLine{\{}
-\DoxyCodeLine{\textcolor{keyword}{protected}:}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}{update\_tick}}()\textcolor{keyword}{\ override}}
-\DoxyCodeLine{\textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Access\ the\ owning\ GameObject}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1Behaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}}*\ obj\ =\ \mbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\_game\_object}}();}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Log\ using\ the\ convenience\ macro}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{behaviour_8h_a0eabd5db583e036746080f1d4f74cc92}{print}}(\textcolor{stringliteral}{"{}Updating\ rotation\ for\ \{\}"{}},\ obj-\/>get\_name());}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Your\ update\ logic\ here}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ rotation\_angle\ +=\ delta\_time;}
-\DoxyCodeLine{\ \ \ \ \}}
-\DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1Behaviour_aab60143ff0527a6db745d286dec38fca}{on\_destroy}}()\textcolor{keyword}{\ override}}
-\DoxyCodeLine{\textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{behaviour_8h_a0eabd5db583e036746080f1d4f74cc92}{print}}(\textcolor{stringliteral}{"{}Cleaning\ up\ RotatingBehaviour"{}});}
-\DoxyCodeLine{\ \ \ \ \}}
-\DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\textcolor{keyword}{private}:}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ rotation\_angle\ =\ 0.0f;}
-\DoxyCodeLine{\};}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ Usage}}
-\DoxyCodeLine{\mbox{\hyperlink{classCalgine_1_1Behaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}}\ obj(\textcolor{keyword}{nullptr});}
-\DoxyCodeLine{obj.add\_behaviour<RotatingBehaviour>();}
+\DoxyCodeLine{\textcolor{comment}{//TODO:\ Example\ }}
 
 \end{DoxyCode}
-\hypertarget{classCalgine_1_1Behaviour_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{Logging Macros}{Logging Macros}}\label{classCalgine_1_1Behaviour_autotoc_md5}
-Three convenience macros are provided for logging within behaviours\+:
-\begin{DoxyItemize}
-\item {\bfseries{\doxylink{behaviour_8h_a0eabd5db583e036746080f1d4f74cc92}{print(...)}}}\+: Info level logging
-\item {\bfseries{\doxylink{behaviour_8h_a6371f88db740fc56ed65103791e850de}{print\+\_\+warning(...)}}}\+: Warning level logging ~\newline
-
-\item {\bfseries{\doxylink{behaviour_8h_a4b7221784007f247d98746f5857a8aad}{print\+\_\+error(...)}}}\+: Error level logging
-\end{DoxyItemize}
-
-\begin{DoxyNote}{Note}
-\doxylink{classCalgine_1_1Behaviour}{Behaviour} subclasses must be default-\/constructible. 
-\end{DoxyNote}
-\begin{DoxySeeAlso}{See also}
-\doxylink{classCalgine_1_1GameObject}{Game\+Object}, \doxylink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861}{Tick\+Type} 
-\end{DoxySeeAlso}
-
+ 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classCalgine_1_1Behaviour_a5f9a4ac36b5e9a7303c0708c9c9ca435}\label{classCalgine_1_1Behaviour_a5f9a4ac36b5e9a7303c0708c9c9ca435} 
@@ -113,10 +56,6 @@ Three convenience macros are provided for logging within behaviours\+:
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Behaviour()}{\string~Behaviour()}}
 {\footnotesize\ttfamily Calgine\+::\+Behaviour\+::\texorpdfstring{$\sim$}{\string~}\+Behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-
-
-Virtual destructor for proper cleanup of derived classes. 
-
 \Hypertarget{classCalgine_1_1Behaviour_aaebea8438da19079178842f5879f15d3}\label{classCalgine_1_1Behaviour_aaebea8438da19079178842f5879f15d3} 
 \index{Calgine::Behaviour@{Calgine::Behaviour}!Behaviour@{Behaviour}}
 \index{Behaviour@{Behaviour}!Calgine::Behaviour@{Calgine::Behaviour}}
@@ -124,10 +63,6 @@ Virtual destructor for proper cleanup of derived classes.
 {\footnotesize\ttfamily Calgine\+::\+Behaviour\+::\+Behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
 
 
-
-Protected default constructor. 
-
-Behaviours can only be created through \doxylink{classCalgine_1_1GameObject_a37886ebc4875a4c1f89743273151a119}{Game\+Object\+::add\+\_\+behaviour()}. Derived classes should use the default constructor or provide their own. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}\label{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274} 
@@ -138,26 +73,12 @@ Behaviours can only be created through \doxylink{classCalgine_1_1GameObject_a378
 
 
 
-Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} that this behaviour is attached to. 
+Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} that this behaviour is attached to. ~\newline
+ 
 
 \begin{DoxyReturn}{Returns}
-Game\+Object\texorpdfstring{$\ast$}{*} Pointer to the owning \doxylink{classCalgine_1_1GameObject}{Game\+Object}
+\doxylink{classCalgine_1_1GameObject}{Game\+Object}\texorpdfstring{$\ast$}{*} 
 \end{DoxyReturn}
-Use this to access the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s properties and methods from within the behaviour.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ MyBehaviour::update\_tick()\ \{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classCalgine_1_1Behaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}}*\ obj\ =\ \mbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\_game\_object}}();}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{behaviour_8h_a0eabd5db583e036746080f1d4f74cc92}{print}}(\textcolor{stringliteral}{"{}GameObject\ name:\ \{\}"{}},\ obj-\/>get\_name());}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-
-
-\begin{DoxyWarning}{Warning}
-Asserts if called before the behaviour is attached to a \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
-\end{DoxyWarning}
 \Hypertarget{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}\label{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c} 
 \index{Calgine::Behaviour@{Calgine::Behaviour}!late\_tick@{late\_tick}}
 \index{late\_tick@{late\_tick}!Calgine::Behaviour@{Calgine::Behaviour}}
@@ -166,23 +87,8 @@ Asserts if called before the behaviour is attached to a \doxylink{classCalgine_1
 
 
 
-Called every frame after the update phase. 
+Gets called every frame, after \doxylink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d}{update()}. 
 
-Override this method to implement logic that should run after all \doxylink{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}{update\+\_\+tick()} calls. This is useful for cameras that need to follow objects, or any logic that depends on the results of \doxylink{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}{update\+\_\+tick()}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ CameraBehaviour::late\_tick()\ \{}
-\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Update\ camera\ position\ based\ on\ target's\ final\ position}}
-\DoxyCodeLine{\ \ \ \ follow\_target();}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-
-
-\begin{DoxySeeAlso}{See also}
-\doxylink{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}{update\+\_\+tick()} 
-\end{DoxySeeAlso}
 \Hypertarget{classCalgine_1_1Behaviour_aab60143ff0527a6db745d286dec38fca}\label{classCalgine_1_1Behaviour_aab60143ff0527a6db745d286dec38fca} 
 \index{Calgine::Behaviour@{Calgine::Behaviour}!on\_destroy@{on\_destroy}}
 \index{on\_destroy@{on\_destroy}!Calgine::Behaviour@{Calgine::Behaviour}}
@@ -191,22 +97,10 @@ Override this method to implement logic that should run after all \doxylink{clas
 
 
 
-Called when the \doxylink{classCalgine_1_1GameObject}{Game\+Object} this behaviour is attached to is being destroyed. 
-
-Override this method to perform cleanup when the \doxylink{classCalgine_1_1GameObject}{Game\+Object} is destroyed. At this point, the \doxylink{classCalgine_1_1GameObject}{Game\+Object} and all its properties are still valid.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ MyBehaviour::on\_destroy()\ \{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{behaviour_8h_a0eabd5db583e036746080f1d4f74cc92}{print}}(\textcolor{stringliteral}{"{}Cleaning\ up\ resources"{}});}
-\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Release\ resources,\ save\ state,\ etc.}}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-
+Gets called when game\+\_\+object is being destroyed. 
 
 \begin{DoxyNote}{Note}
-You can safely access \doxylink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\+\_\+game\+\_\+object()} in this method. 
+You can safely assume that game\+\_\+object has not changed by this point. 
 \end{DoxyNote}
 \Hypertarget{classCalgine_1_1Behaviour_a9f57fdc9e7cf4f2caae45df243baacea}\label{classCalgine_1_1Behaviour_a9f57fdc9e7cf4f2caae45df243baacea} 
 \index{Calgine::Behaviour@{Calgine::Behaviour}!preloop\_tick@{preloop\_tick}}
@@ -216,13 +110,8 @@ You can safely access \doxylink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f
 
 
 
-Called once before the main loop starts. 
+Gets called before the main loop (see \doxylink{classCalgine_1_1App}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. 
 
-Override this method to perform initialization that should happen before the game loop begins. Only called for behaviours that exist before the main loop starts. Behaviours added during runtime will not have this method called.
-
-\begin{DoxyNote}{Note}
-This is called before \doxylink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}{start\+\_\+tick()}. 
-\end{DoxyNote}
 \Hypertarget{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}\label{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba} 
 \index{Calgine::Behaviour@{Calgine::Behaviour}!start\_tick@{start\_tick}}
 \index{start\_tick@{start\_tick}!Calgine::Behaviour@{Calgine::Behaviour}}
@@ -231,19 +120,9 @@ This is called before \doxylink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bb
 
 
 
-Called once when this behaviour is attached to a \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
+Gets called when this gameobject is instantitated. 
 
-Override this method to perform initialization specific to this behaviour instance. This is called immediately after the behaviour is created and attached to a \doxylink{classCalgine_1_1GameObject}{Game\+Object}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ MyBehaviour::start\_tick()\ \{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{behaviour_8h_a0eabd5db583e036746080f1d4f74cc92}{print}}(\textcolor{stringliteral}{"{}MyBehaviour\ started\ on\ \{\}"{}},\ \mbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\_game\_object}}()-\/>get\_name());}
-\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Initialize\ your\ behaviour\ here}}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
- \Hypertarget{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}\label{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd} 
+\Hypertarget{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}\label{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd} 
 \index{Calgine::Behaviour@{Calgine::Behaviour}!update\_tick@{update\_tick}}
 \index{update\_tick@{update\_tick}!Calgine::Behaviour@{Calgine::Behaviour}}
 \doxysubsubsection{\texorpdfstring{update\_tick()}{update\_tick()}}
@@ -251,24 +130,8 @@ Override this method to perform initialization specific to this behaviour instan
 
 
 
-Called every frame during the update phase. 
+Gets called every frame, before \doxylink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick()}. 
 
-Override this method to implement the main logic of your behaviour. This is called once per frame for all enabled Game\+Objects during the update tick.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ MyBehaviour::update\_tick()\ \{}
-\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Main\ game\ logic\ here}}
-\DoxyCodeLine{\ \ \ \ process\_input();}
-\DoxyCodeLine{\ \ \ \ update\_physics();}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-
-
-\begin{DoxySeeAlso}{See also}
-\doxylink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick()} 
-\end{DoxySeeAlso}
 
 
 \doxysubsection{Friends And Related Symbol Documentation}

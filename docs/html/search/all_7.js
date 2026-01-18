@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['has_5fbehaviour_0',['has_behaviour',['../classCalgine_1_1GameObject.html#a640ffd517f6face466df2d6477d80d6d',1,'Calgine::GameObject']]],
-  ['height_1',['height',['../classCalgine_1_1Window.html#a9645cf1a63dbcc66b2696234b5144550',1,'Calgine::Window']]],
-  ['hierarchy_2',['hierarchy',['../classCalgine_1_1Hierarchy.html',1,'Calgine::Hierarchy'],['../classCalgine_1_1Hierarchy.html#a15ef5a08b6509cf7b2fdf9b4648d46e9',1,'Calgine::Hierarchy::Hierarchy()']]],
-  ['hierarchy_5fmanager_2ecxx_3',['hierarchy_manager.cxx',['../hierarchy__manager_8cxx.html',1,'']]],
-  ['hierarchy_5fmanager_2eh_4',['hierarchy_manager.h',['../hierarchy__manager_8h.html',1,'']]]
+  ['init_0',['init',['../classCalgine_1_1Log.html#a180821f07929c1574c59983a68a83864',1,'Calgine::Log']]],
+  ['instantiate_5fchild_1',['instantiate_child',['../classCalgine_1_1GameObject.html#accf41615441ecc4f14ae550a1c3dba5f',1,'Calgine::GameObject']]],
+  ['is_5fenabled_2',['is_enabled',['../classCalgine_1_1GameObject.html#a2166a4e0a26229a7b1ce8bbe7fb23914',1,'Calgine::GameObject']]]
 ];

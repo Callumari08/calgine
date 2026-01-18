@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('behaviour_8h.html',''); initResizable(
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Behaviour.html">Calgine::Behaviour</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all behaviour components that can be attached to GameObjects.  <a href="classCalgine_1_1Behaviour.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives access to tick updates for users.  <a href="classCalgine_1_1Behaviour.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -115,13 +115,10 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a0eabd5db583e036746080f1d4f74cc92" id="r_a0eabd5db583e036746080f1d4f74cc92"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="behaviour_8h.html#a0eabd5db583e036746080f1d4f74cc92">print</a>(...)&#160;&#160;&#160;Log::get_app_logger()-&gt;info(__VA_ARGS__)</td></tr>
-<tr class="memdesc:a0eabd5db583e036746080f1d4f74cc92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience macro for info-level logging in behaviours.  <br /></td></tr>
 <tr class="separator:a0eabd5db583e036746080f1d4f74cc92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6371f88db740fc56ed65103791e850de" id="r_a6371f88db740fc56ed65103791e850de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="behaviour_8h.html#a6371f88db740fc56ed65103791e850de">print_warning</a>(...)&#160;&#160;&#160;Log::get_app_logger()-&gt;warn(__VA_ARGS__)</td></tr>
-<tr class="memdesc:a6371f88db740fc56ed65103791e850de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience macro for warning-level logging in behaviours.  <br /></td></tr>
 <tr class="separator:a6371f88db740fc56ed65103791e850de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b7221784007f247d98746f5857a8aad" id="r_a4b7221784007f247d98746f5857a8aad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="behaviour_8h.html#a4b7221784007f247d98746f5857a8aad">print_error</a>(...)&#160;&#160;&#160;Log::get_app_logger()-&gt;error(__VA_ARGS__)</td></tr>
-<tr class="memdesc:a4b7221784007f247d98746f5857a8aad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience macro for error-level logging in behaviours.  <br /></td></tr>
 <tr class="separator:a4b7221784007f247d98746f5857a8aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -141,8 +138,6 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Convenience macro for info-level logging in behaviours. </p>
-
 </div>
 </div>
 <a id="a4b7221784007f247d98746f5857a8aad" name="a4b7221784007f247d98746f5857a8aad"></a>
@@ -161,8 +156,6 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Convenience macro for error-level logging in behaviours. </p>
-
 </div>
 </div>
 <a id="a6371f88db740fc56ed65103791e850de" name="a6371f88db740fc56ed65103791e850de"></a>
@@ -180,8 +173,6 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Convenience macro for warning-level logging in behaviours. </p>
 
 </div>
 </div>

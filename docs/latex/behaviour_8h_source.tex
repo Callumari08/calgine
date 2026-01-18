@@ -11,47 +11,43 @@
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{class\ }GameObject;}
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00078\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}\ \ }
-\DoxyCodeLine{00079\ \{}
-\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ print(...)\ Log::get\_app\_logger()-\/>info(\_\_VA\_ARGS\_\_)}}
-\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ print\_warning(...)\ Log::get\_app\_logger()-\/>warn(\_\_VA\_ARGS\_\_)}}
-\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ print\_error(...)\ Log::get\_app\_logger()-\/>error(\_\_VA\_ARGS\_\_)}}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00091\ \ \ \textcolor{keyword}{virtual}\ \string~Behaviour();}
-\DoxyCodeLine{00092\ \ \ }
-\DoxyCodeLine{00110\ \ \ GameObject*\ get\_game\_object();}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00114\ \ \ GameObject*\ game\_object;}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00126\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00127\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T,\ Behaviour>}
-\DoxyCodeLine{00128\ \ \ \textcolor{keyword}{static}\ T*\ create()\ }
-\DoxyCodeLine{00129\ \ \ \{}
-\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_default\_constructible\_v<T>,\ \textcolor{stringliteral}{"{}Behaviour\ must\ be\ default-\/constructable."{}});}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ T();}
-\DoxyCodeLine{00133\ \ \ \}}
-\DoxyCodeLine{00134\ }
-\DoxyCodeLine{00146\ \ \ \textcolor{keywordtype}{void}\ attach\_owner(GameObject*\ \_game\_object);}
-\DoxyCodeLine{00147\ }
-\DoxyCodeLine{00148\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}};}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00158\ \ \ \mbox{\hyperlink{classCalgine_1_1Behaviour_aaebea8438da19079178842f5879f15d3}{Behaviour}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00159\ }
-\DoxyCodeLine{00170\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ preloop\_tick();}
-\DoxyCodeLine{00171\ \ \ }
-\DoxyCodeLine{00186\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ start\_tick();}
-\DoxyCodeLine{00187\ \ \ }
-\DoxyCodeLine{00205\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update\_tick();}
-\DoxyCodeLine{00206\ \ \ }
-\DoxyCodeLine{00224\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ late\_tick();}
-\DoxyCodeLine{00225\ }
-\DoxyCodeLine{00242\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ on\_destroy();}
-\DoxyCodeLine{00243\ \};}
-\DoxyCodeLine{00244\ }
-\DoxyCodeLine{00245\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}\ \ }
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ print(...)\ Log::get\_app\_logger()-\/>info(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ print\_warning(...)\ Log::get\_app\_logger()-\/>warn(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ print\_error(...)\ Log::get\_app\_logger()-\/>error(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{virtual}\ \string~Behaviour();}
+\DoxyCodeLine{00030\ \ \ GameObject*\ get\_game\_object();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ GameObject*\ game\_object;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T,\ Behaviour>}
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{static}\ T*\ create()\ }
+\DoxyCodeLine{00038\ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_default\_constructible\_v<T>,\ \textcolor{stringliteral}{"{}Behaviour\ must\ be\ default-\/constructable."{}});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ T();}
+\DoxyCodeLine{00042\ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ attach\_owner(GameObject*\ \_game\_object);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classCalgine_1_1Behaviour_aaebea8438da19079178842f5879f15d3}{Behaviour}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ preloop\_tick();}
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ start\_tick();}
+\DoxyCodeLine{00063\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update\_tick();}
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ late\_tick();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ on\_destroy();}
+\DoxyCodeLine{00074\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
 
 \end{DoxyCode}

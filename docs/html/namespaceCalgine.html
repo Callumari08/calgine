@@ -106,10 +106,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration settings for a <a class="el" href="namespaceCalgine.html">Calgine</a> application.  <a href="structCalgine_1_1AppSettings.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Behaviour.html">Behaviour</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all behaviour components that can be attached to GameObjects.  <a href="classCalgine_1_1Behaviour.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives access to tick updates for users.  <a href="classCalgine_1_1Behaviour.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html">GameObject</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObjects are objects within the <a class="el" href="classCalgine_1_1Hierarchy.html">Hierarchy</a> that have multiple <a class="el" href="classCalgine_1_1Behaviour.html">Behaviour</a> subclasses attached to them which execute code.  <a href="classCalgine_1_1GameObject.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObjects are objects within the <a class="el" href="">Heirarchy</a> that have multiple <a class="el" href="classCalgine_1_1Behaviour.html">Behaviour</a> subclasses attached to them which execute code.  <a href="classCalgine_1_1GameObject.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Hierarchy.html">Hierarchy</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,7 +130,6 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d">update</a>
 , <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc">late_update</a>
  }</td></tr>
-<tr class="memdesc:a4cfccbfde5fcb069c854a2d7fb0c4861"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of tick update phases in the game loop.  <a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">More...</a><br /></td></tr>
 <tr class="separator:a4cfccbfde5fcb069c854a2d7fb0c4861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e634c63a11d465e660fdf17e9e913c7" id="r_a5e634c63a11d465e660fdf17e9e913c7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7">VsyncState</a> { <a class="el" href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a10b9abd0304ae803c941c4503dc3fc8b">disabled</a>
 , <a class="el" href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544">enabled</a>
@@ -156,16 +155,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Enumeration of tick update phases in the game loop. </p>
-<p>These tick types determine when <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Hierarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> behaviours are updated during the game loop. Each phase serves a specific purpose in the update cycle. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92" name="a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92"></a>preloop&#160;</td><td class="fielddoc"><p>Executed once before the main loop starts. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d" name="a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d"></a>update&#160;</td><td class="fielddoc"><p>Main update phase, executed every frame. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc" name="a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc"></a>late_update&#160;</td><td class="fielddoc"><p>Executed after update, useful for camera and final calculations. </p>
-</td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92" name="a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92"></a>preloop&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d" name="a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d"></a>update&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc" name="a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc"></a>late_update&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
