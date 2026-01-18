@@ -118,8 +118,7 @@ void App::systems_init()
   // Window Init handles SDL functions
 
   WindowHandler* window_handler = WindowHandler::get_instance();
-  window_handler->emplace_new_window("Damysos", VsyncState::enabled);
-  window_handler->emplace_new_window("Damysos2", VsyncState::enabled);
+  window_handler->emplace_new_window(get_app_name(), VsyncState::enabled);
 
   // GLAD
 
@@ -132,7 +131,6 @@ void App::systems_init()
     throw std::runtime_error(msg);
   } 
 
-  // Warning still occurs here:
   std::string gl_version = convert_GLubyte_ptr_to_str(glGetString(GL_VERSION));
   Log::get_engine_logger()->info("OpenGL Version {}", gl_version);
   
