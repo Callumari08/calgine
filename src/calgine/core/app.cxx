@@ -8,7 +8,6 @@
 #include "SDL3/SDL_events.h"
 #include "calgine/core/background_managers/hierarchy_manager.h"
 #include "calgine/core/game_object.h"
-#include "calgine/core/setup/window.h"
 #include "setup/window_handler.h"
 #include "useful_funcs.h"
 #include "log.h"
@@ -18,7 +17,6 @@ namespace Calgine {
 /*App* App::create()
 {
 }*/
-
 
 void App::main_loop()
 {
@@ -100,7 +98,7 @@ void App::render_windows()
 void App::systems_init()
 {
   // Loggers
-  Log::init(this->get_app_name());
+  Log::init(settings.app_name);
 
   // SDL
   if (!SDL_Init(SDL_INIT_VIDEO)) 
@@ -118,7 +116,7 @@ void App::systems_init()
   // Window Init handles SDL functions
 
   WindowHandler* window_handler = WindowHandler::get_instance();
-  window_handler->emplace_new_window(get_app_name(), VsyncState::enabled);
+  window_handler->emplace_new_window(settings.app_name, settings.default_vsync_state);
 
   // GLAD
 

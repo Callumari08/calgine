@@ -1,9 +1,17 @@
 #pragma once
 
+#include "calgine/core/setup/window.h"
 #include "calgine_pch.h"
 #include "calgine_api.h"
+#include <string>
 
 namespace Calgine {
+
+struct AppSettings
+{
+  std::string app_name = "A Calgine App";
+  VsyncState default_vsync_state = VsyncState::enabled;
+};
 
 /**
  * @brief Base class for all Calgine applications.
@@ -78,16 +86,10 @@ namespace Calgine {
 class CALGINE_API App // Abstract
 {
 public:
-  /**
-   * @brief Pure virtual method that returns the application name.
-   * 
-   * This name is used for logging and identification purposes. Must be
-   * implemented by derived classes.
-   * 
-   * @return std::string The name of the application
-   */
-  virtual std::string get_app_name() = 0;
+  AppSettings settings;
 
+  //virtual AppSettings get_app_settings() = 0;
+  //virtual void set_app_settings();
   /**
    * @brief Initializes all required systems (SDL3, OpenGL, logging).
    * 
