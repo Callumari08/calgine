@@ -5,8 +5,10 @@
 #include <SDL3/SDL_error.h>
 #include <SDL3/SDL.h>
 #include <glad/gl.h>
+#include "SDL3/SDL_events.h"
 #include "calgine/core/background_managers/hierarchy_manager.h"
 #include "calgine/core/game_object.h"
+#include "calgine/core/setup/window.h"
 #include "setup/window_handler.h"
 #include "useful_funcs.h"
 #include "log.h"
@@ -23,7 +25,6 @@ void App::main_loop()
   Hierarchy& hierarchy = Hierarchy::get_instance();
   GameObject& root = hierarchy.get_hierarchy_root();
 
-  glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
 
   // Instead of doing this here, I should implement a scene manager.
   //
@@ -35,23 +36,63 @@ void App::main_loop()
   bool running = true;
   while (running) 
   {
-    SDL_Event event;
-    while (SDL_WaitEvent(&event)) 
-    {
-      if (event.type == SDL_EVENT_QUIT)
-      {
-        running = false;
-      }
-    }
+    handle_sdl_events(running);
 
     root.tick_self_and_children(TickType::update);
     root.tick_self_and_children(TickType::late_update);
 
+    render_windows();
+
     GameObject::process_pending_deletes();
 
+    WindowHandler* window_handler = WindowHandler::get_instance();
+
+    window_handler->cleanup_closed_windows();
+    
+    if (window_handler->get_windows().empty())
+      running = false;
+  }
+}
+
+void App::handle_sdl_events(bool& running)
+{
+  SDL_Event event;
+  while (SDL_PollEvent(&event)) 
+  {
+    switch (event.type) 
+    {
+      case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
+      {
+        if (Window* window = WindowHandler::get_instance()->get_window(event.window.windowID))
+          window->request_close();
+        break;
+      }
+      case SDL_EVENT_QUIT:
+        running = false;
+        break;
+
+      default: break;
+    }
+  }
+}
+
+void App::render_windows()
+{
+  for (auto& window : WindowHandler::get_instance()->get_windows())
+  {
+    if (window->should_close())
+      continue;
+
+    SDL_GL_MakeCurrent(window->raw(), window->get_context());
+
+    glViewport(0, 0, window->width(), window->height());
+
+    glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    SDL_GL_SwapWindow(WindowHandler::get_instance()->get_window());
+    // render tick here
+
+    SDL_GL_SwapWindow(window->raw());
   }
 }
 
@@ -77,10 +118,8 @@ void App::systems_init()
   // Window Init handles SDL functions
 
   WindowHandler* window_handler = WindowHandler::get_instance();
-
-  window_handler->get_window();
-  window_handler->get_gl_context();
-  window_handler->set_vsync_state(VsyncState::enabled);
+  window_handler->emplace_new_window("Damysos", VsyncState::enabled);
+  window_handler->emplace_new_window("Damysos2", VsyncState::enabled);
 
   // GLAD
 
@@ -88,7 +127,7 @@ void App::systems_init()
 
   if (!gladLoadGL((GLADloadfunc) SDL_GL_GetProcAddress)) 
   {
-    std::string msg = "Failed to load OpenGL via GLAD2";
+    std::string msg = "Failed to load OpenGL via GLAD2 (is there a window?)";
     Log::get_engine_logger()->error(msg);
     throw std::runtime_error(msg);
   } 

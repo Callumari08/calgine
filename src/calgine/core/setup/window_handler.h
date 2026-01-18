@@ -1,53 +1,89 @@
 #pragma once
 
-#include <SDL3/SDL_video.h>
-#include <mutex>
-#include <string>
+#include "SDL3/SDL_stdinc.h"
+#include "calgine_pch.h"
+
+#include "window.h"
 #include "calgine_api.h"
 
-
-// DEMANDS A REWRITE IMMEDIATELY
 namespace Calgine {
+class Window;
 
-// could include different types of Vsync buffers here
-enum VsyncState {
-  disabled,
-  enabled,
-};
-
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
-
+/**
+ * @brief Singleton manager for all application windows.
+ * 
+ * @details
+ * WindowHandler provides centralized management of all Window instances in the application.
+ * It follows the singleton pattern to ensure a single point of control for window lifecycle
+ * management, including creation, retrieval, and cleanup of closed windows.
+ * 
+ * Windows are stored as unique_ptr instances, with the WindowHandler maintaining sole
+ * ownership of all managed windows.
+ */
 class CALGINE_API WindowHandler 
 {
 private:
-  static WindowHandler* instance;
-  static std::mutex instance_mutex;
+  std::vector<std::unique_ptr<Window>> windows;
 
-  // Private constructor to prevent instantiation
   WindowHandler() = default;
 
-  static SDL_Window* window;
-  static SDL_GLContext gl_context;
-  static VsyncState vsync_state;
-
-  static void quit_gracefully(SDL_Window* window, SDL_GLContext ctx);
-
 public:
-  static std::string window_name;
   WindowHandler(const WindowHandler&) = delete;
   WindowHandler& operator=(const WindowHandler&) = delete;
 
-  // Returns the singleton instance of WindowHandler
+  /**
+   * @brief Get the singleton instance of WindowHandler.
+   * 
+   * @return WindowHandler* Pointer to the singleton WindowHandler instance.
+   */
   static WindowHandler* get_instance();
 
-  // Returns an `SDL_Window` if one exists, otherwise it creates one.
-  static SDL_Window* get_window();
-  // Returns an `SDL_GLContext` if one exists, otherwise it creates one.
-  // `window` mustn't be NULL, otherwise this function will throw an exception (TODO)
-  static SDL_GLContext get_gl_context();
-  static VsyncState get_vsync_state();
-  static void set_vsync_state(VsyncState state);
+  /**
+   * @brief Get a reference to the vector of all managed windows.
+   * 
+   * @return std::vector<std::unique_ptr<Window>>& Reference to the internal windows vector.
+   */
+  std::vector<std::unique_ptr<Window>>& get_windows();
+
+  /**
+   * @brief Retrieve a window by its SDL window ID.
+   * 
+   * @param id The SDL window ID to search for.
+   * @return Window* Pointer to the Window if found, nullptr otherwise.
+   */
+  Window* get_window(Uint32 id);
+
+  /**
+   * @brief Remove all windows that have been marked for closure.
+   * 
+   * @details
+   * Iterates through all managed windows and removes those that have had
+   * request_close() called on them. This frees the memory associated with
+   * closed windows.
+   */
+  void cleanup_closed_windows();
+
+  /**
+   * @brief Create and add a new window to the handler.
+   * 
+   * @tparam Args Variadic template parameters forwarded to Window constructor.
+   * @param args Arguments to forward to the Window constructor.
+   * @return std::unique_ptr<Window>& Reference to the newly created Window.
+   * 
+   * @details
+   * Creates a new Window instance using perfect forwarding of the provided
+   * arguments. The window is emplaced into the internal windows vector and
+   * ownership is managed by WindowHandler.
+   */
+  template<typename... Args>
+  std::unique_ptr<Window>& emplace_new_window(Args&&... args)
+  {
+    windows.emplace_back(
+      std::make_unique<Window>(std::forward<Args>(args)...)
+    );
+
+    return windows[windows.size() - 1];
+  }
 };
 
-} // namespace Calgine
+}

@@ -1,0 +1,169 @@
+\doxysection{Calgine::\+Window Class Reference}
+\hypertarget{classCalgine_1_1Window}{}\label{classCalgine_1_1Window}\index{Calgine::Window@{Calgine::Window}}
+
+
+\doxylink{classCalgine_1_1Window}{Window} wrapper that abstracts SDL\+\_\+\+Window from the application.  
+
+
+
+
+{\ttfamily \+\#include $<$window.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classCalgine_1_1Window_a253685a5567a740466402f7b8763d7ec}{Window}} (std::\+string window\+\_\+title, \doxymbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{Vsync\+State}} state=\doxymbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a10b9abd0304ae803c941c4503dc3fc8b}{Vsync\+State::\+disabled}}, int \doxymbox{\hyperlink{classCalgine_1_1Window_a7cf05c67cd2d3cc44901dc20eb6647c2}{width}}=\doxymbox{\hyperlink{window_8h_a6ca4df6b9e1495a80a2929a5187cb9b9}{DEFAULT\+\_\+\+WINDOW\+\_\+\+WIDTH}}, int \doxymbox{\hyperlink{classCalgine_1_1Window_a9645cf1a63dbcc66b2696234b5144550}{height}}=\doxymbox{\hyperlink{window_8h_a030ebc610fddb0a18d62829ab376bf85}{DEFAULT\+\_\+\+WINDOW\+\_\+\+HEIGHT}}, int extra\+\_\+flags=0)
+\item 
+\doxymbox{\hyperlink{classCalgine_1_1Window_abdd08842f6d43e392d5cd585e01a83fe}{\texorpdfstring{$\sim$}{\string~}\+Window}} ()
+\item 
+\doxymbox{\hyperlink{classCalgine_1_1Window_adb89fb84a696805d5c0f867cbd456dff}{Window}} (const Window \&)=delete
+\item 
+\doxymbox{\hyperlink{classCalgine_1_1Window_a253685a5567a740466402f7b8763d7ec}{Window}} \& \doxymbox{\hyperlink{classCalgine_1_1Window_ac0fc1be57972240421ecf8c460457251}{operator=}} (const \doxymbox{\hyperlink{classCalgine_1_1Window_a253685a5567a740466402f7b8763d7ec}{Window}} \&)=delete
+\item 
+\doxymbox{\hyperlink{classCalgine_1_1Window_a255e33f0840260ea7d51f73abf9c40de}{Window}} (Window \&\&) noexcept=delete
+\item 
+\doxymbox{\hyperlink{classCalgine_1_1Window_a253685a5567a740466402f7b8763d7ec}{Window}} \& \doxymbox{\hyperlink{classCalgine_1_1Window_a0a7c057c1c00f1f1ec440d49344270b2}{operator=}} (\doxymbox{\hyperlink{classCalgine_1_1Window_a253685a5567a740466402f7b8763d7ec}{Window}} \&\&) noexcept=delete
+\item 
+void \doxymbox{\hyperlink{classCalgine_1_1Window_ab526e6c21c5ad965acf3f370413972ac}{request\+\_\+close}} ()
+\item 
+bool \doxymbox{\hyperlink{classCalgine_1_1Window_a7f15978b22338eb28f98e9836aff471b}{should\+\_\+close}} () const
+\item 
+SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalgine_1_1Window_a56fa8c87faf7554e19965e5628e09f35}{raw}} () const
+\item 
+SDL\+\_\+\+GLContext \doxymbox{\hyperlink{classCalgine_1_1Window_abcb2a866efe1a9599c92c91d5eb366d2}{get\+\_\+context}} () const
+\item 
+Uint32 \doxymbox{\hyperlink{classCalgine_1_1Window_a6e6ebf054c72f5779aef21f63fa9bf28}{get\+\_\+id}} () const
+\item 
+int \doxymbox{\hyperlink{classCalgine_1_1Window_a7cf05c67cd2d3cc44901dc20eb6647c2}{width}} () const
+\item 
+int \doxymbox{\hyperlink{classCalgine_1_1Window_a9645cf1a63dbcc66b2696234b5144550}{height}} () const
+\item 
+void \doxymbox{\hyperlink{classCalgine_1_1Window_a672a2dc900594a23d44b3d62d18c771d}{set\+\_\+window\+\_\+title}} (const std::\+string \&title)
+\item 
+std::\+string \doxymbox{\hyperlink{classCalgine_1_1Window_a1388691c322e243b42c414402a77ee63}{get\+\_\+window\+\_\+title}} () const
+\item 
+void \doxymbox{\hyperlink{classCalgine_1_1Window_aff148d8b94b00211a2481befbffde8b1}{set\+\_\+vsync\+\_\+state}} (\doxymbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{Vsync\+State}} state)
+\item 
+\doxymbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{Vsync\+State}} \doxymbox{\hyperlink{classCalgine_1_1Window_aba41313a9f04e02440159197066bcf06}{get\+\_\+vsync\+\_\+state}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classCalgine_1_1Window}{Window} wrapper that abstracts SDL\+\_\+\+Window from the application. 
+
+\label{doc-constructors}
+\Hypertarget{classCalgine_1_1Window_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalgine_1_1Window_a253685a5567a740466402f7b8763d7ec}\index{Calgine::Window@{Calgine::Window}!Window@{Window}}
+\index{Window@{Window}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{Window()}{Window()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_a253685a5567a740466402f7b8763d7ec} 
+Calgine::\+\+Window::\+\+Window (\begin{DoxyParamCaption}\item[{std::\+string}]{window\+\_\+title}{, }\item[{\doxymbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{Vsync\+State}}}]{state}{ = {\ttfamily \doxymbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a10b9abd0304ae803c941c4503dc3fc8b}{Vsync\+State::\+disabled}}}, }\item[{int}]{width}{ = {\ttfamily \doxymbox{\hyperlink{window_8h_a6ca4df6b9e1495a80a2929a5187cb9b9}{DEFAULT\+\_\+\+WINDOW\+\_\+\+WIDTH}}}, }\item[{int}]{height}{ = {\ttfamily \doxymbox{\hyperlink{window_8h_a030ebc610fddb0a18d62829ab376bf85}{DEFAULT\+\_\+\+WINDOW\+\_\+\+HEIGHT}}}, }\item[{int}]{extra\+\_\+flags}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1Window_abdd08842f6d43e392d5cd585e01a83fe}\index{Calgine::Window@{Calgine::Window}!````~Window@{\texorpdfstring{$\sim$}{\string~}Window}}
+\index{````~Window@{\texorpdfstring{$\sim$}{\string~}Window}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Window()}{\string~Window()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_abdd08842f6d43e392d5cd585e01a83fe} 
+Calgine::\+\+Window::\+\texorpdfstring{$\sim$}{\string~}\+Window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1Window_adb89fb84a696805d5c0f867cbd456dff}\index{Calgine::Window@{Calgine::Window}!Window@{Window}}
+\index{Window@{Window}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{Window()}{Window()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_adb89fb84a696805d5c0f867cbd456dff} 
+Calgine::\+\+Window::\+\+Window (\begin{DoxyParamCaption}\item[{const Window \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classCalgine_1_1Window_a255e33f0840260ea7d51f73abf9c40de}\index{Calgine::Window@{Calgine::Window}!Window@{Window}}
+\index{Window@{Window}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{Window()}{Window()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_a255e33f0840260ea7d51f73abf9c40de} 
+Calgine::\+\+Window::\+\+Window (\begin{DoxyParamCaption}\item[{Window \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classCalgine_1_1Window_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1Window_abcb2a866efe1a9599c92c91d5eb366d2}\index{Calgine::Window@{Calgine::Window}!get\_context@{get\_context}}
+\index{get\_context@{get\_context}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{get\_context()}{get\_context()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_abcb2a866efe1a9599c92c91d5eb366d2} 
+SDL\+\_\+\+GLContext Calgine::\+\+Window::\+get\+\_\+context (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classCalgine_1_1Window_a6e6ebf054c72f5779aef21f63fa9bf28}\index{Calgine::Window@{Calgine::Window}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_a6e6ebf054c72f5779aef21f63fa9bf28} 
+Uint32 Calgine::\+\+Window::\+get\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classCalgine_1_1Window_aba41313a9f04e02440159197066bcf06}\index{Calgine::Window@{Calgine::Window}!get\_vsync\_state@{get\_vsync\_state}}
+\index{get\_vsync\_state@{get\_vsync\_state}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{get\_vsync\_state()}{get\_vsync\_state()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_aba41313a9f04e02440159197066bcf06} 
+\doxymbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{Vsync\+State}} Calgine::\+\+Window::\+get\+\_\+vsync\+\_\+state (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classCalgine_1_1Window_a1388691c322e243b42c414402a77ee63}\index{Calgine::Window@{Calgine::Window}!get\_window\_title@{get\_window\_title}}
+\index{get\_window\_title@{get\_window\_title}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{get\_window\_title()}{get\_window\_title()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_a1388691c322e243b42c414402a77ee63} 
+std::\+string Calgine::\+\+Window::\+get\+\_\+window\+\_\+title (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classCalgine_1_1Window_a9645cf1a63dbcc66b2696234b5144550}\index{Calgine::Window@{Calgine::Window}!height@{height}}
+\index{height@{height}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_a9645cf1a63dbcc66b2696234b5144550} 
+int Calgine::\+\+Window::\+height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classCalgine_1_1Window_ac0fc1be57972240421ecf8c460457251}\index{Calgine::Window@{Calgine::Window}!operator=@{operator=}}
+\index{operator=@{operator=}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_ac0fc1be57972240421ecf8c460457251} 
+\doxymbox{\hyperlink{classCalgine_1_1Window_a253685a5567a740466402f7b8763d7ec}{Window}} \& Calgine::\+\+Window::\+operator= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classCalgine_1_1Window_a253685a5567a740466402f7b8763d7ec}{Window}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classCalgine_1_1Window_a0a7c057c1c00f1f1ec440d49344270b2}\index{Calgine::Window@{Calgine::Window}!operator=@{operator=}}
+\index{operator=@{operator=}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_a0a7c057c1c00f1f1ec440d49344270b2} 
+\doxymbox{\hyperlink{classCalgine_1_1Window_a253685a5567a740466402f7b8763d7ec}{Window}} \& Calgine::\+\+Window::\+operator= (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classCalgine_1_1Window_a253685a5567a740466402f7b8763d7ec}{Window}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{classCalgine_1_1Window_a56fa8c87faf7554e19965e5628e09f35}\index{Calgine::Window@{Calgine::Window}!raw@{raw}}
+\index{raw@{raw}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{raw()}{raw()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_a56fa8c87faf7554e19965e5628e09f35} 
+SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*} Calgine::\+\+Window::\+raw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classCalgine_1_1Window_ab526e6c21c5ad965acf3f370413972ac}\index{Calgine::Window@{Calgine::Window}!request\_close@{request\_close}}
+\index{request\_close@{request\_close}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{request\_close()}{request\_close()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_ab526e6c21c5ad965acf3f370413972ac} 
+void Calgine::\+\+Window::\+request\+\_\+close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1Window_aff148d8b94b00211a2481befbffde8b1}\index{Calgine::Window@{Calgine::Window}!set\_vsync\_state@{set\_vsync\_state}}
+\index{set\_vsync\_state@{set\_vsync\_state}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{set\_vsync\_state()}{set\_vsync\_state()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_aff148d8b94b00211a2481befbffde8b1} 
+void Calgine::\+\+Window::\+set\+\_\+vsync\+\_\+state (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{Vsync\+State}}}]{state}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1Window_a672a2dc900594a23d44b3d62d18c771d}\index{Calgine::Window@{Calgine::Window}!set\_window\_title@{set\_window\_title}}
+\index{set\_window\_title@{set\_window\_title}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{set\_window\_title()}{set\_window\_title()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_a672a2dc900594a23d44b3d62d18c771d} 
+void Calgine::\+\+Window::\+set\+\_\+window\+\_\+title (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{title}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1Window_a7f15978b22338eb28f98e9836aff471b}\index{Calgine::Window@{Calgine::Window}!should\_close@{should\_close}}
+\index{should\_close@{should\_close}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{should\_close()}{should\_close()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_a7f15978b22338eb28f98e9836aff471b} 
+bool Calgine::\+\+Window::\+should\+\_\+close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classCalgine_1_1Window_a7cf05c67cd2d3cc44901dc20eb6647c2}\index{Calgine::Window@{Calgine::Window}!width@{width}}
+\index{width@{width}!Calgine::Window@{Calgine::Window}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily \label{classCalgine_1_1Window_a7cf05c67cd2d3cc44901dc20eb6647c2} 
+int Calgine::\+\+Window::\+width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+calgine/\+core/\+setup/\+\doxymbox{\hyperlink{window_8h}{window.\+h}}\item 
+src/\+calgine/\+core/\+setup/\+\doxymbox{\hyperlink{window_8cxx}{window.\+cxx}}\end{DoxyCompactItemize}

@@ -64,6 +64,10 @@ public:
 
   void systems_init();
   void main_loop();
+
+private:
+  void handle_sdl_events(bool& running);
+  void render_windows();
 };
 
 } // namespace Calgine
