@@ -7,9 +7,19 @@
 
 namespace Calgine {
 
+/**
+ * @brief Configuration settings for a Calgine application.
+ *
+ * @details
+ * This structure holds application-wide configuration settings that can be
+ * modified before calling systems_init(). All settings have sensible defaults.
+ */
 struct AppSettings
 {
+  /** @brief The name of the application, used for logging and window titles. */
   std::string app_name = "A Calgine App";
+  
+  /** @brief The default VSync state for windows. Can be enabled, disabled, or adaptive. */
   VsyncState default_vsync_state = VsyncState::enabled;
 };
 
@@ -18,8 +28,8 @@ struct AppSettings
  *
  * @details
  * The App class manages the core application lifecycle, including system initialization,
- * the main game loop, event handling, and rendering. User applications must derive from
- * this class and implement the pure virtual get_app_name() method.
+ * the main game loop, event handling, and rendering. User applications can either instantiate
+ * App directly or derive from it to add custom functionality.
  *
  * The App class handles:
  * - SDL3 and OpenGL initialization
@@ -29,23 +39,22 @@ struct AppSettings
  * - Rendering for all active windows
  * - GameObject hierarchy lifecycle management
  *
+ * ## Configuration
+ *
+ * Applications can be configured through the public `settings` member variable before
+ * calling systems_init(). The AppSettings structure provides options for:
+ * - Application name (used for logging and window titles)
+ * - Default VSync state for windows
+ *
  * ## Basic Usage
  *
- * 1. Create a derived class implementing get_app_name()
- * 2. Call systems_init() to initialize SDL, OpenGL, and create windows
- * 3. Set up your GameObject hierarchy and attach Behaviour components
- * 4. Call main_loop() to start the application
+ * 1. Create an App instance (or derive from App for custom functionality)
+ * 2. Configure app settings (optional)
+ * 3. Call systems_init() to initialize SDL, OpenGL, and create windows
+ * 4. Set up your GameObject hierarchy and attach Behaviour components
+ * 5. Call main_loop() to start the application
  *
  * @code{.cpp}
- * class MyApp : public Calgine::App
- * {
- * public:
- *   std::string get_app_name() override
- *   {
- *     return "My Application";
- *   }
- * };
- *
  * class MyBehaviour : public Calgine::Behaviour
  * {
  * protected:
@@ -58,7 +67,11 @@ struct AppSettings
  *
  * int main()
  * {
- *   MyApp app;
+ *   Calgine::App app;
+ *
+ *   // Configure application settings (optional)
+ *   app.settings.app_name = "My Application";
+ *   app.settings.default_vsync_state = Calgine::VsyncState::adaptive;
  *
  *   // Initialize SDL, OpenGL, and create windows
  *   app.systems_init();
@@ -79,6 +92,7 @@ struct AppSettings
  * }
  * @endcode
  *
+ * @see AppSettings for application configuration options
  * @see GameObject for information about the scene hierarchy
  * @see Behaviour for creating game logic components
  * @see Hierarchy for accessing the root GameObject
@@ -86,6 +100,24 @@ struct AppSettings
 class CALGINE_API App // Abstract
 {
 public:
+  /**
+   * @brief Application configuration settings.
+   * 
+   * @details
+   * This public member provides access to application-wide configuration settings.
+   * Settings should be modified before calling systems_init() to take effect during
+   * initialization. Settings can be modified after initialization, but some changes
+   * (like app_name) may not be reflected in already-created resources.
+   *
+   * @code{.cpp}
+   * Calgine::App app;
+   * app.settings.app_name = "My Game";
+   * app.settings.default_vsync_state = Calgine::VsyncState::disabled;
+   * app.systems_init();
+   * @endcode
+   *
+   * @see AppSettings for available configuration options
+   */
   AppSettings settings;
 
   //virtual AppSettings get_app_settings() = 0;
