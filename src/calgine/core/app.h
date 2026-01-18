@@ -106,17 +106,19 @@ public:
   /**
    * @brief Runs the main application loop until all windows are closed.
    * 
-   * The main loop executes the following steps each frame:
-   * 1. Calls preloop_tick() on all GameObjects once (before the first iteration only)
-   * 2. Processes SDL events (window close, quit, etc.)
-   * 3. Calls update_tick() on all GameObjects in the hierarchy
-   * 4. Calls late_tick() on all GameObjects
-   * 5. Renders all active windows
-   * 6. Processes pending GameObject deletions
-   * 7. Cleans up closed windows
+   * Before entering the loop, this method calls preloop_tick() once on all 
+   * GameObjects in the hierarchy. Then, each frame executes the following steps:
+   * 1. Processes SDL events (window close, quit, etc.)
+   * 2. Calls update_tick() on all Behaviours attached to GameObjects
+   * 3. Calls late_tick() on all Behaviours attached to GameObjects
+   * 4. Renders all active windows
+   * 5. Processes pending GameObject deletions
+   * 6. Cleans up closed windows
    * 
    * The loop continues until either SDL_EVENT_QUIT is received or all
    * windows have been closed.
+   * 
+   * @see GameObject::tick_self_and_children() for how tick methods are propagated through the hierarchy
    */
   void main_loop();
 
