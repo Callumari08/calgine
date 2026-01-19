@@ -18,9 +18,13 @@
 
 namespace Calgine {
 
-/*App* App::create()
+App* App::instance = nullptr;
+
+App::App()
 {
-}*/
+  assert(!instance && "App already exists!");
+  instance = this;
+}
 
 void App::main_loop()
 {
@@ -35,8 +39,6 @@ void App::main_loop()
   // manage the scenes. 
   root.tick_self_and_children(TickType::preloop);
 
-  bool show_demo = true;
-
   bool running = true;
   while (running) 
   {
@@ -45,7 +47,7 @@ void App::main_loop()
     root.tick_self_and_children(TickType::update);
     root.tick_self_and_children(TickType::late_update);
 
-    render_windows(show_demo);
+    render_windows(root);
 
     GameObject::process_pending_deletes();
 
@@ -82,7 +84,7 @@ void App::handle_sdl_events(bool& running)
   }
 }
 
-void App::render_windows(bool& show_demo)
+void App::render_windows(GameObject& root)
 {
   for (auto& window : WindowHandler::get_instance()->get_windows())
   {
@@ -98,8 +100,7 @@ void App::render_windows(bool& show_demo)
     ImGui_ImplSDL3_NewFrame();
     ImGui::NewFrame();
 
-    if (show_demo)
-      ImGui::ShowDemoWindow(&show_demo);
+    root.tick_self_and_children(TickType::imgui_render);
 
     // render tick here
 
@@ -163,7 +164,8 @@ void App::systems_init()
 void App::init_imgui()
 {
   IMGUI_CHECKVERSION();
-  ImGui::CreateContext();
+  settings.imgui_context = ImGui::CreateContext();
+  ImGui::SetCurrentContext(settings.imgui_context);
   ImGuiIO& io = ImGui::GetIO(); (void) io;
 
 

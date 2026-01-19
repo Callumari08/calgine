@@ -66,6 +66,8 @@ protected:
     */
   virtual void late_tick();
 
+  virtual void imgui_render_tick();
+
   /**
     * @brief Gets called when game_object is being destroyed.
     * @note You can safely assume that game_object has not changed by this point.
