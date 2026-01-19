@@ -32,6 +32,8 @@ private:
   SDL_GLContext gl_context = nullptr;
 
   VsyncState vsync_state;
+
+  bool imgui_initialized = false;
   
 public:
   Window(std::string window_title, VsyncState state = VsyncState::disabled, 
@@ -51,6 +53,8 @@ public:
   SDL_GLContext get_context() const;
 
   Uint32 get_id() const;
+  bool is_imgui_initialized() const;
+  void initialize_imgui();
 
   int width() const;
   int height() const;

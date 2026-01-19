@@ -4,7 +4,11 @@
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_error.h>
 #include <SDL3/SDL.h>
+#include <cassert>
 #include <glad/gl.h>
+#include <imgui.h>
+#include <imgui_impl_sdl3.h>
+#include <imgui_impl_opengl3.h>
 #include "SDL3/SDL_events.h"
 #include "calgine/core/background_managers/hierarchy_manager.h"
 #include "calgine/core/game_object.h"
@@ -57,6 +61,8 @@ void App::handle_sdl_events(bool& running)
   SDL_Event event;
   while (SDL_PollEvent(&event)) 
   {
+    ImGui_ImplSDL3_ProcessEvent(&event);
+
     switch (event.type) 
     {
       case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
@@ -82,6 +88,9 @@ void App::render_windows()
       continue;
 
     SDL_GL_MakeCurrent(window->raw(), window->get_context());
+
+    if (!window->is_imgui_initialized())
+      window->initialize_imgui();
 
     glViewport(0, 0, window->width(), window->height());
 
@@ -112,6 +121,7 @@ void App::systems_init()
 
   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
   SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+  SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
 
   // Window Init handles SDL functions
 
@@ -134,6 +144,32 @@ void App::systems_init()
   
   std::string renderer = convert_GLubyte_ptr_to_str(glGetString(GL_RENDERER));
   Log::get_engine_logger()->info("Renderer Device: {}", renderer);
+
+  init_imgui();
+}
+
+void App::init_imgui()
+{
+  IMGUI_CHECKVERSION();
+  ImGui::CreateContext();
+  ImGuiIO& io = ImGui::GetIO(); (void) io;
+
+
+  io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+  //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+
+  ImGui::StyleColorsDark();
+
+  float main_scale = SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());
+
+  ImGuiStyle& style = ImGui::GetStyle();
+  style.ScaleAllSizes(main_scale);
+  style.FontScaleDpi = main_scale;
+
+  //TODO: don't do this
+  WindowHandler* window_handler = WindowHandler::get_instance();
+  assert(window_handler->get_windows().size() > 0 && "Window has been deleted during initialization.");
+  window_handler->get_windows()[0]->initialize_imgui();
 }
 
 } // namespace Calgine

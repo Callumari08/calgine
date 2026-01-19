@@ -99,6 +99,7 @@ struct AppSettings
  */
 class CALGINE_API App // Abstract
 {
+#define GLSL_VERSION "#version 450"
 public:
   /**
    * @brief Application configuration settings.
@@ -159,6 +160,7 @@ public:
 private:
   void handle_sdl_events(bool& running);
   void render_windows();
+  void init_imgui();
 };
 
 } // namespace Calgine
