@@ -35,6 +35,8 @@ void App::main_loop()
   // manage the scenes. 
   root.tick_self_and_children(TickType::preloop);
 
+  bool show_demo = true;
+
   bool running = true;
   while (running) 
   {
@@ -43,7 +45,7 @@ void App::main_loop()
     root.tick_self_and_children(TickType::update);
     root.tick_self_and_children(TickType::late_update);
 
-    render_windows();
+    render_windows(show_demo);
 
     GameObject::process_pending_deletes();
 
@@ -80,7 +82,7 @@ void App::handle_sdl_events(bool& running)
   }
 }
 
-void App::render_windows()
+void App::render_windows(bool& show_demo)
 {
   for (auto& window : WindowHandler::get_instance()->get_windows())
   {
@@ -92,12 +94,22 @@ void App::render_windows()
     if (!window->is_imgui_initialized())
       window->initialize_imgui();
 
-    glViewport(0, 0, window->width(), window->height());
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplSDL3_NewFrame();
+    ImGui::NewFrame();
 
+    if (show_demo)
+      ImGui::ShowDemoWindow(&show_demo);
+
+    // render tick here
+
+    ImGui::Render();
+
+    glViewport(0, 0, window->width(), window->height());
     glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // render tick here
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
     SDL_GL_SwapWindow(window->raw());
   }
@@ -156,7 +168,7 @@ void App::init_imgui()
 
 
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-  //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+  io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 
   ImGui::StyleColorsDark();
 
@@ -166,7 +178,6 @@ void App::init_imgui()
   style.ScaleAllSizes(main_scale);
   style.FontScaleDpi = main_scale;
 
-  //TODO: don't do this
   WindowHandler* window_handler = WindowHandler::get_instance();
   assert(window_handler->get_windows().size() > 0 && "Window has been deleted during initialization.");
   window_handler->get_windows()[0]->initialize_imgui();

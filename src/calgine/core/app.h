@@ -159,7 +159,7 @@ public:
 
 private:
   void handle_sdl_events(bool& running);
-  void render_windows();
+  void render_windows(bool& show_demo);
   void init_imgui();
 };
 
