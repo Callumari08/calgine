@@ -40,7 +40,7 @@ void GameObject::destroy()
     std::unique_ptr<GameObject> owner = parent->detach_child(this);
 
     if (owner) 
-      s_pending_deletes.emplace_back(std::move(owner));
+      pending_deletes.emplace_back(std::move(owner));
 
     parent = nullptr;
   }
@@ -87,7 +87,7 @@ bool GameObject::remove_child_immediate(GameObject* child)
 
 void GameObject::process_pending_deletes()
 {
-  s_pending_deletes.clear();
+  pending_deletes.clear();
 }
 
 bool GameObject::is_enabled() const

@@ -35,7 +35,7 @@ private:
   GameObject* parent = nullptr;
 
   // queue to hold objects whose memory must be released AFTER their member functions finish
-  static inline std::vector<std::unique_ptr<GameObject>> s_pending_deletes;
+  static inline std::vector<std::unique_ptr<GameObject>> pending_deletes;
 
 public:
   explicit GameObject(GameObject* _parent);
