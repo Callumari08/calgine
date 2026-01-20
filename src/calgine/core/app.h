@@ -1,8 +1,10 @@
 #pragma once
 
+#include "calgine/core/game_object.h"
 #include "calgine/core/setup/window.h"
 #include "calgine_pch.h"
 #include "calgine_api.h"
+#include "imgui.h"
 #include <string>
 
 namespace Calgine {
@@ -21,6 +23,8 @@ struct AppSettings
   
   /** @brief The default VSync state for windows. Can be enabled, disabled, or adaptive. */
   VsyncState default_vsync_state = VsyncState::enabled;
+
+  ImGuiContext* imgui_context = nullptr;
 };
 
 /**
@@ -99,7 +103,20 @@ struct AppSettings
  */
 class CALGINE_API App // Abstract
 {
+#define GLSL_VERSION "#version 450"
+
 public:
+  App();
+  ~App();
+
+  static App& get_instance();
+
+  inline void start_systems()
+  {
+    systems_init();
+    ImGui::SetCurrentContext(settings.imgui_context);
+  }
+
   /**
    * @brief Application configuration settings.
    * 
@@ -124,6 +141,8 @@ public:
   //virtual void set_app_settings();
   /**
    * @brief Initializes all required systems (SDL3, OpenGL, logging).
+   *
+   * @warning Do NOT call directly! use the start_systems() inline function!
    * 
    * This method must be called before main_loop(). It performs the following:
    * - Initializes the logging system with the application name
@@ -157,8 +176,11 @@ public:
   void main_loop();
 
 private:
+  static App* instance;
+
   void handle_sdl_events(bool& running);
-  void render_windows();
+  void render_windows(GameObject& root);
+  void init_imgui();
 };
 
 } // namespace Calgine

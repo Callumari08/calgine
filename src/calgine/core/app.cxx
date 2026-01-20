@@ -4,7 +4,11 @@
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_error.h>
 #include <SDL3/SDL.h>
+#include <cassert>
 #include <glad/gl.h>
+#include <imgui.h>
+#include <imgui_impl_sdl3.h>
+#include <imgui_impl_opengl3.h>
 #include "SDL3/SDL_events.h"
 #include "calgine/core/background_managers/hierarchy_manager.h"
 #include "calgine/core/game_object.h"
@@ -14,9 +18,17 @@
 
 namespace Calgine {
 
-/*App* App::create()
+App* App::instance = nullptr;
+
+App::App()
 {
-}*/
+  assert(!instance && "App already exists!");
+  instance = this;
+}
+App::~App()
+{
+  ImGui::DestroyContext(settings.imgui_context);
+}
 
 void App::main_loop()
 {
@@ -39,7 +51,7 @@ void App::main_loop()
     root.tick_self_and_children(TickType::update);
     root.tick_self_and_children(TickType::late_update);
 
-    render_windows();
+    render_windows(root);
 
     GameObject::process_pending_deletes();
 
@@ -57,6 +69,8 @@ void App::handle_sdl_events(bool& running)
   SDL_Event event;
   while (SDL_PollEvent(&event)) 
   {
+    ImGui_ImplSDL3_ProcessEvent(&event);
+
     switch (event.type) 
     {
       case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
@@ -74,7 +88,7 @@ void App::handle_sdl_events(bool& running)
   }
 }
 
-void App::render_windows()
+void App::render_windows(GameObject& root)
 {
   for (auto& window : WindowHandler::get_instance()->get_windows())
   {
@@ -83,12 +97,24 @@ void App::render_windows()
 
     SDL_GL_MakeCurrent(window->raw(), window->get_context());
 
-    glViewport(0, 0, window->width(), window->height());
+    if (!window->is_imgui_initialized())
+      window->initialize_imgui();
 
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplSDL3_NewFrame();
+    ImGui::NewFrame();
+
+    root.tick_self_and_children(TickType::imgui_render);
+
+    // render tick here
+
+    ImGui::Render();
+
+    glViewport(0, 0, window->width(), window->height());
     glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // render tick here
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
     SDL_GL_SwapWindow(window->raw());
   }
@@ -112,6 +138,7 @@ void App::systems_init()
 
   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
   SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+  SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
 
   // Window Init handles SDL functions
 
@@ -134,6 +161,32 @@ void App::systems_init()
   
   std::string renderer = convert_GLubyte_ptr_to_str(glGetString(GL_RENDERER));
   Log::get_engine_logger()->info("Renderer Device: {}", renderer);
+
+  init_imgui();
+}
+
+void App::init_imgui()
+{
+  IMGUI_CHECKVERSION();
+  settings.imgui_context = ImGui::CreateContext();
+  ImGui::SetCurrentContext(settings.imgui_context);
+  ImGuiIO& io = ImGui::GetIO(); (void) io;
+
+
+  io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+  io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+
+  ImGui::StyleColorsDark();
+
+  float main_scale = SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());
+
+  ImGuiStyle& style = ImGui::GetStyle();
+  style.ScaleAllSizes(main_scale);
+  style.FontScaleDpi = main_scale;
+
+  WindowHandler* window_handler = WindowHandler::get_instance();
+  assert(window_handler->get_windows().size() > 0 && "Window has been deleted during initialization.");
+  window_handler->get_windows()[0]->initialize_imgui();
 }
 
 } // namespace Calgine

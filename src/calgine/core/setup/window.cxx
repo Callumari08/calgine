@@ -3,6 +3,12 @@
 #include "SDL3/SDL_stdinc.h"
 #include "SDL3/SDL_video.h"
 #include "calgine/core/log.h"
+#include "imgui_impl_opengl3.h"
+#include "imgui_impl_sdl3.h"
+
+#ifndef GLSL_VERSION
+  #define GLSL_VERSION "#version 150"
+#endif
 
 namespace Calgine {
   Window::Window(std::string window_title, VsyncState state, int width, int height, int extra_flags)
@@ -61,6 +67,19 @@ namespace Calgine {
   Uint32 Window::get_id() const
   {
     return id;
+  }
+
+  bool Window::is_imgui_initialized() const 
+  {
+    return imgui_initialized;
+  }
+
+  void Window::initialize_imgui()
+  {
+    ImGui_ImplSDL3_InitForOpenGL(sdl_window, gl_context);
+    ImGui_ImplOpenGL3_Init(GLSL_VERSION);
+
+    imgui_initialized = true;
   }
 
   int Window::width() const

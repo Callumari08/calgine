@@ -13,6 +13,7 @@ enum TickType
   preloop,
   update,
   late_update,
+  imgui_render,
 };
 
 /**

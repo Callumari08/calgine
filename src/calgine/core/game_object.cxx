@@ -132,6 +132,9 @@ void GameObject::tick_self_and_children(TickType tick_type)
       case TickType::late_update: 
         behaviour->late_tick();
         break;
+      case TickType::imgui_render:
+        behaviour->imgui_render_tick();
+        break;
       case TickType::preloop:
         behaviour->preloop_tick();
         break;
