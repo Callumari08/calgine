@@ -24,7 +24,7 @@ struct AppSettings
   /** @brief The default VSync state for windows. Can be enabled, disabled, or adaptive. */
   VsyncState default_vsync_state = VsyncState::enabled;
 
-  ImGuiContext* imgui_context;
+  ImGuiContext* imgui_context = nullptr;
 };
 
 /**
@@ -107,8 +107,9 @@ class CALGINE_API App // Abstract
 
 public:
   App();
+  ~App();
 
-  App& get_instance();
+  static App& get_instance();
 
   inline void start_systems()
   {

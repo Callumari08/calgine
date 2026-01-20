@@ -25,6 +25,10 @@ App::App()
   assert(!instance && "App already exists!");
   instance = this;
 }
+App::~App()
+{
+  ImGui::DestroyContext(settings.imgui_context);
+}
 
 void App::main_loop()
 {
