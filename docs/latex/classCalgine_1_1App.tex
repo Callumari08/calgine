@@ -12,10 +12,21 @@ Base class for all \doxylink{namespaceCalgine}{Calgine} applications.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classCalgine_1_1App_a2fe2509ffe8bbab9015257f3519cdaf5}{App}} ()
+\item 
+\mbox{\hyperlink{classCalgine_1_1App_a452bb93939d99ee75bfc65f11a4e9e3e}{\texorpdfstring{$\sim$}{\string~}\+App}} ()
+\item 
+void \mbox{\hyperlink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{start\+\_\+systems}} ()
+\item 
 void \mbox{\hyperlink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\+\_\+init}} ()
 \begin{DoxyCompactList}\small\item\em Initializes all required systems (SDL3, Open\+GL, logging). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\+\_\+loop}} ()
 \begin{DoxyCompactList}\small\item\em Runs the main application loop until all windows are closed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classCalgine_1_1App}{App}} \& \mbox{\hyperlink{classCalgine_1_1App_ac3798f969c73836a9c51dea952a51db2}{get\+\_\+instance}} ()
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -103,7 +114,28 @@ Applications can be configured through the public {\ttfamily settings} member va
 \end{DoxySeeAlso}
 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalgine_1_1App_a2fe2509ffe8bbab9015257f3519cdaf5}\label{classCalgine_1_1App_a2fe2509ffe8bbab9015257f3519cdaf5} 
+\index{Calgine::App@{Calgine::App}!App@{App}}
+\index{App@{App}!Calgine::App@{Calgine::App}}
+\doxysubsubsection{\texorpdfstring{App()}{App()}}
+{\footnotesize\ttfamily Calgine\+::\+App\+::\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1App_a452bb93939d99ee75bfc65f11a4e9e3e}\label{classCalgine_1_1App_a452bb93939d99ee75bfc65f11a4e9e3e} 
+\index{Calgine::App@{Calgine::App}!````~App@{\texorpdfstring{$\sim$}{\string~}App}}
+\index{````~App@{\texorpdfstring{$\sim$}{\string~}App}!Calgine::App@{Calgine::App}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}App()}{\string~App()}}
+{\footnotesize\ttfamily Calgine\+::\+App\+::\texorpdfstring{$\sim$}{\string~}\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1App_ac3798f969c73836a9c51dea952a51db2}\label{classCalgine_1_1App_ac3798f969c73836a9c51dea952a51db2} 
+\index{Calgine::App@{Calgine::App}!get\_instance@{get\_instance}}
+\index{get\_instance@{get\_instance}!Calgine::App@{Calgine::App}}
+\doxysubsubsection{\texorpdfstring{get\_instance()}{get\_instance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classCalgine_1_1App}{App}} \& Calgine\+::\+App\+::get\+\_\+instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
 \Hypertarget{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}\label{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7} 
 \index{Calgine::App@{Calgine::App}!main\_loop@{main\_loop}}
 \index{main\_loop@{main\_loop}!Calgine::App@{Calgine::App}}
@@ -129,6 +161,12 @@ The loop continues until either SDL\+\_\+\+EVENT\+\_\+\+QUIT is received or all 
 \begin{DoxySeeAlso}{See also}
 \doxylink{classCalgine_1_1GameObject_a6fe6259db00341689a2a17adb77c5d11}{Game\+Object\+::tick\+\_\+self\+\_\+and\+\_\+children()} for how tick methods are propagated through the hierarchy 
 \end{DoxySeeAlso}
+\Hypertarget{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}\label{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf} 
+\index{Calgine::App@{Calgine::App}!start\_systems@{start\_systems}}
+\index{start\_systems@{start\_systems}!Calgine::App@{Calgine::App}}
+\doxysubsubsection{\texorpdfstring{start\_systems()}{start\_systems()}}
+{\footnotesize\ttfamily void Calgine\+::\+App\+::start\+\_\+systems (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 \Hypertarget{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}\label{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f} 
 \index{Calgine::App@{Calgine::App}!systems\_init@{systems\_init}}
 \index{systems\_init@{systems\_init}!Calgine::App@{Calgine::App}}
@@ -139,6 +177,9 @@ The loop continues until either SDL\+\_\+\+EVENT\+\_\+\+QUIT is received or all 
 
 Initializes all required systems (SDL3, Open\+GL, logging). 
 
+\begin{DoxyWarning}{Warning}
+Do NOT call directly! use the \doxylink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{start\+\_\+systems()} inline function!
+\end{DoxyWarning}
 This method must be called before \doxylink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\+\_\+loop()}. It performs the following\+:
 \begin{DoxyItemize}
 \item Initializes the logging system with the application name

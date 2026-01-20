@@ -8,7 +8,7 @@ var searchData=
   ['get_5fgame_5fobject_5',['get_game_object',['../classCalgine_1_1Behaviour.html#aa5ddce8f5605e47c1727f93127634274',1,'Calgine::Behaviour']]],
   ['get_5fhierarchy_5froot_6',['get_hierarchy_root',['../classCalgine_1_1Hierarchy.html#adfeead1113ce9ba920abfb124fe175ed',1,'Calgine::Hierarchy']]],
   ['get_5fid_7',['get_id',['../classCalgine_1_1Window.html#a6e6ebf054c72f5779aef21f63fa9bf28',1,'Calgine::Window']]],
-  ['get_5finstance_8',['get_instance',['../classCalgine_1_1Hierarchy.html#a477844c026bb6e261bcccd687a2ea337',1,'Calgine::Hierarchy::get_instance()'],['../classCalgine_1_1WindowHandler.html#adb55f8b573d44f71278f65f6953501e5',1,'Calgine::WindowHandler::get_instance()']]],
+  ['get_5finstance_8',['get_instance',['../classCalgine_1_1App.html#ac3798f969c73836a9c51dea952a51db2',1,'Calgine::App::get_instance()'],['../classCalgine_1_1WindowHandler.html#adb55f8b573d44f71278f65f6953501e5',1,'Calgine::WindowHandler::get_instance()'],['../classCalgine_1_1Hierarchy.html#a477844c026bb6e261bcccd687a2ea337',1,'Calgine::Hierarchy::get_instance()']]],
   ['get_5fname_9',['get_name',['../classCalgine_1_1RootGameObject.html#aee4f88ba1c4d798afd3fc4b0551d8c8c',1,'Calgine::RootGameObject::get_name()'],['../classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d',1,'Calgine::GameObject::get_name()']]],
   ['get_5fparent_10',['get_parent',['../classCalgine_1_1GameObject.html#aa9839057d87f7b0da2341c8247264401',1,'Calgine::GameObject']]],
   ['get_5fvsync_5fstate_11',['get_vsync_state',['../classCalgine_1_1Window.html#aba41313a9f04e02440159197066bcf06',1,'Calgine::Window']]],

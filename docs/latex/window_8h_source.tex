@@ -33,36 +33,40 @@
 \DoxyCodeLine{00032\ \ \ SDL\_GLContext\ gl\_context\ =\ \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{00033\ }
 \DoxyCodeLine{00034\ \ \ VsyncState\ vsync\_state;}
-\DoxyCodeLine{00035\ \ \ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00037\ \ \ Window(std::string\ window\_title,\ VsyncState\ state\ =\ VsyncState::disabled,\ }
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ width\ =\ \mbox{\hyperlink{window_8h_a6ca4df6b9e1495a80a2929a5187cb9b9}{DEFAULT\_WINDOW\_WIDTH}},\ \textcolor{keywordtype}{int}\ height\ =\ \mbox{\hyperlink{window_8h_a030ebc610fddb0a18d62829ab376bf85}{DEFAULT\_WINDOW\_HEIGHT}},\ \textcolor{keywordtype}{int}\ extra\_flags\ =\ 0);}
-\DoxyCodeLine{00039\ \ \ \string~Window();}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{classCalgine_1_1Window_adb89fb84a696805d5c0f867cbd456dff}{Window}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Window}{Window}}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{classCalgine_1_1Window}{Window}}\&\ \mbox{\hyperlink{classCalgine_1_1Window_ac0fc1be57972240421ecf8c460457251}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Window}{Window}}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classCalgine_1_1Window_a255e33f0840260ea7d51f73abf9c40de}{Window}}(\mbox{\hyperlink{classCalgine_1_1Window}{Window}}\&\&)\ noexcept\ =\ delete;}
-\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{classCalgine_1_1Window}{Window}}\&\ operator=(\mbox{\hyperlink{classCalgine_1_1Window}{Window}}\&\&)\ noexcept\ =\ delete;}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ request\_close();}
-\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{bool}\ should\_close()\ const;}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ SDL\_Window*\ raw()\ const;}
-\DoxyCodeLine{00051\ \ \ SDL\_GLContext\ get\_context()\ const;}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ Uint32\ get\_id()\ const;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{bool}\ imgui\_initialized\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00037\ \ \ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ Window(std::string\ window\_title,\ VsyncState\ state\ =\ VsyncState::disabled,\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ width\ =\ \mbox{\hyperlink{window_8h_a6ca4df6b9e1495a80a2929a5187cb9b9}{DEFAULT\_WINDOW\_WIDTH}},\ \textcolor{keywordtype}{int}\ height\ =\ \mbox{\hyperlink{window_8h_a030ebc610fddb0a18d62829ab376bf85}{DEFAULT\_WINDOW\_HEIGHT}},\ \textcolor{keywordtype}{int}\ extra\_flags\ =\ 0);}
+\DoxyCodeLine{00041\ \ \ \string~Window();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classCalgine_1_1Window_adb89fb84a696805d5c0f867cbd456dff}{Window}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Window}{Window}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classCalgine_1_1Window}{Window}}\&\ \mbox{\hyperlink{classCalgine_1_1Window_ac0fc1be57972240421ecf8c460457251}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Window}{Window}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classCalgine_1_1Window_a255e33f0840260ea7d51f73abf9c40de}{Window}}(\mbox{\hyperlink{classCalgine_1_1Window}{Window}}\&\&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{classCalgine_1_1Window}{Window}}\&\ operator=(\mbox{\hyperlink{classCalgine_1_1Window}{Window}}\&\&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ request\_close();}
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{bool}\ should\_close()\ const;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ SDL\_Window*\ raw()\ const;}
+\DoxyCodeLine{00053\ \ \ SDL\_GLContext\ get\_context()\ const;}
 \DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{int}\ width()\ const;}
-\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{int}\ height()\ const;}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ set\_window\_title(const\ std::\textcolor{keywordtype}{string}\&\ title);}
-\DoxyCodeLine{00059\ \ \ std::\textcolor{keywordtype}{string}\ get\_window\_title()\ const;}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{void}\ set\_vsync\_state(\mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{VsyncState}}\ state);}
-\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{VsyncState}}\ get\_vsync\_state()\ const;}
-\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00055\ \ \ Uint32\ get\_id()\ const;}
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{bool}\ is\_imgui\_initialized()\ const;}
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ initialize\_imgui();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{int}\ width()\ const;}
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{int}\ height()\ const;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ set\_window\_title(const\ std::\textcolor{keywordtype}{string}\&\ title);}
+\DoxyCodeLine{00063\ \ \ std::\textcolor{keywordtype}{string}\ get\_window\_title()\ const;}
 \DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \}}
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{void}\ set\_vsync\_state(\mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{VsyncState}}\ state);}
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{VsyncState}}\ get\_vsync\_state()\ const;}
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \}}
 
 \end{DoxyCode}

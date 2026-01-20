@@ -10,11 +10,12 @@ var searchData=
   ['get_5fgame_5fobject_7',['get_game_object',['../classCalgine_1_1Behaviour.html#aa5ddce8f5605e47c1727f93127634274',1,'Calgine::Behaviour']]],
   ['get_5fhierarchy_5froot_8',['get_hierarchy_root',['../classCalgine_1_1Hierarchy.html#adfeead1113ce9ba920abfb124fe175ed',1,'Calgine::Hierarchy']]],
   ['get_5fid_9',['get_id',['../classCalgine_1_1Window.html#a6e6ebf054c72f5779aef21f63fa9bf28',1,'Calgine::Window']]],
-  ['get_5finstance_10',['get_instance',['../classCalgine_1_1Hierarchy.html#a477844c026bb6e261bcccd687a2ea337',1,'Calgine::Hierarchy::get_instance()'],['../classCalgine_1_1WindowHandler.html#adb55f8b573d44f71278f65f6953501e5',1,'Calgine::WindowHandler::get_instance()']]],
+  ['get_5finstance_10',['get_instance',['../classCalgine_1_1App.html#ac3798f969c73836a9c51dea952a51db2',1,'Calgine::App::get_instance()'],['../classCalgine_1_1Hierarchy.html#a477844c026bb6e261bcccd687a2ea337',1,'Calgine::Hierarchy::get_instance()'],['../classCalgine_1_1WindowHandler.html#adb55f8b573d44f71278f65f6953501e5',1,'Calgine::WindowHandler::get_instance()']]],
   ['get_5fname_11',['get_name',['../classCalgine_1_1RootGameObject.html#aee4f88ba1c4d798afd3fc4b0551d8c8c',1,'Calgine::RootGameObject::get_name()'],['../classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d',1,'Calgine::GameObject::get_name()']]],
   ['get_5fparent_12',['get_parent',['../classCalgine_1_1GameObject.html#aa9839057d87f7b0da2341c8247264401',1,'Calgine::GameObject']]],
   ['get_5fvsync_5fstate_13',['get_vsync_state',['../classCalgine_1_1Window.html#aba41313a9f04e02440159197066bcf06',1,'Calgine::Window']]],
   ['get_5fwindow_14',['get_window',['../classCalgine_1_1WindowHandler.html#aa9a52687bdc4a26ca589674add2d14b8',1,'Calgine::WindowHandler']]],
   ['get_5fwindow_5ftitle_15',['get_window_title',['../classCalgine_1_1Window.html#a1388691c322e243b42c414402a77ee63',1,'Calgine::Window']]],
-  ['get_5fwindows_16',['get_windows',['../classCalgine_1_1WindowHandler.html#a7f81bd9dba723921499e0fb71e1ed23c',1,'Calgine::WindowHandler']]]
+  ['get_5fwindows_16',['get_windows',['../classCalgine_1_1WindowHandler.html#a7f81bd9dba723921499e0fb71e1ed23c',1,'Calgine::WindowHandler']]],
+  ['glsl_5fversion_17',['glsl_version',['../app_8h.html#aaba262429a637565be50b2f1580d42a4',1,'GLSL_VERSION:&#160;app.h'],['../window_8cxx.html#aaba262429a637565be50b2f1580d42a4',1,'GLSL_VERSION:&#160;window.cxx']]]
 ];

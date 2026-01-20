@@ -9,6 +9,8 @@ var classCalgine_1_1Window =
     [ "get_vsync_state", "classCalgine_1_1Window.html#aba41313a9f04e02440159197066bcf06", null ],
     [ "get_window_title", "classCalgine_1_1Window.html#a1388691c322e243b42c414402a77ee63", null ],
     [ "height", "classCalgine_1_1Window.html#a9645cf1a63dbcc66b2696234b5144550", null ],
+    [ "initialize_imgui", "classCalgine_1_1Window.html#ad93494678b42227c8492a7384f2349ad", null ],
+    [ "is_imgui_initialized", "classCalgine_1_1Window.html#a8828159086d8cc9f18c1390341ab7968", null ],
     [ "operator=", "classCalgine_1_1Window.html#ac0fc1be57972240421ecf8c460457251", null ],
     [ "operator=", "classCalgine_1_1Window.html#a0a7c057c1c00f1f1ec440d49344270b2", null ],
     [ "raw", "classCalgine_1_1Window.html#a56fa8c87faf7554e19965e5628e09f35", null ],

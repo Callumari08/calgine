@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['settings_0',['settings',['../classCalgine_1_1App.html#aadb538d7a6dc9bc64243027c16dab9b8',1,'Calgine::App']]]
+  ['imgui_5fcontext_0',['imgui_context',['../structCalgine_1_1AppSettings.html#a9a400188cc53d6a4a7a3c12c47c9fc56',1,'Calgine::AppSettings']]]
 ];

@@ -6,6 +6,7 @@ var searchData=
   ['set_5fvsync_5fstate_3',['set_vsync_state',['../classCalgine_1_1Window.html#aff148d8b94b00211a2481befbffde8b1',1,'Calgine::Window']]],
   ['set_5fwindow_5ftitle_4',['set_window_title',['../classCalgine_1_1Window.html#a672a2dc900594a23d44b3d62d18c771d',1,'Calgine::Window']]],
   ['should_5fclose_5',['should_close',['../classCalgine_1_1Window.html#a7f15978b22338eb28f98e9836aff471b',1,'Calgine::Window']]],
-  ['start_5ftick_6',['start_tick',['../classCalgine_1_1Behaviour.html#ae4ed175037ecf4cc620bbcd83b9943ba',1,'Calgine::Behaviour']]],
-  ['systems_5finit_7',['systems_init',['../classCalgine_1_1App.html#a52ea702157554748e98b84dc0132e39f',1,'Calgine::App']]]
+  ['start_5fsystems_6',['start_systems',['../classCalgine_1_1App.html#a96e9ed6ce1f9d49d30e334f8633684bf',1,'Calgine::App']]],
+  ['start_5ftick_7',['start_tick',['../classCalgine_1_1Behaviour.html#ae4ed175037ecf4cc620bbcd83b9943ba',1,'Calgine::Behaviour']]],
+  ['systems_5finit_8',['systems_init',['../classCalgine_1_1App.html#a52ea702157554748e98b84dc0132e39f',1,'Calgine::App']]]
 ];
