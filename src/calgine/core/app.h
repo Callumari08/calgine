@@ -25,6 +25,10 @@ struct AppSettings
   VsyncState default_vsync_state = VsyncState::enabled;
 
   ImGuiContext* imgui_context = nullptr;
+
+  bool enable_imgui_docking = true;
+
+  bool enable_imgui_viewport = true;
 };
 
 /**

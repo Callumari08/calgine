@@ -27,6 +27,8 @@ App::App()
 }
 App::~App()
 {
+  ImGui_ImplOpenGL3_Shutdown();
+  ImGui_ImplSDL3_Shutdown();
   ImGui::DestroyContext(settings.imgui_context);
 }
 
@@ -99,6 +101,7 @@ void App::render_windows(GameObject& root)
 
     if (!window->is_imgui_initialized())
       window->initialize_imgui();
+
 
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplSDL3_NewFrame();
@@ -175,6 +178,10 @@ void App::init_imgui()
 
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+
+  if (settings.enable_imgui_docking)
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+
 
   ImGui::StyleColorsDark();
 

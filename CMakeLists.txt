@@ -76,6 +76,14 @@ target_link_libraries(imgui
         OpenGL::GL
 )
 
+# ---- Fetch GLM (header-only math library) ----
+FetchContent_Declare(
+    glm
+    GIT_REPOSITORY https://github.com/g-truc/glm.git
+    GIT_TAG 1.0.0
+)
+FetchContent_MakeAvailable(glm)
+
 # ---- spdlog: prefer system if requested, otherwise use FetchContent ----
 if(USE_SYSTEM_SPDLOG)
     find_package(spdlog CONFIG QUIET)
@@ -162,6 +170,7 @@ target_link_libraries(Calgine
         $<$<BOOL:${MINGW}>:ws2_32>
         eventpp
         imgui
+        glm::glm
         $<$<BOOL:${ENABLE_ASAN}>:asan_flags>
     PRIVATE
         project_warnings
@@ -208,4 +217,9 @@ if(TARGET imgui)
     message(STATUS "ImGui target available.")
 else()
     message(WARNING "ImGui target NOT available. Build will likely fail.")
+endif()
+if(TARGET glm::glm)
+    message(STATUS "GLM target available.")
+else()
+    message(WARNING "GLM target NOT available. Build will likely fail.")
 endif()
