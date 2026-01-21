@@ -20,40 +20,44 @@
 \DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{VsyncState}}\ \mbox{\hyperlink{structCalgine_1_1AppSettings_ad560a2429bdcab617e286e5af9bf67c3}{default\_vsync\_state}}\ =\ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544}{VsyncState::enabled}};}
 \DoxyCodeLine{00026\ }
 \DoxyCodeLine{00027\ \ \ ImGuiContext*\ \mbox{\hyperlink{structCalgine_1_1AppSettings_a9a400188cc53d6a4a7a3c12c47c9fc56}{imgui\_context}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00028\ \};}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00104\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1App}{App}}\ \textcolor{comment}{//\ Abstract}}
-\DoxyCodeLine{00105\ \{}
-\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ GLSL\_VERSION\ "{}\#version\ 450"{}}}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00109\ \ \ App();}
-\DoxyCodeLine{00110\ \ \ \string~App();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1AppSettings_af6ee2874f76b76b0b5b95dcbc9319d5c}{enable\_imgui\_docking}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1AppSettings_a9778bcc72d8abeb3eb3bebe7d45782ae}{enable\_imgui\_viewport}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1App}{App}}\ \textcolor{comment}{//\ Abstract}}
+\DoxyCodeLine{00109\ \{}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ GLSL\_VERSION\ "{}\#version\ 450"{}}}
 \DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1App}{App}}\&\ \mbox{\hyperlink{classCalgine_1_1App_ac3798f969c73836a9c51dea952a51db2}{get\_instance}}();}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{start\_systems}}()}
-\DoxyCodeLine{00115\ \ \ \{}
-\DoxyCodeLine{00116\ \ \ \ \ systems\_init();}
-\DoxyCodeLine{00117\ \ \ \ \ ImGui::SetCurrentContext(settings.imgui\_context);}
-\DoxyCodeLine{00118\ \ \ \}}
-\DoxyCodeLine{00119\ }
-\DoxyCodeLine{00138\ \ \ \mbox{\hyperlink{structCalgine_1_1AppSettings}{AppSettings}}\ \mbox{\hyperlink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}};}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ \ \ \textcolor{comment}{//virtual\ AppSettings\ get\_app\_settings()\ =\ 0;}}
-\DoxyCodeLine{00141\ \ \ \textcolor{comment}{//virtual\ void\ set\_app\_settings();}}
-\DoxyCodeLine{00157\ \ \ \textcolor{keywordtype}{void}\ systems\_init();}
-\DoxyCodeLine{00158\ }
-\DoxyCodeLine{00176\ \ \ \textcolor{keywordtype}{void}\ main\_loop();}
-\DoxyCodeLine{00177\ }
-\DoxyCodeLine{00178\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00179\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1App}{App}}*\ instance;}
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ \ \ \textcolor{keywordtype}{void}\ handle\_sdl\_events(\textcolor{keywordtype}{bool}\&\ running);}
-\DoxyCodeLine{00182\ \ \ \textcolor{keywordtype}{void}\ render\_windows(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ root);}
-\DoxyCodeLine{00183\ \ \ \textcolor{keywordtype}{void}\ init\_imgui();}
-\DoxyCodeLine{00184\ \};}
-\DoxyCodeLine{00185\ }
-\DoxyCodeLine{00186\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
+\DoxyCodeLine{00112\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00113\ \ \ App();}
+\DoxyCodeLine{00114\ \ \ \string~App();}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1App}{App}}\&\ \mbox{\hyperlink{classCalgine_1_1App_ac3798f969c73836a9c51dea952a51db2}{get\_instance}}();}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{start\_systems}}()}
+\DoxyCodeLine{00119\ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ systems\_init();}
+\DoxyCodeLine{00121\ \ \ \ \ ImGui::SetCurrentContext(settings.imgui\_context);}
+\DoxyCodeLine{00122\ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00142\ \ \ \mbox{\hyperlink{structCalgine_1_1AppSettings}{AppSettings}}\ \mbox{\hyperlink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \textcolor{comment}{//virtual\ AppSettings\ get\_app\_settings()\ =\ 0;}}
+\DoxyCodeLine{00145\ \ \ \textcolor{comment}{//virtual\ void\ set\_app\_settings();}}
+\DoxyCodeLine{00161\ \ \ \textcolor{keywordtype}{void}\ systems\_init();}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00180\ \ \ \textcolor{keywordtype}{void}\ main\_loop();}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00183\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1App}{App}}*\ instance;}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \textcolor{keywordtype}{void}\ handle\_sdl\_events(\textcolor{keywordtype}{bool}\&\ running);}
+\DoxyCodeLine{00186\ \ \ \textcolor{keywordtype}{void}\ render\_windows(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ root);}
+\DoxyCodeLine{00187\ \ \ \textcolor{keywordtype}{void}\ init\_imgui();}
+\DoxyCodeLine{00188\ \};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
 
 \end{DoxyCode}
