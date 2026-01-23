@@ -6,13 +6,6 @@
 // Having a file called "useful_funcs.h" is obviously stupid, but to be honest I don't know what else to do...
 // Could just call it "utilities.h", which is kind of the equivalent of sweeping trash under rug
 
-inline std::string convert_GLubyte_ptr_to_str(const unsigned char* str)
-{
-  std::string value(reinterpret_cast<const char*>(str));
-
-  return value;
-}
-
 namespace Calgine {
 
 /**
