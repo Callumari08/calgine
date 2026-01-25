@@ -1,8 +1,4 @@
-namespace Calgine {
+#pragma once
 
-class Renderer 
-{
-
-};
-
-}
+#include "mesh.h"
+#include "shader.h"

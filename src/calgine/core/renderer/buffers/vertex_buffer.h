@@ -9,9 +9,8 @@ public:
   VertexBuffer(std::span<const Vertex> vertex);
   ~VertexBuffer();
 
-  void bind();
-  void unbind();
-
+  void bind() const;
+  void unbind() const;
 
 private:
   uint32_t renderer_id;

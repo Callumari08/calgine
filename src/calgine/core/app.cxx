@@ -13,14 +13,13 @@
 #include "SDL3/SDL_events.h"
 #include "calgine/core/background_managers/hierarchy_manager.h"
 #include "calgine/core/game_object.h"
-#include "calgine/core/renderer/buffers/index_buffer.h"
-#include "calgine/core/renderer/buffers/vertex_buffer.h"
 #include "calgine/core/renderer/vertex.h"
 #include "window/window_handler.h"
 #include "useful_funcs.h"
 #include "log.h"
 #include "renderer/shader.h"
 #include <glm/glm.hpp>
+#include <memory>
 
 namespace Calgine {
 
@@ -106,43 +105,11 @@ void App::init_buffers()
           { 0.5f,  1.0f}
       }
   };
-  vertex_array = std::make_unique<VertexArray>();
-  vertex_array->bind();
 
-  vertex_buffer = std::make_unique<VertexBuffer>(vertices);
-  vertex_buffer->bind();
+  uint32_t indices[3] = {0, 1, 2};
 
-  vertex_array->set_layout();
-
-  uint32_t indices[] = { 0, 1, 2 };
-  index_buffer = std::make_unique<IndexBuffer>(
-      indices,
-      sizeof(indices) / sizeof(uint32_t)
-  );
-
-  index_buffer->bind();
-
-  std::string vertex_source = R"(
-      #version 450 core
-      layout(location = 0) in vec3 a_Position;
-      out vec3 v_Position;
-      void main()
-      {
-          v_Position = a_Position;
-          gl_Position = vec4(a_Position, 1.0);
-      }
-  )";
-  
-  std::string fragment_source = R"(
-      #version 450 core
-      layout(location = 0) out vec4 o_color;
-      in vec3 v_Position;
-      void main()
-      {
-          o_color = vec4(v_Position, 1.0);
-      }
-  )";
-  shader = std::make_unique<Shader>(vertex_source, fragment_source);
+  mesh = std::make_unique<Mesh>(vertices, indices);
+  shader = std::make_unique<Shader>(DEFAULT_VERTEX_SHADER, DEFAULT_FRAGMENT_SHADER);
 }
 
 
@@ -235,9 +202,7 @@ void App::handle_sdl_events(bool& running)
 void App::do_stuff_on_single_window()
 {
   shader->bind();
-  vertex_array->bind();
-  glDrawElements(GL_TRIANGLES, index_buffer->get_count(), GL_UNSIGNED_INT, nullptr);
-
+  mesh->draw();
 }
 
 void App::render_windows(GameObject& root)

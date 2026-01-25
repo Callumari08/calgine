@@ -9,8 +9,8 @@ public:
   IndexBuffer(uint32_t* indices, uint32_t _count);
   ~IndexBuffer();
 
-  void bind();
-  void unbind();
+  void bind() const;
+  void unbind() const;
 
   uint32_t get_count()
   {

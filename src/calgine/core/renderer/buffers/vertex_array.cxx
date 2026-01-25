@@ -9,12 +9,12 @@ VertexArray::VertexArray()
   glGenVertexArrays(1, &renderer_id);
 }
 
-void VertexArray::bind()
+void VertexArray::bind() const
 {
   glBindVertexArray(renderer_id);
 }
 
-void VertexArray::set_layout()
+void VertexArray::set_layout() const
 {
   bind();
 

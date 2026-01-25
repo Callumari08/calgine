@@ -1,7 +1,7 @@
 #include "shader.h"
 
-#include <cassert>
 #include <glad/gl.h>
+#include <glm/gtc/type_ptr.hpp>
 #include "../log.h"
 
 namespace Calgine{
@@ -119,15 +119,58 @@ Shader::~Shader()
 	glDeleteProgram(renderer_id);
 }
 
-void Shader::bind()
+void Shader::bind() const
 {
 	assert(renderer_id != 0 && "Renderer ID is Null!");
 	glUseProgram(renderer_id);
 }
 
-void Shader::unbind()  
+void Shader::unbind() const
 {
 	glUseProgram(0);
+}
+
+GLint Shader::get_uniform_location(const std::string& name)
+{
+	if (uniform_cache.find(name) != uniform_cache.end())
+		return uniform_cache[name];
+
+	GLint location = glGetUniformLocation(renderer_id, name.c_str());
+	if (location == -1)
+		Log::get_engine_logger()->warn("Uniform '{}' not found in shader", name);
+
+	uniform_cache[name] = location;
+	return location;
+}
+
+void Shader::set_uniform_1i(const std::string& name, int value)
+{
+	glUniform1i(get_uniform_location(name), value);
+}
+
+void Shader::set_uniform_1f(const std::string& name, float value)
+{
+	glUniform1f(get_uniform_location(name), value);
+}
+
+void Shader::set_uniform_2f(const std::string& name, float v0, float v1)
+{
+	glUniform2f(get_uniform_location(name), v0, v1);
+}
+
+void Shader::set_uniform_3f(const std::string& name, float v0, float v1, float v2)
+{
+	glUniform3f(get_uniform_location(name), v0, v1, v2);
+}
+
+void Shader::set_uniform_4f(const std::string& name, float v0, float v1, float v2, float v3)
+{
+	glUniform4f(get_uniform_location(name), v0, v1, v2, v3);
+}
+
+void Shader::set_uniform_mat4(const std::string& name, const glm::mat4& matrix)
+{
+	glUniformMatrix4fv(get_uniform_location(name), 1, GL_FALSE, glm::value_ptr(matrix));
 }
 
 }
