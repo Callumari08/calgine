@@ -1,6 +1,9 @@
 #pragma once
 
 #include "calgine/core/game_object.h"
+#include "calgine/core/renderer/buffers/index_buffer.h"
+#include "calgine/core/renderer/buffers/vertex_buffer.h"
+#include "calgine/core/renderer//buffers/vertex_array.h"
 #include "calgine/core/renderer/shader.h"
 #include "calgine/core/window/window.h"
 #include "calgine_pch.h"
@@ -184,11 +187,12 @@ public:
 private:
   static App* instance;
 
-  unsigned int vertex_array;
-  unsigned int vertex_buffer;
-  unsigned int index_buffer;
 
   std::unique_ptr<Shader> shader;
+
+  std::unique_ptr<VertexBuffer> vertex_buffer;
+  std::unique_ptr<IndexBuffer> index_buffer;
+  std::unique_ptr<VertexArray> vertex_array;
 
   void init_buffers();
   void init_imgui();

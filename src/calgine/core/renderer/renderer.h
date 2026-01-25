@@ -1,0 +1,8 @@
+namespace Calgine {
+
+class Renderer 
+{
+
+};
+
+}

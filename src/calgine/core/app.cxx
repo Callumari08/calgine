@@ -5,6 +5,7 @@
 #include <SDL3/SDL_error.h>
 #include <SDL3/SDL.h>
 #include <cassert>
+#include <cstdint>
 #include <glad/gl.h>
 #include <imgui.h>
 #include <imgui_impl_sdl3.h>
@@ -12,10 +13,14 @@
 #include "SDL3/SDL_events.h"
 #include "calgine/core/background_managers/hierarchy_manager.h"
 #include "calgine/core/game_object.h"
+#include "calgine/core/renderer/buffers/index_buffer.h"
+#include "calgine/core/renderer/buffers/vertex_buffer.h"
+#include "calgine/core/renderer/vertex.h"
 #include "window/window_handler.h"
 #include "useful_funcs.h"
 #include "log.h"
 #include "renderer/shader.h"
+#include <glm/glm.hpp>
 
 namespace Calgine {
 
@@ -81,60 +86,65 @@ void App::systems_init()
 
 void App::init_buffers()
 {
-  glGenVertexArrays(1, &vertex_array);
-  glBindVertexArray(vertex_array);
-  
-  glGenBuffers(1, &vertex_buffer);
-  glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
-
-  float verticies [3 * 3] = {
-    -0.5f, -0.5f, 0.0f,
-    0.5f, -0.5f, 0.0f,
-    0.0f, 0.5f, 0.0f,
+  Vertex vertices[] = {
+      {
+          {1.0f, 0.0f, 0.0f, 1.0f},
+          {-0.5f, -0.5f, 0.0f},
+          {0.0f,  0.0f,  1.0f},
+          {0.0f,  0.0f}
+      },
+      {
+          {0.0f, 1.0f, 0.0f, 1.0f},
+          { 0.5f, -0.5f, 0.0f},
+          { 0.0f,  0.0f, 1.0f},
+          { 1.0f,  0.0f}
+      },
+      {
+          {0.0f, 0.0f, 1.0f, 1.0f},
+          { 0.0f,  0.5f, 0.0f},
+          { 0.0f,  0.0f, 1.0f},
+          { 0.5f,  1.0f}
+      }
   };
+  vertex_array = std::make_unique<VertexArray>();
+  vertex_array->bind();
 
-  glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
+  vertex_buffer = std::make_unique<VertexBuffer>(vertices);
+  vertex_buffer->bind();
 
-  glEnableVertexAttribArray(0);
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+  vertex_array->set_layout();
 
-  glGenBuffers(1, &index_buffer);
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer);
+  uint32_t indices[] = { 0, 1, 2 };
+  index_buffer = std::make_unique<IndexBuffer>(
+      indices,
+      sizeof(indices) / sizeof(uint32_t)
+  );
 
-  unsigned int indices[3] = { 0, 1, 2 };
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+  index_buffer->bind();
 
-  std::string vertex_source =R"(
-    #version 450 core
-
-    layout(location  = 0) in vec3 a_Position;
-
-    out vec3 v_Position;
-
-    void main()
-    {
-      gl_Position = vec4(a_Position, 1.0);
-    }
+  std::string vertex_source = R"(
+      #version 450 core
+      layout(location = 0) in vec3 a_Position;
+      out vec3 v_Position;
+      void main()
+      {
+          v_Position = a_Position;
+          gl_Position = vec4(a_Position, 1.0);
+      }
   )";
-
-  std::string fragment_source =R"(
-    #version 450 core
-
-    layout(location  = 0) out vec4 o_color;
-
-    in vec3 v_Position;
-
-    void main()
-    {
-      o_color = vec4(v_Position, 1.0);
-    }
-  )";
-
   
-
-  shader.reset(new Shader(vertex_source, fragment_source));
-
+  std::string fragment_source = R"(
+      #version 450 core
+      layout(location = 0) out vec4 o_color;
+      in vec3 v_Position;
+      void main()
+      {
+          o_color = vec4(v_Position, 1.0);
+      }
+  )";
+  shader = std::make_unique<Shader>(vertex_source, fragment_source);
 }
+
 
 void App::init_imgui()
 {
@@ -149,7 +159,6 @@ void App::init_imgui()
 
   if (settings.enable_imgui_docking)
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-
 
   ImGui::StyleColorsDark();
 
@@ -226,8 +235,8 @@ void App::handle_sdl_events(bool& running)
 void App::do_stuff_on_single_window()
 {
   shader->bind();
-  glBindVertexArray(vertex_array);
-  glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+  vertex_array->bind();
+  glDrawElements(GL_TRIANGLES, index_buffer->get_count(), GL_UNSIGNED_INT, nullptr);
 
 }
 
