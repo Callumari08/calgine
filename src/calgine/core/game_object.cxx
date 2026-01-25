@@ -90,11 +90,6 @@ void GameObject::process_pending_deletes()
   pending_deletes.clear();
 }
 
-bool GameObject::is_enabled() const
-{
-  return enabled;
-}
-
 void GameObject::set_active(const bool _enabled)
 {
   if (_enabled == enabled)

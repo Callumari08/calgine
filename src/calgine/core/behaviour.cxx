@@ -1,6 +1,8 @@
 #include "calgine_pch.h"
 
 #include "behaviour.h"
+#include "game_object.h"
+
 
 namespace Calgine {
 
@@ -24,10 +26,15 @@ void Behaviour::attach_owner(GameObject* _game_object)
   start_tick();
 }
 
-GameObject* Behaviour::get_game_object()
+GameObject* Behaviour::get_game_object() 
 {
   assert(game_object && "Behaviour not attached yet");
   return game_object;
+}
+
+Transform& Behaviour::get_transform() 
+{
+  return get_game_object()->get_transform();
 }
 
 } // namespace Calgine

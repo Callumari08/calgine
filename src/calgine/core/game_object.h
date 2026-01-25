@@ -1,6 +1,7 @@
 #pragma once
 
 #include "calgine/core/log.h"
+#include "calgine/core/transform.h"
 #include "calgine_pch.h"
 #include "calgine_api.h"
 
@@ -30,6 +31,7 @@ private:
   
   bool enabled = true;
 
+  Transform transform;
   std::string name = "";
   std::unordered_map<std::type_index, std::unique_ptr<Behaviour>> behaviours;
   std::vector<std::unique_ptr<GameObject>> children;
@@ -61,8 +63,10 @@ public:
   GameObject(GameObject&&) = default;
   GameObject& operator=(GameObject&&) = default;
 
-  bool is_enabled() const;
-  void set_active(const bool _enabled); 
+  inline bool is_enabled() const { return enabled; }
+  void set_active(const bool _enabled);
+  
+  inline Transform& get_transform() { return transform; }
 
   template<typename T_behaviour>
   requires std::derived_from<T_behaviour, Behaviour>

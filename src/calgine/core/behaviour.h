@@ -1,5 +1,7 @@
 #pragma once
 
+#include "calgine/core/transform.h"
+#include "calgine/core/log.h"
 #include "calgine_pch.h"
 #include "calgine_api.h"
 
@@ -28,6 +30,7 @@ public:
     * @return @link GameObject @endlink* 
     */
   GameObject* get_game_object();
+  Transform& get_transform();
 
 private:
   GameObject* game_object;

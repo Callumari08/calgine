@@ -9,12 +9,17 @@ namespace Calgine {
 
 constexpr const char* DEFAULT_VERTEX_SHADER = R"(#version 450 core
 layout(location = 0) in vec3 a_Position;
+
+uniform mat4 u_model;
+uniform mat4 u_view;
+uniform mat4 u_proj;
+
 out vec3 v_Position;
 
 void main()
 {
   v_Position = a_Position;
-  gl_Position = vec4(a_Position, 1.0);
+  gl_Position = u_proj * u_view * u_model * vec4(a_Position, 1.0);
 }
 )";
 

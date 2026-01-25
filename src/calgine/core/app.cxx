@@ -110,6 +110,7 @@ void App::init_buffers()
 
   mesh = std::make_unique<Mesh>(vertices, indices);
   shader = std::make_unique<Shader>(DEFAULT_VERTEX_SHADER, DEFAULT_FRAGMENT_SHADER);
+  camera = std::make_unique<Camera>(65.0f, 1920.0f / 1080.0f, 0.1f, 1000.0f);
 }
 
 
@@ -201,7 +202,18 @@ void App::handle_sdl_events(bool& running)
 // This exists because right now, we can only do OpenGL stuff on one window, this will (probably) change.
 void App::do_stuff_on_single_window()
 {
+  Transform camera_transform;
+  camera_transform.position = glm::vec3(0.0f, 0.0f, 3.0f);
+  camera_transform.rotation = glm::vec3(0.0f);
+  camera_transform.scale = glm::vec3(1.0f);
+  
+  camera->update(camera_transform);
+
   shader->bind();
+  shader->set_uniform_mat4("u_model", glm::mat4(1.0f));
+  shader->set_uniform_mat4("u_view", camera->get_view_matrix());
+  shader->set_uniform_mat4("u_proj", camera->get_projection_matrix());
+  
   mesh->draw();
 }
 

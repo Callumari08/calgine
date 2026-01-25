@@ -3,6 +3,7 @@
 #include "calgine/core/game_object.h"
 #include "calgine/core/renderer/mesh.h"
 #include "calgine/core/renderer/shader.h"
+#include "calgine/core/renderer/camera.h"
 #include "calgine/core/window/window.h"
 #include "calgine_pch.h"
 #include "calgine_api.h"
@@ -185,9 +186,9 @@ public:
 private:
   static App* instance;
 
-
   std::unique_ptr<Shader> shader;
   std::unique_ptr<Mesh> mesh;
+  std::unique_ptr<Camera> camera;
 
   void init_buffers();
   void init_imgui();
