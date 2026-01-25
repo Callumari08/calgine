@@ -14,6 +14,8 @@
 #include "calgine/core/background_managers/hierarchy_manager.h"
 #include "calgine/core/game_object.h"
 #include "calgine/core/renderer/vertex.h"
+#include "calgine/core/transform.h"
+#include "glm/fwd.hpp"
 #include "window/window_handler.h"
 #include "useful_funcs.h"
 #include "log.h"
@@ -199,10 +201,10 @@ void App::handle_sdl_events(bool& running)
   }
 }
 
-// This exists because right now, we can only do OpenGL stuff on one window, this will (probably) change.
+// This exists because, right now, we can only do OpenGL stuff on one window, this will (probably) change.
 void App::do_stuff_on_single_window()
 {
-  Transform camera_transform;
+  Transform camera_transform = Transform::zero();
   camera_transform.position = glm::vec3(0.0f, 0.0f, 3.0f);
   camera_transform.rotation = glm::vec3(0.0f);
   camera_transform.scale = glm::vec3(1.0f);
