@@ -104,6 +104,40 @@ public:
   }
 
   void set_name(std::string _name);
+
+  // Iterator for depth-first traversal
+  class Iterator {
+  private:
+    std::stack<GameObject*> stack;
+
+  public:
+    Iterator(GameObject* root) {
+      if (root) stack.push(root);
+    }
+
+    Iterator() {}
+
+    GameObject& operator*() { return *stack.top(); }
+    GameObject* operator->() { return stack.top(); }
+
+    Iterator& operator++() {
+      GameObject* current = stack.top();
+      stack.pop();
+
+      auto& children = current->children;
+      for (auto it = children.rbegin(); it != children.rend(); ++it) {
+        stack.push(it->get());
+      }
+      return *this;
+    }
+
+    bool operator!=(const Iterator& other) const {
+      return stack.size() != other.stack.size();
+    }
+  };
+
+  Iterator begin() { return Iterator(this); }
+  Iterator end() { return Iterator(); }
 };
 
 // Templates
