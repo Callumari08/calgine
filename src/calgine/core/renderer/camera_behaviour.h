@@ -26,12 +26,12 @@ public:
   inline const CameraSettings get_settings() const { return settings; }
   void apply_settings(const CameraSettings settings);
 
+  inline Camera& get_raw_camera() { return  camera; }
+
 private:
   Camera camera;
   CameraSettings settings;
   bool camera_active = false;
-
-  inline Camera& get_camera() { return camera; }
 
   void inline set_camera_active(bool active_state) { camera_active = active_state; }
 

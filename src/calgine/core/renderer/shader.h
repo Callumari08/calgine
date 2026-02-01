@@ -1,5 +1,6 @@
 #pragma once
 
+#include "calgine_api.h"
 #include "calgine_pch.h"
 #include "glad/gl.h"
 #include <glm/glm.hpp>
@@ -34,7 +35,7 @@ void main()
 )";
 
 
-class Shader
+class CALGINE_API Shader
 {
 public:
   Shader(const std::string& vertex_source, const std::string& fragment_source);

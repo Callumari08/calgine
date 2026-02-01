@@ -4,24 +4,21 @@
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_error.h>
 #include <SDL3/SDL.h>
-#include <cassert>
-#include <cstdint>
 #include <glad/gl.h>
 #include <imgui.h>
 #include <imgui_impl_sdl3.h>
 #include <imgui_impl_opengl3.h>
-#include "SDL3/SDL_events.h"
+#include <SDL3/SDL_events.h>
 #include "calgine/core/background_managers/hierarchy_manager.h"
 #include "calgine/core/game_object.h"
 #include "calgine/core/renderer/vertex.h"
-#include "calgine/core/transform.h"
 #include "glm/fwd.hpp"
 #include "window/window_handler.h"
 #include "useful_funcs.h"
 #include "log.h"
 #include "renderer/shader.h"
 #include <glm/glm.hpp>
-#include <memory>
+#include "calgine/core/renderer/camera_manager.h"
 
 namespace Calgine {
 
@@ -112,7 +109,6 @@ void App::init_buffers()
 
   mesh = std::make_unique<Mesh>(vertices, indices);
   shader = std::make_unique<Shader>(DEFAULT_VERTEX_SHADER, DEFAULT_FRAGMENT_SHADER);
-  camera = std::make_unique<Camera>(65.0f, 1920.0f / 1080.0f, 0.1f, 1000.0f);
 }
 
 
@@ -204,17 +200,28 @@ void App::handle_sdl_events(bool& running)
 // This exists because, right now, we can only do OpenGL stuff on one window, this will (probably) change.
 void App::do_stuff_on_single_window()
 {
-  Transform camera_transform = Transform::zero();
-  camera_transform.position = glm::vec3(0.0f, 0.0f, 3.0f);
-  camera_transform.rotation = glm::vec3(0.0f);
-  camera_transform.scale = glm::vec3(1.0f);
-  
-  camera->update(camera_transform);
+  CameraBehaviour* active_camera = CameraManager::get_instance().get_active_camera();
+
+  if (!active_camera)
+  {
+    if (had_camera_last_frame)
+    {
+      Log::get_engine_logger()->warn("No active camera in scene! Stopping render until a camera is active.");
+      had_camera_last_frame = false;
+    }
+
+    return;
+  }
+  if (!had_camera_last_frame)
+  {
+    Log::get_engine_logger()->info("There is now an active camera in the scene. Resuming render.");
+    had_camera_last_frame = true;
+  }
 
   shader->bind();
   shader->set_uniform_mat4("u_model", glm::mat4(1.0f));
-  shader->set_uniform_mat4("u_view", camera->get_view_matrix());
-  shader->set_uniform_mat4("u_proj", camera->get_projection_matrix());
+  shader->set_uniform_mat4("u_view", active_camera->get_raw_camera().get_view_matrix());
+  shader->set_uniform_mat4("u_proj", active_camera->get_raw_camera().get_projection_matrix());
   
   mesh->draw();
 }

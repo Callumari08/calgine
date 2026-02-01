@@ -41,7 +41,7 @@ private:
   static inline std::vector<std::unique_ptr<GameObject>> pending_deletes;
 
 public:
-  explicit GameObject(GameObject* _parent);
+  explicit GameObject(GameObject* parent, const Transform transform);
   virtual ~GameObject();
 
   /**

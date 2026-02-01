@@ -22,36 +22,13 @@ void Camera::update(const Transform& transform) {
   view_matrix = glm::lookAt(position, position + forward, up);
 }
 
-void Camera::set_fov(float new_fov, bool recalculate)
+void Camera::update_projection(float _fov, float _aspect_ratio, float _near_plane, float _far_plane)
 {
-  fov = new_fov;
-
-  if (recalculate)
-    recalculate_projection();
-}
-
-void Camera::set_aspect_ratio(float new_aspect, bool recalculate)
-{
-  aspect_ratio = new_aspect;
-
-  if (recalculate)
-    recalculate_projection();
-}
-
-void Camera::set_near_plane(float new_near, bool recalculate)
-{
-  near_plane = new_near;
-  
-  if (recalculate)
-    recalculate_projection();
-}
-
-void Camera::set_far_plane(float new_far, bool recalculate)
-{
-  far_plane = new_far;
-  
-  if (recalculate)
-    recalculate_projection();
+  fov = _fov;
+  aspect_ratio = _aspect_ratio;
+  near_plane = _near_plane;
+  far_plane = _far_plane;
+  recalculate_projection();
 }
 
 void Camera::recalculate_projection()

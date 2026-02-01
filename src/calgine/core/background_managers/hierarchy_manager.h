@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../game_object.h"
+#include "calgine/core/transform.h"
 #include "calgine_api.h"
 
 namespace Calgine {
@@ -8,7 +9,7 @@ namespace Calgine {
 class RootGameObject : public GameObject
 {
 public:
-  RootGameObject() : GameObject(nullptr) {}
+  RootGameObject() : GameObject(nullptr, Transform::zero()) {}
   std::string get_name() override
   {
     return "Root";

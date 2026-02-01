@@ -51,5 +51,4 @@ void CameraManager::add_camera(CameraBehaviour* unadded_camera)
   cameras.emplace_back(unadded_camera);
 }
 
-
 }

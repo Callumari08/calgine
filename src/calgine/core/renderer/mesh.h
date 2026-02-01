@@ -1,5 +1,7 @@
 #pragma once
 
+#include "calgine_api.h"
+#include "calgine_pch.h"
 #include "calgine/core/renderer/buffers/index_buffer.h"
 #include "calgine/core/renderer/buffers/vertex_array.h"
 #include "calgine/core/renderer/buffers/vertex_buffer.h"
@@ -7,7 +9,7 @@
 
 namespace Calgine {
 
-class Mesh
+class CALGINE_API Mesh
 {
 public:
 

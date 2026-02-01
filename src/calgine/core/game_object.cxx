@@ -6,13 +6,12 @@ namespace Calgine {
 
 uint32_t GameObject::num_game_objects = 0;
 
-GameObject::GameObject(GameObject* _parent) 
-  : /*change later*/ transform(Transform::zero()), parent(_parent) 
+GameObject::GameObject(GameObject* _parent, const Transform _transform) 
+  : /*change later*/ transform(_transform), parent(_parent)
 {
   num_game_objects++;
   name = "GameObject" + std::to_string(num_game_objects);
 }
-
 GameObject::~GameObject()
 {
 }

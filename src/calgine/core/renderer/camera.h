@@ -18,10 +18,7 @@ public:
 
   void update(const Transform& transform);
   
-  void set_fov(float fov, bool recalculate = true);
-  void set_aspect_ratio(float aspect, bool recalculate = true);
-  void set_near_plane(float near, bool recalculate = true);
-  void set_far_plane(float far, bool recalculate = true);
+  void update_projection(float fov, float aspect_ratio, float near_plane, float far_plane);
 
   inline const glm::mat4& get_view_matrix() const { return view_matrix; }
   inline const glm::mat4& get_projection_matrix() const { return projection_matrix; }

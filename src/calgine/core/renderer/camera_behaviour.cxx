@@ -18,10 +18,8 @@ void CameraBehaviour::apply_settings(const CameraSettings applied_settings)
 {
   settings = applied_settings;
 
-  camera.set_fov(settings.fov, false);
-  camera.set_aspect_ratio(settings.aspect_ratio, false);
-  camera.set_near_plane(settings.near_plane, false);
-  camera.set_far_plane(settings.far_plane, true);
+  camera.update_projection(applied_settings.fov, applied_settings.aspect_ratio, 
+    applied_settings.near_plane, applied_settings.far_plane);
 }
 
 }
