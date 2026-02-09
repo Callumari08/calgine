@@ -39,6 +39,8 @@ private:
   void start_tick() override;
   void late_tick() override;
 
+  void imgui_render_tick() override;
+
   friend class CameraManager;
 };
 
