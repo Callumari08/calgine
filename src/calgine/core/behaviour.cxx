@@ -19,11 +19,17 @@ void Behaviour::imgui_render_tick() {}
 
 void Behaviour::on_destroy() {}
 
-void Behaviour::attach_owner(GameObject* _game_object)
+bool Behaviour::attach_owner(GameObject* _game_object)
 {
-  assert(game_object == nullptr && "Behaviour already attached!");
+  if (game_object != nullptr)
+  {
+    Log::get_engine_logger()->error("Behaviour already attached!");
+    return false;
+  }
   game_object = _game_object;
   start_tick();
+
+  return true;
 }
 
 GameObject* Behaviour::get_game_object() 

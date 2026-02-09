@@ -44,12 +44,12 @@ private:
     return new T();
   }
 
-  void attach_owner(GameObject* _game_object);
+  bool attach_owner(GameObject* game_object);
 
   friend class GameObject;
 
 protected:
-  Behaviour() = default;
+  Behaviour() : game_object(nullptr) {}
 
     /**
     * @brief Gets called before the main loop (see @link App @endlink).

@@ -36,15 +36,6 @@ glad_add_library(glad
     API gl:core=4.6
 )
 
-# ---- Fetch eventpp (c++ event system) ----
-FetchContent_Declare(
-    eventpp
-    GIT_REPOSITORY https://github.com/wqking/eventpp
-    # pinned commit to avoid surprises
-    GIT_TAG d2db8af2a46c79f8dc75759019fba487948e9442
-)
-FetchContent_MakeAvailable(eventpp)
-
 # ---- Fetch ImGui ----
 FetchContent_Declare(
     imgui
@@ -168,7 +159,6 @@ target_link_libraries(Calgine
         SDL3::SDL3
         spdlog::spdlog
         $<$<BOOL:${MINGW}>:ws2_32>
-        eventpp
         imgui
         glm::glm
         $<$<BOOL:${ENABLE_ASAN}>:asan_flags>

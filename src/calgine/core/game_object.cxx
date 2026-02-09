@@ -6,14 +6,14 @@ namespace Calgine {
 
 uint32_t GameObject::num_game_objects = 0;
 
-GameObject::GameObject(GameObject* _parent, const Transform _transform) 
-  : /*change later*/ transform(_transform), parent(_parent)
+GameObject::GameObject(GameObject* _parent, const Transform _transform, const std::string _name) 
+  : transform(_transform), name(_name), parent(_parent)
 {
   num_game_objects++;
-  name = "GameObject" + std::to_string(num_game_objects);
 }
 GameObject::~GameObject()
 {
+  Log::get_engine_logger()->warn("GameObject Deleting; name of: {}", name);
 }
 
 void GameObject::destroy()
@@ -137,9 +137,10 @@ void GameObject::tick_self_and_children(TickType tick_type)
     }
   }
 
-  for (auto& go : children)
+  // Use index-based iteration to handle children vector reallocation during ticking
+  for (size_t i = 0; i < children.size(); ++i)
   {
-    go->tick_self_and_children(tick_type);
+    children[i]->tick_self_and_children(tick_type);
   }
 }
 

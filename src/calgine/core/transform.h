@@ -11,7 +11,7 @@ class CALGINE_API Transform
 public:
   Transform(glm::vec3 position, glm::vec3 rotation = glm::vec3(0.0f), glm::vec3 scale = glm::vec3(1.0f));
   
-  static inline Transform zero()
+  static inline const Transform zero()
   {
     Transform transform(glm::vec3(0.0f));
     return transform;

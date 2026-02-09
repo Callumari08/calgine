@@ -3,6 +3,7 @@
 #include "calgine/core/behaviour.h"
 #include "calgine/core/renderer/camera.h"
 #include "calgine/core/renderer/camera_manager.h"
+#include "calgine_api.h"
 
 class CameraManager;
 
@@ -16,7 +17,7 @@ struct CameraSettings
   float far_plane = 1000.0f;
 };
 
-class CameraBehaviour : public Behaviour
+class CALGINE_API CameraBehaviour : public Behaviour
 {
 public:
   CameraBehaviour();
@@ -26,14 +27,14 @@ public:
   inline const CameraSettings get_settings() const { return settings; }
   void apply_settings(const CameraSettings settings);
 
-  inline Camera& get_raw_camera() { return  camera; }
+  Camera& get_raw_camera() { return  camera; }
 
 private:
   Camera camera;
   CameraSettings settings;
   bool camera_active = false;
 
-  void inline set_camera_active(bool active_state) { camera_active = active_state; }
+  void set_camera_active(bool active_state) { camera_active = active_state; }
 
   void start_tick() override;
   void late_tick() override;

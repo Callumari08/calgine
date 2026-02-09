@@ -193,7 +193,7 @@ private:
   void init_buffers();
   void init_imgui();
   void handle_sdl_events(bool& running);
-  void render_windows(GameObject& root);
+  void render_windows(GameObject& game_hierarchy, GameObject& manager_hierarchy);
   void do_stuff_on_single_window();
 };
 

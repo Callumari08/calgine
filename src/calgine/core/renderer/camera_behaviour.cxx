@@ -4,6 +4,8 @@
 
 namespace Calgine {
 
+CameraBehaviour::CameraBehaviour() : camera(65.0f, 16.0f / 9.0f, 0.1f, 1000.0f) {}
+
 void CameraBehaviour::start_tick()
 {
   CameraManager::get_instance().add_camera(this);

@@ -9,8 +9,9 @@
 #include <imgui_impl_sdl3.h>
 #include <imgui_impl_opengl3.h>
 #include <SDL3/SDL_events.h>
-#include "calgine/core/background_managers/hierarchy_manager.h"
+#include "calgine/core/hierarchies/game_hierarchy.h"
 #include "calgine/core/game_object.h"
+#include "calgine/core/hierarchies/manager_hierarchy.h"
 #include "calgine/core/renderer/vertex.h"
 #include "glm/fwd.hpp"
 #include "window/window_handler.h"
@@ -141,26 +142,32 @@ void App::init_imgui()
 
 void App::main_loop()
 {
-  Hierarchy& hierarchy = Hierarchy::get_instance();
-  GameObject& root = hierarchy.get_hierarchy_root();
-
+  GameObject& game_hierarchy = GameHierarchy::get_instance().get_hierarchy_root();
+  GameObject& manager_hierarchy = ManagerHierarchy::get_instance().get_hierarchy_root();
 
   // Instead of doing this here, I should implement a scene manager.
   //
   // (Later comment) I actually think it'd be a good idea to keep root for as long as the program runs,
   // and the GameObjects directly below root is the scene, root can have its own behaviours that can
-  // manage the scenes. 
-  root.tick_self_and_children(TickType::preloop);
+  // manage the scenes.
+  //
+  // (Even later comment) 2nd comment was stupid, I wouldn't keep all the levels just casually in RAM??? Am I stupid???
+  // I'll probably just make root have a behaviour that can load scenes, and unload the scenes which are gameobjects below it.
+  manager_hierarchy.tick_self_and_children(TickType::preloop);
+  game_hierarchy.tick_self_and_children(TickType::preloop);
 
   bool running = true;
   while (running) 
   {
     handle_sdl_events(running);
 
-    root.tick_self_and_children(TickType::update);
-    root.tick_self_and_children(TickType::late_update);
+    manager_hierarchy.tick_self_and_children(TickType::update);
+    manager_hierarchy.tick_self_and_children(TickType::late_update);
 
-    render_windows(root);
+    game_hierarchy.tick_self_and_children(TickType::update);
+    game_hierarchy.tick_self_and_children(TickType::late_update);
+
+    render_windows(game_hierarchy, manager_hierarchy);
 
     GameObject::process_pending_deletes();
 
@@ -226,7 +233,7 @@ void App::do_stuff_on_single_window()
   mesh->draw();
 }
 
-void App::render_windows(GameObject& root)
+void App::render_windows(GameObject& game_hierarchy, GameObject& manager_hierarchy)
 {
   for (auto& window : WindowHandler::get_instance()->get_windows())
   {
@@ -248,7 +255,8 @@ void App::render_windows(GameObject& root)
 
     do_stuff_on_single_window();
 
-    root.tick_self_and_children(TickType::imgui_render);
+    manager_hierarchy.tick_self_and_children(TickType::imgui_render);
+    game_hierarchy.tick_self_and_children(TickType::imgui_render);
 
     // render tick here
 

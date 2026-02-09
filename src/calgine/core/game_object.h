@@ -6,6 +6,7 @@
 #include "calgine_api.h"
 
 #include "behaviour.h"
+#include <cstdint>
 
 namespace Calgine {
 
@@ -40,8 +41,10 @@ private:
   // queue to hold objects whose memory must be released AFTER their member functions finish
   static inline std::vector<std::unique_ptr<GameObject>> pending_deletes;
 
+  void tick_self_and_children(TickType tick_type);
+
 public:
-  explicit GameObject(GameObject* parent, const Transform transform);
+  explicit GameObject(GameObject* parent, const Transform transform, const std::string name);
   virtual ~GameObject();
 
   /**
@@ -49,6 +52,8 @@ public:
    * @warning must be called after all update ticks, once per frame. do NOT call in gamecode, this is to be part of app.h only.
    */
   static void process_pending_deletes();
+
+  static inline uint32_t get_num_game_objects() { return num_game_objects; }
 
   void destroy();
 
@@ -70,7 +75,7 @@ public:
 
   template<typename T_behaviour>
   requires std::derived_from<T_behaviour, Behaviour>
-  bool add_behaviour();
+  T_behaviour* add_behaviour();
 
   template<typename T_behaviour>
   requires std::derived_from<T_behaviour, Behaviour>
@@ -85,14 +90,12 @@ public:
   T& instantiate_child(Args&&... args)
   {
     auto child = std::make_unique<T>(this, std::forward<Args>(args)...);
-    T& ref = *child;
     children.emplace_back(std::move(child));
-    return ref;
+    return *static_cast<T*>(children.back().get());
   }
 
-  void tick_self_and_children(TickType tick_type);
 
-  void set_parent(GameObject* _parent);
+  void set_parent(GameObject* parent);
 
   std::optional<std::reference_wrapper<GameObject>> get_parent() const;
 
@@ -108,6 +111,8 @@ public:
   }
 
   void set_name(std::string _name);
+
+  friend class App;
 
   // Iterator for depth-first traversal
   class Iterator {
@@ -148,33 +153,30 @@ public:
 
 template<typename T_behaviour>
 requires std::derived_from<T_behaviour, Behaviour>
-bool GameObject::add_behaviour()
+T_behaviour* GameObject::add_behaviour()
 {
-    auto [it, inserted] = behaviours.emplace(
-      typeid(T_behaviour),
-      nullptr
-    );
-
-    if (!inserted) 
-    {
-      Log::get_engine_logger()->warn("Behaviour already exists on GameObject: {}", get_name());
-      return false;
-    }
-
-    std::unique_ptr<Behaviour> owned;
-
-    try 
-    {
-      owned.reset(Behaviour::create<T_behaviour>());
-      owned->attach_owner(this);
-    }
-    catch (...) {
-    behaviours.erase(it);
-    throw;
+  auto [it, inserted] = behaviours.emplace(
+    typeid(T_behaviour),
+    nullptr
+  );
+  if (!inserted) 
+  {
+    Log::get_engine_logger()->warn("Behaviour already exists on GameObject: {}", get_name());
+    return nullptr;
   }
-
+  std::unique_ptr<Behaviour> owned;
+   
+  
+  owned.reset(Behaviour::create<T_behaviour>());
+  
+  if(!owned->attach_owner(this))
+  {
+    behaviours.erase(it);
+    return nullptr;
+  }
+  
   it->second = std::move(owned);
-  return true;
+  return static_cast<T_behaviour*>(it->second.get());
 }
 
 template<typename T_behaviour>

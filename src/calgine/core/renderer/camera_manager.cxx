@@ -3,7 +3,7 @@
 
 namespace Calgine {
 
-CameraManager::CameraManager()
+CameraManager::CameraManager() : active_camera(nullptr)
 {
 
 }
@@ -20,7 +20,8 @@ void CameraManager::set_active_camera(CameraBehaviour* unactive_camera)
   {
     if (camera == unactive_camera)
     {
-      active_camera->set_camera_active(false);
+      if (active_camera)
+        active_camera->set_camera_active(false);
       active_camera = camera;
       camera->set_camera_active(true);
       return;
@@ -37,6 +38,7 @@ void CameraManager::add_camera(CameraBehaviour* unadded_camera)
     Log::get_engine_logger()->info("No active cameras, setting added camera to active camera");
     cameras.emplace_back(unadded_camera);
     set_active_camera(unadded_camera);
+    return;
   }
 
   for (CameraBehaviour* camera : cameras)
