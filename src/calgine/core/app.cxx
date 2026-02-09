@@ -170,6 +170,8 @@ void App::main_loop()
     render_windows(game_hierarchy, manager_hierarchy);
 
     GameObject::process_pending_deletes();
+    
+    EventManager::process_all_queues();
 
     WindowHandler* window_handler = WindowHandler::get_instance();
 
