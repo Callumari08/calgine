@@ -1,13 +1,18 @@
 #pragma once
 
 #include <cstdint>
+#include "glad/gl.h"
+
 namespace Calgine {
 
 class IndexBuffer
 {
 public:
   IndexBuffer(uint32_t* indices, uint32_t _count);
-  ~IndexBuffer();
+  inline ~IndexBuffer()
+  {
+    glDeleteBuffers(1, &renderer_id);
+  }
 
   void bind() const;
   void unbind() const;

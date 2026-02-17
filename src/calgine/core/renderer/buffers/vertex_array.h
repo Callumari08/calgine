@@ -1,12 +1,18 @@
 #pragma once
 
 #include <cstdint>
+#include "glad/gl.h"
+
 namespace Calgine {
  
 class VertexArray
 {
 public:
   VertexArray();
+  inline ~VertexArray()
+  {
+    glDeleteVertexArrays(1, &renderer_id);
+  }
 
   void bind() const;
 

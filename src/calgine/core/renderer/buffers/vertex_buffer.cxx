@@ -13,11 +13,6 @@ VertexBuffer::VertexBuffer(std::span<const Vertex> vertex)
   glBufferData(GL_ARRAY_BUFFER, vertex.size_bytes(), vertex.data(), GL_STATIC_DRAW);
 }
 
-VertexBuffer::~VertexBuffer()
-{
-  glDeleteBuffers(1, &renderer_id);
-}
-
 void VertexBuffer::bind() const
 {
   glBindBuffer(GL_ARRAY_BUFFER, renderer_id);

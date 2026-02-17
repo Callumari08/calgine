@@ -263,8 +263,6 @@ void App::render_windows(GameObject& game_hierarchy, GameObject& manager_hierarc
 
     renderer_instance.begin_frame();
 
-    
-
     manager_hierarchy.tick_self_and_children(TickType::render);
     game_hierarchy.tick_self_and_children(TickType::render);
 
