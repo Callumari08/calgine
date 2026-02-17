@@ -130,7 +130,7 @@ void Shader::unbind() const
 	glUseProgram(0);
 }
 
-GLint Shader::get_uniform_location(const std::string& name)
+GLint Shader::get_uniform_location(const std::string& name) const
 {
 	if (uniform_cache.find(name) != uniform_cache.end())
 		return uniform_cache[name];
@@ -143,32 +143,32 @@ GLint Shader::get_uniform_location(const std::string& name)
 	return location;
 }
 
-void Shader::set_uniform_1i(const std::string& name, int value)
+void Shader::set_uniform_1i(const std::string& name, int value) const
 {
 	glUniform1i(get_uniform_location(name), value);
 }
 
-void Shader::set_uniform_1f(const std::string& name, float value)
+void Shader::set_uniform_1f(const std::string& name, float value) const 
 {
 	glUniform1f(get_uniform_location(name), value);
 }
 
-void Shader::set_uniform_2f(const std::string& name, float v0, float v1)
+void Shader::set_uniform_2f(const std::string& name, float v0, float v1) const 
 {
 	glUniform2f(get_uniform_location(name), v0, v1);
 }
 
-void Shader::set_uniform_3f(const std::string& name, float v0, float v1, float v2)
+void Shader::set_uniform_3f(const std::string& name, float v0, float v1, float v2) const
 {
 	glUniform3f(get_uniform_location(name), v0, v1, v2);
 }
 
-void Shader::set_uniform_4f(const std::string& name, float v0, float v1, float v2, float v3)
+void Shader::set_uniform_4f(const std::string& name, float v0, float v1, float v2, float v3) const
 {
 	glUniform4f(get_uniform_location(name), v0, v1, v2, v3);
 }
 
-void Shader::set_uniform_mat4(const std::string& name, const glm::mat4& matrix)
+void Shader::set_uniform_mat4(const std::string& name, const glm::mat4& matrix) const
 {
 	glUniformMatrix4fv(get_uniform_location(name), 1, GL_FALSE, glm::value_ptr(matrix));
 }

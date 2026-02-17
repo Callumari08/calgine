@@ -15,6 +15,7 @@ enum TickType
   preloop,
   update,
   late_update,
+  render,
   imgui_render,
 };
 
@@ -41,17 +42,13 @@ private:
   // queue to hold objects whose memory must be released AFTER their member functions finish
   static inline std::vector<std::unique_ptr<GameObject>> pending_deletes;
 
-  void tick_self_and_children(TickType tick_type);
+  void tick_self_and_children(const TickType tick_type);
+
+  static void process_pending_deletes();
 
 public:
   explicit GameObject(GameObject* parent, const Transform transform, const std::string name);
   virtual ~GameObject();
-
-  /**
-   * @brief frees all deleted game objects allocated memory.
-   * @warning must be called after all update ticks, once per frame. do NOT call in gamecode, this is to be part of app.h only.
-   */
-  static void process_pending_deletes();
 
   static inline uint32_t get_num_game_objects() { return num_game_objects; }
 

@@ -44,18 +44,18 @@ public:
   void bind() const;
   void unbind() const;
 
-  void set_uniform_1i(const std::string& name, int value);
-  void set_uniform_1f(const std::string& name, float value);
-  void set_uniform_2f(const std::string& name, float v0, float v1);
-  void set_uniform_3f(const std::string& name, float v0, float v1, float v2);
-  void set_uniform_4f(const std::string& name, float v0, float v1, float v2, float v3);
-  void set_uniform_mat4(const std::string& name, const glm::mat4& matrix);
+  void set_uniform_1i(const std::string& name, int value) const;
+  void set_uniform_1f(const std::string& name, float value) const;
+  void set_uniform_2f(const std::string& name, float v0, float v1) const;
+  void set_uniform_3f(const std::string& name, float v0, float v1, float v2) const;
+  void set_uniform_4f(const std::string& name, float v0, float v1, float v2, float v3) const ;
+  void set_uniform_mat4(const std::string& name, const glm::mat4& matrix) const;
 
 private:
   uint32_t renderer_id = 0;
-  std::unordered_map<std::string, GLint> uniform_cache;
+  mutable std::unordered_map<std::string, GLint> uniform_cache;
 
-  GLint get_uniform_location(const std::string& name);
+  GLint get_uniform_location(const std::string& name) const;
 };
 
 }

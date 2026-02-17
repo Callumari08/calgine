@@ -15,6 +15,7 @@ void Behaviour::preloop_tick() {}
 void Behaviour::start_tick() {}
 void Behaviour::update_tick() {}
 void Behaviour::late_tick() {}
+void Behaviour::render_tick() {}
 void Behaviour::imgui_render_tick() {}
 
 void Behaviour::on_destroy() {}

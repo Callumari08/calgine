@@ -110,7 +110,7 @@ void GameObject::set_active(const bool _enabled)
   }
 }
 
-void GameObject::tick_self_and_children(TickType tick_type)
+void GameObject::tick_self_and_children(const TickType tick_type)
 {
   if (!is_enabled())
     return;
@@ -127,6 +127,9 @@ void GameObject::tick_self_and_children(TickType tick_type)
         break;
       case TickType::late_update: 
         behaviour->late_tick();
+        break;
+      case TickType::render:
+        behaviour->render_tick();
         break;
       case TickType::imgui_render:
         behaviour->imgui_render_tick();

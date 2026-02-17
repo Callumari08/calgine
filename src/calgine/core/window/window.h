@@ -19,6 +19,8 @@ enum VsyncState
 
 /**
  * @brief Window wrapper that abstracts SDL_Window from the application
+ *
+ * @warning Occasionally causes memory leaks on window close!!!
  */
 class CALGINE_API Window
 {
@@ -28,6 +30,7 @@ private:
   Uint32 id;
   bool close_requested = false;
 
+  // This shouldn't be a raw pointer, I think it's ok that window owns sdl_window
   SDL_Window* sdl_window = nullptr;
   SDL_GLContext gl_context = nullptr;
 

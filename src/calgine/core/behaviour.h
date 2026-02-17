@@ -70,6 +70,8 @@ protected:
     */
   virtual void late_tick();
 
+  virtual void render_tick();
+
   virtual void imgui_render_tick();
 
   /**

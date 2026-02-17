@@ -10,11 +10,15 @@
   #define GLSL_VERSION "#version 150"
 #endif
 
+// WARNING: Causes memory leaks occasionally on window close!!! 
+// please fix.
+
 namespace Calgine {
   Window::Window(std::string window_title, VsyncState state, int width, int height, int extra_flags)
   {
     Log::get_engine_logger()->info("{}: Creating window", window_title);
 
+    // Leak starts here
     sdl_window = SDL_CreateWindow(window_title.c_str(), width, height,
       extra_flags | SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
 

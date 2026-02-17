@@ -4,7 +4,6 @@
 #include "calgine/core/renderer/mesh.h"
 #include "calgine/core/renderer/shader.h"
 #include "calgine/core/window/window.h"
-#include "calgine/core/event_system/event_manager.h"
 #include "calgine_pch.h"
 #include "calgine_api.h"
 #include "imgui.h"

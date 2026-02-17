@@ -20,6 +20,9 @@
 #include "renderer/shader.h"
 #include <glm/glm.hpp>
 #include "calgine/core/renderer/camera_manager.h"
+#include "calgine/core/event_system/event_manager.h"
+#include "calgine/core/renderer/renderer.h"
+
 
 namespace Calgine {
 
@@ -37,7 +40,6 @@ App::~App()
   ImGui::DestroyContext(settings.imgui_context);
 }
 
-// Should only be used for setting up libraries such as SDL and OpenGL, nothing else.
 void App::systems_init()
 {
   // Loggers
@@ -255,23 +257,28 @@ void App::render_windows(GameObject& game_hierarchy, GameObject& manager_hierarc
     ImGui_ImplSDL3_NewFrame();
     ImGui::NewFrame();
 
-    do_stuff_on_single_window();
+    //do_stuff_on_single_window();
 
+    Renderer& renderer_instance = Renderer::get_instance();
+
+    renderer_instance.begin_frame();
+
+    
+
+    manager_hierarchy.tick_self_and_children(TickType::render);
+    game_hierarchy.tick_self_and_children(TickType::render);
+
+    renderer_instance.end_frame();
+    
+    // We want GUI last because we want it to be over the top of the scene
     manager_hierarchy.tick_self_and_children(TickType::imgui_render);
     game_hierarchy.tick_self_and_children(TickType::imgui_render);
 
-    // render tick here
-
     ImGui::Render();
-
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
     SDL_GL_SwapWindow(window->raw());
   }
 }
-
-
-
-
 
 } // namespace Calgine
