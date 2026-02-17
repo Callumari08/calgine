@@ -9,6 +9,10 @@ namespace Calgine {
 class CALGINE_API MeshRenderer : public Behaviour 
 {
 public:
+  MeshRenderer() = default;
+  MeshRenderer(std::shared_ptr<Mesh> _mesh, std::shared_ptr<Shader> _shader) 
+    : mesh(_mesh), shader(_shader) {}
+
   void set_mesh(std::shared_ptr<Mesh> mesh) { this->mesh = mesh; }
   void set_shader(std::shared_ptr<Shader> shader) { this->shader = shader; }
 

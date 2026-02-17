@@ -70,9 +70,9 @@ public:
   
   inline Transform& get_transform() { return transform; }
 
-  template<typename T_behaviour>
+  template<typename T_behaviour, typename... Args>
   requires std::derived_from<T_behaviour, Behaviour>
-  T_behaviour* add_behaviour();
+  T_behaviour* add_behaviour(Args&&... args);
 
   template<typename T_behaviour>
   requires std::derived_from<T_behaviour, Behaviour>
@@ -148,9 +148,9 @@ public:
 
 // Templates
 
-template<typename T_behaviour>
+template<typename T_behaviour, typename... Args>
 requires std::derived_from<T_behaviour, Behaviour>
-T_behaviour* GameObject::add_behaviour()
+T_behaviour* GameObject::add_behaviour(Args&&... args)
 {
   auto [it, inserted] = behaviours.emplace(
     typeid(T_behaviour),
@@ -164,7 +164,7 @@ T_behaviour* GameObject::add_behaviour()
   std::unique_ptr<Behaviour> owned;
    
   
-  owned.reset(Behaviour::create<T_behaviour>());
+  owned.reset(Behaviour::create<T_behaviour>(std::forward<Args>(args)...));
   
   if(!owned->attach_owner(this))
   {

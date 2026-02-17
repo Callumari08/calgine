@@ -36,13 +36,11 @@ public:
 private:
   GameObject* game_object;
 
-  template<typename T>
+  template<typename T, typename... Args>
   requires std::derived_from<T, Behaviour>
-  static T* create() 
+  static T* create(Args&&... args) 
   {
-    static_assert(std::is_default_constructible_v<T>, "Behaviour must be default-constructable.");
-
-    return new T();
+    return new T(std::forward<Args>(args)...);
   }
 
   bool attach_owner(GameObject* game_object);
