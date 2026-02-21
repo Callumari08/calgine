@@ -76,6 +76,7 @@ std::shared_ptr<Mesh> AssetManager::load_mesh(const std::string& name, const std
     for (const tinyobj::index_t& index : shape.mesh.indices)
     {
       Vertex vertex{};
+      vertex.colour = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
       vertex.position.x = attribute.vertices[3 * index.vertex_index + 0];
       vertex.position.y = attribute.vertices[3 * index.vertex_index + 1];

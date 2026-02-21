@@ -19,8 +19,15 @@ Texture::Texture(const SDL_Surface* surface)
     channels = details->bytes_per_pixel;
   }
 
-  size_t size = width * height * channels;
-  data.assign((uint8_t*) surface->pixels, (uint8_t*) surface->pixels + size);
+  size_t row_size = width * channels;
+  data.reserve(height * row_size);
+  
+  const uint8_t* pixels = (const uint8_t*)surface->pixels;
+  for (uint32_t y = 0; y < height; ++y)
+  {
+    data.insert(data.end(), pixels, pixels + row_size);
+    pixels += surface->pitch;
+  }
 };
 
 }
