@@ -2,7 +2,6 @@
 
 #include "calgine/core/log.h"
 #include "glad/gl.h"
-#include <cstdint>
 
 
 namespace Calgine {

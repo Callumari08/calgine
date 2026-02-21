@@ -18,6 +18,8 @@
 #include <glm/glm.hpp>
 #include "calgine/core/event_system/event_manager.h"
 #include "calgine/core/renderer/renderer.h"
+#include "calgine/core/renderer/camera_behaviour.h"
+#include "calgine/core/renderer/camera_manager.h"
 
 
 namespace Calgine {
@@ -162,6 +164,22 @@ void App::handle_sdl_events(bool& running)
       {
         if (Window* window = WindowHandler::get_instance()->get_window(event.window.windowID))
           window->request_close();
+        break;
+      }
+      case SDL_EVENT_WINDOW_RESIZED:
+      {
+        CameraBehaviour* active_camera = CameraManager::get_instance().get_active_camera();
+        if (active_camera && event.window.windowID == WindowHandler::get_instance()->get_windows()[0]->get_id())
+        {
+          Window* window = WindowHandler::get_instance()->get_window(event.window.windowID);
+          if (window)
+          {
+            float new_aspect_ratio = static_cast<float>(window->width()) / static_cast<float>(window->height());
+            CameraSettings camera_settings = active_camera->get_settings();
+            camera_settings.aspect_ratio = new_aspect_ratio;
+            active_camera->apply_settings(camera_settings);
+          }
+        }
         break;
       }
       case SDL_EVENT_QUIT:
