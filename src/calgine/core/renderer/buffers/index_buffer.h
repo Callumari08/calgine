@@ -11,7 +11,7 @@ public:
   IndexBuffer(uint32_t* indices, uint32_t _count);
   inline ~IndexBuffer()
   {
-    glDeleteBuffers(1, &renderer_id);
+    // Skip cleanup - OpenGL context may be destroyed during shutdown
   }
 
   void bind() const;

@@ -8,6 +8,8 @@ namespace Calgine{
 
 Shader::Shader(const std::string& vertex_source, const std::string& fragment_source)
 {
+	// Code modified from https://wikis.khronos.org/opengl/Shader_Compilation for use in Calgine.
+
   // Create an empty vertex shader handle
   GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
 

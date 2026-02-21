@@ -1,14 +1,10 @@
 #pragma once
 
 #include "calgine/core/game_object.h"
-#include "calgine/core/renderer/mesh.h"
-#include "calgine/core/renderer/shader.h"
 #include "calgine/core/window/window.h"
 #include "calgine_pch.h"
 #include "calgine_api.h"
 #include "imgui.h"
-#include <memory>
-#include <string>
 
 namespace Calgine {
 
@@ -185,16 +181,11 @@ public:
 private:
   static App* instance;
 
-  std::unique_ptr<Shader> shader;
-  std::unique_ptr<Mesh> mesh;
-
   bool had_camera_last_frame = true;
 
-  void init_buffers();
   void init_imgui();
   void handle_sdl_events(bool& running);
   void render_windows(GameObject& game_hierarchy, GameObject& manager_hierarchy);
-  void do_stuff_on_single_window();
 };
 
 } // namespace Calgine

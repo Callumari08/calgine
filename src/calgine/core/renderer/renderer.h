@@ -3,6 +3,7 @@
 #include "calgine_api.h"
 #include "calgine/core/renderer/mesh.h"
 #include "calgine/core/renderer/shader.h"
+#include "calgine/core/renderer/render_texture.h"
 #include <glm/fwd.hpp>
 
 namespace Calgine {
@@ -11,6 +12,7 @@ struct CALGINE_API BatchRenderCommand
 {
   const Mesh* mesh;
   const Shader* shader;
+  const RenderTexture* texture;
   glm::mat4 model_matrix;
 };
 
@@ -19,7 +21,7 @@ class CALGINE_API Renderer
 public:
   static Renderer& get_instance();
 
-  void submit(const Mesh& mesh, const Shader& shader, const glm::mat4 model_matrix);
+  void submit(const Mesh* mesh, const Shader* shader, const RenderTexture* texture, const glm::mat4 model_matrix);
   void submit(const BatchRenderCommand cmd);
 
 private:

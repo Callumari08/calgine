@@ -2,35 +2,41 @@
 
 #include "calgine_api.h"
 #include "calgine_pch.h"
-#include "glad/gl.h"
+#include <glad/gl.h>
 #include <glm/glm.hpp>
-#include <unordered_map>
 
 namespace Calgine {
 
 constexpr const char* DEFAULT_VERTEX_SHADER = R"(#version 450 core
-layout(location = 0) in vec3 a_Position;
+layout(location = 0) in vec4 a_colour;
+layout(location = 1) in vec3 a_position;
+layout(location = 2) in vec3 a_normal;
+layout(location = 3) in vec2 a_texcoord;
 
 uniform mat4 u_model;
 uniform mat4 u_view;
 uniform mat4 u_proj;
 
-out vec3 v_Position;
+out vec4 v_colour;
+out vec2 v_texcoord;
 
 void main()
 {
-  v_Position = a_Position;
-  gl_Position = u_proj * u_view * u_model * vec4(a_Position, 1.0);
+  v_colour = a_colour;
+  v_texcoord = a_texcoord;
+  gl_Position = u_proj * u_view * u_model * vec4(a_position, 1.0);
 }
 )";
 
 constexpr const char* DEFAULT_FRAGMENT_SHADER = R"(#version 450 core
-layout(location = 0) out vec4 o_color;
-in vec3 v_Position;
+in vec4 v_colour;
+in vec2 v_texcoord;
+uniform sampler2D u_texture;
+out vec4 o_color;
 
 void main()
 {
-  o_color = vec4(v_Position, 1.0);
+  o_color = texture(u_texture, v_texcoord) * v_colour;
 }
 )";
 
@@ -48,7 +54,7 @@ public:
   void set_uniform_1f(const std::string& name, float value) const;
   void set_uniform_2f(const std::string& name, float v0, float v1) const;
   void set_uniform_3f(const std::string& name, float v0, float v1, float v2) const;
-  void set_uniform_4f(const std::string& name, float v0, float v1, float v2, float v3) const ;
+  void set_uniform_4f(const std::string& name, float v0, float v1, float v2, float v3) const;
   void set_uniform_mat4(const std::string& name, const glm::mat4& matrix) const;
 
 private:

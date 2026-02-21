@@ -14,6 +14,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # ---- Options for using system libs or vendoring ----
 option(USE_SYSTEM_SPDLOG "If ON, try to use a system-installed spdlog via find_package(spdlog). If not found, fall back to vendoring." OFF)
 option(USE_SYSTEM_SDL3  "If ON, try to use a system-installed SDL3 via find_package(SDL3). If not found, fall back to vendoring." OFF)
+option(USE_SYSTEM_SDL_IMAGE "If ON, try to use a system-installed SDL_image via find_package(SDL3_image). If not found, fall back to vendoring." OFF)
 
 include(FetchContent)
 
@@ -124,6 +125,21 @@ if(NOT TARGET SDL3::SDL3)
     endif()
 endif()
 
+# ---- SDL_image: prefer system if requested, otherwise fetch via FetchContent ----
+if(USE_SYSTEM_SDL_IMAGE)
+    find_package(SDL3_image CONFIG QUIET)
+endif()
+
+if(NOT TARGET SDL3_image::SDL3_image)
+    set(SDL_IMAGE_TESTS OFF CACHE BOOL "" FORCE)
+    FetchContent_Declare(
+        SDL_image
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL_image.git
+        GIT_TAG main
+    )
+    FetchContent_MakeAvailable(SDL_image)
+endif()
+
 # ---- OpenGL ----
 # Keep OpenGL as a find_package since OpenGL is typically provided by the system/driver.
 # Most systems provide an OpenGL config and the imported target OpenGL::GL
@@ -157,6 +173,7 @@ target_link_libraries(Calgine
         glad
         OpenGL::GL
         SDL3::SDL3
+        SDL3_image::SDL3_image
         spdlog::spdlog
         $<$<BOOL:${MINGW}>:ws2_32>
         imgui
@@ -193,6 +210,7 @@ message(STATUS "CMake generator: ${CMAKE_GENERATOR}")
 message(STATUS "CMake build type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "Using system spdlog: ${USE_SYSTEM_SPDLOG}")
 message(STATUS "Using system SDL3:  ${USE_SYSTEM_SDL3}")
+message(STATUS "Using system SDL_image: ${USE_SYSTEM_SDL_IMAGE}")
 if(TARGET spdlog::spdlog)
     message(STATUS "spdlog target available.")
 else()
@@ -202,6 +220,11 @@ if(TARGET SDL3::SDL3)
     message(STATUS "SDL3 target available.")
 else()
     message(WARNING "SDL3 target NOT available. Build will likely fail.")
+endif()
+if(TARGET SDL3_image::SDL3_image)
+    message(STATUS "SDL_image target available.")
+else()
+    message(WARNING "SDL_image target NOT available. Build will likely fail.")
 endif()
 if(TARGET imgui)
     message(STATUS "ImGui target available.")

@@ -35,9 +35,9 @@ void Renderer::begin_frame()
   command_queue.clear();
 }
 
-void Renderer::submit(const Mesh& mesh, const Shader& shader, const glm::mat4 model_matrix)
+void Renderer::submit(const Mesh* mesh, const Shader* shader, const RenderTexture* texture, const glm::mat4 model_matrix)
 {
-  command_queue.emplace_back(BatchRenderCommand {&mesh, &shader, model_matrix});
+  command_queue.emplace_back(BatchRenderCommand {mesh, shader, texture, model_matrix});
 }
 
 void Renderer::submit(const BatchRenderCommand cmd)
@@ -58,10 +58,18 @@ void Renderer::flush()
     command.shader->set_uniform_mat4("u_model", command.model_matrix);
     command.shader->set_uniform_mat4("u_view", view_matrix);
     command.shader->set_uniform_mat4("u_proj", projection_matrix);
+
+    if (command.texture)
+    {
+      command.texture->bind(0);
+      command.shader->set_uniform_1i("u_texture", 0);
+    }
     
     command.mesh->bind();
     command.mesh->draw();
   }
+
+  command_queue.clear();
 }
 
 

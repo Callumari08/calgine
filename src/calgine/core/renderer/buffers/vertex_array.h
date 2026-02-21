@@ -11,7 +11,7 @@ public:
   VertexArray();
   inline ~VertexArray()
   {
-    glDeleteVertexArrays(1, &renderer_id);
+    // Skip cleanup - OpenGL context may be destroyed during shutdown
   }
 
   void bind() const;

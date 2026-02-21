@@ -12,14 +12,10 @@
 #include "calgine/core/hierarchies/game_hierarchy.h"
 #include "calgine/core/game_object.h"
 #include "calgine/core/hierarchies/manager_hierarchy.h"
-#include "calgine/core/renderer/vertex.h"
-#include "glm/fwd.hpp"
 #include "window/window_handler.h"
 #include "useful_funcs.h"
 #include "log.h"
-#include "renderer/shader.h"
 #include <glm/glm.hpp>
-#include "calgine/core/renderer/camera_manager.h"
 #include "calgine/core/event_system/event_manager.h"
 #include "calgine/core/renderer/renderer.h"
 
@@ -81,39 +77,8 @@ void App::systems_init()
   std::string renderer = (const char*)glGetString(GL_RENDERER);
   Log::get_engine_logger()->info("Renderer Device: {}", renderer);
 
-  init_buffers();
   init_imgui();
 }
-
-void App::init_buffers()
-{
-  Vertex vertices[] = {
-      {
-          {1.0f, 0.0f, 0.0f, 1.0f},
-          {-0.5f, -0.5f, 0.0f},
-          {0.0f,  0.0f,  1.0f},
-          {0.0f,  0.0f}
-      },
-      {
-          {0.0f, 1.0f, 0.0f, 1.0f},
-          { 0.5f, -0.5f, 0.0f},
-          { 0.0f,  0.0f, 1.0f},
-          { 1.0f,  0.0f}
-      },
-      {
-          {0.0f, 0.0f, 1.0f, 1.0f},
-          { 0.0f,  0.5f, 0.0f},
-          { 0.0f,  0.0f, 1.0f},
-          { 0.5f,  1.0f}
-      }
-  };
-
-  uint32_t indices[3] = {0, 1, 2};
-
-  mesh = std::make_unique<Mesh>(vertices, indices);
-  shader = std::make_unique<Shader>(DEFAULT_VERTEX_SHADER, DEFAULT_FRAGMENT_SHADER);
-}
-
 
 void App::init_imgui()
 {
@@ -208,35 +173,6 @@ void App::handle_sdl_events(bool& running)
   }
 }
 
-// This exists because, right now, we can only do OpenGL stuff on one window, this will (probably) change.
-void App::do_stuff_on_single_window()
-{
-  CameraBehaviour* active_camera = CameraManager::get_instance().get_active_camera();
-
-  if (!active_camera)
-  {
-    if (had_camera_last_frame)
-    {
-      Log::get_engine_logger()->warn("No active camera in scene! Stopping render until a camera is active.");
-      had_camera_last_frame = false;
-    }
-
-    return;
-  }
-  if (!had_camera_last_frame)
-  {
-    Log::get_engine_logger()->info("There is now an active camera in the scene. Resuming render.");
-    had_camera_last_frame = true;
-  }
-
-  shader->bind();
-  shader->set_uniform_mat4("u_model", glm::mat4(1.0f));
-  shader->set_uniform_mat4("u_view", active_camera->get_raw_camera().get_view_matrix());
-  shader->set_uniform_mat4("u_proj", active_camera->get_raw_camera().get_projection_matrix());
-  
-  mesh->draw();
-}
-
 void App::render_windows(GameObject& game_hierarchy, GameObject& manager_hierarchy)
 {
   for (auto& window : WindowHandler::get_instance()->get_windows())
@@ -246,6 +182,7 @@ void App::render_windows(GameObject& game_hierarchy, GameObject& manager_hierarc
 
     SDL_GL_MakeCurrent(window->raw(), window->get_context());
 
+    // TODO: do this in the Renderer class
     glViewport(0, 0, window->width(), window->height());
     glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -256,8 +193,6 @@ void App::render_windows(GameObject& game_hierarchy, GameObject& manager_hierarc
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplSDL3_NewFrame();
     ImGui::NewFrame();
-
-    //do_stuff_on_single_window();
 
     Renderer& renderer_instance = Renderer::get_instance();
 

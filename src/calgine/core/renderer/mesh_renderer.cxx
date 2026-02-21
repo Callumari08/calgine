@@ -1,4 +1,6 @@
+
 #include "mesh_renderer.h"
+
 #include "calgine/core/game_object.h"
 #include "calgine/core/renderer/renderer.h"
 
@@ -8,6 +10,7 @@ namespace Calgine {
   {
     if (!mesh || !shader) return;
 
-    Renderer::get_instance().submit(*mesh, *shader, get_game_object()->get_transform().to_matrix());
+    Renderer::get_instance().submit(mesh.get(), shader.get(), 
+      texture.get(), get_game_object()->get_transform().to_matrix());
   }
 }
