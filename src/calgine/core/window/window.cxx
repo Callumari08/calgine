@@ -1,5 +1,4 @@
 #include "window.h"
-#include "../useful_funcs.h"
 #include "SDL3/SDL_stdinc.h"
 #include "SDL3/SDL_video.h"
 #include "calgine/core/log.h"
@@ -24,14 +23,18 @@ namespace Calgine {
 
     if (sdl_window == nullptr) 
     {
-      throw_sdl_error(std::format("{} failed to create window: ", window_title));
+      Log::get_engine_logger()->error("{} failed to create window: ", window_title);
+      exit(-1);
+      return;
     }
 
     gl_context = SDL_GL_CreateContext(sdl_window);
 
     if (!gl_context) 
     {
-      throw_sdl_error(std::format("{} failed to create GL Context", window_title));
+      Log::get_engine_logger()->error(std::format("{} failed to create GL Context", window_title));
+      exit(-1);
+      return;
     }
 
     set_vsync_state(state);

@@ -9,13 +9,12 @@
 #include <imgui_impl_sdl3.h>
 #include <imgui_impl_opengl3.h>
 #include <SDL3/SDL_events.h>
+#include <glm/glm.hpp>
 #include "calgine/core/hierarchies/game_hierarchy.h"
 #include "calgine/core/game_object.h"
 #include "calgine/core/hierarchies/manager_hierarchy.h"
 #include "window/window_handler.h"
-#include "useful_funcs.h"
 #include "log.h"
-#include <glm/glm.hpp>
 #include "calgine/core/event_system/event_manager.h"
 #include "calgine/core/renderer/renderer.h"
 #include "calgine/core/renderer/camera_behaviour.h"
@@ -46,7 +45,8 @@ void App::systems_init()
   // SDL
   if (!SDL_Init(SDL_INIT_VIDEO)) 
   {
-    throw_sdl_error("SDL_Init Failed: ");
+    Log::get_engine_logger()->error("SDL_Init Failed: {}", SDL_GetError());
+    exit(-1);
   }
 
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
