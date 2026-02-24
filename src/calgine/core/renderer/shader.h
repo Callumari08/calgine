@@ -40,11 +40,17 @@ void main()
 }
 )";
 
+struct ShaderProgram
+{
+  std::string fragment;
+  std::string vertex;
+  // TODO: add compute
+};
 
 class CALGINE_API Shader
 {
 public:
-  Shader(const std::string& vertex_source, const std::string& fragment_source);
+  Shader(const ShaderProgram& program);
   ~Shader();
 
   void bind() const;

@@ -6,7 +6,7 @@
 
 namespace Calgine{
 
-Shader::Shader(const std::string& vertex_source, const std::string& fragment_source)
+Shader::Shader(const ShaderProgram& program)
 {
 	// Code modified from https://wikis.khronos.org/opengl/Shader_Compilation for use in Calgine.
 
@@ -15,7 +15,7 @@ Shader::Shader(const std::string& vertex_source, const std::string& fragment_sou
 
   // Send the vertex shader source code to GL
   // Note that std::string's .c_str is NULL character terminated.
-  const GLchar* source = vertex_source.c_str();
+  const GLchar* source = program.vertex.c_str();
   glShaderSource(vertexShader, 1, &source, 0);
 
   // Compile the vertex shader
@@ -47,7 +47,7 @@ Shader::Shader(const std::string& vertex_source, const std::string& fragment_sou
 
   // Send the fragment shader source code to GL
   // Note that std::string's .c_str is NULL character terminated.
-  source = (const GLchar *)fragment_source.c_str();
+  source = (const GLchar *)program.fragment.c_str();
   glShaderSource(fragmentShader, 1, &source, 0);
 
   // Compile the fragment shader

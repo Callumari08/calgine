@@ -145,7 +145,7 @@ public:
   /**
    * @brief Initializes all required systems (SDL3, OpenGL, logging).
    *
-   * @warning Do NOT call directly! use the start_systems() inline function!
+   * @warning Do NOT call directly! use the start_systems() inline function! This will break ImGUI otherwise!!!
    * 
    * This method must be called before main_loop(). It performs the following:
    * - Initializes the logging system with the application name
@@ -153,9 +153,6 @@ public:
    * - Configures OpenGL context attributes (OpenGL 4.5 Core Profile)
    * - Creates initial windows through WindowHandler
    * - Initializes GLAD2 for OpenGL function loading
-   * 
-   * @throws std::runtime_error if SDL initialization fails
-   * @throws std::runtime_error if GLAD initialization fails
    */
   void systems_init();
 

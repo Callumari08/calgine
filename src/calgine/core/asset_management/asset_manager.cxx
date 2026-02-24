@@ -1,4 +1,7 @@
 #include "asset_manager.h"
+
+#include "calgine/core/renderer/shader.h"
+#include "calgine_pch.h"
 #include "calgine/core/log.h"
 #include "calgine/core/asset_management/tiny_obj_loader.h"
 #include "calgine/core/renderer/mesh.h"
@@ -7,6 +10,8 @@
 #include <SDL3_image/SDL_image.h>
 
 namespace Calgine {
+
+class Shader;
 
 AssetManager& AssetManager::get_instance()
 {
@@ -52,6 +57,9 @@ std::shared_ptr<Texture> AssetManager::load_texture(const std::string& name, con
 std::shared_ptr<Mesh> AssetManager::load_mesh(const std::string& name, const std::string& file_path)
 {
   assert(name != "" && std::format("`name` not set for mesh file: {}", file_path).c_str());
+
+  if (!is_valid_file(mesh, file_path))
+    handle_asset_load_error(mesh, file_path);
 
   tinyobj::attrib_t attribute;
   std::vector<tinyobj::shape_t> shapes;
@@ -104,11 +112,116 @@ std::shared_ptr<Mesh> AssetManager::load_mesh(const std::string& name, const std
   return meshes[name];
 }
 
-std::shared_ptr<Shader> AssetManager::load_shader(const std::string& name, const std::string& file_path)
+std::shared_ptr<Shader> AssetManager::load_shader(const std::string& name, const std::string fragment_path, const std::string vertex_path)
 {
-  assert(name != "" && std::format("`name` not set for shader file: {}", file_path).c_str());
+  // not sure if I wanna add support for not adding a certain type of shader file (ie fragment or vertex)
 
-  assert(false && "Unimplemented");
+  assert(name != "" && std::format("`name` not set for shader file:").c_str());
+
+  if (!is_valid_file(fragment, fragment_path))
+    handle_asset_load_error(fragment, fragment_path);
+  if (!is_valid_file(vertex, vertex_path))
+    handle_asset_load_error(vertex, vertex_path);
+  
+  const std::string fragment_source = read_file_to_string(fragment_path);
+
+  if (fragment_source == "")
+    handle_asset_load_error(fragment, fragment_path);
+
+  const std::string vertex_source = read_file_to_string(vertex_path);
+  if (vertex_source == "")
+    handle_asset_load_error(vertex, vertex_path);
+
+  ShaderProgram program{fragment_source, vertex_source};
+  shaders.emplace(name, new Shader(program));
+  return shaders[name];
+}
+
+std::optional<std::shared_ptr<Texture>> AssetManager::get_texture(const std::string& name, const std::string else_file_path)
+{
+  if (name == "")
+  {
+    Log::get_engine_logger()->error("Provided texture key was empty!");
+    return std::nullopt;
+  }
+
+  std::shared_ptr<Texture> texture = nullptr;
+
+  // if texture IS in the map
+  if (textures.find(name) != textures.end())
+  {
+    texture = textures[name];
+  }
+
+  if (!texture && else_file_path != "")
+  {
+    Log::get_engine_logger()->info("`{}` not found in loaded textures, loading from {}", name, else_file_path);
+    texture = load_texture(name, else_file_path);
+  }
+  if (!texture)
+  {
+    return std::nullopt;
+  }
+
+  return texture;
+}
+
+std::optional<std::shared_ptr<Mesh>> AssetManager::get_mesh(const std::string& name, const std::string else_file_path)
+{
+  if (name == "")
+  {
+    Log::get_engine_logger()->error("Provided mesh key was empty!");
+    return std::nullopt;
+  }
+
+  std::shared_ptr<Mesh> mesh = nullptr;
+
+  // if mesh IS in the map
+  if (meshes.find(name) != meshes.end())
+  {
+    mesh = meshes[name];
+  }
+
+  if (!mesh && else_file_path != "")
+  {
+    Log::get_engine_logger()->info("`{}` not found in loaded meshes, loading from {}", name, else_file_path);
+    mesh = load_mesh(name, else_file_path);
+  }
+  if (!mesh)
+  {
+    return std::nullopt;
+  }
+
+  return mesh;
+}
+
+std::optional<std::shared_ptr<Shader>> AssetManager::get_shader(const std::string& name, const std::string else_fragment_path, const std::string else_vertex_path)
+{
+  if (name == "")
+  {
+    Log::get_engine_logger()->error("Provided shader key was empty!");
+    return std::nullopt;
+  }
+
+  std::shared_ptr<Shader> shader = nullptr;
+
+  // if shader IS in the map
+  if (shaders.find(name) != shaders.end())
+  {
+    shader = shaders[name];
+  }
+
+  if (!shader && (else_fragment_path + else_vertex_path) != "")
+  {
+    Log::get_engine_logger()->info("`{}` not found in loaded shaders, loading fragment from {} and vertex from {}", name, else_fragment_path, else_vertex_path);
+    shader = load_shader(name, else_fragment_path, else_vertex_path);
+  }
+  if (!shader)
+  {
+    return std::nullopt;
+  }
+
+  return shader;
 }
 
 inline std::string AssetManager::get_asset_name(const AssetType& type)
@@ -119,8 +232,10 @@ inline std::string AssetManager::get_asset_name(const AssetType& type)
       return "texture";
     case AssetType::mesh:
       return "mesh";
-    case AssetType::shader:
-      return "shader";
+    case AssetType::fragment:
+      return "fragment shader";
+    case AssetType::vertex:
+      return "vertex shader";
     default:
       return "";
   }
@@ -129,6 +244,26 @@ inline std::string AssetManager::get_asset_name(const AssetType& type)
 std::string AssetManager::get_app_path()
 {
   return (std::string) SDL_GetBasePath();
+}
+
+std::string AssetManager::get_asset_path(const std::string asset)
+{
+  return std::format("{}assets/{}", get_app_path(), asset);
+}
+
+std::string AssetManager::read_file_to_string(const std::string file_path)
+{
+  std::ifstream file(file_path);
+
+  if (!file)
+  {
+    Log::get_engine_logger()->warn("Failed to read file: {}", file_path);
+    return "";
+  }
+
+  std::stringstream buffer;
+  buffer << file.rdbuf();
+  return buffer.str();
 }
 
 void AssetManager::handle_asset_load_error(const AssetType& type, const std::string& file_path, std::string custom_msg)

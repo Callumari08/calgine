@@ -68,9 +68,8 @@ void App::systems_init()
 
   if (!gladLoadGL((GLADloadfunc) SDL_GL_GetProcAddress)) 
   {
-    std::string msg = "Failed to load OpenGL via GLAD2 (is there a window?)";
-    Log::get_engine_logger()->error(msg);
-    throw std::runtime_error(msg);
+    Log::get_engine_logger()->error("Failed to load OpenGL via GLAD2 (is there a window?)");
+    exit(-1);
   } 
 
   std::string gl_version = (const char*)glGetString(GL_VERSION);
@@ -88,7 +87,6 @@ void App::init_imgui()
   settings.imgui_context = ImGui::CreateContext();
   ImGui::SetCurrentContext(settings.imgui_context);
   ImGuiIO& io = ImGui::GetIO(); (void) io;
-
 
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
