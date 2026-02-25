@@ -122,6 +122,8 @@ void GameObject::tick_self_and_children(const TickType tick_type)
 
     switch (tick_type) 
     {
+      case TickType::fixed_update:
+        behaviour->fixed_update_tick();
       case TickType::update:
         behaviour->update_tick();
         break;

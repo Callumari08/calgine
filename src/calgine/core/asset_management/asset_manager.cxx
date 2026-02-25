@@ -243,7 +243,7 @@ inline std::string AssetManager::get_asset_name(const AssetType& type)
 
 std::string AssetManager::get_app_path()
 {
-  return (std::string) SDL_GetBasePath();
+  return static_cast<std::string>(SDL_GetBasePath());
 }
 
 std::string AssetManager::get_asset_path(const std::string asset)

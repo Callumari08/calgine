@@ -13,6 +13,7 @@ namespace Calgine {
 enum TickType
 {
   preloop,
+  fixed_update,
   update,
   late_update,
   render,

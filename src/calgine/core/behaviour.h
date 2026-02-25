@@ -59,6 +59,8 @@ protected:
     * @brief Gets called when this gameobject is instantitated.
     */
   virtual void start_tick();
+  
+  virtual void fixed_update_tick();
   /**
     * @brief Gets called every frame, before late_tick().
     */

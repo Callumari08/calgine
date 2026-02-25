@@ -13,6 +13,7 @@ Behaviour::~Behaviour()
 
 void Behaviour::preloop_tick() {}
 void Behaviour::start_tick() {}
+void Behaviour::fixed_update_tick() {}
 void Behaviour::update_tick() {}
 void Behaviour::late_tick() {}
 void Behaviour::render_tick() {}

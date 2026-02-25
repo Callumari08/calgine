@@ -19,6 +19,7 @@
 #include "calgine/core/renderer/renderer.h"
 #include "calgine/core/renderer/camera_behaviour.h"
 #include "calgine/core/renderer/camera_manager.h"
+#include "calgine/core/time.h"
 
 
 namespace Calgine {
@@ -79,6 +80,8 @@ void App::systems_init()
   Log::get_engine_logger()->info("Renderer Device: {}", renderer);
 
   init_imgui();
+
+  Time::get_instance().init();
 }
 
 void App::init_imgui()
@@ -126,7 +129,16 @@ void App::main_loop()
   bool running = true;
   while (running) 
   {
+    Time::get_instance().update();
+
     handle_sdl_events(running);
+
+    int fixed_timesteps = Time::get_instance().consume_fixed_timesteps();
+    for (int i = 0; i < fixed_timesteps; i++)
+    {
+      manager_hierarchy.tick_self_and_children(TickType::fixed_update);
+      game_hierarchy.tick_self_and_children(TickType::fixed_update);
+    }
 
     manager_hierarchy.tick_self_and_children(TickType::update);
     manager_hierarchy.tick_self_and_children(TickType::late_update);
