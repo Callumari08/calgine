@@ -8,9 +8,20 @@ namespace Calgine {
 
   void MeshRenderer::render_tick()
   {
-    if (!mesh || !shader) return;
+    if (!model_ptr || !model_ptr->material || !model_ptr->material->get_shader()) return;
 
-    Renderer::get_instance().submit(mesh.get(), shader.get(), 
-      texture.get(), get_game_object()->get_transform().to_matrix());
+    /*const Material& mat = *model_ptr->material;
+    const auto& textures = mat.get_textures();
+
+    RenderTexture* texture = nullptr;
+
+    // if has albedo
+    if (textures.find("albedo") != textures.end())
+    {
+      texture = textures.at("albedo").get();
+    }*/
+
+    // TODO: update the renderer to support multiple textures (ie. normal maps, albedo etc)
+    Renderer::get_instance().submit(&model_ptr->mesh, model_ptr->material.get(), get_game_object()->get_transform().to_matrix());
   }
 }

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "calgine/core/behaviour.h"
-#include "calgine/core/renderer/camera.h"
-#include "calgine/core/renderer/camera_manager.h"
+#include "camera.h"
+#include "camera_manager.h"
 #include "calgine_api.h"
 
 class CameraManager;

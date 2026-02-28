@@ -1,8 +1,10 @@
 #include "renderer.h"
-#include "calgine/core/renderer/camera_behaviour.h"
-#include "calgine/core/renderer/camera_manager.h"
+#include "calgine/core/renderer/camera/camera_behaviour.h"
+#include "calgine/core/renderer/camera/camera_manager.h"
 
 namespace Calgine {
+
+GLenum Renderer::current_cull_state = GL_NONE;
 
 Renderer& Renderer::get_instance()
 {
@@ -35,9 +37,9 @@ void Renderer::begin_frame()
   command_queue.clear();
 }
 
-void Renderer::submit(const Mesh* mesh, const Shader* shader, const RenderTexture* texture, const glm::mat4 model_matrix)
+void Renderer::submit(const Mesh* mesh, const Material* material, const glm::mat4 model_matrix)
 {
-  command_queue.emplace_back(BatchRenderCommand {mesh, shader, texture, model_matrix});
+  command_queue.emplace_back(BatchRenderCommand {mesh, material, model_matrix});
 }
 
 void Renderer::submit(const BatchRenderCommand cmd)
@@ -54,15 +56,18 @@ void Renderer::flush()
 {
   for (const BatchRenderCommand& command : command_queue)
   {
-    command.shader->bind();
-    command.shader->set_uniform_mat4("u_model", command.model_matrix);
-    command.shader->set_uniform_mat4("u_view", view_matrix);
-    command.shader->set_uniform_mat4("u_proj", projection_matrix);
+    command.material->bind();
+    command.material->get_shader()->set_uniform_mat4("u_model", command.model_matrix);
+    command.material->get_shader()->set_uniform_mat4("u_view", view_matrix);
+    command.material->get_shader()->set_uniform_mat4("u_proj", projection_matrix);
 
-    if (command.texture)
+    uint32_t slot = 0;
+    for (const auto& [name, texture] : command.material->get_textures())
     {
-      command.texture->bind(0);
-      command.shader->set_uniform_1i("u_texture", 0);
+      texture->bind(slot);
+      command.material->get_shader()->set_uniform_1i(name, slot);
+
+      slot++;
     }
     
     command.mesh->bind();

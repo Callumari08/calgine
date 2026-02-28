@@ -1,13 +1,15 @@
 #include "asset_manager.h"
 
+#include "calgine/core/renderer/material.h"
 #include "calgine/core/renderer/shader.h"
+#include "calgine/core/renderer/texture.h"
 #include "calgine_pch.h"
 #include "calgine/core/log.h"
 #include "calgine/core/asset_management/tiny_obj_loader.h"
-#include "calgine/core/renderer/mesh.h"
 #include <SDL3/SDL_filesystem.h>
 #include <SDL3/SDL_error.h>
 #include <SDL3_image/SDL_image.h>
+#include <memory>
 
 namespace Calgine {
 
@@ -54,19 +56,22 @@ std::shared_ptr<Texture> AssetManager::load_texture(const std::string& name, con
   return textures[name];
 }
 
-std::shared_ptr<Mesh> AssetManager::load_mesh(const std::string& name, const std::string& file_path)
+std::shared_ptr<Model> AssetManager::load_model(const std::string& name, const std::string& file_path)
 {
-  assert(name != "" && std::format("`name` not set for mesh file: {}", file_path).c_str());
+  assert(name != "" && std::format("`name` not set for model file: {}", file_path).c_str());
 
-  if (!is_valid_file(mesh, file_path))
-    handle_asset_load_error(mesh, file_path);
+  if (!is_valid_file(model, file_path))
+    handle_asset_load_error(model, file_path);
 
   tinyobj::attrib_t attribute;
   std::vector<tinyobj::shape_t> shapes;
   std::vector<tinyobj::material_t> materials;
   std::string err;
 
-  bool valid_mesh = tinyobj::LoadObj(&attribute, &shapes, &materials, &err, file_path.c_str(), NULL, true);
+  // Extract directory from file path for material loading
+  std::string mtl_basedir = file_path.substr(0, file_path.find_last_of("/\\") + 1);
+
+  bool valid_model = tinyobj::LoadObj(&attribute, &shapes, &materials, &err, file_path.c_str(), mtl_basedir.c_str(), true);
 
   if (!err.empty())
   {
@@ -74,7 +79,7 @@ std::shared_ptr<Mesh> AssetManager::load_mesh(const std::string& name, const std
     err.pop_back();
     Log::get_engine_logger()->warn("Tiny Obj Loader Warnings:\n{}", err);
   }
-  if (!valid_mesh) handle_asset_load_error(mesh, file_path);
+  if (!valid_model) handle_asset_load_error(model, file_path);
 
   std::vector<Vertex> loaded_mesh;
   std::vector<uint32_t> indices;
@@ -108,8 +113,38 @@ std::shared_ptr<Mesh> AssetManager::load_mesh(const std::string& name, const std
     }
   }
 
-  meshes.emplace(name, new Mesh(loaded_mesh, indices));
-  return meshes[name];
+  Mesh mesh(loaded_mesh, indices);
+
+  auto material = std::make_shared<Material>();
+
+  int num_materials = 0;
+  for (auto& obj_material : materials)
+  {
+    num_materials++;
+
+    material->set_colour("diffuse", {obj_material.diffuse[0], obj_material.diffuse[1], obj_material.diffuse[2], 1.0f});
+
+    if (!obj_material.diffuse_texname.empty())
+    {
+      std::string texture_path = mtl_basedir + obj_material.diffuse_texname;
+      std::optional<std::shared_ptr<Texture>> texture = AssetManager::get_texture(obj_material.diffuse_texname, texture_path);
+      if (!texture)
+        break;
+      
+      material->set_texture("albedo", *texture);
+    }
+
+    if (num_materials == 1)
+      break;
+  }
+  if (num_materials == 0)
+  {
+    Log::get_engine_logger()->info("`{}` didn't come with any materials.", name);
+  }
+
+  models.emplace(name, std::make_shared<Model>(Model{std::move(mesh), material}));
+
+  return models[name];
 }
 
 std::shared_ptr<Shader> AssetManager::load_shader(const std::string& name, const std::string fragment_path, const std::string vertex_path)
@@ -166,33 +201,33 @@ std::optional<std::shared_ptr<Texture>> AssetManager::get_texture(const std::str
   return texture;
 }
 
-std::optional<std::shared_ptr<Mesh>> AssetManager::get_mesh(const std::string& name, const std::string else_file_path)
+std::optional<std::shared_ptr<Model>> AssetManager::get_model(const std::string& name, const std::string else_file_path)
 {
   if (name == "")
   {
-    Log::get_engine_logger()->error("Provided mesh key was empty!");
+    Log::get_engine_logger()->error("Provided model key was empty!");
     return std::nullopt;
   }
 
-  std::shared_ptr<Mesh> mesh = nullptr;
+  std::shared_ptr<Model> model = nullptr;
 
   // if mesh IS in the map
-  if (meshes.find(name) != meshes.end())
+  if (models.find(name) != models.end())
   {
-    mesh = meshes[name];
+    model = models[name];
   }
 
-  if (!mesh && else_file_path != "")
+  if (!model && else_file_path != "")
   {
     Log::get_engine_logger()->info("`{}` not found in loaded meshes, loading from {}", name, else_file_path);
-    mesh = load_mesh(name, else_file_path);
+    model = load_model(name, else_file_path);
   }
-  if (!mesh)
+  if (!model)
   {
     return std::nullopt;
   }
 
-  return mesh;
+  return model;
 }
 
 std::optional<std::shared_ptr<Shader>> AssetManager::get_shader(const std::string& name, const std::string else_fragment_path, const std::string else_vertex_path)
@@ -230,8 +265,8 @@ inline std::string AssetManager::get_asset_name(const AssetType& type)
   {
     case AssetType::texture:
       return "texture";
-    case AssetType::mesh:
-      return "mesh";
+    case AssetType::model:
+      return "model";
     case AssetType::fragment:
       return "fragment shader";
     case AssetType::vertex:

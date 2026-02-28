@@ -16,6 +16,9 @@ public:
   Mesh(const std::span<const Vertex> vertices, std::span<const uint32_t> indices);
   ~Mesh() = default;
 
+  Mesh(Mesh&&) = default;
+  Mesh& operator=(Mesh&&) = default;
+
   void bind() const;
   void draw() const;
 

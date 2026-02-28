@@ -17,8 +17,8 @@
 #include "log.h"
 #include "calgine/core/event_system/event_manager.h"
 #include "calgine/core/renderer/renderer.h"
-#include "calgine/core/renderer/camera_behaviour.h"
-#include "calgine/core/renderer/camera_manager.h"
+#include "calgine/core/renderer/camera/camera_behaviour.h"
+#include "calgine/core/renderer/camera/camera_manager.h"
 #include "calgine/core/time.h"
 
 
@@ -78,6 +78,9 @@ void App::systems_init()
   
   std::string renderer = (const char*)glGetString(GL_RENDERER);
   Log::get_engine_logger()->info("Renderer Device: {}", renderer);
+
+  glEnable(GL_DEPTH_TEST);
+  glDepthFunc(GL_LESS);
 
   init_imgui();
 

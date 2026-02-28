@@ -10,8 +10,11 @@
 #include "calgine/core/event_system/event_listener.h"
 #include "calgine/core/event_system/event_dispatcher.h"
 
-#include "calgine/core/renderer/camera_behaviour.h"
-#include "calgine/core/renderer/camera_manager.h"
+#include "calgine/core/renderer/camera/camera_behaviour.h"
+#include "calgine/core/renderer/camera/camera_manager.h"
 #include "calgine/core/renderer/mesh.h"
 #include "calgine/core/renderer/shader.h"
+#include "calgine/core/renderer/material.h"
 #include "calgine/core/renderer/mesh_renderer.h"
+
+#include "calgine/core/asset_management/asset_manager.h"

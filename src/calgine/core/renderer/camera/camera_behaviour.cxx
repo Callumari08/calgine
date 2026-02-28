@@ -1,7 +1,7 @@
 #include "camera_behaviour.h"
 #include "calgine/core/game_object.h"
-#include "calgine/core/renderer/camera.h"
-#include "calgine/core/renderer/camera_manager.h"
+#include "camera.h"
+#include "camera_manager.h"
 #include "calgine/core/transform.h"
 #include "imgui.h"
 

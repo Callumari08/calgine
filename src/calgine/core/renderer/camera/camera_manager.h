@@ -1,6 +1,6 @@
 #pragma once
 
-#include "calgine/core/renderer/camera_behaviour.h"
+#include "camera_behaviour.h"
 #include "calgine_api.h"
 
 namespace Calgine {

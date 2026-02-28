@@ -3,15 +3,15 @@
 #include "calgine_api.h"
 #include "calgine_pch.h"
 #include "calgine/core/renderer/texture.h"
-#include "calgine/core/renderer/mesh.h"
 #include "calgine/core/renderer/shader.h"
+#include "calgine/core/renderer/model.h"
 
 namespace Calgine {
 
 enum AssetType
 {
   texture,
-  mesh,
+  model,
   fragment,
   vertex,
 };
@@ -24,15 +24,16 @@ public:
   // load overwrites the map
   // load asserts that the file in the path exists.
   std::shared_ptr<Texture> load_texture(const std::string& name, const std::string& file_path);
-  std::shared_ptr<Mesh> load_mesh(const std::string& name, const std::string& file_path);
+  std::shared_ptr<Model> load_model(const std::string& name, const std::string& file_path);
   std::shared_ptr<Shader> load_shader(const std::string& name, const std::string fragment_path, const std::string vertex_path);
 
   // getting allows you to optionally point to an asset path if it doesn't already exist in the map.
   // one should generally use get rather than load, unless they specifically want to overwrite data in the map.
 
   std::optional<std::shared_ptr<Texture>> get_texture(const std::string& name, const std::string else_file_path = "");
-  std::optional<std::shared_ptr<Mesh>> get_mesh(const std::string& name, const std::string else_file_path = "");
+  std::optional<std::shared_ptr<Model>> get_model(const std::string& name, const std::string else_file_path = "");
   std::optional<std::shared_ptr<Shader>> get_shader(const std::string& name, const std::string else_fragment_path = "", const std::string else_vertex_path = "");
+  //std::optional<std::shared_ptr<Material>> get_material(const std::shared_ptr<Mesh>, const )
 
   //void unload_texture(const std::string name);
   //void unload_mesh(const std::string name);
@@ -49,7 +50,7 @@ private:
   void handle_asset_load_error(const AssetType& type, const std::string& file_path, std::string custom_msg = "");
 
   std::unordered_map<std::string, std::shared_ptr<Texture>> textures;
-  std::unordered_map<std::string, std::shared_ptr<Mesh>> meshes;
+  std::unordered_map<std::string, std::shared_ptr<Model>> models;
   std::unordered_map<std::string, std::shared_ptr<Shader>> shaders;
 };
 

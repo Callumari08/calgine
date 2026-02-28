@@ -4,7 +4,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "../log.h"
 
-namespace Calgine{
+namespace Calgine {
 
 Shader::Shader(const ShaderProgram& program)
 {

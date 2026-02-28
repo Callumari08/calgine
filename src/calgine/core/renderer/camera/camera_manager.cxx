@@ -1,5 +1,5 @@
 #include "camera_manager.h"
-#include "calgine/core/renderer/camera_behaviour.h"
+#include "camera_behaviour.h"
 
 namespace Calgine {
 
