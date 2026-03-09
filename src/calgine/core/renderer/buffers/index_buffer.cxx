@@ -5,7 +5,7 @@
 
 namespace Calgine {
 
-IndexBuffer::IndexBuffer(uint32_t* indices, uint32_t _count)
+IndexBuffer::IndexBuffer(const uint32_t* indices, uint32_t _count)
   : count(_count)
 {
   glCreateBuffers(1, &renderer_id);

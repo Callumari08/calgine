@@ -8,7 +8,7 @@ namespace Calgine {
 class IndexBuffer
 {
 public:
-  IndexBuffer(uint32_t* indices, uint32_t _count);
+  IndexBuffer(const uint32_t* indices, uint32_t _count);
   inline ~IndexBuffer()
   {
     // Skip cleanup - OpenGL context may be destroyed during shutdown
