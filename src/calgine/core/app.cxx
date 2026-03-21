@@ -21,7 +21,6 @@
 #include "calgine/core/renderer/camera/camera_manager.h"
 #include "calgine/core/time.h"
 
-
 namespace Calgine {
 
 App* App::instance = nullptr;

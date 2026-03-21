@@ -1,17 +1,16 @@
 #pragma once
 
 #include <cstdint>
-#include "glad/gl.h"
 
 namespace Calgine {
 
 class IndexBuffer
 {
 public:
-  IndexBuffer(uint32_t* indices, uint32_t _count);
+  IndexBuffer(const uint32_t* indices, uint32_t count);
   inline ~IndexBuffer()
   {
-    // Skip cleanup - OpenGL context may be destroyed during shutdown
+    // Skipping cleanup because OpenGL context may be destroyed during shutdown
   }
 
   void bind() const;

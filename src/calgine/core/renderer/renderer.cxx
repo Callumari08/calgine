@@ -23,6 +23,8 @@ void Renderer::begin_frame()
       had_camera_last_frame = false;
     }
 
+    command_queue.clear();
+
     return;
   }
   if (!had_camera_last_frame)

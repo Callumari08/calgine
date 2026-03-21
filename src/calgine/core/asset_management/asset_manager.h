@@ -36,7 +36,7 @@ public:
   //std::optional<std::shared_ptr<Material>> get_material(const std::shared_ptr<Mesh>, const )
 
   //void unload_texture(const std::string name);
-  //void unload_mesh(const std::string name);
+  //void unload_model(const std::string name);
   //void unload_shader(const std::string name);
 
   static std::string get_app_path();

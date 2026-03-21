@@ -2,6 +2,7 @@
 
 #include "calgine_pch.h"
 #include "glad/gl.h"
+#include <cstdint>
 
 namespace Calgine {
 
@@ -15,7 +16,7 @@ Mesh::Mesh(std::span<const Vertex> vertices, std::span<const uint32_t> indices)
   vbo->bind();
 
   ibo = std::make_unique<IndexBuffer>(
-    const_cast<uint32_t*>(indices.data()),
+    (uint32_t*) indices.data(),
     indices.size()
   );
   ibo->bind();
