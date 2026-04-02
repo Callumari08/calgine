@@ -15,7 +15,6 @@
 #include "calgine/core/hierarchies/manager_hierarchy.h"
 #include "window/window_handler.h"
 #include "log.h"
-#include "calgine/core/event_system/event_manager.h"
 #include "calgine/core/renderer/renderer.h"
 #include "calgine/core/renderer/camera/camera_behaviour.h"
 #include "calgine/core/renderer/camera/camera_manager.h"
@@ -153,8 +152,6 @@ void App::main_loop()
 
     GameObject::process_pending_deletes();
     
-    EventManager::process_all_queues();
-
     WindowHandler* window_handler = WindowHandler::get_instance();
 
     window_handler->cleanup_closed_windows();

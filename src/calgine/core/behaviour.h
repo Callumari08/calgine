@@ -1,6 +1,5 @@
 #pragma once
 
-#include "calgine/core/event_system/event_listener.h"
 #include "calgine/core/transform.h"
 #include "calgine/core/log.h"
 #include "calgine_pch.h"
@@ -17,7 +16,7 @@ class GameObject;
  * //TODO: Example 
  * @endcode 
  */
-class CALGINE_API Behaviour : public EventListener
+class CALGINE_API Behaviour
 {
 #define print(...) Log::get_app_logger()->info(__VA_ARGS__)
 #define print_warning(...) Log::get_app_logger()->warn(__VA_ARGS__)

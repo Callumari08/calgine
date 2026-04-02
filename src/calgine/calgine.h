@@ -7,9 +7,6 @@
 #include "calgine/core/hierarchies/game_hierarchy.h"
 #include "calgine/core/hierarchies/manager_hierarchy.h"
 
-#include "calgine/core/event_system/event_listener.h"
-#include "calgine/core/event_system/event_dispatcher.h"
-
 #include "calgine/core/renderer/camera/camera_behaviour.h"
 #include "calgine/core/renderer/camera/camera_manager.h"
 #include "calgine/core/renderer/mesh.h"
