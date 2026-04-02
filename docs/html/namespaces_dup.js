@@ -1,4 +1,5 @@
 var namespaces_dup =
 [
-    [ "Calgine", "namespaceCalgine.html", "namespaceCalgine" ]
+    [ "Calgine", "namespaceCalgine.html", "namespaceCalgine" ],
+    [ "tinyobj", "namespacetinyobj.html", "namespacetinyobj" ]
 ];

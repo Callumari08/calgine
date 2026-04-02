@@ -90,8 +90,10 @@ $(document).ready(function(){initNavTree('classCalgine_1_1GameObject.html',''); 
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classCalgine_1_1GameObject-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Calgine::GameObject Class Reference</div></div>
 </div><!--header-->
@@ -111,10 +113,15 @@ Inheritance diagram for Calgine::GameObject:</div>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject_1_1Iterator.html">Iterator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af7c0a13eec1c88e508b3bfeb8146c760" id="r_af7c0a13eec1c88e508b3bfeb8146c760"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#af7c0a13eec1c88e508b3bfeb8146c760">GameObject</a> (<a class="el" href="classCalgine_1_1GameObject.html">GameObject</a> *_parent)</td></tr>
-<tr class="separator:af7c0a13eec1c88e508b3bfeb8146c760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af378a104c13fec6f3fcdc045611c13b5" id="r_af378a104c13fec6f3fcdc045611c13b5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#af378a104c13fec6f3fcdc045611c13b5">GameObject</a> (<a class="el" href="classCalgine_1_1GameObject.html">GameObject</a> *parent, const <a class="el" href="classCalgine_1_1Transform.html">Transform</a> transform, const std::string name)</td></tr>
+<tr class="separator:af378a104c13fec6f3fcdc045611c13b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c3629e366615e73aba89eb20f79ee34" id="r_a3c3629e366615e73aba89eb20f79ee34"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a3c3629e366615e73aba89eb20f79ee34">~GameObject</a> ()</td></tr>
 <tr class="separator:a3c3629e366615e73aba89eb20f79ee34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97c1b01c0e3e8985d1a327ed75199bb7" id="r_a97c1b01c0e3e8985d1a327ed75199bb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a97c1b01c0e3e8985d1a327ed75199bb7">destroy</a> ()</td></tr>
@@ -135,10 +142,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2166a4e0a26229a7b1ce8bbe7fb23914"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a006b039eb65917a3552e4a1666b69819" id="r_a006b039eb65917a3552e4a1666b69819"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a006b039eb65917a3552e4a1666b69819">set_active</a> (const bool _enabled)</td></tr>
 <tr class="separator:a006b039eb65917a3552e4a1666b69819"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37886ebc4875a4c1f89743273151a119" id="r_a37886ebc4875a4c1f89743273151a119"><td class="memTemplParams" colspan="2">template&lt;typename T_behaviour &gt; <br />
+<tr class="memitem:a406397e8c9477102f3a41424f4cfe091" id="r_a406397e8c9477102f3a41424f4cfe091"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCalgine_1_1Transform.html">Transform</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a406397e8c9477102f3a41424f4cfe091">get_transform</a> ()</td></tr>
+<tr class="separator:a406397e8c9477102f3a41424f4cfe091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a058a205e6bb78fa9a2bac40340dfa808" id="r_a058a205e6bb78fa9a2bac40340dfa808"><td class="memTemplParams" colspan="2">template&lt;typename T_behaviour , typename... Args&gt; <br />
 requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1Behaviour.html">Behaviour</a>&gt;</td></tr>
-<tr class="memitem:a37886ebc4875a4c1f89743273151a119"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a37886ebc4875a4c1f89743273151a119">add_behaviour</a> ()</td></tr>
-<tr class="separator:a37886ebc4875a4c1f89743273151a119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a058a205e6bb78fa9a2bac40340dfa808"><td class="memTemplItemLeft" align="right" valign="top">T_behaviour *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a058a205e6bb78fa9a2bac40340dfa808">add_behaviour</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a058a205e6bb78fa9a2bac40340dfa808"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b9fc3d7cd0516f2166c93101ce514e2" id="r_a7b9fc3d7cd0516f2166c93101ce514e2"><td class="memTemplParams" colspan="2">template&lt;typename T_behaviour &gt; <br />
 requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1Behaviour.html">Behaviour</a>&gt;</td></tr>
 <tr class="memitem:a7b9fc3d7cd0516f2166c93101ce514e2"><td class="memTemplItemLeft" align="right" valign="top">T_behaviour *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a7b9fc3d7cd0516f2166c93101ce514e2">get_behaviour</a> () const</td></tr>
@@ -151,10 +160,8 @@ requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1B
 requires std::derived_from&lt;T, <a class="el" href="classCalgine_1_1GameObject.html">GameObject</a>&gt;</td></tr>
 <tr class="memitem:accf41615441ecc4f14ae550a1c3dba5f"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#accf41615441ecc4f14ae550a1c3dba5f">instantiate_child</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="separator:accf41615441ecc4f14ae550a1c3dba5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fe6259db00341689a2a17adb77c5d11" id="r_a6fe6259db00341689a2a17adb77c5d11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a6fe6259db00341689a2a17adb77c5d11">tick_self_and_children</a> (<a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">TickType</a> tick_type)</td></tr>
-<tr class="separator:a6fe6259db00341689a2a17adb77c5d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64874a410452502726b456cd0e52a49f" id="r_a64874a410452502726b456cd0e52a49f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a64874a410452502726b456cd0e52a49f">set_parent</a> (<a class="el" href="classCalgine_1_1GameObject.html">GameObject</a> *_parent)</td></tr>
-<tr class="separator:a64874a410452502726b456cd0e52a49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66c31dd3c83e87dd856b45a3e34df736" id="r_a66c31dd3c83e87dd856b45a3e34df736"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a66c31dd3c83e87dd856b45a3e34df736">set_parent</a> (<a class="el" href="classCalgine_1_1GameObject.html">GameObject</a> *parent)</td></tr>
+<tr class="separator:a66c31dd3c83e87dd856b45a3e34df736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9839057d87f7b0da2341c8247264401" id="r_aa9839057d87f7b0da2341c8247264401"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::reference_wrapper&lt; <a class="el" href="classCalgine_1_1GameObject.html">GameObject</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#aa9839057d87f7b0da2341c8247264401">get_parent</a> () const</td></tr>
 <tr class="separator:aa9839057d87f7b0da2341c8247264401"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa34deb782f6ee4aff3f225050ea0109d" id="r_aa34deb782f6ee4aff3f225050ea0109d"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d">get_name</a> ()</td></tr>
@@ -162,18 +169,26 @@ requires std::derived_from&lt;T, <a class="el" href="classCalgine_1_1GameObject.
 <tr class="separator:aa34deb782f6ee4aff3f225050ea0109d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad97d52f6b23dd654ff552b0a7b9f95f4" id="r_ad97d52f6b23dd654ff552b0a7b9f95f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#ad97d52f6b23dd654ff552b0a7b9f95f4">set_name</a> (std::string _name)</td></tr>
 <tr class="separator:ad97d52f6b23dd654ff552b0a7b9f95f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbd6a727b4948fbbef2e4b2cad78a965" id="r_acbd6a727b4948fbbef2e4b2cad78a965"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCalgine_1_1GameObject_1_1Iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#acbd6a727b4948fbbef2e4b2cad78a965">begin</a> ()</td></tr>
+<tr class="separator:acbd6a727b4948fbbef2e4b2cad78a965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82dd591a82d55f87b6dcfa7579764642" id="r_a82dd591a82d55f87b6dcfa7579764642"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCalgine_1_1GameObject_1_1Iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a82dd591a82d55f87b6dcfa7579764642">end</a> ()</td></tr>
+<tr class="separator:a82dd591a82d55f87b6dcfa7579764642"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad47e6d97336652e235aa1b5e20daa5ef" id="r_ad47e6d97336652e235aa1b5e20daa5ef"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#ad47e6d97336652e235aa1b5e20daa5ef">process_pending_deletes</a> ()</td></tr>
-<tr class="memdesc:ad47e6d97336652e235aa1b5e20daa5ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">frees all deleted game objects allocated memory.  <br /></td></tr>
-<tr class="separator:ad47e6d97336652e235aa1b5e20daa5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1b103accd62c24bb8274c9578147dca" id="r_aa1b103accd62c24bb8274c9578147dca"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#aa1b103accd62c24bb8274c9578147dca">get_num_game_objects</a> ()</td></tr>
+<tr class="separator:aa1b103accd62c24bb8274c9578147dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a4097b3e04a4f8ece21f5abe1b10e6323" id="r_a4097b3e04a4f8ece21f5abe1b10e6323"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a4097b3e04a4f8ece21f5abe1b10e6323">App</a></td></tr>
+<tr class="separator:a4097b3e04a4f8ece21f5abe1b10e6323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GameObjects are objects within the <a class="el" href="">Heirarchy</a> that have multiple <a class="el" href="classCalgine_1_1Behaviour.html">Behaviour</a> subclasses attached to them which execute code. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af7c0a13eec1c88e508b3bfeb8146c760" name="af7c0a13eec1c88e508b3bfeb8146c760"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7c0a13eec1c88e508b3bfeb8146c760">&#9670;&#160;</a></span>GameObject() <span class="overload">[1/3]</span></h2>
+<a id="af378a104c13fec6f3fcdc045611c13b5" name="af378a104c13fec6f3fcdc045611c13b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af378a104c13fec6f3fcdc045611c13b5">&#9670;&#160;</a></span>GameObject() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,8 +200,24 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">Calgine::GameObject::GameObject </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classCalgine_1_1GameObject.html">GameObject</a> *&#160;</td>
-          <td class="paramname"><em>_parent</em></td><td>)</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="classCalgine_1_1Transform.html">Transform</a>&#160;</td>
+          <td class="paramname"><em>transform</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -276,22 +307,48 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a37886ebc4875a4c1f89743273151a119" name="a37886ebc4875a4c1f89743273151a119"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37886ebc4875a4c1f89743273151a119">&#9670;&#160;</a></span>add_behaviour()</h2>
+<a id="a058a205e6bb78fa9a2bac40340dfa808" name="a058a205e6bb78fa9a2bac40340dfa808"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a058a205e6bb78fa9a2bac40340dfa808">&#9670;&#160;</a></span>add_behaviour()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T_behaviour &gt; <br />
+template&lt;typename T_behaviour , typename... Args&gt; <br />
 requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1Behaviour.html">Behaviour</a>&gt;</div>
       <table class="memname">
         <tr>
-          <td class="memname">bool Calgine::GameObject::add_behaviour </td>
+          <td class="memname">T_behaviour * Calgine::GameObject::add_behaviour </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acbd6a727b4948fbbef2e4b2cad78a965" name="acbd6a727b4948fbbef2e4b2cad78a965"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbd6a727b4948fbbef2e4b2cad78a965">&#9670;&#160;</a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCalgine_1_1GameObject_1_1Iterator.html">Iterator</a> Calgine::GameObject::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -327,6 +384,31 @@ requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1B
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82dd591a82d55f87b6dcfa7579764642" name="a82dd591a82d55f87b6dcfa7579764642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82dd591a82d55f87b6dcfa7579764642">&#9670;&#160;</a></span>end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCalgine_1_1GameObject_1_1Iterator.html">Iterator</a> Calgine::GameObject::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -378,7 +460,30 @@ requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1B
 <dl class="section warning"><dt>Warning</dt><dd>ONLY use name for debugging purpouses, do not try to implement a <code>Gameobject* find(std::string name)</code> feature. This will end badly.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classCalgine_1_1RootGameObject.html#aee4f88ba1c4d798afd3fc4b0551d8c8c">Calgine::RootGameObject</a>.</p>
+</div>
+</div>
+<a id="aa1b103accd62c24bb8274c9578147dca" name="aa1b103accd62c24bb8274c9578147dca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1b103accd62c24bb8274c9578147dca">&#9670;&#160;</a></span>get_num_game_objects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t Calgine::GameObject::get_num_game_objects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -395,6 +500,31 @@ requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1B
           <td> const</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a406397e8c9477102f3a41424f4cfe091" name="a406397e8c9477102f3a41424f4cfe091"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a406397e8c9477102f3a41424f4cfe091">&#9670;&#160;</a></span>get_transform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCalgine_1_1Transform.html">Transform</a> &amp; Calgine::GameObject::get_transform </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -453,6 +583,9 @@ requires std::derived_from&lt;T, <a class="el" href="classCalgine_1_1GameObject.
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool Calgine::GameObject::is_enabled </td>
@@ -461,6 +594,11 @@ requires std::derived_from&lt;T, <a class="el" href="classCalgine_1_1GameObject.
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -514,34 +652,6 @@ requires std::derived_from&lt;T, <a class="el" href="classCalgine_1_1GameObject.
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad47e6d97336652e235aa1b5e20daa5ef" name="ad47e6d97336652e235aa1b5e20daa5ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad47e6d97336652e235aa1b5e20daa5ef">&#9670;&#160;</a></span>process_pending_deletes()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Calgine::GameObject::process_pending_deletes </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>frees all deleted game objects allocated memory. </p>
-<dl class="section warning"><dt>Warning</dt><dd>must be called after all update ticks, once per frame. do NOT call in gamecode, this is to be part of <a class="el" href="app_8h.html">app.h</a> only. </dd></dl>
 
 </div>
 </div>
@@ -599,8 +709,8 @@ requires std::derived_from&lt;T, <a class="el" href="classCalgine_1_1GameObject.
 
 </div>
 </div>
-<a id="a64874a410452502726b456cd0e52a49f" name="a64874a410452502726b456cd0e52a49f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64874a410452502726b456cd0e52a49f">&#9670;&#160;</a></span>set_parent()</h2>
+<a id="a66c31dd3c83e87dd856b45a3e34df736" name="a66c31dd3c83e87dd856b45a3e34df736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66c31dd3c83e87dd856b45a3e34df736">&#9670;&#160;</a></span>set_parent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -609,7 +719,7 @@ requires std::derived_from&lt;T, <a class="el" href="classCalgine_1_1GameObject.
           <td class="memname">void Calgine::GameObject::set_parent </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classCalgine_1_1GameObject.html">GameObject</a> *&#160;</td>
-          <td class="paramname"><em>_parent</em></td><td>)</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -617,20 +727,25 @@ requires std::derived_from&lt;T, <a class="el" href="classCalgine_1_1GameObject.
 
 </div>
 </div>
-<a id="a6fe6259db00341689a2a17adb77c5d11" name="a6fe6259db00341689a2a17adb77c5d11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fe6259db00341689a2a17adb77c5d11">&#9670;&#160;</a></span>tick_self_and_children()</h2>
+<h2 class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a4097b3e04a4f8ece21f5abe1b10e6323" name="a4097b3e04a4f8ece21f5abe1b10e6323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4097b3e04a4f8ece21f5abe1b10e6323">&#9670;&#160;</a></span>App</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Calgine::GameObject::tick_self_and_children </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">TickType</a>&#160;</td>
-          <td class="paramname"><em>tick_type</em></td><td>)</td>
-          <td></td>
+          <td class="memname">friend class <a class="el" href="classCalgine_1_1App.html">App</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

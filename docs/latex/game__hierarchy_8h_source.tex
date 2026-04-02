@@ -1,0 +1,33 @@
+\doxysection{game\+\_\+hierarchy.\+h}
+\hypertarget{game__hierarchy_8h_source}{}\label{game__hierarchy_8h_source}\index{src/calgine/core/hierarchies/game\_hierarchy.h@{src/calgine/core/hierarchies/game\_hierarchy.h}}
+\mbox{\hyperlink{game__hierarchy_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../game\_object.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{root__gameobject_8h}{root\_gameobject.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ It\ might\ make\ more\ sense\ for\ GameHierarchy\ and\ ManagerHierarchy\ to\ both\ derive\ from\ a\ class\ called\ "{}Hierarchy"{}...\ but\ oh\ well}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1GameHierarchy}{GameHierarchy}}\ final}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{classCalgine_1_1RootGameObject}{RootGameObject}}\ root;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classCalgine_1_1GameHierarchy}{GameHierarchy}}();}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1GameHierarchy}{GameHierarchy}}\&\ get\_instance();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ get\_hierarchy\_root();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classCalgine_1_1GameHierarchy_acd41b449f73815ade5ae700b5045349c}{GameHierarchy}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1GameHierarchy}{GameHierarchy}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classCalgine_1_1GameHierarchy}{GameHierarchy}}\&\ \mbox{\hyperlink{classCalgine_1_1GameHierarchy_a95e29f8dee4d48f9439c50c88e6759af}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1GameHierarchy}{GameHierarchy}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
+
+\end{DoxyCode}

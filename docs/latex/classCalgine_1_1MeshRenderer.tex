@@ -1,0 +1,89 @@
+\doxysection{Calgine\+::Mesh\+Renderer Class Reference}
+\hypertarget{classCalgine_1_1MeshRenderer}{}\label{classCalgine_1_1MeshRenderer}\index{Calgine::MeshRenderer@{Calgine::MeshRenderer}}
+
+
+{\ttfamily \#include $<$mesh\+\_\+renderer.\+h$>$}
+
+Inheritance diagram for Calgine\+::Mesh\+Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCalgine_1_1MeshRenderer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1MeshRenderer_ae00e59dde297967364d615b6c952eb11}{Mesh\+Renderer}} ()=default
+\item 
+\mbox{\hyperlink{classCalgine_1_1MeshRenderer_aa3c6db368f22b70027f2fc868c4332e2}{Mesh\+Renderer}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d}{model}})
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ \mbox{\hyperlink{classCalgine_1_1MeshRenderer_ab756cab54837dd3a13a792dcc000eabe}{get\+\_\+model}} ()
+\item 
+void \mbox{\hyperlink{classCalgine_1_1MeshRenderer_aeb48da10d4337e560596f079c8a318fd}{set\+\_\+material}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Material}{Material}} $>$ material)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classCalgine_1_1Behaviour_a5f9a4ac36b5e9a7303c0708c9c9ca435}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
+\item 
+\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\+\_\+game\+\_\+object}} ()
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} that this behaviour is attached to. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \& \mbox{\hyperlink{classCalgine_1_1Behaviour_aec1c964df62ee9bf87b1c05ed630a4be}{get\+\_\+transform}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}} ()
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a9f57fdc9e7cf4f2caae45df243baacea}{preloop\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called before the main loop (see \doxylink{classCalgine_1_1App}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}{start\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called when this gameobject is instantitated. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a139f4cd7ff364c3622b03fc4d0ee4b3e}{fixed\+\_\+update\+\_\+tick}} ()
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}{update\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called every frame, before \doxylink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called every frame, after \doxylink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d}{update()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_acec12d67645c1129e5344f05660255dd}{imgui\+\_\+render\+\_\+tick}} ()
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aab60143ff0527a6db745d286dec38fca}{on\+\_\+destroy}} ()
+\begin{DoxyCompactList}\small\item\em Gets called when game\+\_\+object is being destroyed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalgine_1_1MeshRenderer_ae00e59dde297967364d615b6c952eb11}\label{classCalgine_1_1MeshRenderer_ae00e59dde297967364d615b6c952eb11} 
+\index{Calgine::MeshRenderer@{Calgine::MeshRenderer}!MeshRenderer@{MeshRenderer}}
+\index{MeshRenderer@{MeshRenderer}!Calgine::MeshRenderer@{Calgine::MeshRenderer}}
+\doxysubsubsection{\texorpdfstring{MeshRenderer()}{MeshRenderer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Calgine\+::\+Mesh\+Renderer\+::\+Mesh\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classCalgine_1_1MeshRenderer_aa3c6db368f22b70027f2fc868c4332e2}\label{classCalgine_1_1MeshRenderer_aa3c6db368f22b70027f2fc868c4332e2} 
+\index{Calgine::MeshRenderer@{Calgine::MeshRenderer}!MeshRenderer@{MeshRenderer}}
+\index{MeshRenderer@{MeshRenderer}!Calgine::MeshRenderer@{Calgine::MeshRenderer}}
+\doxysubsubsection{\texorpdfstring{MeshRenderer()}{MeshRenderer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Calgine\+::\+Mesh\+Renderer\+::\+Mesh\+Renderer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1MeshRenderer_ab756cab54837dd3a13a792dcc000eabe}\label{classCalgine_1_1MeshRenderer_ab756cab54837dd3a13a792dcc000eabe} 
+\index{Calgine::MeshRenderer@{Calgine::MeshRenderer}!get\_model@{get\_model}}
+\index{get\_model@{get\_model}!Calgine::MeshRenderer@{Calgine::MeshRenderer}}
+\doxysubsubsection{\texorpdfstring{get\_model()}{get\_model()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ Calgine\+::\+Mesh\+Renderer\+::get\+\_\+model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1MeshRenderer_aeb48da10d4337e560596f079c8a318fd}\label{classCalgine_1_1MeshRenderer_aeb48da10d4337e560596f079c8a318fd} 
+\index{Calgine::MeshRenderer@{Calgine::MeshRenderer}!set\_material@{set\_material}}
+\index{set\_material@{set\_material}!Calgine::MeshRenderer@{Calgine::MeshRenderer}}
+\doxysubsubsection{\texorpdfstring{set\_material()}{set\_material()}}
+{\footnotesize\ttfamily void Calgine\+::\+Mesh\+Renderer\+::set\+\_\+material (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Material}{Material}} $>$}]{material }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/renderer/\mbox{\hyperlink{mesh__renderer_8h}{mesh\+\_\+renderer.\+h}}\item 
+src/calgine/core/renderer/\mbox{\hyperlink{mesh__renderer_8cxx}{mesh\+\_\+renderer.\+cxx}}\end{DoxyCompactItemize}

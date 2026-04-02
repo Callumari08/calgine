@@ -1,0 +1,30 @@
+\doxysection{vertex\+\_\+buffer.\+h}
+\hypertarget{vertex__buffer_8h_source}{}\label{vertex__buffer_8h_source}\index{src/calgine/core/renderer/buffers/vertex\_buffer.h@{src/calgine/core/renderer/buffers/vertex\_buffer.h}}
+\mbox{\hyperlink{vertex__buffer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vertex_8h}{calgine/core/renderer/vertex.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}glad/gl.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1VertexBuffer}{VertexBuffer}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{classCalgine_1_1VertexBuffer}{VertexBuffer}}(std::span<const\ Vertex>\ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5ea6869c366525aff7bd2b44caf55a44555}{vertex}});}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classCalgine_1_1VertexBuffer_a4e932c443a82b764430f40c145f84de4}{\string~VertexBuffer}}()}
+\DoxyCodeLine{00013\ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//\ Skip\ cleanup\ -\/\ OpenGL\ context\ may\ be\ destroyed\ during\ shutdown}}
+\DoxyCodeLine{00015\ \ \ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1VertexBuffer_af724865a46cf53ae51e762e9408ce80d}{bind}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1VertexBuffer_af8849cc1c7564269f724b7d6bd34a783}{unbind}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ uint32\_t\ renderer\_id;}
+\DoxyCodeLine{00022\ \ \ }
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ \}}
+
+\end{DoxyCode}

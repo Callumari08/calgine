@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ticktype_0',['TickType',['../namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861',1,'Calgine']]]
+  ['assettype_0',['AssetType',['../namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5e',1,'Calgine']]]
 ];

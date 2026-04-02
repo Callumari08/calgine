@@ -1,6 +1,22 @@
 var searchData=
 [
-  ['throw_5fsdl_5ferror_0',['throw_sdl_error',['../namespaceCalgine.html#a08cd20732442ef95f7ad6e630cf09e48',1,'Calgine']]],
-  ['tick_5fself_5fand_5fchildren_1',['tick_self_and_children',['../classCalgine_1_1GameObject.html#a6fe6259db00341689a2a17adb77c5d11',1,'Calgine::GameObject']]],
-  ['ticktype_2',['TickType',['../namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861',1,'Calgine']]]
+  ['raw_0',['raw',['../classCalgine_1_1Window.html#a56fa8c87faf7554e19965e5628e09f35',1,'Calgine::Window']]],
+  ['read_5ffile_5fto_5fstring_1',['read_file_to_string',['../classCalgine_1_1AssetManager.html#a7041c19c2c71a2c5597a12c9436afbac',1,'Calgine::AssetManager']]],
+  ['real_5ft_2',['real_t',['../namespacetinyobj.html#ad5ca7469ff56bf0d8423120cfd99adce',1,'tinyobj']]],
+  ['remove_5fchild_5fimmediate_3',['remove_child_immediate',['../classCalgine_1_1GameObject.html#a555c05fea69e691b93159506455d7ea7',1,'Calgine::GameObject']]],
+  ['render_4',['render',['../namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6',1,'Calgine']]],
+  ['render_5ftexture_2ecxx_5',['render_texture.cxx',['../render__texture_8cxx.html',1,'']]],
+  ['render_5ftexture_2eh_6',['render_texture.h',['../render__texture_8h.html',1,'']]],
+  ['render_5ftick_7',['render_tick',['../classCalgine_1_1Behaviour.html#a12b3ee6bc87e6d97d591d13b2cccc003',1,'Calgine::Behaviour']]],
+  ['renderer_8',['Renderer',['../classCalgine_1_1Renderer.html',1,'Calgine']]],
+  ['renderer_2ecxx_9',['renderer.cxx',['../renderer_8cxx.html',1,'']]],
+  ['renderer_2eh_10',['renderer.h',['../renderer_8h.html',1,'']]],
+  ['rendertexture_11',['rendertexture',['../classCalgine_1_1RenderTexture.html#a34c4898ae7d657da14349f5e642b23ce',1,'Calgine::RenderTexture::RenderTexture()'],['../classCalgine_1_1RenderTexture.html',1,'Calgine::RenderTexture']]],
+  ['request_5fclose_12',['request_close',['../classCalgine_1_1Window.html#ab526e6c21c5ad965acf3f370413972ac',1,'Calgine::Window']]],
+  ['root_5fgameobject_2eh_13',['root_gameobject.h',['../root__gameobject_8h.html',1,'']]],
+  ['rootgameobject_14',['rootgameobject',['../classCalgine_1_1RootGameObject.html',1,'Calgine::RootGameObject'],['../classCalgine_1_1RootGameObject.html#ae5bf15f4b36327321f3a9ebc9545c40a',1,'Calgine::RootGameObject::RootGameObject()']]],
+  ['rotation_15',['rotation',['../classCalgine_1_1Transform.html#a28b3bbddc628ba0f19d33eb68cfbcf0f',1,'Calgine::Transform']]],
+  ['roughness_16',['roughness',['../structtinyobj_1_1material__t.html#a7e26f199e4a308bd9fd224349e266cea',1,'tinyobj::material_t']]],
+  ['roughness_5ftexname_17',['roughness_texname',['../structtinyobj_1_1material__t.html#a7d7a7791ad94f2a5eadc2c8ee8c9a902',1,'tinyobj::material_t']]],
+  ['roughness_5ftexopt_18',['roughness_texopt',['../structtinyobj_1_1material__t.html#aa02a56f4de95ab212e19a5d77b1f2d91',1,'tinyobj::material_t']]]
 ];

@@ -9,6 +9,12 @@ Gives access to tick updates for users.
 
 {\ttfamily \#include $<$behaviour.\+h$>$}
 
+Inheritance diagram for Calgine\+::Behaviour\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCalgine_1_1Behaviour}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,20 +22,26 @@ virtual \mbox{\hyperlink{classCalgine_1_1Behaviour_a5f9a4ac36b5e9a7303c0708c9c9c
 \item 
 \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\+\_\+game\+\_\+object}} ()
 \begin{DoxyCompactList}\small\item\em Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} that this behaviour is attached to. ~\newline
- \end{DoxyCompactList}\end{DoxyCompactItemize}
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \& \mbox{\hyperlink{classCalgine_1_1Behaviour_aec1c964df62ee9bf87b1c05ed630a4be}{get\+\_\+transform}} ()
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classCalgine_1_1Behaviour_aaebea8438da19079178842f5879f15d3}{Behaviour}} ()=default
+\mbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}} ()
 \item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a9f57fdc9e7cf4f2caae45df243baacea}{preloop\+\_\+tick}} ()
 \begin{DoxyCompactList}\small\item\em Gets called before the main loop (see \doxylink{classCalgine_1_1App}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}{start\+\_\+tick}} ()
 \begin{DoxyCompactList}\small\item\em Gets called when this gameobject is instantitated. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a139f4cd7ff364c3622b03fc4d0ee4b3e}{fixed\+\_\+update\+\_\+tick}} ()
+\item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}{update\+\_\+tick}} ()
 \begin{DoxyCompactList}\small\item\em Gets called every frame, before \doxylink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick()}. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick}} ()
 \begin{DoxyCompactList}\small\item\em Gets called every frame, after \doxylink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d}{update()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a12b3ee6bc87e6d97d591d13b2cccc003}{render\+\_\+tick}} ()
+\item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_acec12d67645c1129e5344f05660255dd}{imgui\+\_\+render\+\_\+tick}} ()
 \item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aab60143ff0527a6db745d286dec38fca}{on\+\_\+destroy}} ()
@@ -58,15 +70,21 @@ Gives access to tick updates for users.
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Behaviour()}{\string~Behaviour()}}
 {\footnotesize\ttfamily Calgine\+::\+Behaviour\+::\texorpdfstring{$\sim$}{\string~}\+Behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-\Hypertarget{classCalgine_1_1Behaviour_aaebea8438da19079178842f5879f15d3}\label{classCalgine_1_1Behaviour_aaebea8438da19079178842f5879f15d3} 
+\Hypertarget{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}\label{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652} 
 \index{Calgine::Behaviour@{Calgine::Behaviour}!Behaviour@{Behaviour}}
 \index{Behaviour@{Behaviour}!Calgine::Behaviour@{Calgine::Behaviour}}
 \doxysubsubsection{\texorpdfstring{Behaviour()}{Behaviour()}}
-{\footnotesize\ttfamily Calgine\+::\+Behaviour\+::\+Behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+{\footnotesize\ttfamily Calgine\+::\+Behaviour\+::\+Behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1Behaviour_a139f4cd7ff364c3622b03fc4d0ee4b3e}\label{classCalgine_1_1Behaviour_a139f4cd7ff364c3622b03fc4d0ee4b3e} 
+\index{Calgine::Behaviour@{Calgine::Behaviour}!fixed\_update\_tick@{fixed\_update\_tick}}
+\index{fixed\_update\_tick@{fixed\_update\_tick}!Calgine::Behaviour@{Calgine::Behaviour}}
+\doxysubsubsection{\texorpdfstring{fixed\_update\_tick()}{fixed\_update\_tick()}}
+{\footnotesize\ttfamily void Calgine\+::\+Behaviour\+::fixed\+\_\+update\+\_\+tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
 \Hypertarget{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}\label{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274} 
 \index{Calgine::Behaviour@{Calgine::Behaviour}!get\_game\_object@{get\_game\_object}}
 \index{get\_game\_object@{get\_game\_object}!Calgine::Behaviour@{Calgine::Behaviour}}
@@ -81,11 +99,21 @@ Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} tha
 \begin{DoxyReturn}{Returns}
 \doxylink{classCalgine_1_1GameObject}{Game\+Object}\texorpdfstring{$\ast$}{*} 
 \end{DoxyReturn}
+\Hypertarget{classCalgine_1_1Behaviour_aec1c964df62ee9bf87b1c05ed630a4be}\label{classCalgine_1_1Behaviour_aec1c964df62ee9bf87b1c05ed630a4be} 
+\index{Calgine::Behaviour@{Calgine::Behaviour}!get\_transform@{get\_transform}}
+\index{get\_transform@{get\_transform}!Calgine::Behaviour@{Calgine::Behaviour}}
+\doxysubsubsection{\texorpdfstring{get\_transform()}{get\_transform()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \& Calgine\+::\+Behaviour\+::get\+\_\+transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \Hypertarget{classCalgine_1_1Behaviour_acec12d67645c1129e5344f05660255dd}\label{classCalgine_1_1Behaviour_acec12d67645c1129e5344f05660255dd} 
 \index{Calgine::Behaviour@{Calgine::Behaviour}!imgui\_render\_tick@{imgui\_render\_tick}}
 \index{imgui\_render\_tick@{imgui\_render\_tick}!Calgine::Behaviour@{Calgine::Behaviour}}
 \doxysubsubsection{\texorpdfstring{imgui\_render\_tick()}{imgui\_render\_tick()}}
 {\footnotesize\ttfamily void Calgine\+::\+Behaviour\+::imgui\+\_\+render\+\_\+tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer_a00c56604e66dcf568a8219833952be30}{Calgine\+::\+Hierarchy\+Renderer}}.
 
 \Hypertarget{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}\label{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c} 
 \index{Calgine::Behaviour@{Calgine::Behaviour}!late\_tick@{late\_tick}}
@@ -119,6 +147,12 @@ You can safely assume that game\+\_\+object has not changed by this point.
 
 
 Gets called before the main loop (see \doxylink{classCalgine_1_1App}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. 
+
+\Hypertarget{classCalgine_1_1Behaviour_a12b3ee6bc87e6d97d591d13b2cccc003}\label{classCalgine_1_1Behaviour_a12b3ee6bc87e6d97d591d13b2cccc003} 
+\index{Calgine::Behaviour@{Calgine::Behaviour}!render\_tick@{render\_tick}}
+\index{render\_tick@{render\_tick}!Calgine::Behaviour@{Calgine::Behaviour}}
+\doxysubsubsection{\texorpdfstring{render\_tick()}{render\_tick()}}
+{\footnotesize\ttfamily void Calgine\+::\+Behaviour\+::render\+\_\+tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 \Hypertarget{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}\label{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba} 
 \index{Calgine::Behaviour@{Calgine::Behaviour}!start\_tick@{start\_tick}}

@@ -1,5 +1,30 @@
 var searchData=
 [
-  ['on_5fdestroy_0',['on_destroy',['../classCalgine_1_1Behaviour.html#aab60143ff0527a6db745d286dec38fca',1,'Calgine::Behaviour']]],
-  ['operator_3d_1',['operator=',['../classCalgine_1_1Hierarchy.html#af85ef603de755124cd48376a24e0504e',1,'Calgine::Hierarchy::operator=()'],['../classCalgine_1_1GameObject.html#ae60d4b1987fbd4ec0458a13719d1239e',1,'Calgine::GameObject::operator=(const GameObject &amp;)=delete'],['../classCalgine_1_1GameObject.html#a03121f27fb122fb29542ca8c78b40e30',1,'Calgine::GameObject::operator=(GameObject &amp;&amp;)=default'],['../classCalgine_1_1Window.html#ac0fc1be57972240421ecf8c460457251',1,'Calgine::Window::operator=(const Window &amp;)=delete'],['../classCalgine_1_1Window.html#a0a7c057c1c00f1f1ec440d49344270b2',1,'Calgine::Window::operator=(Window &amp;&amp;) noexcept=delete'],['../classCalgine_1_1WindowHandler.html#a3bf8daede725665edd93a223f9b5c441',1,'Calgine::WindowHandler::operator=()']]]
+  ['main_5floop_0',['main_loop',['../classCalgine_1_1App.html#a25b8f54a7509d91d9a577d85568c31b7',1,'Calgine::App']]],
+  ['manager_5fhierarchy_2ecxx_1',['manager_hierarchy.cxx',['../manager__hierarchy_8cxx.html',1,'']]],
+  ['manager_5fhierarchy_2eh_2',['manager_hierarchy.h',['../manager__hierarchy_8h.html',1,'']]],
+  ['managerhierarchy_3',['managerhierarchy',['../classCalgine_1_1ManagerHierarchy.html',1,'Calgine::ManagerHierarchy'],['../classCalgine_1_1ManagerHierarchy.html#ab42297b23491f0f1fb581d11b0a0b2f6',1,'Calgine::ManagerHierarchy::ManagerHierarchy()']]],
+  ['material_4',['material',['../classCalgine_1_1Material.html',1,'Calgine::Material'],['../classCalgine_1_1Material.html#a46df7b767cb9f38d0055a997f51c79f0',1,'Calgine::Material::Material(const Material &amp;)=delete'],['../classCalgine_1_1Material.html#a9004603bd82571fa2883239e527fea63',1,'Calgine::Material::Material(std::shared_ptr&lt; Shader &gt; shader=nullptr)'],['../structCalgine_1_1BatchRenderCommand.html#a714ecae078b1eb25667b4d9c04f29041',1,'Calgine::BatchRenderCommand::material'],['../structCalgine_1_1Model.html#a9d15c8eb72a49ecd0df27949799278a3',1,'Calgine::Model::material']]],
+  ['material_2ecxx_5',['material.cxx',['../material_8cxx.html',1,'']]],
+  ['material_2eh_6',['material.h',['../material_8h.html',1,'']]],
+  ['material_5fids_7',['material_ids',['../structtinyobj_1_1mesh__t.html#a57b2f12dfa3fd620b25babcd3a09ec6b',1,'tinyobj::mesh_t']]],
+  ['material_5ft_8',['material_t',['../structtinyobj_1_1material__t.html',1,'tinyobj']]],
+  ['materialfilereader_9',['materialfilereader',['../classtinyobj_1_1MaterialFileReader.html#aeb0c6d0e32d7876394e570a7b18adc8a',1,'tinyobj::MaterialFileReader::MaterialFileReader()'],['../classtinyobj_1_1MaterialFileReader.html',1,'tinyobj::MaterialFileReader']]],
+  ['materialreader_10',['materialreader',['../classtinyobj_1_1MaterialReader.html#a701bdd6217518e0afb5596fcb59925b6',1,'tinyobj::MaterialReader::MaterialReader()'],['../classtinyobj_1_1MaterialReader.html',1,'tinyobj::MaterialReader']]],
+  ['materialsettings_11',['MaterialSettings',['../structCalgine_1_1MaterialSettings.html',1,'Calgine']]],
+  ['materialstreamreader_12',['materialstreamreader',['../classtinyobj_1_1MaterialStreamReader.html#a6a6b7167e62d239cb3b002b6aa183773',1,'tinyobj::MaterialStreamReader::MaterialStreamReader()'],['../classtinyobj_1_1MaterialStreamReader.html',1,'tinyobj::MaterialStreamReader']]],
+  ['mesh_13',['mesh',['../structCalgine_1_1BatchRenderCommand.html#a0cb4ec0278b314eccefdbc0c1abfbb98',1,'Calgine::BatchRenderCommand::mesh'],['../structCalgine_1_1Model.html#a1c9dfae94be1b75d2285c03c68a643c7',1,'Calgine::Model::mesh'],['../structtinyobj_1_1shape__t.html#a3dacb06dfbfe9e245ff4bc7b5b3d9818',1,'tinyobj::shape_t::mesh'],['../classCalgine_1_1Mesh.html#a6d6c694c16201b6abc5a8c100108db14',1,'Calgine::Mesh::Mesh(Mesh &amp;&amp;)=default'],['../classCalgine_1_1Mesh.html#a7515498b20eb594cc1e990ce6b18a19f',1,'Calgine::Mesh::Mesh(const std::span&lt; const Vertex &gt; vertices, std::span&lt; const uint32_t &gt; indices)'],['../classCalgine_1_1Mesh.html',1,'Calgine::Mesh']]],
+  ['mesh_2ecxx_14',['mesh.cxx',['../mesh_8cxx.html',1,'']]],
+  ['mesh_2eh_15',['mesh.h',['../mesh_8h.html',1,'']]],
+  ['mesh_5frenderer_2ecxx_16',['mesh_renderer.cxx',['../mesh__renderer_8cxx.html',1,'']]],
+  ['mesh_5frenderer_2eh_17',['mesh_renderer.h',['../mesh__renderer_8h.html',1,'']]],
+  ['mesh_5ft_18',['mesh_t',['../structtinyobj_1_1mesh__t.html',1,'tinyobj']]],
+  ['meshrenderer_19',['meshrenderer',['../classCalgine_1_1MeshRenderer.html#ae00e59dde297967364d615b6c952eb11',1,'Calgine::MeshRenderer::MeshRenderer()=default'],['../classCalgine_1_1MeshRenderer.html#aa3c6db368f22b70027f2fc868c4332e2',1,'Calgine::MeshRenderer::MeshRenderer(std::shared_ptr&lt; Model &gt; model)'],['../classCalgine_1_1MeshRenderer.html',1,'Calgine::MeshRenderer']]],
+  ['metallic_20',['metallic',['../structtinyobj_1_1material__t.html#a0d5be8695d84eda23ac048e09d611fad',1,'tinyobj::material_t']]],
+  ['metallic_5ftexname_21',['metallic_texname',['../structtinyobj_1_1material__t.html#acf05b62ec21680f4d803f02a59ad183a',1,'tinyobj::material_t']]],
+  ['metallic_5ftexopt_22',['metallic_texopt',['../structtinyobj_1_1material__t.html#abbae6c6e634f9899c3974731c554be21',1,'tinyobj::material_t']]],
+  ['model_23',['model',['../structCalgine_1_1Model.html',1,'Calgine::Model'],['../namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d',1,'Calgine::model']]],
+  ['model_2eh_24',['model.h',['../model_8h.html',1,'']]],
+  ['model_5fmatrix_25',['model_matrix',['../structCalgine_1_1BatchRenderCommand.html#a545a237af0fc11dadd52613bd1c0afe5',1,'Calgine::BatchRenderCommand']]],
+  ['mtllib_5fcb_26',['mtllib_cb',['../structtinyobj_1_1callback__t__.html#ac9002031da7d0ae5e035e6ccfbb5fb0e',1,'tinyobj::callback_t_']]]
 ];

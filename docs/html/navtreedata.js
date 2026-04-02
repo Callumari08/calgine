@@ -30,6 +30,8 @@ var NAVTREE =
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ],
         [ "Enumerations", "namespacemembers_enum.html", null ],
         [ "Enumerator", "namespacemembers_eval.html", null ]
       ] ]
@@ -39,7 +41,7 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
@@ -49,7 +51,6 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -58,7 +59,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"classCalgine_1_1Material.html#aa412ec4150c4e724c847c0d2037e2160",
+"game__object_8cxx.html",
+"structtinyobj_1_1material__t.html#abbae6c6e634f9899c3974731c554be21"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

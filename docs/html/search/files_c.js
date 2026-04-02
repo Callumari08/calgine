@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['null_5fmutex_2eh_0',['null_mutex.h',['../calgine_2vendor_2include_2spdlog_2details_2null__mutex_8h.html',1,'(Global Namespace)'],['../vendor_2spdlog_2include_2spdlog_2details_2null__mutex_8h.html',1,'(Global Namespace)']]],
-  ['null_5fsink_2eh_1',['null_sink.h',['../calgine_2vendor_2include_2spdlog_2sinks_2null__sink_8h.html',1,'(Global Namespace)'],['../vendor_2spdlog_2include_2spdlog_2sinks_2null__sink_8h.html',1,'(Global Namespace)']]]
+  ['window_2ecxx_0',['window.cxx',['../window_8cxx.html',1,'']]],
+  ['window_2eh_1',['window.h',['../window_8h.html',1,'']]],
+  ['window_5fhandler_2ecxx_2',['window_handler.cxx',['../window__handler_8cxx.html',1,'']]],
+  ['window_5fhandler_2eh_3',['window_handler.h',['../window__handler_8h.html',1,'']]]
 ];

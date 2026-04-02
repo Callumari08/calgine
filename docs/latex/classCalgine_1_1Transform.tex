@@ -1,0 +1,85 @@
+\doxysection{Calgine\+::Transform Class Reference}
+\hypertarget{classCalgine_1_1Transform}{}\label{classCalgine_1_1Transform}\index{Calgine::Transform@{Calgine::Transform}}
+
+
+{\ttfamily \#include $<$transform.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}{Transform}} (glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e}{position}}, glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}{rotation}}=glm\+::vec3(0.\+0f), glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055}{scale}}=glm\+::vec3(1.\+0f))
+\item 
+glm\+::mat4 \mbox{\hyperlink{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb}{to\+\_\+matrix}} () const
+\begin{DoxyCompactList}\small\item\em Combines the position, rotation, and scale into a single 4x4 transformation matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \mbox{\hyperlink{classCalgine_1_1Transform_ae98f1d5df181c3d042fd3f020c5196f3}{zero}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e}{position}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}{rotation}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055}{scale}} = glm\+::vec3(1.\+0f)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}\label{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3} 
+\index{Calgine::Transform@{Calgine::Transform}!Transform@{Transform}}
+\index{Transform@{Transform}!Calgine::Transform@{Calgine::Transform}}
+\doxysubsubsection{\texorpdfstring{Transform()}{Transform()}}
+{\footnotesize\ttfamily Calgine\+::\+Transform\+::\+Transform (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{position,  }\item[{glm\+::vec3}]{rotation = {\ttfamily glm\+:\+:vec3(0.0f)},  }\item[{glm\+::vec3}]{scale = {\ttfamily glm\+:\+:vec3(1.0f)} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb}\label{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb} 
+\index{Calgine::Transform@{Calgine::Transform}!to\_matrix@{to\_matrix}}
+\index{to\_matrix@{to\_matrix}!Calgine::Transform@{Calgine::Transform}}
+\doxysubsubsection{\texorpdfstring{to\_matrix()}{to\_matrix()}}
+{\footnotesize\ttfamily glm\+::mat4 Calgine\+::\+Transform\+::to\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Combines the position, rotation, and scale into a single 4x4 transformation matrix. 
+
+\begin{DoxyReturn}{Returns}
+glm\+::mat4 
+\end{DoxyReturn}
+\Hypertarget{classCalgine_1_1Transform_ae98f1d5df181c3d042fd3f020c5196f3}\label{classCalgine_1_1Transform_ae98f1d5df181c3d042fd3f020c5196f3} 
+\index{Calgine::Transform@{Calgine::Transform}!zero@{zero}}
+\index{zero@{zero}!Calgine::Transform@{Calgine::Transform}}
+\doxysubsubsection{\texorpdfstring{zero()}{zero()}}
+{\footnotesize\ttfamily static const \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} Calgine\+::\+Transform\+::zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e}\label{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e} 
+\index{Calgine::Transform@{Calgine::Transform}!position@{position}}
+\index{position@{position}!Calgine::Transform@{Calgine::Transform}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Transform\+::position}
+
+\Hypertarget{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}\label{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f} 
+\index{Calgine::Transform@{Calgine::Transform}!rotation@{rotation}}
+\index{rotation@{rotation}!Calgine::Transform@{Calgine::Transform}}
+\doxysubsubsection{\texorpdfstring{rotation}{rotation}}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Transform\+::rotation}
+
+\Hypertarget{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055}\label{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055} 
+\index{Calgine::Transform@{Calgine::Transform}!scale@{scale}}
+\index{scale@{scale}!Calgine::Transform@{Calgine::Transform}}
+\doxysubsubsection{\texorpdfstring{scale}{scale}}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Transform\+::scale = glm\+::vec3(1.\+0f)}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/\mbox{\hyperlink{transform_8h}{transform.\+h}}\item 
+src/calgine/core/\mbox{\hyperlink{transform_8cxx}{transform.\+cxx}}\end{DoxyCompactItemize}

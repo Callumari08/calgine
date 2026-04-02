@@ -1,0 +1,150 @@
+\doxysection{tinyobj Namespace Reference}
+\hypertarget{namespacetinyobj}{}\label{namespacetinyobj}\index{tinyobj@{tinyobj}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1attrib__t}{attrib\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1callback__t__}{callback\+\_\+t\+\_\+}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1index__t}{index\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1material__t}{material\+\_\+t}}
+\item 
+class \mbox{\hyperlink{classtinyobj_1_1MaterialFileReader}{Material\+File\+Reader}}
+\item 
+class \mbox{\hyperlink{classtinyobj_1_1MaterialReader}{Material\+Reader}}
+\item 
+class \mbox{\hyperlink{classtinyobj_1_1MaterialStreamReader}{Material\+Stream\+Reader}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1mesh__t}{mesh\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1shape__t}{shape\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1tag__t}{tag\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\+\_\+option\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef float \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structtinyobj_1_1callback__t__}{tinyobj\+::callback\+\_\+t\+\_\+}} \mbox{\hyperlink{namespacetinyobj_ad0a2aed3de0484c23a55f6aa59c991f4}{callback\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8}{texture\+\_\+type\+\_\+t}} \{ \newline
+\mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a259804f2e7bf9c39626abe6ebce6edc1}{TEXTURE\+\_\+\+TYPE\+\_\+\+NONE}}
+, \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a4e5a6bfb8a95a23bf0cce576aaa5dfa4}{TEXTURE\+\_\+\+TYPE\+\_\+\+SPHERE}}
+, \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8acc4c4327df32dce3fa406865a8e35519}{TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+TOP}}
+, \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a20c37be3992ed111ba47045a63351cde}{TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+BOTTOM}}
+, \newline
+\mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a1ce5bed3c2ba5c360ca6c2607b9d97ca}{TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+FRONT}}
+, \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8af2cb2d4e7551e713593382c4690aa665}{TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+BACK}}
+, \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a01f908bcfb745ad0d97d84b8cacc6d30}{TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+LEFT}}
+, \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a7709b5986f04e87ffbdc9bd7280d261c}{TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+RIGHT}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacetinyobj_a5678f6df6cb6d01bb89453022d997503}{Load\+Obj}} (\mbox{\hyperlink{structtinyobj_1_1attrib__t}{attrib\+\_\+t}} \texorpdfstring{$\ast$}{*}attrib, std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1shape__t}{shape\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}shapes, std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1material__t}{material\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}materials, std\+::string \texorpdfstring{$\ast$}{*}err, const char \texorpdfstring{$\ast$}{*}filename, const char \texorpdfstring{$\ast$}{*}mtl\+\_\+basedir=NULL, bool triangulate=true)
+\item 
+bool \mbox{\hyperlink{namespacetinyobj_add9ad979e8011ccdfac2e1ec8def5359}{Load\+Obj\+With\+Callback}} (std\+::istream \&in\+Stream, const \mbox{\hyperlink{namespacetinyobj_ad0a2aed3de0484c23a55f6aa59c991f4}{callback\+\_\+t}} \&callback, void \texorpdfstring{$\ast$}{*}user\+\_\+data=NULL, \mbox{\hyperlink{classtinyobj_1_1MaterialReader}{Material\+Reader}} \texorpdfstring{$\ast$}{*}read\+Mat\+Fn=NULL, std\+::string \texorpdfstring{$\ast$}{*}err=NULL)
+\item 
+bool \mbox{\hyperlink{namespacetinyobj_ad1e942879313375fcd1b08b7d6e7f89d}{Load\+Obj}} (\mbox{\hyperlink{structtinyobj_1_1attrib__t}{attrib\+\_\+t}} \texorpdfstring{$\ast$}{*}attrib, std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1shape__t}{shape\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}shapes, std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1material__t}{material\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}materials, std\+::string \texorpdfstring{$\ast$}{*}err, std\+::istream \texorpdfstring{$\ast$}{*}in\+Stream, \mbox{\hyperlink{classtinyobj_1_1MaterialReader}{Material\+Reader}} \texorpdfstring{$\ast$}{*}read\+Mat\+Fn=NULL, bool triangulate=true)
+\item 
+void \mbox{\hyperlink{namespacetinyobj_aa7a035d152857396e5cde8ebff8b2b9e}{Load\+Mtl}} (std\+::map$<$ std\+::string, int $>$ \texorpdfstring{$\ast$}{*}material\+\_\+map, std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1material__t}{material\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}materials, std\+::istream \texorpdfstring{$\ast$}{*}in\+Stream, std\+::string \texorpdfstring{$\ast$}{*}warning)
+\begin{DoxyCompactList}\small\item\em Loads materials into std\+::map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespacetinyobj_ad0a2aed3de0484c23a55f6aa59c991f4}\label{namespacetinyobj_ad0a2aed3de0484c23a55f6aa59c991f4} 
+\index{tinyobj@{tinyobj}!callback\_t@{callback\_t}}
+\index{callback\_t@{callback\_t}!tinyobj@{tinyobj}}
+\doxysubsubsection{\texorpdfstring{callback\_t}{callback\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structtinyobj_1_1callback__t__}{tinyobj\+::callback\+\_\+t\+\_\+}} \mbox{\hyperlink{namespacetinyobj_ad0a2aed3de0484c23a55f6aa59c991f4}{tinyobj\+::callback\+\_\+t}}}
+
+\Hypertarget{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}\label{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce} 
+\index{tinyobj@{tinyobj}!real\_t@{real\_t}}
+\index{real\_t@{real\_t}!tinyobj@{tinyobj}}
+\doxysubsubsection{\texorpdfstring{real\_t}{real\_t}}
+{\footnotesize\ttfamily typedef float \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{tinyobj\+::real\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8}\label{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8} 
+\index{tinyobj@{tinyobj}!texture\_type\_t@{texture\_type\_t}}
+\index{texture\_type\_t@{texture\_type\_t}!tinyobj@{tinyobj}}
+\doxysubsubsection{\texorpdfstring{texture\_type\_t}{texture\_type\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8}{tinyobj\+::texture\+\_\+type\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEXTURE\_TYPE\_NONE@{TEXTURE\_TYPE\_NONE}!tinyobj@{tinyobj}}\index{tinyobj@{tinyobj}!TEXTURE\_TYPE\_NONE@{TEXTURE\_TYPE\_NONE}}}\Hypertarget{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a259804f2e7bf9c39626abe6ebce6edc1}\label{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a259804f2e7bf9c39626abe6ebce6edc1} 
+TEXTURE\+\_\+\+TYPE\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEXTURE\_TYPE\_SPHERE@{TEXTURE\_TYPE\_SPHERE}!tinyobj@{tinyobj}}\index{tinyobj@{tinyobj}!TEXTURE\_TYPE\_SPHERE@{TEXTURE\_TYPE\_SPHERE}}}\Hypertarget{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a4e5a6bfb8a95a23bf0cce576aaa5dfa4}\label{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a4e5a6bfb8a95a23bf0cce576aaa5dfa4} 
+TEXTURE\+\_\+\+TYPE\+\_\+\+SPHERE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEXTURE\_TYPE\_CUBE\_TOP@{TEXTURE\_TYPE\_CUBE\_TOP}!tinyobj@{tinyobj}}\index{tinyobj@{tinyobj}!TEXTURE\_TYPE\_CUBE\_TOP@{TEXTURE\_TYPE\_CUBE\_TOP}}}\Hypertarget{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8acc4c4327df32dce3fa406865a8e35519}\label{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8acc4c4327df32dce3fa406865a8e35519} 
+TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+TOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEXTURE\_TYPE\_CUBE\_BOTTOM@{TEXTURE\_TYPE\_CUBE\_BOTTOM}!tinyobj@{tinyobj}}\index{tinyobj@{tinyobj}!TEXTURE\_TYPE\_CUBE\_BOTTOM@{TEXTURE\_TYPE\_CUBE\_BOTTOM}}}\Hypertarget{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a20c37be3992ed111ba47045a63351cde}\label{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a20c37be3992ed111ba47045a63351cde} 
+TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+BOTTOM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEXTURE\_TYPE\_CUBE\_FRONT@{TEXTURE\_TYPE\_CUBE\_FRONT}!tinyobj@{tinyobj}}\index{tinyobj@{tinyobj}!TEXTURE\_TYPE\_CUBE\_FRONT@{TEXTURE\_TYPE\_CUBE\_FRONT}}}\Hypertarget{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a1ce5bed3c2ba5c360ca6c2607b9d97ca}\label{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a1ce5bed3c2ba5c360ca6c2607b9d97ca} 
+TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+FRONT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEXTURE\_TYPE\_CUBE\_BACK@{TEXTURE\_TYPE\_CUBE\_BACK}!tinyobj@{tinyobj}}\index{tinyobj@{tinyobj}!TEXTURE\_TYPE\_CUBE\_BACK@{TEXTURE\_TYPE\_CUBE\_BACK}}}\Hypertarget{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8af2cb2d4e7551e713593382c4690aa665}\label{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8af2cb2d4e7551e713593382c4690aa665} 
+TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+BACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEXTURE\_TYPE\_CUBE\_LEFT@{TEXTURE\_TYPE\_CUBE\_LEFT}!tinyobj@{tinyobj}}\index{tinyobj@{tinyobj}!TEXTURE\_TYPE\_CUBE\_LEFT@{TEXTURE\_TYPE\_CUBE\_LEFT}}}\Hypertarget{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a01f908bcfb745ad0d97d84b8cacc6d30}\label{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a01f908bcfb745ad0d97d84b8cacc6d30} 
+TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEXTURE\_TYPE\_CUBE\_RIGHT@{TEXTURE\_TYPE\_CUBE\_RIGHT}!tinyobj@{tinyobj}}\index{tinyobj@{tinyobj}!TEXTURE\_TYPE\_CUBE\_RIGHT@{TEXTURE\_TYPE\_CUBE\_RIGHT}}}\Hypertarget{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a7709b5986f04e87ffbdc9bd7280d261c}\label{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a7709b5986f04e87ffbdc9bd7280d261c} 
+TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+RIGHT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacetinyobj_aa7a035d152857396e5cde8ebff8b2b9e}\label{namespacetinyobj_aa7a035d152857396e5cde8ebff8b2b9e} 
+\index{tinyobj@{tinyobj}!LoadMtl@{LoadMtl}}
+\index{LoadMtl@{LoadMtl}!tinyobj@{tinyobj}}
+\doxysubsubsection{\texorpdfstring{LoadMtl()}{LoadMtl()}}
+{\footnotesize\ttfamily void tinyobj\+::\+Load\+Mtl (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::string, int $>$ \texorpdfstring{$\ast$}{*}}]{material\+\_\+map,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1material__t}{material\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}}]{materials,  }\item[{std\+::istream \texorpdfstring{$\ast$}{*}}]{in\+Stream,  }\item[{std\+::string \texorpdfstring{$\ast$}{*}}]{warning }\end{DoxyParamCaption})}
+
+
+
+Loads materials into std\+::map. 
+
+\Hypertarget{namespacetinyobj_a5678f6df6cb6d01bb89453022d997503}\label{namespacetinyobj_a5678f6df6cb6d01bb89453022d997503} 
+\index{tinyobj@{tinyobj}!LoadObj@{LoadObj}}
+\index{LoadObj@{LoadObj}!tinyobj@{tinyobj}}
+\doxysubsubsection{\texorpdfstring{LoadObj()}{LoadObj()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool tinyobj\+::\+Load\+Obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtinyobj_1_1attrib__t}{attrib\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attrib,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1shape__t}{shape\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}}]{shapes,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1material__t}{material\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}}]{materials,  }\item[{std\+::string \texorpdfstring{$\ast$}{*}}]{err,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{mtl\+\_\+basedir = {\ttfamily NULL},  }\item[{bool}]{triangulate = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Loads .obj from a file. \textquotesingle{}attrib\textquotesingle{}, \textquotesingle{}shapes\textquotesingle{} and \textquotesingle{}materials\textquotesingle{} will be filled with parsed shape data \textquotesingle{}shapes\textquotesingle{} will be filled with parsed shape data Returns true when loading .obj become success. Returns warning and error message into {\ttfamily err} \textquotesingle{}mtl\+\_\+basedir\textquotesingle{} is optional, and used for base directory for .mtl file. In default(`NULL'), .mtl file is searched from an application\textquotesingle{}s working directory. \textquotesingle{}triangulate\textquotesingle{} is optional, and used whether triangulate polygon face in .obj or not. \Hypertarget{namespacetinyobj_ad1e942879313375fcd1b08b7d6e7f89d}\label{namespacetinyobj_ad1e942879313375fcd1b08b7d6e7f89d} 
+\index{tinyobj@{tinyobj}!LoadObj@{LoadObj}}
+\index{LoadObj@{LoadObj}!tinyobj@{tinyobj}}
+\doxysubsubsection{\texorpdfstring{LoadObj()}{LoadObj()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool tinyobj\+::\+Load\+Obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtinyobj_1_1attrib__t}{attrib\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attrib,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1shape__t}{shape\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}}]{shapes,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1material__t}{material\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}}]{materials,  }\item[{std\+::string \texorpdfstring{$\ast$}{*}}]{err,  }\item[{std\+::istream \texorpdfstring{$\ast$}{*}}]{in\+Stream,  }\item[{\mbox{\hyperlink{classtinyobj_1_1MaterialReader}{Material\+Reader}} \texorpdfstring{$\ast$}{*}}]{read\+Mat\+Fn = {\ttfamily NULL},  }\item[{bool}]{triangulate = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Loads object from a std\+::istream, uses Get\+Mtl\+IStream\+Fn to retrieve std\+::istream for materials. Returns true when loading .obj become success. Returns warning and error message into {\ttfamily err} \Hypertarget{namespacetinyobj_add9ad979e8011ccdfac2e1ec8def5359}\label{namespacetinyobj_add9ad979e8011ccdfac2e1ec8def5359} 
+\index{tinyobj@{tinyobj}!LoadObjWithCallback@{LoadObjWithCallback}}
+\index{LoadObjWithCallback@{LoadObjWithCallback}!tinyobj@{tinyobj}}
+\doxysubsubsection{\texorpdfstring{LoadObjWithCallback()}{LoadObjWithCallback()}}
+{\footnotesize\ttfamily bool tinyobj\+::\+Load\+Obj\+With\+Callback (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in\+Stream,  }\item[{const \mbox{\hyperlink{namespacetinyobj_ad0a2aed3de0484c23a55f6aa59c991f4}{callback\+\_\+t}} \&}]{callback,  }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+\_\+data = {\ttfamily NULL},  }\item[{\mbox{\hyperlink{classtinyobj_1_1MaterialReader}{Material\+Reader}} \texorpdfstring{$\ast$}{*}}]{read\+Mat\+Fn = {\ttfamily NULL},  }\item[{std\+::string \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Loads .obj from a file with custom user callback. .mtl is loaded as usual and parsed \doxylink{structtinyobj_1_1material__t}{material\+\_\+t} data will be passed to {\ttfamily callback.\+mtllib\+\_\+cb}. Returns true when loading .obj/.mtl become success. Returns warning and error message into {\ttfamily err} See {\ttfamily examples/callback\+\_\+api/} for how to use this function. 

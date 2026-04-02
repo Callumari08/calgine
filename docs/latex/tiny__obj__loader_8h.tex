@@ -1,0 +1,68 @@
+\doxysection{src/calgine/core/asset\+\_\+management/tiny\+\_\+obj\+\_\+loader.h File Reference}
+\hypertarget{tiny__obj__loader_8h}{}\label{tiny__obj__loader_8h}\index{src/calgine/core/asset\_management/tiny\_obj\_loader.h@{src/calgine/core/asset\_management/tiny\_obj\_loader.h}}
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{tinyobj\+::texture\+\_\+option\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1material__t}{tinyobj\+::material\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1tag__t}{tinyobj\+::tag\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1index__t}{tinyobj\+::index\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1mesh__t}{tinyobj\+::mesh\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1shape__t}{tinyobj\+::shape\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1attrib__t}{tinyobj\+::attrib\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structtinyobj_1_1callback__t__}{tinyobj\+::callback\+\_\+t\+\_\+}}
+\item 
+class \mbox{\hyperlink{classtinyobj_1_1MaterialReader}{tinyobj\+::\+Material\+Reader}}
+\item 
+class \mbox{\hyperlink{classtinyobj_1_1MaterialFileReader}{tinyobj\+::\+Material\+File\+Reader}}
+\item 
+class \mbox{\hyperlink{classtinyobj_1_1MaterialStreamReader}{tinyobj\+::\+Material\+Stream\+Reader}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetinyobj}{tinyobj}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef float \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{tinyobj\+::real\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structtinyobj_1_1callback__t__}{tinyobj\+::callback\+\_\+t\+\_\+}} \mbox{\hyperlink{namespacetinyobj_ad0a2aed3de0484c23a55f6aa59c991f4}{tinyobj\+::callback\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8}{tinyobj\+::texture\+\_\+type\+\_\+t}} \{ \newline
+\mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a259804f2e7bf9c39626abe6ebce6edc1}{tinyobj\+::\+TEXTURE\+\_\+\+TYPE\+\_\+\+NONE}}
+, \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a4e5a6bfb8a95a23bf0cce576aaa5dfa4}{tinyobj\+::\+TEXTURE\+\_\+\+TYPE\+\_\+\+SPHERE}}
+, \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8acc4c4327df32dce3fa406865a8e35519}{tinyobj\+::\+TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+TOP}}
+, \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a20c37be3992ed111ba47045a63351cde}{tinyobj\+::\+TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+BOTTOM}}
+, \newline
+\mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a1ce5bed3c2ba5c360ca6c2607b9d97ca}{tinyobj\+::\+TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+FRONT}}
+, \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8af2cb2d4e7551e713593382c4690aa665}{tinyobj\+::\+TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+BACK}}
+, \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a01f908bcfb745ad0d97d84b8cacc6d30}{tinyobj\+::\+TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+LEFT}}
+, \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a7709b5986f04e87ffbdc9bd7280d261c}{tinyobj\+::\+TEXTURE\+\_\+\+TYPE\+\_\+\+CUBE\+\_\+\+RIGHT}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacetinyobj_a5678f6df6cb6d01bb89453022d997503}{tinyobj\+::\+Load\+Obj}} (\mbox{\hyperlink{structtinyobj_1_1attrib__t}{attrib\+\_\+t}} \texorpdfstring{$\ast$}{*}attrib, std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1shape__t}{shape\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}shapes, std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1material__t}{material\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}materials, std\+::string \texorpdfstring{$\ast$}{*}err, const char \texorpdfstring{$\ast$}{*}filename, const char \texorpdfstring{$\ast$}{*}mtl\+\_\+basedir=NULL, bool triangulate=true)
+\item 
+bool \mbox{\hyperlink{namespacetinyobj_add9ad979e8011ccdfac2e1ec8def5359}{tinyobj\+::\+Load\+Obj\+With\+Callback}} (std\+::istream \&in\+Stream, const \mbox{\hyperlink{namespacetinyobj_ad0a2aed3de0484c23a55f6aa59c991f4}{callback\+\_\+t}} \&callback, void \texorpdfstring{$\ast$}{*}user\+\_\+data=NULL, \mbox{\hyperlink{classtinyobj_1_1MaterialReader}{Material\+Reader}} \texorpdfstring{$\ast$}{*}read\+Mat\+Fn=NULL, std\+::string \texorpdfstring{$\ast$}{*}err=NULL)
+\item 
+bool \mbox{\hyperlink{namespacetinyobj_ad1e942879313375fcd1b08b7d6e7f89d}{tinyobj\+::\+Load\+Obj}} (\mbox{\hyperlink{structtinyobj_1_1attrib__t}{attrib\+\_\+t}} \texorpdfstring{$\ast$}{*}attrib, std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1shape__t}{shape\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}shapes, std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1material__t}{material\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}materials, std\+::string \texorpdfstring{$\ast$}{*}err, std\+::istream \texorpdfstring{$\ast$}{*}in\+Stream, \mbox{\hyperlink{classtinyobj_1_1MaterialReader}{Material\+Reader}} \texorpdfstring{$\ast$}{*}read\+Mat\+Fn=NULL, bool triangulate=true)
+\item 
+void \mbox{\hyperlink{namespacetinyobj_aa7a035d152857396e5cde8ebff8b2b9e}{tinyobj\+::\+Load\+Mtl}} (std\+::map$<$ std\+::string, int $>$ \texorpdfstring{$\ast$}{*}material\+\_\+map, std\+::vector$<$ \mbox{\hyperlink{structtinyobj_1_1material__t}{material\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}materials, std\+::istream \texorpdfstring{$\ast$}{*}in\+Stream, std\+::string \texorpdfstring{$\ast$}{*}warning)
+\begin{DoxyCompactList}\small\item\em Loads materials into std\+::map. \end{DoxyCompactList}\end{DoxyCompactItemize}

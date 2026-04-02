@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['log_2ecxx_0',['log.cxx',['../log_8cxx.html',1,'']]],
-  ['log_2eh_1',['log.h',['../log_8h.html',1,'']]]
+  ['index_5fbuffer_2ecxx_0',['index_buffer.cxx',['../index__buffer_8cxx.html',1,'']]],
+  ['index_5fbuffer_2eh_1',['index_buffer.h',['../index__buffer_8h.html',1,'']]]
 ];

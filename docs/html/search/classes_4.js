@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['log_0',['Log',['../classCalgine_1_1Log.html',1,'Calgine']]]
+  ['hierarchyrenderer_0',['HierarchyRenderer',['../classCalgine_1_1HierarchyRenderer.html',1,'Calgine']]]
 ];

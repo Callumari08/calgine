@@ -1,0 +1,32 @@
+\doxysection{mesh\+\_\+renderer.\+h}
+\hypertarget{mesh__renderer_8h_source}{}\label{mesh__renderer_8h_source}\index{src/calgine/core/renderer/mesh\_renderer.h@{src/calgine/core/renderer/mesh\_renderer.h}}
+\mbox{\hyperlink{mesh__renderer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{behaviour_8h}{calgine/core/behaviour.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{model_8h}{calgine/core/renderer/model.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1MeshRenderer}{MeshRenderer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}\ }
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{classCalgine_1_1MeshRenderer_ae00e59dde297967364d615b6c952eb11}{MeshRenderer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{classCalgine_1_1MeshRenderer_aa3c6db368f22b70027f2fc868c4332e2}{MeshRenderer}}(std::shared\_ptr<Model>\ model)\ }
+\DoxyCodeLine{00015\ \ \ \ \ :\ model\_ptr(\mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d}{model}})\ \{\}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ std::shared\_ptr<Model>\ \mbox{\hyperlink{classCalgine_1_1MeshRenderer_ab756cab54837dd3a13a792dcc000eabe}{get\_model}}()\ \{\ \textcolor{keywordflow}{return}\ model\_ptr;\ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1MeshRenderer_aeb48da10d4337e560596f079c8a318fd}{set\_material}}(std::shared\_ptr<Material>\ material)\ \{\ model\_ptr-\/>material\ =\ material;\ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ std::shared\_ptr<Model>\ model\_ptr;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}\ render\_tick()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}

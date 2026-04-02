@@ -1,0 +1,73 @@
+\doxysection{Calgine\+::Renderer Class Reference}
+\hypertarget{classCalgine_1_1Renderer}{}\label{classCalgine_1_1Renderer}\index{Calgine::Renderer@{Calgine::Renderer}}
+
+
+{\ttfamily \#include $<$renderer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCalgine_1_1Renderer_a7eafe3ae0b124c16179e0f19a4429129}{submit}} (const \mbox{\hyperlink{classCalgine_1_1Mesh}{Mesh}} \texorpdfstring{$\ast$}{*}mesh, const \mbox{\hyperlink{classCalgine_1_1Material}{Material}} \texorpdfstring{$\ast$}{*}material, const glm\+::mat4 model\+\_\+matrix)
+\item 
+void \mbox{\hyperlink{classCalgine_1_1Renderer_a257ff9ab7bc081c8a394a73450f9ff45}{submit}} (const \mbox{\hyperlink{structCalgine_1_1BatchRenderCommand}{Batch\+Render\+Command}} cmd)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classCalgine_1_1Renderer}{Renderer}} \& \mbox{\hyperlink{classCalgine_1_1Renderer_a3e76db9d70f0254171903139112749c2}{get\+\_\+instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static GLenum \mbox{\hyperlink{classCalgine_1_1Renderer_a14ee70a9306b3fbe06fc94cae98dee5e}{current\+\_\+cull\+\_\+state}} = GL\+\_\+\+NONE
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1Renderer_a4097b3e04a4f8ece21f5abe1b10e6323}{App}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1Renderer_a3e76db9d70f0254171903139112749c2}\label{classCalgine_1_1Renderer_a3e76db9d70f0254171903139112749c2} 
+\index{Calgine::Renderer@{Calgine::Renderer}!get\_instance@{get\_instance}}
+\index{get\_instance@{get\_instance}!Calgine::Renderer@{Calgine::Renderer}}
+\doxysubsubsection{\texorpdfstring{get\_instance()}{get\_instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1Renderer}{Renderer}} \& Calgine\+::\+Renderer\+::get\+\_\+instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classCalgine_1_1Renderer_a257ff9ab7bc081c8a394a73450f9ff45}\label{classCalgine_1_1Renderer_a257ff9ab7bc081c8a394a73450f9ff45} 
+\index{Calgine::Renderer@{Calgine::Renderer}!submit@{submit}}
+\index{submit@{submit}!Calgine::Renderer@{Calgine::Renderer}}
+\doxysubsubsection{\texorpdfstring{submit()}{submit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Calgine\+::\+Renderer\+::submit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structCalgine_1_1BatchRenderCommand}{Batch\+Render\+Command}}}]{cmd }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1Renderer_a7eafe3ae0b124c16179e0f19a4429129}\label{classCalgine_1_1Renderer_a7eafe3ae0b124c16179e0f19a4429129} 
+\index{Calgine::Renderer@{Calgine::Renderer}!submit@{submit}}
+\index{submit@{submit}!Calgine::Renderer@{Calgine::Renderer}}
+\doxysubsubsection{\texorpdfstring{submit()}{submit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Calgine\+::\+Renderer\+::submit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCalgine_1_1Mesh}{Mesh}} \texorpdfstring{$\ast$}{*}}]{mesh,  }\item[{const \mbox{\hyperlink{classCalgine_1_1Material}{Material}} \texorpdfstring{$\ast$}{*}}]{material,  }\item[{const glm\+::mat4}]{model\+\_\+matrix }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classCalgine_1_1Renderer_a4097b3e04a4f8ece21f5abe1b10e6323}\label{classCalgine_1_1Renderer_a4097b3e04a4f8ece21f5abe1b10e6323} 
+\index{Calgine::Renderer@{Calgine::Renderer}!App@{App}}
+\index{App@{App}!Calgine::Renderer@{Calgine::Renderer}}
+\doxysubsubsection{\texorpdfstring{App}{App}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classCalgine_1_1App}{App}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCalgine_1_1Renderer_a14ee70a9306b3fbe06fc94cae98dee5e}\label{classCalgine_1_1Renderer_a14ee70a9306b3fbe06fc94cae98dee5e} 
+\index{Calgine::Renderer@{Calgine::Renderer}!current\_cull\_state@{current\_cull\_state}}
+\index{current\_cull\_state@{current\_cull\_state}!Calgine::Renderer@{Calgine::Renderer}}
+\doxysubsubsection{\texorpdfstring{current\_cull\_state}{current\_cull\_state}}
+{\footnotesize\ttfamily GLenum Calgine\+::\+Renderer\+::current\+\_\+cull\+\_\+state = GL\+\_\+\+NONE\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/renderer/\mbox{\hyperlink{renderer_8h}{renderer.\+h}}\item 
+src/calgine/core/renderer/\mbox{\hyperlink{renderer_8cxx}{renderer.\+cxx}}\end{DoxyCompactItemize}

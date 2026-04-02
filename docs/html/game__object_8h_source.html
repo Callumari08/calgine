@@ -100,186 +100,253 @@ $(document).ready(function(){initNavTree('game__object_8h_source.html',''); init
 <a href="game__object_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="log_8h.html">calgine/core/log.h</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="calgine__pch_8h.html">calgine_pch.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="calgine__api_8h.html">calgine_api.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="behaviour_8h.html">behaviour.h</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceCalgine.html">Calgine</a> {</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="transform_8h.html">calgine/core/transform.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="calgine__pch_8h.html">calgine_pch.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="calgine__api_8h.html">calgine_api.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="behaviour_8h.html">behaviour.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">   11</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">TickType</a></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92">   13</a></span>  <a class="code hl_enumvalue" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92">preloop</a>,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d">   14</a></span>  <a class="code hl_enumvalue" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d">update</a>,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc">   15</a></span>  <a class="code hl_enumvalue" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc">late_update</a>,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10">   16</a></span>  <a class="code hl_enumvalue" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10">imgui_render</a>,</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceCalgine.html">Calgine</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">   13</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">TickType</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92">   15</a></span>  <a class="code hl_enumvalue" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92">preloop</a>,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a55f1d1f1d99546bd18933cfa873a7b9a">   16</a></span>  <a class="code hl_enumvalue" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a55f1d1f1d99546bd18933cfa873a7b9a">fixed_update</a>,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d">   17</a></span>  <a class="code hl_enumvalue" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d">update</a>,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc">   18</a></span>  <a class="code hl_enumvalue" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc">late_update</a>,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6">   19</a></span>  <a class="code hl_enumvalue" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6">render</a>,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10">   20</a></span>  <a class="code hl_enumvalue" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10">imgui_render</a>,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
 </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html">   23</a></span><span class="keyword">class </span><a class="code hl_define" href="calgine__api_8h.html#a4e7aacb34d39acc08f8f3619a3b56395">CALGINE_API</a> <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="comment">// use for debugging purpouses only</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keyword">static</span> uint32_t num_game_objects;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keywordtype">bool</span> destroyed = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keywordtype">bool</span> <a class="code hl_enumvalue" href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544">enabled</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html">   27</a></span><span class="keyword">class </span><a class="code hl_define" href="calgine__api_8h.html#a4e7aacb34d39acc08f8f3619a3b56395">CALGINE_API</a> <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="comment">// use for debugging purpouses only</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keyword">static</span> uint32_t num_game_objects;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  std::string name = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  std::unordered_map&lt;std::type_index, std::unique_ptr&lt;Behaviour&gt;&gt; behaviours;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  std::vector&lt;std::unique_ptr&lt;GameObject&gt;&gt; children;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* parent = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="comment">// queue to hold objects whose memory must be released AFTER their member functions finish</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keyword">static</span> <span class="keyword">inline</span> std::vector&lt;std::unique_ptr&lt;GameObject&gt;&gt; pending_deletes;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keyword">explicit</span> <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* _parent);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="keyword">virtual</span> <a class="code hl_class" href="classCalgine_1_1GameObject.html">~GameObject</a>();</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> process_pending_deletes();</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keywordtype">void</span> destroy();</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  std::unique_ptr&lt;GameObject&gt; detach_child(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* child);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="comment">// convenience: immediately erase and delete child (use only if caller is external owner)</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <span class="keywordtype">bool</span> remove_child_immediate(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* child);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keywordtype">bool</span> destroyed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keywordtype">bool</span> <a class="code hl_enumvalue" href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544">enabled</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <a class="code hl_class" href="classCalgine_1_1Transform.html">Transform</a> transform;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  std::string name = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  std::unordered_map&lt;std::type_index, std::unique_ptr&lt;Behaviour&gt;&gt; behaviours;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  std::vector&lt;std::unique_ptr&lt;GameObject&gt;&gt; children;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* parent = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="comment">// queue to hold objects whose memory must be released AFTER their member functions finish</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keyword">static</span> <span class="keyword">inline</span> std::vector&lt;std::unique_ptr&lt;GameObject&gt;&gt; pending_deletes;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordtype">void</span> tick_self_and_children(<span class="keyword">const</span> <a class="code hl_enumeration" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">TickType</a> tick_type);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> process_pending_deletes();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keyword">explicit</span> <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* parent, <span class="keyword">const</span> <a class="code hl_class" href="classCalgine_1_1Transform.html">Transform</a> transform, <span class="keyword">const</span> std::string name);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keyword">virtual</span> <a class="code hl_class" href="classCalgine_1_1GameObject.html">~GameObject</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#aa1b103accd62c24bb8274c9578147dca">   54</a></span>  <span class="keyword">static</span> <span class="keyword">inline</span> uint32_t <a class="code hl_function" href="classCalgine_1_1GameObject.html#aa1b103accd62c24bb8274c9578147dca">get_num_game_objects</a>() { <span class="keywordflow">return</span> num_game_objects; }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <span class="keywordtype">void</span> destroy();</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a4aecf696b321ec1554a1a1caf46fd289">   58</a></span>  <a class="code hl_function" href="classCalgine_1_1GameObject.html#a4aecf696b321ec1554a1a1caf46fd289">GameObject</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#ae60d4b1987fbd4ec0458a13719d1239e">   59</a></span>  <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp; <a class="code hl_function" href="classCalgine_1_1GameObject.html#ae60d4b1987fbd4ec0458a13719d1239e">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#aa6e185519ecdf22d9754afdb2da1f701">   61</a></span>  <a class="code hl_function" href="classCalgine_1_1GameObject.html#aa6e185519ecdf22d9754afdb2da1f701">GameObject</a>(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a03121f27fb122fb29542ca8c78b40e30">   62</a></span>  <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp; <a class="code hl_function" href="classCalgine_1_1GameObject.html#a03121f27fb122fb29542ca8c78b40e30">operator=</a>(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keywordtype">bool</span> is_enabled() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="keywordtype">void</span> set_active(<span class="keyword">const</span> <span class="keywordtype">bool</span> _enabled); </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T_behaviour&gt;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <span class="keyword">requires</span> std::derived_from&lt;T_behaviour, Behaviour&gt;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keywordtype">bool</span> add_behaviour();</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T_behaviour&gt;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keyword">requires</span> std::derived_from&lt;T_behaviour, Behaviour&gt;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  T_behaviour* get_behaviour() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T_behaviour&gt;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keyword">requires</span> std::derived_from&lt;T_behaviour, Behaviour&gt;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="keywordtype">bool</span> has_behaviour() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="keyword">requires</span> std::derived_from&lt;T, GameObject&gt;</div>
-<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#accf41615441ecc4f14ae550a1c3dba5f">   81</a></span>  T&amp; <a class="code hl_function" href="classCalgine_1_1GameObject.html#accf41615441ecc4f14ae550a1c3dba5f">instantiate_child</a>(Args&amp;&amp;... args)</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">auto</span> child = std::make_unique&lt;T&gt;(<span class="keyword">this</span>, std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    T&amp; ref = *child;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    children.emplace_back(std::move(child));</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">return</span> ref;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  std::unique_ptr&lt;GameObject&gt; detach_child(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* child);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="comment">// convenience: immediately erase and delete child (use only if caller is external owner)</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keywordtype">bool</span> remove_child_immediate(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* child);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a4aecf696b321ec1554a1a1caf46fd289">   63</a></span>  <a class="code hl_function" href="classCalgine_1_1GameObject.html#a4aecf696b321ec1554a1a1caf46fd289">GameObject</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#ae60d4b1987fbd4ec0458a13719d1239e">   64</a></span>  <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp; <a class="code hl_function" href="classCalgine_1_1GameObject.html#ae60d4b1987fbd4ec0458a13719d1239e">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#aa6e185519ecdf22d9754afdb2da1f701">   66</a></span>  <a class="code hl_function" href="classCalgine_1_1GameObject.html#aa6e185519ecdf22d9754afdb2da1f701">GameObject</a>(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a03121f27fb122fb29542ca8c78b40e30">   67</a></span>  <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp; <a class="code hl_function" href="classCalgine_1_1GameObject.html#a03121f27fb122fb29542ca8c78b40e30">operator=</a>(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a2166a4e0a26229a7b1ce8bbe7fb23914">   69</a></span>  <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classCalgine_1_1GameObject.html#a2166a4e0a26229a7b1ce8bbe7fb23914">is_enabled</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544">enabled</a>; }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <span class="keywordtype">void</span> set_active(<span class="keyword">const</span> <span class="keywordtype">bool</span> _enabled);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a406397e8c9477102f3a41424f4cfe091">   72</a></span>  <span class="keyword">inline</span> <a class="code hl_class" href="classCalgine_1_1Transform.html">Transform</a>&amp; <a class="code hl_function" href="classCalgine_1_1GameObject.html#a406397e8c9477102f3a41424f4cfe091">get_transform</a>() { <span class="keywordflow">return</span> transform; }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T_behaviour, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keyword">requires</span> std::derived_from&lt;T_behaviour, Behaviour&gt;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  T_behaviour* add_behaviour(Args&amp;&amp;... args);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T_behaviour&gt;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keyword">requires</span> std::derived_from&lt;T_behaviour, Behaviour&gt;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  T_behaviour* get_behaviour() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T_behaviour&gt;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <span class="keyword">requires</span> std::derived_from&lt;T_behaviour, Behaviour&gt;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <span class="keywordtype">bool</span> has_behaviour() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <span class="keyword">requires</span> std::derived_from&lt;T, GameObject&gt;</div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#accf41615441ecc4f14ae550a1c3dba5f">   88</a></span>  T&amp; <a class="code hl_function" href="classCalgine_1_1GameObject.html#accf41615441ecc4f14ae550a1c3dba5f">instantiate_child</a>(Args&amp;&amp;... args)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">auto</span> child = std::make_unique&lt;T&gt;(<span class="keyword">this</span>, std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    children.emplace_back(std::move(child));</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordflow">return</span> *<span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(children.back().get());</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  }</div>
 </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <span class="keywordtype">void</span> tick_self_and_children(<a class="code hl_enumeration" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">TickType</a> tick_type);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <span class="keywordtype">void</span> set_parent(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* _parent);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  std::optional&lt;std::reference_wrapper&lt;GameObject&gt;&gt; get_parent() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d">  101</a></span>  <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d">get_name</a>()</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">return</span> name;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  <span class="keywordtype">void</span> set_parent(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* parent);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  std::optional&lt;std::reference_wrapper&lt;GameObject&gt;&gt; get_parent() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d">  106</a></span>  <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d">get_name</a>()</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordflow">return</span> name;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  }</div>
 </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <span class="keywordtype">void</span> set_name(std::string _name);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>};</div>
-</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">// Templates</span></div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T_behaviour&gt;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keyword">requires</span> std::derived_from&lt;T_behaviour, Behaviour&gt;</div>
-<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a37886ebc4875a4c1f89743273151a119">  113</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classCalgine_1_1GameObject.html#a37886ebc4875a4c1f89743273151a119">GameObject::add_behaviour</a>()</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>{</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keyword">auto</span> [it, inserted] = behaviours.emplace(</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>      <span class="keyword">typeid</span>(T_behaviour),</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>      <span class="keyword">nullptr</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    );</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  <span class="keywordtype">void</span> set_name(std::string _name);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a4097b3e04a4f8ece21f5abe1b10e6323">  113</a></span>  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classCalgine_1_1App.html">App</a>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  <span class="comment">// Iterator for depth-first traversal</span></div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="};">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject_1_1Iterator.html">  116</a></span>  <span class="keyword">class </span><a class="code hl_class" href="classCalgine_1_1GameObject_1_1Iterator.html">Iterator</a> {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    std::stack&lt;GameObject*&gt; stack;</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordflow">if</span> (!inserted) </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    {</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>      <a class="code hl_function" href="classCalgine_1_1Log.html#a41f2a12df7fc534dc3179c7f4e80f84f">Log::get_engine_logger</a>()-&gt;warn(<span class="stringliteral">&quot;Behaviour already exists on GameObject: {}&quot;</span>, <a class="code hl_function" href="classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d">get_name</a>());</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    std::unique_ptr&lt;Behaviour&gt; owned;</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordflow">try</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    {</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>      owned.reset(Behaviour::create&lt;T_behaviour&gt;());</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>      owned-&gt;attach_owner(<span class="keyword">this</span>);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    }</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordflow">catch</span> (...) {</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    behaviours.erase(it);</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordflow">throw</span>;</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  }</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  it-&gt;second = std::move(owned);</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>}</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00121" data-start="{" data-end="}">
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject_1_1Iterator.html#a3d74eac033c11686840c92df83dd849c">  121</a></span>    <a class="code hl_function" href="classCalgine_1_1GameObject_1_1Iterator.html#a3d74eac033c11686840c92df83dd849c">Iterator</a>(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* root) {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>      <span class="keywordflow">if</span> (root) stack.push(root);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
 </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T_behaviour&gt;</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="keyword">requires</span> std::derived_from&lt;T_behaviour, Behaviour&gt;</div>
-<div class="foldopen" id="foldopen00144" data-start="{" data-end="}">
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a7b9fc3d7cd0516f2166c93101ce514e2">  144</a></span>T_behaviour* <a class="code hl_function" href="classCalgine_1_1GameObject.html#a7b9fc3d7cd0516f2166c93101ce514e2">GameObject::get_behaviour</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>  <span class="keyword">auto</span> it = behaviours.find(<span class="keyword">typeid</span>(T_behaviour));</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>  <span class="keywordflow">if</span> (it == behaviours.end())</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject_1_1Iterator.html#a5bca68349c9239e30ce40338907da815">  125</a></span>    <a class="code hl_function" href="classCalgine_1_1GameObject_1_1Iterator.html#a5bca68349c9239e30ce40338907da815">Iterator</a>() {}</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject_1_1Iterator.html#a4be84b1be8b2f0eb7954b0c8a2d8bcce">  127</a></span>    <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>&amp; <a class="code hl_function" href="classCalgine_1_1GameObject_1_1Iterator.html#a4be84b1be8b2f0eb7954b0c8a2d8bcce">operator*</a>() { <span class="keywordflow">return</span> *stack.top(); }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject_1_1Iterator.html#acea87bca74dcd4577dd8493b11a29ad7">  128</a></span>    <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* <a class="code hl_function" href="classCalgine_1_1GameObject_1_1Iterator.html#acea87bca74dcd4577dd8493b11a29ad7">operator-&gt;</a>() { <span class="keywordflow">return</span> stack.top(); }</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="foldopen" id="foldopen00130" data-start="{" data-end="}">
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject_1_1Iterator.html#a05dc421016ef86d15b5f0875091b4870">  130</a></span>    <a class="code hl_class" href="classCalgine_1_1GameObject_1_1Iterator.html">Iterator</a>&amp; <a class="code hl_function" href="classCalgine_1_1GameObject_1_1Iterator.html#a05dc421016ef86d15b5f0875091b4870">operator++</a>() {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>      <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* current = stack.top();</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>      stack.pop();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>      <span class="keyword">auto</span>&amp; children = current-&gt;children;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = children.rbegin(); it != children.rend(); ++it) {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        stack.push(it-&gt;get());</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>      }</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    }</div>
+</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="foldopen" id="foldopen00141" data-start="{" data-end="}">
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject_1_1Iterator.html#a9aa2a5504363016061a52373239a47cb">  141</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCalgine_1_1GameObject_1_1Iterator.html#a9aa2a5504363016061a52373239a47cb">operator!=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCalgine_1_1GameObject_1_1Iterator.html">Iterator</a>&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>      <span class="keywordflow">return</span> stack.size() != other.stack.size();</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    }</div>
+</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  };</div>
+</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#acbd6a727b4948fbbef2e4b2cad78a965">  146</a></span>  <a class="code hl_class" href="classCalgine_1_1GameObject_1_1Iterator.html">Iterator</a> <a class="code hl_function" href="classCalgine_1_1GameObject.html#acbd6a727b4948fbbef2e4b2cad78a965">begin</a>() { <span class="keywordflow">return</span> <a class="code hl_class" href="classCalgine_1_1GameObject_1_1Iterator.html">Iterator</a>(<span class="keyword">this</span>); }</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a82dd591a82d55f87b6dcfa7579764642">  147</a></span>  <a class="code hl_class" href="classCalgine_1_1GameObject_1_1Iterator.html">Iterator</a> <a class="code hl_function" href="classCalgine_1_1GameObject.html#a82dd591a82d55f87b6dcfa7579764642">end</a>() { <span class="keywordflow">return</span> <a class="code hl_class" href="classCalgine_1_1GameObject_1_1Iterator.html">Iterator</a>(); }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>};</div>
+</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T_behaviour*<span class="keyword">&gt;</span>(it-&gt;second.get());</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>}</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">// Templates</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T_behaviour, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword">requires</span> std::derived_from&lt;T_behaviour, Behaviour&gt;</div>
+<div class="foldopen" id="foldopen00154" data-start="{" data-end="}">
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a058a205e6bb78fa9a2bac40340dfa808">  154</a></span>T_behaviour* <a class="code hl_function" href="classCalgine_1_1GameObject.html#a058a205e6bb78fa9a2bac40340dfa808">GameObject::add_behaviour</a>(Args&amp;&amp;... args)</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>{</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>  <span class="keyword">auto</span> [it, inserted] = behaviours.emplace(</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keyword">typeid</span>(T_behaviour),</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keyword">nullptr</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>  );</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>  <span class="keywordflow">if</span> (!inserted) </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>  {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <a class="code hl_function" href="classCalgine_1_1Log.html#a41f2a12df7fc534dc3179c7f4e80f84f">Log::get_engine_logger</a>()-&gt;warn(<span class="stringliteral">&quot;Behaviour already exists on GameObject: {}&quot;</span>, <a class="code hl_function" href="classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d">get_name</a>());</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>  }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>  std::unique_ptr&lt;Behaviour&gt; owned;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>   </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  owned.reset(Behaviour::create&lt;T_behaviour&gt;(std::forward&lt;Args&gt;(args)...));</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>  </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  <span class="keywordflow">if</span>(!owned-&gt;attach_owner(<span class="keyword">this</span>))</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>  {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    behaviours.erase(it);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>  }</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>  </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>  it-&gt;second = std::move(owned);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T_behaviour*<span class="keyword">&gt;</span>(it-&gt;second.get());</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>}</div>
 </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T_behaviour&gt;</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keyword">requires</span> std::derived_from&lt;T_behaviour, Behaviour&gt;</div>
-<div class="foldopen" id="foldopen00155" data-start="{" data-end="}">
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a640ffd517f6face466df2d6477d80d6d">  155</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classCalgine_1_1GameObject.html#a640ffd517f6face466df2d6477d80d6d">GameObject::has_behaviour</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  <span class="keywordflow">return</span> behaviours.contains(<span class="keyword">typeid</span>(T_behaviour));</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>}</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T_behaviour&gt;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="keyword">requires</span> std::derived_from&lt;T_behaviour, Behaviour&gt;</div>
+<div class="foldopen" id="foldopen00182" data-start="{" data-end="}">
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a7b9fc3d7cd0516f2166c93101ce514e2">  182</a></span>T_behaviour* <a class="code hl_function" href="classCalgine_1_1GameObject.html#a7b9fc3d7cd0516f2166c93101ce514e2">GameObject::get_behaviour</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>  <span class="keyword">auto</span> it = behaviours.find(<span class="keyword">typeid</span>(T_behaviour));</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>  <span class="keywordflow">if</span> (it == behaviours.end())</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T_behaviour*<span class="keyword">&gt;</span>(it-&gt;second.get());</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>}</div>
 </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>} <span class="comment">// namespace Calgine</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T_behaviour&gt;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="keyword">requires</span> std::derived_from&lt;T_behaviour, Behaviour&gt;</div>
+<div class="foldopen" id="foldopen00193" data-start="{" data-end="}">
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="classCalgine_1_1GameObject.html#a640ffd517f6face466df2d6477d80d6d">  193</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classCalgine_1_1GameObject.html#a640ffd517f6face466df2d6477d80d6d">GameObject::has_behaviour</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>  <span class="keywordflow">return</span> behaviours.contains(<span class="keyword">typeid</span>(T_behaviour));</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
+</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>} <span class="comment">// namespace Calgine</span></div>
 <div class="ttc" id="abehaviour_8h_html"><div class="ttname"><a href="behaviour_8h.html">behaviour.h</a></div></div>
 <div class="ttc" id="acalgine__api_8h_html"><div class="ttname"><a href="calgine__api_8h.html">calgine_api.h</a></div></div>
 <div class="ttc" id="acalgine__api_8h_html_a4e7aacb34d39acc08f8f3619a3b56395"><div class="ttname"><a href="calgine__api_8h.html#a4e7aacb34d39acc08f8f3619a3b56395">CALGINE_API</a></div><div class="ttdeci">#define CALGINE_API</div><div class="ttdef"><b>Definition</b> calgine_api.h:10</div></div>
 <div class="ttc" id="acalgine__pch_8h_html"><div class="ttname"><a href="calgine__pch_8h.html">calgine_pch.h</a></div></div>
-<div class="ttc" id="aclassCalgine_1_1GameObject_html"><div class="ttname"><a href="classCalgine_1_1GameObject.html">Calgine::GameObject</a></div><div class="ttdoc">GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...</div><div class="ttdef"><b>Definition</b> game_object.h:24</div></div>
+<div class="ttc" id="aclassCalgine_1_1App_html"><div class="ttname"><a href="classCalgine_1_1App.html">Calgine::App</a></div><div class="ttdoc">Base class for all Calgine applications.</div><div class="ttdef"><b>Definition</b> app.h:108</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_1_1Iterator_html"><div class="ttname"><a href="classCalgine_1_1GameObject_1_1Iterator.html">Calgine::GameObject::Iterator</a></div><div class="ttdef"><b>Definition</b> game_object.h:116</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_1_1Iterator_html_a05dc421016ef86d15b5f0875091b4870"><div class="ttname"><a href="classCalgine_1_1GameObject_1_1Iterator.html#a05dc421016ef86d15b5f0875091b4870">Calgine::GameObject::Iterator::operator++</a></div><div class="ttdeci">Iterator &amp; operator++()</div><div class="ttdef"><b>Definition</b> game_object.h:130</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_1_1Iterator_html_a3d74eac033c11686840c92df83dd849c"><div class="ttname"><a href="classCalgine_1_1GameObject_1_1Iterator.html#a3d74eac033c11686840c92df83dd849c">Calgine::GameObject::Iterator::Iterator</a></div><div class="ttdeci">Iterator(GameObject *root)</div><div class="ttdef"><b>Definition</b> game_object.h:121</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_1_1Iterator_html_a4be84b1be8b2f0eb7954b0c8a2d8bcce"><div class="ttname"><a href="classCalgine_1_1GameObject_1_1Iterator.html#a4be84b1be8b2f0eb7954b0c8a2d8bcce">Calgine::GameObject::Iterator::operator*</a></div><div class="ttdeci">GameObject &amp; operator*()</div><div class="ttdef"><b>Definition</b> game_object.h:127</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_1_1Iterator_html_a5bca68349c9239e30ce40338907da815"><div class="ttname"><a href="classCalgine_1_1GameObject_1_1Iterator.html#a5bca68349c9239e30ce40338907da815">Calgine::GameObject::Iterator::Iterator</a></div><div class="ttdeci">Iterator()</div><div class="ttdef"><b>Definition</b> game_object.h:125</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_1_1Iterator_html_a9aa2a5504363016061a52373239a47cb"><div class="ttname"><a href="classCalgine_1_1GameObject_1_1Iterator.html#a9aa2a5504363016061a52373239a47cb">Calgine::GameObject::Iterator::operator!=</a></div><div class="ttdeci">bool operator!=(const Iterator &amp;other) const</div><div class="ttdef"><b>Definition</b> game_object.h:141</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_1_1Iterator_html_acea87bca74dcd4577dd8493b11a29ad7"><div class="ttname"><a href="classCalgine_1_1GameObject_1_1Iterator.html#acea87bca74dcd4577dd8493b11a29ad7">Calgine::GameObject::Iterator::operator-&gt;</a></div><div class="ttdeci">GameObject * operator-&gt;()</div><div class="ttdef"><b>Definition</b> game_object.h:128</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html"><div class="ttname"><a href="classCalgine_1_1GameObject.html">Calgine::GameObject</a></div><div class="ttdoc">GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...</div><div class="ttdef"><b>Definition</b> game_object.h:28</div></div>
 <div class="ttc" id="aclassCalgine_1_1GameObject_html_a03121f27fb122fb29542ca8c78b40e30"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a03121f27fb122fb29542ca8c78b40e30">Calgine::GameObject::operator=</a></div><div class="ttdeci">GameObject &amp; operator=(GameObject &amp;&amp;)=default</div></div>
-<div class="ttc" id="aclassCalgine_1_1GameObject_html_a37886ebc4875a4c1f89743273151a119"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a37886ebc4875a4c1f89743273151a119">Calgine::GameObject::add_behaviour</a></div><div class="ttdeci">bool add_behaviour()</div><div class="ttdef"><b>Definition</b> game_object.h:113</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_a058a205e6bb78fa9a2bac40340dfa808"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a058a205e6bb78fa9a2bac40340dfa808">Calgine::GameObject::add_behaviour</a></div><div class="ttdeci">T_behaviour * add_behaviour(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> game_object.h:154</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_a2166a4e0a26229a7b1ce8bbe7fb23914"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a2166a4e0a26229a7b1ce8bbe7fb23914">Calgine::GameObject::is_enabled</a></div><div class="ttdeci">bool is_enabled() const</div><div class="ttdef"><b>Definition</b> game_object.h:69</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_a406397e8c9477102f3a41424f4cfe091"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a406397e8c9477102f3a41424f4cfe091">Calgine::GameObject::get_transform</a></div><div class="ttdeci">Transform &amp; get_transform()</div><div class="ttdef"><b>Definition</b> game_object.h:72</div></div>
 <div class="ttc" id="aclassCalgine_1_1GameObject_html_a4aecf696b321ec1554a1a1caf46fd289"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a4aecf696b321ec1554a1a1caf46fd289">Calgine::GameObject::GameObject</a></div><div class="ttdeci">GameObject(const GameObject &amp;)=delete</div></div>
-<div class="ttc" id="aclassCalgine_1_1GameObject_html_a640ffd517f6face466df2d6477d80d6d"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a640ffd517f6face466df2d6477d80d6d">Calgine::GameObject::has_behaviour</a></div><div class="ttdeci">bool has_behaviour() const</div><div class="ttdef"><b>Definition</b> game_object.h:155</div></div>
-<div class="ttc" id="aclassCalgine_1_1GameObject_html_a7b9fc3d7cd0516f2166c93101ce514e2"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a7b9fc3d7cd0516f2166c93101ce514e2">Calgine::GameObject::get_behaviour</a></div><div class="ttdeci">T_behaviour * get_behaviour() const</div><div class="ttdef"><b>Definition</b> game_object.h:144</div></div>
-<div class="ttc" id="aclassCalgine_1_1GameObject_html_aa34deb782f6ee4aff3f225050ea0109d"><div class="ttname"><a href="classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d">Calgine::GameObject::get_name</a></div><div class="ttdeci">virtual std::string get_name()</div><div class="ttdoc">Get the name of the GameObject.</div><div class="ttdef"><b>Definition</b> game_object.h:101</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_a640ffd517f6face466df2d6477d80d6d"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a640ffd517f6face466df2d6477d80d6d">Calgine::GameObject::has_behaviour</a></div><div class="ttdeci">bool has_behaviour() const</div><div class="ttdef"><b>Definition</b> game_object.h:193</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_a7b9fc3d7cd0516f2166c93101ce514e2"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a7b9fc3d7cd0516f2166c93101ce514e2">Calgine::GameObject::get_behaviour</a></div><div class="ttdeci">T_behaviour * get_behaviour() const</div><div class="ttdef"><b>Definition</b> game_object.h:182</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_a82dd591a82d55f87b6dcfa7579764642"><div class="ttname"><a href="classCalgine_1_1GameObject.html#a82dd591a82d55f87b6dcfa7579764642">Calgine::GameObject::end</a></div><div class="ttdeci">Iterator end()</div><div class="ttdef"><b>Definition</b> game_object.h:147</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_aa1b103accd62c24bb8274c9578147dca"><div class="ttname"><a href="classCalgine_1_1GameObject.html#aa1b103accd62c24bb8274c9578147dca">Calgine::GameObject::get_num_game_objects</a></div><div class="ttdeci">static uint32_t get_num_game_objects()</div><div class="ttdef"><b>Definition</b> game_object.h:54</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_aa34deb782f6ee4aff3f225050ea0109d"><div class="ttname"><a href="classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d">Calgine::GameObject::get_name</a></div><div class="ttdeci">virtual std::string get_name()</div><div class="ttdoc">Get the name of the GameObject.</div><div class="ttdef"><b>Definition</b> game_object.h:106</div></div>
 <div class="ttc" id="aclassCalgine_1_1GameObject_html_aa6e185519ecdf22d9754afdb2da1f701"><div class="ttname"><a href="classCalgine_1_1GameObject.html#aa6e185519ecdf22d9754afdb2da1f701">Calgine::GameObject::GameObject</a></div><div class="ttdeci">GameObject(GameObject &amp;&amp;)=default</div></div>
-<div class="ttc" id="aclassCalgine_1_1GameObject_html_accf41615441ecc4f14ae550a1c3dba5f"><div class="ttname"><a href="classCalgine_1_1GameObject.html#accf41615441ecc4f14ae550a1c3dba5f">Calgine::GameObject::instantiate_child</a></div><div class="ttdeci">T &amp; instantiate_child(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> game_object.h:81</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_acbd6a727b4948fbbef2e4b2cad78a965"><div class="ttname"><a href="classCalgine_1_1GameObject.html#acbd6a727b4948fbbef2e4b2cad78a965">Calgine::GameObject::begin</a></div><div class="ttdeci">Iterator begin()</div><div class="ttdef"><b>Definition</b> game_object.h:146</div></div>
+<div class="ttc" id="aclassCalgine_1_1GameObject_html_accf41615441ecc4f14ae550a1c3dba5f"><div class="ttname"><a href="classCalgine_1_1GameObject.html#accf41615441ecc4f14ae550a1c3dba5f">Calgine::GameObject::instantiate_child</a></div><div class="ttdeci">T &amp; instantiate_child(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> game_object.h:88</div></div>
 <div class="ttc" id="aclassCalgine_1_1GameObject_html_ae60d4b1987fbd4ec0458a13719d1239e"><div class="ttname"><a href="classCalgine_1_1GameObject.html#ae60d4b1987fbd4ec0458a13719d1239e">Calgine::GameObject::operator=</a></div><div class="ttdeci">GameObject &amp; operator=(const GameObject &amp;)=delete</div></div>
 <div class="ttc" id="aclassCalgine_1_1Log_html_a41f2a12df7fc534dc3179c7f4e80f84f"><div class="ttname"><a href="classCalgine_1_1Log.html#a41f2a12df7fc534dc3179c7f4e80f84f">Calgine::Log::get_engine_logger</a></div><div class="ttdeci">static std::shared_ptr&lt; spdlog::logger &gt; &amp; get_engine_logger()</div><div class="ttdef"><b>Definition</b> log.h:13</div></div>
+<div class="ttc" id="aclassCalgine_1_1Transform_html"><div class="ttname"><a href="classCalgine_1_1Transform.html">Calgine::Transform</a></div><div class="ttdef"><b>Definition</b> transform.h:10</div></div>
 <div class="ttc" id="alog_8h_html"><div class="ttname"><a href="log_8h.html">log.h</a></div></div>
-<div class="ttc" id="anamespaceCalgine_html"><div class="ttname"><a href="namespaceCalgine.html">Calgine</a></div><div class="ttdef"><b>Definition</b> app.cxx:19</div></div>
-<div class="ttc" id="anamespaceCalgine_html_a4cfccbfde5fcb069c854a2d7fb0c4861"><div class="ttname"><a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">Calgine::TickType</a></div><div class="ttdeci">TickType</div><div class="ttdef"><b>Definition</b> game_object.h:12</div></div>
-<div class="ttc" id="anamespaceCalgine_html_a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc"><div class="ttname"><a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc">Calgine::late_update</a></div><div class="ttdeci">@ late_update</div><div class="ttdef"><b>Definition</b> game_object.h:15</div></div>
-<div class="ttc" id="anamespaceCalgine_html_a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d"><div class="ttname"><a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d">Calgine::update</a></div><div class="ttdeci">@ update</div><div class="ttdef"><b>Definition</b> game_object.h:14</div></div>
-<div class="ttc" id="anamespaceCalgine_html_a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10"><div class="ttname"><a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10">Calgine::imgui_render</a></div><div class="ttdeci">@ imgui_render</div><div class="ttdef"><b>Definition</b> game_object.h:16</div></div>
-<div class="ttc" id="anamespaceCalgine_html_a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92"><div class="ttname"><a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92">Calgine::preloop</a></div><div class="ttdeci">@ preloop</div><div class="ttdef"><b>Definition</b> game_object.h:13</div></div>
+<div class="ttc" id="anamespaceCalgine_html"><div class="ttname"><a href="namespaceCalgine.html">Calgine</a></div><div class="ttdef"><b>Definition</b> app.cxx:24</div></div>
+<div class="ttc" id="anamespaceCalgine_html_a4cfccbfde5fcb069c854a2d7fb0c4861"><div class="ttname"><a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">Calgine::TickType</a></div><div class="ttdeci">TickType</div><div class="ttdef"><b>Definition</b> game_object.h:14</div></div>
+<div class="ttc" id="anamespaceCalgine_html_a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc"><div class="ttname"><a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc">Calgine::late_update</a></div><div class="ttdeci">@ late_update</div><div class="ttdef"><b>Definition</b> game_object.h:18</div></div>
+<div class="ttc" id="anamespaceCalgine_html_a4cfccbfde5fcb069c854a2d7fb0c4861a55f1d1f1d99546bd18933cfa873a7b9a"><div class="ttname"><a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a55f1d1f1d99546bd18933cfa873a7b9a">Calgine::fixed_update</a></div><div class="ttdeci">@ fixed_update</div><div class="ttdef"><b>Definition</b> game_object.h:16</div></div>
+<div class="ttc" id="anamespaceCalgine_html_a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d"><div class="ttname"><a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d">Calgine::update</a></div><div class="ttdeci">@ update</div><div class="ttdef"><b>Definition</b> game_object.h:17</div></div>
+<div class="ttc" id="anamespaceCalgine_html_a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10"><div class="ttname"><a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10">Calgine::imgui_render</a></div><div class="ttdeci">@ imgui_render</div><div class="ttdef"><b>Definition</b> game_object.h:20</div></div>
+<div class="ttc" id="anamespaceCalgine_html_a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92"><div class="ttname"><a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92">Calgine::preloop</a></div><div class="ttdeci">@ preloop</div><div class="ttdef"><b>Definition</b> game_object.h:15</div></div>
+<div class="ttc" id="anamespaceCalgine_html_a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6"><div class="ttname"><a href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6">Calgine::render</a></div><div class="ttdeci">@ render</div><div class="ttdef"><b>Definition</b> game_object.h:19</div></div>
 <div class="ttc" id="anamespaceCalgine_html_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544"><div class="ttname"><a href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544">Calgine::enabled</a></div><div class="ttdeci">@ enabled</div><div class="ttdef"><b>Definition</b> window.h:16</div></div>
+<div class="ttc" id="atransform_8h_html"><div class="ttname"><a href="transform_8h.html">transform.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

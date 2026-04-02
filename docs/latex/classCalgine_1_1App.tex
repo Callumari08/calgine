@@ -86,13 +86,13 @@ Applications can be configured through the public {\ttfamily settings} member va
 \DoxyCodeLine{\ \ app.\mbox{\hyperlink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\_init}}();}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ Access\ the\ GameObject\ hierarchy\ root}}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{classCalgine_1_1Hierarchy}{Calgine::Hierarchy}}\&\ hierarchy\ =\ \mbox{\hyperlink{classCalgine_1_1Hierarchy_a477844c026bb6e261bcccd687a2ea337}{Calgine::Hierarchy::get\_instance}}();}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{Calgine::GameObject}}\&\ root\ =\ hierarchy.\mbox{\hyperlink{classCalgine_1_1Hierarchy_adfeead1113ce9ba920abfb124fe175ed}{get\_hierarchy\_root}}();}
+\DoxyCodeLine{\ \ Calgine::Hierarchy\&\ hierarchy\ =\ Calgine::Hierarchy::get\_instance();}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{Calgine::GameObject}}\&\ root\ =\ hierarchy.get\_hierarchy\_root();}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ Create\ a\ child\ GameObject\ and\ attach\ a\ behaviour}}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{Calgine::GameObject}}\&\ gameObj\ =\ root.\mbox{\hyperlink{classCalgine_1_1GameObject_accf41615441ecc4f14ae550a1c3dba5f}{instantiate\_child}}();}
 \DoxyCodeLine{\ \ gameObj.\mbox{\hyperlink{classCalgine_1_1GameObject_ad97d52f6b23dd654ff552b0a7b9f95f4}{set\_name}}(\textcolor{stringliteral}{"{}MyGameObject"{}});}
-\DoxyCodeLine{\ \ gameObj.\mbox{\hyperlink{classCalgine_1_1GameObject_a37886ebc4875a4c1f89743273151a119}{add\_behaviour}}<MyBehaviour>();}
+\DoxyCodeLine{\ \ gameObj.\mbox{\hyperlink{classCalgine_1_1GameObject_a058a205e6bb78fa9a2bac40340dfa808}{add\_behaviour}}<MyBehaviour>();}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ Start\ the\ main\ loop\ (runs\ until\ all\ windows\ are\ closed)}}
 \DoxyCodeLine{\ \ app.\mbox{\hyperlink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\_loop}}();}
@@ -110,7 +110,7 @@ Applications can be configured through the public {\ttfamily settings} member va
 
 \doxylink{classCalgine_1_1Behaviour}{Behaviour} for creating game logic components 
 
-\doxylink{classCalgine_1_1Hierarchy}{Hierarchy} for accessing the root \doxylink{classCalgine_1_1GameObject}{Game\+Object} 
+Hierarchy for accessing the root \doxylink{classCalgine_1_1GameObject}{Game\+Object} 
 \end{DoxySeeAlso}
 
 
@@ -159,7 +159,7 @@ Before entering the loop, this method calls preloop\+\_\+tick() once on all Game
 The loop continues until either SDL\+\_\+\+EVENT\+\_\+\+QUIT is received or all windows have been closed.
 
 \begin{DoxySeeAlso}{See also}
-\doxylink{classCalgine_1_1GameObject_a6fe6259db00341689a2a17adb77c5d11}{Game\+Object\+::tick\+\_\+self\+\_\+and\+\_\+children()} for how tick methods are propagated through the hierarchy 
+Game\+Object\+::tick\+\_\+self\+\_\+and\+\_\+children() for how tick methods are propagated through the hierarchy 
 \end{DoxySeeAlso}
 \Hypertarget{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}\label{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf} 
 \index{Calgine::App@{Calgine::App}!start\_systems@{start\_systems}}
@@ -178,7 +178,7 @@ The loop continues until either SDL\+\_\+\+EVENT\+\_\+\+QUIT is received or all 
 Initializes all required systems (SDL3, Open\+GL, logging). 
 
 \begin{DoxyWarning}{Warning}
-Do NOT call directly! use the \doxylink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{start\+\_\+systems()} inline function!
+Do NOT call directly! use the \doxylink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{start\+\_\+systems()} inline function! This will break Im\+GUI otherwise!!!
 \end{DoxyWarning}
 This method must be called before \doxylink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\+\_\+loop()}. It performs the following\+:
 \begin{DoxyItemize}
@@ -186,17 +186,8 @@ This method must be called before \doxylink{classCalgine_1_1App_a25b8f54a7509d91
 \item Sets up SDL3 video subsystem
 \item Configures Open\+GL context attributes (Open\+GL 4.\+5 Core Profile)
 \item Creates initial windows through \doxylink{classCalgine_1_1WindowHandler}{Window\+Handler}
-\item Initializes GLAD2 for Open\+GL function loading
+\item Initializes GLAD2 for Open\+GL function loading 
 \end{DoxyItemize}
-
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::runtime\+\_\+error} & if SDL initialization fails \\
-\hline
-{\em std\+::runtime\+\_\+error} & if GLAD initialization fails \\
-\hline
-\end{DoxyExceptions}
-
 
 \doxysubsection{Member Data Documentation}
 \Hypertarget{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}\label{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8} 

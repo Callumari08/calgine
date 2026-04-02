@@ -2,17 +2,49 @@ var namespaceCalgine =
 [
     [ "App", "classCalgine_1_1App.html", "classCalgine_1_1App" ],
     [ "AppSettings", "structCalgine_1_1AppSettings.html", "structCalgine_1_1AppSettings" ],
+    [ "AssetManager", "classCalgine_1_1AssetManager.html", "classCalgine_1_1AssetManager" ],
+    [ "BatchRenderCommand", "structCalgine_1_1BatchRenderCommand.html", "structCalgine_1_1BatchRenderCommand" ],
     [ "Behaviour", "classCalgine_1_1Behaviour.html", "classCalgine_1_1Behaviour" ],
+    [ "Camera", "classCalgine_1_1Camera.html", "classCalgine_1_1Camera" ],
+    [ "CameraBehaviour", "classCalgine_1_1CameraBehaviour.html", "classCalgine_1_1CameraBehaviour" ],
+    [ "CameraManager", "classCalgine_1_1CameraManager.html", "classCalgine_1_1CameraManager" ],
+    [ "CameraSettings", "structCalgine_1_1CameraSettings.html", "structCalgine_1_1CameraSettings" ],
+    [ "GameHierarchy", "classCalgine_1_1GameHierarchy.html", "classCalgine_1_1GameHierarchy" ],
     [ "GameObject", "classCalgine_1_1GameObject.html", "classCalgine_1_1GameObject" ],
-    [ "Hierarchy", "classCalgine_1_1Hierarchy.html", "classCalgine_1_1Hierarchy" ],
+    [ "HierarchyRenderer", "classCalgine_1_1HierarchyRenderer.html", "classCalgine_1_1HierarchyRenderer" ],
+    [ "IndexBuffer", "classCalgine_1_1IndexBuffer.html", "classCalgine_1_1IndexBuffer" ],
     [ "Log", "classCalgine_1_1Log.html", null ],
+    [ "ManagerHierarchy", "classCalgine_1_1ManagerHierarchy.html", "classCalgine_1_1ManagerHierarchy" ],
+    [ "Material", "classCalgine_1_1Material.html", "classCalgine_1_1Material" ],
+    [ "MaterialSettings", "structCalgine_1_1MaterialSettings.html", "structCalgine_1_1MaterialSettings" ],
+    [ "Mesh", "classCalgine_1_1Mesh.html", "classCalgine_1_1Mesh" ],
+    [ "MeshRenderer", "classCalgine_1_1MeshRenderer.html", "classCalgine_1_1MeshRenderer" ],
+    [ "Model", "structCalgine_1_1Model.html", "structCalgine_1_1Model" ],
+    [ "Renderer", "classCalgine_1_1Renderer.html", "classCalgine_1_1Renderer" ],
+    [ "RenderTexture", "classCalgine_1_1RenderTexture.html", "classCalgine_1_1RenderTexture" ],
     [ "RootGameObject", "classCalgine_1_1RootGameObject.html", "classCalgine_1_1RootGameObject" ],
+    [ "Shader", "classCalgine_1_1Shader.html", "classCalgine_1_1Shader" ],
+    [ "ShaderProgram", "structCalgine_1_1ShaderProgram.html", "structCalgine_1_1ShaderProgram" ],
+    [ "Texture", "classCalgine_1_1Texture.html", "classCalgine_1_1Texture" ],
+    [ "Time", "classCalgine_1_1Time.html", "classCalgine_1_1Time" ],
+    [ "Transform", "classCalgine_1_1Transform.html", "classCalgine_1_1Transform" ],
+    [ "Vertex", "structCalgine_1_1Vertex.html", "structCalgine_1_1Vertex" ],
+    [ "VertexArray", "classCalgine_1_1VertexArray.html", "classCalgine_1_1VertexArray" ],
+    [ "VertexBuffer", "classCalgine_1_1VertexBuffer.html", "classCalgine_1_1VertexBuffer" ],
     [ "Window", "classCalgine_1_1Window.html", "classCalgine_1_1Window" ],
     [ "WindowHandler", "classCalgine_1_1WindowHandler.html", "classCalgine_1_1WindowHandler" ],
+    [ "AssetType", "namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5e", [
+      [ "texture", "namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5ea9525df878da4fb8c643ecf48ad03095e", null ],
+      [ "model", "namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d", null ],
+      [ "fragment", "namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5eac3b16e8a9ede3ae91467682b97ea5dc3", null ],
+      [ "vertex", "namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5ea6869c366525aff7bd2b44caf55a44555", null ]
+    ] ],
     [ "TickType", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861", [
       [ "preloop", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92", null ],
+      [ "fixed_update", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a55f1d1f1d99546bd18933cfa873a7b9a", null ],
       [ "update", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d", null ],
       [ "late_update", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc", null ],
+      [ "render", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6", null ],
       [ "imgui_render", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10", null ]
     ] ],
     [ "VsyncState", "namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7", [
@@ -20,5 +52,6 @@ var namespaceCalgine =
       [ "enabled", "namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544", null ],
       [ "adaptive", "namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a9f9dcaa8c848c0e8de57bd5bf5dab654", null ]
     ] ],
-    [ "throw_sdl_error", "namespaceCalgine.html#a08cd20732442ef95f7ad6e630cf09e48", null ]
+    [ "DEFAULT_FRAGMENT_SHADER", "namespaceCalgine.html#a346c7e22b55226cdd4bda449c4c65eb8", null ],
+    [ "DEFAULT_VERTEX_SHADER", "namespaceCalgine.html#ae3a8dec8e5f3e77e4b7e74cb80151d23", null ]
 ];

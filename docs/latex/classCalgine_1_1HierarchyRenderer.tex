@@ -1,0 +1,82 @@
+\doxysection{Calgine\+::Hierarchy\+Renderer Class Reference}
+\hypertarget{classCalgine_1_1HierarchyRenderer}{}\label{classCalgine_1_1HierarchyRenderer}\index{Calgine::HierarchyRenderer@{Calgine::HierarchyRenderer}}
+
+
+{\ttfamily \#include $<$hierarchy\+\_\+renderer.\+h$>$}
+
+Inheritance diagram for Calgine\+::Hierarchy\+Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCalgine_1_1HierarchyRenderer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer_a00c56604e66dcf568a8219833952be30}{imgui\+\_\+render\+\_\+tick}} () override
+\item 
+\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer_a502efa37962493fcdac8580ca0404c0f}{get\+\_\+selected}} () const
+\item 
+void \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer_ad46cb1ebe87db3f3bdddca848fb40409}{set\+\_\+selected}} (\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}go)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classCalgine_1_1Behaviour_a5f9a4ac36b5e9a7303c0708c9c9ca435}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
+\item 
+\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\+\_\+game\+\_\+object}} ()
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} that this behaviour is attached to. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \& \mbox{\hyperlink{classCalgine_1_1Behaviour_aec1c964df62ee9bf87b1c05ed630a4be}{get\+\_\+transform}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}} ()
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a9f57fdc9e7cf4f2caae45df243baacea}{preloop\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called before the main loop (see \doxylink{classCalgine_1_1App}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}{start\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called when this gameobject is instantitated. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a139f4cd7ff364c3622b03fc4d0ee4b3e}{fixed\+\_\+update\+\_\+tick}} ()
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}{update\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called every frame, before \doxylink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called every frame, after \doxylink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d}{update()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a12b3ee6bc87e6d97d591d13b2cccc003}{render\+\_\+tick}} ()
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aab60143ff0527a6db745d286dec38fca}{on\+\_\+destroy}} ()
+\begin{DoxyCompactList}\small\item\em Gets called when game\+\_\+object is being destroyed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1HierarchyRenderer_a502efa37962493fcdac8580ca0404c0f}\label{classCalgine_1_1HierarchyRenderer_a502efa37962493fcdac8580ca0404c0f} 
+\index{Calgine::HierarchyRenderer@{Calgine::HierarchyRenderer}!get\_selected@{get\_selected}}
+\index{get\_selected@{get\_selected}!Calgine::HierarchyRenderer@{Calgine::HierarchyRenderer}}
+\doxysubsubsection{\texorpdfstring{get\_selected()}{get\_selected()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} Calgine\+::\+Hierarchy\+Renderer\+::get\+\_\+selected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1HierarchyRenderer_a00c56604e66dcf568a8219833952be30}\label{classCalgine_1_1HierarchyRenderer_a00c56604e66dcf568a8219833952be30} 
+\index{Calgine::HierarchyRenderer@{Calgine::HierarchyRenderer}!imgui\_render\_tick@{imgui\_render\_tick}}
+\index{imgui\_render\_tick@{imgui\_render\_tick}!Calgine::HierarchyRenderer@{Calgine::HierarchyRenderer}}
+\doxysubsubsection{\texorpdfstring{imgui\_render\_tick()}{imgui\_render\_tick()}}
+{\footnotesize\ttfamily void Calgine\+::\+Hierarchy\+Renderer\+::imgui\+\_\+render\+\_\+tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classCalgine_1_1Behaviour_acec12d67645c1129e5344f05660255dd}{Calgine\+::\+Behaviour}}.
+
+\Hypertarget{classCalgine_1_1HierarchyRenderer_ad46cb1ebe87db3f3bdddca848fb40409}\label{classCalgine_1_1HierarchyRenderer_ad46cb1ebe87db3f3bdddca848fb40409} 
+\index{Calgine::HierarchyRenderer@{Calgine::HierarchyRenderer}!set\_selected@{set\_selected}}
+\index{set\_selected@{set\_selected}!Calgine::HierarchyRenderer@{Calgine::HierarchyRenderer}}
+\doxysubsubsection{\texorpdfstring{set\_selected()}{set\_selected()}}
+{\footnotesize\ttfamily void Calgine\+::\+Hierarchy\+Renderer\+::set\+\_\+selected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{go }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/tools/\mbox{\hyperlink{hierarchy__renderer_8h}{hierarchy\+\_\+renderer.\+h}}\item 
+src/calgine/tools/\mbox{\hyperlink{hierarchy__renderer_8cxx}{hierarchy\+\_\+renderer.\+cxx}}\end{DoxyCompactItemize}

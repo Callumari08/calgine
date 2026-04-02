@@ -1,0 +1,2014 @@
+\doxysection{tiny\+\_\+obj\+\_\+loader.\+h}
+\hypertarget{tiny__obj__loader_8h_source}{}\label{tiny__obj__loader_8h_source}\index{src/calgine/core/asset\_management/tiny\_obj\_loader.h@{src/calgine/core/asset\_management/tiny\_obj\_loader.h}}
+\mbox{\hyperlink{tiny__obj__loader_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ MIT\ License\ (MIT)}}
+\DoxyCodeLine{00003\ \textcolor{comment}{}}
+\DoxyCodeLine{00004\ \textcolor{comment}{Copyright\ (c)\ 2012-\/2016\ Syoyo\ Fujita\ and\ many\ contributors.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{}}
+\DoxyCodeLine{00006\ \textcolor{comment}{Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{00007\ \textcolor{comment}{of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00008\ \textcolor{comment}{in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{00009\ \textcolor{comment}{to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{00010\ \textcolor{comment}{copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00011\ \textcolor{comment}{furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{00014\ \textcolor{comment}{all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{}}
+\DoxyCodeLine{00016\ \textcolor{comment}{THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00017\ \textcolor{comment}{IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{00019\ \textcolor{comment}{AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00020\ \textcolor{comment}{LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{00021\ \textcolor{comment}{OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN}}
+\DoxyCodeLine{00022\ \textcolor{comment}{THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ version\ 1.0.6\ :\ Add\ TINYOBJLOADER\_USE\_DOUBLE\ option(\#124)}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ version\ 1.0.5\ :\ Ignore\ \`{}Tr`\ when\ \`{}d`\ exists\ in\ MTL(\#43)}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ version\ 1.0.4\ :\ Support\ multiple\ filenames\ for\ 'mtllib'(\#112)}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ version\ 1.0.3\ :\ Support\ parsing\ texture\ options(\#85)}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ version\ 1.0.2\ :\ Improve\ parsing\ speed\ by\ about\ a\ factor\ of\ 2\ for\ large}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ files(\#105)}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ version\ 1.0.1\ :\ Fixes\ a\ shape\ is\ lost\ if\ obj\ ends\ with\ a\ 'usemtl'(\#104)}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ version\ 1.0.0\ :\ Change\ data\ structure.\ Change\ license\ from\ BSD\ to\ MIT.}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{//}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ Use\ this\ in\ *one*\ .cc}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ \ \ \#define\ TINYOBJLOADER\_IMPLEMENTATION}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ \ \ \#include\ "{}tiny\_obj\_loader.h"{}}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#ifndef\ TINY\_OBJ\_LOADER\_H\_}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ TINY\_OBJ\_LOADER\_H\_}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetinyobj}{tinyobj}}\ \{}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ https://en.wikipedia.org/wiki/Wavefront\_.obj\_file\ says\ ...}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//}}
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ \ -\/blendu\ on\ |\ off\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ set\ horizontal\ texture\ blending}}
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ \ (default\ on)}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ \ -\/blendv\ on\ |\ off\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ set\ vertical\ texture\ blending}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ \ (default\ on)}}
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ \ -\/boost\ real\_value\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ boost\ mip-\/map\ sharpness}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//\ \ -\/mm\ base\_value\ gain\_value\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ modify\ texture\ map\ values\ (default}}
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ \ 0\ 1)}}
+\DoxyCodeLine{00060\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ \ \ \ \ base\_value\ =\ brightness,}}
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gain\_value\ =\ contrast}}
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ \ -\/o\ u\ [v\ [w]]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Origin\ offset\ \ \ \ \ \ \ \ \ \ \ \ \ (default}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ \ 0\ 0\ 0)}}
+\DoxyCodeLine{00064\ \textcolor{comment}{//\ \ -\/s\ u\ [v\ [w]]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Scale\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (default}}
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ \ 1\ 1\ 1)}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ \ -\/t\ u\ [v\ [w]]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Turbulence\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (default}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ \ 0\ 0\ 0)}}
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ \ -\/texres\ resolution\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ texture\ resolution\ to\ create}}
+\DoxyCodeLine{00069\ \textcolor{comment}{//\ \ -\/clamp\ on\ |\ off\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ only\ render\ texels\ in\ the\ clamped}}
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ \ 0-\/1\ range\ (default\ off)}}
+\DoxyCodeLine{00071\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ \ \ When\ unclamped,\ textures\ are}}
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ repeated\ across\ a\ surface,}}
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ \ \ when\ clamped,\ only\ texels\ which}}
+\DoxyCodeLine{00074\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fall\ within\ the\ 0-\/1}}
+\DoxyCodeLine{00075\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ \ \ range\ are\ rendered.}}
+\DoxyCodeLine{00076\ \textcolor{comment}{//\ \ -\/bm\ mult\_value\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ bump\ multiplier\ (for\ bump\ maps}}
+\DoxyCodeLine{00077\ \textcolor{comment}{//\ \ only)}}
+\DoxyCodeLine{00078\ \textcolor{comment}{//}}
+\DoxyCodeLine{00079\ \textcolor{comment}{//\ \ -\/imfchan\ r\ |\ g\ |\ b\ |\ m\ |\ l\ |\ z\ \ \ \ \ \ \ \ \ \#\ specifies\ which\ channel\ of\ the\ file}}
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ \ is\ used\ to}}
+\DoxyCodeLine{00081\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ create\ a\ scalar\ or\ bump\ texture.}}
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r:red,\ g:green,}}
+\DoxyCodeLine{00083\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ b:blue,\ m:matte,\ l:luminance,}}
+\DoxyCodeLine{00084\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z:z-\/depth..}}
+\DoxyCodeLine{00085\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ (the\ default\ for\ bump\ is\ 'l'\ and}}
+\DoxyCodeLine{00086\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ for\ decal\ is\ 'm')}}
+\DoxyCodeLine{00087\ \textcolor{comment}{//\ \ bump\ -\/imfchan\ r\ bumpmap.tga\ \ \ \ \ \ \ \ \ \ \ \ \#\ says\ to\ use\ the\ red\ channel\ of}}
+\DoxyCodeLine{00088\ \textcolor{comment}{//\ \ bumpmap.tga\ as\ the\ bumpmap}}
+\DoxyCodeLine{00089\ \textcolor{comment}{//}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//\ For\ reflection\ maps...}}
+\DoxyCodeLine{00091\ \textcolor{comment}{//}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ \ \ -\/type\ sphere\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ specifies\ a\ sphere\ for\ a\ "{}refl"{}}}
+\DoxyCodeLine{00093\ \textcolor{comment}{//\ \ \ reflection\ map}}
+\DoxyCodeLine{00094\ \textcolor{comment}{//\ \ \ -\/type\ cube\_top\ \ \ \ |\ cube\_bottom\ |\ \ \ \ \ \ \#\ when\ using\ a\ cube\ map,\ the\ texture}}
+\DoxyCodeLine{00095\ \textcolor{comment}{//\ \ \ file\ for\ each}}
+\DoxyCodeLine{00096\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ cube\_front\ \ |\ cube\_back\ \ \ |\ \ \ \ \ \ \#\ side\ of\ the\ cube\ is\ specified}}
+\DoxyCodeLine{00097\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ separately}}
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ cube\_left\ \ \ |\ cube\_right}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#ifdef\ TINYOBJLOADER\_USE\_DOUBLE}}
+\DoxyCodeLine{00101\ \ \ \textcolor{comment}{//\#pragma\ message\ "{}using\ double"{}}}
+\DoxyCodeLine{00102\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}};}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00104\ \ \ \textcolor{comment}{//\#pragma\ message\ "{}using\ float"{}}}
+\DoxyCodeLine{00105\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}};}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00109\ \ \ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a259804f2e7bf9c39626abe6ebce6edc1}{TEXTURE\_TYPE\_NONE}},\ \ \textcolor{comment}{//\ default}}
+\DoxyCodeLine{00110\ \ \ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a4e5a6bfb8a95a23bf0cce576aaa5dfa4}{TEXTURE\_TYPE\_SPHERE}},}
+\DoxyCodeLine{00111\ \ \ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8acc4c4327df32dce3fa406865a8e35519}{TEXTURE\_TYPE\_CUBE\_TOP}},}
+\DoxyCodeLine{00112\ \ \ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a20c37be3992ed111ba47045a63351cde}{TEXTURE\_TYPE\_CUBE\_BOTTOM}},}
+\DoxyCodeLine{00113\ \ \ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a1ce5bed3c2ba5c360ca6c2607b9d97ca}{TEXTURE\_TYPE\_CUBE\_FRONT}},}
+\DoxyCodeLine{00114\ \ \ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8af2cb2d4e7551e713593382c4690aa665}{TEXTURE\_TYPE\_CUBE\_BACK}},}
+\DoxyCodeLine{00115\ \ \ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a01f908bcfb745ad0d97d84b8cacc6d30}{TEXTURE\_TYPE\_CUBE\_LEFT}},}
+\DoxyCodeLine{00116\ \ \ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a7709b5986f04e87ffbdc9bd7280d261c}{TEXTURE\_TYPE\_CUBE\_RIGHT}}}
+\DoxyCodeLine{00117\ \}\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8}{texture\_type\_t}};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00120\ \ \ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8}{texture\_type\_t}}\ \mbox{\hyperlink{structtinyobj_1_1texture__option__t_ae93ebf5f70b1b3e3c1de58a257157e00}{type}};\ \ \ \ \ \textcolor{comment}{//\ -\/type\ (default\ TEXTURE\_TYPE\_NONE)}}
+\DoxyCodeLine{00121\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1texture__option__t_a047615e368808b85d5a9cd740ff05846}{sharpness}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/boost\ (default\ 1.0?)}}
+\DoxyCodeLine{00122\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1texture__option__t_a4aea70d3ffbaa6b439db7447557cbab2}{brightness}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ base\_value\ in\ -\/mm\ option\ (default\ 0)}}
+\DoxyCodeLine{00123\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1texture__option__t_a3b81d1c299840825e6633c00ba9ee0e3}{contrast}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ gain\_value\ in\ -\/mm\ option\ (default\ 1)}}
+\DoxyCodeLine{00124\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ origin\_offset[3];\ \ \textcolor{comment}{//\ -\/o\ u\ [v\ [w]]\ (default\ 0\ 0\ 0)}}
+\DoxyCodeLine{00125\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ scale[3];\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/s\ u\ [v\ [w]]\ (default\ 1\ 1\ 1)}}
+\DoxyCodeLine{00126\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ turbulence[3];\ \ \ \ \ \textcolor{comment}{//\ -\/t\ u\ [v\ [w]]\ (default\ 0\ 0\ 0)}}
+\DoxyCodeLine{00127\ \ \ \textcolor{comment}{//\ int\ \ \ texture\_resolution;\ //\ -\/texres\ resolution\ (default\ =\ ?)\ TODO}}
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structtinyobj_1_1texture__option__t_a55c0ce8fec97910a43606281ea7ee122}{clamp}};\ \ \ \ \textcolor{comment}{//\ -\/clamp\ (default\ false)}}
+\DoxyCodeLine{00129\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structtinyobj_1_1texture__option__t_a2ea1261e85ce71e4f7bacd508a623b65}{imfchan}};\ \ \textcolor{comment}{//\ -\/imfchan\ (the\ default\ for\ bump\ is\ 'l'\ and\ for\ decal\ is\ 'm')}}
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structtinyobj_1_1texture__option__t_a6114c2757e6dd4a4929623797a098d25}{blendu}};\ \ \ \textcolor{comment}{//\ -\/blendu\ (default\ on)}}
+\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structtinyobj_1_1texture__option__t_a828008c248d350f8d18c04295c773a9c}{blendv}};\ \ \ \textcolor{comment}{//\ -\/blendv\ (default\ on)}}
+\DoxyCodeLine{00132\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1texture__option__t_ad2e2c79e305189e5d146992c32248d49}{bump\_multiplier}};\ \ \textcolor{comment}{//\ -\/bm\ (for\ bump\ maps\ only,\ default\ 1.0)}}
+\DoxyCodeLine{00133\ \}\ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00136\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_a41fde82dd0ec383b1d4ee258c4e4a1b9}{name}};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ ambient[3];}
+\DoxyCodeLine{00139\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ diffuse[3];}
+\DoxyCodeLine{00140\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ specular[3];}
+\DoxyCodeLine{00141\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ transmittance[3];}
+\DoxyCodeLine{00142\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ emission[3];}
+\DoxyCodeLine{00143\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_aed153afc668c6b4760da57e0e63e0e97}{shininess}};}
+\DoxyCodeLine{00144\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_ac5d5fed58b485804119ed374ea90709e}{ior}};\ \ \ \ \ \ \ \textcolor{comment}{//\ index\ of\ refraction}}
+\DoxyCodeLine{00145\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a61e3561bf67f6faec6ac4f551f9956cb}{dissolve}};\ \ \textcolor{comment}{//\ 1\ ==\ opaque;\ 0\ ==\ fully\ transparent}}
+\DoxyCodeLine{00146\ \ \ \textcolor{comment}{//\ illumination\ model\ (see\ http://www.fileformat.info/format/material/)}}
+\DoxyCodeLine{00147\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structtinyobj_1_1material__t_af846245315bd70c1a4f815dfdd6b80cc}{illum}};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a6b1814d1066609178c81d2a4f7b34bd8}{dummy}};\ \ \textcolor{comment}{//\ Suppress\ padding\ warning.}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_ae988eed637f368374becbb672798a45e}{ambient\_texname}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ map\_Ka}}
+\DoxyCodeLine{00152\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_ad7f71a301a261fca07d2e50edccc792d}{diffuse\_texname}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ map\_Kd}}
+\DoxyCodeLine{00153\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_aed8c38d64472ba0db5186dba800b1b34}{specular\_texname}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ map\_Ks}}
+\DoxyCodeLine{00154\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_a5c0e981297646f1fc1aeba616692c41b}{specular\_highlight\_texname}};\ \ \textcolor{comment}{//\ map\_Ns}}
+\DoxyCodeLine{00155\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_aceb73086232f1cdd82f956fe8c6efcfb}{bump\_texname}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ map\_bump,\ bump}}
+\DoxyCodeLine{00156\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_ab69842db3e67cc7d4dcd8bfe02590f92}{displacement\_texname}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ disp}}
+\DoxyCodeLine{00157\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_a1b0225fd76de506f089fdedbf2c66dec}{alpha\_texname}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ map\_d}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_ad168f86b0f3f67666b102f9a26a2170b}{ambient\_texopt}};}
+\DoxyCodeLine{00160\ \ \ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a170412a1e339856e55d5cec406ecc196}{diffuse\_texopt}};}
+\DoxyCodeLine{00161\ \ \ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_aec86b92157df1e714aeb1f28ebabae24}{specular\_texopt}};}
+\DoxyCodeLine{00162\ \ \ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a9bfc943306506fa35abbb4377b8c071e}{specular\_highlight\_texopt}};}
+\DoxyCodeLine{00163\ \ \ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a77cb124464a606ad2b649196e72c39a0}{bump\_texopt}};}
+\DoxyCodeLine{00164\ \ \ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a6f28d7a04ebb6435c62adb502847f4c3}{displacement\_texopt}};}
+\DoxyCodeLine{00165\ \ \ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_adb6fdf38b462c4bd91fc2927282a3fc1}{alpha\_texopt}};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \textcolor{comment}{//\ PBR\ extension}}
+\DoxyCodeLine{00168\ \ \ \textcolor{comment}{//\ http://exocortex.com/blog/extending\_wavefront\_mtl\_to\_support\_pbr}}
+\DoxyCodeLine{00169\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a7e26f199e4a308bd9fd224349e266cea}{roughness}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ [0,\ 1]\ default\ 0}}
+\DoxyCodeLine{00170\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a0d5be8695d84eda23ac048e09d611fad}{metallic}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ [0,\ 1]\ default\ 0}}
+\DoxyCodeLine{00171\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a9c56ee4bf20385c8968a8b97b5d115c1}{sheen}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ [0,\ 1]\ default\ 0}}
+\DoxyCodeLine{00172\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a324dd4bb8475271e31aeb0a5959af745}{clearcoat\_thickness}};\ \ \textcolor{comment}{//\ [0,\ 1]\ default\ 0}}
+\DoxyCodeLine{00173\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a0856eb3210823262539af42aa2f5a63e}{clearcoat\_roughness}};\ \ \textcolor{comment}{//\ [0,\ 1]\ default\ 0}}
+\DoxyCodeLine{00174\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a0bd6ee79907285b19365849ba50965b1}{anisotropy}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ aniso.\ [0,\ 1]\ default\ 0}}
+\DoxyCodeLine{00175\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_ab1b9216b525cc02d2f6392db71ce0f59}{anisotropy\_rotation}};\ \ \textcolor{comment}{//\ anisor.\ [0,\ 1]\ default\ 0}}
+\DoxyCodeLine{00176\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_af16b7962e5809504ec31ebf9631422b7}{pad0}};}
+\DoxyCodeLine{00177\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a68c2e93c107fcc69c8ab5346e1bc8d66}{pad1}};}
+\DoxyCodeLine{00178\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_a7d7a7791ad94f2a5eadc2c8ee8c9a902}{roughness\_texname}};\ \ \textcolor{comment}{//\ map\_Pr}}
+\DoxyCodeLine{00179\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_acf05b62ec21680f4d803f02a59ad183a}{metallic\_texname}};\ \ \ \textcolor{comment}{//\ map\_Pm}}
+\DoxyCodeLine{00180\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_a0410f86a8fbe3f5d533d440f07781c04}{sheen\_texname}};\ \ \ \ \ \ \textcolor{comment}{//\ map\_Ps}}
+\DoxyCodeLine{00181\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_a63bb93815630b2dfca986ae17c51b919}{emissive\_texname}};\ \ \ \textcolor{comment}{//\ map\_Ke}}
+\DoxyCodeLine{00182\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1material__t_a7512ccf46044357bea1739d583871578}{normal\_texname}};\ \ \ \ \ \textcolor{comment}{//\ norm.\ For\ normal\ mapping.}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_aa02a56f4de95ab212e19a5d77b1f2d91}{roughness\_texopt}};}
+\DoxyCodeLine{00185\ \ \ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_abbae6c6e634f9899c3974731c554be21}{metallic\_texopt}};}
+\DoxyCodeLine{00186\ \ \ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a60a907d53aed60591b8d78ae220c7c4a}{sheen\_texopt}};}
+\DoxyCodeLine{00187\ \ \ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a7a2da381cdabd6655aaed320d5b1ffe3}{emissive\_texopt}};}
+\DoxyCodeLine{00188\ \ \ \mbox{\hyperlink{structtinyobj_1_1texture__option__t}{texture\_option\_t}}\ \mbox{\hyperlink{structtinyobj_1_1material__t_aa0087d1bfcaf0a195f8c244970c2ef4e}{normal\_texopt}};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structtinyobj_1_1material__t_a84cd388a80784aaaac4a03267d77f994}{pad2}};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ std::map<std::string,\ std::string>\ \mbox{\hyperlink{structtinyobj_1_1material__t_a18b700227c94d410ed1aa550c7fa9226}{unknown\_parameter}};}
+\DoxyCodeLine{00193\ \}\ \mbox{\hyperlink{structtinyobj_1_1material__t}{material\_t}};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00196\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1tag__t_a9b3650154d2fbd83dad945ebcf6bd448}{name}};}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ std::vector<int>\ \mbox{\hyperlink{structtinyobj_1_1tag__t_adc6a6682263abaa11e3ec62b910bb80d}{intValues}};}
+\DoxyCodeLine{00199\ \ \ std::vector<real\_t>\ \mbox{\hyperlink{structtinyobj_1_1tag__t_a6e531cc0a0d53b6334cf55da4bb62ffc}{floatValues}};}
+\DoxyCodeLine{00200\ \ \ std::vector<std::string>\ \mbox{\hyperlink{structtinyobj_1_1tag__t_a25634eea923961fd5b2520ea782397e8}{stringValues}};}
+\DoxyCodeLine{00201\ \}\ \mbox{\hyperlink{structtinyobj_1_1tag__t}{tag\_t}};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{comment}{//\ Index\ struct\ to\ support\ different\ indices\ for\ vtx/normal/texcoord.}}
+\DoxyCodeLine{00204\ \textcolor{comment}{//\ -\/1\ means\ not\ used.}}
+\DoxyCodeLine{00205\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00206\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structtinyobj_1_1index__t_a7eeb7de9f1fad091081b2b1d037c4beb}{vertex\_index}};}
+\DoxyCodeLine{00207\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structtinyobj_1_1index__t_acc544f8c9b23b5093d291dcf787a2d77}{normal\_index}};}
+\DoxyCodeLine{00208\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structtinyobj_1_1index__t_ac27280f3e6bd7db6eb6f05232db9726d}{texcoord\_index}};}
+\DoxyCodeLine{00209\ \}\ \mbox{\hyperlink{structtinyobj_1_1index__t}{index\_t}};}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00212\ \ \ std::vector<index\_t>\ \mbox{\hyperlink{structtinyobj_1_1mesh__t_a9dcdbdf04eca02a552793ac7d160127c}{indices}};}
+\DoxyCodeLine{00213\ \ \ std::vector<unsigned\ char>\ \mbox{\hyperlink{structtinyobj_1_1mesh__t_ae5f29bef4c1de10253020f9f7ab7374e}{num\_face\_vertices}};\ \ \textcolor{comment}{//\ The\ number\ of\ vertices\ per}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ face.\ 3\ =\ polygon,\ 4\ =\ quad,}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ...\ Up\ to\ 255.}}
+\DoxyCodeLine{00216\ \ \ std::vector<int>\ \mbox{\hyperlink{structtinyobj_1_1mesh__t_a57b2f12dfa3fd620b25babcd3a09ec6b}{material\_ids}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ per-\/face\ material\ ID}}
+\DoxyCodeLine{00217\ \ \ std::vector<tag\_t>\ \mbox{\hyperlink{structtinyobj_1_1mesh__t_a60f51d3802c11e2bf269530e0337fc63}{tags}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SubD\ tag}}
+\DoxyCodeLine{00218\ \}\ \mbox{\hyperlink{structtinyobj_1_1mesh__t}{mesh\_t}};}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00221\ \ \ std::string\ \mbox{\hyperlink{structtinyobj_1_1shape__t_a98650e2e66d00934f68de88eafb34630}{name}};}
+\DoxyCodeLine{00222\ \ \ \mbox{\hyperlink{structtinyobj_1_1mesh__t}{mesh\_t}}\ \mbox{\hyperlink{structtinyobj_1_1shape__t_a3dacb06dfbfe9e245ff4bc7b5b3d9818}{mesh}};}
+\DoxyCodeLine{00223\ \}\ \mbox{\hyperlink{structtinyobj_1_1shape__t}{shape\_t}};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{comment}{//\ Vertex\ attributes}}
+\DoxyCodeLine{00226\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00227\ \ \ std::vector<real\_t>\ \mbox{\hyperlink{structtinyobj_1_1attrib__t_a1c79c00f3baa0888a5efcfc68a4d419e}{vertices}};\ \ \ \textcolor{comment}{//\ 'v'}}
+\DoxyCodeLine{00228\ \ \ std::vector<real\_t>\ \mbox{\hyperlink{structtinyobj_1_1attrib__t_ac647590e9a03bec3c6cee5c215781e12}{normals}};\ \ \ \ \textcolor{comment}{//\ 'vn'}}
+\DoxyCodeLine{00229\ \ \ std::vector<real\_t>\ \mbox{\hyperlink{structtinyobj_1_1attrib__t_aad958a1ea44377cfd3dd007d3b15d887}{texcoords}};\ \ \textcolor{comment}{//\ 'vt'}}
+\DoxyCodeLine{00230\ \}\ \mbox{\hyperlink{structtinyobj_1_1attrib__t}{attrib\_t}};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtinyobj_1_1callback__t__}{callback\_t\_}}\ \{}
+\DoxyCodeLine{00233\ \ \ \textcolor{comment}{//\ W\ is\ optional\ and\ set\ to\ 1\ if\ there\ is\ no\ \`{}w`\ item\ in\ \`{}v`\ line}}
+\DoxyCodeLine{00234\ \ \ void\ (*\mbox{\hyperlink{structtinyobj_1_1callback__t___a7029c16962a3edb4b036330f02f91816}{vertex\_cb}})(\textcolor{keywordtype}{void}\ *user\_data,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ x,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ y,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ z,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ w);}
+\DoxyCodeLine{00235\ \ \ void\ (*\mbox{\hyperlink{structtinyobj_1_1callback__t___a0edd10bf4b39720520c8cfa24476ffe1}{normal\_cb}})(\textcolor{keywordtype}{void}\ *user\_data,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ x,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ y,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ z);}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \textcolor{comment}{//\ y\ and\ z\ are\ optional\ and\ set\ to\ 0\ if\ there\ is\ no\ \`{}y`\ and/or\ \`{}z`\ item(s)\ in}}
+\DoxyCodeLine{00238\ \ \ \textcolor{comment}{//\ \`{}vt`\ line.}}
+\DoxyCodeLine{00239\ \ \ void\ (*\mbox{\hyperlink{structtinyobj_1_1callback__t___ac447bcedbbe734887d796b32604665e8}{texcoord\_cb}})(\textcolor{keywordtype}{void}\ *user\_data,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ x,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ y,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ z);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \textcolor{comment}{//\ called\ per\ 'f'\ line.\ num\_indices\ is\ the\ number\ of\ face\ indices(e.g.\ 3\ for}}
+\DoxyCodeLine{00242\ \ \ \textcolor{comment}{//\ triangle,\ 4\ for\ quad)}}
+\DoxyCodeLine{00243\ \ \ \textcolor{comment}{//\ 0\ will\ be\ passed\ for\ undefined\ index\ in\ index\_t\ members.}}
+\DoxyCodeLine{00244\ \ \ void\ (*\mbox{\hyperlink{structtinyobj_1_1callback__t___a40a2a07b3c61aedb38a1efd3c2e53a76}{index\_cb}})(\textcolor{keywordtype}{void}\ *user\_data,\ \mbox{\hyperlink{structtinyobj_1_1index__t}{index\_t}}\ *indices,\ \textcolor{keywordtype}{int}\ num\_indices);}
+\DoxyCodeLine{00245\ \ \ \textcolor{comment}{//\ \`{}name`\ material\ name,\ \`{}material\_id`\ =\ the\ array\ index\ of\ material\_t[].\ -\/1}}
+\DoxyCodeLine{00246\ \ \ \textcolor{comment}{//\ if}}
+\DoxyCodeLine{00247\ \ \ \textcolor{comment}{//\ a\ material\ not\ found\ in\ .mtl}}
+\DoxyCodeLine{00248\ \ \ void\ (*\mbox{\hyperlink{structtinyobj_1_1callback__t___a8c5ae85ae10186b6c0e925b4b2b9a987}{usemtl\_cb}})(\textcolor{keywordtype}{void}\ *user\_data,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,\ \textcolor{keywordtype}{int}\ material\_id);}
+\DoxyCodeLine{00249\ \ \ \textcolor{comment}{//\ \`{}materials`\ =\ parsed\ material\ data.}}
+\DoxyCodeLine{00250\ \ \ void\ (*\mbox{\hyperlink{structtinyobj_1_1callback__t___ac9002031da7d0ae5e035e6ccfbb5fb0e}{mtllib\_cb}})(\textcolor{keywordtype}{void}\ *user\_data,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtinyobj_1_1material__t}{material\_t}}\ *materials,}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\_materials);}
+\DoxyCodeLine{00252\ \ \ \textcolor{comment}{//\ There\ may\ be\ multiple\ group\ names}}
+\DoxyCodeLine{00253\ \ \ void\ (*\mbox{\hyperlink{structtinyobj_1_1callback__t___a2d8b46a38a919dbd19defe2cb5a45cb1}{group\_cb}})(\textcolor{keywordtype}{void}\ *user\_data,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **names,\ \textcolor{keywordtype}{int}\ num\_names);}
+\DoxyCodeLine{00254\ \ \ void\ (*\mbox{\hyperlink{structtinyobj_1_1callback__t___ad91a780d704c9d7ed9f858f42f33c78d}{object\_cb}})(\textcolor{keywordtype}{void}\ *user\_data,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \mbox{\hyperlink{structtinyobj_1_1callback__t___a4ed08b371281cfcf1ae169cc556bb483}{callback\_t\_}}()}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ :\ \mbox{\hyperlink{structtinyobj_1_1callback__t___a7029c16962a3edb4b036330f02f91816}{vertex\_cb}}(NULL),}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtinyobj_1_1callback__t___a0edd10bf4b39720520c8cfa24476ffe1}{normal\_cb}}(NULL),}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtinyobj_1_1callback__t___ac447bcedbbe734887d796b32604665e8}{texcoord\_cb}}(NULL),}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtinyobj_1_1callback__t___a40a2a07b3c61aedb38a1efd3c2e53a76}{index\_cb}}(NULL),}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtinyobj_1_1callback__t___a8c5ae85ae10186b6c0e925b4b2b9a987}{usemtl\_cb}}(NULL),}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtinyobj_1_1callback__t___ac9002031da7d0ae5e035e6ccfbb5fb0e}{mtllib\_cb}}(NULL),}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtinyobj_1_1callback__t___a2d8b46a38a919dbd19defe2cb5a45cb1}{group\_cb}}(NULL),}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtinyobj_1_1callback__t___ad91a780d704c9d7ed9f858f42f33c78d}{object\_cb}}(NULL)\ \{\}}
+\DoxyCodeLine{00265\ \}\ \mbox{\hyperlink{namespacetinyobj_ad0a2aed3de0484c23a55f6aa59c991f4}{callback\_t}};}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtinyobj_1_1MaterialReader}{MaterialReader}}\ \{}
+\DoxyCodeLine{00268\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00269\ \ \ \mbox{\hyperlink{classtinyobj_1_1MaterialReader_a701bdd6217518e0afb5596fcb59925b6}{MaterialReader}}()\ \{\}}
+\DoxyCodeLine{00270\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classtinyobj_1_1MaterialReader_afd62ceccd9b373801226e037ea1a5f9f}{\string~MaterialReader}}();}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtinyobj_1_1MaterialReader_ad165d8cc1bd989f8548a9258b0881a89}{operator()}}(\textcolor{keyword}{const}\ std::string\ \&matId,}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<material\_t>\ *materials,}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ int>\ *matMap,}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ *err)\ =\ 0;}
+\DoxyCodeLine{00276\ \};}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtinyobj_1_1MaterialFileReader}{MaterialFileReader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classtinyobj_1_1MaterialReader}{MaterialReader}}\ \{}
+\DoxyCodeLine{00279\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00280\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtinyobj_1_1MaterialFileReader_aeb0c6d0e32d7876394e570a7b18adc8a}{MaterialFileReader}}(\textcolor{keyword}{const}\ std::string\ \&mtl\_basedir)}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ :\ m\_mtlBaseDir(mtl\_basedir)\ \{\}}
+\DoxyCodeLine{00282\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classtinyobj_1_1MaterialFileReader_a0a00d236393f9972b676a2fb6fe2b819}{\string~MaterialFileReader}}()\ \{\}}
+\DoxyCodeLine{00283\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtinyobj_1_1MaterialFileReader_a23fa55532224cbcc927233f4b57f53df}{operator()}}(\textcolor{keyword}{const}\ std::string\ \&matId,}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<material\_t>\ *materials,}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ int>\ *matMap,\ std::string\ *err);}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00288\ \ \ std::string\ m\_mtlBaseDir;}
+\DoxyCodeLine{00289\ \};}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtinyobj_1_1MaterialStreamReader}{MaterialStreamReader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classtinyobj_1_1MaterialReader}{MaterialReader}}\ \{}
+\DoxyCodeLine{00292\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00293\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtinyobj_1_1MaterialStreamReader_a6a6b7167e62d239cb3b002b6aa183773}{MaterialStreamReader}}(std::istream\ \&inStream)}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ :\ m\_inStream(inStream)\ \{\}}
+\DoxyCodeLine{00295\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classtinyobj_1_1MaterialStreamReader_afcafa6030bbf8ea8fdbc6aefb8bebc74}{\string~MaterialStreamReader}}()\ \{\}}
+\DoxyCodeLine{00296\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtinyobj_1_1MaterialStreamReader_a38db9ec731ad3177efa704d7e60c82fd}{operator()}}(\textcolor{keyword}{const}\ std::string\ \&matId,}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<material\_t>\ *materials,}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ int>\ *matMap,\ std::string\ *err);}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00301\ \ \ std::istream\ \&m\_inStream;}
+\DoxyCodeLine{00302\ \};}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00314\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacetinyobj_a5678f6df6cb6d01bb89453022d997503}{LoadObj}}(\mbox{\hyperlink{structtinyobj_1_1attrib__t}{attrib\_t}}\ *attrib,\ std::vector<shape\_t>\ *shapes,}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<material\_t>\ *materials,\ std::string\ *err,}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *mtl\_basedir\ =\ NULL,}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ triangulate\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00325\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacetinyobj_add9ad979e8011ccdfac2e1ec8def5359}{LoadObjWithCallback}}(std::istream\ \&inStream,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtinyobj_1_1callback__t__}{callback\_t}}\ \&callback,}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *user\_data\ =\ NULL,}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtinyobj_1_1MaterialReader}{MaterialReader}}\ *readMatFn\ =\ NULL,}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ *err\ =\ NULL);}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00334\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacetinyobj_a5678f6df6cb6d01bb89453022d997503}{LoadObj}}(\mbox{\hyperlink{structtinyobj_1_1attrib__t}{attrib\_t}}\ *attrib,\ std::vector<shape\_t>\ *shapes,}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<material\_t>\ *materials,\ std::string\ *err,}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::istream\ *inStream,\ \mbox{\hyperlink{classtinyobj_1_1MaterialReader}{MaterialReader}}\ *readMatFn\ =\ NULL,}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ triangulate\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00340\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacetinyobj_aa7a035d152857396e5cde8ebff8b2b9e}{LoadMtl}}(std::map<std::string,\ int>\ *material\_map,}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<material\_t>\ *materials,\ std::istream\ *inStream,}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ *warning);}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \}\ \ \textcolor{comment}{//\ namespace\ tinyobj}}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ TINY\_OBJ\_LOADER\_H\_}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#ifdef\ TINYOBJLOADER\_IMPLEMENTATION}}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\#include\ <cctype>}}
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00355\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetinyobj}{tinyobj}}\ \{}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \mbox{\hyperlink{classtinyobj_1_1MaterialReader_afd62ceccd9b373801226e037ea1a5f9f}{MaterialReader::\string~MaterialReader}}()\ \{\}}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\#define\ TINYOBJ\_SSCANF\_BUFFER\_SIZE\ (4096)}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \textcolor{keyword}{struct\ }vertex\_index\ \{}
+\DoxyCodeLine{00367\ \ \ \textcolor{keywordtype}{int}\ v\_idx,\ vt\_idx,\ vn\_idx;}
+\DoxyCodeLine{00368\ \ \ vertex\_index()\ :\ v\_idx(-\/1),\ vt\_idx(-\/1),\ vn\_idx(-\/1)\ \{\}}
+\DoxyCodeLine{00369\ \ \ \textcolor{keyword}{explicit}\ vertex\_index(\textcolor{keywordtype}{int}\ idx)\ :\ v\_idx(idx),\ vt\_idx(idx),\ vn\_idx(idx)\ \{\}}
+\DoxyCodeLine{00370\ \ \ vertex\_index(\textcolor{keywordtype}{int}\ vidx,\ \textcolor{keywordtype}{int}\ vtidx,\ \textcolor{keywordtype}{int}\ vnidx)}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ :\ v\_idx(vidx),\ vt\_idx(vtidx),\ vn\_idx(vnidx)\ \{\}}
+\DoxyCodeLine{00372\ \};}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \textcolor{keyword}{struct\ }tag\_sizes\ \{}
+\DoxyCodeLine{00375\ \ \ tag\_sizes()\ :\ num\_ints(0),\ num\_reals(0),\ num\_strings(0)\ \{\}}
+\DoxyCodeLine{00376\ \ \ \textcolor{keywordtype}{int}\ num\_ints;}
+\DoxyCodeLine{00377\ \ \ \textcolor{keywordtype}{int}\ num\_reals;}
+\DoxyCodeLine{00378\ \ \ \textcolor{keywordtype}{int}\ num\_strings;}
+\DoxyCodeLine{00379\ \};}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \textcolor{keyword}{struct\ }obj\_shape\ \{}
+\DoxyCodeLine{00382\ \ \ std::vector<real\_t>\ v;}
+\DoxyCodeLine{00383\ \ \ std::vector<real\_t>\ vn;}
+\DoxyCodeLine{00384\ \ \ std::vector<real\_t>\ vt;}
+\DoxyCodeLine{00385\ \};}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \textcolor{comment}{//\ See}}
+\DoxyCodeLine{00388\ \textcolor{comment}{//\ http://stackoverflow.com/questions/6089231/getting-\/std-\/ifstream-\/to-\/handle-\/lf-\/cr-\/and-\/crlf}}
+\DoxyCodeLine{00389\ \textcolor{keyword}{static}\ std::istream\ \&safeGetline(std::istream\ \&is,\ std::string\ \&t)\ \{}
+\DoxyCodeLine{00390\ \ \ t.clear();}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \ \ \textcolor{comment}{//\ The\ characters\ in\ the\ stream\ are\ read\ one-\/by-\/one\ using\ a\ std::streambuf.}}
+\DoxyCodeLine{00393\ \ \ \textcolor{comment}{//\ That\ is\ faster\ than\ reading\ them\ one-\/by-\/one\ using\ the\ std::istream.}}
+\DoxyCodeLine{00394\ \ \ \textcolor{comment}{//\ Code\ that\ uses\ streambuf\ this\ way\ must\ be\ guarded\ by\ a\ sentry\ object.}}
+\DoxyCodeLine{00395\ \ \ \textcolor{comment}{//\ The\ sentry\ object\ performs\ various\ tasks,}}
+\DoxyCodeLine{00396\ \ \ \textcolor{comment}{//\ such\ as\ thread\ synchronization\ and\ updating\ the\ stream\ state.}}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \ \ std::istream::sentry\ se(is,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00399\ \ \ std::streambuf\ *sb\ =\ is.rdbuf();}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \ \ \textcolor{keywordflow}{for}\ (;;)\ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keywordtype}{int}\ c\ =\ sb-\/>sbumpc();}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordflow}{switch}\ (c)\ \{}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\(\backslash\)n'}:}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\(\backslash\)r'}:}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sb-\/>sgetc()\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\ sb-\/>sbumpc();}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ EOF:}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Also\ handle\ the\ case\ when\ the\ last\ line\ has\ no\ line\ ending}}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t.empty())\ is.setstate(std::ios::eofbit);}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ t\ +=\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(c);}
+\DoxyCodeLine{00415\ \ \ \ \ \}}
+\DoxyCodeLine{00416\ \ \ \}}
+\DoxyCodeLine{00417\ \}}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\#define\ IS\_SPACE(x)\ (((x)\ ==\ '\ ')\ ||\ ((x)\ ==\ '\(\backslash\)t'))}}
+\DoxyCodeLine{00420\ \textcolor{preprocessor}{\#define\ IS\_DIGIT(x)\ \(\backslash\)}}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\ \ (static\_cast<unsigned\ int>((x)\ -\/\ '0')\ <\ static\_cast<unsigned\ int>(10))}}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#define\ IS\_NEW\_LINE(x)\ (((x)\ ==\ '\(\backslash\)r')\ ||\ ((x)\ ==\ '\(\backslash\)n')\ ||\ ((x)\ ==\ '\(\backslash\)0'))}}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \textcolor{comment}{//\ Make\ index\ zero-\/base,\ and\ also\ support\ relative\ index.}}
+\DoxyCodeLine{00425\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ fixIndex(\textcolor{keywordtype}{int}\ idx,\ \textcolor{keywordtype}{int}\ n)\ \{}
+\DoxyCodeLine{00426\ \ \ \textcolor{keywordflow}{if}\ (idx\ >\ 0)\ \textcolor{keywordflow}{return}\ idx\ -\/\ 1;}
+\DoxyCodeLine{00427\ \ \ \textcolor{keywordflow}{if}\ (idx\ ==\ 0)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00428\ \ \ \textcolor{keywordflow}{return}\ n\ +\ idx;\ \ \textcolor{comment}{//\ negative\ value\ =\ relative}}
+\DoxyCodeLine{00429\ \}}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::string\ parseString(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **token)\ \{}
+\DoxyCodeLine{00432\ \ \ std::string\ s;}
+\DoxyCodeLine{00433\ \ \ (*token)\ +=\ strspn((*token),\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});}
+\DoxyCodeLine{00434\ \ \ \textcolor{keywordtype}{size\_t}\ e\ =\ strcspn((*token),\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00435\ \ \ s\ =\ std::string((*token),\ \&(*token)[e]);}
+\DoxyCodeLine{00436\ \ \ (*token)\ +=\ e;}
+\DoxyCodeLine{00437\ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{00438\ \}}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ parseInt(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **token)\ \{}
+\DoxyCodeLine{00441\ \ \ (*token)\ +=\ strspn((*token),\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});}
+\DoxyCodeLine{00442\ \ \ \textcolor{keywordtype}{int}\ i\ =\ atoi((*token));}
+\DoxyCodeLine{00443\ \ \ (*token)\ +=\ strcspn((*token),\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00444\ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00445\ \}}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \textcolor{comment}{//\ Tries\ to\ parse\ a\ floating\ point\ number\ located\ at\ s.}}
+\DoxyCodeLine{00448\ \textcolor{comment}{//}}
+\DoxyCodeLine{00449\ \textcolor{comment}{//\ s\_end\ should\ be\ a\ location\ in\ the\ string\ where\ reading\ should\ absolutely}}
+\DoxyCodeLine{00450\ \textcolor{comment}{//\ stop.\ For\ example\ at\ the\ end\ of\ the\ string,\ to\ prevent\ buffer\ overflows.}}
+\DoxyCodeLine{00451\ \textcolor{comment}{//}}
+\DoxyCodeLine{00452\ \textcolor{comment}{//\ Parses\ the\ following\ EBNF\ grammar:}}
+\DoxyCodeLine{00453\ \textcolor{comment}{//\ \ \ sign\ \ \ \ =\ "{}+"{}\ |\ "{}-\/"{}\ ;}}
+\DoxyCodeLine{00454\ \textcolor{comment}{//\ \ \ END\ \ \ \ \ =\ ?\ anything\ not\ in\ digit\ ?}}
+\DoxyCodeLine{00455\ \textcolor{comment}{//\ \ \ digit\ \ \ =\ "{}0"{}\ |\ "{}1"{}\ |\ "{}2"{}\ |\ "{}3"{}\ |\ "{}4"{}\ |\ "{}5"{}\ |\ "{}6"{}\ |\ "{}7"{}\ |\ "{}8"{}\ |\ "{}9"{}\ ;}}
+\DoxyCodeLine{00456\ \textcolor{comment}{//\ \ \ integer\ =\ [sign]\ ,\ digit\ ,\ \{digit\}\ ;}}
+\DoxyCodeLine{00457\ \textcolor{comment}{//\ \ \ decimal\ =\ integer\ ,\ ["{}."{}\ ,\ integer]\ ;}}
+\DoxyCodeLine{00458\ \textcolor{comment}{//\ \ \ float\ \ \ =\ (\ decimal\ ,\ END\ )\ |\ (\ decimal\ ,\ ("{}E"{}\ |\ "{}e"{})\ ,\ integer\ ,\ END\ )\ ;}}
+\DoxyCodeLine{00459\ \textcolor{comment}{//}}
+\DoxyCodeLine{00460\ \textcolor{comment}{//\ \ Valid\ strings\ are\ for\ example:}}
+\DoxyCodeLine{00461\ \textcolor{comment}{//\ \ \ -\/0\ \ +3.1417e+2\ \ -\/0.0E-\/3\ \ 1.0324\ \ -\/1.41\ \ \ 11e2}}
+\DoxyCodeLine{00462\ \textcolor{comment}{//}}
+\DoxyCodeLine{00463\ \textcolor{comment}{//\ If\ the\ parsing\ is\ a\ success,\ result\ is\ set\ to\ the\ parsed\ value\ and\ true}}
+\DoxyCodeLine{00464\ \textcolor{comment}{//\ is\ returned.}}
+\DoxyCodeLine{00465\ \textcolor{comment}{//}}
+\DoxyCodeLine{00466\ \textcolor{comment}{//\ The\ function\ is\ greedy\ and\ will\ parse\ until\ any\ of\ the\ following\ happens:}}
+\DoxyCodeLine{00467\ \textcolor{comment}{//\ \ -\/\ a\ non-\/conforming\ character\ is\ encountered.}}
+\DoxyCodeLine{00468\ \textcolor{comment}{//\ \ -\/\ s\_end\ is\ reached.}}
+\DoxyCodeLine{00469\ \textcolor{comment}{//}}
+\DoxyCodeLine{00470\ \textcolor{comment}{//\ The\ following\ situations\ triggers\ a\ failure:}}
+\DoxyCodeLine{00471\ \textcolor{comment}{//\ \ -\/\ s\ >=\ s\_end.}}
+\DoxyCodeLine{00472\ \textcolor{comment}{//\ \ -\/\ parse\ failure.}}
+\DoxyCodeLine{00473\ \textcolor{comment}{//}}
+\DoxyCodeLine{00474\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ tryParseDouble(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s\_end,\ \textcolor{keywordtype}{double}\ *result)\ \{}
+\DoxyCodeLine{00475\ \ \ \textcolor{keywordflow}{if}\ (s\ >=\ s\_end)\ \{}
+\DoxyCodeLine{00476\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00477\ \ \ \}}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \ \ \textcolor{keywordtype}{double}\ mantissa\ =\ 0.0;}
+\DoxyCodeLine{00480\ \ \ \textcolor{comment}{//\ This\ exponent\ is\ base\ 2\ rather\ than\ 10.}}
+\DoxyCodeLine{00481\ \ \ \textcolor{comment}{//\ However\ the\ exponent\ we\ parse\ is\ supposed\ to\ be\ one\ of\ ten,}}
+\DoxyCodeLine{00482\ \ \ \textcolor{comment}{//\ thus\ we\ must\ take\ care\ to\ convert\ the\ exponent/and\ or\ the}}
+\DoxyCodeLine{00483\ \ \ \textcolor{comment}{//\ mantissa\ to\ a\ *\ 2\string^E,\ where\ a\ is\ the\ mantissa\ and\ E\ is\ the}}
+\DoxyCodeLine{00484\ \ \ \textcolor{comment}{//\ exponent.}}
+\DoxyCodeLine{00485\ \ \ \textcolor{comment}{//\ To\ get\ the\ final\ double\ we\ will\ use\ ldexp,\ it\ requires\ the}}
+\DoxyCodeLine{00486\ \ \ \textcolor{comment}{//\ exponent\ to\ be\ in\ base\ 2.}}
+\DoxyCodeLine{00487\ \ \ \textcolor{keywordtype}{int}\ exponent\ =\ 0;}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \ \ \textcolor{comment}{//\ NOTE:\ THESE\ MUST\ BE\ DECLARED\ HERE\ SINCE\ WE\ ARE\ NOT\ ALLOWED}}
+\DoxyCodeLine{00490\ \ \ \textcolor{comment}{//\ TO\ JUMP\ OVER\ DEFINITIONS.}}
+\DoxyCodeLine{00491\ \ \ \textcolor{keywordtype}{char}\ sign\ =\ \textcolor{charliteral}{'+'};}
+\DoxyCodeLine{00492\ \ \ \textcolor{keywordtype}{char}\ exp\_sign\ =\ \textcolor{charliteral}{'+'};}
+\DoxyCodeLine{00493\ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *curr\ =\ s;}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \ \ \textcolor{comment}{//\ How\ many\ characters\ were\ read\ in\ a\ loop.}}
+\DoxyCodeLine{00496\ \ \ \textcolor{keywordtype}{int}\ read\ =\ 0;}
+\DoxyCodeLine{00497\ \ \ \textcolor{comment}{//\ Tells\ whether\ a\ loop\ terminated\ due\ to\ reaching\ s\_end.}}
+\DoxyCodeLine{00498\ \ \ \textcolor{keywordtype}{bool}\ end\_not\_reached\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00501\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ BEGIN\ PARSING.}}
+\DoxyCodeLine{00502\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00504\ \ \ \textcolor{comment}{//\ Find\ out\ what\ sign\ we've\ got.}}
+\DoxyCodeLine{00505\ \ \ \textcolor{keywordflow}{if}\ (*curr\ ==\ \textcolor{charliteral}{'+'}\ ||\ *curr\ ==\ \textcolor{charliteral}{'-\/'})\ \{}
+\DoxyCodeLine{00506\ \ \ \ \ sign\ =\ *curr;}
+\DoxyCodeLine{00507\ \ \ \ \ curr++;}
+\DoxyCodeLine{00508\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (IS\_DIGIT(*curr))\ \{\ \textcolor{comment}{/*\ Pass\ through.\ */}}
+\DoxyCodeLine{00509\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00510\ \ \ \ \ \textcolor{keywordflow}{goto}\ fail;}
+\DoxyCodeLine{00511\ \ \ \}}
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00513\ \ \ \textcolor{comment}{//\ Read\ the\ integer\ part.}}
+\DoxyCodeLine{00514\ \ \ end\_not\_reached\ =\ (curr\ !=\ s\_end);}
+\DoxyCodeLine{00515\ \ \ \textcolor{keywordflow}{while}\ (end\_not\_reached\ \&\&\ IS\_DIGIT(*curr))\ \{}
+\DoxyCodeLine{00516\ \ \ \ \ mantissa\ *=\ 10;}
+\DoxyCodeLine{00517\ \ \ \ \ mantissa\ +=\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(*curr\ -\/\ 0x30);}
+\DoxyCodeLine{00518\ \ \ \ \ curr++;}
+\DoxyCodeLine{00519\ \ \ \ \ read++;}
+\DoxyCodeLine{00520\ \ \ \ \ end\_not\_reached\ =\ (curr\ !=\ s\_end);}
+\DoxyCodeLine{00521\ \ \ \}}
+\DoxyCodeLine{00522\ }
+\DoxyCodeLine{00523\ \ \ \textcolor{comment}{//\ We\ must\ make\ sure\ we\ actually\ got\ something.}}
+\DoxyCodeLine{00524\ \ \ \textcolor{keywordflow}{if}\ (read\ ==\ 0)\ \textcolor{keywordflow}{goto}\ fail;}
+\DoxyCodeLine{00525\ \ \ \textcolor{comment}{//\ We\ allow\ numbers\ of\ form\ "{}\#"{},\ "{}\#\#\#"{}\ etc.}}
+\DoxyCodeLine{00526\ \ \ \textcolor{keywordflow}{if}\ (!end\_not\_reached)\ \textcolor{keywordflow}{goto}\ assemble;}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00528\ \ \ \textcolor{comment}{//\ Read\ the\ decimal\ part.}}
+\DoxyCodeLine{00529\ \ \ \textcolor{keywordflow}{if}\ (*curr\ ==\ \textcolor{charliteral}{'.'})\ \{}
+\DoxyCodeLine{00530\ \ \ \ \ curr++;}
+\DoxyCodeLine{00531\ \ \ \ \ read\ =\ 1;}
+\DoxyCodeLine{00532\ \ \ \ \ end\_not\_reached\ =\ (curr\ !=\ s\_end);}
+\DoxyCodeLine{00533\ \ \ \ \ \textcolor{keywordflow}{while}\ (end\_not\_reached\ \&\&\ IS\_DIGIT(*curr))\ \{}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ pow\_lut[]\ =\ \{}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ 1.0,\ 0.1,\ 0.01,\ 0.001,\ 0.0001,\ 0.00001,\ 0.000001,\ 0.0000001,}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ lut\_entries\ =\ \textcolor{keyword}{sizeof}\ pow\_lut\ /\ \textcolor{keyword}{sizeof}\ pow\_lut[0];}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \textcolor{comment}{//\ NOTE:\ Don't\ use\ powf\ here,\ it\ will\ absolutely\ murder\ precision.}}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ mantissa\ +=\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(*curr\ -\/\ 0x30)\ *}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (read\ <\ lut\_entries\ ?\ pow\_lut[read]\ :\ std::pow(10.0,\ -\/read));}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ read++;}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ curr++;}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ end\_not\_reached\ =\ (curr\ !=\ s\_end);}
+\DoxyCodeLine{00545\ \ \ \ \ \}}
+\DoxyCodeLine{00546\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (*curr\ ==\ \textcolor{charliteral}{'e'}\ ||\ *curr\ ==\ \textcolor{charliteral}{'E'})\ \{}
+\DoxyCodeLine{00547\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00548\ \ \ \ \ \textcolor{keywordflow}{goto}\ assemble;}
+\DoxyCodeLine{00549\ \ \ \}}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00551\ \ \ \textcolor{keywordflow}{if}\ (!end\_not\_reached)\ \textcolor{keywordflow}{goto}\ assemble;}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \ \ \textcolor{comment}{//\ Read\ the\ exponent\ part.}}
+\DoxyCodeLine{00554\ \ \ \textcolor{keywordflow}{if}\ (*curr\ ==\ \textcolor{charliteral}{'e'}\ ||\ *curr\ ==\ \textcolor{charliteral}{'E'})\ \{}
+\DoxyCodeLine{00555\ \ \ \ \ curr++;}
+\DoxyCodeLine{00556\ \ \ \ \ \textcolor{comment}{//\ Figure\ out\ if\ a\ sign\ is\ present\ and\ if\ it\ is.}}
+\DoxyCodeLine{00557\ \ \ \ \ end\_not\_reached\ =\ (curr\ !=\ s\_end);}
+\DoxyCodeLine{00558\ \ \ \ \ \textcolor{keywordflow}{if}\ (end\_not\_reached\ \&\&\ (*curr\ ==\ \textcolor{charliteral}{'+'}\ ||\ *curr\ ==\ \textcolor{charliteral}{'-\/'}))\ \{}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ exp\_sign\ =\ *curr;}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ curr++;}
+\DoxyCodeLine{00561\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (IS\_DIGIT(*curr))\ \{\ \textcolor{comment}{/*\ Pass\ through.\ */}}
+\DoxyCodeLine{00562\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \textcolor{comment}{//\ Empty\ E\ is\ not\ allowed.}}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ fail;}
+\DoxyCodeLine{00565\ \ \ \ \ \}}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00567\ \ \ \ \ read\ =\ 0;}
+\DoxyCodeLine{00568\ \ \ \ \ end\_not\_reached\ =\ (curr\ !=\ s\_end);}
+\DoxyCodeLine{00569\ \ \ \ \ \textcolor{keywordflow}{while}\ (end\_not\_reached\ \&\&\ IS\_DIGIT(*curr))\ \{}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ exponent\ *=\ 10;}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ exponent\ +=\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(*curr\ -\/\ 0x30);}
+\DoxyCodeLine{00572\ \ \ \ \ \ \ curr++;}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ read++;}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ end\_not\_reached\ =\ (curr\ !=\ s\_end);}
+\DoxyCodeLine{00575\ \ \ \ \ \}}
+\DoxyCodeLine{00576\ \ \ \ \ exponent\ *=\ (exp\_sign\ ==\ \textcolor{charliteral}{'+'}\ ?\ 1\ :\ -\/1);}
+\DoxyCodeLine{00577\ \ \ \ \ \textcolor{keywordflow}{if}\ (read\ ==\ 0)\ \textcolor{keywordflow}{goto}\ fail;}
+\DoxyCodeLine{00578\ \ \ \}}
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00580\ assemble:}
+\DoxyCodeLine{00581\ \ \ *result\ =}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ (sign\ ==\ \textcolor{charliteral}{'+'}\ ?\ 1\ :\ -\/1)\ *}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ (exponent\ ?\ std::ldexp(mantissa\ *\ std::pow(5.0,\ exponent),\ exponent)\ :\ mantissa);}
+\DoxyCodeLine{00584\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00585\ fail:}
+\DoxyCodeLine{00586\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00587\ \}}
+\DoxyCodeLine{00588\ }
+\DoxyCodeLine{00589\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ parseReal(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **token,\ \textcolor{keywordtype}{double}\ default\_value\ =\ 0.0)\ \{}
+\DoxyCodeLine{00590\ \ \ (*token)\ +=\ strspn((*token),\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});}
+\DoxyCodeLine{00591\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *end\ =\ (*token)\ +\ strcspn((*token),\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00592\ \ \ \textcolor{keywordtype}{double}\ val\ =\ default\_value;}
+\DoxyCodeLine{00593\ \ \ tryParseDouble((*token),\ end,\ \&val);}
+\DoxyCodeLine{00594\ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ f\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\textcolor{keyword}{>}(val);}
+\DoxyCodeLine{00595\ \ \ (*token)\ =\ end;}
+\DoxyCodeLine{00596\ \ \ \textcolor{keywordflow}{return}\ f;}
+\DoxyCodeLine{00597\ \}}
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00599\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ parseReal2(\mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ *x,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ *y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **token,}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ default\_x\ =\ 0.0,}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ default\_y\ =\ 0.0)\ \{}
+\DoxyCodeLine{00602\ \ \ (*x)\ =\ parseReal(token,\ default\_x);}
+\DoxyCodeLine{00603\ \ \ (*y)\ =\ parseReal(token,\ default\_y);}
+\DoxyCodeLine{00604\ \}}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00606\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ parseReal3(\mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ *x,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ *y,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ *z,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **token,}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ default\_x\ =\ 0.0,}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ default\_y\ =\ 0.0,}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ default\_z\ =\ 0.0)\ \{}
+\DoxyCodeLine{00610\ \ \ (*x)\ =\ parseReal(token,\ default\_x);}
+\DoxyCodeLine{00611\ \ \ (*y)\ =\ parseReal(token,\ default\_y);}
+\DoxyCodeLine{00612\ \ \ (*z)\ =\ parseReal(token,\ default\_z);}
+\DoxyCodeLine{00613\ \}}
+\DoxyCodeLine{00614\ }
+\DoxyCodeLine{00615\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ parseV(\mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ *x,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ *y,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ *z,\ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ *w,}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **token,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ default\_x\ =\ 0.0,}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ default\_y\ =\ 0.0,}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ default\_z\ =\ 0.0,}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ default\_w\ =\ 1.0)\ \{}
+\DoxyCodeLine{00620\ \ \ (*x)\ =\ parseReal(token,\ default\_x);}
+\DoxyCodeLine{00621\ \ \ (*y)\ =\ parseReal(token,\ default\_y);}
+\DoxyCodeLine{00622\ \ \ (*z)\ =\ parseReal(token,\ default\_z);}
+\DoxyCodeLine{00623\ \ \ (*w)\ =\ parseReal(token,\ default\_w);}
+\DoxyCodeLine{00624\ \}}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ parseOnOff(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **token,\ \textcolor{keywordtype}{bool}\ default\_value\ =\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00627\ \ \ (*token)\ +=\ strspn((*token),\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});}
+\DoxyCodeLine{00628\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *end\ =\ (*token)\ +\ strcspn((*token),\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00629\ }
+\DoxyCodeLine{00630\ \ \ \textcolor{keywordtype}{bool}\ ret\ =\ default\_value;}
+\DoxyCodeLine{00631\ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp((*token),\ \textcolor{stringliteral}{"{}on"{}},\ 2)))\ \{}
+\DoxyCodeLine{00632\ \ \ \ \ ret\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00633\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp((*token),\ \textcolor{stringliteral}{"{}off"{}},\ 3)))\ \{}
+\DoxyCodeLine{00634\ \ \ \ \ ret\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00635\ \ \ \}}
+\DoxyCodeLine{00636\ }
+\DoxyCodeLine{00637\ \ \ (*token)\ =\ end;}
+\DoxyCodeLine{00638\ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00639\ \}}
+\DoxyCodeLine{00640\ }
+\DoxyCodeLine{00641\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8}{texture\_type\_t}}\ parseTextureType(}
+\DoxyCodeLine{00642\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **token,\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8}{texture\_type\_t}}\ default\_value\ =\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a259804f2e7bf9c39626abe6ebce6edc1}{TEXTURE\_TYPE\_NONE}})\ \{}
+\DoxyCodeLine{00643\ \ \ (*token)\ +=\ strspn((*token),\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});}
+\DoxyCodeLine{00644\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *end\ =\ (*token)\ +\ strcspn((*token),\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00645\ \ \ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8}{texture\_type\_t}}\ ty\ =\ default\_value;}
+\DoxyCodeLine{00646\ }
+\DoxyCodeLine{00647\ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp((*token),\ \textcolor{stringliteral}{"{}cube\_top"{}},\ strlen(\textcolor{stringliteral}{"{}cube\_top"{}}))))\ \{}
+\DoxyCodeLine{00648\ \ \ \ \ ty\ =\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8acc4c4327df32dce3fa406865a8e35519}{TEXTURE\_TYPE\_CUBE\_TOP}};}
+\DoxyCodeLine{00649\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp((*token),\ \textcolor{stringliteral}{"{}cube\_bottom"{}},\ strlen(\textcolor{stringliteral}{"{}cube\_bottom"{}}))))\ \{}
+\DoxyCodeLine{00650\ \ \ \ \ ty\ =\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a20c37be3992ed111ba47045a63351cde}{TEXTURE\_TYPE\_CUBE\_BOTTOM}};}
+\DoxyCodeLine{00651\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp((*token),\ \textcolor{stringliteral}{"{}cube\_left"{}},\ strlen(\textcolor{stringliteral}{"{}cube\_left"{}}))))\ \{}
+\DoxyCodeLine{00652\ \ \ \ \ ty\ =\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a01f908bcfb745ad0d97d84b8cacc6d30}{TEXTURE\_TYPE\_CUBE\_LEFT}};}
+\DoxyCodeLine{00653\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp((*token),\ \textcolor{stringliteral}{"{}cube\_right"{}},\ strlen(\textcolor{stringliteral}{"{}cube\_right"{}}))))\ \{}
+\DoxyCodeLine{00654\ \ \ \ \ ty\ =\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a7709b5986f04e87ffbdc9bd7280d261c}{TEXTURE\_TYPE\_CUBE\_RIGHT}};}
+\DoxyCodeLine{00655\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp((*token),\ \textcolor{stringliteral}{"{}cube\_front"{}},\ strlen(\textcolor{stringliteral}{"{}cube\_front"{}}))))\ \{}
+\DoxyCodeLine{00656\ \ \ \ \ ty\ =\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a1ce5bed3c2ba5c360ca6c2607b9d97ca}{TEXTURE\_TYPE\_CUBE\_FRONT}};}
+\DoxyCodeLine{00657\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp((*token),\ \textcolor{stringliteral}{"{}cube\_back"{}},\ strlen(\textcolor{stringliteral}{"{}cube\_back"{}}))))\ \{}
+\DoxyCodeLine{00658\ \ \ \ \ ty\ =\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8af2cb2d4e7551e713593382c4690aa665}{TEXTURE\_TYPE\_CUBE\_BACK}};}
+\DoxyCodeLine{00659\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp((*token),\ \textcolor{stringliteral}{"{}sphere"{}},\ strlen(\textcolor{stringliteral}{"{}sphere"{}}))))\ \{}
+\DoxyCodeLine{00660\ \ \ \ \ ty\ =\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a4e5a6bfb8a95a23bf0cce576aaa5dfa4}{TEXTURE\_TYPE\_SPHERE}};}
+\DoxyCodeLine{00661\ \ \ \}}
+\DoxyCodeLine{00662\ }
+\DoxyCodeLine{00663\ \ \ (*token)\ =\ end;}
+\DoxyCodeLine{00664\ \ \ \textcolor{keywordflow}{return}\ ty;}
+\DoxyCodeLine{00665\ \}}
+\DoxyCodeLine{00666\ }
+\DoxyCodeLine{00667\ \textcolor{keyword}{static}\ tag\_sizes\ parseTagTriple(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **token)\ \{}
+\DoxyCodeLine{00668\ \ \ tag\_sizes\ ts;}
+\DoxyCodeLine{00669\ }
+\DoxyCodeLine{00670\ \ \ ts.num\_ints\ =\ atoi((*token));}
+\DoxyCodeLine{00671\ \ \ (*token)\ +=\ strcspn((*token),\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00672\ \ \ \textcolor{keywordflow}{if}\ ((*token)[0]\ !=\ \textcolor{charliteral}{'/'})\ \{}
+\DoxyCodeLine{00673\ \ \ \ \ \textcolor{keywordflow}{return}\ ts;}
+\DoxyCodeLine{00674\ \ \ \}}
+\DoxyCodeLine{00675\ \ \ (*token)++;}
+\DoxyCodeLine{00676\ }
+\DoxyCodeLine{00677\ \ \ ts.num\_reals\ =\ atoi((*token));}
+\DoxyCodeLine{00678\ \ \ (*token)\ +=\ strcspn((*token),\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00679\ \ \ \textcolor{keywordflow}{if}\ ((*token)[0]\ !=\ \textcolor{charliteral}{'/'})\ \{}
+\DoxyCodeLine{00680\ \ \ \ \ \textcolor{keywordflow}{return}\ ts;}
+\DoxyCodeLine{00681\ \ \ \}}
+\DoxyCodeLine{00682\ \ \ (*token)++;}
+\DoxyCodeLine{00683\ }
+\DoxyCodeLine{00684\ \ \ ts.num\_strings\ =\ atoi((*token));}
+\DoxyCodeLine{00685\ \ \ (*token)\ +=\ strcspn((*token),\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}})\ +\ 1;}
+\DoxyCodeLine{00686\ }
+\DoxyCodeLine{00687\ \ \ \textcolor{keywordflow}{return}\ ts;}
+\DoxyCodeLine{00688\ \}}
+\DoxyCodeLine{00689\ }
+\DoxyCodeLine{00690\ \textcolor{comment}{//\ Parse\ triples\ with\ index\ offsets:\ i,\ i/j/k,\ i//k,\ i/j}}
+\DoxyCodeLine{00691\ \textcolor{keyword}{static}\ vertex\_index\ parseTriple(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **token,\ \textcolor{keywordtype}{int}\ vsize,\ \textcolor{keywordtype}{int}\ vnsize,}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ vtsize)\ \{}
+\DoxyCodeLine{00693\ \ \ vertex\_index\ vi(-\/1);}
+\DoxyCodeLine{00694\ }
+\DoxyCodeLine{00695\ \ \ vi.v\_idx\ =\ fixIndex(atoi((*token)),\ vsize);}
+\DoxyCodeLine{00696\ \ \ (*token)\ +=\ strcspn((*token),\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00697\ \ \ \textcolor{keywordflow}{if}\ ((*token)[0]\ !=\ \textcolor{charliteral}{'/'})\ \{}
+\DoxyCodeLine{00698\ \ \ \ \ \textcolor{keywordflow}{return}\ vi;}
+\DoxyCodeLine{00699\ \ \ \}}
+\DoxyCodeLine{00700\ \ \ (*token)++;}
+\DoxyCodeLine{00701\ }
+\DoxyCodeLine{00702\ \ \ \textcolor{comment}{//\ i//k}}
+\DoxyCodeLine{00703\ \ \ \textcolor{keywordflow}{if}\ ((*token)[0]\ ==\ \textcolor{charliteral}{'/'})\ \{}
+\DoxyCodeLine{00704\ \ \ \ \ (*token)++;}
+\DoxyCodeLine{00705\ \ \ \ \ vi.vn\_idx\ =\ fixIndex(atoi((*token)),\ vnsize);}
+\DoxyCodeLine{00706\ \ \ \ \ (*token)\ +=\ strcspn((*token),\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00707\ \ \ \ \ \textcolor{keywordflow}{return}\ vi;}
+\DoxyCodeLine{00708\ \ \ \}}
+\DoxyCodeLine{00709\ }
+\DoxyCodeLine{00710\ \ \ \textcolor{comment}{//\ i/j/k\ or\ i/j}}
+\DoxyCodeLine{00711\ \ \ vi.vt\_idx\ =\ fixIndex(atoi((*token)),\ vtsize);}
+\DoxyCodeLine{00712\ \ \ (*token)\ +=\ strcspn((*token),\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00713\ \ \ \textcolor{keywordflow}{if}\ ((*token)[0]\ !=\ \textcolor{charliteral}{'/'})\ \{}
+\DoxyCodeLine{00714\ \ \ \ \ \textcolor{keywordflow}{return}\ vi;}
+\DoxyCodeLine{00715\ \ \ \}}
+\DoxyCodeLine{00716\ }
+\DoxyCodeLine{00717\ \ \ \textcolor{comment}{//\ i/j/k}}
+\DoxyCodeLine{00718\ \ \ (*token)++;\ \ \textcolor{comment}{//\ skip\ '/'}}
+\DoxyCodeLine{00719\ \ \ vi.vn\_idx\ =\ fixIndex(atoi((*token)),\ vnsize);}
+\DoxyCodeLine{00720\ \ \ (*token)\ +=\ strcspn((*token),\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00721\ \ \ \textcolor{keywordflow}{return}\ vi;}
+\DoxyCodeLine{00722\ \}}
+\DoxyCodeLine{00723\ }
+\DoxyCodeLine{00724\ \textcolor{comment}{//\ Parse\ raw\ triples:\ i,\ i/j/k,\ i//k,\ i/j}}
+\DoxyCodeLine{00725\ \textcolor{keyword}{static}\ vertex\_index\ parseRawTriple(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **token)\ \{}
+\DoxyCodeLine{00726\ \ \ vertex\_index\ vi(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(0));\ \ \textcolor{comment}{//\ 0\ is\ an\ invalid\ index\ in\ OBJ}}
+\DoxyCodeLine{00727\ }
+\DoxyCodeLine{00728\ \ \ vi.v\_idx\ =\ atoi((*token));}
+\DoxyCodeLine{00729\ \ \ (*token)\ +=\ strcspn((*token),\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00730\ \ \ \textcolor{keywordflow}{if}\ ((*token)[0]\ !=\ \textcolor{charliteral}{'/'})\ \{}
+\DoxyCodeLine{00731\ \ \ \ \ \textcolor{keywordflow}{return}\ vi;}
+\DoxyCodeLine{00732\ \ \ \}}
+\DoxyCodeLine{00733\ \ \ (*token)++;}
+\DoxyCodeLine{00734\ }
+\DoxyCodeLine{00735\ \ \ \textcolor{comment}{//\ i//k}}
+\DoxyCodeLine{00736\ \ \ \textcolor{keywordflow}{if}\ ((*token)[0]\ ==\ \textcolor{charliteral}{'/'})\ \{}
+\DoxyCodeLine{00737\ \ \ \ \ (*token)++;}
+\DoxyCodeLine{00738\ \ \ \ \ vi.vn\_idx\ =\ atoi((*token));}
+\DoxyCodeLine{00739\ \ \ \ \ (*token)\ +=\ strcspn((*token),\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00740\ \ \ \ \ \textcolor{keywordflow}{return}\ vi;}
+\DoxyCodeLine{00741\ \ \ \}}
+\DoxyCodeLine{00742\ }
+\DoxyCodeLine{00743\ \ \ \textcolor{comment}{//\ i/j/k\ or\ i/j}}
+\DoxyCodeLine{00744\ \ \ vi.vt\_idx\ =\ atoi((*token));}
+\DoxyCodeLine{00745\ \ \ (*token)\ +=\ strcspn((*token),\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00746\ \ \ \textcolor{keywordflow}{if}\ ((*token)[0]\ !=\ \textcolor{charliteral}{'/'})\ \{}
+\DoxyCodeLine{00747\ \ \ \ \ \textcolor{keywordflow}{return}\ vi;}
+\DoxyCodeLine{00748\ \ \ \}}
+\DoxyCodeLine{00749\ }
+\DoxyCodeLine{00750\ \ \ \textcolor{comment}{//\ i/j/k}}
+\DoxyCodeLine{00751\ \ \ (*token)++;\ \ \textcolor{comment}{//\ skip\ '/'}}
+\DoxyCodeLine{00752\ \ \ vi.vn\_idx\ =\ atoi((*token));}
+\DoxyCodeLine{00753\ \ \ (*token)\ +=\ strcspn((*token),\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00754\ \ \ \textcolor{keywordflow}{return}\ vi;}
+\DoxyCodeLine{00755\ \}}
+\DoxyCodeLine{00756\ }
+\DoxyCodeLine{00757\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ ParseTextureNameAndOption(std::string\ *texname,}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texture\_option\_t\ *texopt,}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *linebuf,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ is\_bump)\ \{}
+\DoxyCodeLine{00760\ \ \ \textcolor{comment}{//\ @todo\ \{\ write\ more\ robust\ lexer\ and\ parser.\ \}}}
+\DoxyCodeLine{00761\ \ \ \textcolor{keywordtype}{bool}\ found\_texname\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00762\ \ \ std::string\ texture\_name;}
+\DoxyCodeLine{00763\ }
+\DoxyCodeLine{00764\ \ \ \textcolor{comment}{//\ Fill\ with\ default\ value\ for\ texopt.}}
+\DoxyCodeLine{00765\ \ \ \textcolor{keywordflow}{if}\ (is\_bump)\ \{}
+\DoxyCodeLine{00766\ \ \ \ \ texopt-\/>imfchan\ =\ \textcolor{charliteral}{'l'};}
+\DoxyCodeLine{00767\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00768\ \ \ \ \ texopt-\/>imfchan\ =\ \textcolor{charliteral}{'m'};}
+\DoxyCodeLine{00769\ \ \ \}}
+\DoxyCodeLine{00770\ \ \ texopt-\/>bump\_multiplier\ =\ 1.0f;}
+\DoxyCodeLine{00771\ \ \ texopt-\/>clamp\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00772\ \ \ texopt-\/>blendu\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00773\ \ \ texopt-\/>blendv\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00774\ \ \ texopt-\/>sharpness\ =\ 1.0f;}
+\DoxyCodeLine{00775\ \ \ texopt-\/>brightness\ =\ 0.0f;}
+\DoxyCodeLine{00776\ \ \ texopt-\/>contrast\ =\ 1.0f;}
+\DoxyCodeLine{00777\ \ \ texopt-\/>origin\_offset[0]\ =\ 0.0f;}
+\DoxyCodeLine{00778\ \ \ texopt-\/>origin\_offset[1]\ =\ 0.0f;}
+\DoxyCodeLine{00779\ \ \ texopt-\/>origin\_offset[2]\ =\ 0.0f;}
+\DoxyCodeLine{00780\ \ \ texopt-\/>scale[0]\ =\ 1.0f;}
+\DoxyCodeLine{00781\ \ \ texopt-\/>scale[1]\ =\ 1.0f;}
+\DoxyCodeLine{00782\ \ \ texopt-\/>scale[2]\ =\ 1.0f;}
+\DoxyCodeLine{00783\ \ \ texopt-\/>turbulence[0]\ =\ 0.0f;}
+\DoxyCodeLine{00784\ \ \ texopt-\/>turbulence[1]\ =\ 0.0f;}
+\DoxyCodeLine{00785\ \ \ texopt-\/>turbulence[2]\ =\ 0.0f;}
+\DoxyCodeLine{00786\ \ \ texopt-\/>type\ =\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a259804f2e7bf9c39626abe6ebce6edc1}{TEXTURE\_TYPE\_NONE}};}
+\DoxyCodeLine{00787\ }
+\DoxyCodeLine{00788\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *token\ =\ linebuf;\ \ \textcolor{comment}{//\ Assume\ line\ ends\ with\ NULL}}
+\DoxyCodeLine{00789\ }
+\DoxyCodeLine{00790\ \ \ \textcolor{keywordflow}{while}\ (!IS\_NEW\_LINE((*token)))\ \{}
+\DoxyCodeLine{00791\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}-\/blendu"{}},\ 7))\ \&\&\ IS\_SPACE((token[7])))\ \{}
+\DoxyCodeLine{00792\ \ \ \ \ \ \ token\ +=\ 8;}
+\DoxyCodeLine{00793\ \ \ \ \ \ \ texopt-\/>blendu\ =\ parseOnOff(\&token,\ \textcolor{comment}{/*\ default\ */}\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00794\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}-\/blendv"{}},\ 7))\ \&\&\ IS\_SPACE((token[7])))\ \{}
+\DoxyCodeLine{00795\ \ \ \ \ \ \ token\ +=\ 8;}
+\DoxyCodeLine{00796\ \ \ \ \ \ \ texopt-\/>blendv\ =\ parseOnOff(\&token,\ \textcolor{comment}{/*\ default\ */}\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00797\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}-\/clamp"{}},\ 6))\ \&\&\ IS\_SPACE((token[6])))\ \{}
+\DoxyCodeLine{00798\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{00799\ \ \ \ \ \ \ texopt-\/>clamp\ =\ parseOnOff(\&token,\ \textcolor{comment}{/*\ default\ */}\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00800\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}-\/boost"{}},\ 6))\ \&\&\ IS\_SPACE((token[6])))\ \{}
+\DoxyCodeLine{00801\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{00802\ \ \ \ \ \ \ texopt-\/>sharpness\ =\ parseReal(\&token,\ 1.0);}
+\DoxyCodeLine{00803\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}-\/bm"{}},\ 3))\ \&\&\ IS\_SPACE((token[3])))\ \{}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ token\ +=\ 4;}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ texopt-\/>bump\_multiplier\ =\ parseReal(\&token,\ 1.0);}
+\DoxyCodeLine{00806\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}-\/o"{}},\ 2))\ \&\&\ IS\_SPACE((token[2])))\ \{}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ token\ +=\ 3;}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ parseReal3(\&(texopt-\/>origin\_offset[0]),\ \&(texopt-\/>origin\_offset[1]),}
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(texopt-\/>origin\_offset[2]),\ \&token);}
+\DoxyCodeLine{00810\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}-\/s"{}},\ 2))\ \&\&\ IS\_SPACE((token[2])))\ \{}
+\DoxyCodeLine{00811\ \ \ \ \ \ \ token\ +=\ 3;}
+\DoxyCodeLine{00812\ \ \ \ \ \ \ parseReal3(\&(texopt-\/>scale[0]),\ \&(texopt-\/>scale[1]),\ \&(texopt-\/>scale[2]),}
+\DoxyCodeLine{00813\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&token,\ 1.0,\ 1.0,\ 1.0);}
+\DoxyCodeLine{00814\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}-\/t"{}},\ 2))\ \&\&\ IS\_SPACE((token[2])))\ \{}
+\DoxyCodeLine{00815\ \ \ \ \ \ \ token\ +=\ 3;}
+\DoxyCodeLine{00816\ \ \ \ \ \ \ parseReal3(\&(texopt-\/>turbulence[0]),\ \&(texopt-\/>turbulence[1]),}
+\DoxyCodeLine{00817\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(texopt-\/>turbulence[2]),\ \&token);}
+\DoxyCodeLine{00818\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}-\/type"{}},\ 5))\ \&\&\ IS\_SPACE((token[5])))\ \{}
+\DoxyCodeLine{00819\ \ \ \ \ \ \ token\ +=\ 5;}
+\DoxyCodeLine{00820\ \ \ \ \ \ \ texopt-\/>type\ =\ parseTextureType((\&token),\ \mbox{\hyperlink{namespacetinyobj_a5c9f207e1f880a48bac0a3b69f16d7f8a259804f2e7bf9c39626abe6ebce6edc1}{TEXTURE\_TYPE\_NONE}});}
+\DoxyCodeLine{00821\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}-\/imfchan"{}},\ 8))\ \&\&\ IS\_SPACE((token[8])))\ \{}
+\DoxyCodeLine{00822\ \ \ \ \ \ \ token\ +=\ 9;}
+\DoxyCodeLine{00823\ \ \ \ \ \ \ token\ +=\ strspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});}
+\DoxyCodeLine{00824\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *end\ =\ token\ +\ strcspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{00825\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((end\ -\/\ token)\ ==\ 1)\ \{\ \ \textcolor{comment}{//\ Assume\ one\ char\ for\ -\/imfchan}}
+\DoxyCodeLine{00826\ \ \ \ \ \ \ \ \ texopt-\/>imfchan\ =\ (*token);}
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00828\ \ \ \ \ \ \ token\ =\ end;}
+\DoxyCodeLine{00829\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}-\/mm"{}},\ 3))\ \&\&\ IS\_SPACE((token[3])))\ \{}
+\DoxyCodeLine{00830\ \ \ \ \ \ \ token\ +=\ 4;}
+\DoxyCodeLine{00831\ \ \ \ \ \ \ parseReal2(\&(texopt-\/>brightness),\ \&(texopt-\/>contrast),\ \&token,\ 0.0,\ 1.0);}
+\DoxyCodeLine{00832\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \textcolor{comment}{//\ Assume\ texture\ filename}}
+\DoxyCodeLine{00834\ \ \ \ \ \ \ token\ +=\ strspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ skip\ space}}
+\DoxyCodeLine{00835\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ len\ =\ strcspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r"{}});\ \ \textcolor{comment}{//\ untile\ next\ space}}
+\DoxyCodeLine{00836\ \ \ \ \ \ \ texture\_name\ =\ std::string(token,\ token\ +\ len);}
+\DoxyCodeLine{00837\ \ \ \ \ \ \ token\ +=\ len;}
+\DoxyCodeLine{00838\ }
+\DoxyCodeLine{00839\ \ \ \ \ \ \ token\ +=\ strspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});\ \ \textcolor{comment}{//\ skip\ space}}
+\DoxyCodeLine{00840\ }
+\DoxyCodeLine{00841\ \ \ \ \ \ \ found\_texname\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00842\ \ \ \ \ \}}
+\DoxyCodeLine{00843\ \ \ \}}
+\DoxyCodeLine{00844\ }
+\DoxyCodeLine{00845\ \ \ \textcolor{keywordflow}{if}\ (found\_texname)\ \{}
+\DoxyCodeLine{00846\ \ \ \ \ (*texname)\ =\ texture\_name;}
+\DoxyCodeLine{00847\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00848\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00849\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00850\ \ \ \}}
+\DoxyCodeLine{00851\ \}}
+\DoxyCodeLine{00852\ }
+\DoxyCodeLine{00853\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ InitMaterial(material\_t\ *material)\ \{}
+\DoxyCodeLine{00854\ \ \ material-\/>name\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00855\ \ \ material-\/>ambient\_texname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00856\ \ \ material-\/>diffuse\_texname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00857\ \ \ material-\/>specular\_texname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00858\ \ \ material-\/>specular\_highlight\_texname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00859\ \ \ material-\/>bump\_texname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00860\ \ \ material-\/>displacement\_texname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00861\ \ \ material-\/>alpha\_texname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00862\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{00863\ \ \ \ \ material-\/>ambient[i]\ =\ 0.f;}
+\DoxyCodeLine{00864\ \ \ \ \ material-\/>diffuse[i]\ =\ 0.f;}
+\DoxyCodeLine{00865\ \ \ \ \ material-\/>specular[i]\ =\ 0.f;}
+\DoxyCodeLine{00866\ \ \ \ \ material-\/>transmittance[i]\ =\ 0.f;}
+\DoxyCodeLine{00867\ \ \ \ \ material-\/>emission[i]\ =\ 0.f;}
+\DoxyCodeLine{00868\ \ \ \}}
+\DoxyCodeLine{00869\ \ \ material-\/>illum\ =\ 0;}
+\DoxyCodeLine{00870\ \ \ material-\/>dissolve\ =\ 1.f;}
+\DoxyCodeLine{00871\ \ \ material-\/>shininess\ =\ 1.f;}
+\DoxyCodeLine{00872\ \ \ material-\/>ior\ =\ 1.f;}
+\DoxyCodeLine{00873\ }
+\DoxyCodeLine{00874\ \ \ material-\/>roughness\ =\ 0.f;}
+\DoxyCodeLine{00875\ \ \ material-\/>metallic\ =\ 0.f;}
+\DoxyCodeLine{00876\ \ \ material-\/>sheen\ =\ 0.f;}
+\DoxyCodeLine{00877\ \ \ material-\/>clearcoat\_thickness\ =\ 0.f;}
+\DoxyCodeLine{00878\ \ \ material-\/>clearcoat\_roughness\ =\ 0.f;}
+\DoxyCodeLine{00879\ \ \ material-\/>anisotropy\_rotation\ =\ 0.f;}
+\DoxyCodeLine{00880\ \ \ material-\/>anisotropy\ =\ 0.f;}
+\DoxyCodeLine{00881\ \ \ material-\/>roughness\_texname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00882\ \ \ material-\/>metallic\_texname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00883\ \ \ material-\/>sheen\_texname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00884\ \ \ material-\/>emissive\_texname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00885\ \ \ material-\/>normal\_texname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00886\ }
+\DoxyCodeLine{00887\ \ \ material-\/>unknown\_parameter.clear();}
+\DoxyCodeLine{00888\ \}}
+\DoxyCodeLine{00889\ }
+\DoxyCodeLine{00890\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ exportFaceGroupToShape(}
+\DoxyCodeLine{00891\ \ \ \ \ shape\_t\ *shape,\ \textcolor{keyword}{const}\ std::vector<std::vector<vertex\_index>\ >\ \&faceGroup,}
+\DoxyCodeLine{00892\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<tag\_t>\ \&tags,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ material\_id,}
+\DoxyCodeLine{00893\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keywordtype}{bool}\ triangulate)\ \{}
+\DoxyCodeLine{00894\ \ \ \textcolor{keywordflow}{if}\ (faceGroup.empty())\ \{}
+\DoxyCodeLine{00895\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00896\ \ \ \}}
+\DoxyCodeLine{00897\ }
+\DoxyCodeLine{00898\ \ \ \textcolor{comment}{//\ Flatten\ vertices\ and\ indices}}
+\DoxyCodeLine{00899\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ faceGroup.size();\ i++)\ \{}
+\DoxyCodeLine{00900\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<vertex\_index>\ \&face\ =\ faceGroup[i];}
+\DoxyCodeLine{00901\ }
+\DoxyCodeLine{00902\ \ \ \ \ vertex\_index\ i0\ =\ face[0];}
+\DoxyCodeLine{00903\ \ \ \ \ vertex\_index\ i1(-\/1);}
+\DoxyCodeLine{00904\ \ \ \ \ vertex\_index\ i2\ =\ face[1];}
+\DoxyCodeLine{00905\ }
+\DoxyCodeLine{00906\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ npolys\ =\ face.size();}
+\DoxyCodeLine{00907\ }
+\DoxyCodeLine{00908\ \ \ \ \ \textcolor{keywordflow}{if}\ (triangulate)\ \{}
+\DoxyCodeLine{00909\ \ \ \ \ \ \ \textcolor{comment}{//\ Polygon\ -\/>\ triangle\ fan\ conversion}}
+\DoxyCodeLine{00910\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 2;\ k\ <\ npolys;\ k++)\ \{}
+\DoxyCodeLine{00911\ \ \ \ \ \ \ \ \ i1\ =\ i2;}
+\DoxyCodeLine{00912\ \ \ \ \ \ \ \ \ i2\ =\ face[k];}
+\DoxyCodeLine{00913\ }
+\DoxyCodeLine{00914\ \ \ \ \ \ \ \ \ index\_t\ idx0,\ idx1,\ idx2;}
+\DoxyCodeLine{00915\ \ \ \ \ \ \ \ \ idx0.vertex\_index\ =\ i0.v\_idx;}
+\DoxyCodeLine{00916\ \ \ \ \ \ \ \ \ idx0.normal\_index\ =\ i0.vn\_idx;}
+\DoxyCodeLine{00917\ \ \ \ \ \ \ \ \ idx0.texcoord\_index\ =\ i0.vt\_idx;}
+\DoxyCodeLine{00918\ \ \ \ \ \ \ \ \ idx1.vertex\_index\ =\ i1.v\_idx;}
+\DoxyCodeLine{00919\ \ \ \ \ \ \ \ \ idx1.normal\_index\ =\ i1.vn\_idx;}
+\DoxyCodeLine{00920\ \ \ \ \ \ \ \ \ idx1.texcoord\_index\ =\ i1.vt\_idx;}
+\DoxyCodeLine{00921\ \ \ \ \ \ \ \ \ idx2.vertex\_index\ =\ i2.v\_idx;}
+\DoxyCodeLine{00922\ \ \ \ \ \ \ \ \ idx2.normal\_index\ =\ i2.vn\_idx;}
+\DoxyCodeLine{00923\ \ \ \ \ \ \ \ \ idx2.texcoord\_index\ =\ i2.vt\_idx;}
+\DoxyCodeLine{00924\ }
+\DoxyCodeLine{00925\ \ \ \ \ \ \ \ \ shape-\/>mesh.indices.push\_back(idx0);}
+\DoxyCodeLine{00926\ \ \ \ \ \ \ \ \ shape-\/>mesh.indices.push\_back(idx1);}
+\DoxyCodeLine{00927\ \ \ \ \ \ \ \ \ shape-\/>mesh.indices.push\_back(idx2);}
+\DoxyCodeLine{00928\ }
+\DoxyCodeLine{00929\ \ \ \ \ \ \ \ \ shape-\/>mesh.num\_face\_vertices.push\_back(3);}
+\DoxyCodeLine{00930\ \ \ \ \ \ \ \ \ shape-\/>mesh.material\_ids.push\_back(material\_id);}
+\DoxyCodeLine{00931\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00932\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00933\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ npolys;\ k++)\ \{}
+\DoxyCodeLine{00934\ \ \ \ \ \ \ \ \ index\_t\ idx;}
+\DoxyCodeLine{00935\ \ \ \ \ \ \ \ \ idx.vertex\_index\ =\ face[k].v\_idx;}
+\DoxyCodeLine{00936\ \ \ \ \ \ \ \ \ idx.normal\_index\ =\ face[k].vn\_idx;}
+\DoxyCodeLine{00937\ \ \ \ \ \ \ \ \ idx.texcoord\_index\ =\ face[k].vt\_idx;}
+\DoxyCodeLine{00938\ \ \ \ \ \ \ \ \ shape-\/>mesh.indices.push\_back(idx);}
+\DoxyCodeLine{00939\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00940\ }
+\DoxyCodeLine{00941\ \ \ \ \ \ \ shape-\/>mesh.num\_face\_vertices.push\_back(}
+\DoxyCodeLine{00942\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(npolys));}
+\DoxyCodeLine{00943\ \ \ \ \ \ \ shape-\/>mesh.material\_ids.push\_back(material\_id);\ \ \textcolor{comment}{//\ per\ face}}
+\DoxyCodeLine{00944\ \ \ \ \ \}}
+\DoxyCodeLine{00945\ \ \ \}}
+\DoxyCodeLine{00946\ }
+\DoxyCodeLine{00947\ \ \ shape-\/>name\ =\ name;}
+\DoxyCodeLine{00948\ \ \ shape-\/>mesh.tags\ =\ tags;}
+\DoxyCodeLine{00949\ }
+\DoxyCodeLine{00950\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00951\ \}}
+\DoxyCodeLine{00952\ }
+\DoxyCodeLine{00953\ \textcolor{comment}{//\ Split\ a\ string\ with\ specified\ delimiter\ character.}}
+\DoxyCodeLine{00954\ \textcolor{comment}{//\ http://stackoverflow.com/questions/236129/split-\/a-\/string-\/in-\/c}}
+\DoxyCodeLine{00955\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ SplitString(\textcolor{keyword}{const}\ std::string\ \&s,\ \textcolor{keywordtype}{char}\ delim,}
+\DoxyCodeLine{00956\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\ \&elems)\ \{}
+\DoxyCodeLine{00957\ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00958\ \ \ ss.str(s);}
+\DoxyCodeLine{00959\ \ \ std::string\ item;}
+\DoxyCodeLine{00960\ \ \ \textcolor{keywordflow}{while}\ (std::getline(ss,\ item,\ delim))\ \{}
+\DoxyCodeLine{00961\ \ \ \ \ elems.push\_back(item);}
+\DoxyCodeLine{00962\ \ \ \}}
+\DoxyCodeLine{00963\ \}}
+\DoxyCodeLine{00964\ }
+\DoxyCodeLine{00965\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacetinyobj_aa7a035d152857396e5cde8ebff8b2b9e}{LoadMtl}}(std::map<std::string,\ int>\ *material\_map,}
+\DoxyCodeLine{00966\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<material\_t>\ *materials,\ std::istream\ *inStream,}
+\DoxyCodeLine{00967\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ *warning)\ \{}
+\DoxyCodeLine{00968\ \ \ \textcolor{comment}{//\ Create\ a\ default\ material\ anyway.}}
+\DoxyCodeLine{00969\ \ \ material\_t\ material;}
+\DoxyCodeLine{00970\ \ \ InitMaterial(\&material);}
+\DoxyCodeLine{00971\ }
+\DoxyCodeLine{00972\ \ \ \textcolor{comment}{//\ Issue\ 43.\ \`{}d`\ wins\ against\ \`{}Tr`\ since\ \`{}Tr`\ is\ not\ in\ the\ MTL\ specification.}}
+\DoxyCodeLine{00973\ \ \ \textcolor{keywordtype}{bool}\ has\_d\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00974\ \ \ \textcolor{keywordtype}{bool}\ has\_tr\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00975\ }
+\DoxyCodeLine{00976\ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00977\ }
+\DoxyCodeLine{00978\ \ \ std::string\ linebuf;}
+\DoxyCodeLine{00979\ \ \ \textcolor{keywordflow}{while}\ (inStream-\/>peek()\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00980\ \ \ \ \ safeGetline(*inStream,\ linebuf);}
+\DoxyCodeLine{00981\ }
+\DoxyCodeLine{00982\ \ \ \ \ \textcolor{comment}{//\ Trim\ trailing\ whitespace.}}
+\DoxyCodeLine{00983\ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00984\ \ \ \ \ \ \ linebuf\ =\ linebuf.substr(0,\ linebuf.find\_last\_not\_of(\textcolor{stringliteral}{"{}\ \(\backslash\)t"{}})\ +\ 1);}
+\DoxyCodeLine{00985\ \ \ \ \ \}}
+\DoxyCodeLine{00986\ }
+\DoxyCodeLine{00987\ \ \ \ \ \textcolor{comment}{//\ Trim\ newline\ '\(\backslash\)r\(\backslash\)n'\ or\ '\(\backslash\)n'}}
+\DoxyCodeLine{00988\ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf[linebuf.size()\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{00990\ \ \ \ \ \ \ \ \ linebuf.erase(linebuf.size()\ -\/\ 1);}
+\DoxyCodeLine{00991\ \ \ \ \ \}}
+\DoxyCodeLine{00992\ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00993\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf[linebuf.size()\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)r'})}
+\DoxyCodeLine{00994\ \ \ \ \ \ \ \ \ linebuf.erase(linebuf.size()\ -\/\ 1);}
+\DoxyCodeLine{00995\ \ \ \ \ \}}
+\DoxyCodeLine{00996\ }
+\DoxyCodeLine{00997\ \ \ \ \ \textcolor{comment}{//\ Skip\ if\ empty\ line.}}
+\DoxyCodeLine{00998\ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf.empty())\ \{}
+\DoxyCodeLine{00999\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01000\ \ \ \ \ \}}
+\DoxyCodeLine{01001\ }
+\DoxyCodeLine{01002\ \ \ \ \ \textcolor{comment}{//\ Skip\ leading\ space.}}
+\DoxyCodeLine{01003\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *token\ =\ linebuf.c\_str();}
+\DoxyCodeLine{01004\ \ \ \ \ token\ +=\ strspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});}
+\DoxyCodeLine{01005\ }
+\DoxyCodeLine{01006\ \ \ \ \ assert(token);}
+\DoxyCodeLine{01007\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'})\ \textcolor{keywordflow}{continue};\ \ \textcolor{comment}{//\ empty\ line}}
+\DoxyCodeLine{01008\ }
+\DoxyCodeLine{01009\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'\#'})\ \textcolor{keywordflow}{continue};\ \ \textcolor{comment}{//\ comment\ line}}
+\DoxyCodeLine{01010\ }
+\DoxyCodeLine{01011\ \ \ \ \ \textcolor{comment}{//\ new\ mtl}}
+\DoxyCodeLine{01012\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}newmtl"{}},\ 6))\ \&\&\ IS\_SPACE((token[6])))\ \{}
+\DoxyCodeLine{01013\ \ \ \ \ \ \ \textcolor{comment}{//\ flush\ previous\ material.}}
+\DoxyCodeLine{01014\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!material.name.empty())\ \{}
+\DoxyCodeLine{01015\ \ \ \ \ \ \ \ \ material\_map-\/>insert(std::pair<std::string,\ int>(}
+\DoxyCodeLine{01016\ \ \ \ \ \ \ \ \ \ \ \ \ material.name,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(materials-\/>size())));}
+\DoxyCodeLine{01017\ \ \ \ \ \ \ \ \ materials-\/>push\_back(material);}
+\DoxyCodeLine{01018\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01019\ }
+\DoxyCodeLine{01020\ \ \ \ \ \ \ \textcolor{comment}{//\ initial\ temporary\ material}}
+\DoxyCodeLine{01021\ \ \ \ \ \ \ InitMaterial(\&material);}
+\DoxyCodeLine{01022\ }
+\DoxyCodeLine{01023\ \ \ \ \ \ \ has\_d\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01024\ \ \ \ \ \ \ has\_tr\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01025\ }
+\DoxyCodeLine{01026\ \ \ \ \ \ \ \textcolor{comment}{//\ set\ new\ mtl\ name}}
+\DoxyCodeLine{01027\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ namebuf[TINYOBJ\_SSCANF\_BUFFER\_SIZE];}
+\DoxyCodeLine{01028\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01029\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{01030\ \ \ \ \ \ \ sscanf\_s(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf,\ (\textcolor{keywordtype}{unsigned})\_countof(namebuf));}
+\DoxyCodeLine{01031\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01032\ \ \ \ \ \ \ std::sscanf(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf);}
+\DoxyCodeLine{01033\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01034\ \ \ \ \ \ \ material.name\ =\ namebuf;}
+\DoxyCodeLine{01035\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01036\ \ \ \ \ \}}
+\DoxyCodeLine{01037\ }
+\DoxyCodeLine{01038\ \ \ \ \ \textcolor{comment}{//\ ambient}}
+\DoxyCodeLine{01039\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'K'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'a'}\ \&\&\ IS\_SPACE((token[2])))\ \{}
+\DoxyCodeLine{01040\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01041\ \ \ \ \ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ r,\ g,\ b;}
+\DoxyCodeLine{01042\ \ \ \ \ \ \ parseReal3(\&r,\ \&g,\ \&b,\ \&token);}
+\DoxyCodeLine{01043\ \ \ \ \ \ \ material.ambient[0]\ =\ r;}
+\DoxyCodeLine{01044\ \ \ \ \ \ \ material.ambient[1]\ =\ g;}
+\DoxyCodeLine{01045\ \ \ \ \ \ \ material.ambient[2]\ =\ b;}
+\DoxyCodeLine{01046\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01047\ \ \ \ \ \}}
+\DoxyCodeLine{01048\ }
+\DoxyCodeLine{01049\ \ \ \ \ \textcolor{comment}{//\ diffuse}}
+\DoxyCodeLine{01050\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'K'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'d'}\ \&\&\ IS\_SPACE((token[2])))\ \{}
+\DoxyCodeLine{01051\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01052\ \ \ \ \ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ r,\ g,\ b;}
+\DoxyCodeLine{01053\ \ \ \ \ \ \ parseReal3(\&r,\ \&g,\ \&b,\ \&token);}
+\DoxyCodeLine{01054\ \ \ \ \ \ \ material.diffuse[0]\ =\ r;}
+\DoxyCodeLine{01055\ \ \ \ \ \ \ material.diffuse[1]\ =\ g;}
+\DoxyCodeLine{01056\ \ \ \ \ \ \ material.diffuse[2]\ =\ b;}
+\DoxyCodeLine{01057\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01058\ \ \ \ \ \}}
+\DoxyCodeLine{01059\ }
+\DoxyCodeLine{01060\ \ \ \ \ \textcolor{comment}{//\ specular}}
+\DoxyCodeLine{01061\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'K'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'s'}\ \&\&\ IS\_SPACE((token[2])))\ \{}
+\DoxyCodeLine{01062\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01063\ \ \ \ \ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ r,\ g,\ b;}
+\DoxyCodeLine{01064\ \ \ \ \ \ \ parseReal3(\&r,\ \&g,\ \&b,\ \&token);}
+\DoxyCodeLine{01065\ \ \ \ \ \ \ material.specular[0]\ =\ r;}
+\DoxyCodeLine{01066\ \ \ \ \ \ \ material.specular[1]\ =\ g;}
+\DoxyCodeLine{01067\ \ \ \ \ \ \ material.specular[2]\ =\ b;}
+\DoxyCodeLine{01068\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01069\ \ \ \ \ \}}
+\DoxyCodeLine{01070\ }
+\DoxyCodeLine{01071\ \ \ \ \ \textcolor{comment}{//\ transmittance}}
+\DoxyCodeLine{01072\ \ \ \ \ \textcolor{keywordflow}{if}\ ((token[0]\ ==\ \textcolor{charliteral}{'K'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'t'}\ \&\&\ IS\_SPACE((token[2])))\ ||}
+\DoxyCodeLine{01073\ \ \ \ \ \ \ \ \ (token[0]\ ==\ \textcolor{charliteral}{'T'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'f'}\ \&\&\ IS\_SPACE((token[2]))))\ \{}
+\DoxyCodeLine{01074\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01075\ \ \ \ \ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ r,\ g,\ b;}
+\DoxyCodeLine{01076\ \ \ \ \ \ \ parseReal3(\&r,\ \&g,\ \&b,\ \&token);}
+\DoxyCodeLine{01077\ \ \ \ \ \ \ material.transmittance[0]\ =\ r;}
+\DoxyCodeLine{01078\ \ \ \ \ \ \ material.transmittance[1]\ =\ g;}
+\DoxyCodeLine{01079\ \ \ \ \ \ \ material.transmittance[2]\ =\ b;}
+\DoxyCodeLine{01080\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01081\ \ \ \ \ \}}
+\DoxyCodeLine{01082\ }
+\DoxyCodeLine{01083\ \ \ \ \ \textcolor{comment}{//\ ior(index\ of\ refraction)}}
+\DoxyCodeLine{01084\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'N'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'i'}\ \&\&\ IS\_SPACE((token[2])))\ \{}
+\DoxyCodeLine{01085\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01086\ \ \ \ \ \ \ material.ior\ =\ parseReal(\&token);}
+\DoxyCodeLine{01087\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01088\ \ \ \ \ \}}
+\DoxyCodeLine{01089\ }
+\DoxyCodeLine{01090\ \ \ \ \ \textcolor{comment}{//\ emission}}
+\DoxyCodeLine{01091\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'K'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'e'}\ \&\&\ IS\_SPACE(token[2]))\ \{}
+\DoxyCodeLine{01092\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01093\ \ \ \ \ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ r,\ g,\ b;}
+\DoxyCodeLine{01094\ \ \ \ \ \ \ parseReal3(\&r,\ \&g,\ \&b,\ \&token);}
+\DoxyCodeLine{01095\ \ \ \ \ \ \ material.emission[0]\ =\ r;}
+\DoxyCodeLine{01096\ \ \ \ \ \ \ material.emission[1]\ =\ g;}
+\DoxyCodeLine{01097\ \ \ \ \ \ \ material.emission[2]\ =\ b;}
+\DoxyCodeLine{01098\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01099\ \ \ \ \ \}}
+\DoxyCodeLine{01100\ }
+\DoxyCodeLine{01101\ \ \ \ \ \textcolor{comment}{//\ shininess}}
+\DoxyCodeLine{01102\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'N'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'s'}\ \&\&\ IS\_SPACE(token[2]))\ \{}
+\DoxyCodeLine{01103\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01104\ \ \ \ \ \ \ material.shininess\ =\ parseReal(\&token);}
+\DoxyCodeLine{01105\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01106\ \ \ \ \ \}}
+\DoxyCodeLine{01107\ }
+\DoxyCodeLine{01108\ \ \ \ \ \textcolor{comment}{//\ illum\ model}}
+\DoxyCodeLine{01109\ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}illum"{}},\ 5)\ \&\&\ IS\_SPACE(token[5]))\ \{}
+\DoxyCodeLine{01110\ \ \ \ \ \ \ token\ +=\ 6;}
+\DoxyCodeLine{01111\ \ \ \ \ \ \ material.illum\ =\ parseInt(\&token);}
+\DoxyCodeLine{01112\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01113\ \ \ \ \ \}}
+\DoxyCodeLine{01114\ }
+\DoxyCodeLine{01115\ \ \ \ \ \textcolor{comment}{//\ dissolve}}
+\DoxyCodeLine{01116\ \ \ \ \ \textcolor{keywordflow}{if}\ ((token[0]\ ==\ \textcolor{charliteral}{'d'}\ \&\&\ IS\_SPACE(token[1])))\ \{}
+\DoxyCodeLine{01117\ \ \ \ \ \ \ token\ +=\ 1;}
+\DoxyCodeLine{01118\ \ \ \ \ \ \ material.dissolve\ =\ parseReal(\&token);}
+\DoxyCodeLine{01119\ }
+\DoxyCodeLine{01120\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (has\_tr)\ \{}
+\DoxyCodeLine{01121\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}WARN:\ Both\ \`{}d`\ and\ \`{}Tr`\ parameters\ defined\ for\ \(\backslash\)"{}"{}}}
+\DoxyCodeLine{01122\ \ \ \ \ \ \ \ \ \ \ \ <<\ material.name\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}.\ Use\ the\ value\ of\ \`{}d`\ for\ dissolve."{}}}
+\DoxyCodeLine{01123\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{01124\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01125\ \ \ \ \ \ \ has\_d\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01126\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01127\ \ \ \ \ \}}
+\DoxyCodeLine{01128\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'T'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'r'}\ \&\&\ IS\_SPACE(token[2]))\ \{}
+\DoxyCodeLine{01129\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01130\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (has\_d)\ \{}
+\DoxyCodeLine{01131\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \`{}d`\ wins.\ Ignore\ \`{}Tr`\ value.}}
+\DoxyCodeLine{01132\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}WARN:\ Both\ \`{}d`\ and\ \`{}Tr`\ parameters\ defined\ for\ \(\backslash\)"{}"{}}}
+\DoxyCodeLine{01133\ \ \ \ \ \ \ \ \ \ \ \ <<\ material.name\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}.\ Use\ the\ value\ of\ \`{}d`\ for\ dissolve."{}}}
+\DoxyCodeLine{01134\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{01135\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01136\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ invert\ value\ of\ Tr(assume\ Tr\ is\ in\ range\ [0,\ 1])}}
+\DoxyCodeLine{01137\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ NOTE:\ Interpretation\ of\ Tr\ is\ application(exporter)\ dependent.\ For}}
+\DoxyCodeLine{01138\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ some\ application(e.g.\ 3ds\ max\ obj\ exporter),\ Tr\ =\ d(Issue\ 43)}}
+\DoxyCodeLine{01139\ \ \ \ \ \ \ \ \ material.dissolve\ =\ 1.0f\ -\/\ parseReal(\&token);}
+\DoxyCodeLine{01140\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01141\ \ \ \ \ \ \ has\_tr\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01142\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01143\ \ \ \ \ \}}
+\DoxyCodeLine{01144\ }
+\DoxyCodeLine{01145\ \ \ \ \ \textcolor{comment}{//\ PBR:\ roughness}}
+\DoxyCodeLine{01146\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'P'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'r'}\ \&\&\ IS\_SPACE(token[2]))\ \{}
+\DoxyCodeLine{01147\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01148\ \ \ \ \ \ \ material.roughness\ =\ parseReal(\&token);}
+\DoxyCodeLine{01149\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01150\ \ \ \ \ \}}
+\DoxyCodeLine{01151\ }
+\DoxyCodeLine{01152\ \ \ \ \ \textcolor{comment}{//\ PBR:\ metallic}}
+\DoxyCodeLine{01153\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'P'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'m'}\ \&\&\ IS\_SPACE(token[2]))\ \{}
+\DoxyCodeLine{01154\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01155\ \ \ \ \ \ \ material.metallic\ =\ parseReal(\&token);}
+\DoxyCodeLine{01156\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01157\ \ \ \ \ \}}
+\DoxyCodeLine{01158\ }
+\DoxyCodeLine{01159\ \ \ \ \ \textcolor{comment}{//\ PBR:\ sheen}}
+\DoxyCodeLine{01160\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'P'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'s'}\ \&\&\ IS\_SPACE(token[2]))\ \{}
+\DoxyCodeLine{01161\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01162\ \ \ \ \ \ \ material.sheen\ =\ parseReal(\&token);}
+\DoxyCodeLine{01163\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01164\ \ \ \ \ \}}
+\DoxyCodeLine{01165\ }
+\DoxyCodeLine{01166\ \ \ \ \ \textcolor{comment}{//\ PBR:\ clearcoat\ thickness}}
+\DoxyCodeLine{01167\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'P'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'c'}\ \&\&\ IS\_SPACE(token[2]))\ \{}
+\DoxyCodeLine{01168\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01169\ \ \ \ \ \ \ material.clearcoat\_thickness\ =\ parseReal(\&token);}
+\DoxyCodeLine{01170\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01171\ \ \ \ \ \}}
+\DoxyCodeLine{01172\ }
+\DoxyCodeLine{01173\ \ \ \ \ \textcolor{comment}{//\ PBR:\ clearcoat\ roughness}}
+\DoxyCodeLine{01174\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}Pcr"{}},\ 3))\ \&\&\ IS\_SPACE(token[3]))\ \{}
+\DoxyCodeLine{01175\ \ \ \ \ \ \ token\ +=\ 4;}
+\DoxyCodeLine{01176\ \ \ \ \ \ \ material.clearcoat\_roughness\ =\ parseReal(\&token);}
+\DoxyCodeLine{01177\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01178\ \ \ \ \ \}}
+\DoxyCodeLine{01179\ }
+\DoxyCodeLine{01180\ \ \ \ \ \textcolor{comment}{//\ PBR:\ anisotropy}}
+\DoxyCodeLine{01181\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}aniso"{}},\ 5))\ \&\&\ IS\_SPACE(token[5]))\ \{}
+\DoxyCodeLine{01182\ \ \ \ \ \ \ token\ +=\ 6;}
+\DoxyCodeLine{01183\ \ \ \ \ \ \ material.anisotropy\ =\ parseReal(\&token);}
+\DoxyCodeLine{01184\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01185\ \ \ \ \ \}}
+\DoxyCodeLine{01186\ }
+\DoxyCodeLine{01187\ \ \ \ \ \textcolor{comment}{//\ PBR:\ anisotropy\ rotation}}
+\DoxyCodeLine{01188\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}anisor"{}},\ 6))\ \&\&\ IS\_SPACE(token[6]))\ \{}
+\DoxyCodeLine{01189\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01190\ \ \ \ \ \ \ material.anisotropy\_rotation\ =\ parseReal(\&token);}
+\DoxyCodeLine{01191\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01192\ \ \ \ \ \}}
+\DoxyCodeLine{01193\ }
+\DoxyCodeLine{01194\ \ \ \ \ \textcolor{comment}{//\ ambient\ texture}}
+\DoxyCodeLine{01195\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}map\_Ka"{}},\ 6))\ \&\&\ IS\_SPACE(token[6]))\ \{}
+\DoxyCodeLine{01196\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01197\ \ \ \ \ \ \ ParseTextureNameAndOption(\&(material.ambient\_texname),}
+\DoxyCodeLine{01198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(material.ambient\_texopt),\ token,}
+\DoxyCodeLine{01199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01200\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01201\ \ \ \ \ \}}
+\DoxyCodeLine{01202\ }
+\DoxyCodeLine{01203\ \ \ \ \ \textcolor{comment}{//\ diffuse\ texture}}
+\DoxyCodeLine{01204\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}map\_Kd"{}},\ 6))\ \&\&\ IS\_SPACE(token[6]))\ \{}
+\DoxyCodeLine{01205\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01206\ \ \ \ \ \ \ ParseTextureNameAndOption(\&(material.diffuse\_texname),}
+\DoxyCodeLine{01207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(material.diffuse\_texopt),\ token,}
+\DoxyCodeLine{01208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01209\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01210\ \ \ \ \ \}}
+\DoxyCodeLine{01211\ }
+\DoxyCodeLine{01212\ \ \ \ \ \textcolor{comment}{//\ specular\ texture}}
+\DoxyCodeLine{01213\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}map\_Ks"{}},\ 6))\ \&\&\ IS\_SPACE(token[6]))\ \{}
+\DoxyCodeLine{01214\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01215\ \ \ \ \ \ \ ParseTextureNameAndOption(\&(material.specular\_texname),}
+\DoxyCodeLine{01216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(material.specular\_texopt),\ token,}
+\DoxyCodeLine{01217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01218\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01219\ \ \ \ \ \}}
+\DoxyCodeLine{01220\ }
+\DoxyCodeLine{01221\ \ \ \ \ \textcolor{comment}{//\ specular\ highlight\ texture}}
+\DoxyCodeLine{01222\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}map\_Ns"{}},\ 6))\ \&\&\ IS\_SPACE(token[6]))\ \{}
+\DoxyCodeLine{01223\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01224\ \ \ \ \ \ \ ParseTextureNameAndOption(\&(material.specular\_highlight\_texname),}
+\DoxyCodeLine{01225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(material.specular\_highlight\_texopt),\ token,}
+\DoxyCodeLine{01226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01227\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01228\ \ \ \ \ \}}
+\DoxyCodeLine{01229\ }
+\DoxyCodeLine{01230\ \ \ \ \ \textcolor{comment}{//\ bump\ texture}}
+\DoxyCodeLine{01231\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}map\_bump"{}},\ 8))\ \&\&\ IS\_SPACE(token[8]))\ \{}
+\DoxyCodeLine{01232\ \ \ \ \ \ \ token\ +=\ 9;}
+\DoxyCodeLine{01233\ \ \ \ \ \ \ ParseTextureNameAndOption(\&(material.bump\_texname),}
+\DoxyCodeLine{01234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(material.bump\_texopt),\ token,}
+\DoxyCodeLine{01235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{true});}
+\DoxyCodeLine{01236\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01237\ \ \ \ \ \}}
+\DoxyCodeLine{01238\ }
+\DoxyCodeLine{01239\ \ \ \ \ \textcolor{comment}{//\ bump\ texture}}
+\DoxyCodeLine{01240\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}bump"{}},\ 4))\ \&\&\ IS\_SPACE(token[4]))\ \{}
+\DoxyCodeLine{01241\ \ \ \ \ \ \ token\ +=\ 5;}
+\DoxyCodeLine{01242\ \ \ \ \ \ \ ParseTextureNameAndOption(\&(material.bump\_texname),}
+\DoxyCodeLine{01243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(material.bump\_texopt),\ token,}
+\DoxyCodeLine{01244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{true});}
+\DoxyCodeLine{01245\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01246\ \ \ \ \ \}}
+\DoxyCodeLine{01247\ }
+\DoxyCodeLine{01248\ \ \ \ \ \textcolor{comment}{//\ alpha\ texture}}
+\DoxyCodeLine{01249\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}map\_d"{}},\ 5))\ \&\&\ IS\_SPACE(token[5]))\ \{}
+\DoxyCodeLine{01250\ \ \ \ \ \ \ token\ +=\ 6;}
+\DoxyCodeLine{01251\ \ \ \ \ \ \ material.alpha\_texname\ =\ token;}
+\DoxyCodeLine{01252\ \ \ \ \ \ \ ParseTextureNameAndOption(\&(material.alpha\_texname),}
+\DoxyCodeLine{01253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(material.alpha\_texopt),\ token,}
+\DoxyCodeLine{01254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01255\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01256\ \ \ \ \ \}}
+\DoxyCodeLine{01257\ }
+\DoxyCodeLine{01258\ \ \ \ \ \textcolor{comment}{//\ displacement\ texture}}
+\DoxyCodeLine{01259\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}disp"{}},\ 4))\ \&\&\ IS\_SPACE(token[4]))\ \{}
+\DoxyCodeLine{01260\ \ \ \ \ \ \ token\ +=\ 5;}
+\DoxyCodeLine{01261\ \ \ \ \ \ \ ParseTextureNameAndOption(\&(material.displacement\_texname),}
+\DoxyCodeLine{01262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(material.displacement\_texopt),\ token,}
+\DoxyCodeLine{01263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01264\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01265\ \ \ \ \ \}}
+\DoxyCodeLine{01266\ }
+\DoxyCodeLine{01267\ \ \ \ \ \textcolor{comment}{//\ PBR:\ roughness\ texture}}
+\DoxyCodeLine{01268\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}map\_Pr"{}},\ 6))\ \&\&\ IS\_SPACE(token[6]))\ \{}
+\DoxyCodeLine{01269\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01270\ \ \ \ \ \ \ ParseTextureNameAndOption(\&(material.roughness\_texname),}
+\DoxyCodeLine{01271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(material.roughness\_texopt),\ token,}
+\DoxyCodeLine{01272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01273\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01274\ \ \ \ \ \}}
+\DoxyCodeLine{01275\ }
+\DoxyCodeLine{01276\ \ \ \ \ \textcolor{comment}{//\ PBR:\ metallic\ texture}}
+\DoxyCodeLine{01277\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}map\_Pm"{}},\ 6))\ \&\&\ IS\_SPACE(token[6]))\ \{}
+\DoxyCodeLine{01278\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01279\ \ \ \ \ \ \ ParseTextureNameAndOption(\&(material.metallic\_texname),}
+\DoxyCodeLine{01280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(material.metallic\_texopt),\ token,}
+\DoxyCodeLine{01281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01282\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01283\ \ \ \ \ \}}
+\DoxyCodeLine{01284\ }
+\DoxyCodeLine{01285\ \ \ \ \ \textcolor{comment}{//\ PBR:\ sheen\ texture}}
+\DoxyCodeLine{01286\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}map\_Ps"{}},\ 6))\ \&\&\ IS\_SPACE(token[6]))\ \{}
+\DoxyCodeLine{01287\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01288\ \ \ \ \ \ \ ParseTextureNameAndOption(\&(material.sheen\_texname),}
+\DoxyCodeLine{01289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(material.sheen\_texopt),\ token,}
+\DoxyCodeLine{01290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01291\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01292\ \ \ \ \ \}}
+\DoxyCodeLine{01293\ }
+\DoxyCodeLine{01294\ \ \ \ \ \textcolor{comment}{//\ PBR:\ emissive\ texture}}
+\DoxyCodeLine{01295\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}map\_Ke"{}},\ 6))\ \&\&\ IS\_SPACE(token[6]))\ \{}
+\DoxyCodeLine{01296\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01297\ \ \ \ \ \ \ ParseTextureNameAndOption(\&(material.emissive\_texname),}
+\DoxyCodeLine{01298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(material.emissive\_texopt),\ token,}
+\DoxyCodeLine{01299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01300\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01301\ \ \ \ \ \}}
+\DoxyCodeLine{01302\ }
+\DoxyCodeLine{01303\ \ \ \ \ \textcolor{comment}{//\ PBR:\ normal\ map\ texture}}
+\DoxyCodeLine{01304\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}norm"{}},\ 4))\ \&\&\ IS\_SPACE(token[4]))\ \{}
+\DoxyCodeLine{01305\ \ \ \ \ \ \ token\ +=\ 5;}
+\DoxyCodeLine{01306\ \ \ \ \ \ \ ParseTextureNameAndOption(}
+\DoxyCodeLine{01307\ \ \ \ \ \ \ \ \ \ \ \&(material.normal\_texname),\ \&(material.normal\_texopt),\ token,}
+\DoxyCodeLine{01308\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ is\_bump\ */}\ \textcolor{keyword}{false});\ \ \textcolor{comment}{//\ @fixme\ \{\ is\_bump\ will\ be\ true?\ \}}}
+\DoxyCodeLine{01309\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01310\ \ \ \ \ \}}
+\DoxyCodeLine{01311\ }
+\DoxyCodeLine{01312\ \ \ \ \ \textcolor{comment}{//\ unknown\ parameter}}
+\DoxyCodeLine{01313\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\_space\ =\ strchr(token,\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{01314\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\_space)\ \{}
+\DoxyCodeLine{01315\ \ \ \ \ \ \ \_space\ =\ strchr(token,\ \textcolor{charliteral}{'\(\backslash\)t'});}
+\DoxyCodeLine{01316\ \ \ \ \ \}}
+\DoxyCodeLine{01317\ \ \ \ \ \textcolor{keywordflow}{if}\ (\_space)\ \{}
+\DoxyCodeLine{01318\ \ \ \ \ \ \ std::ptrdiff\_t\ len\ =\ \_space\ -\/\ token;}
+\DoxyCodeLine{01319\ \ \ \ \ \ \ std::string\ key(token,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(len));}
+\DoxyCodeLine{01320\ \ \ \ \ \ \ std::string\ value\ =\ \_space\ +\ 1;}
+\DoxyCodeLine{01321\ \ \ \ \ \ \ material.unknown\_parameter.insert(}
+\DoxyCodeLine{01322\ \ \ \ \ \ \ \ \ \ \ std::pair<std::string,\ std::string>(key,\ value));}
+\DoxyCodeLine{01323\ \ \ \ \ \}}
+\DoxyCodeLine{01324\ \ \ \}}
+\DoxyCodeLine{01325\ \ \ \textcolor{comment}{//\ flush\ last\ material.}}
+\DoxyCodeLine{01326\ \ \ material\_map-\/>insert(std::pair<std::string,\ int>(}
+\DoxyCodeLine{01327\ \ \ \ \ \ \ material.name,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(materials-\/>size())));}
+\DoxyCodeLine{01328\ \ \ materials-\/>push\_back(material);}
+\DoxyCodeLine{01329\ }
+\DoxyCodeLine{01330\ \ \ \textcolor{keywordflow}{if}\ (warning)\ \{}
+\DoxyCodeLine{01331\ \ \ \ \ (*warning)\ =\ ss.str();}
+\DoxyCodeLine{01332\ \ \ \}}
+\DoxyCodeLine{01333\ \}}
+\DoxyCodeLine{01334\ }
+\DoxyCodeLine{01335\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtinyobj_1_1MaterialFileReader_a23fa55532224cbcc927233f4b57f53df}{MaterialFileReader::operator()}}(\textcolor{keyword}{const}\ std::string\ \&matId,}
+\DoxyCodeLine{01336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<material\_t>\ *materials,}
+\DoxyCodeLine{01337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ int>\ *matMap,}
+\DoxyCodeLine{01338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ *err)\ \{}
+\DoxyCodeLine{01339\ \ \ std::string\ filepath;}
+\DoxyCodeLine{01340\ }
+\DoxyCodeLine{01341\ \ \ \textcolor{keywordflow}{if}\ (!m\_mtlBaseDir.empty())\ \{}
+\DoxyCodeLine{01342\ \ \ \ \ filepath\ =\ std::string(m\_mtlBaseDir)\ +\ matId;}
+\DoxyCodeLine{01343\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01344\ \ \ \ \ filepath\ =\ matId;}
+\DoxyCodeLine{01345\ \ \ \}}
+\DoxyCodeLine{01346\ }
+\DoxyCodeLine{01347\ \ \ std::ifstream\ matIStream(filepath.c\_str());}
+\DoxyCodeLine{01348\ \ \ \textcolor{keywordflow}{if}\ (!matIStream)\ \{}
+\DoxyCodeLine{01349\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{01350\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}WARN:\ Material\ file\ [\ "{}}\ <<\ filepath\ <<\ \textcolor{stringliteral}{"{}\ ]\ not\ found."{}}\ <<\ std::endl;}
+\DoxyCodeLine{01351\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{01352\ \ \ \ \ \ \ (*err)\ +=\ ss.str();}
+\DoxyCodeLine{01353\ \ \ \ \ \}}
+\DoxyCodeLine{01354\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01355\ \ \ \}}
+\DoxyCodeLine{01356\ }
+\DoxyCodeLine{01357\ \ \ std::string\ warning;}
+\DoxyCodeLine{01358\ \ \ \mbox{\hyperlink{namespacetinyobj_aa7a035d152857396e5cde8ebff8b2b9e}{LoadMtl}}(matMap,\ materials,\ \&matIStream,\ \&warning);}
+\DoxyCodeLine{01359\ }
+\DoxyCodeLine{01360\ \ \ \textcolor{keywordflow}{if}\ (!warning.empty())\ \{}
+\DoxyCodeLine{01361\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{01362\ \ \ \ \ \ \ (*err)\ +=\ warning;}
+\DoxyCodeLine{01363\ \ \ \ \ \}}
+\DoxyCodeLine{01364\ \ \ \}}
+\DoxyCodeLine{01365\ }
+\DoxyCodeLine{01366\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01367\ \}}
+\DoxyCodeLine{01368\ }
+\DoxyCodeLine{01369\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtinyobj_1_1MaterialStreamReader_a38db9ec731ad3177efa704d7e60c82fd}{MaterialStreamReader::operator()}}(\textcolor{keyword}{const}\ std::string\ \&matId,}
+\DoxyCodeLine{01370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<material\_t>\ *materials,}
+\DoxyCodeLine{01371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ int>\ *matMap,}
+\DoxyCodeLine{01372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ *err)\ \{}
+\DoxyCodeLine{01373\ \ \ (void)matId;}
+\DoxyCodeLine{01374\ \ \ \textcolor{keywordflow}{if}\ (!m\_inStream)\ \{}
+\DoxyCodeLine{01375\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{01376\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}WARN:\ Material\ stream\ in\ error\ state.\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{01377\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{01378\ \ \ \ \ \ \ (*err)\ +=\ ss.str();}
+\DoxyCodeLine{01379\ \ \ \ \ \}}
+\DoxyCodeLine{01380\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01381\ \ \ \}}
+\DoxyCodeLine{01382\ }
+\DoxyCodeLine{01383\ \ \ std::string\ warning;}
+\DoxyCodeLine{01384\ \ \ \mbox{\hyperlink{namespacetinyobj_aa7a035d152857396e5cde8ebff8b2b9e}{LoadMtl}}(matMap,\ materials,\ \&m\_inStream,\ \&warning);}
+\DoxyCodeLine{01385\ }
+\DoxyCodeLine{01386\ \ \ \textcolor{keywordflow}{if}\ (!warning.empty())\ \{}
+\DoxyCodeLine{01387\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{01388\ \ \ \ \ \ \ (*err)\ +=\ warning;}
+\DoxyCodeLine{01389\ \ \ \ \ \}}
+\DoxyCodeLine{01390\ \ \ \}}
+\DoxyCodeLine{01391\ }
+\DoxyCodeLine{01392\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01393\ \}}
+\DoxyCodeLine{01394\ }
+\DoxyCodeLine{01395\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacetinyobj_a5678f6df6cb6d01bb89453022d997503}{LoadObj}}(attrib\_t\ *attrib,\ std::vector<shape\_t>\ *shapes,}
+\DoxyCodeLine{01396\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<material\_t>\ *materials,\ std::string\ *err,}
+\DoxyCodeLine{01397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *mtl\_basedir,\ \textcolor{keywordtype}{bool}\ trianglulate)\ \{}
+\DoxyCodeLine{01398\ \ \ attrib-\/>vertices.clear();}
+\DoxyCodeLine{01399\ \ \ attrib-\/>normals.clear();}
+\DoxyCodeLine{01400\ \ \ attrib-\/>texcoords.clear();}
+\DoxyCodeLine{01401\ \ \ shapes-\/>clear();}
+\DoxyCodeLine{01402\ }
+\DoxyCodeLine{01403\ \ \ std::stringstream\ errss;}
+\DoxyCodeLine{01404\ }
+\DoxyCodeLine{01405\ \ \ std::ifstream\ ifs(filename);}
+\DoxyCodeLine{01406\ \ \ \textcolor{keywordflow}{if}\ (!ifs)\ \{}
+\DoxyCodeLine{01407\ \ \ \ \ errss\ <<\ \textcolor{stringliteral}{"{}Cannot\ open\ file\ ["{}}\ <<\ filename\ <<\ \textcolor{stringliteral}{"{}]"{}}\ <<\ std::endl;}
+\DoxyCodeLine{01408\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{01409\ \ \ \ \ \ \ (*err)\ =\ errss.str();}
+\DoxyCodeLine{01410\ \ \ \ \ \}}
+\DoxyCodeLine{01411\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01412\ \ \ \}}
+\DoxyCodeLine{01413\ }
+\DoxyCodeLine{01414\ \ \ std::string\ baseDir;}
+\DoxyCodeLine{01415\ \ \ \textcolor{keywordflow}{if}\ (mtl\_basedir)\ \{}
+\DoxyCodeLine{01416\ \ \ \ \ baseDir\ =\ mtl\_basedir;}
+\DoxyCodeLine{01417\ \ \ \}}
+\DoxyCodeLine{01418\ \ \ MaterialFileReader\ matFileReader(baseDir);}
+\DoxyCodeLine{01419\ }
+\DoxyCodeLine{01420\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacetinyobj_a5678f6df6cb6d01bb89453022d997503}{LoadObj}}(attrib,\ shapes,\ materials,\ err,\ \&ifs,\ \&matFileReader,}
+\DoxyCodeLine{01421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ trianglulate);}
+\DoxyCodeLine{01422\ \}}
+\DoxyCodeLine{01423\ }
+\DoxyCodeLine{01424\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacetinyobj_a5678f6df6cb6d01bb89453022d997503}{LoadObj}}(attrib\_t\ *attrib,\ std::vector<shape\_t>\ *shapes,}
+\DoxyCodeLine{01425\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<material\_t>\ *materials,\ std::string\ *err,}
+\DoxyCodeLine{01426\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::istream\ *inStream,\ MaterialReader\ *readMatFn\ \textcolor{comment}{/*=\ NULL*/},}
+\DoxyCodeLine{01427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ triangulate)\ \{}
+\DoxyCodeLine{01428\ \ \ std::stringstream\ errss;}
+\DoxyCodeLine{01429\ }
+\DoxyCodeLine{01430\ \ \ std::vector<real\_t>\ v;}
+\DoxyCodeLine{01431\ \ \ std::vector<real\_t>\ vn;}
+\DoxyCodeLine{01432\ \ \ std::vector<real\_t>\ vt;}
+\DoxyCodeLine{01433\ \ \ std::vector<tag\_t>\ tags;}
+\DoxyCodeLine{01434\ \ \ std::vector<std::vector<vertex\_index>\ >\ faceGroup;}
+\DoxyCodeLine{01435\ \ \ std::string\ name;}
+\DoxyCodeLine{01436\ }
+\DoxyCodeLine{01437\ \ \ \textcolor{comment}{//\ material}}
+\DoxyCodeLine{01438\ \ \ std::map<std::string,\ int>\ material\_map;}
+\DoxyCodeLine{01439\ \ \ \textcolor{keywordtype}{int}\ material\ =\ -\/1;}
+\DoxyCodeLine{01440\ }
+\DoxyCodeLine{01441\ \ \ shape\_t\ shape;}
+\DoxyCodeLine{01442\ }
+\DoxyCodeLine{01443\ \ \ std::string\ linebuf;}
+\DoxyCodeLine{01444\ \ \ \textcolor{keywordflow}{while}\ (inStream-\/>peek()\ !=\ -\/1)\ \{}
+\DoxyCodeLine{01445\ \ \ \ \ safeGetline(*inStream,\ linebuf);}
+\DoxyCodeLine{01446\ }
+\DoxyCodeLine{01447\ \ \ \ \ \textcolor{comment}{//\ Trim\ newline\ '\(\backslash\)r\(\backslash\)n'\ or\ '\(\backslash\)n'}}
+\DoxyCodeLine{01448\ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf.size()\ >\ 0)\ \{}
+\DoxyCodeLine{01449\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf[linebuf.size()\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{01450\ \ \ \ \ \ \ \ \ linebuf.erase(linebuf.size()\ -\/\ 1);}
+\DoxyCodeLine{01451\ \ \ \ \ \}}
+\DoxyCodeLine{01452\ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf.size()\ >\ 0)\ \{}
+\DoxyCodeLine{01453\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf[linebuf.size()\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)r'})}
+\DoxyCodeLine{01454\ \ \ \ \ \ \ \ \ linebuf.erase(linebuf.size()\ -\/\ 1);}
+\DoxyCodeLine{01455\ \ \ \ \ \}}
+\DoxyCodeLine{01456\ }
+\DoxyCodeLine{01457\ \ \ \ \ \textcolor{comment}{//\ Skip\ if\ empty\ line.}}
+\DoxyCodeLine{01458\ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf.empty())\ \{}
+\DoxyCodeLine{01459\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01460\ \ \ \ \ \}}
+\DoxyCodeLine{01461\ }
+\DoxyCodeLine{01462\ \ \ \ \ \textcolor{comment}{//\ Skip\ leading\ space.}}
+\DoxyCodeLine{01463\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *token\ =\ linebuf.c\_str();}
+\DoxyCodeLine{01464\ \ \ \ \ token\ +=\ strspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});}
+\DoxyCodeLine{01465\ }
+\DoxyCodeLine{01466\ \ \ \ \ assert(token);}
+\DoxyCodeLine{01467\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'})\ \textcolor{keywordflow}{continue};\ \ \textcolor{comment}{//\ empty\ line}}
+\DoxyCodeLine{01468\ }
+\DoxyCodeLine{01469\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'\#'})\ \textcolor{keywordflow}{continue};\ \ \textcolor{comment}{//\ comment\ line}}
+\DoxyCodeLine{01470\ }
+\DoxyCodeLine{01471\ \ \ \ \ \textcolor{comment}{//\ vertex}}
+\DoxyCodeLine{01472\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'v'}\ \&\&\ IS\_SPACE((token[1])))\ \{}
+\DoxyCodeLine{01473\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01474\ \ \ \ \ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ x,\ y,\ z;}
+\DoxyCodeLine{01475\ \ \ \ \ \ \ parseReal3(\&x,\ \&y,\ \&z,\ \&token);}
+\DoxyCodeLine{01476\ \ \ \ \ \ \ v.push\_back(x);}
+\DoxyCodeLine{01477\ \ \ \ \ \ \ v.push\_back(y);}
+\DoxyCodeLine{01478\ \ \ \ \ \ \ v.push\_back(z);}
+\DoxyCodeLine{01479\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01480\ \ \ \ \ \}}
+\DoxyCodeLine{01481\ }
+\DoxyCodeLine{01482\ \ \ \ \ \textcolor{comment}{//\ normal}}
+\DoxyCodeLine{01483\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'v'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'n'}\ \&\&\ IS\_SPACE((token[2])))\ \{}
+\DoxyCodeLine{01484\ \ \ \ \ \ \ token\ +=\ 3;}
+\DoxyCodeLine{01485\ \ \ \ \ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ x,\ y,\ z;}
+\DoxyCodeLine{01486\ \ \ \ \ \ \ parseReal3(\&x,\ \&y,\ \&z,\ \&token);}
+\DoxyCodeLine{01487\ \ \ \ \ \ \ vn.push\_back(x);}
+\DoxyCodeLine{01488\ \ \ \ \ \ \ vn.push\_back(y);}
+\DoxyCodeLine{01489\ \ \ \ \ \ \ vn.push\_back(z);}
+\DoxyCodeLine{01490\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01491\ \ \ \ \ \}}
+\DoxyCodeLine{01492\ }
+\DoxyCodeLine{01493\ \ \ \ \ \textcolor{comment}{//\ texcoord}}
+\DoxyCodeLine{01494\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'v'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'t'}\ \&\&\ IS\_SPACE((token[2])))\ \{}
+\DoxyCodeLine{01495\ \ \ \ \ \ \ token\ +=\ 3;}
+\DoxyCodeLine{01496\ \ \ \ \ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ x,\ y;}
+\DoxyCodeLine{01497\ \ \ \ \ \ \ parseReal2(\&x,\ \&y,\ \&token);}
+\DoxyCodeLine{01498\ \ \ \ \ \ \ vt.push\_back(x);}
+\DoxyCodeLine{01499\ \ \ \ \ \ \ vt.push\_back(y);}
+\DoxyCodeLine{01500\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01501\ \ \ \ \ \}}
+\DoxyCodeLine{01502\ }
+\DoxyCodeLine{01503\ \ \ \ \ \textcolor{comment}{//\ face}}
+\DoxyCodeLine{01504\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'f'}\ \&\&\ IS\_SPACE((token[1])))\ \{}
+\DoxyCodeLine{01505\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01506\ \ \ \ \ \ \ token\ +=\ strspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});}
+\DoxyCodeLine{01507\ }
+\DoxyCodeLine{01508\ \ \ \ \ \ \ std::vector<vertex\_index>\ face;}
+\DoxyCodeLine{01509\ \ \ \ \ \ \ face.reserve(3);}
+\DoxyCodeLine{01510\ }
+\DoxyCodeLine{01511\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!IS\_NEW\_LINE(token[0]))\ \{}
+\DoxyCodeLine{01512\ \ \ \ \ \ \ \ \ vertex\_index\ vi\ =\ parseTriple(\&token,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(v.size()\ /\ 3),}
+\DoxyCodeLine{01513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(vn.size()\ /\ 3),}
+\DoxyCodeLine{01514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(vt.size()\ /\ 2));}
+\DoxyCodeLine{01515\ \ \ \ \ \ \ \ \ face.push\_back(vi);}
+\DoxyCodeLine{01516\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ n\ =\ strspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{01517\ \ \ \ \ \ \ \ \ token\ +=\ n;}
+\DoxyCodeLine{01518\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01519\ }
+\DoxyCodeLine{01520\ \ \ \ \ \ \ \textcolor{comment}{//\ replace\ with\ emplace\_back\ +\ std::move\ on\ C++11}}
+\DoxyCodeLine{01521\ \ \ \ \ \ \ faceGroup.push\_back(std::vector<vertex\_index>());}
+\DoxyCodeLine{01522\ \ \ \ \ \ \ faceGroup[faceGroup.size()\ -\/\ 1].swap(face);}
+\DoxyCodeLine{01523\ }
+\DoxyCodeLine{01524\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01525\ \ \ \ \ \}}
+\DoxyCodeLine{01526\ }
+\DoxyCodeLine{01527\ \ \ \ \ \textcolor{comment}{//\ use\ mtl}}
+\DoxyCodeLine{01528\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}usemtl"{}},\ 6))\ \&\&\ IS\_SPACE((token[6])))\ \{}
+\DoxyCodeLine{01529\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ namebuf[TINYOBJ\_SSCANF\_BUFFER\_SIZE];}
+\DoxyCodeLine{01530\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01531\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{01532\ \ \ \ \ \ \ sscanf\_s(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf,\ (\textcolor{keywordtype}{unsigned})\_countof(namebuf));}
+\DoxyCodeLine{01533\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01534\ \ \ \ \ \ \ std::sscanf(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf);}
+\DoxyCodeLine{01535\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01536\ }
+\DoxyCodeLine{01537\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ newMaterialId\ =\ -\/1;}
+\DoxyCodeLine{01538\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (material\_map.find(namebuf)\ !=\ material\_map.end())\ \{}
+\DoxyCodeLine{01539\ \ \ \ \ \ \ \ \ newMaterialId\ =\ material\_map[namebuf];}
+\DoxyCodeLine{01540\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01541\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \{\ error!!\ material\ not\ found\ \}}}
+\DoxyCodeLine{01542\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01543\ }
+\DoxyCodeLine{01544\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (newMaterialId\ !=\ material)\ \{}
+\DoxyCodeLine{01545\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ per-\/face\ material.\ Thus\ we\ don't\ add\ \`{}shape`\ to\ \`{}shapes`\ at}}
+\DoxyCodeLine{01546\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ time.}}
+\DoxyCodeLine{01547\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ just\ clear\ \`{}faceGroup`\ after\ \`{}exportFaceGroupToShape()`\ call.}}
+\DoxyCodeLine{01548\ \ \ \ \ \ \ \ \ exportFaceGroupToShape(\&shape,\ faceGroup,\ tags,\ material,\ name,}
+\DoxyCodeLine{01549\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ triangulate);}
+\DoxyCodeLine{01550\ \ \ \ \ \ \ \ \ faceGroup.clear();}
+\DoxyCodeLine{01551\ \ \ \ \ \ \ \ \ material\ =\ newMaterialId;}
+\DoxyCodeLine{01552\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01553\ }
+\DoxyCodeLine{01554\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01555\ \ \ \ \ \}}
+\DoxyCodeLine{01556\ }
+\DoxyCodeLine{01557\ \ \ \ \ \textcolor{comment}{//\ load\ mtl}}
+\DoxyCodeLine{01558\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}mtllib"{}},\ 6))\ \&\&\ IS\_SPACE((token[6])))\ \{}
+\DoxyCodeLine{01559\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (readMatFn)\ \{}
+\DoxyCodeLine{01560\ \ \ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01561\ }
+\DoxyCodeLine{01562\ \ \ \ \ \ \ \ \ std::vector<std::string>\ filenames;}
+\DoxyCodeLine{01563\ \ \ \ \ \ \ \ \ SplitString(std::string(token),\ \textcolor{charliteral}{'\ '},\ filenames);}
+\DoxyCodeLine{01564\ }
+\DoxyCodeLine{01565\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (filenames.empty())\ \{}
+\DoxyCodeLine{01566\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{01567\ \ \ \ \ \ \ \ \ \ \ \ \ (*err)\ +=}
+\DoxyCodeLine{01568\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}WARN:\ Looks\ like\ empty\ filename\ for\ mtllib.\ Use\ default\ "{}}}
+\DoxyCodeLine{01569\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}material.\ \(\backslash\)n"{}};}
+\DoxyCodeLine{01570\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01571\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01572\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ found\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01573\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ s\ =\ 0;\ s\ <\ filenames.size();\ s++)\ \{}
+\DoxyCodeLine{01574\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ err\_mtl;}
+\DoxyCodeLine{01575\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ok\ =\ (*readMatFn)(filenames[s].c\_str(),\ materials,}
+\DoxyCodeLine{01576\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&material\_map,\ \&err\_mtl);}
+\DoxyCodeLine{01577\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (err\ \&\&\ (!err\_mtl.empty()))\ \{}
+\DoxyCodeLine{01578\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*err)\ +=\ err\_mtl;\ \ \textcolor{comment}{//\ This\ should\ be\ warn\ message.}}
+\DoxyCodeLine{01579\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01580\ }
+\DoxyCodeLine{01581\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ok)\ \{}
+\DoxyCodeLine{01582\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01583\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01584\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01585\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01586\ }
+\DoxyCodeLine{01587\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!found)\ \{}
+\DoxyCodeLine{01588\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{01589\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*err)\ +=}
+\DoxyCodeLine{01590\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}WARN:\ Failed\ to\ load\ material\ file(s).\ Use\ default\ "{}}}
+\DoxyCodeLine{01591\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}material.\(\backslash\)n"{}};}
+\DoxyCodeLine{01592\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01593\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01594\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01595\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01596\ }
+\DoxyCodeLine{01597\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01598\ \ \ \ \ \}}
+\DoxyCodeLine{01599\ }
+\DoxyCodeLine{01600\ \ \ \ \ \textcolor{comment}{//\ group\ name}}
+\DoxyCodeLine{01601\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'g'}\ \&\&\ IS\_SPACE((token[1])))\ \{}
+\DoxyCodeLine{01602\ \ \ \ \ \ \ \textcolor{comment}{//\ flush\ previous\ face\ group.}}
+\DoxyCodeLine{01603\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ret\ =\ exportFaceGroupToShape(\&shape,\ faceGroup,\ tags,\ material,\ name,}
+\DoxyCodeLine{01604\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ triangulate);}
+\DoxyCodeLine{01605\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret)\ \{}
+\DoxyCodeLine{01606\ \ \ \ \ \ \ \ \ shapes-\/>push\_back(shape);}
+\DoxyCodeLine{01607\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01608\ }
+\DoxyCodeLine{01609\ \ \ \ \ \ \ shape\ =\ shape\_t();}
+\DoxyCodeLine{01610\ }
+\DoxyCodeLine{01611\ \ \ \ \ \ \ \textcolor{comment}{//\ material\ =\ -\/1;}}
+\DoxyCodeLine{01612\ \ \ \ \ \ \ faceGroup.clear();}
+\DoxyCodeLine{01613\ }
+\DoxyCodeLine{01614\ \ \ \ \ \ \ std::vector<std::string>\ names;}
+\DoxyCodeLine{01615\ \ \ \ \ \ \ names.reserve(2);}
+\DoxyCodeLine{01616\ }
+\DoxyCodeLine{01617\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!IS\_NEW\_LINE(token[0]))\ \{}
+\DoxyCodeLine{01618\ \ \ \ \ \ \ \ \ std::string\ str\ =\ parseString(\&token);}
+\DoxyCodeLine{01619\ \ \ \ \ \ \ \ \ names.push\_back(str);}
+\DoxyCodeLine{01620\ \ \ \ \ \ \ \ \ token\ +=\ strspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r"{}});\ \ \textcolor{comment}{//\ skip\ tag}}
+\DoxyCodeLine{01621\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01622\ }
+\DoxyCodeLine{01623\ \ \ \ \ \ \ assert(names.size()\ >\ 0);}
+\DoxyCodeLine{01624\ }
+\DoxyCodeLine{01625\ \ \ \ \ \ \ \textcolor{comment}{//\ names[0]\ must\ be\ 'g',\ so\ skip\ the\ 0th\ element.}}
+\DoxyCodeLine{01626\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (names.size()\ >\ 1)\ \{}
+\DoxyCodeLine{01627\ \ \ \ \ \ \ \ \ name\ =\ names[1];}
+\DoxyCodeLine{01628\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01629\ \ \ \ \ \ \ \ \ name\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{01630\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01631\ }
+\DoxyCodeLine{01632\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01633\ \ \ \ \ \}}
+\DoxyCodeLine{01634\ }
+\DoxyCodeLine{01635\ \ \ \ \ \textcolor{comment}{//\ object\ name}}
+\DoxyCodeLine{01636\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'o'}\ \&\&\ IS\_SPACE((token[1])))\ \{}
+\DoxyCodeLine{01637\ \ \ \ \ \ \ \textcolor{comment}{//\ flush\ previous\ face\ group.}}
+\DoxyCodeLine{01638\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ret\ =\ exportFaceGroupToShape(\&shape,\ faceGroup,\ tags,\ material,\ name,}
+\DoxyCodeLine{01639\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ triangulate);}
+\DoxyCodeLine{01640\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret)\ \{}
+\DoxyCodeLine{01641\ \ \ \ \ \ \ \ \ shapes-\/>push\_back(shape);}
+\DoxyCodeLine{01642\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01643\ }
+\DoxyCodeLine{01644\ \ \ \ \ \ \ \textcolor{comment}{//\ material\ =\ -\/1;}}
+\DoxyCodeLine{01645\ \ \ \ \ \ \ faceGroup.clear();}
+\DoxyCodeLine{01646\ \ \ \ \ \ \ shape\ =\ shape\_t();}
+\DoxyCodeLine{01647\ }
+\DoxyCodeLine{01648\ \ \ \ \ \ \ \textcolor{comment}{//\ @todo\ \{\ multiple\ object\ name?\ \}}}
+\DoxyCodeLine{01649\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ namebuf[TINYOBJ\_SSCANF\_BUFFER\_SIZE];}
+\DoxyCodeLine{01650\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01651\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{01652\ \ \ \ \ \ \ sscanf\_s(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf,\ (\textcolor{keywordtype}{unsigned})\_countof(namebuf));}
+\DoxyCodeLine{01653\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01654\ \ \ \ \ \ \ std::sscanf(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf);}
+\DoxyCodeLine{01655\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01656\ \ \ \ \ \ \ name\ =\ std::string(namebuf);}
+\DoxyCodeLine{01657\ }
+\DoxyCodeLine{01658\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01659\ \ \ \ \ \}}
+\DoxyCodeLine{01660\ }
+\DoxyCodeLine{01661\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'t'}\ \&\&\ IS\_SPACE(token[1]))\ \{}
+\DoxyCodeLine{01662\ \ \ \ \ \ \ tag\_t\ tag;}
+\DoxyCodeLine{01663\ }
+\DoxyCodeLine{01664\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ namebuf[4096];}
+\DoxyCodeLine{01665\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01666\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{01667\ \ \ \ \ \ \ sscanf\_s(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf,\ (\textcolor{keywordtype}{unsigned})\_countof(namebuf));}
+\DoxyCodeLine{01668\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01669\ \ \ \ \ \ \ std::sscanf(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf);}
+\DoxyCodeLine{01670\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01671\ \ \ \ \ \ \ tag.name\ =\ std::string(namebuf);}
+\DoxyCodeLine{01672\ }
+\DoxyCodeLine{01673\ \ \ \ \ \ \ token\ +=\ tag.name.size()\ +\ 1;}
+\DoxyCodeLine{01674\ }
+\DoxyCodeLine{01675\ \ \ \ \ \ \ tag\_sizes\ ts\ =\ parseTagTriple(\&token);}
+\DoxyCodeLine{01676\ }
+\DoxyCodeLine{01677\ \ \ \ \ \ \ tag.intValues.resize(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(ts.num\_ints));}
+\DoxyCodeLine{01678\ }
+\DoxyCodeLine{01679\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ static\_cast<size\_t>(ts.num\_ints);\ ++i)\ \{}
+\DoxyCodeLine{01680\ \ \ \ \ \ \ \ \ tag.intValues[i]\ =\ atoi(token);}
+\DoxyCodeLine{01681\ \ \ \ \ \ \ \ \ token\ +=\ strcspn(token,\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}})\ +\ 1;}
+\DoxyCodeLine{01682\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01683\ }
+\DoxyCodeLine{01684\ \ \ \ \ \ \ tag.floatValues.resize(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(ts.num\_reals));}
+\DoxyCodeLine{01685\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ static\_cast<size\_t>(ts.num\_reals);\ ++i)\ \{}
+\DoxyCodeLine{01686\ \ \ \ \ \ \ \ \ tag.floatValues[i]\ =\ parseReal(\&token);}
+\DoxyCodeLine{01687\ \ \ \ \ \ \ \ \ token\ +=\ strcspn(token,\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}})\ +\ 1;}
+\DoxyCodeLine{01688\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01689\ }
+\DoxyCodeLine{01690\ \ \ \ \ \ \ tag.stringValues.resize(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(ts.num\_strings));}
+\DoxyCodeLine{01691\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ static\_cast<size\_t>(ts.num\_strings);\ ++i)\ \{}
+\DoxyCodeLine{01692\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ stringValueBuffer[4096];}
+\DoxyCodeLine{01693\ }
+\DoxyCodeLine{01694\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{01695\ \ \ \ \ \ \ \ \ sscanf\_s(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ stringValueBuffer,}
+\DoxyCodeLine{01696\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned})\_countof(stringValueBuffer));}
+\DoxyCodeLine{01697\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01698\ \ \ \ \ \ \ \ \ std::sscanf(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ stringValueBuffer);}
+\DoxyCodeLine{01699\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01700\ \ \ \ \ \ \ \ \ tag.stringValues[i]\ =\ stringValueBuffer;}
+\DoxyCodeLine{01701\ \ \ \ \ \ \ \ \ token\ +=\ tag.stringValues[i].size()\ +\ 1;}
+\DoxyCodeLine{01702\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01703\ }
+\DoxyCodeLine{01704\ \ \ \ \ \ \ tags.push\_back(tag);}
+\DoxyCodeLine{01705\ \ \ \ \ \}}
+\DoxyCodeLine{01706\ }
+\DoxyCodeLine{01707\ \ \ \ \ \textcolor{comment}{//\ Ignore\ unknown\ command.}}
+\DoxyCodeLine{01708\ \ \ \}}
+\DoxyCodeLine{01709\ }
+\DoxyCodeLine{01710\ \ \ \textcolor{keywordtype}{bool}\ ret\ =\ exportFaceGroupToShape(\&shape,\ faceGroup,\ tags,\ material,\ name,}
+\DoxyCodeLine{01711\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ triangulate);}
+\DoxyCodeLine{01712\ \ \ \textcolor{comment}{//\ exportFaceGroupToShape\ return\ false\ when\ \`{}usemtl`\ is\ called\ in\ the\ last}}
+\DoxyCodeLine{01713\ \ \ \textcolor{comment}{//\ line.}}
+\DoxyCodeLine{01714\ \ \ \textcolor{comment}{//\ we\ also\ add\ \`{}shape`\ to\ \`{}shapes`\ when\ \`{}shape.mesh`\ has\ already\ some}}
+\DoxyCodeLine{01715\ \ \ \textcolor{comment}{//\ faces(indices)}}
+\DoxyCodeLine{01716\ \ \ \textcolor{keywordflow}{if}\ (ret\ ||\ shape.mesh.indices.size())\ \{}
+\DoxyCodeLine{01717\ \ \ \ \ shapes-\/>push\_back(shape);}
+\DoxyCodeLine{01718\ \ \ \}}
+\DoxyCodeLine{01719\ \ \ faceGroup.clear();\ \ \textcolor{comment}{//\ for\ safety}}
+\DoxyCodeLine{01720\ }
+\DoxyCodeLine{01721\ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{01722\ \ \ \ \ (*err)\ +=\ errss.str();}
+\DoxyCodeLine{01723\ \ \ \}}
+\DoxyCodeLine{01724\ }
+\DoxyCodeLine{01725\ \ \ attrib-\/>vertices.swap(v);}
+\DoxyCodeLine{01726\ \ \ attrib-\/>normals.swap(vn);}
+\DoxyCodeLine{01727\ \ \ attrib-\/>texcoords.swap(vt);}
+\DoxyCodeLine{01728\ }
+\DoxyCodeLine{01729\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01730\ \}}
+\DoxyCodeLine{01731\ }
+\DoxyCodeLine{01732\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacetinyobj_add9ad979e8011ccdfac2e1ec8def5359}{LoadObjWithCallback}}(std::istream\ \&inStream,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacetinyobj_ad0a2aed3de0484c23a55f6aa59c991f4}{callback\_t}}\ \&callback,}
+\DoxyCodeLine{01733\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *user\_data\ \textcolor{comment}{/*=\ NULL*/},}
+\DoxyCodeLine{01734\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MaterialReader\ *readMatFn\ \textcolor{comment}{/*=\ NULL*/},}
+\DoxyCodeLine{01735\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ *err\ \textcolor{comment}{/*=\ NULL*/})\ \{}
+\DoxyCodeLine{01736\ \ \ std::stringstream\ errss;}
+\DoxyCodeLine{01737\ }
+\DoxyCodeLine{01738\ \ \ \textcolor{comment}{//\ material}}
+\DoxyCodeLine{01739\ \ \ std::map<std::string,\ int>\ material\_map;}
+\DoxyCodeLine{01740\ \ \ \textcolor{keywordtype}{int}\ material\_id\ =\ -\/1;\ \ \textcolor{comment}{//\ -\/1\ =\ invalid}}
+\DoxyCodeLine{01741\ }
+\DoxyCodeLine{01742\ \ \ std::vector<index\_t>\ indices;}
+\DoxyCodeLine{01743\ \ \ std::vector<material\_t>\ materials;}
+\DoxyCodeLine{01744\ \ \ std::vector<std::string>\ names;}
+\DoxyCodeLine{01745\ \ \ names.reserve(2);}
+\DoxyCodeLine{01746\ \ \ std::string\ name;}
+\DoxyCodeLine{01747\ \ \ std::vector<const\ char\ *>\ names\_out;}
+\DoxyCodeLine{01748\ }
+\DoxyCodeLine{01749\ \ \ std::string\ linebuf;}
+\DoxyCodeLine{01750\ \ \ \textcolor{keywordflow}{while}\ (inStream.peek()\ !=\ -\/1)\ \{}
+\DoxyCodeLine{01751\ \ \ \ \ safeGetline(inStream,\ linebuf);}
+\DoxyCodeLine{01752\ }
+\DoxyCodeLine{01753\ \ \ \ \ \textcolor{comment}{//\ Trim\ newline\ '\(\backslash\)r\(\backslash\)n'\ or\ '\(\backslash\)n'}}
+\DoxyCodeLine{01754\ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf.size()\ >\ 0)\ \{}
+\DoxyCodeLine{01755\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf[linebuf.size()\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{01756\ \ \ \ \ \ \ \ \ linebuf.erase(linebuf.size()\ -\/\ 1);}
+\DoxyCodeLine{01757\ \ \ \ \ \}}
+\DoxyCodeLine{01758\ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf.size()\ >\ 0)\ \{}
+\DoxyCodeLine{01759\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf[linebuf.size()\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)r'})}
+\DoxyCodeLine{01760\ \ \ \ \ \ \ \ \ linebuf.erase(linebuf.size()\ -\/\ 1);}
+\DoxyCodeLine{01761\ \ \ \ \ \}}
+\DoxyCodeLine{01762\ }
+\DoxyCodeLine{01763\ \ \ \ \ \textcolor{comment}{//\ Skip\ if\ empty\ line.}}
+\DoxyCodeLine{01764\ \ \ \ \ \textcolor{keywordflow}{if}\ (linebuf.empty())\ \{}
+\DoxyCodeLine{01765\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01766\ \ \ \ \ \}}
+\DoxyCodeLine{01767\ }
+\DoxyCodeLine{01768\ \ \ \ \ \textcolor{comment}{//\ Skip\ leading\ space.}}
+\DoxyCodeLine{01769\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *token\ =\ linebuf.c\_str();}
+\DoxyCodeLine{01770\ \ \ \ \ token\ +=\ strspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});}
+\DoxyCodeLine{01771\ }
+\DoxyCodeLine{01772\ \ \ \ \ assert(token);}
+\DoxyCodeLine{01773\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'})\ \textcolor{keywordflow}{continue};\ \ \textcolor{comment}{//\ empty\ line}}
+\DoxyCodeLine{01774\ }
+\DoxyCodeLine{01775\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'\#'})\ \textcolor{keywordflow}{continue};\ \ \textcolor{comment}{//\ comment\ line}}
+\DoxyCodeLine{01776\ }
+\DoxyCodeLine{01777\ \ \ \ \ \textcolor{comment}{//\ vertex}}
+\DoxyCodeLine{01778\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'v'}\ \&\&\ IS\_SPACE((token[1])))\ \{}
+\DoxyCodeLine{01779\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01780\ \ \ \ \ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ x,\ y,\ z,\ w;\ \ \textcolor{comment}{//\ w\ is\ optional.\ default\ =\ 1.0}}
+\DoxyCodeLine{01781\ \ \ \ \ \ \ parseV(\&x,\ \&y,\ \&z,\ \&w,\ \&token);}
+\DoxyCodeLine{01782\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (callback.vertex\_cb)\ \{}
+\DoxyCodeLine{01783\ \ \ \ \ \ \ \ \ callback.vertex\_cb(user\_data,\ x,\ y,\ z,\ w);}
+\DoxyCodeLine{01784\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01785\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01786\ \ \ \ \ \}}
+\DoxyCodeLine{01787\ }
+\DoxyCodeLine{01788\ \ \ \ \ \textcolor{comment}{//\ normal}}
+\DoxyCodeLine{01789\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'v'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'n'}\ \&\&\ IS\_SPACE((token[2])))\ \{}
+\DoxyCodeLine{01790\ \ \ \ \ \ \ token\ +=\ 3;}
+\DoxyCodeLine{01791\ \ \ \ \ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ x,\ y,\ z;}
+\DoxyCodeLine{01792\ \ \ \ \ \ \ parseReal3(\&x,\ \&y,\ \&z,\ \&token);}
+\DoxyCodeLine{01793\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (callback.normal\_cb)\ \{}
+\DoxyCodeLine{01794\ \ \ \ \ \ \ \ \ callback.normal\_cb(user\_data,\ x,\ y,\ z);}
+\DoxyCodeLine{01795\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01796\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01797\ \ \ \ \ \}}
+\DoxyCodeLine{01798\ }
+\DoxyCodeLine{01799\ \ \ \ \ \textcolor{comment}{//\ texcoord}}
+\DoxyCodeLine{01800\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'v'}\ \&\&\ token[1]\ ==\ \textcolor{charliteral}{'t'}\ \&\&\ IS\_SPACE((token[2])))\ \{}
+\DoxyCodeLine{01801\ \ \ \ \ \ \ token\ +=\ 3;}
+\DoxyCodeLine{01802\ \ \ \ \ \ \ \mbox{\hyperlink{namespacetinyobj_ad5ca7469ff56bf0d8423120cfd99adce}{real\_t}}\ x,\ y,\ z;\ \ \textcolor{comment}{//\ y\ and\ z\ are\ optional.\ default\ =\ 0.0}}
+\DoxyCodeLine{01803\ \ \ \ \ \ \ parseReal3(\&x,\ \&y,\ \&z,\ \&token);}
+\DoxyCodeLine{01804\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (callback.texcoord\_cb)\ \{}
+\DoxyCodeLine{01805\ \ \ \ \ \ \ \ \ callback.texcoord\_cb(user\_data,\ x,\ y,\ z);}
+\DoxyCodeLine{01806\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01807\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01808\ \ \ \ \ \}}
+\DoxyCodeLine{01809\ }
+\DoxyCodeLine{01810\ \ \ \ \ \textcolor{comment}{//\ face}}
+\DoxyCodeLine{01811\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'f'}\ \&\&\ IS\_SPACE((token[1])))\ \{}
+\DoxyCodeLine{01812\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01813\ \ \ \ \ \ \ token\ +=\ strspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t"{}});}
+\DoxyCodeLine{01814\ }
+\DoxyCodeLine{01815\ \ \ \ \ \ \ indices.clear();}
+\DoxyCodeLine{01816\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!IS\_NEW\_LINE(token[0]))\ \{}
+\DoxyCodeLine{01817\ \ \ \ \ \ \ \ \ vertex\_index\ vi\ =\ parseRawTriple(\&token);}
+\DoxyCodeLine{01818\ }
+\DoxyCodeLine{01819\ \ \ \ \ \ \ \ \ index\_t\ idx;}
+\DoxyCodeLine{01820\ \ \ \ \ \ \ \ \ idx.vertex\_index\ =\ vi.v\_idx;}
+\DoxyCodeLine{01821\ \ \ \ \ \ \ \ \ idx.normal\_index\ =\ vi.vn\_idx;}
+\DoxyCodeLine{01822\ \ \ \ \ \ \ \ \ idx.texcoord\_index\ =\ vi.vt\_idx;}
+\DoxyCodeLine{01823\ }
+\DoxyCodeLine{01824\ \ \ \ \ \ \ \ \ indices.push\_back(idx);}
+\DoxyCodeLine{01825\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ n\ =\ strspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r"{}});}
+\DoxyCodeLine{01826\ \ \ \ \ \ \ \ \ token\ +=\ n;}
+\DoxyCodeLine{01827\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01828\ }
+\DoxyCodeLine{01829\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (callback.index\_cb\ \&\&\ indices.size()\ >\ 0)\ \{}
+\DoxyCodeLine{01830\ \ \ \ \ \ \ \ \ callback.index\_cb(user\_data,\ \&indices.at(0),}
+\DoxyCodeLine{01831\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(indices.size()));}
+\DoxyCodeLine{01832\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01833\ }
+\DoxyCodeLine{01834\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01835\ \ \ \ \ \}}
+\DoxyCodeLine{01836\ }
+\DoxyCodeLine{01837\ \ \ \ \ \textcolor{comment}{//\ use\ mtl}}
+\DoxyCodeLine{01838\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}usemtl"{}},\ 6))\ \&\&\ IS\_SPACE((token[6])))\ \{}
+\DoxyCodeLine{01839\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ namebuf[TINYOBJ\_SSCANF\_BUFFER\_SIZE];}
+\DoxyCodeLine{01840\ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01841\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{01842\ \ \ \ \ \ \ sscanf\_s(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf,}
+\DoxyCodeLine{01843\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\textcolor{keyword}{>}(\_countof(namebuf)));}
+\DoxyCodeLine{01844\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01845\ \ \ \ \ \ \ std::sscanf(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf);}
+\DoxyCodeLine{01846\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01847\ }
+\DoxyCodeLine{01848\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ newMaterialId\ =\ -\/1;}
+\DoxyCodeLine{01849\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (material\_map.find(namebuf)\ !=\ material\_map.end())\ \{}
+\DoxyCodeLine{01850\ \ \ \ \ \ \ \ \ newMaterialId\ =\ material\_map[namebuf];}
+\DoxyCodeLine{01851\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01852\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \{\ error!!\ material\ not\ found\ \}}}
+\DoxyCodeLine{01853\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01854\ }
+\DoxyCodeLine{01855\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (newMaterialId\ !=\ material\_id)\ \{}
+\DoxyCodeLine{01856\ \ \ \ \ \ \ \ \ material\_id\ =\ newMaterialId;}
+\DoxyCodeLine{01857\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01858\ }
+\DoxyCodeLine{01859\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (callback.usemtl\_cb)\ \{}
+\DoxyCodeLine{01860\ \ \ \ \ \ \ \ \ callback.usemtl\_cb(user\_data,\ namebuf,\ material\_id);}
+\DoxyCodeLine{01861\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01862\ }
+\DoxyCodeLine{01863\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01864\ \ \ \ \ \}}
+\DoxyCodeLine{01865\ }
+\DoxyCodeLine{01866\ \ \ \ \ \textcolor{comment}{//\ load\ mtl}}
+\DoxyCodeLine{01867\ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ ==\ strncmp(token,\ \textcolor{stringliteral}{"{}mtllib"{}},\ 6))\ \&\&\ IS\_SPACE((token[6])))\ \{}
+\DoxyCodeLine{01868\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (readMatFn)\ \{}
+\DoxyCodeLine{01869\ \ \ \ \ \ \ \ \ token\ +=\ 7;}
+\DoxyCodeLine{01870\ }
+\DoxyCodeLine{01871\ \ \ \ \ \ \ \ \ std::vector<std::string>\ filenames;}
+\DoxyCodeLine{01872\ \ \ \ \ \ \ \ \ SplitString(std::string(token),\ \textcolor{charliteral}{'\ '},\ filenames);}
+\DoxyCodeLine{01873\ }
+\DoxyCodeLine{01874\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (filenames.empty())\ \{}
+\DoxyCodeLine{01875\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{01876\ \ \ \ \ \ \ \ \ \ \ \ \ (*err)\ +=}
+\DoxyCodeLine{01877\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}WARN:\ Looks\ like\ empty\ filename\ for\ mtllib.\ Use\ default\ "{}}}
+\DoxyCodeLine{01878\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}material.\ \(\backslash\)n"{}};}
+\DoxyCodeLine{01879\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01880\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01881\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ found\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01882\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ s\ =\ 0;\ s\ <\ filenames.size();\ s++)\ \{}
+\DoxyCodeLine{01883\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ err\_mtl;}
+\DoxyCodeLine{01884\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ok\ =\ (*readMatFn)(filenames[s].c\_str(),\ \&materials,}
+\DoxyCodeLine{01885\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&material\_map,\ \&err\_mtl);}
+\DoxyCodeLine{01886\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (err\ \&\&\ (!err\_mtl.empty()))\ \{}
+\DoxyCodeLine{01887\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*err)\ +=\ err\_mtl;\ \ \textcolor{comment}{//\ This\ should\ be\ warn\ message.}}
+\DoxyCodeLine{01888\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01889\ }
+\DoxyCodeLine{01890\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ok)\ \{}
+\DoxyCodeLine{01891\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01892\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{01893\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01894\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01895\ }
+\DoxyCodeLine{01896\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!found)\ \{}
+\DoxyCodeLine{01897\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{01898\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*err)\ +=}
+\DoxyCodeLine{01899\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}WARN:\ Failed\ to\ load\ material\ file(s).\ Use\ default\ "{}}}
+\DoxyCodeLine{01900\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}material.\(\backslash\)n"{}};}
+\DoxyCodeLine{01901\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01902\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01903\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (callback.mtllib\_cb)\ \{}
+\DoxyCodeLine{01904\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ callback.mtllib\_cb(user\_data,\ \&materials.at(0),}
+\DoxyCodeLine{01905\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(materials.size()));}
+\DoxyCodeLine{01906\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01907\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01908\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01909\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01910\ }
+\DoxyCodeLine{01911\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01912\ \ \ \ \ \}}
+\DoxyCodeLine{01913\ }
+\DoxyCodeLine{01914\ \ \ \ \ \textcolor{comment}{//\ group\ name}}
+\DoxyCodeLine{01915\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'g'}\ \&\&\ IS\_SPACE((token[1])))\ \{}
+\DoxyCodeLine{01916\ \ \ \ \ \ \ names.clear();}
+\DoxyCodeLine{01917\ }
+\DoxyCodeLine{01918\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!IS\_NEW\_LINE(token[0]))\ \{}
+\DoxyCodeLine{01919\ \ \ \ \ \ \ \ \ std::string\ str\ =\ parseString(\&token);}
+\DoxyCodeLine{01920\ \ \ \ \ \ \ \ \ names.push\_back(str);}
+\DoxyCodeLine{01921\ \ \ \ \ \ \ \ \ token\ +=\ strspn(token,\ \textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r"{}});\ \ \textcolor{comment}{//\ skip\ tag}}
+\DoxyCodeLine{01922\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01923\ }
+\DoxyCodeLine{01924\ \ \ \ \ \ \ assert(names.size()\ >\ 0);}
+\DoxyCodeLine{01925\ }
+\DoxyCodeLine{01926\ \ \ \ \ \ \ \textcolor{comment}{//\ names[0]\ must\ be\ 'g',\ so\ skip\ the\ 0th\ element.}}
+\DoxyCodeLine{01927\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (names.size()\ >\ 1)\ \{}
+\DoxyCodeLine{01928\ \ \ \ \ \ \ \ \ name\ =\ names[1];}
+\DoxyCodeLine{01929\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01930\ \ \ \ \ \ \ \ \ name.clear();}
+\DoxyCodeLine{01931\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01932\ }
+\DoxyCodeLine{01933\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (callback.group\_cb)\ \{}
+\DoxyCodeLine{01934\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (names.size()\ >\ 1)\ \{}
+\DoxyCodeLine{01935\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ create\ const\ char*\ array.}}
+\DoxyCodeLine{01936\ \ \ \ \ \ \ \ \ \ \ names\_out.resize(names.size()\ -\/\ 1);}
+\DoxyCodeLine{01937\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ names\_out.size();\ j++)\ \{}
+\DoxyCodeLine{01938\ \ \ \ \ \ \ \ \ \ \ \ \ names\_out[j]\ =\ names[j\ +\ 1].c\_str();}
+\DoxyCodeLine{01939\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01940\ \ \ \ \ \ \ \ \ \ \ callback.group\_cb(user\_data,\ \&names\_out.at(0),}
+\DoxyCodeLine{01941\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(names\_out.size()));}
+\DoxyCodeLine{01942\ }
+\DoxyCodeLine{01943\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01944\ \ \ \ \ \ \ \ \ \ \ callback.group\_cb(user\_data,\ NULL,\ 0);}
+\DoxyCodeLine{01945\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01946\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01947\ }
+\DoxyCodeLine{01948\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01949\ \ \ \ \ \}}
+\DoxyCodeLine{01950\ }
+\DoxyCodeLine{01951\ \ \ \ \ \textcolor{comment}{//\ object\ name}}
+\DoxyCodeLine{01952\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'o'}\ \&\&\ IS\_SPACE((token[1])))\ \{}
+\DoxyCodeLine{01953\ \ \ \ \ \ \ \textcolor{comment}{//\ @todo\ \{\ multiple\ object\ name?\ \}}}
+\DoxyCodeLine{01954\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ namebuf[TINYOBJ\_SSCANF\_BUFFER\_SIZE];}
+\DoxyCodeLine{01955\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01956\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{01957\ \ \ \ \ \ \ sscanf\_s(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf,\ (\textcolor{keywordtype}{unsigned})\_countof(namebuf));}
+\DoxyCodeLine{01958\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01959\ \ \ \ \ \ \ std::sscanf(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf);}
+\DoxyCodeLine{01960\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01961\ \ \ \ \ \ \ std::string\ object\_name\ =\ std::string(namebuf);}
+\DoxyCodeLine{01962\ }
+\DoxyCodeLine{01963\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (callback.object\_cb)\ \{}
+\DoxyCodeLine{01964\ \ \ \ \ \ \ \ \ callback.object\_cb(user\_data,\ object\_name.c\_str());}
+\DoxyCodeLine{01965\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01966\ }
+\DoxyCodeLine{01967\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01968\ \ \ \ \ \}}
+\DoxyCodeLine{01969\ }
+\DoxyCodeLine{01970\ \textcolor{preprocessor}{\#if\ 0\ \ }\textcolor{comment}{//\ @todo}}
+\DoxyCodeLine{01971\ \ \ \ \ \textcolor{keywordflow}{if}\ (token[0]\ ==\ \textcolor{charliteral}{'t'}\ \&\&\ IS\_SPACE(token[1]))\ \{}
+\DoxyCodeLine{01972\ \ \ \ \ \ \ tag\_t\ tag;}
+\DoxyCodeLine{01973\ }
+\DoxyCodeLine{01974\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ namebuf[4096];}
+\DoxyCodeLine{01975\ \ \ \ \ \ \ token\ +=\ 2;}
+\DoxyCodeLine{01976\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{01977\ \ \ \ \ \ \ sscanf\_s(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf,\ (\textcolor{keywordtype}{unsigned})\_countof(namebuf));}
+\DoxyCodeLine{01978\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01979\ \ \ \ \ \ \ std::sscanf(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ namebuf);}
+\DoxyCodeLine{01980\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01981\ \ \ \ \ \ \ tag.name\ =\ std::string(namebuf);}
+\DoxyCodeLine{01982\ }
+\DoxyCodeLine{01983\ \ \ \ \ \ \ token\ +=\ tag.name.size()\ +\ 1;}
+\DoxyCodeLine{01984\ }
+\DoxyCodeLine{01985\ \ \ \ \ \ \ tag\_sizes\ ts\ =\ parseTagTriple(\&token);}
+\DoxyCodeLine{01986\ }
+\DoxyCodeLine{01987\ \ \ \ \ \ \ tag.intValues.resize(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(ts.num\_ints));}
+\DoxyCodeLine{01988\ }
+\DoxyCodeLine{01989\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ static\_cast<size\_t>(ts.num\_ints);\ ++i)\ \{}
+\DoxyCodeLine{01990\ \ \ \ \ \ \ \ \ tag.intValues[i]\ =\ atoi(token);}
+\DoxyCodeLine{01991\ \ \ \ \ \ \ \ \ token\ +=\ strcspn(token,\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}})\ +\ 1;}
+\DoxyCodeLine{01992\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01993\ }
+\DoxyCodeLine{01994\ \ \ \ \ \ \ tag.floatValues.resize(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(ts.num\_reals));}
+\DoxyCodeLine{01995\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ static\_cast<size\_t>(ts.num\_reals);\ ++i)\ \{}
+\DoxyCodeLine{01996\ \ \ \ \ \ \ \ \ tag.floatValues[i]\ =\ parseReal(\&token);}
+\DoxyCodeLine{01997\ \ \ \ \ \ \ \ \ token\ +=\ strcspn(token,\ \textcolor{stringliteral}{"{}/\ \(\backslash\)t\(\backslash\)r"{}})\ +\ 1;}
+\DoxyCodeLine{01998\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01999\ }
+\DoxyCodeLine{02000\ \ \ \ \ \ \ tag.stringValues.resize(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(ts.num\_strings));}
+\DoxyCodeLine{02001\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ static\_cast<size\_t>(ts.num\_strings);\ ++i)\ \{}
+\DoxyCodeLine{02002\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ stringValueBuffer[4096];}
+\DoxyCodeLine{02003\ }
+\DoxyCodeLine{02004\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{02005\ \ \ \ \ \ \ \ \ sscanf\_s(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ stringValueBuffer,}
+\DoxyCodeLine{02006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned})\_countof(stringValueBuffer));}
+\DoxyCodeLine{02007\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{02008\ \ \ \ \ \ \ \ \ std::sscanf(token,\ \textcolor{stringliteral}{"{}\%s"{}},\ stringValueBuffer);}
+\DoxyCodeLine{02009\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02010\ \ \ \ \ \ \ \ \ tag.stringValues[i]\ =\ stringValueBuffer;}
+\DoxyCodeLine{02011\ \ \ \ \ \ \ \ \ token\ +=\ tag.stringValues[i].size()\ +\ 1;}
+\DoxyCodeLine{02012\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02013\ }
+\DoxyCodeLine{02014\ \ \ \ \ \ \ tags.push\_back(tag);}
+\DoxyCodeLine{02015\ \ \ \ \ \}}
+\DoxyCodeLine{02016\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02017\ }
+\DoxyCodeLine{02018\ \ \ \ \ \textcolor{comment}{//\ Ignore\ unknown\ command.}}
+\DoxyCodeLine{02019\ \ \ \}}
+\DoxyCodeLine{02020\ }
+\DoxyCodeLine{02021\ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{02022\ \ \ \ \ (*err)\ +=\ errss.str();}
+\DoxyCodeLine{02023\ \ \ \}}
+\DoxyCodeLine{02024\ }
+\DoxyCodeLine{02025\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{02026\ \}}
+\DoxyCodeLine{02027\ \}\ \ \textcolor{comment}{//\ namespace\ tinyobj}}
+\DoxyCodeLine{02028\ }
+\DoxyCodeLine{02029\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

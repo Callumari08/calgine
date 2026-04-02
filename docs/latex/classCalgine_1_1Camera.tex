@@ -1,0 +1,61 @@
+\doxysection{Calgine\+::Camera Class Reference}
+\hypertarget{classCalgine_1_1Camera}{}\label{classCalgine_1_1Camera}\index{Calgine::Camera@{Calgine::Camera}}
+
+
+{\ttfamily \#include $<$camera.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1Camera_a88220fe46b6ff06b8d6f26021f04e082}{Camera}} (float fov=65.\+0f, float aspect\+\_\+ratio=16.\+0f/9.\+0f, float near\+\_\+plane=0.\+1f, float far\+\_\+plane=1000.\+0f)
+\item 
+void \mbox{\hyperlink{classCalgine_1_1Camera_aaa02bee726d4d4b9a4895139eb4fcc49}{update}} (const \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \&transform)
+\item 
+void \mbox{\hyperlink{classCalgine_1_1Camera_a55d76efe38571e2476032c66d7c1dd14}{update\+\_\+projection}} (float fov, float aspect\+\_\+ratio, float near\+\_\+plane, float far\+\_\+plane)
+\item 
+const glm\+::mat4 \& \mbox{\hyperlink{classCalgine_1_1Camera_ad2f86efd834101d33a2c109c57c2bd74}{get\+\_\+view\+\_\+matrix}} () const
+\item 
+const glm\+::mat4 \& \mbox{\hyperlink{classCalgine_1_1Camera_a675022579a8dac58d6cac9a3195ed6a1}{get\+\_\+projection\+\_\+matrix}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalgine_1_1Camera_a88220fe46b6ff06b8d6f26021f04e082}\label{classCalgine_1_1Camera_a88220fe46b6ff06b8d6f26021f04e082} 
+\index{Calgine::Camera@{Calgine::Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Calgine::Camera@{Calgine::Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}}
+{\footnotesize\ttfamily Calgine\+::\+Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{float}]{fov = {\ttfamily 65.0f},  }\item[{float}]{aspect\+\_\+ratio = {\ttfamily 16.0f~/~9.0f},  }\item[{float}]{near\+\_\+plane = {\ttfamily 0.1f},  }\item[{float}]{far\+\_\+plane = {\ttfamily 1000.0f} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1Camera_a675022579a8dac58d6cac9a3195ed6a1}\label{classCalgine_1_1Camera_a675022579a8dac58d6cac9a3195ed6a1} 
+\index{Calgine::Camera@{Calgine::Camera}!get\_projection\_matrix@{get\_projection\_matrix}}
+\index{get\_projection\_matrix@{get\_projection\_matrix}!Calgine::Camera@{Calgine::Camera}}
+\doxysubsubsection{\texorpdfstring{get\_projection\_matrix()}{get\_projection\_matrix()}}
+{\footnotesize\ttfamily const glm\+::mat4 \& Calgine\+::\+Camera\+::get\+\_\+projection\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1Camera_ad2f86efd834101d33a2c109c57c2bd74}\label{classCalgine_1_1Camera_ad2f86efd834101d33a2c109c57c2bd74} 
+\index{Calgine::Camera@{Calgine::Camera}!get\_view\_matrix@{get\_view\_matrix}}
+\index{get\_view\_matrix@{get\_view\_matrix}!Calgine::Camera@{Calgine::Camera}}
+\doxysubsubsection{\texorpdfstring{get\_view\_matrix()}{get\_view\_matrix()}}
+{\footnotesize\ttfamily const glm\+::mat4 \& Calgine\+::\+Camera\+::get\+\_\+view\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1Camera_aaa02bee726d4d4b9a4895139eb4fcc49}\label{classCalgine_1_1Camera_aaa02bee726d4d4b9a4895139eb4fcc49} 
+\index{Calgine::Camera@{Calgine::Camera}!update@{update}}
+\index{update@{update}!Calgine::Camera@{Calgine::Camera}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Calgine\+::\+Camera\+::update (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \&}]{transform }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1Camera_a55d76efe38571e2476032c66d7c1dd14}\label{classCalgine_1_1Camera_a55d76efe38571e2476032c66d7c1dd14} 
+\index{Calgine::Camera@{Calgine::Camera}!update\_projection@{update\_projection}}
+\index{update\_projection@{update\_projection}!Calgine::Camera@{Calgine::Camera}}
+\doxysubsubsection{\texorpdfstring{update\_projection()}{update\_projection()}}
+{\footnotesize\ttfamily void Calgine\+::\+Camera\+::update\+\_\+projection (\begin{DoxyParamCaption}\item[{float}]{fov,  }\item[{float}]{aspect\+\_\+ratio,  }\item[{float}]{near\+\_\+plane,  }\item[{float}]{far\+\_\+plane }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/renderer/camera/\mbox{\hyperlink{camera_8h}{camera.\+h}}\item 
+src/calgine/core/renderer/camera/\mbox{\hyperlink{camera_8cxx}{camera.\+cxx}}\end{DoxyCompactItemize}

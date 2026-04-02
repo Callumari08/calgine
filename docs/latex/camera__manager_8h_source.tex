@@ -1,0 +1,35 @@
+\doxysection{camera\+\_\+manager.\+h}
+\hypertarget{camera__manager_8h_source}{}\label{camera__manager_8h_source}\index{src/calgine/core/renderer/camera/camera\_manager.h@{src/calgine/core/renderer/camera/camera\_manager.h}}
+\mbox{\hyperlink{camera__manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{camera__behaviour_8h}{camera\_behaviour.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }CameraBehaviour;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1CameraManager}{CameraManager}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1CameraManager}{CameraManager}}\&\ get\_instance();}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \mbox{\hyperlink{classCalgine_1_1CameraManager_a3926a7c57c1067c25b01ff68a6eeb002}{CameraManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1CameraManager}{CameraManager}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classCalgine_1_1CameraManager}{CameraManager}}\&\ \mbox{\hyperlink{classCalgine_1_1CameraManager_ac2c145c93c4939c9115de4e6a8b1c0e6}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1CameraManager}{CameraManager}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{void}\ add\_camera(\mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{CameraBehaviour}}*\ camera);}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{void}\ set\_active\_camera(\mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{CameraBehaviour}}*\ camera);}
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{CameraBehaviour}}*\ \mbox{\hyperlink{classCalgine_1_1CameraManager_ad8363953e72070b117d30b82bafed458}{get\_active\_camera}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ active\_camera;\ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classCalgine_1_1CameraManager}{CameraManager}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ std::vector<CameraBehaviour*>\ cameras;}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{CameraBehaviour}}*\ active\_camera;}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \}}
+
+\end{DoxyCode}

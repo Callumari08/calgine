@@ -7,15 +7,63 @@ class \mbox{\hyperlink{classCalgine_1_1App}{App}}
 \begin{DoxyCompactList}\small\item\em Base class for all \doxylink{namespaceCalgine}{Calgine} applications. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structCalgine_1_1AppSettings}{App\+Settings}}
 \begin{DoxyCompactList}\small\item\em Configuration settings for a \doxylink{namespaceCalgine}{Calgine} application. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classCalgine_1_1AssetManager}{Asset\+Manager}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1BatchRenderCommand}{Batch\+Render\+Command}}
+\item 
 class \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}
 \begin{DoxyCompactList}\small\item\em Gives access to tick updates for users. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classCalgine_1_1Camera}{Camera}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{Camera\+Behaviour}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1CameraManager}{Camera\+Manager}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1CameraSettings}{Camera\+Settings}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1GameHierarchy}{Game\+Hierarchy}}
+\item 
 class \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}}
 \begin{DoxyCompactList}\small\item\em Game\+Objects are objects within the \doxylink{}{Heirarchy} that have multiple \doxylink{classCalgine_1_1Behaviour}{Behaviour} subclasses attached to them which execute code. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classCalgine_1_1Hierarchy}{Hierarchy}}
+class \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer}{Hierarchy\+Renderer}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1IndexBuffer}{Index\+Buffer}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1Log}{Log}}
 \item 
+class \mbox{\hyperlink{classCalgine_1_1ManagerHierarchy}{Manager\+Hierarchy}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1Material}{Material}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1MaterialSettings}{Material\+Settings}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1Mesh}{Mesh}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1MeshRenderer}{Mesh\+Renderer}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1Model}{Model}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1Renderer}{Renderer}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1RenderTexture}{Render\+Texture}}
+\item 
 class \mbox{\hyperlink{classCalgine_1_1RootGameObject}{Root\+Game\+Object}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1ShaderProgram}{Shader\+Program}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1Texture}{Texture}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1Time}{Time}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1Vertex}{Vertex}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1VertexArray}{Vertex\+Array}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1VertexBuffer}{Vertex\+Buffer}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1Window}{Window}}
 \begin{DoxyCompactList}\small\item\em \doxylink{classCalgine_1_1Window}{Window} wrapper that abstracts SDL\+\_\+\+Window from the application. \end{DoxyCompactList}\item 
@@ -24,9 +72,19 @@ class \mbox{\hyperlink{classCalgine_1_1WindowHandler}{Window\+Handler}}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861}{Tick\+Type}} \{ \mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92}{preloop}}
+enum \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5e}{Asset\+Type}} \{ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5ea9525df878da4fb8c643ecf48ad03095e}{texture}}
+, \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d}{model}}
+, \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eac3b16e8a9ede3ae91467682b97ea5dc3}{fragment}}
+, \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5ea6869c366525aff7bd2b44caf55a44555}{vertex}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861}{Tick\+Type}} \{ \newline
+\mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92}{preloop}}
+, \mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a55f1d1f1d99546bd18933cfa873a7b9a}{fixed\+\_\+update}}
 , \mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d}{update}}
 , \mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc}{late\+\_\+update}}
+, \newline
+\mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6}{render}}
 , \mbox{\hyperlink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10}{imgui\+\_\+render}}
  \}
 \item 
@@ -35,14 +93,40 @@ enum \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{Vsync\
 , \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a9f9dcaa8c848c0e8de57bd5bf5dab654}{adaptive}} = -\/1
  \}
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Functions}
+\doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{namespaceCalgine_a08cd20732442ef95f7ad6e630cf09e48}{throw\+\_\+sdl\+\_\+error}} (std\+::string message)
-\begin{DoxyCompactList}\small\item\em prints the latest SDL error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+constexpr const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceCalgine_ae3a8dec8e5f3e77e4b7e74cb80151d23}{DEFAULT\+\_\+\+VERTEX\+\_\+\+SHADER}}
+\item 
+constexpr const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceCalgine_a346c7e22b55226cdd4bda449c4c65eb8}{DEFAULT\+\_\+\+FRAGMENT\+\_\+\+SHADER}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespaceCalgine_acf0a966a2ef04d27037f626364505e5e}\label{namespaceCalgine_acf0a966a2ef04d27037f626364505e5e} 
+\index{Calgine@{Calgine}!AssetType@{AssetType}}
+\index{AssetType@{AssetType}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{AssetType}{AssetType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5e}{Calgine\+::\+Asset\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{texture@{texture}!Calgine@{Calgine}}\index{Calgine@{Calgine}!texture@{texture}}}\Hypertarget{namespaceCalgine_acf0a966a2ef04d27037f626364505e5ea9525df878da4fb8c643ecf48ad03095e}\label{namespaceCalgine_acf0a966a2ef04d27037f626364505e5ea9525df878da4fb8c643ecf48ad03095e} 
+texture&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{model@{model}!Calgine@{Calgine}}\index{Calgine@{Calgine}!model@{model}}}\Hypertarget{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d}\label{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d} 
+model&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fragment@{fragment}!Calgine@{Calgine}}\index{Calgine@{Calgine}!fragment@{fragment}}}\Hypertarget{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eac3b16e8a9ede3ae91467682b97ea5dc3}\label{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eac3b16e8a9ede3ae91467682b97ea5dc3} 
+fragment&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{vertex@{vertex}!Calgine@{Calgine}}\index{Calgine@{Calgine}!vertex@{vertex}}}\Hypertarget{namespaceCalgine_acf0a966a2ef04d27037f626364505e5ea6869c366525aff7bd2b44caf55a44555}\label{namespaceCalgine_acf0a966a2ef04d27037f626364505e5ea6869c366525aff7bd2b44caf55a44555} 
+vertex&\\
+\hline
+
+\end{DoxyEnumFields}
 \Hypertarget{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861}\label{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861} 
 \index{Calgine@{Calgine}!TickType@{TickType}}
 \index{TickType@{TickType}!Calgine@{Calgine}}
@@ -54,12 +138,20 @@ void \mbox{\hyperlink{namespaceCalgine_a08cd20732442ef95f7ad6e630cf09e48}{throw\
 preloop&\\
 \hline
 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fixed\_update@{fixed\_update}!Calgine@{Calgine}}\index{Calgine@{Calgine}!fixed\_update@{fixed\_update}}}\Hypertarget{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a55f1d1f1d99546bd18933cfa873a7b9a}\label{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a55f1d1f1d99546bd18933cfa873a7b9a} 
+fixed\+\_\+update&\\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{update@{update}!Calgine@{Calgine}}\index{Calgine@{Calgine}!update@{update}}}\Hypertarget{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d}\label{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d} 
 update&\\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{late\_update@{late\_update}!Calgine@{Calgine}}\index{Calgine@{Calgine}!late\_update@{late\_update}}}\Hypertarget{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc}\label{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc} 
 late\+\_\+update&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{render@{render}!Calgine@{Calgine}}\index{Calgine@{Calgine}!render@{render}}}\Hypertarget{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6}\label{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6} 
+render&\\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{imgui\_render@{imgui\_render}!Calgine@{Calgine}}\index{Calgine@{Calgine}!imgui\_render@{imgui\_render}}}\Hypertarget{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10}\label{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10} 
@@ -89,19 +181,55 @@ adaptive&\\
 \end{DoxyEnumFields}
 
 
-\doxysubsection{Function Documentation}
-\Hypertarget{namespaceCalgine_a08cd20732442ef95f7ad6e630cf09e48}\label{namespaceCalgine_a08cd20732442ef95f7ad6e630cf09e48} 
-\index{Calgine@{Calgine}!throw\_sdl\_error@{throw\_sdl\_error}}
-\index{throw\_sdl\_error@{throw\_sdl\_error}!Calgine@{Calgine}}
-\doxysubsubsection{\texorpdfstring{throw\_sdl\_error()}{throw\_sdl\_error()}}
-{\footnotesize\ttfamily void Calgine\+::throw\+\_\+sdl\+\_\+error (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceCalgine_a346c7e22b55226cdd4bda449c4c65eb8}\label{namespaceCalgine_a346c7e22b55226cdd4bda449c4c65eb8} 
+\index{Calgine@{Calgine}!DEFAULT\_FRAGMENT\_SHADER@{DEFAULT\_FRAGMENT\_SHADER}}
+\index{DEFAULT\_FRAGMENT\_SHADER@{DEFAULT\_FRAGMENT\_SHADER}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_FRAGMENT\_SHADER}{DEFAULT\_FRAGMENT\_SHADER}}
+{\footnotesize\ttfamily constexpr const char\texorpdfstring{$\ast$}{*} Calgine\+::\+DEFAULT\+\_\+\+FRAGMENT\+\_\+\+SHADER\hspace{0.3cm}{\ttfamily [constexpr]}}
 
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ R\textcolor{stringliteral}{"{}(\#version\ 450\ core}}
+\DoxyCodeLine{\textcolor{stringliteral}{in\ vec4\ v\_colour;}}
+\DoxyCodeLine{\textcolor{stringliteral}{in\ vec2\ v\_texcoord;}}
+\DoxyCodeLine{\textcolor{stringliteral}{uniform\ sampler2D\ u\_texture;}}
+\DoxyCodeLine{\textcolor{stringliteral}{out\ vec4\ o\_color;}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{void\ main()}}
+\DoxyCodeLine{\textcolor{stringliteral}{\{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ o\_color\ =\ texture(u\_texture,\ v\_texcoord)\ *\ v\_colour;}}
+\DoxyCodeLine{\textcolor{stringliteral}{\}}}
+\DoxyCodeLine{\textcolor{stringliteral}{)"{}}}
 
+\end{DoxyCode}
+\Hypertarget{namespaceCalgine_ae3a8dec8e5f3e77e4b7e74cb80151d23}\label{namespaceCalgine_ae3a8dec8e5f3e77e4b7e74cb80151d23} 
+\index{Calgine@{Calgine}!DEFAULT\_VERTEX\_SHADER@{DEFAULT\_VERTEX\_SHADER}}
+\index{DEFAULT\_VERTEX\_SHADER@{DEFAULT\_VERTEX\_SHADER}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_VERTEX\_SHADER}{DEFAULT\_VERTEX\_SHADER}}
+{\footnotesize\ttfamily constexpr const char\texorpdfstring{$\ast$}{*} Calgine\+::\+DEFAULT\+\_\+\+VERTEX\+\_\+\+SHADER\hspace{0.3cm}{\ttfamily [constexpr]}}
 
-prints the latest SDL error. 
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ R\textcolor{stringliteral}{"{}(\#version\ 450\ core}}
+\DoxyCodeLine{\textcolor{stringliteral}{layout(location\ =\ 0)\ in\ vec4\ a\_colour;}}
+\DoxyCodeLine{\textcolor{stringliteral}{layout(location\ =\ 1)\ in\ vec3\ a\_position;}}
+\DoxyCodeLine{\textcolor{stringliteral}{layout(location\ =\ 2)\ in\ vec3\ a\_normal;}}
+\DoxyCodeLine{\textcolor{stringliteral}{layout(location\ =\ 3)\ in\ vec2\ a\_texcoord;}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{uniform\ mat4\ u\_model;}}
+\DoxyCodeLine{\textcolor{stringliteral}{uniform\ mat4\ u\_view;}}
+\DoxyCodeLine{\textcolor{stringliteral}{uniform\ mat4\ u\_proj;}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{out\ vec4\ v\_colour;}}
+\DoxyCodeLine{\textcolor{stringliteral}{out\ vec2\ v\_texcoord;}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{void\ main()}}
+\DoxyCodeLine{\textcolor{stringliteral}{\{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ v\_colour\ =\ a\_colour;}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ v\_texcoord\ =\ a\_texcoord;}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ gl\_Position\ =\ u\_proj\ *\ u\_view\ *\ u\_model\ *\ vec4(a\_position,\ 1.0);}}
+\DoxyCodeLine{\textcolor{stringliteral}{\}}}
+\DoxyCodeLine{\textcolor{stringliteral}{)"{}}}
 
-
-\begin{DoxyParams}{Parameters}
-{\em message} & \\
-\hline
-\end{DoxyParams}
+\end{DoxyCode}

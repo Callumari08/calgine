@@ -1,0 +1,47 @@
+\doxysection{material.\+h}
+\hypertarget{material_8h_source}{}\label{material_8h_source}\index{src/calgine/core/renderer/material.h@{src/calgine/core/renderer/material.h}}
+\mbox{\hyperlink{material_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{render__texture_8h}{calgine/core/renderer/render\_texture.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shader_8h}{calgine/core/renderer/shader.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}glm/fwd.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1MaterialSettings}{MaterialSettings}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{bool}\ cull\_back\_faces\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00014\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1Material}{Material}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{classCalgine_1_1Material}{Material}}(std::shared\_ptr<Shader>\ shader\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{classCalgine_1_1Material_a279448773cdf7d5c04d6c3771b010283}{\string~Material}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{classCalgine_1_1Material_a46df7b767cb9f38d0055a997f51c79f0}{Material}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Material}{Material}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classCalgine_1_1Material}{Material}}\&\ \mbox{\hyperlink{classCalgine_1_1Material_aa412ec4150c4e724c847c0d2037e2160}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Material}{Material}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}\ bind()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ set\_shader(\textcolor{keyword}{const}\ std::shared\_ptr<Shader>\&\ shader);}
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ set\_texture(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::shared\_ptr<Texture>\&\ texture);}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ set\_colour(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ glm::vec4\&\ colour);}
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{void}\ set\_float(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ value);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ std::shared\_ptr<Shader>\ \mbox{\hyperlink{classCalgine_1_1Material_a2648c08012dd2605ca4d4c2f38632ff5}{get\_shader}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ shader;\ \}}
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{const}\ std::unordered\_map<std::string,\ std::unique\_ptr<RenderTexture>>\&\ \mbox{\hyperlink{classCalgine_1_1Material_a174abda7d7e72bbe5cb96dab5046fde0}{get\_textures}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ textures;\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{structCalgine_1_1MaterialSettings}{MaterialSettings}}\ \mbox{\hyperlink{classCalgine_1_1Material_a616c5976172e7293d00a562a97641173}{settings}};}
+\DoxyCodeLine{00034\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00035\ \ \ std::shared\_ptr<Shader>\ shader;}
+\DoxyCodeLine{00036\ \ \ }
+\DoxyCodeLine{00037\ \ \ std::unordered\_map<std::string,\ std::unique\_ptr<RenderTexture>>\ textures;}
+\DoxyCodeLine{00038\ \ \ std::unordered\_map<std::string,\ glm::vec4>\ colours;}
+\DoxyCodeLine{00039\ \ \ std::unordered\_map<std::string,\ float>\ floats;}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}

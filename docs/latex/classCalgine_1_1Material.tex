@@ -1,0 +1,123 @@
+\doxysection{Calgine\+::Material Class Reference}
+\hypertarget{classCalgine_1_1Material}{}\label{classCalgine_1_1Material}\index{Calgine::Material@{Calgine::Material}}
+
+
+{\ttfamily \#include $<$material.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1Material_a9004603bd82571fa2883239e527fea63}{Material}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}} $>$ shader=nullptr)
+\item 
+\mbox{\hyperlink{classCalgine_1_1Material_a279448773cdf7d5c04d6c3771b010283}{\texorpdfstring{$\sim$}{\string~}\+Material}} ()=default
+\item 
+\mbox{\hyperlink{classCalgine_1_1Material_a46df7b767cb9f38d0055a997f51c79f0}{Material}} (const \mbox{\hyperlink{classCalgine_1_1Material}{Material}} \&)=delete
+\item 
+\mbox{\hyperlink{classCalgine_1_1Material}{Material}} \& \mbox{\hyperlink{classCalgine_1_1Material_aa412ec4150c4e724c847c0d2037e2160}{operator=}} (const \mbox{\hyperlink{classCalgine_1_1Material}{Material}} \&)=delete
+\item 
+void \mbox{\hyperlink{classCalgine_1_1Material_a954dcb245ea838f16122e1660981d1f7}{bind}} () const
+\item 
+void \mbox{\hyperlink{classCalgine_1_1Material_a7a5aebc7b064391680321dc5f59cd090}{set\+\_\+shader}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}} $>$ \&shader)
+\item 
+void \mbox{\hyperlink{classCalgine_1_1Material_ac33b92454728970ccacd2c86711e342e}{set\+\_\+texture}} (const std\+::string \&name, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Texture}{Texture}} $>$ \&\mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5ea9525df878da4fb8c643ecf48ad03095e}{texture}})
+\item 
+void \mbox{\hyperlink{classCalgine_1_1Material_ad75a3c32463028b35408b8b52519607c}{set\+\_\+colour}} (const std\+::string \&name, const glm\+::vec4 \&colour)
+\item 
+void \mbox{\hyperlink{classCalgine_1_1Material_a2858624298e9065251a9971456028fd6}{set\+\_\+float}} (const std\+::string \&name, const float \&value)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}} $>$ \mbox{\hyperlink{classCalgine_1_1Material_a2648c08012dd2605ca4d4c2f38632ff5}{get\+\_\+shader}} () const
+\item 
+const std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1RenderTexture}{Render\+Texture}} $>$ $>$ \& \mbox{\hyperlink{classCalgine_1_1Material_a174abda7d7e72bbe5cb96dab5046fde0}{get\+\_\+textures}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCalgine_1_1MaterialSettings}{Material\+Settings}} \mbox{\hyperlink{classCalgine_1_1Material_a616c5976172e7293d00a562a97641173}{settings}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalgine_1_1Material_a9004603bd82571fa2883239e527fea63}\label{classCalgine_1_1Material_a9004603bd82571fa2883239e527fea63} 
+\index{Calgine::Material@{Calgine::Material}!Material@{Material}}
+\index{Material@{Material}!Calgine::Material@{Calgine::Material}}
+\doxysubsubsection{\texorpdfstring{Material()}{Material()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Calgine\+::\+Material\+::\+Material (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}} $>$}]{shader = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1Material_a279448773cdf7d5c04d6c3771b010283}\label{classCalgine_1_1Material_a279448773cdf7d5c04d6c3771b010283} 
+\index{Calgine::Material@{Calgine::Material}!````~Material@{\texorpdfstring{$\sim$}{\string~}Material}}
+\index{````~Material@{\texorpdfstring{$\sim$}{\string~}Material}!Calgine::Material@{Calgine::Material}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Material()}{\string~Material()}}
+{\footnotesize\ttfamily Calgine\+::\+Material\+::\texorpdfstring{$\sim$}{\string~}\+Material (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classCalgine_1_1Material_a46df7b767cb9f38d0055a997f51c79f0}\label{classCalgine_1_1Material_a46df7b767cb9f38d0055a997f51c79f0} 
+\index{Calgine::Material@{Calgine::Material}!Material@{Material}}
+\index{Material@{Material}!Calgine::Material@{Calgine::Material}}
+\doxysubsubsection{\texorpdfstring{Material()}{Material()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Calgine\+::\+Material\+::\+Material (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCalgine_1_1Material}{Material}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1Material_a954dcb245ea838f16122e1660981d1f7}\label{classCalgine_1_1Material_a954dcb245ea838f16122e1660981d1f7} 
+\index{Calgine::Material@{Calgine::Material}!bind@{bind}}
+\index{bind@{bind}!Calgine::Material@{Calgine::Material}}
+\doxysubsubsection{\texorpdfstring{bind()}{bind()}}
+{\footnotesize\ttfamily void Calgine\+::\+Material\+::bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classCalgine_1_1Material_a2648c08012dd2605ca4d4c2f38632ff5}\label{classCalgine_1_1Material_a2648c08012dd2605ca4d4c2f38632ff5} 
+\index{Calgine::Material@{Calgine::Material}!get\_shader@{get\_shader}}
+\index{get\_shader@{get\_shader}!Calgine::Material@{Calgine::Material}}
+\doxysubsubsection{\texorpdfstring{get\_shader()}{get\_shader()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}} $>$ Calgine\+::\+Material\+::get\+\_\+shader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1Material_a174abda7d7e72bbe5cb96dab5046fde0}\label{classCalgine_1_1Material_a174abda7d7e72bbe5cb96dab5046fde0} 
+\index{Calgine::Material@{Calgine::Material}!get\_textures@{get\_textures}}
+\index{get\_textures@{get\_textures}!Calgine::Material@{Calgine::Material}}
+\doxysubsubsection{\texorpdfstring{get\_textures()}{get\_textures()}}
+{\footnotesize\ttfamily const std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1RenderTexture}{Render\+Texture}} $>$ $>$ \& Calgine\+::\+Material\+::get\+\_\+textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1Material_aa412ec4150c4e724c847c0d2037e2160}\label{classCalgine_1_1Material_aa412ec4150c4e724c847c0d2037e2160} 
+\index{Calgine::Material@{Calgine::Material}!operator=@{operator=}}
+\index{operator=@{operator=}!Calgine::Material@{Calgine::Material}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1Material}{Material}} \& Calgine\+::\+Material\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCalgine_1_1Material}{Material}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classCalgine_1_1Material_ad75a3c32463028b35408b8b52519607c}\label{classCalgine_1_1Material_ad75a3c32463028b35408b8b52519607c} 
+\index{Calgine::Material@{Calgine::Material}!set\_colour@{set\_colour}}
+\index{set\_colour@{set\_colour}!Calgine::Material@{Calgine::Material}}
+\doxysubsubsection{\texorpdfstring{set\_colour()}{set\_colour()}}
+{\footnotesize\ttfamily void Calgine\+::\+Material\+::set\+\_\+colour (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const glm\+::vec4 \&}]{colour }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1Material_a2858624298e9065251a9971456028fd6}\label{classCalgine_1_1Material_a2858624298e9065251a9971456028fd6} 
+\index{Calgine::Material@{Calgine::Material}!set\_float@{set\_float}}
+\index{set\_float@{set\_float}!Calgine::Material@{Calgine::Material}}
+\doxysubsubsection{\texorpdfstring{set\_float()}{set\_float()}}
+{\footnotesize\ttfamily void Calgine\+::\+Material\+::set\+\_\+float (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const float \&}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1Material_a7a5aebc7b064391680321dc5f59cd090}\label{classCalgine_1_1Material_a7a5aebc7b064391680321dc5f59cd090} 
+\index{Calgine::Material@{Calgine::Material}!set\_shader@{set\_shader}}
+\index{set\_shader@{set\_shader}!Calgine::Material@{Calgine::Material}}
+\doxysubsubsection{\texorpdfstring{set\_shader()}{set\_shader()}}
+{\footnotesize\ttfamily void Calgine\+::\+Material\+::set\+\_\+shader (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}} $>$ \&}]{shader }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1Material_ac33b92454728970ccacd2c86711e342e}\label{classCalgine_1_1Material_ac33b92454728970ccacd2c86711e342e} 
+\index{Calgine::Material@{Calgine::Material}!set\_texture@{set\_texture}}
+\index{set\_texture@{set\_texture}!Calgine::Material@{Calgine::Material}}
+\doxysubsubsection{\texorpdfstring{set\_texture()}{set\_texture()}}
+{\footnotesize\ttfamily void Calgine\+::\+Material\+::set\+\_\+texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Texture}{Texture}} $>$ \&}]{texture }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCalgine_1_1Material_a616c5976172e7293d00a562a97641173}\label{classCalgine_1_1Material_a616c5976172e7293d00a562a97641173} 
+\index{Calgine::Material@{Calgine::Material}!settings@{settings}}
+\index{settings@{settings}!Calgine::Material@{Calgine::Material}}
+\doxysubsubsection{\texorpdfstring{settings}{settings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCalgine_1_1MaterialSettings}{Material\+Settings}} Calgine\+::\+Material\+::settings}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/renderer/\mbox{\hyperlink{material_8h}{material.\+h}}\item 
+src/calgine/core/renderer/\mbox{\hyperlink{material_8cxx}{material.\+cxx}}\end{DoxyCompactItemize}

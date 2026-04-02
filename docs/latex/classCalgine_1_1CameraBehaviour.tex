@@ -1,0 +1,107 @@
+\doxysection{Calgine\+::Camera\+Behaviour Class Reference}
+\hypertarget{classCalgine_1_1CameraBehaviour}{}\label{classCalgine_1_1CameraBehaviour}\index{Calgine::CameraBehaviour@{Calgine::CameraBehaviour}}
+
+
+{\ttfamily \#include $<$camera\+\_\+behaviour.\+h$>$}
+
+Inheritance diagram for Calgine\+::Camera\+Behaviour\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCalgine_1_1CameraBehaviour}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1CameraBehaviour_a64867e2d79e8ca654de1061cf3ae95d1}{Camera\+Behaviour}} ()
+\item 
+bool \mbox{\hyperlink{classCalgine_1_1CameraBehaviour_ae780327e5051f09528446b73831db86e}{is\+\_\+active}} () const
+\item 
+const \mbox{\hyperlink{structCalgine_1_1CameraSettings}{Camera\+Settings}} \mbox{\hyperlink{classCalgine_1_1CameraBehaviour_af22e7e4912f444f16edb49d7ac37a3dc}{get\+\_\+settings}} () const
+\item 
+void \mbox{\hyperlink{classCalgine_1_1CameraBehaviour_a91653bb04b71f3dd298598a1b3eee1ec}{apply\+\_\+settings}} (const \mbox{\hyperlink{structCalgine_1_1CameraSettings}{Camera\+Settings}} settings)
+\item 
+\mbox{\hyperlink{classCalgine_1_1Camera}{Camera}} \& \mbox{\hyperlink{classCalgine_1_1CameraBehaviour_acae48ba694c6cc1b20fc61fa5dbe4dcb}{get\+\_\+raw\+\_\+camera}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classCalgine_1_1Behaviour_a5f9a4ac36b5e9a7303c0708c9c9ca435}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
+\item 
+\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\+\_\+game\+\_\+object}} ()
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} that this behaviour is attached to. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \& \mbox{\hyperlink{classCalgine_1_1Behaviour_aec1c964df62ee9bf87b1c05ed630a4be}{get\+\_\+transform}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1CameraBehaviour_afae5bf9a900e8c5bc70c9332785e8465}{Camera\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}} ()
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a9f57fdc9e7cf4f2caae45df243baacea}{preloop\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called before the main loop (see \doxylink{classCalgine_1_1App}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a139f4cd7ff364c3622b03fc4d0ee4b3e}{fixed\+\_\+update\+\_\+tick}} ()
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}{update\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called every frame, before \doxylink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a12b3ee6bc87e6d97d591d13b2cccc003}{render\+\_\+tick}} ()
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aab60143ff0527a6db745d286dec38fca}{on\+\_\+destroy}} ()
+\begin{DoxyCompactList}\small\item\em Gets called when game\+\_\+object is being destroyed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalgine_1_1CameraBehaviour_a64867e2d79e8ca654de1061cf3ae95d1}\label{classCalgine_1_1CameraBehaviour_a64867e2d79e8ca654de1061cf3ae95d1} 
+\index{Calgine::CameraBehaviour@{Calgine::CameraBehaviour}!CameraBehaviour@{CameraBehaviour}}
+\index{CameraBehaviour@{CameraBehaviour}!Calgine::CameraBehaviour@{Calgine::CameraBehaviour}}
+\doxysubsubsection{\texorpdfstring{CameraBehaviour()}{CameraBehaviour()}}
+{\footnotesize\ttfamily Calgine\+::\+Camera\+Behaviour\+::\+Camera\+Behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1CameraBehaviour_a91653bb04b71f3dd298598a1b3eee1ec}\label{classCalgine_1_1CameraBehaviour_a91653bb04b71f3dd298598a1b3eee1ec} 
+\index{Calgine::CameraBehaviour@{Calgine::CameraBehaviour}!apply\_settings@{apply\_settings}}
+\index{apply\_settings@{apply\_settings}!Calgine::CameraBehaviour@{Calgine::CameraBehaviour}}
+\doxysubsubsection{\texorpdfstring{apply\_settings()}{apply\_settings()}}
+{\footnotesize\ttfamily void Calgine\+::\+Camera\+Behaviour\+::apply\+\_\+settings (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structCalgine_1_1CameraSettings}{Camera\+Settings}}}]{settings }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1CameraBehaviour_acae48ba694c6cc1b20fc61fa5dbe4dcb}\label{classCalgine_1_1CameraBehaviour_acae48ba694c6cc1b20fc61fa5dbe4dcb} 
+\index{Calgine::CameraBehaviour@{Calgine::CameraBehaviour}!get\_raw\_camera@{get\_raw\_camera}}
+\index{get\_raw\_camera@{get\_raw\_camera}!Calgine::CameraBehaviour@{Calgine::CameraBehaviour}}
+\doxysubsubsection{\texorpdfstring{get\_raw\_camera()}{get\_raw\_camera()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1Camera}{Camera}} \& Calgine\+::\+Camera\+Behaviour\+::get\+\_\+raw\+\_\+camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1CameraBehaviour_af22e7e4912f444f16edb49d7ac37a3dc}\label{classCalgine_1_1CameraBehaviour_af22e7e4912f444f16edb49d7ac37a3dc} 
+\index{Calgine::CameraBehaviour@{Calgine::CameraBehaviour}!get\_settings@{get\_settings}}
+\index{get\_settings@{get\_settings}!Calgine::CameraBehaviour@{Calgine::CameraBehaviour}}
+\doxysubsubsection{\texorpdfstring{get\_settings()}{get\_settings()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structCalgine_1_1CameraSettings}{Camera\+Settings}} Calgine\+::\+Camera\+Behaviour\+::get\+\_\+settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1CameraBehaviour_ae780327e5051f09528446b73831db86e}\label{classCalgine_1_1CameraBehaviour_ae780327e5051f09528446b73831db86e} 
+\index{Calgine::CameraBehaviour@{Calgine::CameraBehaviour}!is\_active@{is\_active}}
+\index{is\_active@{is\_active}!Calgine::CameraBehaviour@{Calgine::CameraBehaviour}}
+\doxysubsubsection{\texorpdfstring{is\_active()}{is\_active()}}
+{\footnotesize\ttfamily bool Calgine\+::\+Camera\+Behaviour\+::is\+\_\+active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classCalgine_1_1CameraBehaviour_afae5bf9a900e8c5bc70c9332785e8465}\label{classCalgine_1_1CameraBehaviour_afae5bf9a900e8c5bc70c9332785e8465} 
+\index{Calgine::CameraBehaviour@{Calgine::CameraBehaviour}!CameraManager@{CameraManager}}
+\index{CameraManager@{CameraManager}!Calgine::CameraBehaviour@{Calgine::CameraBehaviour}}
+\doxysubsubsection{\texorpdfstring{CameraManager}{CameraManager}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classCalgine_1_1CameraManager}{Camera\+Manager}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/renderer/camera/\mbox{\hyperlink{camera__behaviour_8h}{camera\+\_\+behaviour.\+h}}\item 
+src/calgine/core/renderer/camera/\mbox{\hyperlink{camera__behaviour_8cxx}{camera\+\_\+behaviour.\+cxx}}\end{DoxyCompactItemize}

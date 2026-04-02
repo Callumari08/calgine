@@ -1,0 +1,33 @@
+\doxysection{texture.\+h}
+\hypertarget{texture_8h_source}{}\label{texture_8h_source}\index{src/calgine/core/renderer/texture.h@{src/calgine/core/renderer/texture.h}}
+\mbox{\hyperlink{texture_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}SDL3/SDL\_surface.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1Texture}{Texture}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{classCalgine_1_1Texture}{Texture}}(\textcolor{keyword}{const}\ SDL\_Surface*\ surface);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ uint32\_t\ \mbox{\hyperlink{classCalgine_1_1Texture_a723881bfebc6f75d72b11677ef7253a2}{get\_width}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ width;\ \}}
+\DoxyCodeLine{00015\ \ \ uint32\_t\ \mbox{\hyperlink{classCalgine_1_1Texture_af405a1e5227f754922d373f57e6f1893}{get\_height}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ height;\ \}}
+\DoxyCodeLine{00016\ \ \ uint32\_t\ \mbox{\hyperlink{classCalgine_1_1Texture_a37c9c7ab6a5b0eb17fbaf14d8f6c0e74}{get\_channels}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ channels;\ \}}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{const}\ uint8\_t*\ \mbox{\hyperlink{classCalgine_1_1Texture_a900d4bda33b95e498b1ad6fddf57dbee}{get\_data}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ data.data();\ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ std::vector<uint8\_t>\ data;}
+\DoxyCodeLine{00021\ \ \ }
+\DoxyCodeLine{00022\ \ \ uint32\_t\ width\ =\ 0;}
+\DoxyCodeLine{00023\ \ \ uint32\_t\ height\ =\ 0;}
+\DoxyCodeLine{00024\ \ \ uint32\_t\ channels\ =\ 0;}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}

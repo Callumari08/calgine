@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['useful_5ffuncs_2ecxx_0',['useful_funcs.cxx',['../useful__funcs_8cxx.html',1,'']]],
-  ['useful_5ffuncs_2eh_1',['useful_funcs.h',['../useful__funcs_8h.html',1,'']]]
+  ['log_2ecxx_0',['log.cxx',['../log_8cxx.html',1,'']]],
+  ['log_2eh_1',['log.h',['../log_8h.html',1,'']]]
 ];

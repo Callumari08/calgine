@@ -1,0 +1,101 @@
+\doxysection{Calgine\+::Asset\+Manager Class Reference}
+\hypertarget{classCalgine_1_1AssetManager}{}\label{classCalgine_1_1AssetManager}\index{Calgine::AssetManager@{Calgine::AssetManager}}
+
+
+{\ttfamily \#include $<$asset\+\_\+manager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Texture}{Texture}} $>$ \mbox{\hyperlink{classCalgine_1_1AssetManager_a3067af1baa0ecd164a31cbc617ab45a4}{load\+\_\+texture}} (const std\+::string \&name, const std\+::string \&file\+\_\+path)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ \mbox{\hyperlink{classCalgine_1_1AssetManager_a23a4fc867619f4c63a261ca5fa6a4242}{load\+\_\+model}} (const std\+::string \&name, const std\+::string \&file\+\_\+path)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}} $>$ \mbox{\hyperlink{classCalgine_1_1AssetManager_a4ab3feef9dad6065bd83f6a2313c43b2}{load\+\_\+shader}} (const std\+::string \&name, const std\+::string fragment\+\_\+path, const std\+::string vertex\+\_\+path)
+\item 
+std\+::optional$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Texture}{Texture}} $>$ $>$ \mbox{\hyperlink{classCalgine_1_1AssetManager_aa2cf758e7f7345c8857ce48e80a239ed}{get\+\_\+texture}} (const std\+::string \&name, const std\+::string else\+\_\+file\+\_\+path="{}"{})
+\item 
+std\+::optional$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ $>$ \mbox{\hyperlink{classCalgine_1_1AssetManager_a2de653e3e428f8cd0268a52b48e16ae2}{get\+\_\+model}} (const std\+::string \&name, const std\+::string else\+\_\+file\+\_\+path="{}"{})
+\item 
+std\+::optional$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}} $>$ $>$ \mbox{\hyperlink{classCalgine_1_1AssetManager_ac02cdd8145c25da6457c48997ff97d25}{get\+\_\+shader}} (const std\+::string \&name, const std\+::string else\+\_\+fragment\+\_\+path="{}"{}, const std\+::string else\+\_\+vertex\+\_\+path="{}"{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classCalgine_1_1AssetManager}{Asset\+Manager}} \& \mbox{\hyperlink{classCalgine_1_1AssetManager_acbc202a2c0dfe8f1a6fb90be41a4302c}{get\+\_\+instance}} ()
+\item 
+static std\+::string \mbox{\hyperlink{classCalgine_1_1AssetManager_a1333192bfb182248e7093581737f67ab}{get\+\_\+app\+\_\+path}} ()
+\item 
+static std\+::string \mbox{\hyperlink{classCalgine_1_1AssetManager_a43ea44b78e56402c82c07493ad8cc809}{get\+\_\+asset\+\_\+path}} (const std\+::string asset)
+\item 
+static std\+::string \mbox{\hyperlink{classCalgine_1_1AssetManager_a7041c19c2c71a2c5597a12c9436afbac}{read\+\_\+file\+\_\+to\+\_\+string}} (const std\+::string file\+\_\+path)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1AssetManager_a1333192bfb182248e7093581737f67ab}\label{classCalgine_1_1AssetManager_a1333192bfb182248e7093581737f67ab} 
+\index{Calgine::AssetManager@{Calgine::AssetManager}!get\_app\_path@{get\_app\_path}}
+\index{get\_app\_path@{get\_app\_path}!Calgine::AssetManager@{Calgine::AssetManager}}
+\doxysubsubsection{\texorpdfstring{get\_app\_path()}{get\_app\_path()}}
+{\footnotesize\ttfamily std\+::string Calgine\+::\+Asset\+Manager\+::get\+\_\+app\+\_\+path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classCalgine_1_1AssetManager_a43ea44b78e56402c82c07493ad8cc809}\label{classCalgine_1_1AssetManager_a43ea44b78e56402c82c07493ad8cc809} 
+\index{Calgine::AssetManager@{Calgine::AssetManager}!get\_asset\_path@{get\_asset\_path}}
+\index{get\_asset\_path@{get\_asset\_path}!Calgine::AssetManager@{Calgine::AssetManager}}
+\doxysubsubsection{\texorpdfstring{get\_asset\_path()}{get\_asset\_path()}}
+{\footnotesize\ttfamily std\+::string Calgine\+::\+Asset\+Manager\+::get\+\_\+asset\+\_\+path (\begin{DoxyParamCaption}\item[{const std\+::string}]{asset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classCalgine_1_1AssetManager_acbc202a2c0dfe8f1a6fb90be41a4302c}\label{classCalgine_1_1AssetManager_acbc202a2c0dfe8f1a6fb90be41a4302c} 
+\index{Calgine::AssetManager@{Calgine::AssetManager}!get\_instance@{get\_instance}}
+\index{get\_instance@{get\_instance}!Calgine::AssetManager@{Calgine::AssetManager}}
+\doxysubsubsection{\texorpdfstring{get\_instance()}{get\_instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1AssetManager}{Asset\+Manager}} \& Calgine\+::\+Asset\+Manager\+::get\+\_\+instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classCalgine_1_1AssetManager_a2de653e3e428f8cd0268a52b48e16ae2}\label{classCalgine_1_1AssetManager_a2de653e3e428f8cd0268a52b48e16ae2} 
+\index{Calgine::AssetManager@{Calgine::AssetManager}!get\_model@{get\_model}}
+\index{get\_model@{get\_model}!Calgine::AssetManager@{Calgine::AssetManager}}
+\doxysubsubsection{\texorpdfstring{get\_model()}{get\_model()}}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ $>$ Calgine\+::\+Asset\+Manager\+::get\+\_\+model (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string}]{else\+\_\+file\+\_\+path = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1AssetManager_ac02cdd8145c25da6457c48997ff97d25}\label{classCalgine_1_1AssetManager_ac02cdd8145c25da6457c48997ff97d25} 
+\index{Calgine::AssetManager@{Calgine::AssetManager}!get\_shader@{get\_shader}}
+\index{get\_shader@{get\_shader}!Calgine::AssetManager@{Calgine::AssetManager}}
+\doxysubsubsection{\texorpdfstring{get\_shader()}{get\_shader()}}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}} $>$ $>$ Calgine\+::\+Asset\+Manager\+::get\+\_\+shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string}]{else\+\_\+fragment\+\_\+path = {\ttfamily "{}"{}},  }\item[{const std\+::string}]{else\+\_\+vertex\+\_\+path = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1AssetManager_aa2cf758e7f7345c8857ce48e80a239ed}\label{classCalgine_1_1AssetManager_aa2cf758e7f7345c8857ce48e80a239ed} 
+\index{Calgine::AssetManager@{Calgine::AssetManager}!get\_texture@{get\_texture}}
+\index{get\_texture@{get\_texture}!Calgine::AssetManager@{Calgine::AssetManager}}
+\doxysubsubsection{\texorpdfstring{get\_texture()}{get\_texture()}}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Texture}{Texture}} $>$ $>$ Calgine\+::\+Asset\+Manager\+::get\+\_\+texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string}]{else\+\_\+file\+\_\+path = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1AssetManager_a23a4fc867619f4c63a261ca5fa6a4242}\label{classCalgine_1_1AssetManager_a23a4fc867619f4c63a261ca5fa6a4242} 
+\index{Calgine::AssetManager@{Calgine::AssetManager}!load\_model@{load\_model}}
+\index{load\_model@{load\_model}!Calgine::AssetManager@{Calgine::AssetManager}}
+\doxysubsubsection{\texorpdfstring{load\_model()}{load\_model()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ Calgine\+::\+Asset\+Manager\+::load\+\_\+model (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{file\+\_\+path }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1AssetManager_a4ab3feef9dad6065bd83f6a2313c43b2}\label{classCalgine_1_1AssetManager_a4ab3feef9dad6065bd83f6a2313c43b2} 
+\index{Calgine::AssetManager@{Calgine::AssetManager}!load\_shader@{load\_shader}}
+\index{load\_shader@{load\_shader}!Calgine::AssetManager@{Calgine::AssetManager}}
+\doxysubsubsection{\texorpdfstring{load\_shader()}{load\_shader()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}} $>$ Calgine\+::\+Asset\+Manager\+::load\+\_\+shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string}]{fragment\+\_\+path,  }\item[{const std\+::string}]{vertex\+\_\+path }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1AssetManager_a3067af1baa0ecd164a31cbc617ab45a4}\label{classCalgine_1_1AssetManager_a3067af1baa0ecd164a31cbc617ab45a4} 
+\index{Calgine::AssetManager@{Calgine::AssetManager}!load\_texture@{load\_texture}}
+\index{load\_texture@{load\_texture}!Calgine::AssetManager@{Calgine::AssetManager}}
+\doxysubsubsection{\texorpdfstring{load\_texture()}{load\_texture()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Texture}{Texture}} $>$ Calgine\+::\+Asset\+Manager\+::load\+\_\+texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{file\+\_\+path }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1AssetManager_a7041c19c2c71a2c5597a12c9436afbac}\label{classCalgine_1_1AssetManager_a7041c19c2c71a2c5597a12c9436afbac} 
+\index{Calgine::AssetManager@{Calgine::AssetManager}!read\_file\_to\_string@{read\_file\_to\_string}}
+\index{read\_file\_to\_string@{read\_file\_to\_string}!Calgine::AssetManager@{Calgine::AssetManager}}
+\doxysubsubsection{\texorpdfstring{read\_file\_to\_string()}{read\_file\_to\_string()}}
+{\footnotesize\ttfamily std\+::string Calgine\+::\+Asset\+Manager\+::read\+\_\+file\+\_\+to\+\_\+string (\begin{DoxyParamCaption}\item[{const std\+::string}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/asset\+\_\+management/\mbox{\hyperlink{asset__manager_8h}{asset\+\_\+manager.\+h}}\item 
+src/calgine/core/asset\+\_\+management/\mbox{\hyperlink{asset__manager_8cxx}{asset\+\_\+manager.\+cxx}}\end{DoxyCompactItemize}

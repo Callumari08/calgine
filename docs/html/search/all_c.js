@@ -1,7 +1,12 @@
 var searchData=
 [
-  ['raw_0',['raw',['../classCalgine_1_1Window.html#a56fa8c87faf7554e19965e5628e09f35',1,'Calgine::Window']]],
-  ['remove_5fchild_5fimmediate_1',['remove_child_immediate',['../classCalgine_1_1GameObject.html#a555c05fea69e691b93159506455d7ea7',1,'Calgine::GameObject']]],
-  ['request_5fclose_2',['request_close',['../classCalgine_1_1Window.html#ab526e6c21c5ad965acf3f370413972ac',1,'Calgine::Window']]],
-  ['rootgameobject_3',['rootgameobject',['../classCalgine_1_1RootGameObject.html',1,'Calgine::RootGameObject'],['../classCalgine_1_1RootGameObject.html#a3d50f23901739f6464c141b387d1f754',1,'Calgine::RootGameObject::RootGameObject()']]]
+  ['object_5fcb_0',['object_cb',['../structtinyobj_1_1callback__t__.html#ad91a780d704c9d7ed9f858f42f33c78d',1,'tinyobj::callback_t_']]],
+  ['on_5fdestroy_1',['on_destroy',['../classCalgine_1_1Behaviour.html#aab60143ff0527a6db745d286dec38fca',1,'Calgine::Behaviour']]],
+  ['operator_21_3d_2',['operator!=',['../classCalgine_1_1GameObject_1_1Iterator.html#a9aa2a5504363016061a52373239a47cb',1,'Calgine::GameObject::Iterator']]],
+  ['operator_28_29_3',['operator()',['../classtinyobj_1_1MaterialReader.html#ad165d8cc1bd989f8548a9258b0881a89',1,'tinyobj::MaterialReader::operator()()'],['../classtinyobj_1_1MaterialFileReader.html#a23fa55532224cbcc927233f4b57f53df',1,'tinyobj::MaterialFileReader::operator()()'],['../classtinyobj_1_1MaterialStreamReader.html#a38db9ec731ad3177efa704d7e60c82fd',1,'tinyobj::MaterialStreamReader::operator()()']]],
+  ['operator_2a_4',['operator*',['../classCalgine_1_1GameObject_1_1Iterator.html#a4be84b1be8b2f0eb7954b0c8a2d8bcce',1,'Calgine::GameObject::Iterator']]],
+  ['operator_2b_2b_5',['operator++',['../classCalgine_1_1GameObject_1_1Iterator.html#a05dc421016ef86d15b5f0875091b4870',1,'Calgine::GameObject::Iterator']]],
+  ['operator_2d_3e_6',['operator-&gt;',['../classCalgine_1_1GameObject_1_1Iterator.html#acea87bca74dcd4577dd8493b11a29ad7',1,'Calgine::GameObject::Iterator']]],
+  ['operator_3d_7',['operator=',['../classCalgine_1_1GameObject.html#a03121f27fb122fb29542ca8c78b40e30',1,'Calgine::GameObject::operator=()'],['../classCalgine_1_1WindowHandler.html#a3bf8daede725665edd93a223f9b5c441',1,'Calgine::WindowHandler::operator=()'],['../classCalgine_1_1Window.html#a0a7c057c1c00f1f1ec440d49344270b2',1,'Calgine::Window::operator=(Window &amp;&amp;) noexcept=delete'],['../classCalgine_1_1Window.html#ac0fc1be57972240421ecf8c460457251',1,'Calgine::Window::operator=(const Window &amp;)=delete'],['../classCalgine_1_1Mesh.html#a999050cfe054960c9e9f67856a74df64',1,'Calgine::Mesh::operator=()'],['../classCalgine_1_1Material.html#aa412ec4150c4e724c847c0d2037e2160',1,'Calgine::Material::operator=()'],['../classCalgine_1_1CameraManager.html#ac2c145c93c4939c9115de4e6a8b1c0e6',1,'Calgine::CameraManager::operator=()'],['../classCalgine_1_1ManagerHierarchy.html#a5b967e1070828e237d7b3de17ba86c28',1,'Calgine::ManagerHierarchy::operator=()'],['../classCalgine_1_1GameHierarchy.html#a95e29f8dee4d48f9439c50c88e6759af',1,'Calgine::GameHierarchy::operator=()'],['../classCalgine_1_1GameObject.html#ae60d4b1987fbd4ec0458a13719d1239e',1,'Calgine::GameObject::operator=()']]],
+  ['origin_5foffset_8',['origin_offset',['../structtinyobj_1_1texture__option__t.html#ab6a036a11f7b1317709a4d3e25495e07',1,'tinyobj::texture_option_t']]]
 ];
