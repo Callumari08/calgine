@@ -11,13 +11,14 @@ Behaviour::~Behaviour()
   game_object = nullptr;
 }
 
-void Behaviour::preloop_tick() {}
+void Behaviour::preloop_tick(EventContext& event_context) {}
 void Behaviour::start_tick() {}
-void Behaviour::fixed_update_tick() {}
-void Behaviour::update_tick() {}
-void Behaviour::late_tick() {}
-void Behaviour::render_tick() {}
-void Behaviour::imgui_render_tick() {}
+void Behaviour::fixed_update_tick(EventContext& event_context) {}
+void Behaviour::update_tick(EventContext& event_context) {}
+void Behaviour::late_tick(EventContext& event_context) {}
+void Behaviour::render_tick(EventContext& event_context) {}
+void Behaviour::imgui_render_tick(EventContext& event_context) {}
+void Behaviour::final_tick(EventContext& event_context) {}
 
 void Behaviour::on_destroy() {}
 

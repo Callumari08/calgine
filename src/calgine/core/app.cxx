@@ -10,6 +10,7 @@
 #include <imgui_impl_opengl3.h>
 #include <SDL3/SDL_events.h>
 #include <glm/glm.hpp>
+#include "calgine/core/event_context.h"
 #include "calgine/core/hierarchies/game_hierarchy.h"
 #include "calgine/core/game_object.h"
 #include "calgine/core/hierarchies/manager_hierarchy.h"
@@ -114,8 +115,10 @@ void App::init_imgui()
 
 void App::main_loop()
 {
-  GameObject& game_hierarchy = GameHierarchy::get_instance().get_hierarchy_root();
   GameObject& manager_hierarchy = ManagerHierarchy::get_instance().get_hierarchy_root();
+  GameObject& game_hierarchy = GameHierarchy::get_instance().get_hierarchy_root();
+
+  EventContext event_context;
 
   // Instead of doing this here, I should implement a scene manager.
   //
@@ -125,8 +128,8 @@ void App::main_loop()
   //
   // (Even later comment) 2nd comment was stupid, I wouldn't keep all the levels just casually in RAM??? Am I stupid???
   // I'll probably just make root have a behaviour that can load scenes, and unload the scenes which are gameobjects below it.
-  manager_hierarchy.tick_self_and_children(TickType::preloop);
-  game_hierarchy.tick_self_and_children(TickType::preloop);
+  manager_hierarchy.tick_self_and_children(preloop, event_context);
+  game_hierarchy.tick_self_and_children(preloop, event_context);
 
   bool running = true;
   while (running) 
@@ -135,20 +138,31 @@ void App::main_loop()
 
     handle_sdl_events(running);
 
+    event_context.update_tick_phase(fixed_update);
+
     int fixed_timesteps = Time::get_instance().consume_fixed_timesteps();
     for (int i = 0; i < fixed_timesteps; i++)
     {
-      manager_hierarchy.tick_self_and_children(TickType::fixed_update);
-      game_hierarchy.tick_self_and_children(TickType::fixed_update);
+      manager_hierarchy.tick_self_and_children(fixed_update, event_context);
+      game_hierarchy.tick_self_and_children(fixed_update, event_context);
     }
 
-    manager_hierarchy.tick_self_and_children(TickType::update);
-    manager_hierarchy.tick_self_and_children(TickType::late_update);
+    event_context.update_tick_phase(update);
 
-    game_hierarchy.tick_self_and_children(TickType::update);
-    game_hierarchy.tick_self_and_children(TickType::late_update);
+    manager_hierarchy.tick_self_and_children(update, event_context);
+    game_hierarchy.tick_self_and_children(update, event_context);
 
-    render_windows(game_hierarchy, manager_hierarchy);
+    event_context.update_tick_phase(late_update);
+
+    manager_hierarchy.tick_self_and_children(late_update, event_context);
+    game_hierarchy.tick_self_and_children(late_update, event_context);
+
+    render_windows(game_hierarchy, manager_hierarchy, event_context);
+
+    event_context.update_tick_phase(final);
+
+    manager_hierarchy.tick_self_and_children(final, event_context);
+    game_hierarchy.tick_self_and_children(final, event_context);
 
     GameObject::process_pending_deletes();
     
@@ -201,7 +215,7 @@ void App::handle_sdl_events(bool& running)
   }
 }
 
-void App::render_windows(GameObject& game_hierarchy, GameObject& manager_hierarchy)
+void App::render_windows(GameObject& game_hierarchy, GameObject& manager_hierarchy, EventContext& event_context)
 {
   for (auto& window : WindowHandler::get_instance()->get_windows())
   {
@@ -226,14 +240,18 @@ void App::render_windows(GameObject& game_hierarchy, GameObject& manager_hierarc
 
     renderer_instance.begin_frame();
 
-    manager_hierarchy.tick_self_and_children(TickType::render);
-    game_hierarchy.tick_self_and_children(TickType::render);
+    event_context.update_tick_phase(render);
+
+    manager_hierarchy.tick_self_and_children(render, event_context);
+    game_hierarchy.tick_self_and_children(render, event_context);
 
     renderer_instance.end_frame();
+
+    event_context.update_tick_phase(imgui_render);
     
     // We want GUI last because we want it to be over the top of the scene
-    manager_hierarchy.tick_self_and_children(TickType::imgui_render);
-    game_hierarchy.tick_self_and_children(TickType::imgui_render);
+    manager_hierarchy.tick_self_and_children(imgui_render, event_context);
+    game_hierarchy.tick_self_and_children(imgui_render, event_context);
 
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

@@ -1,4 +1,5 @@
 #include "hierarchy_renderer.h"
+#include "calgine/core/event_context.h"
 #include "calgine/core/game_object.h"
 #include "calgine/core/hierarchies/game_hierarchy.h"
 #include <imgui.h>
@@ -50,7 +51,7 @@ void HierarchyRenderer::render_tree_node(GameObject& go, GameObject* parent)
   }
 }
 
-void HierarchyRenderer::imgui_render_tick()
+void HierarchyRenderer::imgui_render_tick(EventContext&)
 {
   if (!window_active)
     return;

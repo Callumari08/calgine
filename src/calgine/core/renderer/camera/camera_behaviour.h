@@ -37,9 +37,9 @@ private:
   void set_camera_active(bool active_state) { camera_active = active_state; }
 
   void start_tick() override;
-  void late_tick() override;
+  void late_tick(EventContext&) override;
 
-  void imgui_render_tick() override;
+  void imgui_render_tick(EventContext&) override;
 
   friend class CameraManager;
 };

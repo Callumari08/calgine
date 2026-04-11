@@ -1,12 +1,13 @@
 
 #include "mesh_renderer.h"
 
+#include "calgine/core/event_context.h"
 #include "calgine/core/game_object.h"
 #include "calgine/core/renderer/renderer.h"
 
 namespace Calgine {
 
-  void MeshRenderer::render_tick()
+  void MeshRenderer::render_tick(EventContext&)
   {
     if (!model_ptr || !model_ptr->material || !model_ptr->material->get_shader()) return;
 

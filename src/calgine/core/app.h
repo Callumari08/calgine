@@ -1,5 +1,6 @@
 #pragma once
 
+#include "calgine/core/event_context.h"
 #include "calgine/core/game_object.h"
 #include "calgine/core/window/window.h"
 #include "calgine_pch.h"
@@ -182,7 +183,7 @@ private:
 
   void init_imgui();
   void handle_sdl_events(bool& running);
-  void render_windows(GameObject& game_hierarchy, GameObject& manager_hierarchy);
+  void render_windows(GameObject& game_hierarchy, GameObject& manager_hierarchy, EventContext& event_context);
 };
 
 } // namespace Calgine

@@ -1,5 +1,4 @@
 #include "camera_behaviour.h"
-#include "calgine/core/game_object.h"
 #include "camera.h"
 #include "camera_manager.h"
 #include "calgine/core/transform.h"
@@ -14,7 +13,7 @@ void CameraBehaviour::start_tick()
   CameraManager::get_instance().add_camera(this);
 }
 
-void CameraBehaviour::late_tick() 
+void CameraBehaviour::late_tick(EventContext&) 
 {
   camera.update(get_transform());
 }
@@ -27,7 +26,7 @@ void CameraBehaviour::apply_settings(const CameraSettings applied_settings)
     applied_settings.near_plane, applied_settings.far_plane);
 }
 
-void CameraBehaviour::imgui_render_tick()
+void CameraBehaviour::imgui_render_tick(EventContext&)
 {
   ImGui::Begin("Camera Settings");
 

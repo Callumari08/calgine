@@ -1,6 +1,7 @@
 #pragma once
 
 #include "calgine/core/behaviour.h"
+#include "calgine/core/event_context.h"
 #include "calgine/core/renderer/model.h"
 #include "calgine_api.h"
 #include "calgine_pch.h"
@@ -21,6 +22,6 @@ public:
 private:
   std::shared_ptr<Model> model_ptr;
 
-  void render_tick() override;
+  void render_tick(EventContext&) override;
 };
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "calgine/core/behaviour.h"
+#include "calgine/core/event_context.h"
 #include "calgine/core/game_object.h"
 #include "calgine_api.h"
 
@@ -16,7 +17,7 @@ private:
   void render_tree_node(GameObject& go, GameObject* parent);
 
 public:
-  void imgui_render_tick() override;
+  void imgui_render_tick(EventContext&) override;
   
   GameObject* get_selected() const { return selected; }
   void set_selected(GameObject* go) { selected = go; }

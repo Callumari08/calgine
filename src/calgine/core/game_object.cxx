@@ -1,5 +1,6 @@
 #include "game_object.h"
 #include "calgine/core/behaviour.h"
+#include "calgine/core/event_context.h"
 #include "calgine/core/transform.h"
 
 namespace Calgine {
@@ -110,7 +111,7 @@ void GameObject::set_active(const bool _enabled)
   }
 }
 
-void GameObject::tick_self_and_children(const TickType tick_type)
+void GameObject::tick_self_and_children(const TickType tick_type, EventContext& event_context)
 {
   if (!is_enabled())
     return;
@@ -123,30 +124,35 @@ void GameObject::tick_self_and_children(const TickType tick_type)
     switch (tick_type) 
     {
       case TickType::fixed_update:
-        behaviour->fixed_update_tick();
+        behaviour->fixed_update_tick(event_context);
         break;
       case TickType::update:
-        behaviour->update_tick();
+        behaviour->update_tick(event_context);
         break;
       case TickType::late_update: 
-        behaviour->late_tick();
+        behaviour->late_tick(event_context);
         break;
       case TickType::render:
-        behaviour->render_tick();
+        behaviour->render_tick(event_context);
         break;
       case TickType::imgui_render:
-        behaviour->imgui_render_tick();
+        behaviour->imgui_render_tick(event_context);
+        break;
+      case TickType::final:
+        behaviour->final_tick(event_context);
         break;
       case TickType::preloop:
-        behaviour->preloop_tick();
+        behaviour->preloop_tick(event_context);
         break;
+      default:
+        return;
     }
   }
 
   // Use index-based iteration to handle children vector reallocation during ticking
   for (size_t i = 0; i < children.size(); ++i)
   {
-    children[i]->tick_self_and_children(tick_type);
+    children[i]->tick_self_and_children(tick_type, event_context);
   }
 }
 

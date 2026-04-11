@@ -1,6 +1,7 @@
 #pragma once
 
 #include "calgine/core/transform.h"
+#include "calgine/core/event_context.h"
 #include "calgine/core/log.h"
 #include "calgine_pch.h"
 #include "calgine_api.h"
@@ -53,25 +54,30 @@ protected:
     * @brief Gets called before the main loop (see @link App @endlink).
     * Behaviours that are instantiated after the mainloop has started will not have this function called.
     */
-  virtual void preloop_tick();
+  virtual void preloop_tick(EventContext& event_context);
   /**
     * @brief Gets called when this gameobject is instantitated.
     */
   virtual void start_tick();
   
-  virtual void fixed_update_tick();
+  virtual void fixed_update_tick(EventContext& event_context);
   /**
     * @brief Gets called every frame, before late_tick().
     */
-  virtual void update_tick();
+  virtual void update_tick(EventContext& event_context);
   /**
     * @brief Gets called every frame, after update().
     */
-  virtual void late_tick();
+  virtual void late_tick(EventContext& event_context);
 
-  virtual void render_tick();
+  virtual void render_tick(EventContext& event_context);
 
-  virtual void imgui_render_tick();
+  virtual void imgui_render_tick(EventContext& event_context);
+
+  /**
+   * @brief Gets called last before the next frame.
+   */
+  virtual void final_tick(EventContext& event_context);
 
   /**
     * @brief Gets called when game_object is being destroyed.

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "calgine/core/event_context.h"
+#include "calgine/core/tick_type.h"
 #include "calgine/core/log.h"
 #include "calgine/core/transform.h"
 #include "calgine_pch.h"
@@ -9,16 +11,6 @@
 #include <cstdint>
 
 namespace Calgine {
-
-enum TickType
-{
-  preloop,
-  fixed_update,
-  update,
-  late_update,
-  render,
-  imgui_render,
-};
 
 /**
  * @brief GameObjects are objects within the @link Heirarchy @endlink that have multiple @link Behaviour @endlink 
@@ -43,7 +35,7 @@ private:
   // queue to hold objects whose memory must be released AFTER their member functions finish
   static inline std::vector<std::unique_ptr<GameObject>> pending_deletes;
 
-  void tick_self_and_children(const TickType tick_type);
+  void tick_self_and_children(const TickType tick_type, EventContext& event_context);
 
   static void process_pending_deletes();
 
