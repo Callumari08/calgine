@@ -51,6 +51,7 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -60,9 +61,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classCalgine_1_1Material.html#aa412ec4150c4e724c847c0d2037e2160",
-"game__object_8cxx.html",
-"structtinyobj_1_1material__t.html#abbae6c6e634f9899c3974731c554be21"
+"classCalgine_1_1Material.html#a46df7b767cb9f38d0055a997f51c79f0",
+"functions_r.html",
+"structtinyobj_1_1material__t.html#ab1b9216b525cc02d2f6392db71ce0f59"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

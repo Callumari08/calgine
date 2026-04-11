@@ -14,6 +14,8 @@ var hierarchy =
     [ "Calgine::Camera", "classCalgine_1_1Camera.html", null ],
     [ "Calgine::CameraManager", "classCalgine_1_1CameraManager.html", null ],
     [ "Calgine::CameraSettings", "structCalgine_1_1CameraSettings.html", null ],
+    [ "Calgine::EventContext", "classCalgine_1_1EventContext.html", null ],
+    [ "Calgine::EventData", "structCalgine_1_1EventData.html", null ],
     [ "Calgine::GameHierarchy", "classCalgine_1_1GameHierarchy.html", null ],
     [ "Calgine::GameObject", "classCalgine_1_1GameObject.html", [
       [ "Calgine::RootGameObject", "classCalgine_1_1RootGameObject.html", null ]

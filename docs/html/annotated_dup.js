@@ -10,6 +10,8 @@ var annotated_dup =
       [ "CameraBehaviour", "classCalgine_1_1CameraBehaviour.html", "classCalgine_1_1CameraBehaviour" ],
       [ "CameraManager", "classCalgine_1_1CameraManager.html", "classCalgine_1_1CameraManager" ],
       [ "CameraSettings", "structCalgine_1_1CameraSettings.html", "structCalgine_1_1CameraSettings" ],
+      [ "EventContext", "classCalgine_1_1EventContext.html", "classCalgine_1_1EventContext" ],
+      [ "EventData", "structCalgine_1_1EventData.html", "structCalgine_1_1EventData" ],
       [ "GameHierarchy", "classCalgine_1_1GameHierarchy.html", "classCalgine_1_1GameHierarchy" ],
       [ "GameObject", "classCalgine_1_1GameObject.html", "classCalgine_1_1GameObject" ],
       [ "HierarchyRenderer", "classCalgine_1_1HierarchyRenderer.html", "classCalgine_1_1HierarchyRenderer" ],

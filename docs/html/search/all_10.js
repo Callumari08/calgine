@@ -18,7 +18,7 @@ var searchData=
   ['texture_5ftype_5fnone_15',['TEXTURE_TYPE_NONE',['../namespacetinyobj.html#a5c9f207e1f880a48bac0a3b69f16d7f8a259804f2e7bf9c39626abe6ebce6edc1',1,'tinyobj']]],
   ['texture_5ftype_5fsphere_16',['TEXTURE_TYPE_SPHERE',['../namespacetinyobj.html#a5c9f207e1f880a48bac0a3b69f16d7f8a4e5a6bfb8a95a23bf0cce576aaa5dfa4',1,'tinyobj']]],
   ['texture_5ftype_5ft_17',['texture_type_t',['../namespacetinyobj.html#a5c9f207e1f880a48bac0a3b69f16d7f8',1,'tinyobj']]],
-  ['ticktype_18',['TickType',['../namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861',1,'Calgine']]],
+  ['tick_5ftype_2eh_18',['tick_type.h',['../tick__type_8h.html',1,'']]],
   ['time_19',['time',['../classCalgine_1_1Time.html',1,'Calgine::Time'],['../classCalgine_1_1Time.html#a1b1984a78828f7a20fb57ca4632156e5',1,'Calgine::Time::time()']]],
   ['time_2ecxx_20',['time.cxx',['../time_8cxx.html',1,'']]],
   ['time_2eh_21',['time.h',['../time_8h.html',1,'']]],

@@ -120,6 +120,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1CameraSettings.html">CameraSettings</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1EventContext.html">EventContext</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1EventData.html">EventData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameHierarchy.html">GameHierarchy</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html">GameObject</a></td></tr>
@@ -180,17 +184,6 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5ea6869c366525aff7bd2b44caf55a44555">vertex</a>
  }</td></tr>
 <tr class="separator:acf0a966a2ef04d27037f626364505e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cfccbfde5fcb069c854a2d7fb0c4861" id="r_a4cfccbfde5fcb069c854a2d7fb0c4861"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">TickType</a> { <br />
-&#160;&#160;<a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92">preloop</a>
-, <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a55f1d1f1d99546bd18933cfa873a7b9a">fixed_update</a>
-, <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d">update</a>
-, <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc">late_update</a>
-, <br />
-&#160;&#160;<a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6">render</a>
-, <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10">imgui_render</a>
-<br />
- }</td></tr>
-<tr class="separator:a4cfccbfde5fcb069c854a2d7fb0c4861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e634c63a11d465e660fdf17e9e913c7" id="r_a5e634c63a11d465e660fdf17e9e913c7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7">VsyncState</a> { <a class="el" href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a10b9abd0304ae803c941c4503dc3fc8b">disabled</a>
 , <a class="el" href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544">enabled</a>
 , <a class="el" href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a9f9dcaa8c848c0e8de57bd5bf5dab654">adaptive</a> = -1
@@ -221,28 +214,6 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d" name="acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d"></a>model&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="acf0a966a2ef04d27037f626364505e5eac3b16e8a9ede3ae91467682b97ea5dc3" name="acf0a966a2ef04d27037f626364505e5eac3b16e8a9ede3ae91467682b97ea5dc3"></a>fragment&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="acf0a966a2ef04d27037f626364505e5ea6869c366525aff7bd2b44caf55a44555" name="acf0a966a2ef04d27037f626364505e5ea6869c366525aff7bd2b44caf55a44555"></a>vertex&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-<a id="a4cfccbfde5fcb069c854a2d7fb0c4861" name="a4cfccbfde5fcb069c854a2d7fb0c4861"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cfccbfde5fcb069c854a2d7fb0c4861">&#9670;&#160;</a></span>TickType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861">Calgine::TickType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92" name="a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92"></a>preloop&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4cfccbfde5fcb069c854a2d7fb0c4861a55f1d1f1d99546bd18933cfa873a7b9a" name="a4cfccbfde5fcb069c854a2d7fb0c4861a55f1d1f1d99546bd18933cfa873a7b9a"></a>fixed_update&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d" name="a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d"></a>update&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc" name="a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc"></a>late_update&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6" name="a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6"></a>render&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10" name="a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10"></a>imgui_render&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>

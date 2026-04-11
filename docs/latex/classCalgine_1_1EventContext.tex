@@ -1,0 +1,54 @@
+\doxysection{Calgine\+::Event\+Context Class Reference}
+\hypertarget{classCalgine_1_1EventContext}{}\label{classCalgine_1_1EventContext}\index{Calgine::EventContext@{Calgine::EventContext}}
+
+
+{\ttfamily \#include $<$event\+\_\+context.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename EventT $>$ \newline
+requires std\+::derived\+\_\+from$<$EventT, \mbox{\hyperlink{structCalgine_1_1EventData}{Event\+Data}}$>$}\\void \mbox{\hyperlink{classCalgine_1_1EventContext_a0fd77215d498793e1665364e958ad238}{submit}} (const EventT \&event)
+\item 
+{\footnotesize template$<$typename EventT $>$ \newline
+requires std\+::derived\+\_\+from$<$EventT, \mbox{\hyperlink{structCalgine_1_1EventData}{Event\+Data}}$>$}\\std\+::vector$<$ const EventT \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classCalgine_1_1EventContext_ac3b47c334afb827871a3e093f58534bd}{get\+\_\+events}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1EventContext_a4097b3e04a4f8ece21f5abe1b10e6323}{App}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1EventContext_ac3b47c334afb827871a3e093f58534bd}\label{classCalgine_1_1EventContext_ac3b47c334afb827871a3e093f58534bd} 
+\index{Calgine::EventContext@{Calgine::EventContext}!get\_events@{get\_events}}
+\index{get\_events@{get\_events}!Calgine::EventContext@{Calgine::EventContext}}
+\doxysubsubsection{\texorpdfstring{get\_events()}{get\_events()}}
+{\footnotesize\ttfamily template$<$typename EventT $>$ \newline
+requires std\+::derived\+\_\+from$<$EventT, \mbox{\hyperlink{structCalgine_1_1EventData}{Event\+Data}}$>$\\
+std\+::vector$<$ const EventT \texorpdfstring{$\ast$}{*} $>$ Calgine\+::\+Event\+Context\+::get\+\_\+events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1EventContext_a0fd77215d498793e1665364e958ad238}\label{classCalgine_1_1EventContext_a0fd77215d498793e1665364e958ad238} 
+\index{Calgine::EventContext@{Calgine::EventContext}!submit@{submit}}
+\index{submit@{submit}!Calgine::EventContext@{Calgine::EventContext}}
+\doxysubsubsection{\texorpdfstring{submit()}{submit()}}
+{\footnotesize\ttfamily template$<$typename EventT $>$ \newline
+requires std\+::derived\+\_\+from$<$EventT, \mbox{\hyperlink{structCalgine_1_1EventData}{Event\+Data}}$>$\\
+void Calgine\+::\+Event\+Context\+::submit (\begin{DoxyParamCaption}\item[{const EventT \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classCalgine_1_1EventContext_a4097b3e04a4f8ece21f5abe1b10e6323}\label{classCalgine_1_1EventContext_a4097b3e04a4f8ece21f5abe1b10e6323} 
+\index{Calgine::EventContext@{Calgine::EventContext}!App@{App}}
+\index{App@{App}!Calgine::EventContext@{Calgine::EventContext}}
+\doxysubsubsection{\texorpdfstring{App}{App}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classCalgine_1_1App}{App}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/\mbox{\hyperlink{event__context_8h}{event\+\_\+context.\+h}}\item 
+src/calgine/core/\mbox{\hyperlink{event__context_8cxx}{event\+\_\+context.\+cxx}}\end{DoxyCompactItemize}

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['late_5ftick_0',['late_tick',['../classCalgine_1_1Behaviour.html#aebecb028feb9cc0087c227a80b663f6c',1,'Calgine::Behaviour']]],
-  ['late_5fupdate_1',['late_update',['../namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc',1,'Calgine']]],
+  ['late_5ftick_0',['late_tick',['../classCalgine_1_1Behaviour.html#ab92f603c2bc2cbfdd9fbfaa9fdc404ce',1,'Calgine::Behaviour']]],
+  ['late_5fupdate_1',['late_update',['../tick__type_8h.html#a3cb3eb561b28e53015cc80d718173035',1,'tick_type.h']]],
   ['load_5fmodel_2',['load_model',['../classCalgine_1_1AssetManager.html#a23a4fc867619f4c63a261ca5fa6a4242',1,'Calgine::AssetManager']]],
   ['load_5fshader_3',['load_shader',['../classCalgine_1_1AssetManager.html#a4ab3feef9dad6065bd83f6a2313c43b2',1,'Calgine::AssetManager']]],
   ['load_5ftexture_4',['load_texture',['../classCalgine_1_1AssetManager.html#a3067af1baa0ecd164a31cbc617ab45a4',1,'Calgine::AssetManager']]],

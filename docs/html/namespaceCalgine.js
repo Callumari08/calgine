@@ -9,6 +9,8 @@ var namespaceCalgine =
     [ "CameraBehaviour", "classCalgine_1_1CameraBehaviour.html", "classCalgine_1_1CameraBehaviour" ],
     [ "CameraManager", "classCalgine_1_1CameraManager.html", "classCalgine_1_1CameraManager" ],
     [ "CameraSettings", "structCalgine_1_1CameraSettings.html", "structCalgine_1_1CameraSettings" ],
+    [ "EventContext", "classCalgine_1_1EventContext.html", "classCalgine_1_1EventContext" ],
+    [ "EventData", "structCalgine_1_1EventData.html", "structCalgine_1_1EventData" ],
     [ "GameHierarchy", "classCalgine_1_1GameHierarchy.html", "classCalgine_1_1GameHierarchy" ],
     [ "GameObject", "classCalgine_1_1GameObject.html", "classCalgine_1_1GameObject" ],
     [ "HierarchyRenderer", "classCalgine_1_1HierarchyRenderer.html", "classCalgine_1_1HierarchyRenderer" ],
@@ -38,14 +40,6 @@ var namespaceCalgine =
       [ "model", "namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d", null ],
       [ "fragment", "namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5eac3b16e8a9ede3ae91467682b97ea5dc3", null ],
       [ "vertex", "namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5ea6869c366525aff7bd2b44caf55a44555", null ]
-    ] ],
-    [ "TickType", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861", [
-      [ "preloop", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad31e5190f3f15d6a78074a8052e0bc92", null ],
-      [ "fixed_update", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a55f1d1f1d99546bd18933cfa873a7b9a", null ],
-      [ "update", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d", null ],
-      [ "late_update", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861a351accca0d771184baffc4d1b185ddcc", null ],
-      [ "render", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ad9ff82a70feb44e9905142c7b01756b6", null ],
-      [ "imgui_render", "namespaceCalgine.html#a4cfccbfde5fcb069c854a2d7fb0c4861ab245cdbd4b194578ff81ba6a6517db10", null ]
     ] ],
     [ "VsyncState", "namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7", [
       [ "disabled", "namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a10b9abd0304ae803c941c4503dc3fc8b", null ],

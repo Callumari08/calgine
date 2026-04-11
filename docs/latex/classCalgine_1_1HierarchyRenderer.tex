@@ -13,7 +13,7 @@ Inheritance diagram for Calgine\+::Hierarchy\+Renderer\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer_a00c56604e66dcf568a8219833952be30}{imgui\+\_\+render\+\_\+tick}} () override
+void \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer_a63d1bf569f4a8c5e1f90170a44a836d9}{imgui\+\_\+render\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&) override
 \item 
 \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer_a502efa37962493fcdac8580ca0404c0f}{get\+\_\+selected}} () const
 \item 
@@ -35,18 +35,20 @@ virtual \mbox{\hyperlink{classCalgine_1_1Behaviour_a5f9a4ac36b5e9a7303c0708c9c9c
 \item 
 \mbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}} ()
 \item 
-virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a9f57fdc9e7cf4f2caae45df243baacea}{preloop\+\_\+tick}} ()
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_afc52ca163104ff8061ecaa31aa083756}{preloop\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
 \begin{DoxyCompactList}\small\item\em Gets called before the main loop (see \doxylink{classCalgine_1_1App}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}{start\+\_\+tick}} ()
 \begin{DoxyCompactList}\small\item\em Gets called when this gameobject is instantitated. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a139f4cd7ff364c3622b03fc4d0ee4b3e}{fixed\+\_\+update\+\_\+tick}} ()
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aa20a9f9fea54e6dd8d64ad331da13734}{fixed\+\_\+update\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
 \item 
-virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a61aeb7ae491ffb5b6a4b90d24a38c1bd}{update\+\_\+tick}} ()
-\begin{DoxyCompactList}\small\item\em Gets called every frame, before \doxylink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick()}. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aebecb028feb9cc0087c227a80b663f6c}{late\+\_\+tick}} ()
-\begin{DoxyCompactList}\small\item\em Gets called every frame, after \doxylink{namespaceCalgine_a4cfccbfde5fcb069c854a2d7fb0c4861a9a30f09f0862c77135cf074ecaee7f4d}{update()}. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a12b3ee6bc87e6d97d591d13b2cccc003}{render\+\_\+tick}} ()
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a62c7640f82c8dc7bca360d31b5a07a66}{update\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\begin{DoxyCompactList}\small\item\em Gets called every frame, before \doxylink{classCalgine_1_1Behaviour_ab92f603c2bc2cbfdd9fbfaa9fdc404ce}{late\+\_\+tick()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ab92f603c2bc2cbfdd9fbfaa9fdc404ce}{late\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\begin{DoxyCompactList}\small\item\em Gets called every frame, after \doxylink{tick__type_8h_a1586ef54a6e26a57539d06db6e6c78b5}{update()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a817b9c70c4b585bc908668522dec44dd}{render\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
 \item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ad39918d214247d73bb93ee2241d44452}{final\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\begin{DoxyCompactList}\small\item\em Gets called last before the next frame. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aab60143ff0527a6db745d286dec38fca}{on\+\_\+destroy}} ()
 \begin{DoxyCompactList}\small\item\em Gets called when game\+\_\+object is being destroyed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -58,15 +60,15 @@ virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aab60143ff0527a6db745d28
 \doxysubsubsection{\texorpdfstring{get\_selected()}{get\_selected()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} Calgine\+::\+Hierarchy\+Renderer\+::get\+\_\+selected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-\Hypertarget{classCalgine_1_1HierarchyRenderer_a00c56604e66dcf568a8219833952be30}\label{classCalgine_1_1HierarchyRenderer_a00c56604e66dcf568a8219833952be30} 
+\Hypertarget{classCalgine_1_1HierarchyRenderer_a63d1bf569f4a8c5e1f90170a44a836d9}\label{classCalgine_1_1HierarchyRenderer_a63d1bf569f4a8c5e1f90170a44a836d9} 
 \index{Calgine::HierarchyRenderer@{Calgine::HierarchyRenderer}!imgui\_render\_tick@{imgui\_render\_tick}}
 \index{imgui\_render\_tick@{imgui\_render\_tick}!Calgine::HierarchyRenderer@{Calgine::HierarchyRenderer}}
 \doxysubsubsection{\texorpdfstring{imgui\_render\_tick()}{imgui\_render\_tick()}}
-{\footnotesize\ttfamily void Calgine\+::\+Hierarchy\+Renderer\+::imgui\+\_\+render\+\_\+tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Calgine\+::\+Hierarchy\+Renderer\+::imgui\+\_\+render\+\_\+tick (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Reimplemented from \mbox{\hyperlink{classCalgine_1_1Behaviour_acec12d67645c1129e5344f05660255dd}{Calgine\+::\+Behaviour}}.
+Reimplemented from \mbox{\hyperlink{classCalgine_1_1Behaviour_a061fd29a42a54921325daac824784a36}{Calgine\+::\+Behaviour}}.
 
 \Hypertarget{classCalgine_1_1HierarchyRenderer_ad46cb1ebe87db3f3bdddca848fb40409}\label{classCalgine_1_1HierarchyRenderer_ad46cb1ebe87db3f3bdddca848fb40409} 
 \index{Calgine::HierarchyRenderer@{Calgine::HierarchyRenderer}!set\_selected@{set\_selected}}

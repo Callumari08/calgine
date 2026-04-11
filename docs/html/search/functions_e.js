@@ -23,6 +23,6 @@ var searchData=
   ['should_5fclose_20',['should_close',['../classCalgine_1_1Window.html#a7f15978b22338eb28f98e9836aff471b',1,'Calgine::Window']]],
   ['start_5fsystems_21',['start_systems',['../classCalgine_1_1App.html#a96e9ed6ce1f9d49d30e334f8633684bf',1,'Calgine::App']]],
   ['start_5ftick_22',['start_tick',['../classCalgine_1_1Behaviour.html#ae4ed175037ecf4cc620bbcd83b9943ba',1,'Calgine::Behaviour']]],
-  ['submit_23',['submit',['../classCalgine_1_1Renderer.html#a7eafe3ae0b124c16179e0f19a4429129',1,'Calgine::Renderer::submit(const Mesh *mesh, const Material *material, const glm::mat4 model_matrix)'],['../classCalgine_1_1Renderer.html#a257ff9ab7bc081c8a394a73450f9ff45',1,'Calgine::Renderer::submit(const BatchRenderCommand cmd)']]],
+  ['submit_23',['submit',['../classCalgine_1_1EventContext.html#a0fd77215d498793e1665364e958ad238',1,'Calgine::EventContext::submit()'],['../classCalgine_1_1Renderer.html#a7eafe3ae0b124c16179e0f19a4429129',1,'Calgine::Renderer::submit(const Mesh *mesh, const Material *material, const glm::mat4 model_matrix)'],['../classCalgine_1_1Renderer.html#a257ff9ab7bc081c8a394a73450f9ff45',1,'Calgine::Renderer::submit(const BatchRenderCommand cmd)']]],
   ['systems_5finit_24',['systems_init',['../classCalgine_1_1App.html#a52ea702157554748e98b84dc0132e39f',1,'Calgine::App']]]
 ];
