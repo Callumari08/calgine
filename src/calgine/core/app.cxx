@@ -10,16 +10,20 @@
 #include <imgui_impl_opengl3.h>
 #include <SDL3/SDL_events.h>
 #include <glm/glm.hpp>
+#include "calgine/core/behaviour.h"
 #include "calgine/core/event_context.h"
 #include "calgine/core/hierarchies/game_hierarchy.h"
 #include "calgine/core/game_object.h"
 #include "calgine/core/hierarchies/manager_hierarchy.h"
+#include "calgine/core/input/input_system.h"
+#include "calgine/core/transform.h"
 #include "window/window_handler.h"
 #include "log.h"
 #include "calgine/core/renderer/renderer.h"
 #include "calgine/core/renderer/camera/camera_behaviour.h"
 #include "calgine/core/renderer/camera/camera_manager.h"
 #include "calgine/core/time.h"
+#include "calgine/core/input/raw_input.h"
 
 
 namespace Calgine {
@@ -120,6 +124,8 @@ void App::main_loop()
 
   EventContext event_context;
 
+  manager_hierarchy.instantiate_child(Transform::zero(), "Input System").add_behaviour<InputSystemBehaviour>();
+
   // Instead of doing this here, I should implement a scene manager.
   //
   // (Later comment) I actually think it'd be a good idea to keep root for as long as the program runs,
@@ -136,8 +142,6 @@ void App::main_loop()
   {
     Time::get_instance().update();
 
-    handle_sdl_events(running);
-
     event_context.update_tick_phase(fixed_update);
 
     int fixed_timesteps = Time::get_instance().consume_fixed_timesteps();
@@ -148,6 +152,8 @@ void App::main_loop()
     }
 
     event_context.update_tick_phase(update);
+
+    handle_sdl_events(running, event_context);
 
     manager_hierarchy.tick_self_and_children(update, event_context);
     game_hierarchy.tick_self_and_children(update, event_context);
@@ -175,7 +181,7 @@ void App::main_loop()
   }
 }
 
-void App::handle_sdl_events(bool& running)
+void App::handle_sdl_events(bool& running, EventContext& event_context)
 {
   SDL_Event event;
   while (SDL_PollEvent(&event)) 
@@ -184,6 +190,56 @@ void App::handle_sdl_events(bool& running)
 
     switch (event.type) 
     {
+      case SDL_EVENT_KEY_DOWN:
+      case SDL_EVENT_KEY_UP:
+      {
+        RawInputEvent input_event;
+        input_event.submit_tick = TickType::update;
+        input_event.type = RawInputEventType::keyboard;
+        input_event.data = RawKeyboardData(event.key.scancode, 
+                                           event.key.key, 
+                                           event.type == SDL_EVENT_KEY_DOWN, 
+                                           event.key.repeat);
+        event_context.submit(input_event);
+        //Log::get_engine_logger()->info("Key pressed");
+        break;
+      }
+
+      case SDL_EVENT_MOUSE_MOTION:
+      {
+        RawInputEvent input_event;
+        input_event.submit_tick = TickType::update;
+        input_event.type = RawInputEventType::mouse_move;
+        input_event.data = RawMouseMoveData({event.motion.x, event.motion.y},
+                                            {event.motion.xrel, event.motion.yrel});
+        event_context.submit(input_event);
+        break;
+      }
+
+      case SDL_EVENT_MOUSE_BUTTON_DOWN:
+      case SDL_EVENT_MOUSE_BUTTON_UP:
+      {
+        RawInputEvent input_event;
+        input_event.submit_tick = TickType::update;
+        input_event.type = RawInputEventType::mouse_button;
+        input_event.data = RawMouseButtonData(event.button.button,
+                                              event.type == SDL_EVENT_MOUSE_BUTTON_DOWN,
+                                              event.button.clicks,
+                                              {event.button.x, event.button.y});
+        event_context.submit(input_event);
+        break;
+      }
+
+      case SDL_EVENT_MOUSE_WHEEL:
+      {
+        RawInputEvent input_event;
+        input_event.submit_tick = TickType::update;
+        input_event.type = RawInputEventType::mouse_wheel;
+        input_event.data = RawMouseWheelData(event.wheel.y, event.wheel.x);
+        event_context.submit(input_event);
+        break;
+      }
+
       case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
       {
         if (Window* window = WindowHandler::get_instance()->get_window(event.window.windowID))

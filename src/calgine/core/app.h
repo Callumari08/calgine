@@ -182,7 +182,7 @@ private:
   bool had_camera_last_frame = true;
 
   void init_imgui();
-  void handle_sdl_events(bool& running);
+  void handle_sdl_events(bool& running, EventContext& event_context);
   void render_windows(GameObject& game_hierarchy, GameObject& manager_hierarchy, EventContext& event_context);
 };
 

@@ -314,5 +314,282 @@ void AssetManager::handle_asset_load_error(const AssetType& type, const std::str
   exit(-1);
 }
 
+std::unordered_map<std::string, ActionMap> AssetManager::load_input_config(const std::string& file_path)
+{
+  std::unordered_map<std::string, ActionMap> action_maps;
+
+  if (!is_valid_file(texture, file_path))
+  {
+    Log::get_engine_logger()->error("Input config file not found: {}", file_path);
+    return action_maps;
+  }
+
+  try
+  {
+    auto config = toml::parse_file(file_path);
+
+    // Iterate over each action map in the config
+    for (auto& [map_name, map_value] : config)
+    {
+      if (!map_value.is_table())
+      {
+        Log::get_engine_logger()->warn("Input config: '{}' is not a table, skipping", map_name);
+        continue;
+      }
+
+      auto& map_table = *map_value.as_table();
+      ActionMap action_map;
+
+      // Extract actions from this map
+      for (auto& [key, value] : map_table)
+      {
+        if (!value.is_array())
+        {
+          Log::get_engine_logger()->warn("Input config: '{}' action is not an array, skipping", std::string(key));
+          continue;
+        }
+
+        InputAction action;
+        action.name = std::string(key);
+
+        // Iterate over mappings in the action
+        for (auto& mapping_value : *value.as_array())
+        {
+          if (!mapping_value.is_table())
+          {
+            Log::get_engine_logger()->warn("Input config: mapping in '{}' is not a table, skipping", key);
+            continue;
+          }
+
+          try
+          {
+            InputMapping mapping = parse_input_mapping(*mapping_value.as_table());
+            action.mappings.push_back(mapping);
+          }
+          catch (const std::exception& e)
+          {
+            Log::get_engine_logger()->warn("Input config: failed to parse mapping: {}", e.what());
+            continue;
+          }
+        }
+
+        // Determine control type from first mapping's contribution
+        if (!action.mappings.empty())
+        {
+          const auto& first_contribution = action.mappings[0].contribution;
+          if (std::holds_alternative<InputButton>(first_contribution))
+            action.control_type = ControlType::button;
+          else if (std::holds_alternative<float>(first_contribution))
+            action.control_type = ControlType::vector1;
+          else if (std::holds_alternative<glm::vec2>(first_contribution))
+            action.control_type = ControlType::vector2;
+          else if (std::holds_alternative<glm::vec3>(first_contribution))
+            action.control_type = ControlType::vector3;
+        }
+
+        action_map.map[action.name] = action;
+      }
+
+      action_maps[std::string(map_name)] = action_map;
+    }
+  }
+  catch (const toml::parse_error& e)
+  {
+    Log::get_engine_logger()->error("Failed to parse input config file: {}\n{}", file_path, e.what());
+  }
+  catch (const std::exception& e)
+  {
+    Log::get_engine_logger()->error("Error loading input config: {}", e.what());
+  }
+
+  return action_maps;
+}
+
+InputMapping AssetManager::parse_input_mapping(const toml::table& mapping_table)
+{
+  InputMapping mapping;
+
+  // Parse type
+  if (auto type_value = mapping_table.get("type"))
+  {
+    if (type_value->is_string())
+      mapping.type = string_to_event_type(std::string(*type_value->as_string()));
+    else
+      throw std::runtime_error("'type' field must be a string");
+  }
+  else
+    throw std::runtime_error("'type' field is required");
+
+  // Parse input
+  if (auto input_value = mapping_table.get("input"))
+  {
+    if (input_value->is_string())
+      mapping.matcher = parse_matcher(mapping.type, std::string(*input_value->as_string()));
+    else
+      throw std::runtime_error("'input' field must be a string");
+  }
+  else
+    throw std::runtime_error("'input' field is required");
+
+  // Parse contribution
+  if (auto contribution_value = mapping_table.get("contribution"))
+  {
+    if (!contribution_value->is_array())
+      throw std::runtime_error("'contribution' field must be an array");
+    
+    // Guess control type from contribution array size or content
+    // We'll pass a dummy type and let parse_contribution infer it
+    auto contrib_array = *contribution_value->as_array();
+    
+    if (contrib_array.size() == 1)
+    {
+      // Could be button or axis
+      mapping.contribution = parse_contribution(ControlType::vector1, contrib_array);
+    }
+    else if (contrib_array.size() == 2)
+    {
+      mapping.contribution = parse_contribution(ControlType::vector2, contrib_array);
+    }
+    else if (contrib_array.size() == 3)
+    {
+      mapping.contribution = parse_contribution(ControlType::vector3, contrib_array);
+    }
+    else
+      throw std::runtime_error("'contribution' array must have 1-3 elements");
+  }
+  else
+    throw std::runtime_error("'contribution' field is required");
+
+  return mapping;
+}
+
+RawInputEventType AssetManager::string_to_event_type(const std::string& type_str)
+{
+  if (type_str == "keyboard")
+    return RawInputEventType::keyboard;
+  else if (type_str == "mouse_button")
+    return RawInputEventType::mouse_button;
+  else if (type_str == "mouse_move")
+    return RawInputEventType::mouse_move;
+  else if (type_str == "mouse_wheel")
+    return RawInputEventType::mouse_wheel;
+  else
+    throw std::runtime_error(std::format("Unknown input type: {}", type_str));
+}
+
+std::variant<SDL_Scancode, Uint8> AssetManager::parse_matcher(RawInputEventType type, const std::string& input_str)
+{
+  if (type == RawInputEventType::keyboard)
+  {
+    return string_to_scancode(input_str);
+  }
+  else if (type == RawInputEventType::mouse_button)
+  {
+    return string_to_mouse_button(input_str);
+  }
+  else if (type == RawInputEventType::mouse_move || type == RawInputEventType::mouse_wheel)
+  {
+    // mouse_move and mouse_wheel don't need specific matchers, use dummy value
+    return SDL_SCANCODE_UNKNOWN;
+  }
+  else
+    throw std::runtime_error(std::format("Cannot parse matcher for type: {}", static_cast<int>(type)));
+}
+
+std::variant<InputButton, float, glm::vec2, glm::vec3> AssetManager::parse_contribution(ControlType control_type, const toml::array& contribution_array)
+{
+  if (contribution_array.size() == 1)
+  {
+    if (auto val = contribution_array.get(0))
+    {
+      if (val->is_boolean())
+        return InputButton{val->as_boolean()->get()};
+      else if (val->is_floating_point())
+        return static_cast<float>(val->as_floating_point()->get());
+      else if (val->is_integer())
+        return static_cast<float>(val->as_integer()->get());
+    }
+    throw std::runtime_error("Failed to parse single-element contribution");
+  }
+  else if (contribution_array.size() == 2)
+  {
+    float x = 0.f, y = 0.f;
+    if (auto val = contribution_array.get(0))
+    {
+      if (val->is_floating_point())
+        x = static_cast<float>(val->as_floating_point()->get());
+      else if (val->is_integer())
+        x = static_cast<float>(val->as_integer()->get());
+    }
+    if (auto val = contribution_array.get(1))
+    {
+      if (val->is_floating_point())
+        y = static_cast<float>(val->as_floating_point()->get());
+      else if (val->is_integer())
+        y = static_cast<float>(val->as_integer()->get());
+    }
+    return glm::vec2(x, y);
+  }
+  else if (contribution_array.size() == 3)
+  {
+    float x = 0.f, y = 0.f, z = 0.f;
+    if (auto val = contribution_array.get(0))
+    {
+      if (val->is_floating_point())
+        x = static_cast<float>(val->as_floating_point()->get());
+      else if (val->is_integer())
+        x = static_cast<float>(val->as_integer()->get());
+    }
+    if (auto val = contribution_array.get(1))
+    {
+      if (val->is_floating_point())
+        y = static_cast<float>(val->as_floating_point()->get());
+      else if (val->is_integer())
+        y = static_cast<float>(val->as_integer()->get());
+    }
+    if (auto val = contribution_array.get(2))
+    {
+      if (val->is_floating_point())
+        z = static_cast<float>(val->as_floating_point()->get());
+      else if (val->is_integer())
+        z = static_cast<float>(val->as_integer()->get());
+    }
+    return glm::vec3(x, y, z);
+  }
+  else
+    throw std::runtime_error("Contribution array size out of range");
+}
+
+SDL_Scancode AssetManager::string_to_scancode(const std::string& key_name)
+{
+  // Map common key names to scancodes
+  static const std::map<std::string, SDL_Scancode> key_map = {
+    {"W", SDL_SCANCODE_W}, {"A", SDL_SCANCODE_A}, {"S", SDL_SCANCODE_S}, {"D", SDL_SCANCODE_D},
+    {"E", SDL_SCANCODE_E}, {"F", SDL_SCANCODE_F}, {"Q", SDL_SCANCODE_Q}, {"R", SDL_SCANCODE_R},
+    {"Space", SDL_SCANCODE_SPACE}, {"Enter", SDL_SCANCODE_RETURN}, {"Escape", SDL_SCANCODE_ESCAPE},
+    {"Shift", SDL_SCANCODE_LSHIFT}, {"Ctrl", SDL_SCANCODE_LCTRL}, {"Alt", SDL_SCANCODE_LALT},
+    {"Up", SDL_SCANCODE_UP}, {"Down", SDL_SCANCODE_DOWN}, {"Left", SDL_SCANCODE_LEFT}, {"Right", SDL_SCANCODE_RIGHT},
+    {"Tab", SDL_SCANCODE_TAB}, {"Backspace", SDL_SCANCODE_BACKSPACE},
+  };
+
+  auto it = key_map.find(key_name);
+  if (it != key_map.end())
+    return it->second;
+  
+  throw std::runtime_error(std::format("Unknown key name: {}", key_name));
+}
+
+Uint8 AssetManager::string_to_mouse_button(const std::string& button_name)
+{
+  if (button_name == "left")
+    return SDL_BUTTON_LEFT;
+  else if (button_name == "right")
+    return SDL_BUTTON_RIGHT;
+  else if (button_name == "middle")
+    return SDL_BUTTON_MIDDLE;
+  else
+    throw std::runtime_error(std::format("Unknown mouse button: {}", button_name));
+}
+
 
 }

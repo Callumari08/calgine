@@ -1,18 +1,13 @@
 #pragma once
 
+#include "event_data.h"
 #include "calgine/core/tick_type.h"
 #include "log.h"
 #include "calgine_api.h"
 #include "calgine_pch.h"
-#include <memory>
+
 
 namespace Calgine {
-
-struct CALGINE_API EventData
-{
-  TickType submit_tick = any;
-  virtual ~EventData() = default;
-};
 
 class CALGINE_API EventContext
 {

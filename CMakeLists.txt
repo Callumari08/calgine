@@ -76,6 +76,14 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(glm)
 
+# ---- Fetch toml++ (header-only TOML parser) ----
+FetchContent_Declare(
+    tomlplusplus
+    GIT_REPOSITORY https://github.com/marzer/tomlplusplus.git
+    GIT_TAG v3.4.0
+)
+FetchContent_MakeAvailable(tomlplusplus)
+
 # ---- spdlog: prefer system if requested, otherwise use FetchContent ----
 if(USE_SYSTEM_SPDLOG)
     find_package(spdlog CONFIG QUIET)
@@ -152,7 +160,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # ---- Warnings ----
 add_library(project_warnings INTERFACE)
-target_compile_options(project_warnings INTERFACE -Wall -Wextra -Wpedantic)
+target_compile_options(project_warnings INTERFACE -Wall -Wextra -Wpedantic -Wno-dangling-reference)
 
 # ---- Library ----
 file(GLOB_RECURSE CALGINE_SOURCES CONFIGURE_DEPENDS src/*.cxx)
@@ -178,6 +186,7 @@ target_link_libraries(Calgine
         $<$<BOOL:${MINGW}>:ws2_32>
         imgui
         glm::glm
+        tomlplusplus::tomlplusplus
         $<$<BOOL:${ENABLE_ASAN}>:asan_flags>
     PRIVATE
         project_warnings
@@ -235,4 +244,9 @@ if(TARGET glm::glm)
     message(STATUS "GLM target available.")
 else()
     message(WARNING "GLM target NOT available. Build will likely fail.")
+endif()
+if(TARGET tomlplusplus::tomlplusplus)
+    message(STATUS "toml++ target available.")
+else()
+    message(WARNING "toml++ target NOT available. Build will likely fail.")
 endif()

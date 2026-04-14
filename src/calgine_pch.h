@@ -20,6 +20,7 @@
 #include <unordered_map>
 #include <mutex>
 #include <span>
+#include <variant>
 
 #include <fstream>
 #include <sstream>

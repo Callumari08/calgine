@@ -19,10 +19,6 @@ class GameObject;
  */
 class CALGINE_API Behaviour
 {
-#define print(...) Log::get_app_logger()->info(__VA_ARGS__)
-#define print_warning(...) Log::get_app_logger()->warn(__VA_ARGS__)
-#define print_error(...) Log::get_app_logger()->error(__VA_ARGS__)
-
 public:
   virtual ~Behaviour();
   /**
