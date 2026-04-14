@@ -4,64 +4,59 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tick__type_8h}{calgine/core/tick\_type.h}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log_8h}{log.h}}"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{event__data_8h}{event\_data.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tick__type_8h}{calgine/core/tick\_type.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log_8h}{log.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1EventData}{EventData}}}
-\DoxyCodeLine{00012\ \{}
-\DoxyCodeLine{00013\ \ \ TickType\ submit\_tick\ =\ \mbox{\hyperlink{tick__type_8h_abd7045ad8553e16c50a967b4d48b7f6b}{any}};}
-\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{structCalgine_1_1EventData_aa56933c517555c30990887304aa0e404}{\string~EventData}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00015\ \};}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}}
-\DoxyCodeLine{00018\ \{}
-\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ EventT>}
-\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<EventT,\ EventData>}
-\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1EventContext_a0fd77215d498793e1665364e958ad238}{submit}}(\textcolor{keyword}{const}\ EventT\&\ event)}
-\DoxyCodeLine{00023\ \ \ \{}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (event.submit\_tick\ ==\ TickType::any)}
-\DoxyCodeLine{00025\ \ \ \ \ \{}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ Log::get\_engine\_logger()-\/>warn(\textcolor{stringliteral}{"{}Event\ was\ published\ with\ TickType\ any!\ Ignoring\ event.\ (Did\ you\ forget\ to\ set\ submit\_tick?)"{}});}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00028\ \ \ \ \ \}}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ std::type\_index\ type\_index\ =\ std::type\_index(\textcolor{keyword}{typeid}(EventT));}
-\DoxyCodeLine{00031\ \ \ \ \ active\_events[type\_index].emplace\_back(std::make\_unique<EventT>(event));}
-\DoxyCodeLine{00032\ \ \ \}}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ EventT>}
-\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<EventT,\ EventData>}
-\DoxyCodeLine{00036\ \ \ std::vector<const\ EventT*>\ \mbox{\hyperlink{classCalgine_1_1EventContext_ac3b47c334afb827871a3e093f58534bd}{get\_events}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00037\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00038\ \ \ \ \ std::vector<const\ EventT*>\ result;}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{auto}\ iterator\ =\ active\_events.find(std::type\_index(\textcolor{keyword}{typeid}(EventT)));}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (iterator\ ==\ active\_events.end())}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ element\ :\ iterator-\/>second)}
-\DoxyCodeLine{00043\ \ \ \ \ \{}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (EventT*\ casted\ =\ \textcolor{keyword}{dynamic\_cast<}EventT*\textcolor{keyword}{>}(element.get()))}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ result.push\_back(casted);}
-\DoxyCodeLine{00046\ \ \ \ \ \}}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{00049\ \ \ \}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ EventT>}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<EventT,\ EventData>}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1EventContext_a0fd77215d498793e1665364e958ad238}{submit}}(\textcolor{keyword}{const}\ EventT\&\ event)}
+\DoxyCodeLine{00018\ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{if}\ (event.submit\_tick\ ==\ TickType::any)}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ Log::get\_engine\_logger()-\/>warn(\textcolor{stringliteral}{"{}Event\ was\ published\ with\ TickType\ any!\ Ignoring\ event.\ (Did\ you\ forget\ to\ set\ submit\_tick?)"{}});}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ std::type\_index\ type\_index\ =\ std::type\_index(\textcolor{keyword}{typeid}(EventT));}
+\DoxyCodeLine{00026\ \ \ \ \ active\_events[type\_index].emplace\_back(std::make\_unique<EventT>(event));}
+\DoxyCodeLine{00027\ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ EventT>}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<EventT,\ EventData>}
+\DoxyCodeLine{00031\ \ \ std::vector<const\ EventT*>\ \mbox{\hyperlink{classCalgine_1_1EventContext_ac3b47c334afb827871a3e093f58534bd}{get\_events}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ std::vector<const\ EventT*>\ result;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{auto}\ iterator\ =\ active\_events.find(std::type\_index(\textcolor{keyword}{typeid}(EventT)));}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (iterator\ ==\ active\_events.end())}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ element\ :\ iterator-\/>second)}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (EventT*\ casted\ =\ \textcolor{keyword}{dynamic\_cast<}EventT*\textcolor{keyword}{>}(element.get()))}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ result.push\_back(casted);}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00044\ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ update\_tick\_phase(\textcolor{keyword}{const}\ TickType\ current\_phase);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ std::unordered\_map<std::type\_index,\ std::vector<std::unique\_ptr<EventData>>>\ active\_events;}
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ update\_tick\_phase(\textcolor{keyword}{const}\ TickType\ current\_phase);}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ std::unordered\_map<std::type\_index,\ std::vector<std::unique\_ptr<EventData>>>\ active\_events;}
+\DoxyCodeLine{00051\ \ \ TickType\ last\_tick\_phase\ =\ \mbox{\hyperlink{tick__type_8h_a3e6210a829b845b1aaf9b1904594bef9}{preloop}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1App}{App}};}
+\DoxyCodeLine{00054\ \};}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ TickType\ last\_tick\_phase\ =\ \mbox{\hyperlink{tick__type_8h_a3e6210a829b845b1aaf9b1904594bef9}{preloop}};}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1App}{App}};}
-\DoxyCodeLine{00059\ \};}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \}}
+\DoxyCodeLine{00056\ \}}
 
 \end{DoxyCode}

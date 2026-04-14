@@ -1,22 +1,9 @@
 var searchData=
 [
-  ['raw_0',['raw',['../classCalgine_1_1Window.html#a56fa8c87faf7554e19965e5628e09f35',1,'Calgine::Window']]],
-  ['read_5ffile_5fto_5fstring_1',['read_file_to_string',['../classCalgine_1_1AssetManager.html#a7041c19c2c71a2c5597a12c9436afbac',1,'Calgine::AssetManager']]],
-  ['real_5ft_2',['real_t',['../namespacetinyobj.html#ad5ca7469ff56bf0d8423120cfd99adce',1,'tinyobj']]],
-  ['remove_5fchild_5fimmediate_3',['remove_child_immediate',['../classCalgine_1_1GameObject.html#a555c05fea69e691b93159506455d7ea7',1,'Calgine::GameObject']]],
-  ['render_4',['render',['../tick__type_8h.html#a902318229e5c4c7f14cf977d61d1ef24',1,'tick_type.h']]],
-  ['render_5ftexture_2ecxx_5',['render_texture.cxx',['../render__texture_8cxx.html',1,'']]],
-  ['render_5ftexture_2eh_6',['render_texture.h',['../render__texture_8h.html',1,'']]],
-  ['render_5ftick_7',['render_tick',['../classCalgine_1_1Behaviour.html#a817b9c70c4b585bc908668522dec44dd',1,'Calgine::Behaviour']]],
-  ['renderer_8',['Renderer',['../classCalgine_1_1Renderer.html',1,'Calgine']]],
-  ['renderer_2ecxx_9',['renderer.cxx',['../renderer_8cxx.html',1,'']]],
-  ['renderer_2eh_10',['renderer.h',['../renderer_8h.html',1,'']]],
-  ['rendertexture_11',['rendertexture',['../classCalgine_1_1RenderTexture.html#a34c4898ae7d657da14349f5e642b23ce',1,'Calgine::RenderTexture::RenderTexture()'],['../classCalgine_1_1RenderTexture.html',1,'Calgine::RenderTexture']]],
-  ['request_5fclose_12',['request_close',['../classCalgine_1_1Window.html#ab526e6c21c5ad965acf3f370413972ac',1,'Calgine::Window']]],
-  ['root_5fgameobject_2eh_13',['root_gameobject.h',['../root__gameobject_8h.html',1,'']]],
-  ['rootgameobject_14',['rootgameobject',['../classCalgine_1_1RootGameObject.html',1,'Calgine::RootGameObject'],['../classCalgine_1_1RootGameObject.html#ae5bf15f4b36327321f3a9ebc9545c40a',1,'Calgine::RootGameObject::RootGameObject()']]],
-  ['rotation_15',['rotation',['../classCalgine_1_1Transform.html#a28b3bbddc628ba0f19d33eb68cfbcf0f',1,'Calgine::Transform']]],
-  ['roughness_16',['roughness',['../structtinyobj_1_1material__t.html#a7e26f199e4a308bd9fd224349e266cea',1,'tinyobj::material_t']]],
-  ['roughness_5ftexname_17',['roughness_texname',['../structtinyobj_1_1material__t.html#a7d7a7791ad94f2a5eadc2c8ee8c9a902',1,'tinyobj::material_t']]],
-  ['roughness_5ftexopt_18',['roughness_texopt',['../structtinyobj_1_1material__t.html#aa02a56f4de95ab212e19a5d77b1f2d91',1,'tinyobj::material_t']]]
+  ['pad0_0',['pad0',['../structtinyobj_1_1material__t.html#af16b7962e5809504ec31ebf9631422b7',1,'tinyobj::material_t']]],
+  ['pad1_1',['pad1',['../structtinyobj_1_1material__t.html#a68c2e93c107fcc69c8ab5346e1bc8d66',1,'tinyobj::material_t']]],
+  ['pad2_2',['pad2',['../structtinyobj_1_1material__t.html#a84cd388a80784aaaac4a03267d77f994',1,'tinyobj::material_t']]],
+  ['position_3',['position',['../structCalgine_1_1RawMouseButtonData.html#ab77370c238c6a56bbd10d9b265bedda6',1,'Calgine::RawMouseButtonData::position'],['../structCalgine_1_1RawMouseMoveData.html#aa8765fbf31d9e8335fa8d88ffbaa06dd',1,'Calgine::RawMouseMoveData::position'],['../structCalgine_1_1Vertex.html#aca2b88874107bdc649844a8b5ee82a79',1,'Calgine::Vertex::position'],['../classCalgine_1_1Transform.html#a50179b312fbbe09fcb15da261ef5eb9e',1,'Calgine::Transform::position']]],
+  ['preloop_4',['preloop',['../tick__type_8h.html#a3e6210a829b845b1aaf9b1904594bef9',1,'tick_type.h']]],
+  ['preloop_5ftick_5',['preloop_tick',['../classCalgine_1_1Behaviour.html#afc52ca163104ff8061ecaa31aa083756',1,'Calgine::Behaviour']]]
 ];

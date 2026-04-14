@@ -1,0 +1,74 @@
+\doxysection{src/calgine/core/input/input\+\_\+system.h File Reference}
+\hypertarget{input__system_8h}{}\label{input__system_8h}\index{src/calgine/core/input/input\_system.h@{src/calgine/core/input/input\_system.h}}
+{\ttfamily \#include "{}calgine/core/behaviour.\+h"{}}\newline
+{\ttfamily \#include "{}calgine/core/event\+\_\+context.\+h"{}}\newline
+{\ttfamily \#include "{}calgine/core/event\+\_\+data.\+h"{}}\newline
+{\ttfamily \#include "{}calgine/core/input/raw\+\_\+input.\+h"{}}\newline
+{\ttfamily \#include "{}calgine\+\_\+pch.\+h"{}}\newline
+{\ttfamily \#include "{}calgine\+\_\+api.\+h"{}}\newline
+{\ttfamily \#include "{}glm/ext/vector\+\_\+float3.\+hpp"{}}\newline
+{\ttfamily \#include "{}glm/fwd.\+hpp"{}}\newline
+{\ttfamily \#include $<$SDL3/\+SDL.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unionCalgine_1_1InputButton}{Calgine\+::\+Input\+Button}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1InputActionEvent}{Calgine\+::\+Input\+Action\+Event}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1InputMapping}{Calgine\+::\+Input\+Mapping}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1InputAction}{Calgine\+::\+Input\+Action}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1ActionMap}{Calgine\+::\+Action\+Map}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{Calgine\+::\+Input\+System\+Behaviour}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCalgine}{Calgine}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0}{Calgine\+::\+Input\+Value}} = std\+::variant$<$ \mbox{\hyperlink{unionCalgine_1_1InputButton}{Input\+Button}}, float, glm\+::vec2, glm\+::vec3 $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{input__system_8h_a14139799dd4b2fc41ecb6cb14936322f}{button}}
+\item 
+\mbox{\hyperlink{input__system_8h_a0b81a232862710a81a927633a7c8c319}{vector1}}
+\item 
+\mbox{\hyperlink{input__system_8h_ab28dd80fea50cbaf16a8d060249af95d}{vector2}}
+\item 
+\mbox{\hyperlink{input__system_8h_a8a8cac61494c40b9f058bebc05336cc4}{vector3}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{input__system_8h_a14139799dd4b2fc41ecb6cb14936322f}\label{input__system_8h_a14139799dd4b2fc41ecb6cb14936322f} 
+\index{input\_system.h@{input\_system.h}!button@{button}}
+\index{button@{button}!input\_system.h@{input\_system.h}}
+\doxysubsubsection{\texorpdfstring{button}{button}}
+{\footnotesize\ttfamily button}
+
+\Hypertarget{input__system_8h_a0b81a232862710a81a927633a7c8c319}\label{input__system_8h_a0b81a232862710a81a927633a7c8c319} 
+\index{input\_system.h@{input\_system.h}!vector1@{vector1}}
+\index{vector1@{vector1}!input\_system.h@{input\_system.h}}
+\doxysubsubsection{\texorpdfstring{vector1}{vector1}}
+{\footnotesize\ttfamily vector1}
+
+\Hypertarget{input__system_8h_ab28dd80fea50cbaf16a8d060249af95d}\label{input__system_8h_ab28dd80fea50cbaf16a8d060249af95d} 
+\index{input\_system.h@{input\_system.h}!vector2@{vector2}}
+\index{vector2@{vector2}!input\_system.h@{input\_system.h}}
+\doxysubsubsection{\texorpdfstring{vector2}{vector2}}
+{\footnotesize\ttfamily vector2}
+
+\Hypertarget{input__system_8h_a8a8cac61494c40b9f058bebc05336cc4}\label{input__system_8h_a8a8cac61494c40b9f058bebc05336cc4} 
+\index{input\_system.h@{input\_system.h}!vector3@{vector3}}
+\index{vector3@{vector3}!input\_system.h@{input\_system.h}}
+\doxysubsubsection{\texorpdfstring{vector3}{vector3}}
+{\footnotesize\ttfamily vector3}
+

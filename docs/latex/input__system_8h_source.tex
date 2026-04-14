@@ -1,0 +1,98 @@
+\doxysection{input\+\_\+system.\+h}
+\hypertarget{input__system_8h_source}{}\label{input__system_8h_source}\index{src/calgine/core/input/input\_system.h@{src/calgine/core/input/input\_system.h}}
+\mbox{\hyperlink{input__system_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{behaviour_8h}{calgine/core/behaviour.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{event__context_8h}{calgine/core/event\_context.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{event__data_8h}{calgine/core/event\_data.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raw__input_8h}{calgine/core/input/raw\_input.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}glm/ext/vector\_float3.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}glm/fwd.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ ControlType\ }
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{input__system_8h_a14139799dd4b2fc41ecb6cb14936322f}{button}},}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{input__system_8h_a0b81a232862710a81a927633a7c8c319}{vector1}},\ \textcolor{comment}{//\ floating\ point\ number}}
+\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{input__system_8h_ab28dd80fea50cbaf16a8d060249af95d}{vector2}},}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{input__system_8h_a8a8cac61494c40b9f058bebc05336cc4}{vector3}},}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{union\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{unionCalgine_1_1InputButton}{InputButton}}}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{unionCalgine_1_1InputButton_a9f8acbaca25d12af89cdcbb6bb484870}{is\_pressed}};}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0}{InputValue}}\ =\ std::variant<InputButton,\ float,\ glm::vec2,\ glm::vec3>;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1InputActionEvent}{InputActionEvent}}\ :\ \mbox{\hyperlink{structCalgine_1_1EventData}{EventData}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ ControlType\ \mbox{\hyperlink{structCalgine_1_1InputActionEvent_aeeecf6137e34abbeeb00b069dcdd135d}{type}};}
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0}{InputValue}}\ \mbox{\hyperlink{structCalgine_1_1InputActionEvent_ae2f0124a1d480bbe18716a6828ad42ac}{value}};}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1InputMapping}{InputMapping}}}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \ \ RawInputEventType\ \mbox{\hyperlink{structCalgine_1_1InputMapping_a8a54e4d597ccf1b215000008c0bb6f82}{type}};}
+\DoxyCodeLine{00039\ \ \ std::variant<SDL\_Scancode,\ Uint8>\ \mbox{\hyperlink{structCalgine_1_1InputMapping_a007e566d38df7bc04b6dfb1145bc4630}{matcher}};}
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0}{InputValue}}\ \mbox{\hyperlink{structCalgine_1_1InputMapping_ad4cc21a0cc6ad55da4f83bc4bdf0a3e1}{contribution}};}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1InputAction}{InputAction}}}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ std::string\ \mbox{\hyperlink{structCalgine_1_1InputAction_a8b23217cd6a8ae15e42228cb6cd6273c}{name}};}
+\DoxyCodeLine{00046\ \ \ ControlType\ \mbox{\hyperlink{structCalgine_1_1InputAction_a0f5cb1e8a31f22228c226b2403538254}{control\_type}};}
+\DoxyCodeLine{00047\ \ \ std::vector<InputMapping>\ \mbox{\hyperlink{structCalgine_1_1InputAction_a01397a8e844add84c9d13a5471f1ed7e}{mappings}};}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1ActionMap}{ActionMap}}}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \ \ std::string\ \mbox{\hyperlink{structCalgine_1_1ActionMap_acd5e88b9973c421132b070ba8f7b305e}{name}};}
+\DoxyCodeLine{00053\ \ \ \textcolor{comment}{//\ name\ of\ InputAction\ to\ InputAction}}
+\DoxyCodeLine{00054\ \ \ std::unordered\_map<std::string,\ InputAction>\ \mbox{\hyperlink{structCalgine_1_1ActionMap_a2b8dc440cb39f00c043bdf0fe7f46cb5}{map}};}
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{InputSystemBehaviour}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}}
+\DoxyCodeLine{00058\ \{}
+\DoxyCodeLine{00059\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{InputSystemBehaviour}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{InputSystemBehaviour}}*\ get\_instance();}
+\DoxyCodeLine{00063\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour_afad47ee4de15a022366c20a7d4b61628}{set\_action\_maps}}(std::unordered\_map<std::string,\ ActionMap>\&\ map,\ std::string\ active\_map\ =\ \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{00064\ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ action\_maps\ =\ map;}
+\DoxyCodeLine{00066\ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (active\_map\ !=\ \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ active\_action\_map\ =\ active\_map;}
+\DoxyCodeLine{00069\ \ \ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ submit\_action\_map(\textcolor{keyword}{const}\ std::string\ name,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1ActionMap}{ActionMap}}\ action\_map,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ set\_active\_action\_map\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00072\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ set\_active\_action\_map(\textcolor{keyword}{const}\ std::string\ action\_map\_name);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{void}\ update\_action(\textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1InputAction}{InputAction}}\&\ action,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1RawInputEvent}{RawInputEvent}}*\ input\_event,\ \mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00077\ \ \ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{void}\ update\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \mbox{\hyperlink{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0}{InputValue}}\ get\_empty\_value(ControlType\ type);}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{void}\ aggregate\_contribution(\mbox{\hyperlink{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0}{InputValue}}\&\ target,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0}{InputValue}}\&\ contribution);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{void}\ on\_destroy()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{InputSystemBehaviour}}*\ instance;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{comment}{//\ name\ of\ ActionMap\ to\ ActionMap}}
+\DoxyCodeLine{00088\ \ \ \textcolor{keyword}{static}\ std::unordered\_map<std::string,\ ActionMap>\ action\_maps;}
+\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{static}\ std::string\ active\_action\_map;}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}

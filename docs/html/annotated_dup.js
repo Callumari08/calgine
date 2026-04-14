@@ -1,6 +1,7 @@
 var annotated_dup =
 [
     [ "Calgine", "namespaceCalgine.html", [
+      [ "ActionMap", "structCalgine_1_1ActionMap.html", "structCalgine_1_1ActionMap" ],
       [ "App", "classCalgine_1_1App.html", "classCalgine_1_1App" ],
       [ "AppSettings", "structCalgine_1_1AppSettings.html", "structCalgine_1_1AppSettings" ],
       [ "AssetManager", "classCalgine_1_1AssetManager.html", "classCalgine_1_1AssetManager" ],
@@ -16,6 +17,11 @@ var annotated_dup =
       [ "GameObject", "classCalgine_1_1GameObject.html", "classCalgine_1_1GameObject" ],
       [ "HierarchyRenderer", "classCalgine_1_1HierarchyRenderer.html", "classCalgine_1_1HierarchyRenderer" ],
       [ "IndexBuffer", "classCalgine_1_1IndexBuffer.html", "classCalgine_1_1IndexBuffer" ],
+      [ "InputAction", "structCalgine_1_1InputAction.html", "structCalgine_1_1InputAction" ],
+      [ "InputActionEvent", "structCalgine_1_1InputActionEvent.html", "structCalgine_1_1InputActionEvent" ],
+      [ "InputButton", "unionCalgine_1_1InputButton.html", "unionCalgine_1_1InputButton" ],
+      [ "InputMapping", "structCalgine_1_1InputMapping.html", "structCalgine_1_1InputMapping" ],
+      [ "InputSystemBehaviour", "classCalgine_1_1InputSystemBehaviour.html", "classCalgine_1_1InputSystemBehaviour" ],
       [ "Log", "classCalgine_1_1Log.html", null ],
       [ "ManagerHierarchy", "classCalgine_1_1ManagerHierarchy.html", "classCalgine_1_1ManagerHierarchy" ],
       [ "Material", "classCalgine_1_1Material.html", "classCalgine_1_1Material" ],
@@ -23,6 +29,12 @@ var annotated_dup =
       [ "Mesh", "classCalgine_1_1Mesh.html", "classCalgine_1_1Mesh" ],
       [ "MeshRenderer", "classCalgine_1_1MeshRenderer.html", "classCalgine_1_1MeshRenderer" ],
       [ "Model", "structCalgine_1_1Model.html", "structCalgine_1_1Model" ],
+      [ "RawInputData", "structCalgine_1_1RawInputData.html", "structCalgine_1_1RawInputData" ],
+      [ "RawInputEvent", "structCalgine_1_1RawInputEvent.html", "structCalgine_1_1RawInputEvent" ],
+      [ "RawKeyboardData", "structCalgine_1_1RawKeyboardData.html", "structCalgine_1_1RawKeyboardData" ],
+      [ "RawMouseButtonData", "structCalgine_1_1RawMouseButtonData.html", "structCalgine_1_1RawMouseButtonData" ],
+      [ "RawMouseMoveData", "structCalgine_1_1RawMouseMoveData.html", "structCalgine_1_1RawMouseMoveData" ],
+      [ "RawMouseWheelData", "structCalgine_1_1RawMouseWheelData.html", "structCalgine_1_1RawMouseWheelData" ],
       [ "Renderer", "classCalgine_1_1Renderer.html", "classCalgine_1_1Renderer" ],
       [ "RenderTexture", "classCalgine_1_1RenderTexture.html", "classCalgine_1_1RenderTexture" ],
       [ "RootGameObject", "classCalgine_1_1RootGameObject.html", "classCalgine_1_1RootGameObject" ],

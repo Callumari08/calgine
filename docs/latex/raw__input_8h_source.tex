@@ -1,0 +1,83 @@
+\doxysection{raw\+\_\+input.\+h}
+\hypertarget{raw__input_8h_source}{}\label{raw__input_8h_source}\index{src/calgine/core/input/raw\_input.h@{src/calgine/core/input/raw\_input.h}}
+\mbox{\hyperlink{raw__input_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}SDL3/SDL\_keycode.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}SDL3/SDL\_scancode.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{event__data_8h}{calgine/core/event\_data.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}glm/ext/vector\_int2.hpp"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ RawInputEventType}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{raw__input_8h_a9976f3faad68f981f425583e48b03252}{keyboard}},}
+\DoxyCodeLine{00015\ \ \ \mbox{\hyperlink{raw__input_8h_aa54b50749fc8ceb3c4d7b9447a09fd20}{mouse\_button}},}
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{raw__input_8h_a7a070eb813cabf62338cea7dbdef9ab9}{mouse\_move}},}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{raw__input_8h_aac884c560fbe8e43a9c318c4a120f2c1}{mouse\_wheel}},}
+\DoxyCodeLine{00018\ \ \ \textcolor{comment}{//gamepad,}}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1RawInputData}{RawInputData}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ RawInputEventType\ \mbox{\hyperlink{structCalgine_1_1RawInputData_ad78a17c2122e1d1852bc30baddf636db}{type}};}
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{structCalgine_1_1RawInputData_afa1a4016f16636f2464c4b102f3159e3}{\string~RawInputData}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1RawKeyboardData}{RawKeyboardData}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structCalgine_1_1RawInputData}{RawInputData}}}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ SDL\_Scancode\ scancode\ =\ SDL\_SCANCODE\_UNKNOWN;}
+\DoxyCodeLine{00030\ \ \ SDL\_Keycode\ keycode\ =\ SDLK\_UNKNOWN;}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{bool}\ is\_pressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{bool}\ is\_repeat\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00033\ \ \ }
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{structCalgine_1_1RawKeyboardData_a8432ea413352ffb1da9ed77f91c3e6ed}{RawKeyboardData}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{structCalgine_1_1RawKeyboardData_a5f47984be6d0585f6948b65cf49d898a}{RawKeyboardData}}(SDL\_Scancode\ scancode,\ SDL\_Keycode\ keycode,\ \textcolor{keywordtype}{bool}\ is\_pressed,\ \textcolor{keywordtype}{bool}\ is\_repeat)}
+\DoxyCodeLine{00036\ \ \ \ \ :\ scancode(scancode),\ keycode(keycode),\ is\_pressed(is\_pressed),\ is\_repeat(is\_repeat)\ \{\}}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1RawMouseButtonData}{RawMouseButtonData}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structCalgine_1_1RawInputData}{RawInputData}}}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \ \ Uint8\ \mbox{\hyperlink{input__system_8h_a14139799dd4b2fc41ecb6cb14936322f}{button}}\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{bool}\ is\_pressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00043\ \ \ Uint8\ clicks\ =\ 0;}
+\DoxyCodeLine{00044\ \ \ glm::ivec2\ position\ =\ \{0,\ 0\};}
+\DoxyCodeLine{00045\ \ \ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{structCalgine_1_1RawMouseButtonData_a1592d6d57dfd9e303c24ce7d6169f732}{RawMouseButtonData}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{structCalgine_1_1RawMouseButtonData_a6148cadd42abd1adec50ccf4da99bb16}{RawMouseButtonData}}(Uint8\ \mbox{\hyperlink{input__system_8h_a14139799dd4b2fc41ecb6cb14936322f}{button}},\ \textcolor{keywordtype}{bool}\ is\_pressed,\ Uint8\ clicks,\ glm::ivec2\ position)}
+\DoxyCodeLine{00048\ \ \ \ \ :\ \mbox{\hyperlink{input__system_8h_a14139799dd4b2fc41ecb6cb14936322f}{button}}(\mbox{\hyperlink{input__system_8h_a14139799dd4b2fc41ecb6cb14936322f}{button}}),\ is\_pressed(is\_pressed),\ clicks(clicks),\ position(position)\ \{\}}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1RawMouseMoveData}{RawMouseMoveData}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structCalgine_1_1RawInputData}{RawInputData}}}
+\DoxyCodeLine{00052\ \{}
+\DoxyCodeLine{00053\ \ \ glm::ivec2\ position\ =\ \{0,\ 0\};}
+\DoxyCodeLine{00054\ \ \ glm::ivec2\ relative\_motion\ =\ \{0,\ 0\};}
+\DoxyCodeLine{00055\ \ \ }
+\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{structCalgine_1_1RawMouseMoveData_a52f82ca370e73080d7e33e1cd69b906d}{RawMouseMoveData}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{structCalgine_1_1RawMouseMoveData_aaa70fe76bd31134d8bee30d0c801ad1c}{RawMouseMoveData}}(glm::ivec2\ position,\ glm::ivec2\ relative\_motion)}
+\DoxyCodeLine{00058\ \ \ \ \ :\ position(position),\ relative\_motion(relative\_motion)\ \{\}}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1RawMouseWheelData}{RawMouseWheelData}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structCalgine_1_1RawInputData}{RawInputData}}}
+\DoxyCodeLine{00062\ \{}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{float}\ y\_direction\ =\ 0.0f;}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{float}\ x\_direction\ =\ 0.0f;}
+\DoxyCodeLine{00065\ \ \ }
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{structCalgine_1_1RawMouseWheelData_a7e1096fd7dc139dfe40ca52f0c34462b}{RawMouseWheelData}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{structCalgine_1_1RawMouseWheelData_a6fae5c8d7c79046dc842cc7731740123}{RawMouseWheelData}}(\textcolor{keywordtype}{float}\ y\_direction,\ \textcolor{keywordtype}{float}\ x\_direction)}
+\DoxyCodeLine{00068\ \ \ \ \ :\ y\_direction(y\_direction),\ x\_direction(x\_direction)\ \{\}}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1RawInputEvent}{RawInputEvent}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structCalgine_1_1EventData}{EventData}}}
+\DoxyCodeLine{00072\ \{}
+\DoxyCodeLine{00073\ \ \ RawInputEventType\ \mbox{\hyperlink{structCalgine_1_1RawInputEvent_a460d5b343a20dc45aa37defb8e9ac672}{type}};}
+\DoxyCodeLine{00074\ \ \ std::variant<RawKeyboardData,\ RawMouseButtonData,\ RawMouseMoveData,\ RawMouseWheelData>\ \mbox{\hyperlink{structCalgine_1_1RawInputEvent_a074c2afb1f021e57db411872ab636fc0}{data}};}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \}}
+
+\end{DoxyCode}
