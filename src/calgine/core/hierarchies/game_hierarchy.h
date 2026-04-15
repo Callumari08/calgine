@@ -10,18 +10,20 @@ namespace Calgine {
 //
 class CALGINE_API GameHierarchy final
 {
-private:
-  RootGameObject root;
-
-  GameHierarchy();
-
 public:
   static GameHierarchy& get_instance();
+
+  static inline GameObject& get() { return GameHierarchy::get_instance().get_hierarchy_root(); };
 
   GameObject& get_hierarchy_root();
 
   GameHierarchy(const GameHierarchy&) = delete;
   GameHierarchy& operator=(const GameHierarchy&) = delete;
+
+private:
+  RootGameObject root;
+
+  GameHierarchy();
 };
 
-} // namespace Calgine
+}

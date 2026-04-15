@@ -118,12 +118,12 @@ void App::init_imgui()
 
 void App::main_loop()
 {
-  GameObject& manager_hierarchy = ManagerHierarchy::get_instance().get_hierarchy_root();
-  GameObject& game_hierarchy = GameHierarchy::get_instance().get_hierarchy_root();
+  GameObject& manager_hierarchy = ManagerHierarchy::get();
+  GameObject& game_hierarchy = GameHierarchy::get();
 
   EventContext event_context;
 
-  manager_hierarchy.instantiate_child(Transform::zero(), "Input System").add_behaviour<InputSystemBehaviour>();
+  manager_hierarchy.instantiate_child(Transform::zero(), "InputSystem").add_behaviour<InputSystemBehaviour>();
 
   // Instead of doing this here, I should implement a scene manager.
   //
