@@ -1,15 +1,17 @@
 var NAVTREEINDEX2 =
 {
+"fps__display_8cxx.html":[2,0,0,0,1,0],
+"fps__display_8h.html":[2,0,0,0,1,1],
 "fps__display_8h_source.html":[2,0,0,0,1,1],
-"functions.html":[1,3,0],
 "functions.html":[1,3,0,0],
+"functions.html":[1,3,0],
 "functions_b.html":[1,3,0,1],
 "functions_c.html":[1,3,0,2],
 "functions_d.html":[1,3,0,3],
 "functions_e.html":[1,3,0,4],
 "functions_f.html":[1,3,0,5],
-"functions_func.html":[1,3,1,0],
 "functions_func.html":[1,3,1],
+"functions_func.html":[1,3,1,0],
 "functions_func_b.html":[1,3,1,1],
 "functions_func_c.html":[1,3,1,2],
 "functions_func_d.html":[1,3,1,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "structCalgine_1_1RawKeyboardData.html#a5f47984be6d0585f6948b65cf49d898a":[1,0,0,31,1],
 "structCalgine_1_1RawKeyboardData.html#a8432ea413352ffb1da9ed77f91c3e6ed":[1,0,0,31,0],
 "structCalgine_1_1RawKeyboardData.html#a8432ea413352ffb1da9ed77f91c3e6ed":[0,0,0,31,0],
-"structCalgine_1_1RawKeyboardData.html#ada28c4e6b21613252f38f8c6addb738a":[0,0,0,31,3],
-"structCalgine_1_1RawKeyboardData.html#ada28c4e6b21613252f38f8c6addb738a":[1,0,0,31,3],
-"structCalgine_1_1RawMouseButtonData.html":[0,0,0,32]
+"structCalgine_1_1RawKeyboardData.html#ada28c4e6b21613252f38f8c6addb738a":[0,0,0,31,3]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"structCalgine_1_1RawKeyboardData.html#ada28c4e6b21613252f38f8c6addb738a":[1,0,0,31,3],
+"structCalgine_1_1RawMouseButtonData.html":[0,0,0,32],
 "structCalgine_1_1RawMouseButtonData.html":[1,0,0,32],
 "structCalgine_1_1RawMouseButtonData.html#a1592d6d57dfd9e303c24ce7d6169f732":[0,0,0,32,0],
 "structCalgine_1_1RawMouseButtonData.html#a1592d6d57dfd9e303c24ce7d6169f732":[1,0,0,32,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "time_8cxx.html":[2,0,0,0,0,17],
 "time_8h.html":[2,0,0,0,0,18],
 "time_8h_source.html":[2,0,0,0,0,18],
-"tiny__obj__loader_8cxx.html":[2,0,0,0,0,0,2],
-"tiny__obj__loader_8cxx.html#af14fac7fbc250522a78849d58d5b0811":[2,0,0,0,0,0,2,0],
-"tiny__obj__loader_8h.html":[2,0,0,0,0,0,3]
+"tiny__obj__loader_8cxx.html":[2,0,0,0,0,0,2]
 };
