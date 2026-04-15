@@ -20,7 +20,6 @@
 #include "window/window_handler.h"
 #include "log.h"
 #include "calgine/core/renderer/renderer.h"
-#include "calgine/core/renderer/camera/camera_behaviour.h"
 #include "calgine/core/renderer/camera/camera_manager.h"
 #include "calgine/core/time.h"
 #include "calgine/core/input/raw_input.h"
@@ -201,7 +200,6 @@ void App::handle_sdl_events(bool& running, EventContext& event_context)
                                            event.type == SDL_EVENT_KEY_DOWN, 
                                            event.key.repeat);
         event_context.submit(input_event);
-        //Log::get_engine_logger()->info("Key pressed");
         break;
       }
 

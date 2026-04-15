@@ -2,7 +2,6 @@
 
 #include "calgine/core/transform.h"
 #include "calgine/core/event_context.h"
-#include "calgine/core/log.h"
 #include "calgine_pch.h"
 #include "calgine_api.h"
 
