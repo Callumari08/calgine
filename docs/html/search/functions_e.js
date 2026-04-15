@@ -19,13 +19,14 @@ var searchData=
   ['set_5funiform_5f3f_16',['set_uniform_3f',['../classCalgine_1_1Shader.html#ae6e12b492505e61a8b7206767e6d79b9',1,'Calgine::Shader']]],
   ['set_5funiform_5f4f_17',['set_uniform_4f',['../classCalgine_1_1Shader.html#ae093342ffab2d4dad157a84914c1bb33',1,'Calgine::Shader']]],
   ['set_5funiform_5fmat4_18',['set_uniform_mat4',['../classCalgine_1_1Shader.html#aacea7d8129699fa775960260251ebc02',1,'Calgine::Shader']]],
-  ['set_5fvsync_5fstate_19',['set_vsync_state',['../classCalgine_1_1Window.html#aff148d8b94b00211a2481befbffde8b1',1,'Calgine::Window']]],
-  ['set_5fwindow_5ftitle_20',['set_window_title',['../classCalgine_1_1Window.html#a672a2dc900594a23d44b3d62d18c771d',1,'Calgine::Window']]],
-  ['shader_21',['Shader',['../classCalgine_1_1Shader.html#a8faaf820705629240c84c1ff2be96203',1,'Calgine::Shader']]],
-  ['should_5fclose_22',['should_close',['../classCalgine_1_1Window.html#a7f15978b22338eb28f98e9836aff471b',1,'Calgine::Window']]],
-  ['start_5fsystems_23',['start_systems',['../classCalgine_1_1App.html#a96e9ed6ce1f9d49d30e334f8633684bf',1,'Calgine::App']]],
-  ['start_5ftick_24',['start_tick',['../classCalgine_1_1Behaviour.html#ae4ed175037ecf4cc620bbcd83b9943ba',1,'Calgine::Behaviour']]],
-  ['submit_25',['submit',['../classCalgine_1_1EventContext.html#a0fd77215d498793e1665364e958ad238',1,'Calgine::EventContext::submit()'],['../classCalgine_1_1Renderer.html#a7eafe3ae0b124c16179e0f19a4429129',1,'Calgine::Renderer::submit(const Mesh *mesh, const Material *material, const glm::mat4 model_matrix)'],['../classCalgine_1_1Renderer.html#a257ff9ab7bc081c8a394a73450f9ff45',1,'Calgine::Renderer::submit(const BatchRenderCommand cmd)']]],
-  ['submit_5faction_5fmap_26',['submit_action_map',['../classCalgine_1_1InputSystemBehaviour.html#aed796bb6ea14989daba45eca2d01b380',1,'Calgine::InputSystemBehaviour']]],
-  ['systems_5finit_27',['systems_init',['../classCalgine_1_1App.html#a52ea702157554748e98b84dc0132e39f',1,'Calgine::App']]]
+  ['set_5fupdate_5fdelay_19',['set_update_delay',['../classCalgine_1_1FpsDisplay.html#aba09acac07043c3733a54d956e1676bf',1,'Calgine::FpsDisplay']]],
+  ['set_5fvsync_5fstate_20',['set_vsync_state',['../classCalgine_1_1Window.html#aff148d8b94b00211a2481befbffde8b1',1,'Calgine::Window']]],
+  ['set_5fwindow_5ftitle_21',['set_window_title',['../classCalgine_1_1Window.html#a672a2dc900594a23d44b3d62d18c771d',1,'Calgine::Window']]],
+  ['shader_22',['Shader',['../classCalgine_1_1Shader.html#a8faaf820705629240c84c1ff2be96203',1,'Calgine::Shader']]],
+  ['should_5fclose_23',['should_close',['../classCalgine_1_1Window.html#a7f15978b22338eb28f98e9836aff471b',1,'Calgine::Window']]],
+  ['start_5fsystems_24',['start_systems',['../classCalgine_1_1App.html#a96e9ed6ce1f9d49d30e334f8633684bf',1,'Calgine::App']]],
+  ['start_5ftick_25',['start_tick',['../classCalgine_1_1Behaviour.html#ae4ed175037ecf4cc620bbcd83b9943ba',1,'Calgine::Behaviour']]],
+  ['submit_26',['submit',['../classCalgine_1_1EventContext.html#a0fd77215d498793e1665364e958ad238',1,'Calgine::EventContext::submit()'],['../classCalgine_1_1Renderer.html#a7eafe3ae0b124c16179e0f19a4429129',1,'Calgine::Renderer::submit(const Mesh *mesh, const Material *material, const glm::mat4 model_matrix)'],['../classCalgine_1_1Renderer.html#a257ff9ab7bc081c8a394a73450f9ff45',1,'Calgine::Renderer::submit(const BatchRenderCommand cmd)']]],
+  ['submit_5faction_5fmap_27',['submit_action_map',['../classCalgine_1_1InputSystemBehaviour.html#aed796bb6ea14989daba45eca2d01b380',1,'Calgine::InputSystemBehaviour']]],
+  ['systems_5finit_28',['systems_init',['../classCalgine_1_1App.html#a52ea702157554748e98b84dc0132e39f',1,'Calgine::App']]]
 ];

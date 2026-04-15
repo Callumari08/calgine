@@ -8,6 +8,7 @@ var hierarchy =
     [ "Calgine::BatchRenderCommand", "structCalgine_1_1BatchRenderCommand.html", null ],
     [ "Calgine::Behaviour", "classCalgine_1_1Behaviour.html", [
       [ "Calgine::CameraBehaviour", "classCalgine_1_1CameraBehaviour.html", null ],
+      [ "Calgine::FpsDisplay", "classCalgine_1_1FpsDisplay.html", null ],
       [ "Calgine::HierarchyRenderer", "classCalgine_1_1HierarchyRenderer.html", null ],
       [ "Calgine::InputSystemBehaviour", "classCalgine_1_1InputSystemBehaviour.html", null ],
       [ "Calgine::MeshRenderer", "classCalgine_1_1MeshRenderer.html", null ]

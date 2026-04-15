@@ -1,0 +1,31 @@
+\doxysection{fps\+\_\+display.\+h}
+\hypertarget{fps__display_8h_source}{}\label{fps__display_8h_source}\index{src/calgine/tools/fps\_display.h@{src/calgine/tools/fps\_display.h}}
+\mbox{\hyperlink{fps__display_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{behaviour_8h}{calgine/core/behaviour.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{event__context_8h}{calgine/core/event\_context.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1FpsDisplay}{FpsDisplay}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{void}\ imgui\_render\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00013\ \ \ }
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1FpsDisplay_aba09acac07043c3733a54d956e1676bf}{set\_update\_delay}}(\textcolor{keywordtype}{float}\ delay)\ \{\ update\_delay\ =\ delay;\ \}}
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1FpsDisplay_a47d5aa561108f6f044db914003b57c48}{get\_update\_delay}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ update\_delay;\ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{bool}\ window\_active\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{float}\ update\_delay\ =\ 0.2f;}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{float}\ time\_since\_last\_update\ =\ 0.0f;}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{float}\ current\_fps\ =\ 0.0f;}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{float}\ current\_frame\_time\ =\ 0.0f;}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \}}
+
+\end{DoxyCode}

@@ -12,6 +12,7 @@ var namespaceCalgine =
     [ "CameraSettings", "structCalgine_1_1CameraSettings.html", "structCalgine_1_1CameraSettings" ],
     [ "EventContext", "classCalgine_1_1EventContext.html", "classCalgine_1_1EventContext" ],
     [ "EventData", "structCalgine_1_1EventData.html", "structCalgine_1_1EventData" ],
+    [ "FpsDisplay", "classCalgine_1_1FpsDisplay.html", "classCalgine_1_1FpsDisplay" ],
     [ "GameHierarchy", "classCalgine_1_1GameHierarchy.html", "classCalgine_1_1GameHierarchy" ],
     [ "GameObject", "classCalgine_1_1GameObject.html", "classCalgine_1_1GameObject" ],
     [ "HierarchyRenderer", "classCalgine_1_1HierarchyRenderer.html", "classCalgine_1_1HierarchyRenderer" ],

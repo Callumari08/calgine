@@ -34,10 +34,11 @@ var searchData=
   ['get_5ftextures_31',['get_textures',['../classCalgine_1_1Material.html#a174abda7d7e72bbe5cb96dab5046fde0',1,'Calgine::Material']]],
   ['get_5ftime_32',['get_time',['../classCalgine_1_1Time.html#a478b60c4750da7ff55bb68671da82315',1,'Calgine::Time']]],
   ['get_5ftransform_33',['get_transform',['../classCalgine_1_1Behaviour.html#aec1c964df62ee9bf87b1c05ed630a4be',1,'Calgine::Behaviour::get_transform()'],['../classCalgine_1_1GameObject.html#a406397e8c9477102f3a41424f4cfe091',1,'Calgine::GameObject::get_transform()']]],
-  ['get_5fview_5fmatrix_34',['get_view_matrix',['../classCalgine_1_1Camera.html#ad2f86efd834101d33a2c109c57c2bd74',1,'Calgine::Camera']]],
-  ['get_5fvsync_5fstate_35',['get_vsync_state',['../classCalgine_1_1Window.html#aba41313a9f04e02440159197066bcf06',1,'Calgine::Window']]],
-  ['get_5fwidth_36',['get_width',['../classCalgine_1_1Texture.html#a723881bfebc6f75d72b11677ef7253a2',1,'Calgine::Texture']]],
-  ['get_5fwindow_37',['get_window',['../classCalgine_1_1WindowHandler.html#aa9a52687bdc4a26ca589674add2d14b8',1,'Calgine::WindowHandler']]],
-  ['get_5fwindow_5ftitle_38',['get_window_title',['../classCalgine_1_1Window.html#a1388691c322e243b42c414402a77ee63',1,'Calgine::Window']]],
-  ['get_5fwindows_39',['get_windows',['../classCalgine_1_1WindowHandler.html#a7f81bd9dba723921499e0fb71e1ed23c',1,'Calgine::WindowHandler']]]
+  ['get_5fupdate_5fdelay_34',['get_update_delay',['../classCalgine_1_1FpsDisplay.html#a47d5aa561108f6f044db914003b57c48',1,'Calgine::FpsDisplay']]],
+  ['get_5fview_5fmatrix_35',['get_view_matrix',['../classCalgine_1_1Camera.html#ad2f86efd834101d33a2c109c57c2bd74',1,'Calgine::Camera']]],
+  ['get_5fvsync_5fstate_36',['get_vsync_state',['../classCalgine_1_1Window.html#aba41313a9f04e02440159197066bcf06',1,'Calgine::Window']]],
+  ['get_5fwidth_37',['get_width',['../classCalgine_1_1Texture.html#a723881bfebc6f75d72b11677ef7253a2',1,'Calgine::Texture']]],
+  ['get_5fwindow_38',['get_window',['../classCalgine_1_1WindowHandler.html#aa9a52687bdc4a26ca589674add2d14b8',1,'Calgine::WindowHandler']]],
+  ['get_5fwindow_5ftitle_39',['get_window_title',['../classCalgine_1_1Window.html#a1388691c322e243b42c414402a77ee63',1,'Calgine::Window']]],
+  ['get_5fwindows_40',['get_windows',['../classCalgine_1_1WindowHandler.html#a7f81bd9dba723921499e0fb71e1ed23c',1,'Calgine::WindowHandler']]]
 ];

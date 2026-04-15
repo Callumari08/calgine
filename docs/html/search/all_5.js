@@ -8,5 +8,8 @@ var searchData=
   ['fixed_5fupdate_5ftick_5',['fixed_update_tick',['../classCalgine_1_1Behaviour.html#aa20a9f9fea54e6dd8d64ad331da13734',1,'Calgine::Behaviour']]],
   ['floatvalues_6',['floatValues',['../structtinyobj_1_1tag__t.html#a6e531cc0a0d53b6334cf55da4bb62ffc',1,'tinyobj::tag_t']]],
   ['fov_7',['fov',['../structCalgine_1_1CameraSettings.html#ac6805617160b537244a8e8590daf8f04',1,'Calgine::CameraSettings']]],
-  ['fragment_8',['fragment',['../structCalgine_1_1ShaderProgram.html#aa18f5ea19a72ec9c02c99c35f6dea1df',1,'Calgine::ShaderProgram::fragment'],['../namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5eac3b16e8a9ede3ae91467682b97ea5dc3',1,'Calgine::fragment']]]
+  ['fps_5fdisplay_2ecxx_8',['fps_display.cxx',['../fps__display_8cxx.html',1,'']]],
+  ['fps_5fdisplay_2eh_9',['fps_display.h',['../fps__display_8h.html',1,'']]],
+  ['fpsdisplay_10',['FpsDisplay',['../classCalgine_1_1FpsDisplay.html',1,'Calgine']]],
+  ['fragment_11',['fragment',['../structCalgine_1_1ShaderProgram.html#aa18f5ea19a72ec9c02c99c35f6dea1df',1,'Calgine::ShaderProgram::fragment'],['../namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5eac3b16e8a9ede3ae91467682b97ea5dc3',1,'Calgine::fragment']]]
 ];

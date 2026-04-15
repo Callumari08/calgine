@@ -4,7 +4,7 @@ var searchData=
   ['imfchan_1',['imfchan',['../structtinyobj_1_1texture__option__t.html#a2ea1261e85ce71e4f7bacd508a623b65',1,'tinyobj::texture_option_t']]],
   ['imgui_5fcontext_2',['imgui_context',['../structCalgine_1_1AppSettings.html#a9a400188cc53d6a4a7a3c12c47c9fc56',1,'Calgine::AppSettings']]],
   ['imgui_5frender_3',['imgui_render',['../tick__type_8h.html#a643e70a617eef1d2c9922ff3afd82148',1,'tick_type.h']]],
-  ['imgui_5frender_5ftick_4',['imgui_render_tick',['../classCalgine_1_1HierarchyRenderer.html#a63d1bf569f4a8c5e1f90170a44a836d9',1,'Calgine::HierarchyRenderer::imgui_render_tick()'],['../classCalgine_1_1Behaviour.html#a061fd29a42a54921325daac824784a36',1,'Calgine::Behaviour::imgui_render_tick()']]],
+  ['imgui_5frender_5ftick_4',['imgui_render_tick',['../classCalgine_1_1HierarchyRenderer.html#a63d1bf569f4a8c5e1f90170a44a836d9',1,'Calgine::HierarchyRenderer::imgui_render_tick()'],['../classCalgine_1_1FpsDisplay.html#ae490ed3ca84597b32f399c9d51ef259b',1,'Calgine::FpsDisplay::imgui_render_tick()'],['../classCalgine_1_1Behaviour.html#a061fd29a42a54921325daac824784a36',1,'Calgine::Behaviour::imgui_render_tick()']]],
   ['index_5fbuffer_2ecxx_5',['index_buffer.cxx',['../index__buffer_8cxx.html',1,'']]],
   ['index_5fbuffer_2eh_6',['index_buffer.h',['../index__buffer_8h.html',1,'']]],
   ['index_5fcb_7',['index_cb',['../structtinyobj_1_1callback__t__.html#a40a2a07b3c61aedb38a1efd3c2e53a76',1,'tinyobj::callback_t_']]],
