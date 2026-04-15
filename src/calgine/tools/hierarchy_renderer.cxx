@@ -6,14 +6,14 @@
 
 namespace Calgine {
 
+
 void HierarchyRenderer::render_tree_node(GameObject& go, GameObject* parent)
 {
   if (go.get_parent().has_value() && &go.get_parent()->get() != parent)
     return;
-
-  auto& root = GameHierarchy::get_instance().get_hierarchy_root();
+  
   bool has_children = false;
-  for (GameObject& child : root)
+  for (GameObject& child : hierarchy)
   {
     if (child.get_parent().has_value() && &child.get_parent()->get() == &go)
     {
@@ -33,7 +33,7 @@ void HierarchyRenderer::render_tree_node(GameObject& go, GameObject* parent)
       if (ImGui::IsItemClicked())
         selected = &go;
 
-      for (GameObject& child : root)
+      for (GameObject& child : hierarchy)
       {
         if (child.get_parent().has_value() && &child.get_parent()->get() == &go)
         {

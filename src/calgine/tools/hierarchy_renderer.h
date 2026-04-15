@@ -9,18 +9,21 @@ namespace Calgine {
 
 class CALGINE_API HierarchyRenderer : public Behaviour
 {
+public:
+  HierarchyRenderer(GameObject& hierarchy_to_render) : hierarchy(hierarchy_to_render) {}
+  void imgui_render_tick(EventContext&) override;
+  
+  GameObject* get_selected() const { return selected; }
+  void set_selected(GameObject* go) { selected = go; }
+
 private:
   bool window_active = true;
   bool start = true;
   GameObject* selected = nullptr;
 
-  void render_tree_node(GameObject& go, GameObject* parent);
+  GameObject& hierarchy;
 
-public:
-  void imgui_render_tick(EventContext&) override;
-  
-  GameObject* get_selected() const { return selected; }
-  void set_selected(GameObject* go) { selected = go; }
+  void render_tree_node(GameObject& go, GameObject* parent);
 };
 
-} // namespace Calgine
+}
