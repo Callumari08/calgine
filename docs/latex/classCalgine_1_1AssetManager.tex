@@ -13,6 +13,8 @@ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ \
 \item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}} $>$ \mbox{\hyperlink{classCalgine_1_1AssetManager_a4ab3feef9dad6065bd83f6a2313c43b2}{load\+\_\+shader}} (const std\+::string \&name, const std\+::string fragment\+\_\+path, const std\+::string vertex\+\_\+path)
 \item 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{structCalgine_1_1ActionMap}{Action\+Map}} $>$ \mbox{\hyperlink{classCalgine_1_1AssetManager_a9caf53b52d33b59941e1a8c0ec189473}{load\+\_\+input\+\_\+config}} (const std\+::string \&file\+\_\+path)
+\item 
 std\+::optional$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Texture}{Texture}} $>$ $>$ \mbox{\hyperlink{classCalgine_1_1AssetManager_aa2cf758e7f7345c8857ce48e80a239ed}{get\+\_\+texture}} (const std\+::string \&name, const std\+::string else\+\_\+file\+\_\+path="{}"{})
 \item 
 std\+::optional$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ $>$ \mbox{\hyperlink{classCalgine_1_1AssetManager_a2de653e3e428f8cd0268a52b48e16ae2}{get\+\_\+model}} (const std\+::string \&name, const std\+::string else\+\_\+file\+\_\+path="{}"{})
@@ -69,7 +71,35 @@ static std\+::string \mbox{\hyperlink{classCalgine_1_1AssetManager_a7041c19c2c71
 \doxysubsubsection{\texorpdfstring{get\_texture()}{get\_texture()}}
 {\footnotesize\ttfamily std\+::optional$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1Texture}{Texture}} $>$ $>$ Calgine\+::\+Asset\+Manager\+::get\+\_\+texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string}]{else\+\_\+file\+\_\+path = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
 
-\Hypertarget{classCalgine_1_1AssetManager_a23a4fc867619f4c63a261ca5fa6a4242}\label{classCalgine_1_1AssetManager_a23a4fc867619f4c63a261ca5fa6a4242} 
+\Hypertarget{classCalgine_1_1AssetManager_a9caf53b52d33b59941e1a8c0ec189473}\label{classCalgine_1_1AssetManager_a9caf53b52d33b59941e1a8c0ec189473} 
+\index{Calgine::AssetManager@{Calgine::AssetManager}!load\_input\_config@{load\_input\_config}}
+\index{load\_input\_config@{load\_input\_config}!Calgine::AssetManager@{Calgine::AssetManager}}
+\doxysubsubsection{\texorpdfstring{load\_input\_config()}{load\_input\_config()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{structCalgine_1_1ActionMap}{Action\+Map}} $>$ Calgine\+::\+Asset\+Manager\+::load\+\_\+input\+\_\+config (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path }\end{DoxyParamCaption})}
+
+Load input action maps from a TOML file 
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+path} & Path to the TOML config file (e.\+g., "{}assets/config/input.\+toml"{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Map of action map name to \doxylink{structCalgine_1_1ActionMap}{Action\+Map}
+\end{DoxyReturn}
+Example TOML format\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[Gameplay]}
+\DoxyCodeLine{Move\ =\ [}
+\DoxyCodeLine{\ \ \{\ type\ =\ \textcolor{stringliteral}{"{}keyboard"{}},\ input\ =\ \textcolor{stringliteral}{"{}W"{}},\ contribution\ =\ [0,\ 1]\ \},}
+\DoxyCodeLine{\ \ \{\ type\ =\ \textcolor{stringliteral}{"{}keyboard"{}},\ input\ =\ \textcolor{stringliteral}{"{}A"{}},\ contribution\ =\ [-\/1,\ 0]\ \},}
+\DoxyCodeLine{]}
+\DoxyCodeLine{Jump\ =\ [}
+\DoxyCodeLine{\ \ \{\ type\ =\ \textcolor{stringliteral}{"{}keyboard"{}},\ input\ =\ \textcolor{stringliteral}{"{}Space"{}},\ contribution\ =\ [\textcolor{keyword}{true}]\ \},}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+
+
+Supported input types\+: "{}keyboard"{}, "{}mouse\+\_\+button"{}, "{}mouse\+\_\+move"{}, "{}mouse\+\_\+wheel"{} Contribution array\+: \mbox{[}value\mbox{]} for button/axis, \mbox{[}x, y\mbox{]} for vec2, \mbox{[}x, y, z\mbox{]} for vec3 \Hypertarget{classCalgine_1_1AssetManager_a23a4fc867619f4c63a261ca5fa6a4242}\label{classCalgine_1_1AssetManager_a23a4fc867619f4c63a261ca5fa6a4242} 
 \index{Calgine::AssetManager@{Calgine::AssetManager}!load\_model@{load\_model}}
 \index{load\_model@{load\_model}!Calgine::AssetManager@{Calgine::AssetManager}}
 \doxysubsubsection{\texorpdfstring{load\_model()}{load\_model()}}

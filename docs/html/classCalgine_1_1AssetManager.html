@@ -107,6 +107,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a23a4fc867619f4c63a261ca5fa6a4242"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ab3feef9dad6065bd83f6a2313c43b2" id="r_a4ab3feef9dad6065bd83f6a2313c43b2"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classCalgine_1_1Shader.html">Shader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1AssetManager.html#a4ab3feef9dad6065bd83f6a2313c43b2">load_shader</a> (const std::string &amp;name, const std::string fragment_path, const std::string vertex_path)</td></tr>
 <tr class="separator:a4ab3feef9dad6065bd83f6a2313c43b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9caf53b52d33b59941e1a8c0ec189473" id="r_a9caf53b52d33b59941e1a8c0ec189473"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="structCalgine_1_1ActionMap.html">ActionMap</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1AssetManager.html#a9caf53b52d33b59941e1a8c0ec189473">load_input_config</a> (const std::string &amp;file_path)</td></tr>
+<tr class="separator:a9caf53b52d33b59941e1a8c0ec189473"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2cf758e7f7345c8857ce48e80a239ed" id="r_aa2cf758e7f7345c8857ce48e80a239ed"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::shared_ptr&lt; <a class="el" href="classCalgine_1_1Texture.html">Texture</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1AssetManager.html#aa2cf758e7f7345c8857ce48e80a239ed">get_texture</a> (const std::string &amp;name, const std::string else_file_path=&quot;&quot;)</td></tr>
 <tr class="separator:aa2cf758e7f7345c8857ce48e80a239ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2de653e3e428f8cd0268a52b48e16ae2" id="r_a2de653e3e428f8cd0268a52b48e16ae2"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::shared_ptr&lt; <a class="el" href="structCalgine_1_1Model.html">Model</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1AssetManager.html#a2de653e3e428f8cd0268a52b48e16ae2">get_model</a> (const std::string &amp;name, const std::string else_file_path=&quot;&quot;)</td></tr>
@@ -289,6 +291,40 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9caf53b52d33b59941e1a8c0ec189473" name="a9caf53b52d33b59941e1a8c0ec189473"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9caf53b52d33b59941e1a8c0ec189473">&#9670;&#160;</a></span>load_input_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt; std::string, <a class="el" href="structCalgine_1_1ActionMap.html">ActionMap</a> &gt; Calgine::AssetManager::load_input_config </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>file_path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load input action maps from a TOML file </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>Path to the TOML config file (e.g., "assets/config/input.toml") </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Map of action map name to <a class="el" href="structCalgine_1_1ActionMap.html">ActionMap</a></dd></dl>
+<p>Example TOML format: </p><div class="fragment"><div class="line">[Gameplay]</div>
+<div class="line">Move = [</div>
+<div class="line">  { type = <span class="stringliteral">&quot;keyboard&quot;</span>, input = <span class="stringliteral">&quot;W&quot;</span>, contribution = [0, 1] },</div>
+<div class="line">  { type = <span class="stringliteral">&quot;keyboard&quot;</span>, input = <span class="stringliteral">&quot;A&quot;</span>, contribution = [-1, 0] },</div>
+<div class="line">]</div>
+<div class="line">Jump = [</div>
+<div class="line">  { type = <span class="stringliteral">&quot;keyboard&quot;</span>, input = <span class="stringliteral">&quot;Space&quot;</span>, contribution = [<span class="keyword">true</span>] },</div>
+<div class="line">]</div>
+</div><!-- fragment --><p>Supported input types: "keyboard", "mouse_button", "mouse_move", "mouse_wheel" Contribution array: [value] for button/axis, [x, y] for vec2, [x, y, z] for vec3 </p>
 
 </div>
 </div>

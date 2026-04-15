@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['object_5fcb_0',['object_cb',['../structtinyobj_1_1callback__t__.html#ad91a780d704c9d7ed9f858f42f33c78d',1,'tinyobj::callback_t_']]],
-  ['on_5fdestroy_1',['on_destroy',['../classCalgine_1_1Behaviour.html#aab60143ff0527a6db745d286dec38fca',1,'Calgine::Behaviour']]],
-  ['operator_21_3d_2',['operator!=',['../classCalgine_1_1GameObject_1_1Iterator.html#a9aa2a5504363016061a52373239a47cb',1,'Calgine::GameObject::Iterator']]],
-  ['operator_28_29_3',['operator()',['../classtinyobj_1_1MaterialReader.html#ad165d8cc1bd989f8548a9258b0881a89',1,'tinyobj::MaterialReader::operator()()'],['../classtinyobj_1_1MaterialFileReader.html#a23fa55532224cbcc927233f4b57f53df',1,'tinyobj::MaterialFileReader::operator()()'],['../classtinyobj_1_1MaterialStreamReader.html#a38db9ec731ad3177efa704d7e60c82fd',1,'tinyobj::MaterialStreamReader::operator()()']]],
-  ['operator_2a_4',['operator*',['../classCalgine_1_1GameObject_1_1Iterator.html#a4be84b1be8b2f0eb7954b0c8a2d8bcce',1,'Calgine::GameObject::Iterator']]],
-  ['operator_2b_2b_5',['operator++',['../classCalgine_1_1GameObject_1_1Iterator.html#a05dc421016ef86d15b5f0875091b4870',1,'Calgine::GameObject::Iterator']]],
-  ['operator_2d_3e_6',['operator-&gt;',['../classCalgine_1_1GameObject_1_1Iterator.html#acea87bca74dcd4577dd8493b11a29ad7',1,'Calgine::GameObject::Iterator']]],
-  ['operator_3d_7',['operator=',['../classCalgine_1_1GameObject.html#a03121f27fb122fb29542ca8c78b40e30',1,'Calgine::GameObject::operator=()'],['../classCalgine_1_1WindowHandler.html#a3bf8daede725665edd93a223f9b5c441',1,'Calgine::WindowHandler::operator=()'],['../classCalgine_1_1Window.html#a0a7c057c1c00f1f1ec440d49344270b2',1,'Calgine::Window::operator=(Window &amp;&amp;) noexcept=delete'],['../classCalgine_1_1Window.html#ac0fc1be57972240421ecf8c460457251',1,'Calgine::Window::operator=(const Window &amp;)=delete'],['../classCalgine_1_1Mesh.html#a999050cfe054960c9e9f67856a74df64',1,'Calgine::Mesh::operator=()'],['../classCalgine_1_1Material.html#aa412ec4150c4e724c847c0d2037e2160',1,'Calgine::Material::operator=()'],['../classCalgine_1_1CameraManager.html#ac2c145c93c4939c9115de4e6a8b1c0e6',1,'Calgine::CameraManager::operator=()'],['../classCalgine_1_1ManagerHierarchy.html#a5b967e1070828e237d7b3de17ba86c28',1,'Calgine::ManagerHierarchy::operator=()'],['../classCalgine_1_1GameHierarchy.html#a95e29f8dee4d48f9439c50c88e6759af',1,'Calgine::GameHierarchy::operator=()'],['../classCalgine_1_1GameObject.html#ae60d4b1987fbd4ec0458a13719d1239e',1,'Calgine::GameObject::operator=()']]],
-  ['origin_5foffset_8',['origin_offset',['../structtinyobj_1_1texture__option__t.html#ab6a036a11f7b1317709a4d3e25495e07',1,'tinyobj::texture_option_t']]]
+  ['name_0',['name',['../structtinyobj_1_1material__t.html#a41fde82dd0ec383b1d4ee258c4e4a1b9',1,'tinyobj::material_t::name'],['../structtinyobj_1_1tag__t.html#a9b3650154d2fbd83dad945ebcf6bd448',1,'tinyobj::tag_t::name'],['../structtinyobj_1_1shape__t.html#a98650e2e66d00934f68de88eafb34630',1,'tinyobj::shape_t::name'],['../structCalgine_1_1InputAction.html#a8b23217cd6a8ae15e42228cb6cd6273c',1,'Calgine::InputAction::name'],['../structCalgine_1_1ActionMap.html#acd5e88b9973c421132b070ba8f7b305e',1,'Calgine::ActionMap::name']]],
+  ['near_5fplane_1',['near_plane',['../structCalgine_1_1CameraSettings.html#aa7e5b9d627cf1925af514f304a491dde',1,'Calgine::CameraSettings']]],
+  ['normal_2',['normal',['../structCalgine_1_1Vertex.html#a533da3bba658e2773443782195974710',1,'Calgine::Vertex']]],
+  ['normal_5fcb_3',['normal_cb',['../structtinyobj_1_1callback__t__.html#a0edd10bf4b39720520c8cfa24476ffe1',1,'tinyobj::callback_t_']]],
+  ['normal_5findex_4',['normal_index',['../structtinyobj_1_1index__t.html#acc544f8c9b23b5093d291dcf787a2d77',1,'tinyobj::index_t']]],
+  ['normal_5ftexname_5',['normal_texname',['../structtinyobj_1_1material__t.html#a7512ccf46044357bea1739d583871578',1,'tinyobj::material_t']]],
+  ['normal_5ftexopt_6',['normal_texopt',['../structtinyobj_1_1material__t.html#aa0087d1bfcaf0a195f8c244970c2ef4e',1,'tinyobj::material_t']]],
+  ['normals_7',['normals',['../structtinyobj_1_1attrib__t.html#ac647590e9a03bec3c6cee5c215781e12',1,'tinyobj::attrib_t']]],
+  ['num_5fface_5fvertices_8',['num_face_vertices',['../structtinyobj_1_1mesh__t.html#ae5f29bef4c1de10253020f9f7ab7374e',1,'tinyobj::mesh_t']]]
 ];

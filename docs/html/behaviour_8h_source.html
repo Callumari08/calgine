@@ -112,60 +112,57 @@ $(document).ready(function(){initNavTree('behaviour_8h_source.html',''); initRes
 <div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classCalgine_1_1Behaviour.html">   20</a></span><span class="keyword">class </span><a class="code hl_define" href="calgine__api_8h.html#a4e7aacb34d39acc08f8f3619a3b56395">CALGINE_API</a> <a class="code hl_class" href="classCalgine_1_1Behaviour.html">Behaviour</a></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="behaviour_8h.html#a0eabd5db583e036746080f1d4f74cc92">   22</a></span><span class="preprocessor">#define print(...) Log::get_app_logger()-&gt;info(__VA_ARGS__)</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="behaviour_8h.html#a6371f88db740fc56ed65103791e850de">   23</a></span><span class="preprocessor">#define print_warning(...) Log::get_app_logger()-&gt;warn(__VA_ARGS__)</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="behaviour_8h.html#a4b7221784007f247d98746f5857a8aad">   24</a></span><span class="preprocessor">#define print_error(...) Log::get_app_logger()-&gt;error(__VA_ARGS__)</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keyword">virtual</span> ~Behaviour();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  GameObject* get_game_object();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  Transform&amp; get_transform();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  GameObject* game_object;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keyword">requires</span> std::derived_from&lt;T, Behaviour&gt;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keyword">static</span> T* create(Args&amp;&amp;... args) </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">return</span> <span class="keyword">new</span> T(std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keyword">virtual</span> <a class="code hl_class" href="classCalgine_1_1Behaviour.html">~Behaviour</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* get_game_object();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <a class="code hl_class" href="classCalgine_1_1Transform.html">Transform</a>&amp; get_transform();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* game_object;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="keyword">requires</span> std::derived_from&lt;T, Behaviour&gt;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keyword">static</span> T* create(Args&amp;&amp;... args) </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">return</span> <span class="keyword">new</span> T(std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordtype">bool</span> attach_owner(<a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>* game_object);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classCalgine_1_1Behaviour.html#a00df87c957d8f7ee0fc51f07a0542f4a">   44</a></span>  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordtype">bool</span> attach_owner(GameObject* game_object);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classCalgine_1_1Behaviour.html#a00df87c957d8f7ee0fc51f07a0542f4a">   48</a></span>  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classCalgine_1_1GameObject.html">GameObject</a>;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classCalgine_1_1Behaviour.html#ad995ee4595a558fb17fc3aef161a4652">   51</a></span>  <a class="code hl_function" href="classCalgine_1_1Behaviour.html#ad995ee4595a558fb17fc3aef161a4652">Behaviour</a>() : game_object(nullptr) {}</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> preloop_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> start_tick();</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> fixed_update_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> update_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> late_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classCalgine_1_1Behaviour.html#ad995ee4595a558fb17fc3aef161a4652">   47</a></span>  <a class="code hl_function" href="classCalgine_1_1Behaviour.html#ad995ee4595a558fb17fc3aef161a4652">Behaviour</a>() : game_object(nullptr) {}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> preloop_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> start_tick();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> fixed_update_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> update_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> late_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> render_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> imgui_render_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> render_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> imgui_render_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> final_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> on_destroy();</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>};</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> final_tick(<a class="code hl_class" href="classCalgine_1_1EventContext.html">EventContext</a>&amp; event_context);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> on_destroy();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>};</div>
 </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>} <span class="comment">// namespace Calgine</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>} <span class="comment">// namespace Calgine</span></div>
 <div class="ttc" id="acalgine__api_8h_html"><div class="ttname"><a href="calgine__api_8h.html">calgine_api.h</a></div></div>
 <div class="ttc" id="acalgine__api_8h_html_a4e7aacb34d39acc08f8f3619a3b56395"><div class="ttname"><a href="calgine__api_8h.html#a4e7aacb34d39acc08f8f3619a3b56395">CALGINE_API</a></div><div class="ttdeci">#define CALGINE_API</div><div class="ttdef"><b>Definition</b> calgine_api.h:10</div></div>
 <div class="ttc" id="acalgine__pch_8h_html"><div class="ttname"><a href="calgine__pch_8h.html">calgine_pch.h</a></div></div>
 <div class="ttc" id="aclassCalgine_1_1Behaviour_html"><div class="ttname"><a href="classCalgine_1_1Behaviour.html">Calgine::Behaviour</a></div><div class="ttdoc">Gives access to tick updates for users.</div><div class="ttdef"><b>Definition</b> behaviour.h:21</div></div>
-<div class="ttc" id="aclassCalgine_1_1Behaviour_html_ad995ee4595a558fb17fc3aef161a4652"><div class="ttname"><a href="classCalgine_1_1Behaviour.html#ad995ee4595a558fb17fc3aef161a4652">Calgine::Behaviour::Behaviour</a></div><div class="ttdeci">Behaviour()</div><div class="ttdef"><b>Definition</b> behaviour.h:51</div></div>
-<div class="ttc" id="aclassCalgine_1_1EventContext_html"><div class="ttname"><a href="classCalgine_1_1EventContext.html">Calgine::EventContext</a></div><div class="ttdef"><b>Definition</b> event_context.h:18</div></div>
+<div class="ttc" id="aclassCalgine_1_1Behaviour_html_ad995ee4595a558fb17fc3aef161a4652"><div class="ttname"><a href="classCalgine_1_1Behaviour.html#ad995ee4595a558fb17fc3aef161a4652">Calgine::Behaviour::Behaviour</a></div><div class="ttdeci">Behaviour()</div><div class="ttdef"><b>Definition</b> behaviour.h:47</div></div>
+<div class="ttc" id="aclassCalgine_1_1EventContext_html"><div class="ttname"><a href="classCalgine_1_1EventContext.html">Calgine::EventContext</a></div><div class="ttdef"><b>Definition</b> event_context.h:13</div></div>
 <div class="ttc" id="aclassCalgine_1_1GameObject_html"><div class="ttname"><a href="classCalgine_1_1GameObject.html">Calgine::GameObject</a></div><div class="ttdoc">GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...</div><div class="ttdef"><b>Definition</b> game_object.h:20</div></div>
+<div class="ttc" id="aclassCalgine_1_1Transform_html"><div class="ttname"><a href="classCalgine_1_1Transform.html">Calgine::Transform</a></div><div class="ttdef"><b>Definition</b> transform.h:10</div></div>
 <div class="ttc" id="aevent__context_8h_html"><div class="ttname"><a href="event__context_8h.html">event_context.h</a></div></div>
 <div class="ttc" id="alog_8h_html"><div class="ttname"><a href="log_8h.html">log.h</a></div></div>
-<div class="ttc" id="anamespaceCalgine_html"><div class="ttname"><a href="namespaceCalgine.html">Calgine</a></div><div class="ttdef"><b>Definition</b> app.cxx:25</div></div>
+<div class="ttc" id="anamespaceCalgine_html"><div class="ttname"><a href="namespaceCalgine.html">Calgine</a></div><div class="ttdef"><b>Definition</b> app.cxx:29</div></div>
 <div class="ttc" id="atransform_8h_html"><div class="ttname"><a href="transform_8h.html">transform.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "Calgine::ActionMap", "structCalgine_1_1ActionMap.html", null ],
     [ "Calgine::App", "classCalgine_1_1App.html", null ],
     [ "Calgine::AppSettings", "structCalgine_1_1AppSettings.html", null ],
     [ "Calgine::AssetManager", "classCalgine_1_1AssetManager.html", null ],
@@ -8,6 +9,7 @@ var hierarchy =
     [ "Calgine::Behaviour", "classCalgine_1_1Behaviour.html", [
       [ "Calgine::CameraBehaviour", "classCalgine_1_1CameraBehaviour.html", null ],
       [ "Calgine::HierarchyRenderer", "classCalgine_1_1HierarchyRenderer.html", null ],
+      [ "Calgine::InputSystemBehaviour", "classCalgine_1_1InputSystemBehaviour.html", null ],
       [ "Calgine::MeshRenderer", "classCalgine_1_1MeshRenderer.html", null ]
     ] ],
     [ "tinyobj::callback_t_", "structtinyobj_1_1callback__t__.html", null ],
@@ -15,13 +17,19 @@ var hierarchy =
     [ "Calgine::CameraManager", "classCalgine_1_1CameraManager.html", null ],
     [ "Calgine::CameraSettings", "structCalgine_1_1CameraSettings.html", null ],
     [ "Calgine::EventContext", "classCalgine_1_1EventContext.html", null ],
-    [ "Calgine::EventData", "structCalgine_1_1EventData.html", null ],
+    [ "Calgine::EventData", "structCalgine_1_1EventData.html", [
+      [ "Calgine::InputActionEvent", "structCalgine_1_1InputActionEvent.html", null ],
+      [ "Calgine::RawInputEvent", "structCalgine_1_1RawInputEvent.html", null ]
+    ] ],
     [ "Calgine::GameHierarchy", "classCalgine_1_1GameHierarchy.html", null ],
     [ "Calgine::GameObject", "classCalgine_1_1GameObject.html", [
       [ "Calgine::RootGameObject", "classCalgine_1_1RootGameObject.html", null ]
     ] ],
     [ "tinyobj::index_t", "structtinyobj_1_1index__t.html", null ],
     [ "Calgine::IndexBuffer", "classCalgine_1_1IndexBuffer.html", null ],
+    [ "Calgine::InputAction", "structCalgine_1_1InputAction.html", null ],
+    [ "Calgine::InputButton", "unionCalgine_1_1InputButton.html", null ],
+    [ "Calgine::InputMapping", "structCalgine_1_1InputMapping.html", null ],
     [ "Calgine::GameObject::Iterator", "classCalgine_1_1GameObject_1_1Iterator.html", null ],
     [ "Calgine::Log", "classCalgine_1_1Log.html", null ],
     [ "Calgine::ManagerHierarchy", "classCalgine_1_1ManagerHierarchy.html", null ],
@@ -35,6 +43,12 @@ var hierarchy =
     [ "Calgine::Mesh", "classCalgine_1_1Mesh.html", null ],
     [ "tinyobj::mesh_t", "structtinyobj_1_1mesh__t.html", null ],
     [ "Calgine::Model", "structCalgine_1_1Model.html", null ],
+    [ "Calgine::RawInputData", "structCalgine_1_1RawInputData.html", [
+      [ "Calgine::RawKeyboardData", "structCalgine_1_1RawKeyboardData.html", null ],
+      [ "Calgine::RawMouseButtonData", "structCalgine_1_1RawMouseButtonData.html", null ],
+      [ "Calgine::RawMouseMoveData", "structCalgine_1_1RawMouseMoveData.html", null ],
+      [ "Calgine::RawMouseWheelData", "structCalgine_1_1RawMouseWheelData.html", null ]
+    ] ],
     [ "Calgine::Renderer", "classCalgine_1_1Renderer.html", null ],
     [ "Calgine::RenderTexture", "classCalgine_1_1RenderTexture.html", null ],
     [ "Calgine::Shader", "classCalgine_1_1Shader.html", null ],

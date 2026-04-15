@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['late_5fupdate_0',['late_update',['../tick__type_8h.html#a3cb3eb561b28e53015cc80d718173035',1,'tick_type.h']]]
+  ['keyboard_0',['keyboard',['../raw__input_8h.html#a9976f3faad68f981f425583e48b03252',1,'raw_input.h']]],
+  ['keycode_1',['keycode',['../structCalgine_1_1RawKeyboardData.html#a004e0037e7f0dd465edfce3d66b987cb',1,'Calgine::RawKeyboardData']]]
 ];

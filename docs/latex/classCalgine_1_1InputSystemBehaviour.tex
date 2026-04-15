@@ -1,0 +1,100 @@
+\doxysection{Calgine\+::Input\+System\+Behaviour Class Reference}
+\hypertarget{classCalgine_1_1InputSystemBehaviour}{}\label{classCalgine_1_1InputSystemBehaviour}\index{Calgine::InputSystemBehaviour@{Calgine::InputSystemBehaviour}}
+
+
+{\ttfamily \#include $<$input\+\_\+system.\+h$>$}
+
+Inheritance diagram for Calgine\+::Input\+System\+Behaviour\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCalgine_1_1InputSystemBehaviour}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour_aafad848b8d88945abba33237323c9224}{Input\+System\+Behaviour}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classCalgine_1_1Behaviour_a5f9a4ac36b5e9a7303c0708c9c9ca435}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
+\item 
+\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\+\_\+game\+\_\+object}} ()
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} that this behaviour is attached to. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \& \mbox{\hyperlink{classCalgine_1_1Behaviour_aec1c964df62ee9bf87b1c05ed630a4be}{get\+\_\+transform}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{Input\+System\+Behaviour}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour_a6cb58b44fa0e0c7352f3f4495877f3e3}{get\+\_\+instance}} ()
+\item 
+static void \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour_afad47ee4de15a022366c20a7d4b61628}{set\+\_\+action\+\_\+maps}} (std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{structCalgine_1_1ActionMap}{Action\+Map}} $>$ \&map, std\+::string active\+\_\+map="{}"{})
+\item 
+static void \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour_aed796bb6ea14989daba45eca2d01b380}{submit\+\_\+action\+\_\+map}} (const std\+::string name, const \mbox{\hyperlink{structCalgine_1_1ActionMap}{Action\+Map}} action\+\_\+map, const bool \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour_a3bef70c78bc3672aee3fd8cb30c46b2e}{set\+\_\+active\+\_\+action\+\_\+map}}=false)
+\item 
+static void \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour_a3bef70c78bc3672aee3fd8cb30c46b2e}{set\+\_\+active\+\_\+action\+\_\+map}} (const std\+::string action\+\_\+map\+\_\+name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}} ()
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_afc52ca163104ff8061ecaa31aa083756}{preloop\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\begin{DoxyCompactList}\small\item\em Gets called before the main loop (see \doxylink{classCalgine_1_1App}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}{start\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Gets called when this gameobject is instantitated. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aa20a9f9fea54e6dd8d64ad331da13734}{fixed\+\_\+update\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ab92f603c2bc2cbfdd9fbfaa9fdc404ce}{late\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\begin{DoxyCompactList}\small\item\em Gets called every frame, after \doxylink{tick__type_8h_a1586ef54a6e26a57539d06db6e6c78b5}{update()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a817b9c70c4b585bc908668522dec44dd}{render\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a061fd29a42a54921325daac824784a36}{imgui\+\_\+render\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ad39918d214247d73bb93ee2241d44452}{final\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\begin{DoxyCompactList}\small\item\em Gets called last before the next frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalgine_1_1InputSystemBehaviour_aafad848b8d88945abba33237323c9224}\label{classCalgine_1_1InputSystemBehaviour_aafad848b8d88945abba33237323c9224} 
+\index{Calgine::InputSystemBehaviour@{Calgine::InputSystemBehaviour}!InputSystemBehaviour@{InputSystemBehaviour}}
+\index{InputSystemBehaviour@{InputSystemBehaviour}!Calgine::InputSystemBehaviour@{Calgine::InputSystemBehaviour}}
+\doxysubsubsection{\texorpdfstring{InputSystemBehaviour()}{InputSystemBehaviour()}}
+{\footnotesize\ttfamily Calgine\+::\+Input\+System\+Behaviour\+::\+Input\+System\+Behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1InputSystemBehaviour_a6cb58b44fa0e0c7352f3f4495877f3e3}\label{classCalgine_1_1InputSystemBehaviour_a6cb58b44fa0e0c7352f3f4495877f3e3} 
+\index{Calgine::InputSystemBehaviour@{Calgine::InputSystemBehaviour}!get\_instance@{get\_instance}}
+\index{get\_instance@{get\_instance}!Calgine::InputSystemBehaviour@{Calgine::InputSystemBehaviour}}
+\doxysubsubsection{\texorpdfstring{get\_instance()}{get\_instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{Input\+System\+Behaviour}} \texorpdfstring{$\ast$}{*} Calgine\+::\+Input\+System\+Behaviour\+::get\+\_\+instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classCalgine_1_1InputSystemBehaviour_afad47ee4de15a022366c20a7d4b61628}\label{classCalgine_1_1InputSystemBehaviour_afad47ee4de15a022366c20a7d4b61628} 
+\index{Calgine::InputSystemBehaviour@{Calgine::InputSystemBehaviour}!set\_action\_maps@{set\_action\_maps}}
+\index{set\_action\_maps@{set\_action\_maps}!Calgine::InputSystemBehaviour@{Calgine::InputSystemBehaviour}}
+\doxysubsubsection{\texorpdfstring{set\_action\_maps()}{set\_action\_maps()}}
+{\footnotesize\ttfamily static void Calgine\+::\+Input\+System\+Behaviour\+::set\+\_\+action\+\_\+maps (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{structCalgine_1_1ActionMap}{Action\+Map}} $>$ \&}]{map,  }\item[{std\+::string}]{active\+\_\+map = {\ttfamily "{}"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{classCalgine_1_1InputSystemBehaviour_a3bef70c78bc3672aee3fd8cb30c46b2e}\label{classCalgine_1_1InputSystemBehaviour_a3bef70c78bc3672aee3fd8cb30c46b2e} 
+\index{Calgine::InputSystemBehaviour@{Calgine::InputSystemBehaviour}!set\_active\_action\_map@{set\_active\_action\_map}}
+\index{set\_active\_action\_map@{set\_active\_action\_map}!Calgine::InputSystemBehaviour@{Calgine::InputSystemBehaviour}}
+\doxysubsubsection{\texorpdfstring{set\_active\_action\_map()}{set\_active\_action\_map()}}
+{\footnotesize\ttfamily void Calgine\+::\+Input\+System\+Behaviour\+::set\+\_\+active\+\_\+action\+\_\+map (\begin{DoxyParamCaption}\item[{const std\+::string}]{action\+\_\+map\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classCalgine_1_1InputSystemBehaviour_aed796bb6ea14989daba45eca2d01b380}\label{classCalgine_1_1InputSystemBehaviour_aed796bb6ea14989daba45eca2d01b380} 
+\index{Calgine::InputSystemBehaviour@{Calgine::InputSystemBehaviour}!submit\_action\_map@{submit\_action\_map}}
+\index{submit\_action\_map@{submit\_action\_map}!Calgine::InputSystemBehaviour@{Calgine::InputSystemBehaviour}}
+\doxysubsubsection{\texorpdfstring{submit\_action\_map()}{submit\_action\_map()}}
+{\footnotesize\ttfamily void Calgine\+::\+Input\+System\+Behaviour\+::submit\+\_\+action\+\_\+map (\begin{DoxyParamCaption}\item[{const std\+::string}]{name,  }\item[{const \mbox{\hyperlink{structCalgine_1_1ActionMap}{Action\+Map}}}]{action\+\_\+map,  }\item[{const bool}]{set\+\_\+active\+\_\+action\+\_\+map = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/input/\mbox{\hyperlink{input__system_8h}{input\+\_\+system.\+h}}\item 
+src/calgine/core/input/\mbox{\hyperlink{input__system_8cxx}{input\+\_\+system.\+cxx}}\end{DoxyCompactItemize}
