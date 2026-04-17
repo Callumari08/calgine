@@ -14,7 +14,7 @@
 \DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer}{HierarchyRenderer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}}
 \DoxyCodeLine{00011\ \{}
 \DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer_ae86dec02887ac7636c76bf9bcc5d464d}{HierarchyRenderer}}(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ hierarchy\_to\_render)\ :\ hierarchy(hierarchy\_to\_render)\ \{\}}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer_aa0230b5747feae4ece8a648277589603}{HierarchyRenderer}}(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ hierarchy\_to\_render,\ std::string\ window\_title)\ :\ hierarchy(hierarchy\_to\_render),\ title(window\_title)\ \{\}}
 \DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{void}\ imgui\_render\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00015\ \ \ }
 \DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer_a502efa37962493fcdac8580ca0404c0f}{get\_selected}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ selected;\ \}}
@@ -25,11 +25,12 @@
 \DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{bool}\ start\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ selected\ =\ \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ hierarchy;}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ render\_tree\_node(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ go,\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ parent);}
-\DoxyCodeLine{00027\ \};}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \}}
+\DoxyCodeLine{00024\ \ \ std::string\ title;}
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ hierarchy;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ render\_tree\_node(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ go,\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ parent);}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \}}
 
 \end{DoxyCode}
