@@ -15,6 +15,8 @@ public:
   void bind(uint32_t slot = 0) const;
   void unbind() const;
 
+  uint32_t get_renderer_id() const { return renderer_id; }
+
 private:
   uint32_t renderer_id = 0;
   std::shared_ptr<Texture> texture_ptr;

@@ -20,7 +20,7 @@ struct CameraSettings
 class CALGINE_API CameraBehaviour : public Behaviour
 {
 public:
-  CameraBehaviour();
+  CameraBehaviour(bool show_debug = false);
   
   inline bool is_active() const { return camera_active; }
 
@@ -33,6 +33,7 @@ private:
   Camera camera;
   CameraSettings settings;
   bool camera_active = false;
+  bool debug = false;
 
   void set_camera_active(bool active_state) { camera_active = active_state; }
 

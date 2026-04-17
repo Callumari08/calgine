@@ -6,7 +6,7 @@
 
 namespace Calgine {
 
-CameraBehaviour::CameraBehaviour() : camera(65.0f, 16.0f / 9.0f, 0.1f, 1000.0f) {}
+CameraBehaviour::CameraBehaviour(bool show_debug) : camera(65.0f, 16.0f / 9.0f, 0.1f, 1000.0f), debug(show_debug) {}
 
 void CameraBehaviour::start_tick()
 {
@@ -28,6 +28,9 @@ void CameraBehaviour::apply_settings(const CameraSettings applied_settings)
 
 void CameraBehaviour::imgui_render_tick(EventContext&)
 {
+  if (!debug)
+    return;
+  
   ImGui::Begin("Camera Settings");
 
   ImGui::DragFloat3("Position", &get_transform().position.x, 0.1f);

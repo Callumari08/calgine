@@ -30,6 +30,8 @@ public:
   Transform& get_transform();
 
 private:
+  GameObject* game_object;
+
   template<typename... Args>
   inline void print(Args&&... args)
   {
@@ -47,8 +49,6 @@ private:
   {
     Log::get_app_logger()->error(std::forward<Args>(args)...);
   }
-
-  GameObject* game_object;
 
   template<typename T, typename... Args>
   requires std::derived_from<T, Behaviour>
