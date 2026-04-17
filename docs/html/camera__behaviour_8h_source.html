@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('camera__behaviour_8h_source.html','');
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classCalgine_1_1CameraBehaviour.html">   20</a></span><span class="keyword">class </span><a class="code hl_define" href="calgine__api_8h.html#a4e7aacb34d39acc08f8f3619a3b56395">CALGINE_API</a> <a class="code hl_class" href="classCalgine_1_1CameraBehaviour.html">CameraBehaviour</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCalgine_1_1Behaviour.html">Behaviour</a></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <a class="code hl_class" href="classCalgine_1_1CameraBehaviour.html">CameraBehaviour</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <a class="code hl_class" href="classCalgine_1_1CameraBehaviour.html">CameraBehaviour</a>(<span class="keywordtype">bool</span> show_debug = <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classCalgine_1_1CameraBehaviour.html#ae780327e5051f09528446b73831db86e">   25</a></span>  <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classCalgine_1_1CameraBehaviour.html#ae780327e5051f09528446b73831db86e">is_active</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> camera_active; }</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
@@ -135,19 +135,20 @@ $(document).ready(function(){initNavTree('camera__behaviour_8h_source.html','');
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <a class="code hl_class" href="classCalgine_1_1Camera.html">Camera</a> camera;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <a class="code hl_struct" href="structCalgine_1_1CameraSettings.html">CameraSettings</a> settings;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keywordtype">bool</span> camera_active = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keywordtype">void</span> set_camera_active(<span class="keywordtype">bool</span> active_state) { camera_active = active_state; }</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keywordtype">void</span> start_tick() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordtype">void</span> late_tick(EventContext&amp;) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordtype">void</span> imgui_render_tick(EventContext&amp;) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classCalgine_1_1CameraBehaviour.html#afae5bf9a900e8c5bc70c9332785e8465">   44</a></span>  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classCalgine_1_1CameraManager.html">CameraManager</a>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="keywordtype">bool</span> debug = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keywordtype">void</span> set_camera_active(<span class="keywordtype">bool</span> active_state) { camera_active = active_state; }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordtype">void</span> start_tick() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keywordtype">void</span> late_tick(EventContext&amp;) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="keywordtype">void</span> imgui_render_tick(EventContext&amp;) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classCalgine_1_1CameraBehaviour.html#afae5bf9a900e8c5bc70c9332785e8465">   45</a></span>  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classCalgine_1_1CameraManager.html">CameraManager</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
 </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
 <div class="ttc" id="abehaviour_8h_html"><div class="ttname"><a href="behaviour_8h.html">behaviour.h</a></div></div>
 <div class="ttc" id="acalgine__api_8h_html"><div class="ttname"><a href="calgine__api_8h.html">calgine_api.h</a></div></div>
 <div class="ttc" id="acalgine__api_8h_html_a4e7aacb34d39acc08f8f3619a3b56395"><div class="ttname"><a href="calgine__api_8h.html#a4e7aacb34d39acc08f8f3619a3b56395">CALGINE_API</a></div><div class="ttdeci">#define CALGINE_API</div><div class="ttdef"><b>Definition</b> calgine_api.h:10</div></div>

@@ -24,7 +24,7 @@
 \DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{CameraBehaviour}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}}
 \DoxyCodeLine{00021\ \{}
 \DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{CameraBehaviour}}();}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{CameraBehaviour}}(\textcolor{keywordtype}{bool}\ show\_debug\ =\ \textcolor{keyword}{false});}
 \DoxyCodeLine{00024\ \ \ }
 \DoxyCodeLine{00025\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1CameraBehaviour_ae780327e5051f09528446b73831db86e}{is\_active}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ camera\_active;\ \}}
 \DoxyCodeLine{00026\ }
@@ -37,17 +37,18 @@
 \DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classCalgine_1_1Camera}{Camera}}\ camera;}
 \DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{structCalgine_1_1CameraSettings}{CameraSettings}}\ settings;}
 \DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{bool}\ camera\_active\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ set\_camera\_active(\textcolor{keywordtype}{bool}\ active\_state)\ \{\ camera\_active\ =\ active\_state;\ \}}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{void}\ start\_tick()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ late\_tick(EventContext\&)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ imgui\_render\_tick(EventContext\&)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1CameraManager}{CameraManager}};}
-\DoxyCodeLine{00045\ \};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{bool}\ debug\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ set\_camera\_active(\textcolor{keywordtype}{bool}\ active\_state)\ \{\ camera\_active\ =\ active\_state;\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ start\_tick()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ late\_tick(EventContext\&)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ imgui\_render\_tick(EventContext\&)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1CameraManager}{CameraManager}};}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \}}
 
 \end{DoxyCode}

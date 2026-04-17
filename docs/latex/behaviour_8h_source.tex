@@ -22,25 +22,25 @@
 \DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\&\ get\_transform();}
 \DoxyCodeLine{00031\ }
 \DoxyCodeLine{00032\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ print(Args\&\&...\ args)}
-\DoxyCodeLine{00035\ \ \ \{}
-\DoxyCodeLine{00036\ \ \ \ \ Log::get\_app\_logger()-\/>info(std::forward<Args>(args)...);}
-\DoxyCodeLine{00037\ \ \ \}}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ print\_warn(Args\&\&...\ args)}
-\DoxyCodeLine{00041\ \ \ \{}
-\DoxyCodeLine{00042\ \ \ \ \ Log::get\_app\_logger()-\/>warn(std::forward<Args>(args)...);}
-\DoxyCodeLine{00043\ \ \ \}}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ print\_error(Args\&\&...\ args)}
-\DoxyCodeLine{00047\ \ \ \{}
-\DoxyCodeLine{00048\ \ \ \ \ Log::get\_app\_logger()-\/>error(std::forward<Args>(args)...);}
-\DoxyCodeLine{00049\ \ \ \}}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ game\_object;}
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ game\_object;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ print(Args\&\&...\ args)}
+\DoxyCodeLine{00037\ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ Log::get\_app\_logger()-\/>info(std::forward<Args>(args)...);}
+\DoxyCodeLine{00039\ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ print\_warn(Args\&\&...\ args)}
+\DoxyCodeLine{00043\ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ Log::get\_app\_logger()-\/>warn(std::forward<Args>(args)...);}
+\DoxyCodeLine{00045\ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ print\_error(Args\&\&...\ args)}
+\DoxyCodeLine{00049\ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ Log::get\_app\_logger()-\/>error(std::forward<Args>(args)...);}
+\DoxyCodeLine{00051\ \ \ \}}
 \DoxyCodeLine{00052\ }
 \DoxyCodeLine{00053\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Args>}
 \DoxyCodeLine{00054\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T,\ Behaviour>}
