@@ -10,7 +10,7 @@ namespace Calgine {
 class CALGINE_API HierarchyRenderer : public Behaviour
 {
 public:
-  HierarchyRenderer(GameObject& hierarchy_to_render) : hierarchy(hierarchy_to_render) {}
+  HierarchyRenderer(GameObject& hierarchy_to_render, std::string window_title) : hierarchy(hierarchy_to_render), title(window_title) {}
   void imgui_render_tick(EventContext&) override;
   
   GameObject* get_selected() const { return selected; }
@@ -21,6 +21,7 @@ private:
   bool start = true;
   GameObject* selected = nullptr;
 
+  std::string title;
   GameObject& hierarchy;
 
   void render_tree_node(GameObject& go, GameObject* parent);

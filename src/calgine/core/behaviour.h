@@ -4,6 +4,7 @@
 #include "calgine/core/event_context.h"
 #include "calgine_pch.h"
 #include "calgine_api.h"
+#include "log.h"
 
 namespace Calgine {
 
@@ -29,6 +30,24 @@ public:
   Transform& get_transform();
 
 private:
+  template<typename... Args>
+  inline void print(Args&&... args)
+  {
+    Log::get_app_logger()->info(std::forward<Args>(args)...);
+  }
+
+  template<typename... Args>
+  inline void print_warn(Args&&... args)
+  {
+    Log::get_app_logger()->warn(std::forward<Args>(args)...);
+  }
+
+  template<typename... Args>
+  inline void print_error(Args&&... args)
+  {
+    Log::get_app_logger()->error(std::forward<Args>(args)...);
+  }
+
   GameObject* game_object;
 
   template<typename T, typename... Args>

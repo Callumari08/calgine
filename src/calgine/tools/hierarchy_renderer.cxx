@@ -63,7 +63,7 @@ void HierarchyRenderer::imgui_render_tick(EventContext&)
 
     start = false;
   }
-  ImGui::Begin("Game Hierarchy", &window_active);
+  ImGui::Begin(title.c_str(), &window_active);
   
   ImGui::BeginChild("Scrolling");
   GameObject& root = GameHierarchy::get_instance().get_hierarchy_root();
