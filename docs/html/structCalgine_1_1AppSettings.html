@@ -115,6 +115,15 @@ Public Attributes</h2></td></tr>
 <tr class="separator:af6ee2874f76b76b0b5b95dcbc9319d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9778bcc72d8abeb3eb3bebe7d45782ae" id="r_a9778bcc72d8abeb3eb3bebe7d45782ae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1AppSettings.html#a9778bcc72d8abeb3eb3bebe7d45782ae">enable_imgui_viewport</a> = true</td></tr>
 <tr class="separator:a9778bcc72d8abeb3eb3bebe7d45782ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93f4fde3e5f552ba77935227a5b51247" id="r_a93f4fde3e5f552ba77935227a5b51247"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1AppSettings.html#a93f4fde3e5f552ba77935227a5b51247">framebuffer_width</a> = 1920</td></tr>
+<tr class="memdesc:a93f4fde3e5f552ba77935227a5b51247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Width of the internal framebuffer used for rendering. Defaults to 1920.  <br /></td></tr>
+<tr class="separator:a93f4fde3e5f552ba77935227a5b51247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ce2ae90de3ba65793ec8240ac9849c7" id="r_a5ce2ae90de3ba65793ec8240ac9849c7"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1AppSettings.html#a5ce2ae90de3ba65793ec8240ac9849c7">framebuffer_height</a> = 1080</td></tr>
+<tr class="memdesc:a5ce2ae90de3ba65793ec8240ac9849c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Height of the internal framebuffer used for rendering. Defaults to 1080.  <br /></td></tr>
+<tr class="separator:a5ce2ae90de3ba65793ec8240ac9849c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934eb71fcaf71fc90dcdc34afc2c601b" id="r_a934eb71fcaf71fc90dcdc34afc2c601b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1AppSettings.html#a934eb71fcaf71fc90dcdc34afc2c601b">render_framebuffer_to_screen</a> = true</td></tr>
+<tr class="memdesc:a934eb71fcaf71fc90dcdc34afc2c601b"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true, the internal framebuffer is rendered to the window. If false, only available as a texture.  <br /></td></tr>
+<tr class="separator:a934eb71fcaf71fc90dcdc34afc2c601b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Configuration settings for a <a class="el" href="namespaceCalgine.html">Calgine</a> application. </p>
@@ -180,6 +189,38 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a5ce2ae90de3ba65793ec8240ac9849c7" name="a5ce2ae90de3ba65793ec8240ac9849c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ce2ae90de3ba65793ec8240ac9849c7">&#9670;&#160;</a></span>framebuffer_height</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Calgine::AppSettings::framebuffer_height = 1080</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Height of the internal framebuffer used for rendering. Defaults to 1080. </p>
+
+</div>
+</div>
+<a id="a93f4fde3e5f552ba77935227a5b51247" name="a93f4fde3e5f552ba77935227a5b51247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93f4fde3e5f552ba77935227a5b51247">&#9670;&#160;</a></span>framebuffer_width</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Calgine::AppSettings::framebuffer_width = 1920</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Width of the internal framebuffer used for rendering. Defaults to 1920. </p>
+
+</div>
+</div>
 <a id="a9a400188cc53d6a4a7a3c12c47c9fc56" name="a9a400188cc53d6a4a7a3c12c47c9fc56"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a400188cc53d6a4a7a3c12c47c9fc56">&#9670;&#160;</a></span>imgui_context</h2>
 
@@ -191,6 +232,22 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a934eb71fcaf71fc90dcdc34afc2c601b" name="a934eb71fcaf71fc90dcdc34afc2c601b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a934eb71fcaf71fc90dcdc34afc2c601b">&#9670;&#160;</a></span>render_framebuffer_to_screen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Calgine::AppSettings::render_framebuffer_to_screen = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If true, the internal framebuffer is rendered to the window. If false, only available as a texture. </p>
 
 </div>
 </div>

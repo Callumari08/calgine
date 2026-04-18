@@ -21,11 +21,15 @@ void \mbox{\hyperlink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{sta
 void \mbox{\hyperlink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\+\_\+init}} ()
 \begin{DoxyCompactList}\small\item\em Initializes all required systems (SDL3, Open\+GL, logging). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\+\_\+loop}} ()
-\begin{DoxyCompactList}\small\item\em Runs the main application loop until all windows are closed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Runs the main application loop until all windows are closed. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1FrameBuffer}{Frame\+Buffer}} $>$ \mbox{\hyperlink{classCalgine_1_1App_afd9cd8b00a95517d71d60d897172f4c1}{get\+\_\+framebuffer}} () const
+\begin{DoxyCompactList}\small\item\em Gets the internal framebuffer used for rendering. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1App_a40a42525c3681f2ac4200664b5ff1f8b}{resize\+\_\+framebuffer}} (uint32\+\_\+t width, uint32\+\_\+t height)
+\begin{DoxyCompactList}\small\item\em Resizes the internal framebuffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{classCalgine_1_1App}{App}} \& \mbox{\hyperlink{classCalgine_1_1App_ac3798f969c73836a9c51dea952a51db2}{get\+\_\+instance}} ()
+static \mbox{\hyperlink{classCalgine_1_1App}{App}} \& \mbox{\hyperlink{classCalgine_1_1App_a22fbc2dce9bc3120e8b409eaefe5084d}{get\+\_\+instance}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -130,11 +134,24 @@ Hierarchy for accessing the root \doxylink{classCalgine_1_1GameObject}{Game\+Obj
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classCalgine_1_1App_ac3798f969c73836a9c51dea952a51db2}\label{classCalgine_1_1App_ac3798f969c73836a9c51dea952a51db2} 
+\Hypertarget{classCalgine_1_1App_afd9cd8b00a95517d71d60d897172f4c1}\label{classCalgine_1_1App_afd9cd8b00a95517d71d60d897172f4c1} 
+\index{Calgine::App@{Calgine::App}!get\_framebuffer@{get\_framebuffer}}
+\index{get\_framebuffer@{get\_framebuffer}!Calgine::App@{Calgine::App}}
+\doxysubsubsection{\texorpdfstring{get\_framebuffer()}{get\_framebuffer()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1FrameBuffer}{Frame\+Buffer}} $>$ Calgine\+::\+App\+::get\+\_\+framebuffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the internal framebuffer used for rendering. 
+
+\begin{DoxyReturn}{Returns}
+The \doxylink{classCalgine_1_1FrameBuffer}{Frame\+Buffer} instance containing the rendered scene 
+\end{DoxyReturn}
+\Hypertarget{classCalgine_1_1App_a22fbc2dce9bc3120e8b409eaefe5084d}\label{classCalgine_1_1App_a22fbc2dce9bc3120e8b409eaefe5084d} 
 \index{Calgine::App@{Calgine::App}!get\_instance@{get\_instance}}
 \index{get\_instance@{get\_instance}!Calgine::App@{Calgine::App}}
 \doxysubsubsection{\texorpdfstring{get\_instance()}{get\_instance()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{classCalgine_1_1App}{App}} \& Calgine\+::\+App\+::get\+\_\+instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1App}{App}} \& Calgine\+::\+App\+::get\+\_\+instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 \Hypertarget{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}\label{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7} 
 \index{Calgine::App@{Calgine::App}!main\_loop@{main\_loop}}
@@ -161,6 +178,23 @@ The loop continues until either SDL\+\_\+\+EVENT\+\_\+\+QUIT is received or all 
 \begin{DoxySeeAlso}{See also}
 Game\+Object\+::tick\+\_\+self\+\_\+and\+\_\+children() for how tick methods are propagated through the hierarchy 
 \end{DoxySeeAlso}
+\Hypertarget{classCalgine_1_1App_a40a42525c3681f2ac4200664b5ff1f8b}\label{classCalgine_1_1App_a40a42525c3681f2ac4200664b5ff1f8b} 
+\index{Calgine::App@{Calgine::App}!resize\_framebuffer@{resize\_framebuffer}}
+\index{resize\_framebuffer@{resize\_framebuffer}!Calgine::App@{Calgine::App}}
+\doxysubsubsection{\texorpdfstring{resize\_framebuffer()}{resize\_framebuffer()}}
+{\footnotesize\ttfamily void Calgine\+::\+App\+::resize\+\_\+framebuffer (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height }\end{DoxyParamCaption})}
+
+
+
+Resizes the internal framebuffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & New framebuffer width \\
+\hline
+{\em height} & New framebuffer height \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}\label{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf} 
 \index{Calgine::App@{Calgine::App}!start\_systems@{start\_systems}}
 \index{start\_systems@{start\_systems}!Calgine::App@{Calgine::App}}

@@ -14,6 +14,7 @@ var annotated_dup =
       [ "EventContext", "classCalgine_1_1EventContext.html", "classCalgine_1_1EventContext" ],
       [ "EventData", "structCalgine_1_1EventData.html", "structCalgine_1_1EventData" ],
       [ "FpsDisplay", "classCalgine_1_1FpsDisplay.html", "classCalgine_1_1FpsDisplay" ],
+      [ "FrameBuffer", "classCalgine_1_1FrameBuffer.html", "classCalgine_1_1FrameBuffer" ],
       [ "GameHierarchy", "classCalgine_1_1GameHierarchy.html", "classCalgine_1_1GameHierarchy" ],
       [ "GameObject", "classCalgine_1_1GameObject.html", "classCalgine_1_1GameObject" ],
       [ "HierarchyRenderer", "classCalgine_1_1HierarchyRenderer.html", "classCalgine_1_1HierarchyRenderer" ],

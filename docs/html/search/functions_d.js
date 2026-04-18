@@ -10,5 +10,6 @@ var searchData=
   ['render_5ftick_7',['render_tick',['../classCalgine_1_1Behaviour.html#a817b9c70c4b585bc908668522dec44dd',1,'Calgine::Behaviour']]],
   ['rendertexture_8',['RenderTexture',['../classCalgine_1_1RenderTexture.html#a34c4898ae7d657da14349f5e642b23ce',1,'Calgine::RenderTexture']]],
   ['request_5fclose_9',['request_close',['../classCalgine_1_1Window.html#ab526e6c21c5ad965acf3f370413972ac',1,'Calgine::Window']]],
-  ['rootgameobject_10',['RootGameObject',['../classCalgine_1_1RootGameObject.html#ae5bf15f4b36327321f3a9ebc9545c40a',1,'Calgine::RootGameObject']]]
+  ['resize_5fframebuffer_10',['resize_framebuffer',['../classCalgine_1_1App.html#a40a42525c3681f2ac4200664b5ff1f8b',1,'Calgine::App']]],
+  ['rootgameobject_11',['RootGameObject',['../classCalgine_1_1RootGameObject.html#ae5bf15f4b36327321f3a9ebc9545c40a',1,'Calgine::RootGameObject']]]
 ];

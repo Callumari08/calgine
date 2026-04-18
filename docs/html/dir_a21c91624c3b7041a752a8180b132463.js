@@ -2,6 +2,8 @@ var dir_a21c91624c3b7041a752a8180b132463 =
 [
     [ "buffers", "dir_560964ff764ffc0df01a03b838650054.html", "dir_560964ff764ffc0df01a03b838650054" ],
     [ "camera", "dir_e472b4ca6542d9d7120ebe35b7bb1777.html", "dir_e472b4ca6542d9d7120ebe35b7bb1777" ],
+    [ "frame_buffer.cxx", "frame__buffer_8cxx.html", null ],
+    [ "frame_buffer.h", "frame__buffer_8h.html", "frame__buffer_8h" ],
     [ "material.cxx", "material_8cxx.html", null ],
     [ "material.h", "material_8h.html", "material_8h" ],
     [ "mesh.cxx", "mesh_8cxx.html", null ],
