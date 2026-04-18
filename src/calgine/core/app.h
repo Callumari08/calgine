@@ -3,6 +3,7 @@
 #include "calgine/core/event_context.h"
 #include "calgine/core/game_object.h"
 #include "calgine/core/window/window.h"
+#include "calgine/core/renderer/frame_buffer.h"
 #include "calgine_pch.h"
 #include "calgine_api.h"
 #include "imgui.h"
@@ -29,6 +30,15 @@ struct AppSettings
   bool enable_imgui_docking = true;
 
   bool enable_imgui_viewport = true;
+
+  /** @brief Width of the internal framebuffer used for rendering. Defaults to 1920. */
+  uint32_t framebuffer_width = 1920;
+
+  /** @brief Height of the internal framebuffer used for rendering. Defaults to 1080. */
+  uint32_t framebuffer_height = 1080;
+
+  /** @brief If true, the internal framebuffer is rendered to the window. If false, only available as a texture. */
+  bool render_framebuffer_to_screen = true;
 };
 
 /**
@@ -158,27 +168,43 @@ public:
   void systems_init();
 
   /**
-   * @brief Runs the main application loop until all windows are closed.
-   * 
-   * Before entering the loop, this method calls preloop_tick() once on all 
-   * GameObjects in the hierarchy. Then, each frame executes the following steps:
-   * 1. Processes SDL events (window close, quit, etc.)
-   * 2. Calls update_tick() on all Behaviours attached to GameObjects
-   * 3. Calls late_tick() on all Behaviours attached to GameObjects
-   * 4. Renders all active windows
-   * 5. Processes pending GameObject deletions
-   * 6. Cleans up closed windows
-   * 
-   * The loop continues until either SDL_EVENT_QUIT is received or all
-   * windows have been closed.
-   * 
-   * @see GameObject::tick_self_and_children() for how tick methods are propagated through the hierarchy
-   */
+    * @brief Runs the main application loop until all windows are closed.
+    * 
+    * Before entering the loop, this method calls preloop_tick() once on all 
+    * GameObjects in the hierarchy. Then, each frame executes the following steps:
+    * 1. Processes SDL events (window close, quit, etc.)
+    * 2. Calls update_tick() on all Behaviours attached to GameObjects
+    * 3. Calls late_tick() on all Behaviours attached to GameObjects
+    * 4. Renders all active windows
+    * 5. Processes pending GameObject deletions
+    * 6. Cleans up closed windows
+    * 
+    * The loop continues until either SDL_EVENT_QUIT is received or all
+    * windows have been closed.
+    * 
+    * @see GameObject::tick_self_and_children() for how tick methods are propagated through the hierarchy
+    */
   void main_loop();
+
+  /**
+    * @brief Gets the internal framebuffer used for rendering.
+    * 
+    * @return The FrameBuffer instance containing the rendered scene
+    */
+  std::shared_ptr<FrameBuffer> get_framebuffer() const { return framebuffer; }
+
+  /**
+    * @brief Resizes the internal framebuffer.
+    * 
+    * @param width New framebuffer width
+    * @param height New framebuffer height
+    */
+  void resize_framebuffer(uint32_t width, uint32_t height);
 
 private:
   static App* instance;
 
+  std::shared_ptr<FrameBuffer> framebuffer;
   bool had_camera_last_frame = true;
 
   void init_imgui();

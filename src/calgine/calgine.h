@@ -13,5 +13,6 @@
 #include "calgine/core/renderer/shader.h"
 #include "calgine/core/renderer/material.h"
 #include "calgine/core/renderer/mesh_renderer.h"
+#include "calgine/core/renderer/frame_buffer.h"
 
 #include "calgine/core/asset_management/asset_manager.h"

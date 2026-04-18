@@ -41,6 +41,12 @@ App::~App()
   ImGui::DestroyContext(settings.imgui_context);
 }
 
+App& App::get_instance()
+{
+  assert(instance && "App instance does not exist!");
+  return *instance;
+}
+
 void App::systems_init()
 {
   // Loggers
@@ -85,9 +91,20 @@ void App::systems_init()
   glEnable(GL_DEPTH_TEST);
   glDepthFunc(GL_LESS);
 
+  // Create internal framebuffer for rendering
+  framebuffer = std::make_shared<FrameBuffer>(settings.framebuffer_width, settings.framebuffer_height);
+
   init_imgui();
 
   Time::get_instance().init();
+}
+
+void App::resize_framebuffer(uint32_t width, uint32_t height)
+{
+  if (!framebuffer || framebuffer->get_width() != width || framebuffer->get_height() != height)
+  {
+    framebuffer = std::make_shared<FrameBuffer>(width, height);
+  }
 }
 
 void App::init_imgui()
@@ -278,7 +295,25 @@ void App::render_windows(GameObject& game_hierarchy, GameObject& manager_hierarc
 
     SDL_GL_MakeCurrent(window->raw(), window->get_context());
 
-    // TODO: do this in the Renderer class
+    Renderer& renderer_instance = Renderer::get_instance();
+    
+    // Always render scene to internal framebuffer
+    framebuffer->bind();
+
+    glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    renderer_instance.begin_frame();
+
+    event_context.update_tick_phase(render);
+
+    manager_hierarchy.tick_self_and_children(render, event_context);
+    game_hierarchy.tick_self_and_children(render, event_context);
+
+    renderer_instance.end_frame();
+
+    // Bind window framebuffer for ImGui
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
     glViewport(0, 0, window->width(), window->height());
     glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -290,16 +325,19 @@ void App::render_windows(GameObject& game_hierarchy, GameObject& manager_hierarc
     ImGui_ImplSDL3_NewFrame();
     ImGui::NewFrame();
 
-    Renderer& renderer_instance = Renderer::get_instance();
-
-    renderer_instance.begin_frame();
-
-    event_context.update_tick_phase(render);
-
-    manager_hierarchy.tick_self_and_children(render, event_context);
-    game_hierarchy.tick_self_and_children(render, event_context);
-
-    renderer_instance.end_frame();
+    // Optionally render the internal framebuffer to the screen
+    if (settings.render_framebuffer_to_screen)
+    {
+      ImGui::SetNextWindowPos(ImVec2(0, 0));
+      ImGui::SetNextWindowSize(ImGui::GetIO().DisplaySize);
+      ImGui::Begin("##Framebuffer", nullptr,
+                   ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize |
+                   ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoInputs);
+      ImVec2 size = ImGui::GetContentRegionAvail();
+      ImTextureID texture_id = (ImTextureID)(intptr_t)framebuffer->get_color_texture();
+      ImGui::Image(texture_id, size, ImVec2(0, 1), ImVec2(1, 0));
+      ImGui::End();
+    }
 
     event_context.update_tick_phase(imgui_render);
     
