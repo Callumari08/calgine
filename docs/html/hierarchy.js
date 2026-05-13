@@ -22,6 +22,7 @@ var hierarchy =
       [ "Calgine::InputActionEvent", "structCalgine_1_1InputActionEvent.html", null ],
       [ "Calgine::RawInputEvent", "structCalgine_1_1RawInputEvent.html", null ]
     ] ],
+    [ "Calgine::FrameBuffer", "classCalgine_1_1FrameBuffer.html", null ],
     [ "Calgine::GameHierarchy", "classCalgine_1_1GameHierarchy.html", null ],
     [ "Calgine::GameObject", "classCalgine_1_1GameObject.html", [
       [ "Calgine::RootGameObject", "classCalgine_1_1RootGameObject.html", null ]

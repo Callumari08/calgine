@@ -1,0 +1,142 @@
+\doxysection{Calgine\+::Frame\+Buffer Class Reference}
+\hypertarget{classCalgine_1_1FrameBuffer}{}\label{classCalgine_1_1FrameBuffer}\index{Calgine::FrameBuffer@{Calgine::FrameBuffer}}
+
+
+Manages Open\+GL Framebuffer Objects for offscreen rendering.  
+
+
+
+
+{\ttfamily \#include $<$frame\+\_\+buffer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1FrameBuffer_a618b7816e485c3aff83d6d2438da204c}{Frame\+Buffer}} (uint32\+\_\+t width, uint32\+\_\+t height)
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{classCalgine_1_1FrameBuffer}{Frame\+Buffer} with specified dimensions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCalgine_1_1FrameBuffer_ab0f7340098f62752d1c67e3dfd6913e9}{\texorpdfstring{$\sim$}{\string~}\+Frame\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{classCalgine_1_1FrameBuffer_a1b1a258d351fb50ea5d7d1f79dd35d8f}{bind}} () const
+\begin{DoxyCompactList}\small\item\em Binds the framebuffer for rendering. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1FrameBuffer_ac8d46b5ba91f138ab62d74ed717246f2}{unbind}} () const
+\begin{DoxyCompactList}\small\item\em Unbinds the framebuffer (returns to rendering to window). \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classCalgine_1_1FrameBuffer_a3e46192002ace6e1b41f48f228d7768b}{get\+\_\+fbo\+\_\+id}} () const
+\begin{DoxyCompactList}\small\item\em Gets the Open\+GL name of the framebuffer. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classCalgine_1_1FrameBuffer_a3aef79f9292044d2bb30b04bb8713419}{get\+\_\+color\+\_\+texture}} () const
+\begin{DoxyCompactList}\small\item\em Gets the Open\+GL name of the color texture attachment. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classCalgine_1_1FrameBuffer_a72358a4cd56e9ab063b92820c053bf83}{get\+\_\+width}} () const
+\begin{DoxyCompactList}\small\item\em Gets the width of the framebuffer. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classCalgine_1_1FrameBuffer_af573a14c6cae83aa5ad2da352da3d7c1}{get\+\_\+height}} () const
+\begin{DoxyCompactList}\small\item\em Gets the height of the framebuffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages Open\+GL Framebuffer Objects for offscreen rendering. 
+
+\doxylink{classCalgine_1_1FrameBuffer}{Frame\+Buffer} encapsulates the creation and management of Open\+GL FBOs (Framebuffer Objects). It handles both color texture attachments and depth renderbuffer attachments, and provides simple bind/unbind functionality for rendering to texture.
+
+Example usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classCalgine_1_1FrameBuffer_a618b7816e485c3aff83d6d2438da204c}{FrameBuffer}}\ fb(1920,\ 1080);}
+\DoxyCodeLine{\textcolor{comment}{//\ ...\ later\ in\ render\ loop\ ...}}
+\DoxyCodeLine{fb.bind();}
+\DoxyCodeLine{\textcolor{comment}{//\ render\ scene}}
+\DoxyCodeLine{fb.unbind();}
+\DoxyCodeLine{uint32\_t\ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5ea9525df878da4fb8c643ecf48ad03095e}{texture}}\ =\ fb.get\_color\_texture();}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalgine_1_1FrameBuffer_a618b7816e485c3aff83d6d2438da204c}\label{classCalgine_1_1FrameBuffer_a618b7816e485c3aff83d6d2438da204c} 
+\index{Calgine::FrameBuffer@{Calgine::FrameBuffer}!FrameBuffer@{FrameBuffer}}
+\index{FrameBuffer@{FrameBuffer}!Calgine::FrameBuffer@{Calgine::FrameBuffer}}
+\doxysubsubsection{\texorpdfstring{FrameBuffer()}{FrameBuffer()}}
+{\footnotesize\ttfamily Calgine\+::\+Frame\+Buffer\+::\+Frame\+Buffer (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height }\end{DoxyParamCaption})}
+
+
+
+Creates a \doxylink{classCalgine_1_1FrameBuffer}{Frame\+Buffer} with specified dimensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Width of the framebuffer texture \\
+\hline
+{\em height} & Height of the framebuffer texture \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classCalgine_1_1FrameBuffer_ab0f7340098f62752d1c67e3dfd6913e9}\label{classCalgine_1_1FrameBuffer_ab0f7340098f62752d1c67e3dfd6913e9} 
+\index{Calgine::FrameBuffer@{Calgine::FrameBuffer}!````~FrameBuffer@{\texorpdfstring{$\sim$}{\string~}FrameBuffer}}
+\index{````~FrameBuffer@{\texorpdfstring{$\sim$}{\string~}FrameBuffer}!Calgine::FrameBuffer@{Calgine::FrameBuffer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FrameBuffer()}{\string~FrameBuffer()}}
+{\footnotesize\ttfamily Calgine\+::\+Frame\+Buffer\+::\texorpdfstring{$\sim$}{\string~}\+Frame\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1FrameBuffer_a1b1a258d351fb50ea5d7d1f79dd35d8f}\label{classCalgine_1_1FrameBuffer_a1b1a258d351fb50ea5d7d1f79dd35d8f} 
+\index{Calgine::FrameBuffer@{Calgine::FrameBuffer}!bind@{bind}}
+\index{bind@{bind}!Calgine::FrameBuffer@{Calgine::FrameBuffer}}
+\doxysubsubsection{\texorpdfstring{bind()}{bind()}}
+{\footnotesize\ttfamily void Calgine\+::\+Frame\+Buffer\+::bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Binds the framebuffer for rendering. 
+
+Also sets the viewport to match the framebuffer dimensions. \Hypertarget{classCalgine_1_1FrameBuffer_a3aef79f9292044d2bb30b04bb8713419}\label{classCalgine_1_1FrameBuffer_a3aef79f9292044d2bb30b04bb8713419} 
+\index{Calgine::FrameBuffer@{Calgine::FrameBuffer}!get\_color\_texture@{get\_color\_texture}}
+\index{get\_color\_texture@{get\_color\_texture}!Calgine::FrameBuffer@{Calgine::FrameBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_color\_texture()}{get\_color\_texture()}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Frame\+Buffer\+::get\+\_\+color\+\_\+texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the Open\+GL name of the color texture attachment. 
+
+\Hypertarget{classCalgine_1_1FrameBuffer_a3e46192002ace6e1b41f48f228d7768b}\label{classCalgine_1_1FrameBuffer_a3e46192002ace6e1b41f48f228d7768b} 
+\index{Calgine::FrameBuffer@{Calgine::FrameBuffer}!get\_fbo\_id@{get\_fbo\_id}}
+\index{get\_fbo\_id@{get\_fbo\_id}!Calgine::FrameBuffer@{Calgine::FrameBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_fbo\_id()}{get\_fbo\_id()}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Frame\+Buffer\+::get\+\_\+fbo\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the Open\+GL name of the framebuffer. 
+
+\Hypertarget{classCalgine_1_1FrameBuffer_af573a14c6cae83aa5ad2da352da3d7c1}\label{classCalgine_1_1FrameBuffer_af573a14c6cae83aa5ad2da352da3d7c1} 
+\index{Calgine::FrameBuffer@{Calgine::FrameBuffer}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!Calgine::FrameBuffer@{Calgine::FrameBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Frame\+Buffer\+::get\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the height of the framebuffer. 
+
+\Hypertarget{classCalgine_1_1FrameBuffer_a72358a4cd56e9ab063b92820c053bf83}\label{classCalgine_1_1FrameBuffer_a72358a4cd56e9ab063b92820c053bf83} 
+\index{Calgine::FrameBuffer@{Calgine::FrameBuffer}!get\_width@{get\_width}}
+\index{get\_width@{get\_width}!Calgine::FrameBuffer@{Calgine::FrameBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_width()}{get\_width()}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Frame\+Buffer\+::get\+\_\+width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the width of the framebuffer. 
+
+\Hypertarget{classCalgine_1_1FrameBuffer_ac8d46b5ba91f138ab62d74ed717246f2}\label{classCalgine_1_1FrameBuffer_ac8d46b5ba91f138ab62d74ed717246f2} 
+\index{Calgine::FrameBuffer@{Calgine::FrameBuffer}!unbind@{unbind}}
+\index{unbind@{unbind}!Calgine::FrameBuffer@{Calgine::FrameBuffer}}
+\doxysubsubsection{\texorpdfstring{unbind()}{unbind()}}
+{\footnotesize\ttfamily void Calgine\+::\+Frame\+Buffer\+::unbind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Unbinds the framebuffer (returns to rendering to window). 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/renderer/\mbox{\hyperlink{frame__buffer_8h}{frame\+\_\+buffer.\+h}}\item 
+src/calgine/core/renderer/\mbox{\hyperlink{frame__buffer_8cxx}{frame\+\_\+buffer.\+cxx}}\end{DoxyCompactItemize}

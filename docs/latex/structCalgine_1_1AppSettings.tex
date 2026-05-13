@@ -21,7 +21,13 @@ Im\+Gui\+Context \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structCalgine_1_1Ap
 bool \mbox{\hyperlink{structCalgine_1_1AppSettings_af6ee2874f76b76b0b5b95dcbc9319d5c}{enable\+\_\+imgui\+\_\+docking}} = true
 \item 
 bool \mbox{\hyperlink{structCalgine_1_1AppSettings_a9778bcc72d8abeb3eb3bebe7d45782ae}{enable\+\_\+imgui\+\_\+viewport}} = true
-\end{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1AppSettings_a93f4fde3e5f552ba77935227a5b51247}{framebuffer\+\_\+width}} = 1920
+\begin{DoxyCompactList}\small\item\em Width of the internal framebuffer used for rendering. Defaults to 1920. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1AppSettings_a5ce2ae90de3ba65793ec8240ac9849c7}{framebuffer\+\_\+height}} = 1080
+\begin{DoxyCompactList}\small\item\em Height of the internal framebuffer used for rendering. Defaults to 1080. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structCalgine_1_1AppSettings_a934eb71fcaf71fc90dcdc34afc2c601b}{render\+\_\+framebuffer\+\_\+to\+\_\+screen}} = true
+\begin{DoxyCompactList}\small\item\em If true, the internal framebuffer is rendered to the window. If false, only available as a texture. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -62,11 +68,41 @@ The default VSync state for windows. Can be enabled, disabled, or adaptive.
 \doxysubsubsection{\texorpdfstring{enable\_imgui\_viewport}{enable\_imgui\_viewport}}
 {\footnotesize\ttfamily bool Calgine\+::\+App\+Settings\+::enable\+\_\+imgui\+\_\+viewport = true}
 
+\Hypertarget{structCalgine_1_1AppSettings_a5ce2ae90de3ba65793ec8240ac9849c7}\label{structCalgine_1_1AppSettings_a5ce2ae90de3ba65793ec8240ac9849c7} 
+\index{Calgine::AppSettings@{Calgine::AppSettings}!framebuffer\_height@{framebuffer\_height}}
+\index{framebuffer\_height@{framebuffer\_height}!Calgine::AppSettings@{Calgine::AppSettings}}
+\doxysubsubsection{\texorpdfstring{framebuffer\_height}{framebuffer\_height}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+App\+Settings\+::framebuffer\+\_\+height = 1080}
+
+
+
+Height of the internal framebuffer used for rendering. Defaults to 1080. 
+
+\Hypertarget{structCalgine_1_1AppSettings_a93f4fde3e5f552ba77935227a5b51247}\label{structCalgine_1_1AppSettings_a93f4fde3e5f552ba77935227a5b51247} 
+\index{Calgine::AppSettings@{Calgine::AppSettings}!framebuffer\_width@{framebuffer\_width}}
+\index{framebuffer\_width@{framebuffer\_width}!Calgine::AppSettings@{Calgine::AppSettings}}
+\doxysubsubsection{\texorpdfstring{framebuffer\_width}{framebuffer\_width}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+App\+Settings\+::framebuffer\+\_\+width = 1920}
+
+
+
+Width of the internal framebuffer used for rendering. Defaults to 1920. 
+
 \Hypertarget{structCalgine_1_1AppSettings_a9a400188cc53d6a4a7a3c12c47c9fc56}\label{structCalgine_1_1AppSettings_a9a400188cc53d6a4a7a3c12c47c9fc56} 
 \index{Calgine::AppSettings@{Calgine::AppSettings}!imgui\_context@{imgui\_context}}
 \index{imgui\_context@{imgui\_context}!Calgine::AppSettings@{Calgine::AppSettings}}
 \doxysubsubsection{\texorpdfstring{imgui\_context}{imgui\_context}}
 {\footnotesize\ttfamily Im\+Gui\+Context\texorpdfstring{$\ast$}{*} Calgine\+::\+App\+Settings\+::imgui\+\_\+context = nullptr}
+
+\Hypertarget{structCalgine_1_1AppSettings_a934eb71fcaf71fc90dcdc34afc2c601b}\label{structCalgine_1_1AppSettings_a934eb71fcaf71fc90dcdc34afc2c601b} 
+\index{Calgine::AppSettings@{Calgine::AppSettings}!render\_framebuffer\_to\_screen@{render\_framebuffer\_to\_screen}}
+\index{render\_framebuffer\_to\_screen@{render\_framebuffer\_to\_screen}!Calgine::AppSettings@{Calgine::AppSettings}}
+\doxysubsubsection{\texorpdfstring{render\_framebuffer\_to\_screen}{render\_framebuffer\_to\_screen}}
+{\footnotesize\ttfamily bool Calgine\+::\+App\+Settings\+::render\+\_\+framebuffer\+\_\+to\+\_\+screen = true}
+
+
+
+If true, the internal framebuffer is rendered to the window. If false, only available as a texture. 
 
 
 
