@@ -39,6 +39,9 @@ struct AppSettings
 
   /** @brief If true, the internal framebuffer is rendered to the window. If false, only available as a texture. */
   bool render_framebuffer_to_screen = true;
+
+  /** @brief Path to the ImGui configuration file. If empty, defaults to "imgui.ini". */
+  std::string imgui_config_path = "";
 };
 
 /**

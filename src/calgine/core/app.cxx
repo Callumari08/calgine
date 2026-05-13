@@ -114,6 +114,12 @@ void App::init_imgui()
   ImGui::SetCurrentContext(settings.imgui_context);
   ImGuiIO& io = ImGui::GetIO(); (void) io;
 
+  // Set custom ImGui config path if provided
+  if (!settings.imgui_config_path.empty())
+  {
+    io.IniFilename = settings.imgui_config_path.c_str();
+  }
+
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 
