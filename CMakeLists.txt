@@ -15,6 +15,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 option(USE_SYSTEM_SPDLOG "If ON, try to use a system-installed spdlog via find_package(spdlog). If not found, fall back to vendoring." OFF)
 option(USE_SYSTEM_SDL3  "If ON, try to use a system-installed SDL3 via find_package(SDL3). If not found, fall back to vendoring." OFF)
 option(USE_SYSTEM_SDL_IMAGE "If ON, try to use a system-installed SDL_image via find_package(SDL3_image). If not found, fall back to vendoring." OFF)
+option(USE_SYSTEM_RAPIDJSON "If ON, try to use a system-installed RapidJSON via find_package(RapidJSON). If not found, fall back to vendoring." OFF)
 
 include(FetchContent)
 
@@ -83,6 +84,35 @@ FetchContent_Declare(
     GIT_TAG v3.4.0
 )
 FetchContent_MakeAvailable(tomlplusplus)
+
+# ---- RapidJSON: prefer system if requested, otherwise use FetchContent ----
+if(USE_SYSTEM_RAPIDJSON)
+    find_package(RapidJSON QUIET)
+endif()
+
+if(TARGET RapidJSON::RapidJSON)
+    set(CALGINE_RAPIDJSON_TARGET RapidJSON::RapidJSON)
+elseif(RapidJSON_FOUND)
+    add_library(calgine_rapidjson INTERFACE)
+    target_include_directories(calgine_rapidjson SYSTEM INTERFACE ${RapidJSON_INCLUDE_DIRS})
+    add_library(RapidJSON::RapidJSON ALIAS calgine_rapidjson)
+    set(CALGINE_RAPIDJSON_TARGET RapidJSON::RapidJSON)
+else()
+    FetchContent_Declare(
+        rapidjson
+        GIT_REPOSITORY https://github.com/Tencent/rapidjson.git
+        GIT_TAG v1.1.0
+    )
+    FetchContent_GetProperties(rapidjson)
+    if(NOT rapidjson_POPULATED)
+        FetchContent_Populate(rapidjson)
+    endif()
+
+    add_library(calgine_rapidjson INTERFACE)
+    target_include_directories(calgine_rapidjson SYSTEM INTERFACE ${rapidjson_SOURCE_DIR}/include)
+    add_library(RapidJSON::RapidJSON ALIAS calgine_rapidjson)
+    set(CALGINE_RAPIDJSON_TARGET RapidJSON::RapidJSON)
+endif()
 
 # ---- spdlog: prefer system if requested, otherwise use FetchContent ----
 if(USE_SYSTEM_SPDLOG)
@@ -187,6 +217,7 @@ target_link_libraries(Calgine
         imgui
         glm::glm
         tomlplusplus::tomlplusplus
+        ${CALGINE_RAPIDJSON_TARGET}
         $<$<BOOL:${ENABLE_ASAN}>:asan_flags>
     PRIVATE
         project_warnings
@@ -220,6 +251,7 @@ message(STATUS "CMake build type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "Using system spdlog: ${USE_SYSTEM_SPDLOG}")
 message(STATUS "Using system SDL3:  ${USE_SYSTEM_SDL3}")
 message(STATUS "Using system SDL_image: ${USE_SYSTEM_SDL_IMAGE}")
+message(STATUS "Using system RapidJSON: ${USE_SYSTEM_RAPIDJSON}")
 if(TARGET spdlog::spdlog)
     message(STATUS "spdlog target available.")
 else()
@@ -249,4 +281,9 @@ if(TARGET tomlplusplus::tomlplusplus)
     message(STATUS "toml++ target available.")
 else()
     message(WARNING "toml++ target NOT available. Build will likely fail.")
+endif()
+if(TARGET RapidJSON::RapidJSON)
+    message(STATUS "RapidJSON target available.")
+else()
+    message(WARNING "RapidJSON target NOT available. Build will likely fail.")
 endif()
