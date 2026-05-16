@@ -10,7 +10,7 @@ var indexSectionsWithContent =
   7: "atv",
   8: "adefmtv",
   9: "acg",
-  10: "cdgt"
+  10: "cdgrt"
 };
 
 var indexSectionNames =

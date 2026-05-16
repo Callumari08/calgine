@@ -1,0 +1,68 @@
+\doxysection{map\+\_\+entity\+\_\+properties.\+h}
+\hypertarget{map__entity__properties_8h_source}{}\label{map__entity__properties_8h_source}\index{src/calgine/core/scene/map\_entity\_properties.h@{src/calgine/core/scene/map\_entity\_properties.h}}
+\mbox{\hyperlink{map__entity__properties_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <glm/vec3.hpp>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1MapEntityProperties}{MapEntityProperties}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \textcolor{keyword}{const}\ std::unordered\_map<std::string,\ std::string>\&\ props;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{classCalgine_1_1MapEntityProperties_ac7645693efbac322d6fedbddc27ef74d}{MapEntityProperties}}(\textcolor{keyword}{const}\ std::unordered\_map<std::string,\ std::string>\&\ p)\ :\ props(p)\ \{\}}
+\DoxyCodeLine{00014\ \ \ }
+\DoxyCodeLine{00015\ \ \ \textcolor{comment}{//\ Check\ if\ a\ property\ exists}}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1MapEntityProperties_a09d33e10854646143405659e51fad6f4}{has}}(\textcolor{keyword}{const}\ std::string\&\ key)\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00017\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{return}\ props.count(key)\ >\ 0;}
+\DoxyCodeLine{00019\ \ \ \}}
+\DoxyCodeLine{00020\ \ \ }
+\DoxyCodeLine{00021\ \ \ \textcolor{comment}{//\ String\ property\ with\ default\ value}}
+\DoxyCodeLine{00022\ \ \ std::string\ \mbox{\hyperlink{classCalgine_1_1MapEntityProperties_a3a88cb2b2c216b1f5cbe450fbfe58680}{get\_string}}(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keyword}{const}\ std::string\&\ default\_val\ =\ \textcolor{stringliteral}{"{}"{}})\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00023\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{auto}\ iterator\ =\ props.find(key);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{return}\ iterator\ !=\ props.end()\ ?\ iterator-\/>second\ :\ default\_val;}
+\DoxyCodeLine{00026\ \ \ \}}
+\DoxyCodeLine{00027\ \ \ }
+\DoxyCodeLine{00028\ \ \ \textcolor{comment}{//\ Float\ property\ with\ default\ value}}
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1MapEntityProperties_a12008c0d7c4f36c2b7e0b4bae46e2c76}{get\_float}}(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keywordtype}{float}\ default\_val\ =\ 0.0f)\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00030\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{auto}\ iterator\ =\ props.find(key);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{return}\ iterator\ !=\ props.end()\ ?\ std::stof(iterator-\/>second)\ :\ default\_val;}
+\DoxyCodeLine{00033\ \ \ \}}
+\DoxyCodeLine{00034\ \ \ }
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ Integer\ property\ with\ default\ value}}
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCalgine_1_1MapEntityProperties_a91651bd80af5f02ab24522b4ead6379a}{get\_int}}(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keywordtype}{int}\ default\_val\ =\ 0)\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00037\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{auto}\ iterator\ =\ props.find(key);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ iterator\ !=\ props.end()\ ?\ std::stoi(iterator-\/>second)\ :\ default\_val;}
+\DoxyCodeLine{00040\ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ glm::vec3\ \mbox{\hyperlink{classCalgine_1_1MapEntityProperties_aaf16dce46828cc040c9c6ccecc4540e3}{get\_vector3}}(\textcolor{keyword}{const}\ std::string\&\ key,\ glm::vec3\ default\_val\ =\ \{0,\ 0,\ 0\})\ \textcolor{keyword}{const}\ }
+\DoxyCodeLine{00043\ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{auto}\ it\ =\ props.find(key);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ props.end())}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{return}\ default\_val;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ std::stringstream\ ss(it-\/>second);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{float}\ x,\ y,\ z;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{if}\ (ss\ >>\ x\ >>\ y\ >>\ z)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ \{x,\ y,\ z\};}
+\DoxyCodeLine{00055\ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordflow}{return}\ default\_val;}
+\DoxyCodeLine{00058\ \}}
+\DoxyCodeLine{00059\ \ \ }
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}

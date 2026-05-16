@@ -1,0 +1,65 @@
+\doxysection{scene\+\_\+load\+\_\+context.\+h}
+\hypertarget{scene__load__context_8h_source}{}\label{scene__load__context_8h_source}\index{src/calgine/core/scene/scene\_load\_context.h@{src/calgine/core/scene/scene\_load\_context.h}}
+\mbox{\hyperlink{scene__load__context_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{game__object_8h}{calgine/core/game\_object.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1SceneLoadContext}{SceneLoadContext}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \textcolor{comment}{//\ Map\ targetname\ (scene\ ID)\ to\ GameObject}}
+\DoxyCodeLine{00012\ \ \ std::unordered\_map<std::string,\ GameObject*>\ targetname\_to\_object;}
+\DoxyCodeLine{00013\ \ \ }
+\DoxyCodeLine{00014\ \ \ \textcolor{comment}{//\ Callbacks\ queued\ during\ loading,\ executed\ after\ all\ objects\ created}}
+\DoxyCodeLine{00015\ \ \ std::vector<std::function<void()>>\ deferred\_links;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \textcolor{comment}{//\ Register\ object\ by\ its\ targetname\ (unique\ ID\ in\ .map\ file)}}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1SceneLoadContext_a7a8653d4b013ac315de156804a405a8f}{register\_object}}(\textcolor{keyword}{const}\ std::string\&\ target\_name,\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ gameobject)\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (targetname\_to\_object.count(target\_name))\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1Log_a41f2a12df7fc534dc3179c7f4e80f84f}{Log::get\_engine\_logger}}()-\/>warn(\textcolor{stringliteral}{"{}Duplicate\ targetname:\ \{\},\ overriding\ with\ new\ GameObject."{}},\ target\_name);}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ targetname\_to\_object[target\_name]\ =\ gameobject;}
+\DoxyCodeLine{00024\ \ \ \}}
+\DoxyCodeLine{00025\ \ \ }
+\DoxyCodeLine{00026\ \ \ \textcolor{comment}{//\ Look\ up\ object\ by\ its\ targetname}}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ \mbox{\hyperlink{classCalgine_1_1SceneLoadContext_a69f020862b2f4cdb04df3c7de217abb4}{get\_object}}(\textcolor{keyword}{const}\ std::string\&\ target\_name)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ targetname\_to\_object.find(target\_name);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ targetname\_to\_object.end())\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1Log_a41f2a12df7fc534dc3179c7f4e80f84f}{Log::get\_engine\_logger}}()-\/>error(\textcolor{stringliteral}{"{}Could\ not\ find\ target\ name:\ \{\}"{}},\ target\_name);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ it-\/>second;}
+\DoxyCodeLine{00034\ \ \ \}}
+\DoxyCodeLine{00035\ \ \ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1SceneLoadContext_a701a69a8634d77b54c45bf21f55f19a0}{check\_has\_object}}(\textcolor{keyword}{const}\ std::string\&\ targetname)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{return}\ targetname\_to\_object.count(targetname)\ >\ 0;}
+\DoxyCodeLine{00038\ \ \ \}}
+\DoxyCodeLine{00039\ \ \ }
+\DoxyCodeLine{00040\ \ \ \textcolor{comment}{//\ Queue\ a\ callback\ to\ run\ after\ scene\ is\ built}}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1SceneLoadContext_a15af96a8584e1060dd37d9984cdd9a54}{defer\_link}}(std::function<\textcolor{keywordtype}{void}()>\ callback)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ deferred\_links.push\_back(callback);}
+\DoxyCodeLine{00043\ \ \ \}}
+\DoxyCodeLine{00044\ \ \ }
+\DoxyCodeLine{00045\ \ \ \textcolor{comment}{//\ Execute\ all\ deferred\ callbacks\ (called\ after\ all\ objects\ created)}}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1SceneLoadContext_aaeacbad11aba25c2dc1d18efe74874b3}{resolve\_deferred\_links}}()\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ callback\ :\ deferred\_links)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ callback();}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\&\ e)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1Log_a41f2a12df7fc534dc3179c7f4e80f84f}{Log::get\_engine\_logger}}()-\/>error(\textcolor{stringliteral}{"{}Deferred\ link\ failed:\ \{\}"{}},\ e.what());}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Continue\ with\ other\ links\ (best-\/effort)}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ deferred\_links.clear();}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}

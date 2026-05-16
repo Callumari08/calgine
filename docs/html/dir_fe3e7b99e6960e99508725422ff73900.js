@@ -4,6 +4,7 @@ var dir_fe3e7b99e6960e99508725422ff73900 =
     [ "hierarchies", "dir_62b7736c4c1b905633e56e40cdd45b45.html", "dir_62b7736c4c1b905633e56e40cdd45b45" ],
     [ "input", "dir_4300c94beb1ef5a67db4d9a8595b0581.html", "dir_4300c94beb1ef5a67db4d9a8595b0581" ],
     [ "renderer", "dir_a21c91624c3b7041a752a8180b132463.html", "dir_a21c91624c3b7041a752a8180b132463" ],
+    [ "scene", "dir_352d8dd40fbaf92a05f8fb4dcef73b88.html", "dir_352d8dd40fbaf92a05f8fb4dcef73b88" ],
     [ "window", "dir_929514f6ef88ab15924d549365b55f59.html", "dir_929514f6ef88ab15924d549365b55f59" ],
     [ "app.cxx", "app_8cxx.html", null ],
     [ "app.h", "app_8h.html", "app_8h" ],
