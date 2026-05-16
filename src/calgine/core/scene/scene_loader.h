@@ -1,16 +1,22 @@
 #pragma once
 
 #include "calgine/core/game_object.h"
+#include "scene_load_context.h"
+#include "scene_loadable_behaviour.h"
+#include "map_parser.h"
+#include "calgine_api.h"
+
 namespace Calgine {
 
-class SceneLoader
+class CALGINE_API SceneLoader
 {
-  void load_scene_from_map(const std::string& map_filepath);
+public:
+  // Load scene from .map file - creates GameObjects and Behaviours
+  static GameObject* load_scene_from_map(const std::string& map_filepath, GameObject* parent = nullptr);
 
-  void initialize_active_scene();
-
-  void unload_active_scene();
-
-  GameObject& get_active_scene_root() const;
+private:
+  // Instantiate a single entity from map properties
+  static GameObject* instantiate_entity(const MapEntity& entity, GameObject* parent, SceneLoadContext& context);
 };
+
 }

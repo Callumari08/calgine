@@ -29,8 +29,13 @@ public:
   GameObject* get_game_object();
   Transform& get_transform();
 
+  bool is_started() const { return started; }
+
 private:
   GameObject* game_object;
+  bool started = true;  // Default to true for immediate-start behaviours
+
+  void set_started(bool value) { started = value; }
 
   template<typename... Args>
   inline void print(Args&&... args)

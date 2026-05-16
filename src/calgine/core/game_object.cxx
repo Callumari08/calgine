@@ -118,7 +118,7 @@ void GameObject::tick_self_and_children(const TickType tick_type, EventContext& 
 
   for (auto& [type, behaviour] : behaviours)
   {
-    if (!behaviour)
+    if (!behaviour || !behaviour->is_started())
       continue;
 
     switch (tick_type) 
@@ -202,6 +202,25 @@ std::optional<std::reference_wrapper<GameObject>> GameObject::get_parent() const
 void GameObject::set_name(std::string _name)
 {
   name = _name;
+}
+
+void GameObject::start_behaviours_recursive()
+{
+  // Start behaviours in this GameObject depth-first
+  for (auto& [type, behaviour] : behaviours)
+  {
+    if (behaviour && !behaviour->is_started())
+    {
+      behaviour->set_started(true);
+      behaviour->start_tick();
+    }
+  }
+
+  // Recursively start behaviours in children
+  for (auto& child : children)
+  {
+    child->start_behaviours_recursive();
+  }
 }
 
 } // namespace Calgine

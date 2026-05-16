@@ -1,11 +1,15 @@
 #pragma once
 
 #include "calgine/core/game_object.h"
+#include "calgine_api.h"
+
 namespace Calgine {
 
-class SceneTypeRegistry
+class CALGINE_API SceneTypeRegistry
 {
 public:
+  using BehaviourFactory = std::function<Behaviour*(GameObject*)>;
+
   static void discover_cpp_behaviours()
   {
     if (behaviour_factories.empty())
@@ -23,9 +27,17 @@ public:
     }
     return iterator->second(owner);
   }
-private:
-  using BehaviourFactory = std::function<Behaviour*(GameObject*)>;
 
+  static void register_behaviour(const std::string& type_name, BehaviourFactory factory)
+  {
+    if (behaviour_factories.count(type_name)) {
+      Log::get_engine_logger()->warn("Behaviour type already registered: {}", type_name);
+      return;
+    }
+    behaviour_factories[type_name] = factory;
+  }
+
+private:
   static std::unordered_map<std::string, BehaviourFactory> behaviour_factories;
 };
 
