@@ -36,6 +36,10 @@ private:
   static inline std::vector<std::unique_ptr<GameObject>> pending_deletes;
 
   void tick_self_and_children(const TickType tick_type, EventContext& event_context);
+  
+  template<typename T_behaviour, typename... Args>
+  requires std::derived_from<T_behaviour, Behaviour>
+  T_behaviour* add_behaviour_impl(bool start_immediately, Args&&... args);
 
   static void process_pending_deletes();
 
@@ -66,6 +70,10 @@ public:
   template<typename T_behaviour, typename... Args>
   requires std::derived_from<T_behaviour, Behaviour>
   T_behaviour* add_behaviour(Args&&... args);
+
+  template<typename T_behaviour, typename... Args>
+  requires std::derived_from<T_behaviour, Behaviour>
+  T_behaviour* add_behaviour_deferred(Args&&... args);
 
   template<typename T_behaviour>
   requires std::derived_from<T_behaviour, Behaviour>
@@ -100,6 +108,7 @@ public:
     return name;
   }
 
+  void start_behaviours_recursive();
   void set_name(std::string _name);
 
   friend class App;
@@ -145,6 +154,20 @@ template<typename T_behaviour, typename... Args>
 requires std::derived_from<T_behaviour, Behaviour>
 T_behaviour* GameObject::add_behaviour(Args&&... args)
 {
+  return add_behaviour_impl<T_behaviour>(true, std::forward<Args>(args)...);
+}
+
+template<typename T_behaviour, typename... Args>
+requires std::derived_from<T_behaviour, Behaviour>
+T_behaviour* GameObject::add_behaviour_deferred(Args&&... args)
+{
+  return add_behaviour_impl<T_behaviour>(false, std::forward<Args>(args)...);
+}
+
+template<typename T_behaviour, typename... Args>
+requires std::derived_from<T_behaviour, Behaviour>
+T_behaviour* GameObject::add_behaviour_impl(const bool start_immediately, Args&&... args)
+{
   auto [it, inserted] = behaviours.emplace(
     typeid(T_behaviour),
     nullptr
@@ -159,7 +182,7 @@ T_behaviour* GameObject::add_behaviour(Args&&... args)
   
   owned.reset(Behaviour::create<T_behaviour>(std::forward<Args>(args)...));
   
-  if(!owned->attach_owner(this))
+  if(!owned->attach_owner(this, start_immediately))
   {
     behaviours.erase(it);
     return nullptr;

@@ -6,6 +6,10 @@
 
 #include "calgine/core/hierarchies/game_hierarchy.h"
 #include "calgine/core/hierarchies/manager_hierarchy.h"
+#include "calgine/core/scene/scene_load_context.h"
+#include "calgine/core/scene/scene_loadable_behaviour.h"
+#include "calgine/core/scene/scene_manager.h"
+#include "calgine/core/scene/scene_type_registry.h"
 
 #include "calgine/core/renderer/camera/camera_behaviour.h"
 #include "calgine/core/renderer/camera/camera_manager.h"

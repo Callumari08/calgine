@@ -118,7 +118,7 @@ void GameObject::tick_self_and_children(const TickType tick_type, EventContext& 
 
   for (auto& [type, behaviour] : behaviours)
   {
-    if (!behaviour)
+    if (!behaviour || !behaviour->has_started())
       continue;
 
     switch (tick_type) 
@@ -153,6 +153,28 @@ void GameObject::tick_self_and_children(const TickType tick_type, EventContext& 
   for (size_t i = 0; i < children.size(); ++i)
   {
     children[i]->tick_self_and_children(tick_type, event_context);
+  }
+}
+
+void GameObject::start_behaviours_recursive()
+{
+  std::vector<Behaviour*> pending_behaviours;
+  pending_behaviours.reserve(behaviours.size());
+
+  for (auto& [type, behaviour] : behaviours)
+  {
+    if (behaviour && !behaviour->has_started())
+      pending_behaviours.emplace_back(behaviour.get());
+  }
+
+  for (Behaviour* behaviour : pending_behaviours)
+  {
+    behaviour->start_if_needed();
+  }
+
+  for (size_t i = 0; i < children.size(); ++i)
+  {
+    children[i]->start_behaviours_recursive();
   }
 }
 

@@ -22,7 +22,16 @@ void Behaviour::final_tick(EventContext& event_context) {}
 
 void Behaviour::on_destroy() {}
 
-bool Behaviour::attach_owner(GameObject* _game_object)
+void Behaviour::start_if_needed()
+{
+  if (started)
+    return;
+
+  start_tick();
+  started = true;
+}
+
+bool Behaviour::attach_owner(GameObject* _game_object, const bool start_immediately)
 {
   if (game_object != nullptr)
   {
@@ -30,7 +39,9 @@ bool Behaviour::attach_owner(GameObject* _game_object)
     return false;
   }
   game_object = _game_object;
-  start_tick();
+
+  if (start_immediately)
+    start_if_needed();
 
   return true;
 }

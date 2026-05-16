@@ -28,9 +28,11 @@ public:
     */
   GameObject* get_game_object();
   Transform& get_transform();
+  bool has_started() const { return started; }
 
 private:
   GameObject* game_object;
+  bool started = false;
 
   template<typename... Args>
   inline void print(Args&&... args)
@@ -57,7 +59,8 @@ private:
     return new T(std::forward<Args>(args)...);
   }
 
-  bool attach_owner(GameObject* game_object);
+  bool attach_owner(GameObject* game_object, bool start_immediately);
+  void start_if_needed();
 
   friend class GameObject;
 
