@@ -62,9 +62,9 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "classCalgine_1_1IndexBuffer.html#a1507e36db589df056bf5b27611994ac4",
-"classtinyobj_1_1MaterialStreamReader.html",
-"structCalgine_1_1MaterialSettings.html",
-"structtinyobj_1_1texture__option__t.html#a3b81d1c299840825e6633c00ba9ee0e3"
+"classCalgine_1_1Window.html#adb89fb84a696805d5c0f867cbd456dff",
+"structCalgine_1_1AppSettings.html#ad560a2429bdcab617e286e5af9bf67c3",
+"structtinyobj_1_1material__t.html#ad7f71a301a261fca07d2e50edccc792d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
