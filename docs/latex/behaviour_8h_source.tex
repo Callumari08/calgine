@@ -21,57 +21,62 @@
 \DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ get\_game\_object();}
 \DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\&\ get\_transform();}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ game\_object;}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ print(Args\&\&...\ args)}
-\DoxyCodeLine{00037\ \ \ \{}
-\DoxyCodeLine{00038\ \ \ \ \ Log::get\_app\_logger()-\/>info(std::forward<Args>(args)...);}
-\DoxyCodeLine{00039\ \ \ \}}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ print\_warn(Args\&\&...\ args)}
-\DoxyCodeLine{00043\ \ \ \{}
-\DoxyCodeLine{00044\ \ \ \ \ Log::get\_app\_logger()-\/>warn(std::forward<Args>(args)...);}
-\DoxyCodeLine{00045\ \ \ \}}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ print\_error(Args\&\&...\ args)}
-\DoxyCodeLine{00049\ \ \ \{}
-\DoxyCodeLine{00050\ \ \ \ \ Log::get\_app\_logger()-\/>error(std::forward<Args>(args)...);}
-\DoxyCodeLine{00051\ \ \ \}}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T,\ Behaviour>}
-\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{static}\ T*\ create(Args\&\&...\ args)\ }
-\DoxyCodeLine{00056\ \ \ \{}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ T(std::forward<Args>(args)...);}
-\DoxyCodeLine{00058\ \ \ \}}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{bool}\ attach\_owner(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ game\_object);}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}};}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}}()\ :\ game\_object(nullptr)\ \{\}}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1Behaviour_a9c98d44cad6a3f3e84c935e48f1991b2}{is\_started}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ started;\ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ game\_object;}
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{bool}\ started\ =\ \textcolor{keyword}{true};\ \ \textcolor{comment}{//\ Default\ to\ true\ for\ immediate-\/start\ behaviours}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ set\_started(\textcolor{keywordtype}{bool}\ value)\ \{\ started\ =\ value;\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ print(Args\&\&...\ args)}
+\DoxyCodeLine{00042\ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ Log::get\_app\_logger()-\/>info(std::forward<Args>(args)...);}
+\DoxyCodeLine{00044\ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ print\_warn(Args\&\&...\ args)}
+\DoxyCodeLine{00048\ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ Log::get\_app\_logger()-\/>warn(std::forward<Args>(args)...);}
+\DoxyCodeLine{00050\ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ print\_error(Args\&\&...\ args)}
+\DoxyCodeLine{00054\ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ Log::get\_app\_logger()-\/>error(std::forward<Args>(args)...);}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T,\ Behaviour>}
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{static}\ T*\ create(Args\&\&...\ args)\ }
+\DoxyCodeLine{00061\ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ T(std::forward<Args>(args)...);}
+\DoxyCodeLine{00063\ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{bool}\ attach\_owner(GameObject*\ game\_object);}
 \DoxyCodeLine{00066\ }
-\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ preloop\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
-\DoxyCodeLine{00075\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ start\_tick();}
-\DoxyCodeLine{00076\ \ \ }
-\DoxyCodeLine{00077\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ fixed\_update\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
-\DoxyCodeLine{00081\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
-\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ late\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ render\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ imgui\_render\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00094\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ final\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00070\ \ \ \mbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}}()\ :\ game\_object(nullptr)\ \{\}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ preloop\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00080\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ start\_tick();}
+\DoxyCodeLine{00081\ \ \ }
+\DoxyCodeLine{00082\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ fixed\_update\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00086\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ late\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ render\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ imgui\_render\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
 \DoxyCodeLine{00095\ }
-\DoxyCodeLine{00100\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ on\_destroy();}
-\DoxyCodeLine{00101\ \};}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ final\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ on\_destroy();}
+\DoxyCodeLine{00106\ \};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
 
 \end{DoxyCode}

@@ -5,45 +5,57 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{game__object_8h}{calgine/core/game\_object.h}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry}{SceneTypeRegistry}}}
-\DoxyCodeLine{00007\ \{}
-\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00009\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_a7e3fd935420d54e4b8b59f6cd2ff8827}{discover\_cpp\_behaviours}}()}
-\DoxyCodeLine{00010\ \ \ \{}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordflow}{if}\ (behaviour\_factories.empty())}
-\DoxyCodeLine{00012\ \ \ \ \ \{}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1Log_a41f2a12df7fc534dc3179c7f4e80f84f}{Log::get\_engine\_logger}}()-\/>error(\textcolor{stringliteral}{"{}No\ behaviours\ registered.\ Did\ static\ initializers\ run?"{}});}
-\DoxyCodeLine{00014\ \ \ \ \ \}}
-\DoxyCodeLine{00015\ \ \ \}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}*\ \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_add7eb3d694dc6b767f5d4d4ec2be6833}{create\_behaviour}}(\textcolor{keyword}{const}\ std::string\&\ type\_name,\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ owner)}
-\DoxyCodeLine{00018\ \ \ \{}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{auto}\ iterator\ =\ behaviour\_factories.find(type\_name);}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (iterator\ ==\ behaviour\_factories.end())\ \{}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1Log_a41f2a12df7fc534dc3179c7f4e80f84f}{Log::get\_engine\_logger}}()-\/>error(\textcolor{stringliteral}{"{}Unknown\ Behaviour\ Type:\ \{\}"{}},\ type\_name);}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00023\ \ \ \ \ \}}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{return}\ iterator-\/>second(owner);}
-\DoxyCodeLine{00025\ \ \ \}}
-\DoxyCodeLine{00026\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{using\ }BehaviourFactory\ =\ std::function<\mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}*(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*)>;}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{static}\ std::unordered\_map<std::string,\ BehaviourFactory>\ behaviour\_factories;}
-\DoxyCodeLine{00030\ \};}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{comment}{//\ Helper\ macro\ to\ register\ behaviours\ at\ startup\ (one\ line\ per\ behaviour)}}
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ REGISTER\_BEHAVIOUR\_STATIC\_INIT(BehaviourClass)\ \(\backslash\)}}
-\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ static\ struct\ BehaviourClass\#\#\_Registration\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00035\ \textcolor{preprocessor}{\ \ \ \ BehaviourClass\#\#\_Registration()\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00036\ \textcolor{preprocessor}{\ \ \ \ \ \ SceneTypeRegistry::register\_behaviour(\ \(\backslash\)}}
-\DoxyCodeLine{00037\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#BehaviourClass,\ \(\backslash\)}}
-\DoxyCodeLine{00038\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ [](GameObject*\ owner)\ -\/>\ Behaviour*\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00039\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ return\ owner-\/>add\_behaviour<BehaviourClass>();\ \(\backslash\)}}
-\DoxyCodeLine{00040\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \});\ \(\backslash\)}}
-\DoxyCodeLine{00041\ \textcolor{preprocessor}{\ \ \ \ \}\ \(\backslash\)}}
-\DoxyCodeLine{00042\ \textcolor{preprocessor}{\ \ \}\ BehaviourClass\#\#\_reg;}}
-\DoxyCodeLine{00043\ \}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry}{SceneTypeRegistry}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_a7e9b24a19b44229c28f7cb31a854291d}{BehaviourFactory}}\ =\ std::function<\mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}*(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*)>;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_a7e3fd935420d54e4b8b59f6cd2ff8827}{discover\_cpp\_behaviours}}()}
+\DoxyCodeLine{00014\ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{if}\ (behaviour\_factories.empty())}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ Log::get\_engine\_logger()-\/>error(\textcolor{stringliteral}{"{}No\ behaviours\ registered.\ Did\ static\ initializers\ run?"{}});}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}*\ \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_add7eb3d694dc6b767f5d4d4ec2be6833}{create\_behaviour}}(\textcolor{keyword}{const}\ std::string\&\ type\_name,\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ owner)}
+\DoxyCodeLine{00022\ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{auto}\ iterator\ =\ behaviour\_factories.find(type\_name);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (iterator\ ==\ behaviour\_factories.end())\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ Log::get\_engine\_logger()-\/>error(\textcolor{stringliteral}{"{}Unknown\ Behaviour\ Type:\ \{\}"{}},\ type\_name);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{return}\ iterator-\/>second(owner);}
+\DoxyCodeLine{00029\ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_a43db635ad4517ad4a67120869288cc53}{register\_behaviour}}(\textcolor{keyword}{const}\ std::string\&\ type\_name,\ \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_a7e9b24a19b44229c28f7cb31a854291d}{BehaviourFactory}}\ factory)}
+\DoxyCodeLine{00032\ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (behaviour\_factories.count(type\_name))\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ Log::get\_engine\_logger()-\/>warn(\textcolor{stringliteral}{"{}Behaviour\ type\ already\ registered:\ \{\}"{}},\ type\_name);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ behaviour\_factories[type\_name]\ =\ factory;}
+\DoxyCodeLine{00038\ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{static}\ std::unordered\_map<std::string,\ BehaviourFactory>\ behaviour\_factories;}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ Helper\ macro\ to\ register\ behaviours\ at\ startup\ (one\ line\ per\ behaviour)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ REGISTER\_BEHAVIOUR\_STATIC\_INIT(BehaviourClass)\ \(\backslash\)}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\ \ static\ struct\ BehaviourClass\#\#\_Registration\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\ \ \ \ BehaviourClass\#\#\_Registration()\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\ \ \ \ \ \ SceneTypeRegistry::register\_behaviour(\ \(\backslash\)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#BehaviourClass,\ \(\backslash\)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ [](GameObject*\ owner)\ -\/>\ Behaviour*\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ return\ owner-\/>add\_behaviour<BehaviourClass>();\ \(\backslash\)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \});\ \(\backslash\)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\ \ \ \ \}\ \(\backslash\)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\ \ \}\ BehaviourClass\#\#\_reg;}}
+\DoxyCodeLine{00055\ \}}
 
 \end{DoxyCode}

@@ -7,6 +7,7 @@ var classCalgine_1_1Behaviour =
     [ "get_game_object", "classCalgine_1_1Behaviour.html#aa5ddce8f5605e47c1727f93127634274", null ],
     [ "get_transform", "classCalgine_1_1Behaviour.html#aec1c964df62ee9bf87b1c05ed630a4be", null ],
     [ "imgui_render_tick", "classCalgine_1_1Behaviour.html#a061fd29a42a54921325daac824784a36", null ],
+    [ "is_started", "classCalgine_1_1Behaviour.html#a9c98d44cad6a3f3e84c935e48f1991b2", null ],
     [ "late_tick", "classCalgine_1_1Behaviour.html#ab92f603c2bc2cbfdd9fbfaa9fdc404ce", null ],
     [ "on_destroy", "classCalgine_1_1Behaviour.html#aab60143ff0527a6db745d286dec38fca", null ],
     [ "preloop_tick", "classCalgine_1_1Behaviour.html#afc52ca163104ff8061ecaa31aa083756", null ],

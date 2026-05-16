@@ -156,6 +156,12 @@ requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1B
 requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1Behaviour.html">Behaviour</a>&gt;</td></tr>
 <tr class="memitem:a640ffd517f6face466df2d6477d80d6d"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a640ffd517f6face466df2d6477d80d6d">has_behaviour</a> () const</td></tr>
 <tr class="separator:a640ffd517f6face466df2d6477d80d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34e4e461d2516e8a6c6d2bd5a21e3208" id="r_a34e4e461d2516e8a6c6d2bd5a21e3208"><td class="memTemplParams" colspan="2">template&lt;typename T_behaviour , typename... Args&gt; <br />
+requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1Behaviour.html">Behaviour</a>&gt;</td></tr>
+<tr class="memitem:a34e4e461d2516e8a6c6d2bd5a21e3208"><td class="memTemplItemLeft" align="right" valign="top">T_behaviour *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a34e4e461d2516e8a6c6d2bd5a21e3208">add_behaviour_deferred</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a34e4e461d2516e8a6c6d2bd5a21e3208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0316ce782ba05d5248f22ee1241069d4" id="r_a0316ce782ba05d5248f22ee1241069d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a0316ce782ba05d5248f22ee1241069d4">start_behaviours_recursive</a> ()</td></tr>
+<tr class="separator:a0316ce782ba05d5248f22ee1241069d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accf41615441ecc4f14ae550a1c3dba5f" id="r_accf41615441ecc4f14ae550a1c3dba5f"><td class="memTemplParams" colspan="2">template&lt;typename T  = GameObject, typename... Args&gt; <br />
 requires std::derived_from&lt;T, <a class="el" href="classCalgine_1_1GameObject.html">GameObject</a>&gt;</td></tr>
 <tr class="memitem:accf41615441ecc4f14ae550a1c3dba5f"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#accf41615441ecc4f14ae550a1c3dba5f">instantiate_child</a> (Args &amp;&amp;... args)</td></tr>
@@ -318,6 +324,27 @@ requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1B
       <table class="memname">
         <tr>
           <td class="memname">T_behaviour * Calgine::GameObject::add_behaviour </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34e4e461d2516e8a6c6d2bd5a21e3208" name="a34e4e461d2516e8a6c6d2bd5a21e3208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34e4e461d2516e8a6c6d2bd5a21e3208">&#9670;&#160;</a></span>add_behaviour_deferred()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_behaviour , typename... Args&gt; <br />
+requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1Behaviour.html">Behaviour</a>&gt;</div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T_behaviour * Calgine::GameObject::add_behaviour_deferred </td>
           <td>(</td>
           <td class="paramtype">Args &amp;&amp;...&#160;</td>
           <td class="paramname"><em>args</em></td><td>)</td>
@@ -720,6 +747,23 @@ requires std::derived_from&lt;T, <a class="el" href="classCalgine_1_1GameObject.
           <td>(</td>
           <td class="paramtype"><a class="el" href="classCalgine_1_1GameObject.html">GameObject</a> *&#160;</td>
           <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0316ce782ba05d5248f22ee1241069d4" name="a0316ce782ba05d5248f22ee1241069d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0316ce782ba05d5248f22ee1241069d4">&#9670;&#160;</a></span>start_behaviours_recursive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Calgine::GameObject::start_behaviours_recursive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>

@@ -35,7 +35,9 @@ var hierarchy =
     [ "Calgine::GameObject::Iterator", "classCalgine_1_1GameObject_1_1Iterator.html", null ],
     [ "Calgine::Log", "classCalgine_1_1Log.html", null ],
     [ "Calgine::ManagerHierarchy", "classCalgine_1_1ManagerHierarchy.html", null ],
+    [ "Calgine::MapEntity", "structCalgine_1_1MapEntity.html", null ],
     [ "Calgine::MapEntityProperties", "classCalgine_1_1MapEntityProperties.html", null ],
+    [ "Calgine::MapParser", "classCalgine_1_1MapParser.html", null ],
     [ "Calgine::Material", "classCalgine_1_1Material.html", null ],
     [ "tinyobj::material_t", "structtinyobj_1_1material__t.html", null ],
     [ "tinyobj::MaterialReader", "classtinyobj_1_1MaterialReader.html", [

@@ -5,18 +5,24 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{game__object_8h}{calgine/core/game\_object.h}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1SceneLoader}{SceneLoader}}}
-\DoxyCodeLine{00007\ \{}
-\DoxyCodeLine{00008\ \ \ \textcolor{keywordtype}{void}\ load\_scene\_from\_map(\textcolor{keyword}{const}\ std::string\&\ map\_filepath);}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \ \ \textcolor{keywordtype}{void}\ initialize\_active\_scene();}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{void}\ unload\_active\_scene();}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ get\_active\_scene\_root()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00015\ \};}
-\DoxyCodeLine{00016\ \}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{scene__load__context_8h}{scene\_load\_context.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{scene__loadable__behaviour_8h}{scene\_loadable\_behaviour.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{map__parser_8h}{map\_parser.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1SceneLoader}{SceneLoader}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \textcolor{comment}{//\ Load\ scene\ from\ .map\ file\ -\/\ creates\ GameObjects\ and\ Behaviours}}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ load\_scene\_from\_map(\textcolor{keyword}{const}\ std::string\&\ map\_filepath,\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \textcolor{comment}{//\ Instantiate\ a\ single\ entity\ from\ map\ properties}}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ instantiate\_entity(\textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1MapEntity}{MapEntity}}\&\ entity,\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ parent,\ \mbox{\hyperlink{classCalgine_1_1SceneLoadContext}{SceneLoadContext}}\&\ context);}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \}}
 
 \end{DoxyCode}
