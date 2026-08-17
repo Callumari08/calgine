@@ -24,4 +24,7 @@ private:
 
   void render_tick(EventContext&) override;
 };
+
+CALGINE_REGISTER_BEHAVIOUR(MeshRenderer, "mesh_renderer");
+
 }

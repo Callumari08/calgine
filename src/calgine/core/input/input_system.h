@@ -89,4 +89,6 @@ private:
   static std::string active_action_map;
 };
 
+CALGINE_REGISTER_BEHAVIOUR(InputSystemBehaviour, "input_system");
+
 }

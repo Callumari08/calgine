@@ -101,3 +101,5 @@ protected:
 };
 
 } // namespace Calgine
+
+#include "behaviour_serialization/behaviour_register_macro.h"
