@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['gamehierarchy_0',['GameHierarchy',['../classCalgine_1_1GameHierarchy.html',1,'Calgine']]],
-  ['gameobject_1',['GameObject',['../classCalgine_1_1GameObject.html',1,'Calgine']]]
+  ['fpsdisplay_0',['FpsDisplay',['../classCalgine_1_1FpsDisplay.html',1,'Calgine']]],
+  ['framebuffer_1',['FrameBuffer',['../classCalgine_1_1FrameBuffer.html',1,'Calgine']]]
 ];

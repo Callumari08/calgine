@@ -1,0 +1,23 @@
+\doxysection{data\+\_\+serialization\+\_\+interface.\+h}
+\hypertarget{data__serialization__interface_8h_source}{}\label{data__serialization__interface_8h_source}\index{src/calgine/core/behaviour\_serialization/data\_serialization\_interface.h@{src/calgine/core/behaviour\_serialization/data\_serialization\_interface.h}}
+\mbox{\hyperlink{data__serialization__interface_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1DataSerializationInterface}{DataSerializationInterface}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCalgine_1_1DataSerializationInterface}{\string~DataSerializationInterface}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00010\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ has(\textcolor{keyword}{const}\ std::string\&\ key)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{virtual}\ std::optional<std::string>\ get\_string(\textcolor{keyword}{const}\ std::string\&\ key)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{virtual}\ std::optional<int>\ get\_int(\textcolor{keyword}{const}\ std::string\&\ key)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{virtual}\ std::vector<DataSerializationInterface*>\ get\_array(\textcolor{keyword}{const}\ std::string\&\ key)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ is\_string()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{virtual}\ std::string\ as\_string()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00016\ \};}
+\DoxyCodeLine{00017\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,35 @@
+\doxysection{src/calgine/core/behaviour\+\_\+serialization/behaviour\+\_\+register\+\_\+macro.h File Reference}
+\hypertarget{behaviour__register__macro_8h}{}\label{behaviour__register__macro_8h}\index{src/calgine/core/behaviour\_serialization/behaviour\_register\_macro.h@{src/calgine/core/behaviour\_serialization/behaviour\_register\_macro.h}}
+{\ttfamily \#include "{}behaviour\+\_\+registry.\+h"{}}\newline
+{\ttfamily \#include "{}behaviour\+\_\+factory\+\_\+helpers.\+h"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCalgine}{Calgine}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{behaviour__register__macro_8h_a994fb7875ccbd00216a71e14a0f6d36c}{CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR}}(Behaviour\+Class,  name\+Str)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{behaviour__register__macro_8h_a994fb7875ccbd00216a71e14a0f6d36c}\label{behaviour__register__macro_8h_a994fb7875ccbd00216a71e14a0f6d36c} 
+\index{behaviour\_register\_macro.h@{behaviour\_register\_macro.h}!CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}}
+\index{CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}!behaviour\_register\_macro.h@{behaviour\_register\_macro.h}}
+\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR}{CALGINE\_REGISTER\_BEHAVIOUR}}
+{\footnotesize\ttfamily \#define CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR(\begin{DoxyParamCaption}\item[{}]{Behaviour\+Class,  }\item[{}]{name\+Str }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \textcolor{keyword}{namespace\ }\{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }BehaviourClass\#\#\_AutoReg\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ BehaviourClass\#\#\_AutoReg()\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Calgine::BehaviourRegistry::register\_behaviour(nameStr,\ Calgine::make\_behaviour\_factory<BehaviourClass>());\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \};\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ BehaviourClass\#\#\_AutoReg\ BehaviourClass\#\#\_autoRegInstance;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \}}
+
+\end{DoxyCode}
