@@ -1,0 +1,41 @@
+\doxysection{src/calgine/core/scene/scene\+\_\+type\+\_\+registry.h File Reference}
+\hypertarget{scene__type__registry_8h}{}\label{scene__type__registry_8h}\index{src/calgine/core/scene/scene\_type\_registry.h@{src/calgine/core/scene/scene\_type\_registry.h}}
+{\ttfamily \#include "{}calgine/core/game\+\_\+object.\+h"{}}\newline
+{\ttfamily \#include "{}calgine\+\_\+api.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry}{Calgine\+::\+Scene\+Type\+Registry}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCalgine}{Calgine}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{scene__type__registry_8h_a5bdcf52d9d6b31b18bde495658341953}{REGISTER\+\_\+\+BEHAVIOUR\+\_\+\+STATIC\+\_\+\+INIT}}(Behaviour\+Class)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{scene__type__registry_8h_a5bdcf52d9d6b31b18bde495658341953}\label{scene__type__registry_8h_a5bdcf52d9d6b31b18bde495658341953} 
+\index{scene\_type\_registry.h@{scene\_type\_registry.h}!REGISTER\_BEHAVIOUR\_STATIC\_INIT@{REGISTER\_BEHAVIOUR\_STATIC\_INIT}}
+\index{REGISTER\_BEHAVIOUR\_STATIC\_INIT@{REGISTER\_BEHAVIOUR\_STATIC\_INIT}!scene\_type\_registry.h@{scene\_type\_registry.h}}
+\doxysubsubsection{\texorpdfstring{REGISTER\_BEHAVIOUR\_STATIC\_INIT}{REGISTER\_BEHAVIOUR\_STATIC\_INIT}}
+{\footnotesize\ttfamily \#define REGISTER\+\_\+\+BEHAVIOUR\+\_\+\+STATIC\+\_\+\+INIT(\begin{DoxyParamCaption}\item[{}]{Behaviour\+Class }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }BehaviourClass\#\#\_Registration\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ BehaviourClass\#\#\_Registration()\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ SceneTypeRegistry::register\_behaviour(\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \#BehaviourClass,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ [](GameObject*\ owner)\ -\/>\ Behaviour*\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ owner-\/>add\_behaviour<BehaviourClass>();\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \});\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \}\ BehaviourClass\#\#\_reg;}
+
+\end{DoxyCode}

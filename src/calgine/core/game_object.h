@@ -75,6 +75,14 @@ public:
   requires std::derived_from<T_behaviour, Behaviour>
   bool has_behaviour() const;
 
+  // Deferred startup: add behaviour but don't call start_tick() until start_behaviours_recursive() is called
+  template<typename T_behaviour, typename... Args>
+  requires std::derived_from<T_behaviour, Behaviour>
+  T_behaviour* add_behaviour_deferred(Args&&... args);
+
+  // Start all behaviours in this GameObject and children (called after all objects created)
+  void start_behaviours_recursive();
+
   template<typename T = GameObject, typename... Args>
   requires std::derived_from<T, GameObject>
   T& instantiate_child(Args&&... args)
@@ -185,6 +193,38 @@ requires std::derived_from<T_behaviour, Behaviour>
 bool GameObject::has_behaviour() const
 {
   return behaviours.contains(typeid(T_behaviour));
+}
+
+template<typename T_behaviour, typename... Args>
+requires std::derived_from<T_behaviour, Behaviour>
+T_behaviour* GameObject::add_behaviour_deferred(Args&&... args)
+{
+  auto [it, inserted] = behaviours.emplace(
+    typeid(T_behaviour),
+    nullptr
+  );
+  if (!inserted) 
+  {
+    Log::get_engine_logger()->warn("Behaviour already exists on GameObject: {}", get_name());
+    return nullptr;
+  }
+  std::unique_ptr<Behaviour> owned;
+  
+  owned.reset(Behaviour::create<T_behaviour>(std::forward<Args>(args)...));
+  
+  if(!owned->attach_owner(this))
+  {
+    behaviours.erase(it);
+    return nullptr;
+  }
+  
+  it->second = std::move(owned);
+  T_behaviour* behaviour = static_cast<T_behaviour*>(it->second.get());
+  
+  // Mark as not started - start_tick() will be called later by start_behaviours_recursive()
+  behaviour->set_started(false);
+  
+  return behaviour;
 }
 
 } // namespace Calgine

@@ -1,0 +1,56 @@
+\doxysection{Calgine\+::Scene\+Type\+Registry Class Reference}
+\hypertarget{classCalgine_1_1SceneTypeRegistry}{}\label{classCalgine_1_1SceneTypeRegistry}\index{Calgine::SceneTypeRegistry@{Calgine::SceneTypeRegistry}}
+
+
+{\ttfamily \#include $<$scene\+\_\+type\+\_\+registry.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_a7e9b24a19b44229c28f7cb31a854291d}{Behaviour\+Factory}} = std\+::function$<$ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}} \texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*})$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_a7e3fd935420d54e4b8b59f6cd2ff8827}{discover\+\_\+cpp\+\_\+behaviours}} ()
+\item 
+static \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_add7eb3d694dc6b767f5d4d4ec2be6833}{create\+\_\+behaviour}} (const std\+::string \&type\+\_\+name, \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}owner)
+\item 
+static void \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_a43db635ad4517ad4a67120869288cc53}{register\+\_\+behaviour}} (const std\+::string \&type\+\_\+name, \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_a7e9b24a19b44229c28f7cb31a854291d}{Behaviour\+Factory}} factory)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classCalgine_1_1SceneTypeRegistry_a7e9b24a19b44229c28f7cb31a854291d}\label{classCalgine_1_1SceneTypeRegistry_a7e9b24a19b44229c28f7cb31a854291d} 
+\index{Calgine::SceneTypeRegistry@{Calgine::SceneTypeRegistry}!BehaviourFactory@{BehaviourFactory}}
+\index{BehaviourFactory@{BehaviourFactory}!Calgine::SceneTypeRegistry@{Calgine::SceneTypeRegistry}}
+\doxysubsubsection{\texorpdfstring{BehaviourFactory}{BehaviourFactory}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_a7e9b24a19b44229c28f7cb31a854291d}{Calgine\+::\+Scene\+Type\+Registry\+::\+Behaviour\+Factory}} =  std\+::function$<$\mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}\texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}}\texorpdfstring{$\ast$}{*})$>$}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1SceneTypeRegistry_add7eb3d694dc6b767f5d4d4ec2be6833}\label{classCalgine_1_1SceneTypeRegistry_add7eb3d694dc6b767f5d4d4ec2be6833} 
+\index{Calgine::SceneTypeRegistry@{Calgine::SceneTypeRegistry}!create\_behaviour@{create\_behaviour}}
+\index{create\_behaviour@{create\_behaviour}!Calgine::SceneTypeRegistry@{Calgine::SceneTypeRegistry}}
+\doxysubsubsection{\texorpdfstring{create\_behaviour()}{create\_behaviour()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}} \texorpdfstring{$\ast$}{*} Calgine\+::\+Scene\+Type\+Registry\+::create\+\_\+behaviour (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type\+\_\+name,  }\item[{\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{owner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{classCalgine_1_1SceneTypeRegistry_a7e3fd935420d54e4b8b59f6cd2ff8827}\label{classCalgine_1_1SceneTypeRegistry_a7e3fd935420d54e4b8b59f6cd2ff8827} 
+\index{Calgine::SceneTypeRegistry@{Calgine::SceneTypeRegistry}!discover\_cpp\_behaviours@{discover\_cpp\_behaviours}}
+\index{discover\_cpp\_behaviours@{discover\_cpp\_behaviours}!Calgine::SceneTypeRegistry@{Calgine::SceneTypeRegistry}}
+\doxysubsubsection{\texorpdfstring{discover\_cpp\_behaviours()}{discover\_cpp\_behaviours()}}
+{\footnotesize\ttfamily static void Calgine\+::\+Scene\+Type\+Registry\+::discover\+\_\+cpp\+\_\+behaviours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{classCalgine_1_1SceneTypeRegistry_a43db635ad4517ad4a67120869288cc53}\label{classCalgine_1_1SceneTypeRegistry_a43db635ad4517ad4a67120869288cc53} 
+\index{Calgine::SceneTypeRegistry@{Calgine::SceneTypeRegistry}!register\_behaviour@{register\_behaviour}}
+\index{register\_behaviour@{register\_behaviour}!Calgine::SceneTypeRegistry@{Calgine::SceneTypeRegistry}}
+\doxysubsubsection{\texorpdfstring{register\_behaviour()}{register\_behaviour()}}
+{\footnotesize\ttfamily static void Calgine\+::\+Scene\+Type\+Registry\+::register\+\_\+behaviour (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type\+\_\+name,  }\item[{\mbox{\hyperlink{classCalgine_1_1SceneTypeRegistry_a7e9b24a19b44229c28f7cb31a854291d}{Behaviour\+Factory}}}]{factory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/scene/\mbox{\hyperlink{scene__type__registry_8h}{scene\+\_\+type\+\_\+registry.\+h}}\item 
+src/calgine/core/scene/\mbox{\hyperlink{scene__type__registry_8cxx}{scene\+\_\+type\+\_\+registry.\+cxx}}\end{DoxyCompactItemize}

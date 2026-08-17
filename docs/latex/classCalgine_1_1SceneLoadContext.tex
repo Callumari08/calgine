@@ -1,0 +1,57 @@
+\doxysection{Calgine\+::Scene\+Load\+Context Class Reference}
+\hypertarget{classCalgine_1_1SceneLoadContext}{}\label{classCalgine_1_1SceneLoadContext}\index{Calgine::SceneLoadContext@{Calgine::SceneLoadContext}}
+
+
+{\ttfamily \#include $<$scene\+\_\+load\+\_\+context.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCalgine_1_1SceneLoadContext_a7a8653d4b013ac315de156804a405a8f}{register\+\_\+object}} (const std\+::string \&target\+\_\+name, \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}gameobject)
+\item 
+\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1SceneLoadContext_a69f020862b2f4cdb04df3c7de217abb4}{get\+\_\+object}} (const std\+::string \&target\+\_\+name) const
+\item 
+bool \mbox{\hyperlink{classCalgine_1_1SceneLoadContext_a701a69a8634d77b54c45bf21f55f19a0}{check\+\_\+has\+\_\+object}} (const std\+::string \&targetname) const
+\item 
+void \mbox{\hyperlink{classCalgine_1_1SceneLoadContext_a15af96a8584e1060dd37d9984cdd9a54}{defer\+\_\+link}} (std\+::function$<$ void()$>$ callback)
+\item 
+void \mbox{\hyperlink{classCalgine_1_1SceneLoadContext_aaeacbad11aba25c2dc1d18efe74874b3}{resolve\+\_\+deferred\+\_\+links}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1SceneLoadContext_a701a69a8634d77b54c45bf21f55f19a0}\label{classCalgine_1_1SceneLoadContext_a701a69a8634d77b54c45bf21f55f19a0} 
+\index{Calgine::SceneLoadContext@{Calgine::SceneLoadContext}!check\_has\_object@{check\_has\_object}}
+\index{check\_has\_object@{check\_has\_object}!Calgine::SceneLoadContext@{Calgine::SceneLoadContext}}
+\doxysubsubsection{\texorpdfstring{check\_has\_object()}{check\_has\_object()}}
+{\footnotesize\ttfamily bool Calgine\+::\+Scene\+Load\+Context\+::check\+\_\+has\+\_\+object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{targetname }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1SceneLoadContext_a15af96a8584e1060dd37d9984cdd9a54}\label{classCalgine_1_1SceneLoadContext_a15af96a8584e1060dd37d9984cdd9a54} 
+\index{Calgine::SceneLoadContext@{Calgine::SceneLoadContext}!defer\_link@{defer\_link}}
+\index{defer\_link@{defer\_link}!Calgine::SceneLoadContext@{Calgine::SceneLoadContext}}
+\doxysubsubsection{\texorpdfstring{defer\_link()}{defer\_link()}}
+{\footnotesize\ttfamily void Calgine\+::\+Scene\+Load\+Context\+::defer\+\_\+link (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1SceneLoadContext_a69f020862b2f4cdb04df3c7de217abb4}\label{classCalgine_1_1SceneLoadContext_a69f020862b2f4cdb04df3c7de217abb4} 
+\index{Calgine::SceneLoadContext@{Calgine::SceneLoadContext}!get\_object@{get\_object}}
+\index{get\_object@{get\_object}!Calgine::SceneLoadContext@{Calgine::SceneLoadContext}}
+\doxysubsubsection{\texorpdfstring{get\_object()}{get\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} Calgine\+::\+Scene\+Load\+Context\+::get\+\_\+object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{target\+\_\+name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1SceneLoadContext_a7a8653d4b013ac315de156804a405a8f}\label{classCalgine_1_1SceneLoadContext_a7a8653d4b013ac315de156804a405a8f} 
+\index{Calgine::SceneLoadContext@{Calgine::SceneLoadContext}!register\_object@{register\_object}}
+\index{register\_object@{register\_object}!Calgine::SceneLoadContext@{Calgine::SceneLoadContext}}
+\doxysubsubsection{\texorpdfstring{register\_object()}{register\_object()}}
+{\footnotesize\ttfamily void Calgine\+::\+Scene\+Load\+Context\+::register\+\_\+object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{target\+\_\+name,  }\item[{\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{gameobject }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1SceneLoadContext_aaeacbad11aba25c2dc1d18efe74874b3}\label{classCalgine_1_1SceneLoadContext_aaeacbad11aba25c2dc1d18efe74874b3} 
+\index{Calgine::SceneLoadContext@{Calgine::SceneLoadContext}!resolve\_deferred\_links@{resolve\_deferred\_links}}
+\index{resolve\_deferred\_links@{resolve\_deferred\_links}!Calgine::SceneLoadContext@{Calgine::SceneLoadContext}}
+\doxysubsubsection{\texorpdfstring{resolve\_deferred\_links()}{resolve\_deferred\_links()}}
+{\footnotesize\ttfamily void Calgine\+::\+Scene\+Load\+Context\+::resolve\+\_\+deferred\+\_\+links (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/scene/\mbox{\hyperlink{scene__load__context_8h}{scene\+\_\+load\+\_\+context.\+h}}\end{DoxyCompactItemize}

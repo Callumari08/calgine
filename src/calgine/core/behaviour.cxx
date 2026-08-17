@@ -30,7 +30,13 @@ bool Behaviour::attach_owner(GameObject* _game_object)
     return false;
   }
   game_object = _game_object;
-  start_tick();
+  
+  // Only call start_tick() if this behaviour is marked as started
+  // Deferred behaviours have started=false and will call start_tick() later
+  if (started)
+  {
+    start_tick();
+  }
 
   return true;
 }

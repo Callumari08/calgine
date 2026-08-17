@@ -56,6 +56,11 @@ requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalg
 {\footnotesize template$<$typename T\+\_\+behaviour $>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classCalgine_1_1GameObject_a640ffd517f6face466df2d6477d80d6d}{has\+\_\+behaviour}} () const
 \item 
+{\footnotesize template$<$typename T\+\_\+behaviour , typename... Args$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$}\\T\+\_\+behaviour \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1GameObject_a34e4e461d2516e8a6c6d2bd5a21e3208}{add\+\_\+behaviour\+\_\+deferred}} (Args \&\&... args)
+\item 
+void \mbox{\hyperlink{classCalgine_1_1GameObject_a0316ce782ba05d5248f22ee1241069d4}{start\+\_\+behaviours\+\_\+recursive}} ()
+\item 
 {\footnotesize template$<$typename T  = Game\+Object, typename... Args$>$ \newline
 requires std\+::derived\+\_\+from$<$T, \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}}$>$}\\T \& \mbox{\hyperlink{classCalgine_1_1GameObject_accf41615441ecc4f14ae550a1c3dba5f}{instantiate\+\_\+child}} (Args \&\&... args)
 \item 
@@ -121,6 +126,14 @@ Game\+Objects are objects within the \doxylink{}{Heirarchy} that have multiple \
 {\footnotesize\ttfamily template$<$typename T\+\_\+behaviour , typename... Args$>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$\\
 T\+\_\+behaviour \texorpdfstring{$\ast$}{*} Calgine\+::\+Game\+Object\+::add\+\_\+behaviour (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1GameObject_a34e4e461d2516e8a6c6d2bd5a21e3208}\label{classCalgine_1_1GameObject_a34e4e461d2516e8a6c6d2bd5a21e3208} 
+\index{Calgine::GameObject@{Calgine::GameObject}!add\_behaviour\_deferred@{add\_behaviour\_deferred}}
+\index{add\_behaviour\_deferred@{add\_behaviour\_deferred}!Calgine::GameObject@{Calgine::GameObject}}
+\doxysubsubsection{\texorpdfstring{add\_behaviour\_deferred()}{add\_behaviour\_deferred()}}
+{\footnotesize\ttfamily template$<$typename T\+\_\+behaviour , typename... Args$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$\\
+T\+\_\+behaviour \texorpdfstring{$\ast$}{*} Calgine\+::\+Game\+Object\+::add\+\_\+behaviour\+\_\+deferred (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})}
 
 \Hypertarget{classCalgine_1_1GameObject_acbd6a727b4948fbbef2e4b2cad78a965}\label{classCalgine_1_1GameObject_acbd6a727b4948fbbef2e4b2cad78a965} 
 \index{Calgine::GameObject@{Calgine::GameObject}!begin@{begin}}
@@ -245,6 +258,12 @@ T \& Calgine\+::\+Game\+Object\+::instantiate\+\_\+child (\begin{DoxyParamCaptio
 \index{set\_parent@{set\_parent}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{set\_parent()}{set\_parent()}}
 {\footnotesize\ttfamily void Calgine\+::\+Game\+Object\+::set\+\_\+parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1GameObject_a0316ce782ba05d5248f22ee1241069d4}\label{classCalgine_1_1GameObject_a0316ce782ba05d5248f22ee1241069d4} 
+\index{Calgine::GameObject@{Calgine::GameObject}!start\_behaviours\_recursive@{start\_behaviours\_recursive}}
+\index{start\_behaviours\_recursive@{start\_behaviours\_recursive}!Calgine::GameObject@{Calgine::GameObject}}
+\doxysubsubsection{\texorpdfstring{start\_behaviours\_recursive()}{start\_behaviours\_recursive()}}
+{\footnotesize\ttfamily void Calgine\+::\+Game\+Object\+::start\+\_\+behaviours\+\_\+recursive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 

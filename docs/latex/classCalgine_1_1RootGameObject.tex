@@ -51,6 +51,11 @@ requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalg
 {\footnotesize template$<$typename T\+\_\+behaviour $>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$}\\bool \mbox{\hyperlink{classCalgine_1_1GameObject_a640ffd517f6face466df2d6477d80d6d}{has\+\_\+behaviour}} () const
 \item 
+{\footnotesize template$<$typename T\+\_\+behaviour , typename... Args$>$ \newline
+requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$}\\T\+\_\+behaviour \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1GameObject_a34e4e461d2516e8a6c6d2bd5a21e3208}{add\+\_\+behaviour\+\_\+deferred}} (Args \&\&... args)
+\item 
+void \mbox{\hyperlink{classCalgine_1_1GameObject_a0316ce782ba05d5248f22ee1241069d4}{start\+\_\+behaviours\+\_\+recursive}} ()
+\item 
 {\footnotesize template$<$typename T  = Game\+Object, typename... Args$>$ \newline
 requires std\+::derived\+\_\+from$<$T, \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}}$>$}\\T \& \mbox{\hyperlink{classCalgine_1_1GameObject_accf41615441ecc4f14ae550a1c3dba5f}{instantiate\+\_\+child}} (Args \&\&... args)
 \item 

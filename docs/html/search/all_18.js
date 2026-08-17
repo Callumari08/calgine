@@ -13,8 +13,9 @@ var searchData=
   ['_7emesh_10',['~Mesh',['../classCalgine_1_1Mesh.html#ad4517bf11c2ef84657c1967f039e2c13',1,'Calgine::Mesh']]],
   ['_7erawinputdata_11',['~RawInputData',['../structCalgine_1_1RawInputData.html#afa1a4016f16636f2464c4b102f3159e3',1,'Calgine::RawInputData']]],
   ['_7erendertexture_12',['~RenderTexture',['../classCalgine_1_1RenderTexture.html#aade68b19d360bddef6d170aad6804ccb',1,'Calgine::RenderTexture']]],
-  ['_7eshader_13',['~Shader',['../classCalgine_1_1Shader.html#a6a619bcac68ed99f52f0526dcb70c3de',1,'Calgine::Shader']]],
-  ['_7evertexarray_14',['~VertexArray',['../classCalgine_1_1VertexArray.html#a9775bc15e96f3db44922524657b3feb6',1,'Calgine::VertexArray']]],
-  ['_7evertexbuffer_15',['~VertexBuffer',['../classCalgine_1_1VertexBuffer.html#a4e932c443a82b764430f40c145f84de4',1,'Calgine::VertexBuffer']]],
-  ['_7ewindow_16',['~Window',['../classCalgine_1_1Window.html#abdd08842f6d43e392d5cd585e01a83fe',1,'Calgine::Window']]]
+  ['_7esceneloadablebehaviour_13',['~SceneLoadableBehaviour',['../classCalgine_1_1SceneLoadableBehaviour.html#ad3b5f3f533442985c96a3fe17171a289',1,'Calgine::SceneLoadableBehaviour']]],
+  ['_7eshader_14',['~Shader',['../classCalgine_1_1Shader.html#a6a619bcac68ed99f52f0526dcb70c3de',1,'Calgine::Shader']]],
+  ['_7evertexarray_15',['~VertexArray',['../classCalgine_1_1VertexArray.html#a9775bc15e96f3db44922524657b3feb6',1,'Calgine::VertexArray']]],
+  ['_7evertexbuffer_16',['~VertexBuffer',['../classCalgine_1_1VertexBuffer.html#a4e932c443a82b764430f40c145f84de4',1,'Calgine::VertexBuffer']]],
+  ['_7ewindow_17',['~Window',['../classCalgine_1_1Window.html#abdd08842f6d43e392d5cd585e01a83fe',1,'Calgine::Window']]]
 ];
