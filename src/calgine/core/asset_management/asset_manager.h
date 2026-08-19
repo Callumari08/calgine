@@ -55,6 +55,9 @@ public:
   std::optional<std::shared_ptr<Texture>> get_texture(const std::string& name, const std::string else_file_path = "");
   std::optional<std::shared_ptr<Model>> get_model(const std::string& name, const std::string else_file_path = "");
   std::optional<std::shared_ptr<Shader>> get_shader(const std::string& name, const std::string else_fragment_path = "", const std::string else_vertex_path = "");
+
+  void clear();
+
   //std::optional<std::shared_ptr<Material>> get_material(const std::shared_ptr<Mesh>, const )
 
  

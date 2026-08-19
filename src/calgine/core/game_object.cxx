@@ -14,7 +14,8 @@ GameObject::GameObject(GameObject* _parent, const Transform _transform, const st
 }
 GameObject::~GameObject()
 {
-  //Log::get_engine_logger()->warn("GameObject Deleting; name of: {}", name);
+  children.clear();
+  behaviours.clear();
 }
 
 void GameObject::destroy()

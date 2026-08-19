@@ -42,7 +42,6 @@ std::shared_ptr<Texture> AssetManager::load_texture(const std::string& name, con
   if (!is_valid_file(texture, file_path))
     handle_asset_load_error(texture, file_path);
 
-  // Texture serialization is almost entirely done by SDL, so we can just use it here.
   SDL_Surface* surface = IMG_Load(file_path.c_str());
 
   if (!surface)
@@ -50,8 +49,7 @@ std::shared_ptr<Texture> AssetManager::load_texture(const std::string& name, con
 
   textures.emplace(name, new Texture(surface));
 
-  // Texture only accesses surface in the constructor, so we're fine to free it here.
-  //SDL_DestroySurface(surface);
+  SDL_DestroySurface(surface);
 
   return textures[name];
 }
@@ -589,6 +587,13 @@ Uint8 AssetManager::string_to_mouse_button(const std::string& button_name)
     return SDL_BUTTON_MIDDLE;
   else
     throw std::runtime_error(std::format("Unknown mouse button: {}", button_name));
+}
+
+void AssetManager::clear()
+{
+  textures.clear();
+  models.clear();
+  shaders.clear();
 }
 
 

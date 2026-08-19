@@ -24,6 +24,7 @@
 #include "calgine/core/time.h"
 #include "calgine/core/input/raw_input.h"
 #include "calgine/core/behaviour_serialization/behaviour_registry.h"
+#include "calgine/core/asset_management/asset_manager.h"
 
 
 namespace Calgine {
@@ -40,6 +41,12 @@ App::~App()
   ImGui_ImplOpenGL3_Shutdown();
   ImGui_ImplSDL3_Shutdown();
   ImGui::DestroyContext(settings.imgui_context);
+  
+  AssetManager::get_instance().clear();
+  
+  WindowHandler::get_instance()->get_windows().clear();
+  
+  SDL_Quit();
 }
 
 App& App::get_instance()
