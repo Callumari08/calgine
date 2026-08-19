@@ -27,6 +27,4 @@ private:
   void render_tree_node(GameObject& go, GameObject* parent);
 };
 
-CALGINE_REGISTER_BEHAVIOUR(HierarchyRenderer, "hierarchy_renderer");
-
 }

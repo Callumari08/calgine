@@ -22,6 +22,4 @@ private:
   float current_frame_time = 0.0f;
 };
 
-CALGINE_REGISTER_BEHAVIOUR(FpsDisplay, "fps_display");
-
 }

@@ -1,6 +1,8 @@
 #include "input_system.h"
 #include "calgine/core/event_context.h"
 #include "calgine/core/input/raw_input.h"
+#include "calgine/core/game_object.h"
+#include "calgine/core/behaviour_serialization/behaviour_register_macro.h"
 
 namespace Calgine {
 
@@ -238,5 +240,7 @@ void InputSystemBehaviour::update_tick(EventContext& event_context)
     }
   }
 }
+
+CALGINE_REGISTER_BEHAVIOUR(InputSystemBehaviour, "input_system");
 
 }

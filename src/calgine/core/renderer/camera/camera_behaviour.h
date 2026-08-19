@@ -45,6 +45,4 @@ private:
   friend class CameraManager;
 };
 
-CALGINE_REGISTER_BEHAVIOUR(CameraBehaviour, "camera");
-
 }

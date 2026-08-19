@@ -23,6 +23,7 @@
 #include "calgine/core/renderer/camera/camera_manager.h"
 #include "calgine/core/time.h"
 #include "calgine/core/input/raw_input.h"
+#include "calgine/core/behaviour_serialization/behaviour_registry.h"
 
 
 namespace Calgine {
@@ -97,6 +98,14 @@ void App::systems_init()
   init_imgui();
 
   Time::get_instance().init();
+
+  // Print all registered behaviours
+  auto registered_behaviours = BehaviourRegistry::list_registered();
+  Log::get_engine_logger()->info("Registered Behaviours:");
+  for (const auto& behaviour_name : registered_behaviours)
+  {
+    Log::get_engine_logger()->info("  - {}", behaviour_name);
+  }
 }
 
 void App::resize_framebuffer(uint32_t width, uint32_t height)

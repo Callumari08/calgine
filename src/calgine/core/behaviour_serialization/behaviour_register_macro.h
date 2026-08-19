@@ -3,8 +3,6 @@
 #include "behaviour_registry.h"
 #include "behaviour_factory_helpers.h"
 
-namespace Calgine {
-
 #define CALGINE_REGISTER_BEHAVIOUR(BehaviourClass, nameStr) \
   namespace { \
     struct BehaviourClass##_AutoReg { \
@@ -14,5 +12,3 @@ namespace Calgine {
     }; \
     static BehaviourClass##_AutoReg BehaviourClass##_autoRegInstance; \
   }
-
-}

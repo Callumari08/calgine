@@ -1,6 +1,8 @@
 #include "fps_display.h"
 #include "calgine/core/time.h"
 #include <imgui.h>
+#include "calgine/core/game_object.h"
+#include "calgine/core/behaviour_serialization/behaviour_register_macro.h"
 
 namespace Calgine {
 
@@ -31,4 +33,8 @@ void FpsDisplay::imgui_render_tick(EventContext&)
   ImGui::End();
 }
 
+}
+
+namespace Calgine {
+CALGINE_REGISTER_BEHAVIOUR(FpsDisplay, "fps_display");
 }

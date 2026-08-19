@@ -3,6 +3,7 @@
 #include "calgine/core/game_object.h"
 #include "calgine/core/hierarchies/game_hierarchy.h"
 #include <imgui.h>
+#include "calgine/core/behaviour_serialization/behaviour_register_macro.h"
 
 namespace Calgine {
 
