@@ -7,18 +7,14 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{behaviour__registry_8h}{behaviour\_registry.h}}"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{behaviour__factory__helpers_8h}{behaviour\_factory\_helpers.h}}"{}}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ CALGINE\_REGISTER\_BEHAVIOUR(BehaviourClass,\ nameStr)\ \(\backslash\)}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ namespace\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ struct\ BehaviourClass\#\#\_AutoReg\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \ \ BehaviourClass\#\#\_AutoReg()\ \{\ \(\backslash\)}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Calgine::BehaviourRegistry::register\_behaviour(nameStr,\ Calgine::make\_behaviour\_factory<BehaviourClass>());\ \(\backslash\)}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \ \ \ \ \ \}\ \(\backslash\)}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \};\ \(\backslash\)}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ static\ BehaviourClass\#\#\_AutoReg\ BehaviourClass\#\#\_autoRegInstance;\ \(\backslash\)}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \}}}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ CALGINE\_REGISTER\_BEHAVIOUR(BehaviourClass,\ nameStr)\ \(\backslash\)}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ namespace\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ struct\ BehaviourClass\#\#\_AutoReg\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \ \ BehaviourClass\#\#\_AutoReg()\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Calgine::BehaviourRegistry::register\_behaviour(nameStr,\ Calgine::make\_behaviour\_factory<BehaviourClass>());\ \(\backslash\)}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \ \ \}\ \(\backslash\)}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \};\ \(\backslash\)}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \ \ \ static\ BehaviourClass\#\#\_AutoReg\ BehaviourClass\#\#\_autoRegInstance;\ \(\backslash\)}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \}}}
 
 \end{DoxyCode}

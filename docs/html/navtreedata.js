@@ -64,8 +64,8 @@ var NAVTREEINDEX =
 "annotated.html",
 "classCalgine_1_1GameObject_1_1Iterator.html#a3d74eac033c11686840c92df83dd849c",
 "classCalgine_1_1Window.html#a56fa8c87faf7554e19965e5628e09f35",
-"renderer_8cxx.html",
-"structtinyobj_1_1material__t.html#a63bb93815630b2dfca986ae17c51b919"
+"renderer_8h_source.html",
+"structtinyobj_1_1material__t.html#a68c2e93c107fcc69c8ab5346e1bc8d66"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

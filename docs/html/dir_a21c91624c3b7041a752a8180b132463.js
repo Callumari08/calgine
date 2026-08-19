@@ -8,7 +8,7 @@ var dir_a21c91624c3b7041a752a8180b132463 =
     [ "material.h", "material_8h.html", "material_8h" ],
     [ "mesh.cxx", "mesh_8cxx.html", null ],
     [ "mesh.h", "mesh_8h.html", "mesh_8h" ],
-    [ "mesh_renderer.cxx", "mesh__renderer_8cxx.html", null ],
+    [ "mesh_renderer.cxx", "mesh__renderer_8cxx.html", "mesh__renderer_8cxx" ],
     [ "mesh_renderer.h", "mesh__renderer_8h.html", "mesh__renderer_8h" ],
     [ "model.h", "model_8h.html", "model_8h" ],
     [ "render_texture.cxx", "render__texture_8cxx.html", null ],

@@ -75,7 +75,6 @@ var namespaceCalgine =
     ] ],
     [ "CALGINE_REGISTER_BEHAVIOUR", "namespaceCalgine.html#a266956145afa6b8cfcf50623ffab2b23", null ],
     [ "CALGINE_REGISTER_BEHAVIOUR", "namespaceCalgine.html#a3eec104b7f64f2e1f05a6bd9bf8ee62c", null ],
-    [ "CALGINE_REGISTER_BEHAVIOUR", "namespaceCalgine.html#ad765b1f50aa15407354c91e50d29935e", null ],
     [ "CALGINE_REGISTER_BEHAVIOUR", "namespaceCalgine.html#ae6cde713ba7b0834f8982713f7d872fd", null ],
     [ "CALGINE_REGISTER_BEHAVIOUR", "namespaceCalgine.html#a7ccdbc6c1f2e5cb83aeedb663cd6c639", null ],
     [ "make_behaviour_factory", "namespaceCalgine.html#a5bd3b3e7aec9b17a0d3d1418ef90415f", null ],
