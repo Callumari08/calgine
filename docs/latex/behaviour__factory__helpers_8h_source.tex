@@ -1,0 +1,35 @@
+\doxysection{behaviour\+\_\+factory\+\_\+helpers.\+h}
+\hypertarget{behaviour__factory__helpers_8h_source}{}\label{behaviour__factory__helpers_8h_source}\index{src/calgine/core/behaviour\_serialization/behaviour\_factory\_helpers.h@{src/calgine/core/behaviour\_serialization/behaviour\_factory\_helpers.h}}
+\mbox{\hyperlink{behaviour__factory__helpers_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{behaviour__registry_8h}{behaviour\_registry.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{game__object_8h}{calgine/core/game\_object.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{data__serialization__interface_8h}{data\_serialization\_interface.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ trait:\ does\ T\ have\ void\ deserialize(const\ DataSerializationInterface*)\ ?}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCalgine_1_1has__deserialize__from__paramview}{has\_deserialize\_from\_paramview}}\ :\ std::false\_type\ \{\};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00014\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCalgine_1_1has__deserialize__from__paramview}{has\_deserialize\_from\_paramview}}<T,\ std::void\_t<}
+\DoxyCodeLine{00015\ \ \ decltype(std::declval<T>().deserialize(std::declval<const\ DataSerializationInterface*>()))>>}
+\DoxyCodeLine{00016\ \ \ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00019\ \mbox{\hyperlink{namespaceCalgine_afb5760e5bfac1a89c723a759e497f60a}{BehaviourFactory}}\ \mbox{\hyperlink{namespaceCalgine_a5bd3b3e7aec9b17a0d3d1418ef90415f}{make\_behaviour\_factory}}()\ \{}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordflow}{return}\ [](\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ owner,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1DataSerializationInterface}{DataSerializationInterface}}*\ params)\ -\/>\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}*\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ T*\ b\ =\ owner-\/>\mbox{\hyperlink{classCalgine_1_1GameObject_a058a205e6bb78fa9a2bac40340dfa808}{add\_behaviour}}<T>();}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\mbox{\hyperlink{structCalgine_1_1has__deserialize__from__paramview}{has\_deserialize\_from\_paramview<T>::value}})\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ b-\/>deserialize(params);}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{return}\ b;}
+\DoxyCodeLine{00026\ \ \ \};}
+\DoxyCodeLine{00027\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \}\ }
+
+\end{DoxyCode}

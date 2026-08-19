@@ -13,14 +13,19 @@ var hierarchy =
       [ "Calgine::InputSystemBehaviour", "classCalgine_1_1InputSystemBehaviour.html", null ],
       [ "Calgine::MeshRenderer", "classCalgine_1_1MeshRenderer.html", null ]
     ] ],
+    [ "Calgine::BehaviourRegistry", "classCalgine_1_1BehaviourRegistry.html", null ],
     [ "tinyobj::callback_t_", "structtinyobj_1_1callback__t__.html", null ],
     [ "Calgine::Camera", "classCalgine_1_1Camera.html", null ],
     [ "Calgine::CameraManager", "classCalgine_1_1CameraManager.html", null ],
     [ "Calgine::CameraSettings", "structCalgine_1_1CameraSettings.html", null ],
+    [ "Calgine::DataSerializationInterface", "classCalgine_1_1DataSerializationInterface.html", null ],
     [ "Calgine::EventContext", "classCalgine_1_1EventContext.html", null ],
     [ "Calgine::EventData", "structCalgine_1_1EventData.html", [
       [ "Calgine::InputActionEvent", "structCalgine_1_1InputActionEvent.html", null ],
       [ "Calgine::RawInputEvent", "structCalgine_1_1RawInputEvent.html", null ]
+    ] ],
+    [ "std::false_type", null, [
+      [ "Calgine::has_deserialize_from_paramview< T, typename >", "structCalgine_1_1has__deserialize__from__paramview.html", null ]
     ] ],
     [ "Calgine::FrameBuffer", "classCalgine_1_1FrameBuffer.html", null ],
     [ "Calgine::GameHierarchy", "classCalgine_1_1GameHierarchy.html", null ],
@@ -68,6 +73,9 @@ var hierarchy =
     [ "tinyobj::texture_option_t", "structtinyobj_1_1texture__option__t.html", null ],
     [ "Calgine::Time", "classCalgine_1_1Time.html", null ],
     [ "Calgine::Transform", "classCalgine_1_1Transform.html", null ],
+    [ "std::true_type", null, [
+      [ "Calgine::has_deserialize_from_paramview< T, std::void_t< decltype(std::declval< T >().deserialize(std::declval< const DataSerializationInterface * >()))> >", "structCalgine_1_1has__deserialize__from__paramview_3_01T_00_01std_1_1void__t_3_01decltype_07std_94428529f43becd300d98a39882c99ac.html", null ]
+    ] ],
     [ "Calgine::Vertex", "structCalgine_1_1Vertex.html", null ],
     [ "Calgine::VertexArray", "classCalgine_1_1VertexArray.html", null ],
     [ "Calgine::VertexBuffer", "classCalgine_1_1VertexBuffer.html", null ],

@@ -15,6 +15,8 @@ struct \mbox{\hyperlink{structCalgine_1_1BatchRenderCommand}{Batch\+Render\+Comm
 \item 
 class \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}
 \begin{DoxyCompactList}\small\item\em Gives access to tick updates for users. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classCalgine_1_1BehaviourRegistry}{Behaviour\+Registry}}
+\item 
 class \mbox{\hyperlink{classCalgine_1_1Camera}{Camera}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{Camera\+Behaviour}}
@@ -22,6 +24,8 @@ class \mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{Camera\+Behaviour}}
 class \mbox{\hyperlink{classCalgine_1_1CameraManager}{Camera\+Manager}}
 \item 
 struct \mbox{\hyperlink{structCalgine_1_1CameraSettings}{Camera\+Settings}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1DataSerializationInterface}{Data\+Serialization\+Interface}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}}
 \item 
@@ -35,6 +39,10 @@ class \mbox{\hyperlink{classCalgine_1_1GameHierarchy}{Game\+Hierarchy}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}}
 \begin{DoxyCompactList}\small\item\em Game\+Objects are objects within the \doxylink{}{Heirarchy} that have multiple \doxylink{classCalgine_1_1Behaviour}{Behaviour} subclasses attached to them which execute code. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCalgine_1_1has__deserialize__from__paramview}{has\+\_\+deserialize\+\_\+from\+\_\+paramview}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1has__deserialize__from__paramview_3_01T_00_01std_1_1void__t_3_01decltype_07std_94428529f43becd300d98a39882c99ac}{has\+\_\+deserialize\+\_\+from\+\_\+paramview$<$ T, std\+::void\+\_\+t$<$ decltype(std\+::declval$<$ T $>$().\+deserialize(std\+::declval$<$ const Data\+Serialization\+Interface \texorpdfstring{$\ast$}{*} $>$()))$>$ $>$}}
+\item 
 class \mbox{\hyperlink{classCalgine_1_1HierarchyRenderer}{Hierarchy\+Renderer}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1IndexBuffer}{Index\+Buffer}}
@@ -118,6 +126,8 @@ class \mbox{\hyperlink{classCalgine_1_1WindowHandler}{Window\+Handler}}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
+using \mbox{\hyperlink{namespaceCalgine_afb5760e5bfac1a89c723a759e497f60a}{Behaviour\+Factory}} = std\+::function$<$ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}} \texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{classCalgine_1_1DataSerializationInterface}{Data\+Serialization\+Interface}} const  \texorpdfstring{$\ast$}{*})$>$
+\item 
 using \mbox{\hyperlink{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0}{Input\+Value}} = std\+::variant$<$ \mbox{\hyperlink{unionCalgine_1_1InputButton}{Input\+Button}}, float, glm\+::vec2, glm\+::vec3 $>$
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
@@ -134,6 +144,21 @@ enum \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{Vsync\
 , \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a9f9dcaa8c848c0e8de57bd5bf5dab654}{adaptive}} = -\/1
  \}
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{namespaceCalgine_afb5760e5bfac1a89c723a759e497f60a}{Behaviour\+Factory}} \mbox{\hyperlink{namespaceCalgine_a5bd3b3e7aec9b17a0d3d1418ef90415f}{make\+\_\+behaviour\+\_\+factory}} ()
+\item 
+\mbox{\hyperlink{namespaceCalgine_ae6cde713ba7b0834f8982713f7d872fd}{CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR}} (\mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{Input\+System\+Behaviour}}, "{}input\+\_\+system"{})
+\item 
+\mbox{\hyperlink{namespaceCalgine_a266956145afa6b8cfcf50623ffab2b23}{CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR}} (\mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{Camera\+Behaviour}}, "{}camera"{})
+\item 
+\mbox{\hyperlink{namespaceCalgine_a7ccdbc6c1f2e5cb83aeedb663cd6c639}{CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR}} (\mbox{\hyperlink{classCalgine_1_1MeshRenderer}{Mesh\+Renderer}}, "{}mesh\+\_\+renderer"{})
+\item 
+\mbox{\hyperlink{namespaceCalgine_a3eec104b7f64f2e1f05a6bd9bf8ee62c}{CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR}} (\mbox{\hyperlink{classCalgine_1_1FpsDisplay}{Fps\+Display}}, "{}fps\+\_\+display"{})
+\item 
+\mbox{\hyperlink{namespaceCalgine_ad765b1f50aa15407354c91e50d29935e}{CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR}} (\mbox{\hyperlink{classCalgine_1_1HierarchyRenderer}{Hierarchy\+Renderer}}, "{}hierarchy\+\_\+renderer"{})
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -144,6 +169,12 @@ constexpr const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceCalgin
 
 
 \doxysubsection{Typedef Documentation}
+\Hypertarget{namespaceCalgine_afb5760e5bfac1a89c723a759e497f60a}\label{namespaceCalgine_afb5760e5bfac1a89c723a759e497f60a} 
+\index{Calgine@{Calgine}!BehaviourFactory@{BehaviourFactory}}
+\index{BehaviourFactory@{BehaviourFactory}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{BehaviourFactory}{BehaviourFactory}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceCalgine_afb5760e5bfac1a89c723a759e497f60a}{Calgine\+::\+Behaviour\+Factory}} = typedef std\+::function$<$\mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}\texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}}\texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{classCalgine_1_1DataSerializationInterface}{Data\+Serialization\+Interface}} const\texorpdfstring{$\ast$}{*})$>$}
+
 \Hypertarget{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0}\label{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0} 
 \index{Calgine@{Calgine}!InputValue@{InputValue}}
 \index{InputValue@{InputValue}!Calgine@{Calgine}}
@@ -197,6 +228,46 @@ adaptive&\\
 \hline
 
 \end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceCalgine_a266956145afa6b8cfcf50623ffab2b23}\label{namespaceCalgine_a266956145afa6b8cfcf50623ffab2b23} 
+\index{Calgine@{Calgine}!CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}}
+\index{CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Calgine\+::\+CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{Camera\+Behaviour}}}]{,  }\item[{"{}camera"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceCalgine_a3eec104b7f64f2e1f05a6bd9bf8ee62c}\label{namespaceCalgine_a3eec104b7f64f2e1f05a6bd9bf8ee62c} 
+\index{Calgine@{Calgine}!CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}}
+\index{CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Calgine\+::\+CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1FpsDisplay}{Fps\+Display}}}]{,  }\item[{"{}fps\+\_\+display"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceCalgine_ad765b1f50aa15407354c91e50d29935e}\label{namespaceCalgine_ad765b1f50aa15407354c91e50d29935e} 
+\index{Calgine@{Calgine}!CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}}
+\index{CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Calgine\+::\+CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1HierarchyRenderer}{Hierarchy\+Renderer}}}]{,  }\item[{"{}hierarchy\+\_\+renderer"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceCalgine_ae6cde713ba7b0834f8982713f7d872fd}\label{namespaceCalgine_ae6cde713ba7b0834f8982713f7d872fd} 
+\index{Calgine@{Calgine}!CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}}
+\index{CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Calgine\+::\+CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{Input\+System\+Behaviour}}}]{,  }\item[{"{}input\+\_\+system"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceCalgine_a7ccdbc6c1f2e5cb83aeedb663cd6c639}\label{namespaceCalgine_a7ccdbc6c1f2e5cb83aeedb663cd6c639} 
+\index{Calgine@{Calgine}!CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}}
+\index{CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Calgine\+::\+CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1MeshRenderer}{Mesh\+Renderer}}}]{,  }\item[{"{}mesh\+\_\+renderer"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceCalgine_a5bd3b3e7aec9b17a0d3d1418ef90415f}\label{namespaceCalgine_a5bd3b3e7aec9b17a0d3d1418ef90415f} 
+\index{Calgine@{Calgine}!make\_behaviour\_factory@{make\_behaviour\_factory}}
+\index{make\_behaviour\_factory@{make\_behaviour\_factory}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{make\_behaviour\_factory()}{make\_behaviour\_factory()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{namespaceCalgine_afb5760e5bfac1a89c723a759e497f60a}{Behaviour\+Factory}} Calgine\+::make\+\_\+behaviour\+\_\+factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 
 
 \doxysubsection{Variable Documentation}
