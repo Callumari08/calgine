@@ -83,6 +83,9 @@ public:
   // Start all behaviours in this GameObject and children (called after all objects created)
   void start_behaviours_recursive();
 
+  // Add a behaviour by its registered type name (for runtime instantiation)
+  Behaviour* add_behaviour_by_name(const std::string& type_name);
+
   template<typename T = GameObject, typename... Args>
   requires std::derived_from<T, GameObject>
   T& instantiate_child(Args&&... args)

@@ -2,6 +2,7 @@
 #include "calgine/core/behaviour.h"
 #include "calgine/core/event_context.h"
 #include "calgine/core/transform.h"
+#include "behaviour_serialization/behaviour_registry.h"
 
 namespace Calgine {
 
@@ -222,6 +223,40 @@ void GameObject::start_behaviours_recursive()
   {
     child->start_behaviours_recursive();
   }
+}
+
+Behaviour* GameObject::add_behaviour_by_name(const std::string& type_name)
+{
+  BehaviourFactory factory = BehaviourRegistry::get_factory(type_name);
+  if (!factory)
+  {
+    Log::get_engine_logger()->error("Unknown behaviour type: {}", type_name);
+    return nullptr;
+  }
+  
+  // Call factory with nullptr for serialization data (not deserializing)
+  Behaviour* behaviour = factory(this, nullptr);
+  if (!behaviour)
+  {
+    Log::get_engine_logger()->error("Failed to create behaviour by name: {}", type_name);
+    return nullptr;
+  }
+
+  // Add to behaviours map with the actual type
+  auto [it, inserted] = behaviours.emplace(
+    std::type_index(typeid(*behaviour)),
+    nullptr
+  );
+  
+  if (!inserted)
+  {
+    Log::get_engine_logger()->warn("Behaviour of type already exists on GameObject: {}", get_name());
+    delete behaviour;
+    return nullptr;
+  }
+
+  it->second.reset(behaviour);
+  return behaviour;
 }
 
 } // namespace Calgine
