@@ -1,8 +1,11 @@
 #pragma once
 
+#include <cstdint>
+#include "calgine_api.h"
+
 namespace Calgine {
 
-class Time
+class CALGINE_API Time
 {
 public:
   static Time& get_instance();

@@ -85,6 +85,33 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(tomlplusplus)
 
+# ---- Fetch Jolt Physics ----
+# Built as a static library and linked PRIVATE into Calgine; Jolt headers never appear in public engine headers.
+set(CPP_RTTI_ENABLED ON CACHE BOOL "" FORCE)               # Engine uses RTTI; subclassing Jolt classes needs matching typeinfo
+set(INTERPROCEDURAL_OPTIMIZATION OFF CACHE BOOL "" FORCE)
+set(ENABLE_ALL_WARNINGS OFF CACHE BOOL "" FORCE)
+set(DEBUG_RENDERER_IN_DEBUG_AND_RELEASE ON CACHE BOOL "" FORCE) # Needed for collider debug drawing
+set(TARGET_UNIT_TESTS OFF CACHE BOOL "" FORCE)
+set(TARGET_HELLO_WORLD OFF CACHE BOOL "" FORCE)
+set(TARGET_PERFORMANCE_TEST OFF CACHE BOOL "" FORCE)
+set(TARGET_SAMPLES OFF CACHE BOOL "" FORCE)
+set(TARGET_VIEWER OFF CACHE BOOL "" FORCE)
+set(JPH_BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)         # Static, so no extra .so/.dll to ship (BUILD_SHARED_LIBS is ON elsewhere)
+set(ENABLE_INSTALL OFF CACHE BOOL "" FORCE)
+set(JPH_USE_VK OFF CACHE BOOL "" FORCE)                    # GPU/CPU compute backends aren't needed for rigid bodies
+set(JPH_USE_DX12 OFF CACHE BOOL "" FORCE)
+set(JPH_USE_MTL OFF CACHE BOOL "" FORCE)
+set(JPH_USE_CPU_COMPUTE OFF CACHE BOOL "" FORCE)
+FetchContent_Declare(
+    JoltPhysics
+    GIT_REPOSITORY https://github.com/jrouwe/JoltPhysics.git
+    GIT_TAG v5.6.0
+    GIT_SHALLOW TRUE
+    SOURCE_SUBDIR Build
+    SYSTEM
+)
+FetchContent_MakeAvailable(JoltPhysics)
+
 # ---- RapidJSON: prefer system if requested, otherwise use FetchContent ----
 if(USE_SYSTEM_RAPIDJSON)
     find_package(RapidJSON QUIET)
@@ -220,6 +247,7 @@ target_link_libraries(Calgine
         ${CALGINE_RAPIDJSON_TARGET}
         $<$<BOOL:${ENABLE_ASAN}>:asan_flags>
     PRIVATE
+        Jolt
         project_warnings
 )
 
@@ -281,6 +309,11 @@ if(TARGET tomlplusplus::tomlplusplus)
     message(STATUS "toml++ target available.")
 else()
     message(WARNING "toml++ target NOT available. Build will likely fail.")
+endif()
+if(TARGET Jolt)
+    message(STATUS "Jolt Physics target available.")
+else()
+    message(WARNING "Jolt Physics target NOT available. Build will likely fail.")
 endif()
 if(TARGET RapidJSON::RapidJSON)
     message(STATUS "RapidJSON target available.")

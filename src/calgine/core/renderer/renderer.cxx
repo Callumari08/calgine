@@ -35,6 +35,13 @@ void Renderer::begin_frame()
   projection_matrix = active_camera->get_raw_camera().get_projection_matrix();
 
   command_queue.clear();
+  line_vertices.clear();
+}
+
+void Renderer::submit_line(const glm::vec3& from, const glm::vec3& to, const glm::vec4& colour)
+{
+  line_vertices.push_back(LineVertex {from, colour});
+  line_vertices.push_back(LineVertex {to, colour});
 }
 
 void Renderer::submit(const Mesh* mesh, const Material* material, const glm::mat4 model_matrix)
@@ -75,6 +82,70 @@ void Renderer::flush()
   }
 
   command_queue.clear();
+
+  flush_lines();
+}
+
+void Renderer::flush_lines()
+{
+  if (line_vertices.empty() || !had_camera_last_frame)
+  {
+    line_vertices.clear();
+    return;
+  }
+
+  // Lazily create GL objects the first time lines are drawn (needs a live GL context).
+  if (!line_shader)
+    line_shader = std::make_unique<Shader>(ShaderProgram { LINE_FRAGMENT_SHADER, LINE_VERTEX_SHADER });
+
+  if (line_vao == 0)
+  {
+    glGenVertexArrays(1, &line_vao);
+    glGenBuffers(1, &line_vbo);
+
+    glBindVertexArray(line_vao);
+    glBindBuffer(GL_ARRAY_BUFFER, line_vbo);
+
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(LineVertex), (const void*)offsetof(LineVertex, position));
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(LineVertex), (const void*)offsetof(LineVertex, colour));
+  }
+
+  glBindVertexArray(line_vao);
+  glBindBuffer(GL_ARRAY_BUFFER, line_vbo);
+
+  const size_t byte_size = line_vertices.size() * sizeof(LineVertex);
+  if (byte_size > line_vbo_capacity)
+  {
+    line_vbo_capacity = byte_size * 2;
+    glBufferData(GL_ARRAY_BUFFER, line_vbo_capacity, nullptr, GL_DYNAMIC_DRAW);
+  }
+  glBufferSubData(GL_ARRAY_BUFFER, 0, byte_size, line_vertices.data());
+
+  line_shader->bind();
+  line_shader->set_uniform_mat4("u_view", view_matrix);
+  line_shader->set_uniform_mat4("u_proj", projection_matrix);
+
+  glDrawArrays(GL_LINES, 0, static_cast<GLsizei>(line_vertices.size()));
+
+  glBindVertexArray(0);
+  line_vertices.clear();
+}
+
+void Renderer::release_gl_resources()
+{
+  line_shader.reset();
+
+  if (line_vbo)
+    glDeleteBuffers(1, &line_vbo);
+  if (line_vao)
+    glDeleteVertexArrays(1, &line_vao);
+
+  line_vbo = 0;
+  line_vao = 0;
+  line_vbo_capacity = 0;
+  line_vertices.clear();
 }
 
 

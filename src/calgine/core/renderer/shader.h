@@ -40,6 +40,33 @@ void main()
 }
 )";
 
+// Built-in shader for debug lines (Renderer::submit_line).
+constexpr const char* LINE_VERTEX_SHADER = R"(#version 450 core
+layout(location = 0) in vec3 a_position;
+layout(location = 1) in vec4 a_colour;
+
+uniform mat4 u_view;
+uniform mat4 u_proj;
+
+out vec4 v_colour;
+
+void main()
+{
+  v_colour = a_colour;
+  gl_Position = u_proj * u_view * vec4(a_position, 1.0);
+}
+)";
+
+constexpr const char* LINE_FRAGMENT_SHADER = R"(#version 450 core
+in vec4 v_colour;
+out vec4 o_color;
+
+void main()
+{
+  o_color = v_colour;
+}
+)";
+
 struct ShaderProgram
 {
   std::string fragment;

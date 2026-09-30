@@ -118,4 +118,9 @@ namespace Calgine {
     vsync_state = state;
     SDL_GL_SetSwapInterval(vsync_state);
   }
+
+  VsyncState Window::get_vsync_state() const
+  {
+    return vsync_state;
+  }
 }

@@ -24,9 +24,18 @@ void GameObject::destroy()
   if (destroyed) return;
   destroyed = true;
 
+  // Each child's destroy() detaches it from our children vector, so iterate over a snapshot
+  // instead of the vector itself (which would skip children and read past the end).
+  std::vector<GameObject*> children_to_destroy;
+  children_to_destroy.reserve(children.size());
   for (std::unique_ptr<GameObject>& child : children)
   {
-    if (child) child->destroy();
+    if (child) children_to_destroy.push_back(child.get());
+  }
+
+  for (GameObject* child : children_to_destroy)
+  {
+    child->destroy();
   }
 
   for (auto& [type, behaviour] : behaviours)
@@ -159,38 +168,134 @@ void GameObject::tick_self_and_children(const TickType tick_type, EventContext& 
 }
 
 
-void GameObject::set_parent(GameObject* _parent)
+void GameObject::set_parent(GameObject* _parent, bool keep_world_transform)
 {
   if (parent == _parent)
     return;
 
-  std::unique_ptr<GameObject> owned_self;
-
-  if (parent)
+  if (!parent)
   {
-    std::vector<std::unique_ptr<GameObject>>& siblings = parent->children;
-
-    auto it = std::find_if(
-      siblings.begin(),
-      siblings.end(),
-          [this](const std::unique_ptr<GameObject>& child)
-          {
-            return child.get() == this;
-          }
-      );
-
-    assert(it != siblings.end());
-
-    owned_self = std::move(*it);
-    siblings.erase(it);
+    // Only hierarchy roots have no parent, and nothing owns them through a children vector.
+    Log::get_engine_logger()->error("Cannot reparent '{}': it has no parent (hierarchy roots cannot be moved).", get_name());
+    return;
   }
+
+  if (!_parent)
+  {
+    Log::get_engine_logger()->error("Cannot reparent '{}' to nullptr. Use destroy() to remove it.", get_name());
+    return;
+  }
+
+  if (_parent->is_descendant_of(this))
+  {
+    Log::get_engine_logger()->error("Cannot parent '{}' to itself or one of its descendants.", get_name());
+    return;
+  }
+
+  // Capture world matrix before the parent changes.
+  const glm::mat4 world_matrix = get_world_matrix();
+
+  std::vector<std::unique_ptr<GameObject>>& siblings = parent->children;
+
+  auto it = std::find_if(
+    siblings.begin(),
+    siblings.end(),
+        [this](const std::unique_ptr<GameObject>& child)
+        {
+          return child.get() == this;
+        }
+    );
+
+  assert(it != siblings.end());
+
+  std::unique_ptr<GameObject> owned_self = std::move(*it);
+  siblings.erase(it);
 
   parent = _parent;
+  parent->children.emplace_back(std::move(owned_self));
 
-  if (parent)
+  if (keep_world_transform)
   {
-    parent->children.emplace_back(std::move(owned_self));
+    transform = Transform::from_matrix(glm::inverse(parent->get_world_matrix()) * world_matrix);
   }
+}
+
+bool GameObject::is_descendant_of(const GameObject* other) const
+{
+  for (const GameObject* current = this; current; current = current->parent)
+  {
+    if (current == other)
+      return true;
+  }
+  return false;
+}
+
+glm::mat4 GameObject::get_world_matrix() const
+{
+  if (parent)
+    return parent->get_world_matrix() * transform.to_matrix();
+
+  return transform.to_matrix();
+}
+
+Transform GameObject::get_world_transform() const
+{
+  if (!parent)
+    return transform;
+
+  return Transform::from_matrix(get_world_matrix());
+}
+
+glm::vec3 GameObject::get_world_position() const
+{
+  return glm::vec3(get_world_matrix()[3]);
+}
+
+glm::quat GameObject::get_world_rotation() const
+{
+  if (!parent)
+    return transform.get_rotation_quat();
+
+  return get_world_transform().get_rotation_quat();
+}
+
+glm::vec3 GameObject::get_world_scale() const
+{
+  return get_world_transform().scale;
+}
+
+void GameObject::set_world_position(const glm::vec3& position)
+{
+  if (!parent)
+  {
+    transform.position = position;
+    return;
+  }
+
+  transform.position = glm::vec3(glm::inverse(parent->get_world_matrix()) * glm::vec4(position, 1.0f));
+}
+
+void GameObject::set_world_rotation(const glm::quat& rotation)
+{
+  if (!parent)
+  {
+    transform.set_rotation_quat(rotation);
+    return;
+  }
+
+  const glm::quat parent_rotation = parent->get_world_rotation();
+  transform.set_rotation_quat(glm::inverse(parent_rotation) * rotation);
+}
+
+void GameObject::set_world_transform(const Transform& world_transform)
+{
+  if (!parent)
+  {
+    transform = world_transform;
+    return;
+  }
+
+  transform = Transform::from_matrix(glm::inverse(parent->get_world_matrix()) * world_transform.to_matrix());
 }
 
 std::optional<std::reference_wrapper<GameObject>> GameObject::get_parent() const

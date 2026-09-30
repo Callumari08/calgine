@@ -25,6 +25,7 @@
 #include "calgine/core/input/raw_input.h"
 #include "calgine/core/behaviour_serialization/behaviour_registry.h"
 #include "calgine/core/asset_management/asset_manager.h"
+#include "calgine/core/physics/physics_world.h"
 
 
 namespace Calgine {
@@ -38,11 +39,17 @@ App::App()
 }
 App::~App()
 {
+  // Physics first: RigidBodies are owned by the static hierarchies, which outlive the App.
+  PhysicsWorld::get_instance().shutdown();
+
   ImGui_ImplOpenGL3_Shutdown();
   ImGui_ImplSDL3_Shutdown();
   ImGui::DestroyContext(settings.imgui_context);
   
   AssetManager::get_instance().clear();
+
+  // Free renderer GL objects while the GL context still exists.
+  Renderer::get_instance().release_gl_resources();
   
   WindowHandler::get_instance()->get_windows().clear();
   
@@ -105,6 +112,8 @@ void App::systems_init()
   init_imgui();
 
   Time::get_instance().init();
+
+  PhysicsWorld::get_instance().init();
 
   // Print all registered behaviours
   auto registered_behaviours = BehaviourRegistry::list_registered();
@@ -187,6 +196,9 @@ void App::main_loop()
     {
       manager_hierarchy.tick_self_and_children(fixed_update, event_context);
       game_hierarchy.tick_self_and_children(fixed_update, event_context);
+
+      // Scripts have applied their forces for this step; now simulate.
+      PhysicsWorld::get_instance().step(Time::fixed_delta_time(), event_context);
     }
 
     event_context.update_tick_phase(update);
@@ -331,6 +343,8 @@ void App::render_windows(GameObject& game_hierarchy, GameObject& manager_hierarc
 
     manager_hierarchy.tick_self_and_children(render, event_context);
     game_hierarchy.tick_self_and_children(render, event_context);
+
+    PhysicsWorld::get_instance().debug_draw();
 
     renderer_instance.end_frame();
 

@@ -61,7 +61,29 @@ public:
   inline bool is_enabled() const { return enabled; }
   void set_active(const bool _enabled);
   
+  /**
+   * @brief The local transform, relative to the parent GameObject.
+   */
   inline Transform& get_transform() { return transform; }
+  inline const Transform& get_transform() const { return transform; }
+
+  // ---- World space ----
+  // World values are computed on demand from the parent chain.
+
+  /** @brief parent world matrix * local matrix. */
+  glm::mat4 get_world_matrix() const;
+  /** @brief World transform decomposed from get_world_matrix(). */
+  Transform get_world_transform() const;
+  glm::vec3 get_world_position() const;
+  glm::quat get_world_rotation() const;
+  glm::vec3 get_world_scale() const;
+
+  /** @brief Moves this object so its world position is @p position (children follow). */
+  void set_world_position(const glm::vec3& position);
+  /** @brief Rotates this object so its world rotation is @p rotation (children follow). */
+  void set_world_rotation(const glm::quat& rotation);
+  /** @brief Sets position, rotation and scale in world space. */
+  void set_world_transform(const Transform& world_transform);
 
   template<typename T_behaviour, typename... Args>
   requires std::derived_from<T_behaviour, Behaviour>
@@ -96,7 +118,17 @@ public:
   }
 
 
-  void set_parent(GameObject* parent);
+  /**
+   * @brief Moves this GameObject under a new parent.
+   *
+   * @param parent The new parent. Must not be this object or one of its descendants.
+   * @param keep_world_transform If true (default), the local transform is recalculated so the
+   *        object stays where it is in the world. If false, the local transform is kept as-is.
+   */
+  void set_parent(GameObject* parent, bool keep_world_transform = true);
+
+  /** @brief True if this object is @p other or is somewhere below it in the hierarchy. */
+  bool is_descendant_of(const GameObject* other) const;
 
   std::optional<std::reference_wrapper<GameObject>> get_parent() const;
 

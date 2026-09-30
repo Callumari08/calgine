@@ -3,6 +3,7 @@
 #include "calgine/core/behaviour.h"
 #include "calgine/core/game_object.h"
 #include "calgine/core/transform.h"
+#include "calgine/core/time.h"
 
 #include "calgine/core/hierarchies/game_hierarchy.h"
 #include "calgine/core/hierarchies/manager_hierarchy.h"
@@ -16,3 +17,7 @@
 #include "calgine/core/renderer/frame_buffer.h"
 
 #include "calgine/core/asset_management/asset_manager.h"
+
+#include "calgine/core/physics/physics_world.h"
+#include "calgine/core/physics/rigid_body.h"
+#include "calgine/core/physics/collision_event.h"

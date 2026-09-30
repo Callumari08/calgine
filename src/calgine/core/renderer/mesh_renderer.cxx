@@ -24,7 +24,7 @@ namespace Calgine {
     }*/
 
     // TODO: update the renderer to support multiple textures (ie. normal maps, albedo etc)
-    Renderer::get_instance().submit(&model_ptr->mesh, model_ptr->material.get(), get_game_object()->get_transform().to_matrix());
+    Renderer::get_instance().submit(&model_ptr->mesh, model_ptr->material.get(), get_game_object()->get_world_matrix());
   }
 
 CALGINE_REGISTER_BEHAVIOUR(MeshRenderer, "mesh_renderer");
