@@ -1,10 +1,10 @@
-\doxysection{Calgine::Contact\+Queue Class Reference}
+\doxysection{Calgine\+::Contact\+Queue Class Reference}
 \hypertarget{classCalgine_1_1ContactQueue}{}\label{classCalgine_1_1ContactQueue}\index{Calgine::ContactQueue@{Calgine::ContactQueue}}
 
 
-{\ttfamily \+\#include $<$physics\+\_\+internal.\+h$>$}
+{\ttfamily \#include $<$physics\+\_\+internal.\+h$>$}
 
-Inheritance diagram for Calgine::Contact\+Queue:\begin{figure}[H]
+Inheritance diagram for Calgine\+::Contact\+Queue\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{classCalgine_1_1ContactQueue}
@@ -13,37 +13,35 @@ Inheritance diagram for Calgine::Contact\+Queue:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \doxymbox{\hyperlink{classCalgine_1_1ContactQueue_a28c9d667608581af3404bdabdb87844f}{On\+Contact\+Added}} (const JPH::\+\+Body \&body\+\_\+1, const JPH::\+\+Body \&body\+\_\+2, const JPH::\+\+Contact\+Manifold \&manifold, JPH::\+\+Contact\+Settings \&) override
+void \mbox{\hyperlink{classCalgine_1_1ContactQueue_a28c9d667608581af3404bdabdb87844f}{On\+Contact\+Added}} (const JPH\+::\+Body \&body\+\_\+1, const JPH\+::\+Body \&body\+\_\+2, const JPH\+::\+Contact\+Manifold \&manifold, JPH\+::\+Contact\+Settings \&) override
 \item 
-void \doxymbox{\hyperlink{classCalgine_1_1ContactQueue_a4afe803f766bda8eab7c87628dd6eca7}{On\+Contact\+Removed}} (const JPH::\+\+Sub\+Shape\+IDPair \&pair) override
+void \mbox{\hyperlink{classCalgine_1_1ContactQueue_a4afe803f766bda8eab7c87628dd6eca7}{On\+Contact\+Removed}} (const JPH\+::\+Sub\+Shape\+IDPair \&pair) override
 \item 
-std::\+vector$<$ \doxymbox{\hyperlink{structCalgine_1_1QueuedContact}{Queued\+Contact}} $>$ \doxymbox{\hyperlink{classCalgine_1_1ContactQueue_ad958cbb5334ba198cb90b09e67eb1540}{take}} ()
+std\+::vector$<$ \mbox{\hyperlink{structCalgine_1_1QueuedContact}{Queued\+Contact}} $>$ \mbox{\hyperlink{classCalgine_1_1ContactQueue_ad958cbb5334ba198cb90b09e67eb1540}{take}} ()
 \end{DoxyCompactItemize}
 
 
-\label{classCalgine_1_1ContactQueue_doc-func-members}
-\Hypertarget{classCalgine_1_1ContactQueue_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classCalgine_1_1ContactQueue_a28c9d667608581af3404bdabdb87844f}\index{Calgine::ContactQueue@{Calgine::ContactQueue}!OnContactAdded@{OnContactAdded}}
+\Hypertarget{classCalgine_1_1ContactQueue_a28c9d667608581af3404bdabdb87844f}\label{classCalgine_1_1ContactQueue_a28c9d667608581af3404bdabdb87844f} 
+\index{Calgine::ContactQueue@{Calgine::ContactQueue}!OnContactAdded@{OnContactAdded}}
 \index{OnContactAdded@{OnContactAdded}!Calgine::ContactQueue@{Calgine::ContactQueue}}
 \doxysubsubsection{\texorpdfstring{OnContactAdded()}{OnContactAdded()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1ContactQueue_a28c9d667608581af3404bdabdb87844f} 
-void Calgine::\+\+Contact\+Queue::\+\+On\+Contact\+Added (\begin{DoxyParamCaption}\item[{const JPH::\+\+Body \&}]{body\+\_\+1}{, }\item[{const JPH::\+\+Body \&}]{body\+\_\+2}{, }\item[{const JPH::\+\+Contact\+Manifold \&}]{manifold}{, }\item[{JPH::\+\+Contact\+Settings \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+{\footnotesize\ttfamily void Calgine\+::\+Contact\+Queue\+::\+On\+Contact\+Added (\begin{DoxyParamCaption}\item[{const JPH\+::\+Body \&}]{body\+\_\+1,  }\item[{const JPH\+::\+Body \&}]{body\+\_\+2,  }\item[{const JPH\+::\+Contact\+Manifold \&}]{manifold,  }\item[{JPH\+::\+Contact\+Settings \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
 
-\Hypertarget{classCalgine_1_1ContactQueue_a4afe803f766bda8eab7c87628dd6eca7}\index{Calgine::ContactQueue@{Calgine::ContactQueue}!OnContactRemoved@{OnContactRemoved}}
+\Hypertarget{classCalgine_1_1ContactQueue_a4afe803f766bda8eab7c87628dd6eca7}\label{classCalgine_1_1ContactQueue_a4afe803f766bda8eab7c87628dd6eca7} 
+\index{Calgine::ContactQueue@{Calgine::ContactQueue}!OnContactRemoved@{OnContactRemoved}}
 \index{OnContactRemoved@{OnContactRemoved}!Calgine::ContactQueue@{Calgine::ContactQueue}}
 \doxysubsubsection{\texorpdfstring{OnContactRemoved()}{OnContactRemoved()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1ContactQueue_a4afe803f766bda8eab7c87628dd6eca7} 
-void Calgine::\+\+Contact\+Queue::\+\+On\+Contact\+Removed (\begin{DoxyParamCaption}\item[{const JPH::\+\+Sub\+Shape\+IDPair \&}]{pair}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+{\footnotesize\ttfamily void Calgine\+::\+Contact\+Queue\+::\+On\+Contact\+Removed (\begin{DoxyParamCaption}\item[{const JPH\+::\+Sub\+Shape\+IDPair \&}]{pair }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
 
-\Hypertarget{classCalgine_1_1ContactQueue_ad958cbb5334ba198cb90b09e67eb1540}\index{Calgine::ContactQueue@{Calgine::ContactQueue}!take@{take}}
+\Hypertarget{classCalgine_1_1ContactQueue_ad958cbb5334ba198cb90b09e67eb1540}\label{classCalgine_1_1ContactQueue_ad958cbb5334ba198cb90b09e67eb1540} 
+\index{Calgine::ContactQueue@{Calgine::ContactQueue}!take@{take}}
 \index{take@{take}!Calgine::ContactQueue@{Calgine::ContactQueue}}
 \doxysubsubsection{\texorpdfstring{take()}{take()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1ContactQueue_ad958cbb5334ba198cb90b09e67eb1540} 
-std::\+vector$<$ \doxymbox{\hyperlink{structCalgine_1_1QueuedContact}{Queued\+Contact}} $>$ Calgine::\+\+Contact\+Queue::\+take (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structCalgine_1_1QueuedContact}{Queued\+Contact}} $>$ Calgine\+::\+Contact\+Queue\+::take (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/\+calgine/\+core/\+physics/\doxymbox{\hyperlink{physics__internal_8h}{physics\+\_\+internal.\+h}}\end{DoxyCompactItemize}
+src/calgine/core/physics/\mbox{\hyperlink{physics__internal_8h}{physics\+\_\+internal.\+h}}\end{DoxyCompactItemize}

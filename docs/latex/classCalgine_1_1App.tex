@@ -1,4 +1,4 @@
-\doxysection{Calgine::App Class Reference}
+\doxysection{Calgine\+::App Class Reference}
 \hypertarget{classCalgine_1_1App}{}\label{classCalgine_1_1App}\index{Calgine::App@{Calgine::App}}
 
 
@@ -7,34 +7,34 @@ Base class for all \doxylink{namespaceCalgine}{Calgine} applications.
 
 
 
-{\ttfamily \+\#include $<$app.\+h$>$}
+{\ttfamily \#include $<$app.\+h$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{classCalgine_1_1App_a2fe2509ffe8bbab9015257f3519cdaf5}{App}} ()
+\mbox{\hyperlink{classCalgine_1_1App_a2fe2509ffe8bbab9015257f3519cdaf5}{App}} ()
 \item 
-\doxymbox{\hyperlink{classCalgine_1_1App_a452bb93939d99ee75bfc65f11a4e9e3e}{\texorpdfstring{$\sim$}{\string~}\+App}} ()
+\mbox{\hyperlink{classCalgine_1_1App_a452bb93939d99ee75bfc65f11a4e9e3e}{\texorpdfstring{$\sim$}{\string~}\+App}} ()
 \item 
-void \doxymbox{\hyperlink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{start\+\_\+systems}} ()
+void \mbox{\hyperlink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{start\+\_\+systems}} ()
 \item 
-void \doxymbox{\hyperlink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\+\_\+init}} ()
+void \mbox{\hyperlink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\+\_\+init}} ()
 \begin{DoxyCompactList}\small\item\em Initializes all required systems (SDL3, Open\+GL, logging). \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\+\_\+loop}} ()
+void \mbox{\hyperlink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\+\_\+loop}} ()
 \begin{DoxyCompactList}\small\item\em Runs the main application loop until all windows are closed. \end{DoxyCompactList}\item 
-std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classCalgine_1_1FrameBuffer}{Frame\+Buffer}} $>$ \doxymbox{\hyperlink{classCalgine_1_1App_afd9cd8b00a95517d71d60d897172f4c1}{get\+\_\+framebuffer}} () const
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1FrameBuffer}{Frame\+Buffer}} $>$ \mbox{\hyperlink{classCalgine_1_1App_afd9cd8b00a95517d71d60d897172f4c1}{get\+\_\+framebuffer}} () const
 \begin{DoxyCompactList}\small\item\em Gets the internal framebuffer used for rendering. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{classCalgine_1_1App_a40a42525c3681f2ac4200664b5ff1f8b}{resize\+\_\+framebuffer}} (uint32\+\_\+t width, uint32\+\_\+t height)
+void \mbox{\hyperlink{classCalgine_1_1App_a40a42525c3681f2ac4200664b5ff1f8b}{resize\+\_\+framebuffer}} (uint32\+\_\+t width, uint32\+\_\+t height)
 \begin{DoxyCompactList}\small\item\em Resizes the internal framebuffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \doxymbox{\hyperlink{classCalgine_1_1App_a2fe2509ffe8bbab9015257f3519cdaf5}{App}} \& \doxymbox{\hyperlink{classCalgine_1_1App_a22fbc2dce9bc3120e8b409eaefe5084d}{get\+\_\+instance}} ()
+static \mbox{\hyperlink{classCalgine_1_1App}{App}} \& \mbox{\hyperlink{classCalgine_1_1App_a22fbc2dce9bc3120e8b409eaefe5084d}{get\+\_\+instance}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{structCalgine_1_1AppSettings}{App\+Settings}} \doxymbox{\hyperlink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}}
+\mbox{\hyperlink{structCalgine_1_1AppSettings}{App\+Settings}} \mbox{\hyperlink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}}
 \begin{DoxyCompactList}\small\item\em Application configuration settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -43,7 +43,7 @@ Base class for all \doxylink{namespaceCalgine}{Calgine} applications.
 
 The \doxylink{classCalgine_1_1App}{App} class manages the core application lifecycle, including system initialization, the main game loop, event handling, and rendering. User applications can either instantiate \doxylink{classCalgine_1_1App}{App} directly or derive from it to add custom functionality.
 
-The \doxylink{classCalgine_1_1App}{App} class handles:
+The \doxylink{classCalgine_1_1App}{App} class handles\+:
 \begin{DoxyItemize}
 \item SDL3 and Open\+GL initialization
 \item \doxylink{classCalgine_1_1Window}{Window} management through \doxylink{classCalgine_1_1WindowHandler}{Window\+Handler}
@@ -52,7 +52,7 @@ The \doxylink{classCalgine_1_1App}{App} class handles:
 \item Rendering for all active windows
 \item \doxylink{classCalgine_1_1GameObject}{Game\+Object} hierarchy lifecycle management
 \end{DoxyItemize}\hypertarget{classCalgine_1_1App_autotoc_md0}{}\doxysubsubsection{\texorpdfstring{Configuration}{Configuration}}\label{classCalgine_1_1App_autotoc_md0}
-Applications can be configured through the public {\ttfamily \doxylink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}} member variable before calling \doxylink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\+\_\+init()}. The \doxylink{structCalgine_1_1AppSettings}{App\+Settings} structure provides options for:
+Applications can be configured through the public {\ttfamily settings} member variable before calling \doxylink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\+\_\+init()}. The \doxylink{structCalgine_1_1AppSettings}{App\+Settings} structure provides options for\+:
 \begin{DoxyItemize}
 \item Application name (used for logging and window titles)
 \item Default VSync state for windows
@@ -68,10 +68,10 @@ Applications can be configured through the public {\ttfamily \doxylink{classCalg
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{class\ }MyBehaviour\ :\ \textcolor{keyword}{public}\ Calgine::Behaviour}
+\DoxyCodeLine{\textcolor{keyword}{class\ }MyBehaviour\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine::Behaviour}}}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{\textcolor{keyword}{protected}:}
-\DoxyCodeLine{\ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Behaviour_a62c7640f82c8dc7bca360d31b5a07a66}{update\_tick}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{void}\ update\_tick()\textcolor{keyword}{\ override}}
 \DoxyCodeLine{\textcolor{keyword}{\ \ }\{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Called\ every\ frame\ during\ the\ update\ phase}}
 \DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Update\ tick!\(\backslash\)n"{}};}
@@ -80,26 +80,26 @@ Applications can be configured through the public {\ttfamily \doxylink{classCalg
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ main()}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{\ \ Calgine::App\ app;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classCalgine_1_1App}{Calgine::App}}\ app;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ Configure\ application\ settings\ (optional)}}
-\DoxyCodeLine{\ \ app.\doxymbox{\hyperlink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}}.\doxymbox{\hyperlink{structCalgine_1_1AppSettings_acd1340ee4118a54aa74042cabc493faa}{app\_name}}\ =\ \textcolor{stringliteral}{"{}My\ Application"{}};}
-\DoxyCodeLine{\ \ app.\doxymbox{\hyperlink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}}.\doxymbox{\hyperlink{structCalgine_1_1AppSettings_ad560a2429bdcab617e286e5af9bf67c3}{default\_vsync\_state}}\ =\ \doxymbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a9f9dcaa8c848c0e8de57bd5bf5dab654}{Calgine::VsyncState::adaptive}};}
+\DoxyCodeLine{\ \ app.\mbox{\hyperlink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}}.\mbox{\hyperlink{structCalgine_1_1AppSettings_acd1340ee4118a54aa74042cabc493faa}{app\_name}}\ =\ \textcolor{stringliteral}{"{}My\ Application"{}};}
+\DoxyCodeLine{\ \ app.\mbox{\hyperlink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}}.\mbox{\hyperlink{structCalgine_1_1AppSettings_ad560a2429bdcab617e286e5af9bf67c3}{default\_vsync\_state}}\ =\ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a9f9dcaa8c848c0e8de57bd5bf5dab654}{Calgine::VsyncState::adaptive}};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ Initialize\ SDL,\ OpenGL,\ and\ create\ windows}}
-\DoxyCodeLine{\ \ app.\doxymbox{\hyperlink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\_init}}();}
+\DoxyCodeLine{\ \ app.\mbox{\hyperlink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\_init}}();}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ Access\ the\ GameObject\ hierarchy\ root}}
 \DoxyCodeLine{\ \ Calgine::Hierarchy\&\ hierarchy\ =\ Calgine::Hierarchy::get\_instance();}
-\DoxyCodeLine{\ \ Calgine::GameObject\&\ root\ =\ hierarchy.get\_hierarchy\_root();}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{Calgine::GameObject}}\&\ root\ =\ hierarchy.get\_hierarchy\_root();}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ Create\ a\ child\ GameObject\ and\ attach\ a\ behaviour}}
-\DoxyCodeLine{\ \ Calgine::GameObject\&\ gameObj\ =\ root.\doxymbox{\hyperlink{classCalgine_1_1GameObject_accf41615441ecc4f14ae550a1c3dba5f}{instantiate\_child}}();}
-\DoxyCodeLine{\ \ gameObj.\doxymbox{\hyperlink{classCalgine_1_1GameObject_ad97d52f6b23dd654ff552b0a7b9f95f4}{set\_name}}(\textcolor{stringliteral}{"{}MyGameObject"{}});}
-\DoxyCodeLine{\ \ gameObj.\doxymbox{\hyperlink{classCalgine_1_1GameObject_a058a205e6bb78fa9a2bac40340dfa808}{add\_behaviour}}<MyBehaviour>();}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{Calgine::GameObject}}\&\ gameObj\ =\ root.\mbox{\hyperlink{classCalgine_1_1GameObject_accf41615441ecc4f14ae550a1c3dba5f}{instantiate\_child}}();}
+\DoxyCodeLine{\ \ gameObj.\mbox{\hyperlink{classCalgine_1_1GameObject_ad97d52f6b23dd654ff552b0a7b9f95f4}{set\_name}}(\textcolor{stringliteral}{"{}MyGameObject"{}});}
+\DoxyCodeLine{\ \ gameObj.\mbox{\hyperlink{classCalgine_1_1GameObject_a058a205e6bb78fa9a2bac40340dfa808}{add\_behaviour}}<MyBehaviour>();}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ Start\ the\ main\ loop\ (runs\ until\ all\ windows\ are\ closed)}}
-\DoxyCodeLine{\ \ app.\doxymbox{\hyperlink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\_loop}}();}
+\DoxyCodeLine{\ \ app.\mbox{\hyperlink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\_loop}}();}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
 \DoxyCodeLine{\}}
@@ -118,31 +118,27 @@ Hierarchy for accessing the root \doxylink{classCalgine_1_1GameObject}{Game\+Obj
 \end{DoxySeeAlso}
 
 
-\label{classCalgine_1_1App_doc-constructors}
-\Hypertarget{classCalgine_1_1App_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classCalgine_1_1App_a2fe2509ffe8bbab9015257f3519cdaf5}\index{Calgine::App@{Calgine::App}!App@{App}}
+\Hypertarget{classCalgine_1_1App_a2fe2509ffe8bbab9015257f3519cdaf5}\label{classCalgine_1_1App_a2fe2509ffe8bbab9015257f3519cdaf5} 
+\index{Calgine::App@{Calgine::App}!App@{App}}
 \index{App@{App}!Calgine::App@{Calgine::App}}
 \doxysubsubsection{\texorpdfstring{App()}{App()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1App_a2fe2509ffe8bbab9015257f3519cdaf5} 
-Calgine::\+\+App::\+\+App (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Calgine\+::\+App\+::\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\Hypertarget{classCalgine_1_1App_a452bb93939d99ee75bfc65f11a4e9e3e}\index{Calgine::App@{Calgine::App}!````~App@{\texorpdfstring{$\sim$}{\string~}App}}
+\Hypertarget{classCalgine_1_1App_a452bb93939d99ee75bfc65f11a4e9e3e}\label{classCalgine_1_1App_a452bb93939d99ee75bfc65f11a4e9e3e} 
+\index{Calgine::App@{Calgine::App}!````~App@{\texorpdfstring{$\sim$}{\string~}App}}
 \index{````~App@{\texorpdfstring{$\sim$}{\string~}App}!Calgine::App@{Calgine::App}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}App()}{\string~App()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1App_a452bb93939d99ee75bfc65f11a4e9e3e} 
-Calgine::\+\+App::\+\texorpdfstring{$\sim$}{\string~}\+App (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Calgine\+::\+App\+::\texorpdfstring{$\sim$}{\string~}\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-\label{classCalgine_1_1App_doc-func-members}
-\Hypertarget{classCalgine_1_1App_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classCalgine_1_1App_afd9cd8b00a95517d71d60d897172f4c1}\index{Calgine::App@{Calgine::App}!get\_framebuffer@{get\_framebuffer}}
+\Hypertarget{classCalgine_1_1App_afd9cd8b00a95517d71d60d897172f4c1}\label{classCalgine_1_1App_afd9cd8b00a95517d71d60d897172f4c1} 
+\index{Calgine::App@{Calgine::App}!get\_framebuffer@{get\_framebuffer}}
 \index{get\_framebuffer@{get\_framebuffer}!Calgine::App@{Calgine::App}}
 \doxysubsubsection{\texorpdfstring{get\_framebuffer()}{get\_framebuffer()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1App_afd9cd8b00a95517d71d60d897172f4c1} 
-std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classCalgine_1_1FrameBuffer}{Frame\+Buffer}} $>$ Calgine::\+\+App::\+get\+\_\+framebuffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCalgine_1_1FrameBuffer}{Frame\+Buffer}} $>$ Calgine\+::\+App\+::get\+\_\+framebuffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -151,23 +147,23 @@ Gets the internal framebuffer used for rendering.
 \begin{DoxyReturn}{Returns}
 The \doxylink{classCalgine_1_1FrameBuffer}{Frame\+Buffer} instance containing the rendered scene 
 \end{DoxyReturn}
-\Hypertarget{classCalgine_1_1App_a22fbc2dce9bc3120e8b409eaefe5084d}\index{Calgine::App@{Calgine::App}!get\_instance@{get\_instance}}
+\Hypertarget{classCalgine_1_1App_a22fbc2dce9bc3120e8b409eaefe5084d}\label{classCalgine_1_1App_a22fbc2dce9bc3120e8b409eaefe5084d} 
+\index{Calgine::App@{Calgine::App}!get\_instance@{get\_instance}}
 \index{get\_instance@{get\_instance}!Calgine::App@{Calgine::App}}
 \doxysubsubsection{\texorpdfstring{get\_instance()}{get\_instance()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1App_a22fbc2dce9bc3120e8b409eaefe5084d} 
-\doxymbox{\hyperlink{classCalgine_1_1App_a2fe2509ffe8bbab9015257f3519cdaf5}{App}} \& Calgine::\+\+App::\+get\+\_\+instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1App}{App}} \& Calgine\+::\+App\+::get\+\_\+instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-\Hypertarget{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}\index{Calgine::App@{Calgine::App}!main\_loop@{main\_loop}}
+\Hypertarget{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}\label{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7} 
+\index{Calgine::App@{Calgine::App}!main\_loop@{main\_loop}}
 \index{main\_loop@{main\_loop}!Calgine::App@{Calgine::App}}
 \doxysubsubsection{\texorpdfstring{main\_loop()}{main\_loop()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7} 
-void Calgine::\+\+App::\+main\+\_\+loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Calgine\+::\+App\+::main\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Runs the main application loop until all windows are closed. 
 
-Before entering the loop, this method calls preloop\+\_\+tick() once on all Game\+Objects in the hierarchy. Then, each frame executes the following steps:
+Before entering the loop, this method calls preloop\+\_\+tick() once on all Game\+Objects in the hierarchy. Then, each frame executes the following steps\+:
 \begin{DoxyEnumerate}
 \item Processes SDL events (window close, quit, etc.)
 \item Calls update\+\_\+tick() on all Behaviours attached to Game\+Objects
@@ -180,13 +176,13 @@ Before entering the loop, this method calls preloop\+\_\+tick() once on all Game
 The loop continues until either SDL\+\_\+\+EVENT\+\_\+\+QUIT is received or all windows have been closed.
 
 \begin{DoxySeeAlso}{See also}
-Game\+Object::\+tick\+\_\+self\+\_\+and\+\_\+children() for how tick methods are propagated through the hierarchy 
+Game\+Object\+::tick\+\_\+self\+\_\+and\+\_\+children() for how tick methods are propagated through the hierarchy 
 \end{DoxySeeAlso}
-\Hypertarget{classCalgine_1_1App_a40a42525c3681f2ac4200664b5ff1f8b}\index{Calgine::App@{Calgine::App}!resize\_framebuffer@{resize\_framebuffer}}
+\Hypertarget{classCalgine_1_1App_a40a42525c3681f2ac4200664b5ff1f8b}\label{classCalgine_1_1App_a40a42525c3681f2ac4200664b5ff1f8b} 
+\index{Calgine::App@{Calgine::App}!resize\_framebuffer@{resize\_framebuffer}}
 \index{resize\_framebuffer@{resize\_framebuffer}!Calgine::App@{Calgine::App}}
 \doxysubsubsection{\texorpdfstring{resize\_framebuffer()}{resize\_framebuffer()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1App_a40a42525c3681f2ac4200664b5ff1f8b} 
-void Calgine::\+\+App::\+resize\+\_\+framebuffer (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width}{, }\item[{uint32\+\_\+t}]{height}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Calgine\+::\+App\+::resize\+\_\+framebuffer (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height }\end{DoxyParamCaption})}
 
 
 
@@ -199,17 +195,17 @@ Resizes the internal framebuffer.
 {\em height} & New framebuffer height \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}\index{Calgine::App@{Calgine::App}!start\_systems@{start\_systems}}
+\Hypertarget{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}\label{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf} 
+\index{Calgine::App@{Calgine::App}!start\_systems@{start\_systems}}
 \index{start\_systems@{start\_systems}!Calgine::App@{Calgine::App}}
 \doxysubsubsection{\texorpdfstring{start\_systems()}{start\_systems()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf} 
-void Calgine::\+\+App::\+start\+\_\+systems (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Calgine\+::\+App\+::start\+\_\+systems (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\Hypertarget{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}\index{Calgine::App@{Calgine::App}!systems\_init@{systems\_init}}
+\Hypertarget{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}\label{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f} 
+\index{Calgine::App@{Calgine::App}!systems\_init@{systems\_init}}
 \index{systems\_init@{systems\_init}!Calgine::App@{Calgine::App}}
 \doxysubsubsection{\texorpdfstring{systems\_init()}{systems\_init()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f} 
-void Calgine::\+\+App::\+systems\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Calgine\+::\+App\+::systems\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -218,7 +214,7 @@ Initializes all required systems (SDL3, Open\+GL, logging).
 \begin{DoxyWarning}{Warning}
 Do NOT call directly! use the \doxylink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{start\+\_\+systems()} inline function! This will break Im\+GUI otherwise!!!
 \end{DoxyWarning}
-This method must be called before \doxylink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\+\_\+loop()}. It performs the following:
+This method must be called before \doxylink{classCalgine_1_1App_a25b8f54a7509d91d9a577d85568c31b7}{main\+\_\+loop()}. It performs the following\+:
 \begin{DoxyItemize}
 \item Initializes the logging system with the application name
 \item Sets up SDL3 video subsystem
@@ -227,14 +223,12 @@ This method must be called before \doxylink{classCalgine_1_1App_a25b8f54a7509d91
 \item Initializes GLAD2 for Open\+GL function loading 
 \end{DoxyItemize}
 
-\label{classCalgine_1_1App_doc-variable-members}
-\Hypertarget{classCalgine_1_1App_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}\index{Calgine::App@{Calgine::App}!settings@{settings}}
+\Hypertarget{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}\label{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8} 
+\index{Calgine::App@{Calgine::App}!settings@{settings}}
 \index{settings@{settings}!Calgine::App@{Calgine::App}}
 \doxysubsubsection{\texorpdfstring{settings}{settings}}
-{\footnotesize\ttfamily \label{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8} 
-\doxymbox{\hyperlink{structCalgine_1_1AppSettings}{App\+Settings}} Calgine::\+\+App::\+settings}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCalgine_1_1AppSettings}{App\+Settings}} Calgine\+::\+App\+::settings}
 
 
 
@@ -244,10 +238,10 @@ This public member provides access to application-\/wide configuration settings.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{Calgine::App\ app;}
-\DoxyCodeLine{app.\doxymbox{\hyperlink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}}.\doxymbox{\hyperlink{structCalgine_1_1AppSettings_acd1340ee4118a54aa74042cabc493faa}{app\_name}}\ =\ \textcolor{stringliteral}{"{}My\ Game"{}};}
-\DoxyCodeLine{app.\doxymbox{\hyperlink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}}.\doxymbox{\hyperlink{structCalgine_1_1AppSettings_ad560a2429bdcab617e286e5af9bf67c3}{default\_vsync\_state}}\ =\ \doxymbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a10b9abd0304ae803c941c4503dc3fc8b}{Calgine::VsyncState::disabled}};}
-\DoxyCodeLine{app.\doxymbox{\hyperlink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\_init}}();}
+\DoxyCodeLine{\mbox{\hyperlink{classCalgine_1_1App}{Calgine::App}}\ app;}
+\DoxyCodeLine{app.\mbox{\hyperlink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}}.\mbox{\hyperlink{structCalgine_1_1AppSettings_acd1340ee4118a54aa74042cabc493faa}{app\_name}}\ =\ \textcolor{stringliteral}{"{}My\ Game"{}};}
+\DoxyCodeLine{app.\mbox{\hyperlink{classCalgine_1_1App_aadb538d7a6dc9bc64243027c16dab9b8}{settings}}.\mbox{\hyperlink{structCalgine_1_1AppSettings_ad560a2429bdcab617e286e5af9bf67c3}{default\_vsync\_state}}\ =\ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a10b9abd0304ae803c941c4503dc3fc8b}{Calgine::VsyncState::disabled}};}
+\DoxyCodeLine{app.\mbox{\hyperlink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{systems\_init}}();}
 
 \end{DoxyCode}
 
@@ -257,7 +251,7 @@ This public member provides access to application-\/wide configuration settings.
 \end{DoxySeeAlso}
 
 
-The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+calgine/\+core/\doxymbox{\hyperlink{app_8h}{app.\+h}}\item 
-src/\+calgine/\+core/\doxymbox{\hyperlink{app_8cxx}{app.\+cxx}}\end{DoxyCompactItemize}
+src/calgine/core/\mbox{\hyperlink{app_8h}{app.\+h}}\item 
+src/calgine/core/\mbox{\hyperlink{app_8cxx}{app.\+cxx}}\end{DoxyCompactItemize}

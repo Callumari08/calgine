@@ -1,4 +1,4 @@
-\doxysection{Calgine::Transform Class Reference}
+\doxysection{Calgine\+::Transform Class Reference}
 \hypertarget{classCalgine_1_1Transform}{}\label{classCalgine_1_1Transform}\index{Calgine::Transform@{Calgine::Transform}}
 
 
@@ -7,155 +7,149 @@ Position, rotation (Euler angles in degrees, applied X then Y then Z) and scale.
 
 
 
-{\ttfamily \+\#include $<$transform.\+h$>$}
+{\ttfamily \#include $<$transform.\+h$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}{Transform}} (glm::\+vec3 position, glm::\+vec3 rotation=glm::\+vec3(0.\+0f), glm::\+vec3 scale=glm::\+vec3(1.\+0f))
+\mbox{\hyperlink{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}{Transform}} (glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e}{position}}, glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}{rotation}}=glm\+::vec3(0.\+0f), glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055}{scale}}=glm\+::vec3(1.\+0f))
 \item 
-glm::\+quat \doxymbox{\hyperlink{classCalgine_1_1Transform_a8f913c1da83d845562880458485cfe43}{get\+\_\+rotation\+\_\+quat}} () const
+glm\+::quat \mbox{\hyperlink{classCalgine_1_1Transform_a8f913c1da83d845562880458485cfe43}{get\+\_\+rotation\+\_\+quat}} () const
 \begin{DoxyCompactList}\small\item\em Rotation as a quaternion. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{classCalgine_1_1Transform_a14aa3c053fc61259363b0006e1b27957}{set\+\_\+rotation\+\_\+quat}} (const glm::\+quat \&rotation)
+void \mbox{\hyperlink{classCalgine_1_1Transform_a14aa3c053fc61259363b0006e1b27957}{set\+\_\+rotation\+\_\+quat}} (const glm\+::quat \&\mbox{\hyperlink{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}{rotation}})
 \begin{DoxyCompactList}\small\item\em Sets rotation from a quaternion (stored as Euler degrees). \end{DoxyCompactList}\item 
-glm::\+mat4 \doxymbox{\hyperlink{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb}{to\+\_\+matrix}} () const
+glm\+::mat4 \mbox{\hyperlink{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb}{to\+\_\+matrix}} () const
 \begin{DoxyCompactList}\small\item\em Combines the position, rotation, and scale into a single 4x4 transformation matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static const \doxymbox{\hyperlink{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}{Transform}} \doxymbox{\hyperlink{classCalgine_1_1Transform_ae98f1d5df181c3d042fd3f020c5196f3}{zero}} ()
+static const \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \mbox{\hyperlink{classCalgine_1_1Transform_ae98f1d5df181c3d042fd3f020c5196f3}{zero}} ()
 \item 
-static \doxymbox{\hyperlink{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}{Transform}} \doxymbox{\hyperlink{classCalgine_1_1Transform_a46857d4700c9653ecff762ab87b79469}{from\+\_\+matrix}} (const glm::\+mat4 \&matrix)
+static \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \mbox{\hyperlink{classCalgine_1_1Transform_a46857d4700c9653ecff762ab87b79469}{from\+\_\+matrix}} (const glm\+::mat4 \&matrix)
 \begin{DoxyCompactList}\small\item\em Builds a \doxylink{classCalgine_1_1Transform}{Transform} from a matrix (translation, rotation, scale). Shear is discarded. \end{DoxyCompactList}\item 
-static glm::\+quat \doxymbox{\hyperlink{classCalgine_1_1Transform_abf6377054aafc42911c422d8efe3c34a}{euler\+\_\+degrees\+\_\+to\+\_\+quat}} (const glm::\+vec3 \&euler\+\_\+degrees)
+static glm\+::quat \mbox{\hyperlink{classCalgine_1_1Transform_abf6377054aafc42911c422d8efe3c34a}{euler\+\_\+degrees\+\_\+to\+\_\+quat}} (const glm\+::vec3 \&euler\+\_\+degrees)
 \begin{DoxyCompactList}\small\item\em Converts Euler angles in degrees (same order as \doxylink{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb}{to\+\_\+matrix()}) to a quaternion. \end{DoxyCompactList}\item 
-static glm::\+vec3 \doxymbox{\hyperlink{classCalgine_1_1Transform_af1f9d26b4563dabcf371186b70dd2e51}{quat\+\_\+to\+\_\+euler\+\_\+degrees}} (const glm::\+quat \&rotation)
+static glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_af1f9d26b4563dabcf371186b70dd2e51}{quat\+\_\+to\+\_\+euler\+\_\+degrees}} (const glm\+::quat \&\mbox{\hyperlink{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}{rotation}})
 \begin{DoxyCompactList}\small\item\em Converts a quaternion to Euler angles in degrees (same order as \doxylink{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb}{to\+\_\+matrix()}). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-glm::\+vec3 \doxymbox{\hyperlink{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e}{position}}
+glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e}{position}}
 \item 
-glm::\+vec3 \doxymbox{\hyperlink{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}{rotation}}
+glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}{rotation}}
 \item 
-glm::\+vec3 \doxymbox{\hyperlink{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055}{scale}} = glm::\+vec3(1.\+0f)
+glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055}{scale}} = glm\+::vec3(1.\+0f)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Position, rotation (Euler angles in degrees, applied X then Y then Z) and scale. 
 
-A \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s \doxylink{classCalgine_1_1Transform}{Transform} is its {\itshape local} transform, relative to its parent. Use \doxylink{classCalgine_1_1GameObject_a09c64eec2ac59997dc93e37e2b9863d1}{Game\+Object::\+get\+\_\+world\+\_\+transform()} / get\+\_\+world\+\_\+matrix() for world space. 
+A \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s \doxylink{classCalgine_1_1Transform}{Transform} is its {\itshape local} transform, relative to its parent. Use \doxylink{classCalgine_1_1GameObject_a09c64eec2ac59997dc93e37e2b9863d1}{Game\+Object\+::get\+\_\+world\+\_\+transform()} / get\+\_\+world\+\_\+matrix() for world space. 
 
-\label{classCalgine_1_1Transform_doc-constructors}
-\Hypertarget{classCalgine_1_1Transform_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}\index{Calgine::Transform@{Calgine::Transform}!Transform@{Transform}}
+\Hypertarget{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}\label{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3} 
+\index{Calgine::Transform@{Calgine::Transform}!Transform@{Transform}}
 \index{Transform@{Transform}!Calgine::Transform@{Calgine::Transform}}
 \doxysubsubsection{\texorpdfstring{Transform()}{Transform()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3} 
-Calgine::\+\+Transform::\+\+Transform (\begin{DoxyParamCaption}\item[{glm::\+vec3}]{position}{, }\item[{glm::\+vec3}]{rotation}{ = {\ttfamily glm::vec3(0.0f)}, }\item[{glm::\+vec3}]{scale}{ = {\ttfamily glm::vec3(1.0f)}}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Calgine\+::\+Transform\+::\+Transform (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{position,  }\item[{glm\+::vec3}]{rotation = {\ttfamily glm\+:\+:vec3(0.0f)},  }\item[{glm\+::vec3}]{scale = {\ttfamily glm\+:\+:vec3(1.0f)} }\end{DoxyParamCaption})}
 
 
 
-\label{classCalgine_1_1Transform_doc-func-members}
-\Hypertarget{classCalgine_1_1Transform_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classCalgine_1_1Transform_abf6377054aafc42911c422d8efe3c34a}\index{Calgine::Transform@{Calgine::Transform}!euler\_degrees\_to\_quat@{euler\_degrees\_to\_quat}}
+\Hypertarget{classCalgine_1_1Transform_abf6377054aafc42911c422d8efe3c34a}\label{classCalgine_1_1Transform_abf6377054aafc42911c422d8efe3c34a} 
+\index{Calgine::Transform@{Calgine::Transform}!euler\_degrees\_to\_quat@{euler\_degrees\_to\_quat}}
 \index{euler\_degrees\_to\_quat@{euler\_degrees\_to\_quat}!Calgine::Transform@{Calgine::Transform}}
 \doxysubsubsection{\texorpdfstring{euler\_degrees\_to\_quat()}{euler\_degrees\_to\_quat()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1Transform_abf6377054aafc42911c422d8efe3c34a} 
-glm::\+quat Calgine::\+\+Transform::\+euler\+\_\+degrees\+\_\+to\+\_\+quat (\begin{DoxyParamCaption}\item[{const glm::\+vec3 \&}]{euler\+\_\+degrees}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily glm\+::quat Calgine\+::\+Transform\+::euler\+\_\+degrees\+\_\+to\+\_\+quat (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{euler\+\_\+degrees }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
 Converts Euler angles in degrees (same order as \doxylink{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb}{to\+\_\+matrix()}) to a quaternion. 
 
-\Hypertarget{classCalgine_1_1Transform_a46857d4700c9653ecff762ab87b79469}\index{Calgine::Transform@{Calgine::Transform}!from\_matrix@{from\_matrix}}
+\Hypertarget{classCalgine_1_1Transform_a46857d4700c9653ecff762ab87b79469}\label{classCalgine_1_1Transform_a46857d4700c9653ecff762ab87b79469} 
+\index{Calgine::Transform@{Calgine::Transform}!from\_matrix@{from\_matrix}}
 \index{from\_matrix@{from\_matrix}!Calgine::Transform@{Calgine::Transform}}
 \doxysubsubsection{\texorpdfstring{from\_matrix()}{from\_matrix()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1Transform_a46857d4700c9653ecff762ab87b79469} 
-\doxymbox{\hyperlink{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}{Transform}} Calgine::\+\+Transform::\+from\+\_\+matrix (\begin{DoxyParamCaption}\item[{const glm::\+mat4 \&}]{matrix}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} Calgine\+::\+Transform\+::from\+\_\+matrix (\begin{DoxyParamCaption}\item[{const glm\+::mat4 \&}]{matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
 Builds a \doxylink{classCalgine_1_1Transform}{Transform} from a matrix (translation, rotation, scale). Shear is discarded. 
 
-\Hypertarget{classCalgine_1_1Transform_a8f913c1da83d845562880458485cfe43}\index{Calgine::Transform@{Calgine::Transform}!get\_rotation\_quat@{get\_rotation\_quat}}
+\Hypertarget{classCalgine_1_1Transform_a8f913c1da83d845562880458485cfe43}\label{classCalgine_1_1Transform_a8f913c1da83d845562880458485cfe43} 
+\index{Calgine::Transform@{Calgine::Transform}!get\_rotation\_quat@{get\_rotation\_quat}}
 \index{get\_rotation\_quat@{get\_rotation\_quat}!Calgine::Transform@{Calgine::Transform}}
 \doxysubsubsection{\texorpdfstring{get\_rotation\_quat()}{get\_rotation\_quat()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1Transform_a8f913c1da83d845562880458485cfe43} 
-glm::\+quat Calgine::\+\+Transform::\+get\+\_\+rotation\+\_\+quat (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily glm\+::quat Calgine\+::\+Transform\+::get\+\_\+rotation\+\_\+quat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
 Rotation as a quaternion. 
 
-\Hypertarget{classCalgine_1_1Transform_af1f9d26b4563dabcf371186b70dd2e51}\index{Calgine::Transform@{Calgine::Transform}!quat\_to\_euler\_degrees@{quat\_to\_euler\_degrees}}
+\Hypertarget{classCalgine_1_1Transform_af1f9d26b4563dabcf371186b70dd2e51}\label{classCalgine_1_1Transform_af1f9d26b4563dabcf371186b70dd2e51} 
+\index{Calgine::Transform@{Calgine::Transform}!quat\_to\_euler\_degrees@{quat\_to\_euler\_degrees}}
 \index{quat\_to\_euler\_degrees@{quat\_to\_euler\_degrees}!Calgine::Transform@{Calgine::Transform}}
 \doxysubsubsection{\texorpdfstring{quat\_to\_euler\_degrees()}{quat\_to\_euler\_degrees()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1Transform_af1f9d26b4563dabcf371186b70dd2e51} 
-glm::\+vec3 Calgine::\+\+Transform::\+quat\+\_\+to\+\_\+euler\+\_\+degrees (\begin{DoxyParamCaption}\item[{const glm::\+quat \&}]{rotation}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Transform\+::quat\+\_\+to\+\_\+euler\+\_\+degrees (\begin{DoxyParamCaption}\item[{const glm\+::quat \&}]{rotation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
 Converts a quaternion to Euler angles in degrees (same order as \doxylink{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb}{to\+\_\+matrix()}). 
 
-\Hypertarget{classCalgine_1_1Transform_a14aa3c053fc61259363b0006e1b27957}\index{Calgine::Transform@{Calgine::Transform}!set\_rotation\_quat@{set\_rotation\_quat}}
+\Hypertarget{classCalgine_1_1Transform_a14aa3c053fc61259363b0006e1b27957}\label{classCalgine_1_1Transform_a14aa3c053fc61259363b0006e1b27957} 
+\index{Calgine::Transform@{Calgine::Transform}!set\_rotation\_quat@{set\_rotation\_quat}}
 \index{set\_rotation\_quat@{set\_rotation\_quat}!Calgine::Transform@{Calgine::Transform}}
 \doxysubsubsection{\texorpdfstring{set\_rotation\_quat()}{set\_rotation\_quat()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1Transform_a14aa3c053fc61259363b0006e1b27957} 
-void Calgine::\+\+Transform::\+set\+\_\+rotation\+\_\+quat (\begin{DoxyParamCaption}\item[{const glm::\+quat \&}]{rotation}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Calgine\+::\+Transform\+::set\+\_\+rotation\+\_\+quat (\begin{DoxyParamCaption}\item[{const glm\+::quat \&}]{rotation }\end{DoxyParamCaption})}
 
 
 
 Sets rotation from a quaternion (stored as Euler degrees). 
 
-\Hypertarget{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb}\index{Calgine::Transform@{Calgine::Transform}!to\_matrix@{to\_matrix}}
+\Hypertarget{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb}\label{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb} 
+\index{Calgine::Transform@{Calgine::Transform}!to\_matrix@{to\_matrix}}
 \index{to\_matrix@{to\_matrix}!Calgine::Transform@{Calgine::Transform}}
 \doxysubsubsection{\texorpdfstring{to\_matrix()}{to\_matrix()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb} 
-glm::\+mat4 Calgine::\+\+Transform::\+to\+\_\+matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily glm\+::mat4 Calgine\+::\+Transform\+::to\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
 Combines the position, rotation, and scale into a single 4x4 transformation matrix. 
 
 \begin{DoxyReturn}{Returns}
-glm::\+mat4 
+glm\+::mat4 
 \end{DoxyReturn}
-\Hypertarget{classCalgine_1_1Transform_ae98f1d5df181c3d042fd3f020c5196f3}\index{Calgine::Transform@{Calgine::Transform}!zero@{zero}}
+\Hypertarget{classCalgine_1_1Transform_ae98f1d5df181c3d042fd3f020c5196f3}\label{classCalgine_1_1Transform_ae98f1d5df181c3d042fd3f020c5196f3} 
+\index{Calgine::Transform@{Calgine::Transform}!zero@{zero}}
 \index{zero@{zero}!Calgine::Transform@{Calgine::Transform}}
 \doxysubsubsection{\texorpdfstring{zero()}{zero()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1Transform_ae98f1d5df181c3d042fd3f020c5196f3} 
-const \doxymbox{\hyperlink{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}{Transform}} Calgine::\+\+Transform::\+zero (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+{\footnotesize\ttfamily static const \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} Calgine\+::\+Transform\+::zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
-\label{classCalgine_1_1Transform_doc-variable-members}
-\Hypertarget{classCalgine_1_1Transform_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e}\index{Calgine::Transform@{Calgine::Transform}!position@{position}}
+\Hypertarget{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e}\label{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e} 
+\index{Calgine::Transform@{Calgine::Transform}!position@{position}}
 \index{position@{position}!Calgine::Transform@{Calgine::Transform}}
 \doxysubsubsection{\texorpdfstring{position}{position}}
-{\footnotesize\ttfamily \label{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e} 
-glm::\+vec3 Calgine::\+\+Transform::\+position}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Transform\+::position}
 
-\Hypertarget{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}\index{Calgine::Transform@{Calgine::Transform}!rotation@{rotation}}
+\Hypertarget{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}\label{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f} 
+\index{Calgine::Transform@{Calgine::Transform}!rotation@{rotation}}
 \index{rotation@{rotation}!Calgine::Transform@{Calgine::Transform}}
 \doxysubsubsection{\texorpdfstring{rotation}{rotation}}
-{\footnotesize\ttfamily \label{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f} 
-glm::\+vec3 Calgine::\+\+Transform::\+rotation}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Transform\+::rotation}
 
-\Hypertarget{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055}\index{Calgine::Transform@{Calgine::Transform}!scale@{scale}}
+\Hypertarget{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055}\label{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055} 
+\index{Calgine::Transform@{Calgine::Transform}!scale@{scale}}
 \index{scale@{scale}!Calgine::Transform@{Calgine::Transform}}
 \doxysubsubsection{\texorpdfstring{scale}{scale}}
-{\footnotesize\ttfamily \label{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055} 
-glm::\+vec3 Calgine::\+\+Transform::\+scale = glm::\+vec3(1.\+0f)}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Transform\+::scale = glm\+::vec3(1.\+0f)}
 
 
 
-The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+calgine/\+core/\doxymbox{\hyperlink{transform_8h}{transform.\+h}}\item 
-src/\+calgine/\+core/\doxymbox{\hyperlink{transform_8cxx}{transform.\+cxx}}\end{DoxyCompactItemize}
+src/calgine/core/\mbox{\hyperlink{transform_8h}{transform.\+h}}\item 
+src/calgine/core/\mbox{\hyperlink{transform_8cxx}{transform.\+cxx}}\end{DoxyCompactItemize}

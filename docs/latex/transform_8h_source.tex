@@ -1,42 +1,42 @@
 \doxysection{transform.\+h}
 \hypertarget{transform_8h_source}{}\label{transform_8h_source}\index{src/calgine/core/transform.h@{src/calgine/core/transform.h}}
-\doxymbox{\hyperlink{transform_8h}{Go to the documentation of this file.}}
+\mbox{\hyperlink{transform_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <glm/ext/vector\_float3.hpp>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <glm/gtc/quaternion.hpp>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \doxymbox{\hyperlink{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}{Transform}}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}}
 \DoxyCodeLine{00018\ \{}
 \DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00020\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}{Transform}}(glm::vec3\ \doxymbox{\hyperlink{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e}{position}},\ glm::vec3\ \doxymbox{\hyperlink{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}{rotation}}\ =\ glm::vec3(0.0f),\ glm::vec3\ \doxymbox{\hyperlink{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055}{scale}}\ =\ glm::vec3(1.0f));}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}(glm::vec3\ position,\ glm::vec3\ rotation\ =\ glm::vec3(0.0f),\ glm::vec3\ scale\ =\ glm::vec3(1.0f));}
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}{Transform}}\ \doxymbox{\hyperlink{classCalgine_1_1Transform_ae98f1d5df181c3d042fd3f020c5196f3}{zero}}()}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\ \mbox{\hyperlink{classCalgine_1_1Transform_ae98f1d5df181c3d042fd3f020c5196f3}{zero}}()}
 \DoxyCodeLine{00023\ \ \ \{}
-\DoxyCodeLine{00024\ \ \ \ \ \doxymbox{\hyperlink{classCalgine_1_1Transform_a427e4bdaef21978b84bcb515493558a3}{Transform}}\ transform(glm::vec3(0.0f));}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\ transform(glm::vec3(0.0f));}
 \DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{return}\ transform;}
 \DoxyCodeLine{00026\ \ \ \}}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\ from\_matrix(\textcolor{keyword}{const}\ glm::mat4\&\ matrix);}
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\ from\_matrix(\textcolor{keyword}{const}\ glm::mat4\&\ matrix);}
 \DoxyCodeLine{00032\ }
 \DoxyCodeLine{00034\ \ \ \textcolor{keyword}{static}\ glm::quat\ euler\_degrees\_to\_quat(\textcolor{keyword}{const}\ glm::vec3\&\ euler\_degrees);}
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00037\ \ \ \textcolor{keyword}{static}\ glm::vec3\ quat\_to\_euler\_degrees(\textcolor{keyword}{const}\ glm::quat\&\ rotation);}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ glm::vec3\ \doxymbox{\hyperlink{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e}{position}};}
-\DoxyCodeLine{00040\ \ \ glm::vec3\ \doxymbox{\hyperlink{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}{rotation}};}
-\DoxyCodeLine{00041\ \ \ glm::vec3\ \doxymbox{\hyperlink{classCalgine_1_1Transform_abd7f18909a736fad3a81d26f4b4a5055}{scale}}\ =\ glm::vec3(1.0f);}
+\DoxyCodeLine{00039\ \ \ glm::vec3\ \mbox{\hyperlink{classCalgine_1_1Transform_a50179b312fbbe09fcb15da261ef5eb9e}{position}};}
+\DoxyCodeLine{00040\ \ \ glm::vec3\ \mbox{\hyperlink{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}{rotation}};}
+\DoxyCodeLine{00041\ \ \ glm::vec3\ scale\ =\ glm::vec3(1.0f);}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00044\ \ \ glm::quat\ \doxymbox{\hyperlink{classCalgine_1_1Transform_a8f913c1da83d845562880458485cfe43}{get\_rotation\_quat}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ \ \ glm::quat\ get\_rotation\_quat()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Transform_a14aa3c053fc61259363b0006e1b27957}{set\_rotation\_quat}}(\textcolor{keyword}{const}\ glm::quat\&\ \doxymbox{\hyperlink{classCalgine_1_1Transform_a28b3bbddc628ba0f19d33eb68cfbcf0f}{rotation}});}
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ set\_rotation\_quat(\textcolor{keyword}{const}\ glm::quat\&\ rotation);}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00054\ \ \ glm::mat4\ \doxymbox{\hyperlink{classCalgine_1_1Transform_ac7f5d6e7d9ddde7152e7873f433fe8cb}{to\_matrix}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ \ \ glm::mat4\ to\_matrix()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00055\ \};}
 \DoxyCodeLine{00056\ \}}
 

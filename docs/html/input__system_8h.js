@@ -6,7 +6,7 @@ var input__system_8h =
     [ "Calgine::InputAction", "structCalgine_1_1InputAction.html", "structCalgine_1_1InputAction" ],
     [ "Calgine::ActionMap", "structCalgine_1_1ActionMap.html", "structCalgine_1_1ActionMap" ],
     [ "Calgine::InputSystemBehaviour", "classCalgine_1_1InputSystemBehaviour.html", "classCalgine_1_1InputSystemBehaviour" ],
-    [ "Calgine::InputValue", "namespaceCalgine.html#a67ecaffcb77fcd478f41a936c738140f", null ],
+    [ "InputValue", "input__system_8h.html#a87e29805810b60dcb03fa356115bdfc0", null ],
     [ "button", "input__system_8h.html#a14139799dd4b2fc41ecb6cb14936322f", null ],
     [ "vector1", "input__system_8h.html#a0b81a232862710a81a927633a7c8c319", null ],
     [ "vector2", "input__system_8h.html#ab28dd80fea50cbaf16a8d060249af95d", null ],

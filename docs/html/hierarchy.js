@@ -34,7 +34,6 @@ var hierarchy =
       [ "Calgine::RawInputEvent", "structCalgine_1_1RawInputEvent.html", null ]
     ] ],
     [ "std::false_type", null, [
-      [ "Calgine::has_deserialize_from_paramview< T, std::void_t< decltype(std::declval< T >().deserialize(std::declval< const DataSerializationInterface * >()))> >", "structCalgine_1_1has__deserialize__from__paramview_3_01T_00_01std_1_1void__t_3_01decltype_07std_94428529f43becd300d98a39882c99ac.html", null ],
       [ "Calgine::has_deserialize_from_paramview< T, typename >", "structCalgine_1_1has__deserialize__from__paramview.html", null ]
     ] ],
     [ "Calgine::FrameBuffer", "classCalgine_1_1FrameBuffer.html", null ],

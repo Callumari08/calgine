@@ -1,45 +1,45 @@
 \doxysection{collision\+\_\+event.\+h}
 \hypertarget{collision__event_8h_source}{}\label{collision__event_8h_source}\index{src/calgine/core/physics/collision\_event.h@{src/calgine/core/physics/collision\_event.h}}
-\doxymbox{\hyperlink{collision__event_8h}{Go to the documentation of this file.}}
+\mbox{\hyperlink{collision__event_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{event__data_8h}{calgine/core/event\_data.h}}"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{event__data_8h}{calgine/core/event\_data.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}};}
-\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }GameObject;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }RigidBody;}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00033\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent}{CollisionEvent}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{structCalgine_1_1EventData}{EventData}}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1CollisionEvent}{CollisionEvent}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structCalgine_1_1EventData}{EventData}}}
 \DoxyCodeLine{00034\ \{}
-\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919}{Type}}}
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919}{Type}}}
 \DoxyCodeLine{00036\ \ \ \{}
-\DoxyCodeLine{00037\ \ \ \ \ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919af0e3e3ef4b08c65d7e52ad6f0fa3ea18}{enter}},}
-\DoxyCodeLine{00038\ \ \ \ \ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919a95d180a8e51acda86b96c64b71bf4622}{exit}},}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919af0e3e3ef4b08c65d7e52ad6f0fa3ea18}{enter}},}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919a95d180a8e51acda86b96c64b71bf4622}{exit}},}
 \DoxyCodeLine{00039\ \ \ \};}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919}{Type}}\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a344f0c05c25b30d641a54536006dd9bb}{type}}\ =\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919af0e3e3ef4b08c65d7e52ad6f0fa3ea18}{enter}};}
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919}{Type}}\ type\ =\ enter;}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \doxymbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_ae21be19f95baeff3c957db462034de27}{a}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00044\ \ \ \doxymbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a30c7789736e929841ff2609eb32f268d}{b}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00045\ \ \ \doxymbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}}*\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3f2fdc20db3c4dd17b8db4820f108643}{body\_a}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00046\ \ \ \doxymbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}}*\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_ad661e6232b7b4f9d4d4e69d057d0e095}{body\_b}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ a\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ b\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}}*\ body\_a\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}}*\ body\_b\ =\ \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00049\ \ \ glm::vec3\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a4e360910025dfe2583f687beaeef29af}{contact\_point}}\ =\ glm::vec3(0.0f);}
-\DoxyCodeLine{00051\ \ \ glm::vec3\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a56c6789b36137d80a0c6549a49e4ebf5}{normal}}\ =\ glm::vec3(0.0f);}
+\DoxyCodeLine{00049\ \ \ glm::vec3\ contact\_point\ =\ glm::vec3(0.0f);}
+\DoxyCodeLine{00051\ \ \ glm::vec3\ normal\ =\ glm::vec3(0.0f);}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a4a12d258eda9ea20dc4a8c1e072eaedc}{involves}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ game\_object)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1CollisionEvent_a4a12d258eda9ea20dc4a8c1e072eaedc}{involves}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ game\_object)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00054\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ game\_object\ \&\&\ (\doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_ae21be19f95baeff3c957db462034de27}{a}}\ ==\ game\_object\ ||\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a30c7789736e929841ff2609eb32f268d}{b}}\ ==\ game\_object);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ game\_object\ \&\&\ (a\ ==\ game\_object\ ||\ b\ ==\ game\_object);}
 \DoxyCodeLine{00056\ \ \ \}}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00059\ \ \ \doxymbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a861c01a2d37d3cf732fd436fd4fd8b8b}{other}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ game\_object)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ \mbox{\hyperlink{structCalgine_1_1CollisionEvent_a861c01a2d37d3cf732fd436fd4fd8b8b}{other}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ game\_object)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00060\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_ae21be19f95baeff3c957db462034de27}{a}}\ ==\ game\_object)\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a30c7789736e929841ff2609eb32f268d}{b}};}
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a30c7789736e929841ff2609eb32f268d}{b}}\ ==\ game\_object)\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_ae21be19f95baeff3c957db462034de27}{a}};}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ ==\ game\_object)\ \textcolor{keywordflow}{return}\ b;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ ==\ game\_object)\ \textcolor{keywordflow}{return}\ a;}
 \DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{00064\ \ \ \}}
 \DoxyCodeLine{00065\ \};}
