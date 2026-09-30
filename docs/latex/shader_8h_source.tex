@@ -1,17 +1,17 @@
 \doxysection{shader.\+h}
 \hypertarget{shader_8h_source}{}\label{shader_8h_source}\index{src/calgine/core/renderer/shader.h@{src/calgine/core/renderer/shader.h}}
-\mbox{\hyperlink{shader_8h}{Go to the documentation of this file.}}
+\doxymbox{\hyperlink{shader_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <glad/gl.h>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{namespaceCalgine_ae3a8dec8e5f3e77e4b7e74cb80151d23}{DEFAULT\_VERTEX\_SHADER}}\ =\ R\textcolor{stringliteral}{"{}(\#version\ 450\ core}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{namespaceCalgine_ae3a8dec8e5f3e77e4b7e74cb80151d23}{DEFAULT\_VERTEX\_SHADER}}\ =\ R\textcolor{stringliteral}{"{}(\#version\ 450\ core}}
 \DoxyCodeLine{00011\ \textcolor{stringliteral}{layout(location\ =\ 0)\ in\ vec4\ a\_colour;}}
 \DoxyCodeLine{00012\ \textcolor{stringliteral}{layout(location\ =\ 1)\ in\ vec3\ a\_position;}}
 \DoxyCodeLine{00013\ \textcolor{stringliteral}{layout(location\ =\ 2)\ in\ vec3\ a\_normal;}}
@@ -32,7 +32,7 @@
 \DoxyCodeLine{00028\ \textcolor{stringliteral}{\}}}
 \DoxyCodeLine{00029\ \textcolor{stringliteral}{)"{};}}
 \DoxyCodeLine{00030\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{00031\ \textcolor{stringliteral}{}\textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{namespaceCalgine_a346c7e22b55226cdd4bda449c4c65eb8}{DEFAULT\_FRAGMENT\_SHADER}}\ =\ R\textcolor{stringliteral}{"{}(\#version\ 450\ core}}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{}\textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{namespaceCalgine_a346c7e22b55226cdd4bda449c4c65eb8}{DEFAULT\_FRAGMENT\_SHADER}}\ =\ R\textcolor{stringliteral}{"{}(\#version\ 450\ core}}
 \DoxyCodeLine{00032\ \textcolor{stringliteral}{in\ vec4\ v\_colour;}}
 \DoxyCodeLine{00033\ \textcolor{stringliteral}{in\ vec2\ v\_texcoord;}}
 \DoxyCodeLine{00034\ \textcolor{stringliteral}{uniform\ sampler2D\ u\_texture;}}
@@ -44,36 +44,63 @@
 \DoxyCodeLine{00040\ \textcolor{stringliteral}{\}}}
 \DoxyCodeLine{00041\ \textcolor{stringliteral}{)"{};}}
 \DoxyCodeLine{00042\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{00043\ \textcolor{stringliteral}{}\textcolor{keyword}{struct\ }\mbox{\hyperlink{structCalgine_1_1ShaderProgram}{ShaderProgram}}}
-\DoxyCodeLine{00044\ \{}
-\DoxyCodeLine{00045\ \ \ std::string\ \mbox{\hyperlink{structCalgine_1_1ShaderProgram_aa18f5ea19a72ec9c02c99c35f6dea1df}{fragment}};}
-\DoxyCodeLine{00046\ \ \ std::string\ \mbox{\hyperlink{structCalgine_1_1ShaderProgram_a5f66a3d6d1ac5dfbb63dbd94325c596f}{vertex}};}
-\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ TODO:\ add\ compute}}
-\DoxyCodeLine{00048\ \};}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}}}
-\DoxyCodeLine{00051\ \{}
-\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{classCalgine_1_1Shader}{Shader}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1ShaderProgram}{ShaderProgram}}\&\ program);}
-\DoxyCodeLine{00054\ \ \ \mbox{\hyperlink{classCalgine_1_1Shader}{\string~Shader}}();}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ bind()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ unbind()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ set\_uniform\_1i(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{int}\ value)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{void}\ set\_uniform\_1f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ value)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{void}\ set\_uniform\_2f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ v0,\ \textcolor{keywordtype}{float}\ v1)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ set\_uniform\_3f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ v0,\ \textcolor{keywordtype}{float}\ v1,\ \textcolor{keywordtype}{float}\ v2)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ set\_uniform\_4f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ v0,\ \textcolor{keywordtype}{float}\ v1,\ \textcolor{keywordtype}{float}\ v2,\ \textcolor{keywordtype}{float}\ v3)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ set\_uniform\_mat4(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ glm::mat4\&\ matrix)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00067\ \ \ uint32\_t\ renderer\_id\ =\ 0;}
-\DoxyCodeLine{00068\ \ \ \textcolor{keyword}{mutable}\ std::unordered\_map<std::string,\ GLint>\ uniform\_cache;}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ GLint\ get\_uniform\_location(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00071\ \};}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \}}
+\DoxyCodeLine{00043\ \textcolor{stringliteral}{}\textcolor{comment}{//\ Built-\/in\ shader\ for\ debug\ lines\ (Renderer::submit\_line).}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{namespaceCalgine_a9d0699965761aad4efda2e5282d04d56}{LINE\_VERTEX\_SHADER}}\ =\ R\textcolor{stringliteral}{"{}(\#version\ 450\ core}}
+\DoxyCodeLine{00045\ \textcolor{stringliteral}{layout(location\ =\ 0)\ in\ vec3\ a\_position;}}
+\DoxyCodeLine{00046\ \textcolor{stringliteral}{layout(location\ =\ 1)\ in\ vec4\ a\_colour;}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{uniform\ mat4\ u\_view;}}
+\DoxyCodeLine{00049\ \textcolor{stringliteral}{uniform\ mat4\ u\_proj;}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{out\ vec4\ v\_colour;}}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{void\ main()}}
+\DoxyCodeLine{00054\ \textcolor{stringliteral}{\{}}
+\DoxyCodeLine{00055\ \textcolor{stringliteral}{\ \ v\_colour\ =\ a\_colour;}}
+\DoxyCodeLine{00056\ \textcolor{stringliteral}{\ \ gl\_Position\ =\ u\_proj\ *\ u\_view\ *\ vec4(a\_position,\ 1.0);}}
+\DoxyCodeLine{00057\ \textcolor{stringliteral}{\}}}
+\DoxyCodeLine{00058\ \textcolor{stringliteral}{)"{};}}
+\DoxyCodeLine{00059\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00060\ \textcolor{stringliteral}{}\textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{namespaceCalgine_a57ee6b074705f5cd9ab29400ff955511}{LINE\_FRAGMENT\_SHADER}}\ =\ R\textcolor{stringliteral}{"{}(\#version\ 450\ core}}
+\DoxyCodeLine{00061\ \textcolor{stringliteral}{in\ vec4\ v\_colour;}}
+\DoxyCodeLine{00062\ \textcolor{stringliteral}{out\ vec4\ o\_color;}}
+\DoxyCodeLine{00063\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00064\ \textcolor{stringliteral}{void\ main()}}
+\DoxyCodeLine{00065\ \textcolor{stringliteral}{\{}}
+\DoxyCodeLine{00066\ \textcolor{stringliteral}{\ \ o\_color\ =\ v\_colour;}}
+\DoxyCodeLine{00067\ \textcolor{stringliteral}{\}}}
+\DoxyCodeLine{00068\ \textcolor{stringliteral}{)"{};}}
+\DoxyCodeLine{00069\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00070\ \textcolor{stringliteral}{}\textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structCalgine_1_1ShaderProgram}{ShaderProgram}}}
+\DoxyCodeLine{00071\ \{}
+\DoxyCodeLine{00072\ \ \ std::string\ \doxymbox{\hyperlink{structCalgine_1_1ShaderProgram_aa18f5ea19a72ec9c02c99c35f6dea1df}{fragment}};}
+\DoxyCodeLine{00073\ \ \ std::string\ \doxymbox{\hyperlink{structCalgine_1_1ShaderProgram_a5f66a3d6d1ac5dfbb63dbd94325c596f}{vertex}};}
+\DoxyCodeLine{00074\ \ \ \textcolor{comment}{//\ TODO:\ add\ compute}}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \doxymbox{\hyperlink{classCalgine_1_1Shader_a8faaf820705629240c84c1ff2be96203}{Shader}}}
+\DoxyCodeLine{00078\ \{}
+\DoxyCodeLine{00079\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00080\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Shader_a8faaf820705629240c84c1ff2be96203}{Shader}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structCalgine_1_1ShaderProgram}{ShaderProgram}}\&\ program);}
+\DoxyCodeLine{00081\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Shader_a8faaf820705629240c84c1ff2be96203}{\string~Shader}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Shader_a4f8d4bf9176c589f77fcd2dea8a950d0}{bind}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Shader_ae618515f28fded93134e3f22d288ce40}{unbind}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Shader_a07285ae43cf85bb85056d5ae6a820088}{set\_uniform\_1i}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{int}\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Shader_a6b3e13ae08038c27e93150106d515ae5}{set\_uniform\_1f}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Shader_aa3ae93bdf6257e1e327f13896f50b7ec}{set\_uniform\_2f}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ v0,\ \textcolor{keywordtype}{float}\ v1)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Shader_ae6e12b492505e61a8b7206767e6d79b9}{set\_uniform\_3f}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ v0,\ \textcolor{keywordtype}{float}\ v1,\ \textcolor{keywordtype}{float}\ v2)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00090\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Shader_ae093342ffab2d4dad157a84914c1bb33}{set\_uniform\_4f}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ v0,\ \textcolor{keywordtype}{float}\ v1,\ \textcolor{keywordtype}{float}\ v2,\ \textcolor{keywordtype}{float}\ v3)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Shader_aacea7d8129699fa775960260251ebc02}{set\_uniform\_mat4}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ glm::mat4\&\ matrix)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00094\ \ \ uint32\_t\ renderer\_id\ =\ 0;}
+\DoxyCodeLine{00095\ \ \ \textcolor{keyword}{mutable}\ std::unordered\_map<std::string,\ GLint>\ uniform\_cache;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ GLint\ get\_uniform\_location(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \}}
 
 \end{DoxyCode}

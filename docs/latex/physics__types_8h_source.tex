@@ -1,0 +1,89 @@
+\doxysection{physics\+\_\+types.\+h}
+\hypertarget{physics__types_8h_source}{}\label{physics__types_8h_source}\index{src/calgine/core/physics/physics\_types.h@{src/calgine/core/physics/physics\_types.h}}
+\doxymbox{\hyperlink{physics__types_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{enum\ class}\ \doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{MotionType}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00016\ \ \ \doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4ca3802c2b14860b60e9acb8d1910285d92}{static\_body}},}
+\DoxyCodeLine{00018\ \ \ \doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4ca82221355e8922f4e93a2455d99c04aa2}{kinematic}},}
+\DoxyCodeLine{00020\ \ \ \doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4cab72f3bd391ba731a35708bfd8cd8a68f}{dynamic}},}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape}{ColliderShape}}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7}{Type}}}
+\DoxyCodeLine{00029\ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a8d011327916e0f9e5e903224c4454de1}{box}},}
+\DoxyCodeLine{00031\ \ \ \ \ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7ae2fb69b63ceabf8c2e438410a10f4996}{sphere}},}
+\DoxyCodeLine{00032\ \ \ \ \ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a15bafd99b820827010c69a90ad22d598}{capsule}},}
+\DoxyCodeLine{00033\ \ \ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7}{Type}}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_af10ae349561b458a120d7868a3f07820}{type}}\ =\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a8d011327916e0f9e5e903224c4454de1}{box}};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ glm::vec3\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_ad16c68cb370eb3a73d86574310e25aa3}{half\_extents}}\ =\ glm::vec3(0.5f);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a0041bca9054db74e263da8e40e279e73}{radius}}\ =\ 0.5f;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a9721688eae811c149bc41aea8589ccad}{half\_height}}\ =\ 0.5f;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape}{ColliderShape}}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a3751775a6d0836251b45e4aaefef256e}{make\_box}}(\textcolor{keyword}{const}\ glm::vec3\&\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_ad16c68cb370eb3a73d86574310e25aa3}{half\_extents}})}
+\DoxyCodeLine{00047\ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape}{ColliderShape}}\ shape;}
+\DoxyCodeLine{00049\ \ \ \ \ shape.\doxymbox{\hyperlink{structCalgine_1_1ColliderShape_af10ae349561b458a120d7868a3f07820}{type}}\ =\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a8d011327916e0f9e5e903224c4454de1}{box}};}
+\DoxyCodeLine{00050\ \ \ \ \ shape.\doxymbox{\hyperlink{structCalgine_1_1ColliderShape_ad16c68cb370eb3a73d86574310e25aa3}{half\_extents}}\ =\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_ad16c68cb370eb3a73d86574310e25aa3}{half\_extents}};}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ shape;}
+\DoxyCodeLine{00052\ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape}{ColliderShape}}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a39bfe242b36f5e5869dffe2a59c8eebb}{make\_sphere}}(\textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a0041bca9054db74e263da8e40e279e73}{radius}})}
+\DoxyCodeLine{00055\ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape}{ColliderShape}}\ shape;}
+\DoxyCodeLine{00057\ \ \ \ \ shape.\doxymbox{\hyperlink{structCalgine_1_1ColliderShape_af10ae349561b458a120d7868a3f07820}{type}}\ =\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7ae2fb69b63ceabf8c2e438410a10f4996}{sphere}};}
+\DoxyCodeLine{00058\ \ \ \ \ shape.\doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a0041bca9054db74e263da8e40e279e73}{radius}}\ =\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a0041bca9054db74e263da8e40e279e73}{radius}};}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ shape;}
+\DoxyCodeLine{00060\ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape}{ColliderShape}}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a130fa93de950e919c6cfaa26bfe6dd58}{make\_capsule}}(\textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a9721688eae811c149bc41aea8589ccad}{half\_height}},\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a0041bca9054db74e263da8e40e279e73}{radius}})}
+\DoxyCodeLine{00063\ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape}{ColliderShape}}\ shape;}
+\DoxyCodeLine{00065\ \ \ \ \ shape.\doxymbox{\hyperlink{structCalgine_1_1ColliderShape_af10ae349561b458a120d7868a3f07820}{type}}\ =\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a15bafd99b820827010c69a90ad22d598}{capsule}};}
+\DoxyCodeLine{00066\ \ \ \ \ shape.\doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a9721688eae811c149bc41aea8589ccad}{half\_height}}\ =\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a9721688eae811c149bc41aea8589ccad}{half\_height}};}
+\DoxyCodeLine{00067\ \ \ \ \ shape.\doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a0041bca9054db74e263da8e40e279e73}{radius}}\ =\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a0041bca9054db74e263da8e40e279e73}{radius}};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ shape;}
+\DoxyCodeLine{00069\ \ \ \}}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings}{RigidBodySettings}}}
+\DoxyCodeLine{00076\ \{}
+\DoxyCodeLine{00077\ \ \ \doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{MotionType}}\ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_af30a8b57898f11ebcebf79bcefa2f0a6}{motion}}\ =\ \doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4cab72f3bd391ba731a35708bfd8cd8a68f}{MotionType::dynamic}};}
+\DoxyCodeLine{00078\ \ \ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape}{ColliderShape}}\ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_a28de0e3466b71187390d6bfd5945964d}{shape}};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_a6ef4ea2698a4d8eb39f8f6ba3946a2c5}{mass}}\ =\ 0.0f;}
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_a658d31458365149efa4472f6d6ff4c02}{friction}}\ =\ 0.2f;}
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_a9ff3cd266c8d91567914416314ad961d}{restitution}}\ =\ 0.0f;}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_a5694e5e14c43b58dcd69acf3d60588ae}{linear\_damping}}\ =\ 0.05f;}
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_ac430fb6b15ceaf3be4eb3377259a2f9c}{angular\_damping}}\ =\ 0.05f;}
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_af88b9a8cfb7da10b9bccb8601c15622b}{gravity\_factor}}\ =\ 1.0f;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_a98f12ca0d2e9d44334bcdf45a210f85d}{is\_sensor}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00097\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \doxymbox{\hyperlink{structCalgine_1_1RaycastHit}{RaycastHit}}}
+\DoxyCodeLine{00098\ \{}
+\DoxyCodeLine{00099\ \ \ \doxymbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ \doxymbox{\hyperlink{structCalgine_1_1RaycastHit_a2ecc60fd9daf4b9f139ebb0619d6da1a}{game\_object}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00100\ \ \ glm::vec3\ \doxymbox{\hyperlink{structCalgine_1_1RaycastHit_a28c610a039de42717e98dadf9b1591b6}{point}}\ =\ glm::vec3(0.0f);}
+\DoxyCodeLine{00101\ \ \ glm::vec3\ \doxymbox{\hyperlink{structCalgine_1_1RaycastHit_af13342aab75941d9bd76cb03c0ccb9f8}{normal}}\ =\ glm::vec3(0.0f);}
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structCalgine_1_1RaycastHit_a9f555d2c9e48ab65872cefdf71378d59}{distance}}\ =\ 0.0f;}
+\DoxyCodeLine{00103\ \};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \}}
+
+\end{DoxyCode}

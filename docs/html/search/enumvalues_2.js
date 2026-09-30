@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['enabled_0',['enabled',['../namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544',1,'Calgine']]]
+  ['capsule_0',['capsule',['../structCalgine_1_1ColliderShape.html#a80c30efe53556967408ef9a182d873a7a15bafd99b820827010c69a90ad22d598',1,'Calgine::ColliderShape']]]
 ];

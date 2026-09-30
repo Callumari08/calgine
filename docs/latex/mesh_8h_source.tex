@@ -1,32 +1,32 @@
 \doxysection{mesh.\+h}
 \hypertarget{mesh_8h_source}{}\label{mesh_8h_source}\index{src/calgine/core/renderer/mesh.h@{src/calgine/core/renderer/mesh.h}}
-\mbox{\hyperlink{mesh_8h}{Go to the documentation of this file.}}
+\doxymbox{\hyperlink{mesh_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{index__buffer_8h}{calgine/core/renderer/buffers/index\_buffer.h}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vertex__array_8h}{calgine/core/renderer/buffers/vertex\_array.h}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vertex__buffer_8h}{calgine/core/renderer/buffers/vertex\_buffer.h}}"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vertex_8h}{calgine/core/renderer/vertex.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{index__buffer_8h}{calgine/core/renderer/buffers/index\_buffer.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{vertex__array_8h}{calgine/core/renderer/buffers/vertex\_array.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{vertex__buffer_8h}{calgine/core/renderer/buffers/vertex\_buffer.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{vertex_8h}{calgine/core/renderer/vertex.h}}"{}}}
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1Mesh}{Mesh}}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \doxymbox{\hyperlink{classCalgine_1_1Mesh_a7515498b20eb594cc1e990ce6b18a19f}{Mesh}}}
 \DoxyCodeLine{00013\ \{}
 \DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classCalgine_1_1Mesh}{Mesh}}(\textcolor{keyword}{const}\ std::span<const\ Vertex>\ vertices,\ std::span<const\ uint32\_t>\ indices);}
-\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{classCalgine_1_1Mesh_ad4517bf11c2ef84657c1967f039e2c13}{\string~Mesh}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00016\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Mesh_a7515498b20eb594cc1e990ce6b18a19f}{Mesh}}(\textcolor{keyword}{const}\ std::span<const\ Vertex>\ vertices,\ std::span<const\ uint32\_t>\ indices);}
+\DoxyCodeLine{00017\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Mesh_ad4517bf11c2ef84657c1967f039e2c13}{\string~Mesh}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{classCalgine_1_1Mesh_a6d6c694c16201b6abc5a8c100108db14}{Mesh}}(\mbox{\hyperlink{classCalgine_1_1Mesh}{Mesh}}\&\&)\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{classCalgine_1_1Mesh}{Mesh}}\&\ \mbox{\hyperlink{classCalgine_1_1Mesh_a999050cfe054960c9e9f67856a74df64}{operator=}}(\mbox{\hyperlink{classCalgine_1_1Mesh}{Mesh}}\&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Mesh_a6d6c694c16201b6abc5a8c100108db14}{Mesh}}(\doxymbox{\hyperlink{classCalgine_1_1Mesh_a7515498b20eb594cc1e990ce6b18a19f}{Mesh}}\&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Mesh_a7515498b20eb594cc1e990ce6b18a19f}{Mesh}}\&\ \doxymbox{\hyperlink{classCalgine_1_1Mesh_a999050cfe054960c9e9f67856a74df64}{operator=}}(\doxymbox{\hyperlink{classCalgine_1_1Mesh_a7515498b20eb594cc1e990ce6b18a19f}{Mesh}}\&\&)\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ bind()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ draw()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Mesh_a616c0a2995d0467563ebb9bd6fd9bd09}{bind}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Mesh_a03bd0c347d14bd7e7ea702f054b1a840}{draw}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{inline}\ uint32\_t\ \mbox{\hyperlink{classCalgine_1_1Mesh_a348e3c54a0d2f8e8fe30fcd23d4d86c6}{get\_index\_count}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ index\_count;\ \}}
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{inline}\ uint32\_t\ \doxymbox{\hyperlink{classCalgine_1_1Mesh_a348e3c54a0d2f8e8fe30fcd23d4d86c6}{get\_index\_count}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ index\_count;\ \}}
 \DoxyCodeLine{00026\ }
 \DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00028\ \ \ std::unique\_ptr<VertexArray>\ vao;}

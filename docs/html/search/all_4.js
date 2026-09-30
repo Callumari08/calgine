@@ -8,9 +8,13 @@ var searchData=
   ['enable_5fimgui_5fviewport_5',['enable_imgui_viewport',['../structCalgine_1_1AppSettings.html#a9778bcc72d8abeb3eb3bebe7d45782ae',1,'Calgine::AppSettings']]],
   ['enabled_6',['enabled',['../namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544',1,'Calgine']]],
   ['end_7',['end',['../classCalgine_1_1GameObject.html#a82dd591a82d55f87b6dcfa7579764642',1,'Calgine::GameObject']]],
-  ['event_5fcontext_2ecxx_8',['event_context.cxx',['../event__context_8cxx.html',1,'']]],
-  ['event_5fcontext_2eh_9',['event_context.h',['../event__context_8h.html',1,'']]],
-  ['event_5fdata_2eh_10',['event_data.h',['../event__data_8h.html',1,'']]],
-  ['eventcontext_11',['EventContext',['../classCalgine_1_1EventContext.html',1,'Calgine']]],
-  ['eventdata_12',['EventData',['../structCalgine_1_1EventData.html',1,'Calgine']]]
+  ['enter_8',['enter',['../structCalgine_1_1CollisionEvent.html#a3a371257fd145dafbf22c4a244c6b919af0e3e3ef4b08c65d7e52ad6f0fa3ea18',1,'Calgine::CollisionEvent']]],
+  ['euler_5fdegrees_5fto_5fquat_9',['euler_degrees_to_quat',['../classCalgine_1_1Transform.html#abf6377054aafc42911c422d8efe3c34a',1,'Calgine::Transform']]],
+  ['event_5fcontext_2ecxx_10',['event_context.cxx',['../event__context_8cxx.html',1,'']]],
+  ['event_5fcontext_2eh_11',['event_context.h',['../event__context_8h.html',1,'']]],
+  ['event_5fdata_2eh_12',['event_data.h',['../event__data_8h.html',1,'']]],
+  ['eventcontext_13',['EventContext',['../classCalgine_1_1EventContext.html',1,'Calgine']]],
+  ['eventdata_14',['EventData',['../structCalgine_1_1EventData.html',1,'Calgine']]],
+  ['events_5fms_15',['events_ms',['../structCalgine_1_1PhysicsStepStats.html#a21869aaf32c8ddfd19d1d5ddde1517f6',1,'Calgine::PhysicsStepStats']]],
+  ['exit_16',['exit',['../structCalgine_1_1CollisionEvent.html#a3a371257fd145dafbf22c4a244c6b919a95d180a8e51acda86b96c64b71bf4622',1,'Calgine::CollisionEvent']]]
 ];

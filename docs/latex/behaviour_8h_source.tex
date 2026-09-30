@@ -1,30 +1,30 @@
 \doxysection{behaviour.\+h}
 \hypertarget{behaviour_8h_source}{}\label{behaviour_8h_source}\index{src/calgine/core/behaviour.h@{src/calgine/core/behaviour.h}}
-\mbox{\hyperlink{behaviour_8h}{Go to the documentation of this file.}}
+\doxymbox{\hyperlink{behaviour_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{transform_8h}{calgine/core/transform.h}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{event__context_8h}{calgine/core/event\_context.h}}"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log_8h}{log.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{transform_8h}{calgine/core/transform.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{event__context_8h}{calgine/core/event\_context.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{log_8h}{log.h}}"{}}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }GameObject;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}};}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \doxymbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}}}
 \DoxyCodeLine{00021\ \{}
 \DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{\string~Behaviour}}();}
-\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ get\_game\_object();}
-\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\&\ get\_transform();}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{\string~Behaviour}}();}
+\DoxyCodeLine{00029\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Behaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}}*\ \doxymbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\_game\_object}}();}
+\DoxyCodeLine{00030\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\&\ \doxymbox{\hyperlink{classCalgine_1_1Behaviour_aec1c964df62ee9bf87b1c05ed630a4be}{get\_transform}}();}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1Behaviour_a9c98d44cad6a3f3e84c935e48f1991b2}{is\_started}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ started;\ \}}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classCalgine_1_1Behaviour_a9c98d44cad6a3f3e84c935e48f1991b2}{is\_started}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ started;\ \}}
 \DoxyCodeLine{00033\ }
 \DoxyCodeLine{00034\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ game\_object;}
+\DoxyCodeLine{00035\ \ \ \doxymbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ game\_object;}
 \DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{bool}\ started\ =\ \textcolor{keyword}{true};\ \ \textcolor{comment}{//\ Default\ to\ true\ for\ immediate-\/start\ behaviours}}
 \DoxyCodeLine{00037\ }
 \DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ set\_started(\textcolor{keywordtype}{bool}\ value)\ \{\ started\ =\ value;\ \}}
@@ -56,23 +56,23 @@
 \DoxyCodeLine{00064\ }
 \DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{bool}\ attach\_owner(GameObject*\ game\_object);}
 \DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}};}
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCalgine_1_1Behaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{GameObject}};}
 \DoxyCodeLine{00068\ }
 \DoxyCodeLine{00069\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00070\ \ \ \mbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}}()\ :\ game\_object(nullptr)\ \{\}}
+\DoxyCodeLine{00070\ \ \ \doxymbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}}()\ :\ game\_object(nullptr)\ \{\}}
 \DoxyCodeLine{00071\ }
-\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ preloop\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ preloop\_tick(\doxymbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
 \DoxyCodeLine{00080\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ start\_tick();}
 \DoxyCodeLine{00081\ \ \ }
-\DoxyCodeLine{00082\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ fixed\_update\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
-\DoxyCodeLine{00086\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
-\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ late\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00082\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ fixed\_update\_tick(\doxymbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00086\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update\_tick(\doxymbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ late\_tick(\doxymbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
 \DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ render\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00092\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ render\_tick(\doxymbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
 \DoxyCodeLine{00093\ }
-\DoxyCodeLine{00094\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ imgui\_render\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00094\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ imgui\_render\_tick(\doxymbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
 \DoxyCodeLine{00095\ }
-\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ final\_tick(\mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ final\_tick(\doxymbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
 \DoxyCodeLine{00100\ }
 \DoxyCodeLine{00105\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ on\_destroy();}
 \DoxyCodeLine{00106\ \};}

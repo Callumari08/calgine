@@ -1,0 +1,113 @@
+\doxysection{Calgine::Physics\+Step\+Stats Struct Reference}
+\hypertarget{structCalgine_1_1PhysicsStepStats}{}\label{structCalgine_1_1PhysicsStepStats}\index{Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}}
+
+
+Timing and counts for a single physics step (see \doxylink{classCalgine_1_1PhysicsWorld_a01058e687e1784300f8ed3cbb25797dd}{Physics\+World::\+get\+\_\+last\+\_\+step\+\_\+stats()}).  
+
+
+
+
+{\ttfamily \+\#include $<$physics\+\_\+world.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \doxymbox{\hyperlink{structCalgine_1_1PhysicsStepStats_ab8cd67031f021c7ea3d173c5c6607734}{pre\+\_\+step\+\_\+ms}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Syncing enabled state and kinematic targets from Game\+Objects into Jolt. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{structCalgine_1_1PhysicsStepStats_a5f781942a7930ea0563221c30c48a371}{simulate\+\_\+ms}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Jolt\textquotesingle{}s simulation (Physics\+System::\+\+Update, runs on the job threads). \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{structCalgine_1_1PhysicsStepStats_a90378acead80370d1afccd9f610d2967}{post\+\_\+step\+\_\+ms}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Writing dynamic body poses back into \doxylink{classCalgine_1_1GameObject}{Game\+Object} transforms. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{structCalgine_1_1PhysicsStepStats_a21869aaf32c8ddfd19d1d5ddde1517f6}{events\+\_\+ms}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Turning Jolt contacts into Collision\+Events. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{structCalgine_1_1PhysicsStepStats_a3f656b7984ca537d389148d3ec5b13b6}{total\+\_\+ms}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Whole step, including the above. \end{DoxyCompactList}\item 
+uint32\+\_\+t \doxymbox{\hyperlink{structCalgine_1_1PhysicsStepStats_a8d463c3d275161c4611b62cdbbca1b95}{bodies}} = 0
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{structCalgine_1_1PhysicsStepStats_af69dea93beadb348ed5fd6f7dd474eb0}{active\+\_\+bodies}} = 0
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{structCalgine_1_1PhysicsStepStats_af3d3634d6cce6734029d686a0a033b97}{collision\+\_\+events}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Timing and counts for a single physics step (see \doxylink{classCalgine_1_1PhysicsWorld_a01058e687e1784300f8ed3cbb25797dd}{Physics\+World::\+get\+\_\+last\+\_\+step\+\_\+stats()}). 
+
+All times are wall-\/clock milliseconds measured on the main thread. 
+
+\label{structCalgine_1_1PhysicsStepStats_doc-variable-members}
+\Hypertarget{structCalgine_1_1PhysicsStepStats_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCalgine_1_1PhysicsStepStats_af69dea93beadb348ed5fd6f7dd474eb0}\index{Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}!active\_bodies@{active\_bodies}}
+\index{active\_bodies@{active\_bodies}!Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}}
+\doxysubsubsection{\texorpdfstring{active\_bodies}{active\_bodies}}
+{\footnotesize\ttfamily \label{structCalgine_1_1PhysicsStepStats_af69dea93beadb348ed5fd6f7dd474eb0} 
+uint32\+\_\+t Calgine::\+\+Physics\+Step\+Stats::\+active\+\_\+bodies = 0}
+
+\Hypertarget{structCalgine_1_1PhysicsStepStats_a8d463c3d275161c4611b62cdbbca1b95}\index{Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}!bodies@{bodies}}
+\index{bodies@{bodies}!Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}}
+\doxysubsubsection{\texorpdfstring{bodies}{bodies}}
+{\footnotesize\ttfamily \label{structCalgine_1_1PhysicsStepStats_a8d463c3d275161c4611b62cdbbca1b95} 
+uint32\+\_\+t Calgine::\+\+Physics\+Step\+Stats::\+bodies = 0}
+
+\Hypertarget{structCalgine_1_1PhysicsStepStats_af3d3634d6cce6734029d686a0a033b97}\index{Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}!collision\_events@{collision\_events}}
+\index{collision\_events@{collision\_events}!Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}}
+\doxysubsubsection{\texorpdfstring{collision\_events}{collision\_events}}
+{\footnotesize\ttfamily \label{structCalgine_1_1PhysicsStepStats_af3d3634d6cce6734029d686a0a033b97} 
+uint32\+\_\+t Calgine::\+\+Physics\+Step\+Stats::\+collision\+\_\+events = 0}
+
+\Hypertarget{structCalgine_1_1PhysicsStepStats_a21869aaf32c8ddfd19d1d5ddde1517f6}\index{Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}!events\_ms@{events\_ms}}
+\index{events\_ms@{events\_ms}!Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}}
+\doxysubsubsection{\texorpdfstring{events\_ms}{events\_ms}}
+{\footnotesize\ttfamily \label{structCalgine_1_1PhysicsStepStats_a21869aaf32c8ddfd19d1d5ddde1517f6} 
+float Calgine::\+\+Physics\+Step\+Stats::\+events\+\_\+ms = 0.\+0f}
+
+
+
+Turning Jolt contacts into Collision\+Events. 
+
+\Hypertarget{structCalgine_1_1PhysicsStepStats_a90378acead80370d1afccd9f610d2967}\index{Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}!post\_step\_ms@{post\_step\_ms}}
+\index{post\_step\_ms@{post\_step\_ms}!Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}}
+\doxysubsubsection{\texorpdfstring{post\_step\_ms}{post\_step\_ms}}
+{\footnotesize\ttfamily \label{structCalgine_1_1PhysicsStepStats_a90378acead80370d1afccd9f610d2967} 
+float Calgine::\+\+Physics\+Step\+Stats::\+post\+\_\+step\+\_\+ms = 0.\+0f}
+
+
+
+Writing dynamic body poses back into \doxylink{classCalgine_1_1GameObject}{Game\+Object} transforms. 
+
+\Hypertarget{structCalgine_1_1PhysicsStepStats_ab8cd67031f021c7ea3d173c5c6607734}\index{Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}!pre\_step\_ms@{pre\_step\_ms}}
+\index{pre\_step\_ms@{pre\_step\_ms}!Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}}
+\doxysubsubsection{\texorpdfstring{pre\_step\_ms}{pre\_step\_ms}}
+{\footnotesize\ttfamily \label{structCalgine_1_1PhysicsStepStats_ab8cd67031f021c7ea3d173c5c6607734} 
+float Calgine::\+\+Physics\+Step\+Stats::\+pre\+\_\+step\+\_\+ms = 0.\+0f}
+
+
+
+Syncing enabled state and kinematic targets from Game\+Objects into Jolt. 
+
+\Hypertarget{structCalgine_1_1PhysicsStepStats_a5f781942a7930ea0563221c30c48a371}\index{Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}!simulate\_ms@{simulate\_ms}}
+\index{simulate\_ms@{simulate\_ms}!Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}}
+\doxysubsubsection{\texorpdfstring{simulate\_ms}{simulate\_ms}}
+{\footnotesize\ttfamily \label{structCalgine_1_1PhysicsStepStats_a5f781942a7930ea0563221c30c48a371} 
+float Calgine::\+\+Physics\+Step\+Stats::\+simulate\+\_\+ms = 0.\+0f}
+
+
+
+Jolt\textquotesingle{}s simulation (Physics\+System::\+\+Update, runs on the job threads). 
+
+\Hypertarget{structCalgine_1_1PhysicsStepStats_a3f656b7984ca537d389148d3ec5b13b6}\index{Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}!total\_ms@{total\_ms}}
+\index{total\_ms@{total\_ms}!Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}}
+\doxysubsubsection{\texorpdfstring{total\_ms}{total\_ms}}
+{\footnotesize\ttfamily \label{structCalgine_1_1PhysicsStepStats_a3f656b7984ca537d389148d3ec5b13b6} 
+float Calgine::\+\+Physics\+Step\+Stats::\+total\+\_\+ms = 0.\+0f}
+
+
+
+Whole step, including the above. 
+
+
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/\+calgine/\+core/\+physics/\doxymbox{\hyperlink{physics__world_8h}{physics\+\_\+world.\+h}}\end{DoxyCompactItemize}

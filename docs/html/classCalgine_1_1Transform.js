@@ -1,6 +1,8 @@
 var classCalgine_1_1Transform =
 [
     [ "Transform", "classCalgine_1_1Transform.html#a427e4bdaef21978b84bcb515493558a3", null ],
+    [ "get_rotation_quat", "classCalgine_1_1Transform.html#a8f913c1da83d845562880458485cfe43", null ],
+    [ "set_rotation_quat", "classCalgine_1_1Transform.html#a14aa3c053fc61259363b0006e1b27957", null ],
     [ "to_matrix", "classCalgine_1_1Transform.html#ac7f5d6e7d9ddde7152e7873f433fe8cb", null ],
     [ "position", "classCalgine_1_1Transform.html#a50179b312fbbe09fcb15da261ef5eb9e", null ],
     [ "rotation", "classCalgine_1_1Transform.html#a28b3bbddc628ba0f19d33eb68cfbcf0f", null ],

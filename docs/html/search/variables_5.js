@@ -7,5 +7,6 @@ var searchData=
   ['fov_4',['fov',['../structCalgine_1_1CameraSettings.html#ac6805617160b537244a8e8590daf8f04',1,'Calgine::CameraSettings']]],
   ['fragment_5',['fragment',['../structCalgine_1_1ShaderProgram.html#aa18f5ea19a72ec9c02c99c35f6dea1df',1,'Calgine::ShaderProgram']]],
   ['framebuffer_5fheight_6',['framebuffer_height',['../structCalgine_1_1AppSettings.html#a5ce2ae90de3ba65793ec8240ac9849c7',1,'Calgine::AppSettings']]],
-  ['framebuffer_5fwidth_7',['framebuffer_width',['../structCalgine_1_1AppSettings.html#a93f4fde3e5f552ba77935227a5b51247',1,'Calgine::AppSettings']]]
+  ['framebuffer_5fwidth_7',['framebuffer_width',['../structCalgine_1_1AppSettings.html#a93f4fde3e5f552ba77935227a5b51247',1,'Calgine::AppSettings']]],
+  ['friction_8',['friction',['../structCalgine_1_1RigidBodySettings.html#a658d31458365149efa4472f6d6ff4c02',1,'Calgine::RigidBodySettings']]]
 ];

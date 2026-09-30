@@ -11,20 +11,30 @@ var hierarchy =
       [ "Calgine::FpsDisplay", "classCalgine_1_1FpsDisplay.html", null ],
       [ "Calgine::HierarchyRenderer", "classCalgine_1_1HierarchyRenderer.html", null ],
       [ "Calgine::InputSystemBehaviour", "classCalgine_1_1InputSystemBehaviour.html", null ],
-      [ "Calgine::MeshRenderer", "classCalgine_1_1MeshRenderer.html", null ]
+      [ "Calgine::MeshRenderer", "classCalgine_1_1MeshRenderer.html", null ],
+      [ "Calgine::RigidBody", "classCalgine_1_1RigidBody.html", null ]
     ] ],
     [ "Calgine::BehaviourRegistry", "classCalgine_1_1BehaviourRegistry.html", null ],
+    [ "JPH::BroadPhaseLayerInterface", null, [
+      [ "Calgine::BroadPhaseLayerInterfaceImpl", "classCalgine_1_1BroadPhaseLayerInterfaceImpl.html", null ]
+    ] ],
     [ "tinyobj::callback_t_", "structtinyobj_1_1callback__t__.html", null ],
     [ "Calgine::Camera", "classCalgine_1_1Camera.html", null ],
     [ "Calgine::CameraManager", "classCalgine_1_1CameraManager.html", null ],
     [ "Calgine::CameraSettings", "structCalgine_1_1CameraSettings.html", null ],
+    [ "Calgine::ColliderShape", "structCalgine_1_1ColliderShape.html", null ],
+    [ "JPH::ContactListener", null, [
+      [ "Calgine::ContactQueue", "classCalgine_1_1ContactQueue.html", null ]
+    ] ],
     [ "Calgine::DataSerializationInterface", "classCalgine_1_1DataSerializationInterface.html", null ],
     [ "Calgine::EventContext", "classCalgine_1_1EventContext.html", null ],
     [ "Calgine::EventData", "structCalgine_1_1EventData.html", [
+      [ "Calgine::CollisionEvent", "structCalgine_1_1CollisionEvent.html", null ],
       [ "Calgine::InputActionEvent", "structCalgine_1_1InputActionEvent.html", null ],
       [ "Calgine::RawInputEvent", "structCalgine_1_1RawInputEvent.html", null ]
     ] ],
     [ "std::false_type", null, [
+      [ "Calgine::has_deserialize_from_paramview< T, std::void_t< decltype(std::declval< T >().deserialize(std::declval< const DataSerializationInterface * >()))> >", "structCalgine_1_1has__deserialize__from__paramview_3_01T_00_01std_1_1void__t_3_01decltype_07std_94428529f43becd300d98a39882c99ac.html", null ],
       [ "Calgine::has_deserialize_from_paramview< T, typename >", "structCalgine_1_1has__deserialize__from__paramview.html", null ]
     ] ],
     [ "Calgine::FrameBuffer", "classCalgine_1_1FrameBuffer.html", null ],
@@ -32,12 +42,14 @@ var hierarchy =
     [ "Calgine::GameObject", "classCalgine_1_1GameObject.html", [
       [ "Calgine::RootGameObject", "classCalgine_1_1RootGameObject.html", null ]
     ] ],
+    [ "Calgine::PhysicsWorld::Impl", "structCalgine_1_1PhysicsWorld_1_1Impl.html", null ],
     [ "tinyobj::index_t", "structtinyobj_1_1index__t.html", null ],
     [ "Calgine::IndexBuffer", "classCalgine_1_1IndexBuffer.html", null ],
     [ "Calgine::InputAction", "structCalgine_1_1InputAction.html", null ],
     [ "Calgine::InputButton", "unionCalgine_1_1InputButton.html", null ],
     [ "Calgine::InputMapping", "structCalgine_1_1InputMapping.html", null ],
     [ "Calgine::GameObject::Iterator", "classCalgine_1_1GameObject_1_1Iterator.html", null ],
+    [ "Calgine::LineVertex", "structCalgine_1_1LineVertex.html", null ],
     [ "Calgine::Log", "classCalgine_1_1Log.html", null ],
     [ "Calgine::ManagerHierarchy", "classCalgine_1_1ManagerHierarchy.html", null ],
     [ "Calgine::MapEntity", "structCalgine_1_1MapEntity.html", null ],
@@ -53,18 +65,25 @@ var hierarchy =
     [ "Calgine::Mesh", "classCalgine_1_1Mesh.html", null ],
     [ "tinyobj::mesh_t", "structtinyobj_1_1mesh__t.html", null ],
     [ "Calgine::Model", "structCalgine_1_1Model.html", null ],
+    [ "JPH::ObjectLayerPairFilter", null, [
+      [ "Calgine::ObjectLayerPairFilterImpl", "classCalgine_1_1ObjectLayerPairFilterImpl.html", null ]
+    ] ],
+    [ "JPH::ObjectVsBroadPhaseLayerFilter", null, [
+      [ "Calgine::ObjectVsBroadPhaseLayerFilterImpl", "classCalgine_1_1ObjectVsBroadPhaseLayerFilterImpl.html", null ]
+    ] ],
+    [ "Calgine::PhysicsStepStats", "structCalgine_1_1PhysicsStepStats.html", null ],
+    [ "Calgine::PhysicsWorld", "classCalgine_1_1PhysicsWorld.html", null ],
+    [ "Calgine::QueuedContact", "structCalgine_1_1QueuedContact.html", null ],
     [ "Calgine::RawInputData", "structCalgine_1_1RawInputData.html", [
       [ "Calgine::RawKeyboardData", "structCalgine_1_1RawKeyboardData.html", null ],
       [ "Calgine::RawMouseButtonData", "structCalgine_1_1RawMouseButtonData.html", null ],
       [ "Calgine::RawMouseMoveData", "structCalgine_1_1RawMouseMoveData.html", null ],
       [ "Calgine::RawMouseWheelData", "structCalgine_1_1RawMouseWheelData.html", null ]
     ] ],
+    [ "Calgine::RaycastHit", "structCalgine_1_1RaycastHit.html", null ],
     [ "Calgine::Renderer", "classCalgine_1_1Renderer.html", null ],
     [ "Calgine::RenderTexture", "classCalgine_1_1RenderTexture.html", null ],
-    [ "Calgine::SceneLoadableBehaviour", "classCalgine_1_1SceneLoadableBehaviour.html", null ],
-    [ "Calgine::SceneLoadContext", "classCalgine_1_1SceneLoadContext.html", null ],
-    [ "Calgine::SceneLoader", "classCalgine_1_1SceneLoader.html", null ],
-    [ "Calgine::SceneTypeRegistry", "classCalgine_1_1SceneTypeRegistry.html", null ],
+    [ "Calgine::RigidBodySettings", "structCalgine_1_1RigidBodySettings.html", null ],
     [ "Calgine::Shader", "classCalgine_1_1Shader.html", null ],
     [ "Calgine::ShaderProgram", "structCalgine_1_1ShaderProgram.html", null ],
     [ "tinyobj::shape_t", "structtinyobj_1_1shape__t.html", null ],

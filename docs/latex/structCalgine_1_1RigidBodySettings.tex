@@ -1,0 +1,115 @@
+\doxysection{Calgine::Rigid\+Body\+Settings Struct Reference}
+\hypertarget{structCalgine_1_1RigidBodySettings}{}\label{structCalgine_1_1RigidBodySettings}\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+
+
+Settings used when a \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} creates its physics body.  
+
+
+
+
+{\ttfamily \+\#include $<$physics\+\_\+types.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{Motion\+Type}} \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_af30a8b57898f11ebcebf79bcefa2f0a6}{motion}} = \doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4cab72f3bd391ba731a35708bfd8cd8a68f}{Motion\+Type::\+dynamic}}
+\item 
+\doxymbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_a28de0e3466b71187390d6bfd5945964d}{shape}}
+\item 
+float \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_a6ef4ea2698a4d8eb39f8f6ba3946a2c5}{mass}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Mass in kg. 0 means "{}calculate from the shape\textquotesingle{}s volume"{} (density 1000 kg/\+m\texorpdfstring{$^\wedge$}{\string^}3). \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_a658d31458365149efa4472f6d6ff4c02}{friction}} = 0.\+2f
+\item 
+float \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_a9ff3cd266c8d91567914416314ad961d}{restitution}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Bounciness, 0 = no bounce, 1 = perfectly elastic. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_a5694e5e14c43b58dcd69acf3d60588ae}{linear\+\_\+damping}} = 0.\+05f
+\item 
+float \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_ac430fb6b15ceaf3be4eb3377259a2f9c}{angular\+\_\+damping}} = 0.\+05f
+\item 
+float \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_af88b9a8cfb7da10b9bccb8601c15622b}{gravity\+\_\+factor}} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em Multiplier on world gravity for this body. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings_a98f12ca0d2e9d44334bcdf45a210f85d}{is\+\_\+sensor}} = false
+\begin{DoxyCompactList}\small\item\em Sensors report collisions but don\textquotesingle{}t physically block anything (triggers). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Settings used when a \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} creates its physics body. 
+
+\label{structCalgine_1_1RigidBodySettings_doc-variable-members}
+\Hypertarget{structCalgine_1_1RigidBodySettings_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCalgine_1_1RigidBodySettings_ac430fb6b15ceaf3be4eb3377259a2f9c}\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!angular\_damping@{angular\_damping}}
+\index{angular\_damping@{angular\_damping}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+\doxysubsubsection{\texorpdfstring{angular\_damping}{angular\_damping}}
+{\footnotesize\ttfamily \label{structCalgine_1_1RigidBodySettings_ac430fb6b15ceaf3be4eb3377259a2f9c} 
+float Calgine::\+\+Rigid\+Body\+Settings::\+angular\+\_\+damping = 0.\+05f}
+
+\Hypertarget{structCalgine_1_1RigidBodySettings_a658d31458365149efa4472f6d6ff4c02}\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!friction@{friction}}
+\index{friction@{friction}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+\doxysubsubsection{\texorpdfstring{friction}{friction}}
+{\footnotesize\ttfamily \label{structCalgine_1_1RigidBodySettings_a658d31458365149efa4472f6d6ff4c02} 
+float Calgine::\+\+Rigid\+Body\+Settings::\+friction = 0.\+2f}
+
+\Hypertarget{structCalgine_1_1RigidBodySettings_af88b9a8cfb7da10b9bccb8601c15622b}\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!gravity\_factor@{gravity\_factor}}
+\index{gravity\_factor@{gravity\_factor}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+\doxysubsubsection{\texorpdfstring{gravity\_factor}{gravity\_factor}}
+{\footnotesize\ttfamily \label{structCalgine_1_1RigidBodySettings_af88b9a8cfb7da10b9bccb8601c15622b} 
+float Calgine::\+\+Rigid\+Body\+Settings::\+gravity\+\_\+factor = 1.\+0f}
+
+
+
+Multiplier on world gravity for this body. 
+
+\Hypertarget{structCalgine_1_1RigidBodySettings_a98f12ca0d2e9d44334bcdf45a210f85d}\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!is\_sensor@{is\_sensor}}
+\index{is\_sensor@{is\_sensor}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+\doxysubsubsection{\texorpdfstring{is\_sensor}{is\_sensor}}
+{\footnotesize\ttfamily \label{structCalgine_1_1RigidBodySettings_a98f12ca0d2e9d44334bcdf45a210f85d} 
+bool Calgine::\+\+Rigid\+Body\+Settings::\+is\+\_\+sensor = false}
+
+
+
+Sensors report collisions but don\textquotesingle{}t physically block anything (triggers). 
+
+\Hypertarget{structCalgine_1_1RigidBodySettings_a5694e5e14c43b58dcd69acf3d60588ae}\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!linear\_damping@{linear\_damping}}
+\index{linear\_damping@{linear\_damping}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+\doxysubsubsection{\texorpdfstring{linear\_damping}{linear\_damping}}
+{\footnotesize\ttfamily \label{structCalgine_1_1RigidBodySettings_a5694e5e14c43b58dcd69acf3d60588ae} 
+float Calgine::\+\+Rigid\+Body\+Settings::\+linear\+\_\+damping = 0.\+05f}
+
+\Hypertarget{structCalgine_1_1RigidBodySettings_a6ef4ea2698a4d8eb39f8f6ba3946a2c5}\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!mass@{mass}}
+\index{mass@{mass}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+\doxysubsubsection{\texorpdfstring{mass}{mass}}
+{\footnotesize\ttfamily \label{structCalgine_1_1RigidBodySettings_a6ef4ea2698a4d8eb39f8f6ba3946a2c5} 
+float Calgine::\+\+Rigid\+Body\+Settings::\+mass = 0.\+0f}
+
+
+
+Mass in kg. 0 means "{}calculate from the shape\textquotesingle{}s volume"{} (density 1000 kg/\+m\texorpdfstring{$^\wedge$}{\string^}3). 
+
+\Hypertarget{structCalgine_1_1RigidBodySettings_af30a8b57898f11ebcebf79bcefa2f0a6}\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!motion@{motion}}
+\index{motion@{motion}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+\doxysubsubsection{\texorpdfstring{motion}{motion}}
+{\footnotesize\ttfamily \label{structCalgine_1_1RigidBodySettings_af30a8b57898f11ebcebf79bcefa2f0a6} 
+\doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{Motion\+Type}} Calgine::\+\+Rigid\+Body\+Settings::\+motion = \doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4cab72f3bd391ba731a35708bfd8cd8a68f}{Motion\+Type::\+dynamic}}}
+
+\Hypertarget{structCalgine_1_1RigidBodySettings_a9ff3cd266c8d91567914416314ad961d}\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!restitution@{restitution}}
+\index{restitution@{restitution}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+\doxysubsubsection{\texorpdfstring{restitution}{restitution}}
+{\footnotesize\ttfamily \label{structCalgine_1_1RigidBodySettings_a9ff3cd266c8d91567914416314ad961d} 
+float Calgine::\+\+Rigid\+Body\+Settings::\+restitution = 0.\+0f}
+
+
+
+Bounciness, 0 = no bounce, 1 = perfectly elastic. 
+
+\Hypertarget{structCalgine_1_1RigidBodySettings_a28de0e3466b71187390d6bfd5945964d}\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!shape@{shape}}
+\index{shape@{shape}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+\doxysubsubsection{\texorpdfstring{shape}{shape}}
+{\footnotesize\ttfamily \label{structCalgine_1_1RigidBodySettings_a28de0e3466b71187390d6bfd5945964d} 
+\doxymbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} Calgine::\+\+Rigid\+Body\+Settings::\+shape}
+
+
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/\+calgine/\+core/\+physics/\doxymbox{\hyperlink{physics__types_8h}{physics\+\_\+types.\+h}}\end{DoxyCompactItemize}

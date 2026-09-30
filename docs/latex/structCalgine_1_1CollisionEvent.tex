@@ -1,0 +1,188 @@
+\doxysection{Calgine::Collision\+Event Struct Reference}
+\hypertarget{structCalgine_1_1CollisionEvent}{}\label{structCalgine_1_1CollisionEvent}\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+
+
+Submitted to the \doxylink{classCalgine_1_1EventContext}{Event\+Context} by the physics system when two Rigid\+Bodies start or stop touching.  
+
+
+
+
+{\ttfamily \+\#include $<$collision\+\_\+event.\+h$>$}
+
+Inheritance diagram for Calgine::Collision\+Event:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structCalgine_1_1CollisionEvent}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919}{Type}} \{ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919af0e3e3ef4b08c65d7e52ad6f0fa3ea18}{enter}}
+, \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919a95d180a8e51acda86b96c64b71bf4622}{exit}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a4a12d258eda9ea20dc4a8c1e072eaedc}{involves}} (const \doxymbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}game\+\_\+object) const
+\item 
+\doxymbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a861c01a2d37d3cf732fd436fd4fd8b8b}{other}} (const \doxymbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}game\+\_\+object) const
+\begin{DoxyCompactList}\small\item\em The other \doxylink{classCalgine_1_1GameObject}{Game\+Object} in the collision, or nullptr if {\ttfamily game\+\_\+object} isn\textquotesingle{}t involved. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{structCalgine_1_1EventData}{Calgine::\+\+Event\+Data}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{structCalgine_1_1EventData_aa56933c517555c30990887304aa0e404}{\texorpdfstring{$\sim$}{\string~}\+Event\+Data}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919}{Type}} \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a344f0c05c25b30d641a54536006dd9bb}{type}} = \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919af0e3e3ef4b08c65d7e52ad6f0fa3ea18}{enter}}
+\item 
+\doxymbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_ae21be19f95baeff3c957db462034de27}{a}} = nullptr
+\item 
+\doxymbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a30c7789736e929841ff2609eb32f268d}{b}} = nullptr
+\item 
+\doxymbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3f2fdc20db3c4dd17b8db4820f108643}{body\+\_\+a}} = nullptr
+\item 
+\doxymbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_ad661e6232b7b4f9d4d4e69d057d0e095}{body\+\_\+b}} = nullptr
+\item 
+glm::\+vec3 \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a4e360910025dfe2583f687beaeef29af}{contact\+\_\+point}} = glm::\+vec3(0.\+0f)
+\begin{DoxyCompactList}\small\item\em World-\/space contact point (enter only). \end{DoxyCompactList}\item 
+glm::\+vec3 \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a56c6789b36137d80a0c6549a49e4ebf5}{normal}} = glm::\+vec3(0.\+0f)
+\begin{DoxyCompactList}\small\item\em World-\/space contact normal, pointing from a towards b (enter only). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{structCalgine_1_1EventData}{Calgine::\+\+Event\+Data}}}
+\begin{DoxyCompactItemize}
+\item 
+Tick\+Type \doxymbox{\hyperlink{structCalgine_1_1EventData_a994e2a0e80b9bcb921e1c2d410481fb6}{submit\+\_\+tick}} = \doxymbox{\hyperlink{tick__type_8h_abd7045ad8553e16c50a967b4d48b7f6b}{any}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Submitted to the \doxylink{classCalgine_1_1EventContext}{Event\+Context} by the physics system when two Rigid\+Bodies start or stop touching. 
+
+Events are submitted during the fixed\+\_\+update phase (right after the physics step) and stay readable for the rest of that frame: later fixed steps, update, late\+\_\+update, render, imgui\+\_\+render and final. They are cleared when the next frame enters fixed\+\_\+update.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ update\_tick(EventContext\&\ event\_context)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\textcolor{keyword}{}\{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ CollisionEvent*\ collision\ :\ event\_context.get\_events<CollisionEvent>())}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (collision-\/>type\ ==\ \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919af0e3e3ef4b08c65d7e52ad6f0fa3ea18}{CollisionEvent::enter}}\ \&\&\ collision-\/>involves(get\_game\_object()))}
+\DoxyCodeLine{\ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Hit\ \{\}"{}},\ collision-\/>other(get\_game\_object())-\/>get\_name());}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+For exit events, contact\+\_\+point and normal are zero (Jolt doesn\textquotesingle{}t report them). 
+\end{DoxyNote}
+
+
+\label{structCalgine_1_1CollisionEvent_doc-enum-members}
+\Hypertarget{structCalgine_1_1CollisionEvent_doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919}\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}!Type@{Type}}
+\index{Type@{Type}!Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily \label{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919} 
+enum \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919}{Calgine::\+\+Collision\+Event::\+\+Type}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{enter@{enter}!Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}!enter@{enter}}
+}\Hypertarget{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919af0e3e3ef4b08c65d7e52ad6f0fa3ea18}\label{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919af0e3e3ef4b08c65d7e52ad6f0fa3ea18} 
+enter&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{exit@{exit}!Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}!exit@{exit}}
+}\Hypertarget{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919a95d180a8e51acda86b96c64b71bf4622}\label{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919a95d180a8e51acda86b96c64b71bf4622} 
+exit&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{structCalgine_1_1CollisionEvent_doc-func-members}
+\Hypertarget{structCalgine_1_1CollisionEvent_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structCalgine_1_1CollisionEvent_a4a12d258eda9ea20dc4a8c1e072eaedc}\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}!involves@{involves}}
+\index{involves@{involves}!Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+\doxysubsubsection{\texorpdfstring{involves()}{involves()}}
+{\footnotesize\ttfamily \label{structCalgine_1_1CollisionEvent_a4a12d258eda9ea20dc4a8c1e072eaedc} 
+bool Calgine::\+\+Collision\+Event::\+involves (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{game\+\_\+object}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structCalgine_1_1CollisionEvent_a861c01a2d37d3cf732fd436fd4fd8b8b}\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}!other@{other}}
+\index{other@{other}!Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+\doxysubsubsection{\texorpdfstring{other()}{other()}}
+{\footnotesize\ttfamily \label{structCalgine_1_1CollisionEvent_a861c01a2d37d3cf732fd436fd4fd8b8b} 
+\doxymbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} Calgine::\+\+Collision\+Event::\+other (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}}]{game\+\_\+object}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The other \doxylink{classCalgine_1_1GameObject}{Game\+Object} in the collision, or nullptr if {\ttfamily game\+\_\+object} isn\textquotesingle{}t involved. 
+
+
+
+\label{structCalgine_1_1CollisionEvent_doc-variable-members}
+\Hypertarget{structCalgine_1_1CollisionEvent_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCalgine_1_1CollisionEvent_ae21be19f95baeff3c957db462034de27}\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}!a@{a}}
+\index{a@{a}!Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+\doxysubsubsection{\texorpdfstring{a}{a}}
+{\footnotesize\ttfamily \label{structCalgine_1_1CollisionEvent_ae21be19f95baeff3c957db462034de27} 
+\doxymbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}}\texorpdfstring{$\ast$}{*} Calgine::\+\+Collision\+Event::\+a = nullptr}
+
+\Hypertarget{structCalgine_1_1CollisionEvent_a30c7789736e929841ff2609eb32f268d}\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}!b@{b}}
+\index{b@{b}!Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+\doxysubsubsection{\texorpdfstring{b}{b}}
+{\footnotesize\ttfamily \label{structCalgine_1_1CollisionEvent_a30c7789736e929841ff2609eb32f268d} 
+\doxymbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}}\texorpdfstring{$\ast$}{*} Calgine::\+\+Collision\+Event::\+b = nullptr}
+
+\Hypertarget{structCalgine_1_1CollisionEvent_a3f2fdc20db3c4dd17b8db4820f108643}\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}!body\_a@{body\_a}}
+\index{body\_a@{body\_a}!Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+\doxysubsubsection{\texorpdfstring{body\_a}{body\_a}}
+{\footnotesize\ttfamily \label{structCalgine_1_1CollisionEvent_a3f2fdc20db3c4dd17b8db4820f108643} 
+\doxymbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}}\texorpdfstring{$\ast$}{*} Calgine::\+\+Collision\+Event::\+body\+\_\+a = nullptr}
+
+\Hypertarget{structCalgine_1_1CollisionEvent_ad661e6232b7b4f9d4d4e69d057d0e095}\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}!body\_b@{body\_b}}
+\index{body\_b@{body\_b}!Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+\doxysubsubsection{\texorpdfstring{body\_b}{body\_b}}
+{\footnotesize\ttfamily \label{structCalgine_1_1CollisionEvent_ad661e6232b7b4f9d4d4e69d057d0e095} 
+\doxymbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}}\texorpdfstring{$\ast$}{*} Calgine::\+\+Collision\+Event::\+body\+\_\+b = nullptr}
+
+\Hypertarget{structCalgine_1_1CollisionEvent_a4e360910025dfe2583f687beaeef29af}\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}!contact\_point@{contact\_point}}
+\index{contact\_point@{contact\_point}!Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+\doxysubsubsection{\texorpdfstring{contact\_point}{contact\_point}}
+{\footnotesize\ttfamily \label{structCalgine_1_1CollisionEvent_a4e360910025dfe2583f687beaeef29af} 
+glm::\+vec3 Calgine::\+\+Collision\+Event::\+contact\+\_\+point = glm::\+vec3(0.\+0f)}
+
+
+
+World-\/space contact point (enter only). 
+
+\Hypertarget{structCalgine_1_1CollisionEvent_a56c6789b36137d80a0c6549a49e4ebf5}\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}!normal@{normal}}
+\index{normal@{normal}!Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+\doxysubsubsection{\texorpdfstring{normal}{normal}}
+{\footnotesize\ttfamily \label{structCalgine_1_1CollisionEvent_a56c6789b36137d80a0c6549a49e4ebf5} 
+glm::\+vec3 Calgine::\+\+Collision\+Event::\+normal = glm::\+vec3(0.\+0f)}
+
+
+
+World-\/space contact normal, pointing from a towards b (enter only). 
+
+\Hypertarget{structCalgine_1_1CollisionEvent_a344f0c05c25b30d641a54536006dd9bb}\index{Calgine::CollisionEvent@{Calgine::CollisionEvent}!type@{type}}
+\index{type@{type}!Calgine::CollisionEvent@{Calgine::CollisionEvent}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \label{structCalgine_1_1CollisionEvent_a344f0c05c25b30d641a54536006dd9bb} 
+\doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919}{Type}} Calgine::\+\+Collision\+Event::\+type = \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent_a3a371257fd145dafbf22c4a244c6b919af0e3e3ef4b08c65d7e52ad6f0fa3ea18}{enter}}}
+
+
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/\+calgine/\+core/\+physics/\doxymbox{\hyperlink{collision__event_8h}{collision\+\_\+event.\+h}}\end{DoxyCompactItemize}

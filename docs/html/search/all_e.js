@@ -1,11 +1,19 @@
 var searchData=
 [
-  ['pad0_0',['pad0',['../structtinyobj_1_1material__t.html#af16b7962e5809504ec31ebf9631422b7',1,'tinyobj::material_t']]],
-  ['pad1_1',['pad1',['../structtinyobj_1_1material__t.html#a68c2e93c107fcc69c8ab5346e1bc8d66',1,'tinyobj::material_t']]],
-  ['pad2_2',['pad2',['../structtinyobj_1_1material__t.html#a84cd388a80784aaaac4a03267d77f994',1,'tinyobj::material_t']]],
-  ['parse_3',['parse',['../classCalgine_1_1MapParser.html#a464857c8d006c2b8cf18849352651ed0',1,'Calgine::MapParser']]],
-  ['position_4',['position',['../structCalgine_1_1RawMouseButtonData.html#ab77370c238c6a56bbd10d9b265bedda6',1,'Calgine::RawMouseButtonData::position'],['../structCalgine_1_1RawMouseMoveData.html#aa8765fbf31d9e8335fa8d88ffbaa06dd',1,'Calgine::RawMouseMoveData::position'],['../structCalgine_1_1Vertex.html#aca2b88874107bdc649844a8b5ee82a79',1,'Calgine::Vertex::position'],['../classCalgine_1_1Transform.html#a50179b312fbbe09fcb15da261ef5eb9e',1,'Calgine::Transform::position']]],
-  ['preloop_5',['preloop',['../tick__type_8h.html#a3e6210a829b845b1aaf9b1904594bef9',1,'tick_type.h']]],
-  ['preloop_5ftick_6',['preloop_tick',['../classCalgine_1_1Behaviour.html#afc52ca163104ff8061ecaa31aa083756',1,'Calgine::Behaviour']]],
-  ['properties_7',['properties',['../structCalgine_1_1MapEntity.html#a852a807f51283d5c8fe84e8d52ad35e1',1,'Calgine::MapEntity']]]
+  ['object_5fcb_0',['object_cb',['../structtinyobj_1_1callback__t__.html#abbca92b996990727db79272941d75098',1,'tinyobj::callback_t_']]],
+  ['object_5fpair_5ffilter_1',['object_pair_filter',['../structCalgine_1_1PhysicsWorld_1_1Impl.html#a2d3d82ad68861e3dd0ba4835672bb1ca',1,'Calgine::PhysicsWorld::Impl']]],
+  ['object_5fvs_5fbroad_5fphase_5ffilter_2',['object_vs_broad_phase_filter',['../structCalgine_1_1PhysicsWorld_1_1Impl.html#ad3a3fbbc79020516553b977f5c112158',1,'Calgine::PhysicsWorld::Impl']]],
+  ['objectlayerpairfilterimpl_3',['ObjectLayerPairFilterImpl',['../classCalgine_1_1ObjectLayerPairFilterImpl.html',1,'Calgine']]],
+  ['objectvsbroadphaselayerfilterimpl_4',['ObjectVsBroadPhaseLayerFilterImpl',['../classCalgine_1_1ObjectVsBroadPhaseLayerFilterImpl.html',1,'Calgine']]],
+  ['on_5fdestroy_5',['on_destroy',['../classCalgine_1_1Behaviour.html#aab60143ff0527a6db745d286dec38fca',1,'Calgine::Behaviour']]],
+  ['oncontactadded_6',['OnContactAdded',['../classCalgine_1_1ContactQueue.html#a28c9d667608581af3404bdabdb87844f',1,'Calgine::ContactQueue']]],
+  ['oncontactremoved_7',['OnContactRemoved',['../classCalgine_1_1ContactQueue.html#a4afe803f766bda8eab7c87628dd6eca7',1,'Calgine::ContactQueue']]],
+  ['operator_21_3d_8',['operator!=',['../classCalgine_1_1GameObject_1_1Iterator.html#a9aa2a5504363016061a52373239a47cb',1,'Calgine::GameObject::Iterator']]],
+  ['operator_28_29_9',['operator()',['../classtinyobj_1_1MaterialReader.html#ad165d8cc1bd989f8548a9258b0881a89',1,'tinyobj::MaterialReader::operator()()'],['../classtinyobj_1_1MaterialFileReader.html#a23fa55532224cbcc927233f4b57f53df',1,'tinyobj::MaterialFileReader::operator()()'],['../classtinyobj_1_1MaterialStreamReader.html#a38db9ec731ad3177efa704d7e60c82fd',1,'tinyobj::MaterialStreamReader::operator()()']]],
+  ['operator_2a_10',['operator*',['../classCalgine_1_1GameObject_1_1Iterator.html#a4be84b1be8b2f0eb7954b0c8a2d8bcce',1,'Calgine::GameObject::Iterator']]],
+  ['operator_2b_2b_11',['operator++',['../classCalgine_1_1GameObject_1_1Iterator.html#a05dc421016ef86d15b5f0875091b4870',1,'Calgine::GameObject::Iterator']]],
+  ['operator_2d_3e_12',['operator-&gt;',['../classCalgine_1_1GameObject_1_1Iterator.html#acea87bca74dcd4577dd8493b11a29ad7',1,'Calgine::GameObject::Iterator']]],
+  ['operator_3d_13',['operator=',['../classCalgine_1_1GameObject.html#ae60d4b1987fbd4ec0458a13719d1239e',1,'Calgine::GameObject::operator=(const GameObject &amp;)=delete'],['../classCalgine_1_1GameObject.html#a03121f27fb122fb29542ca8c78b40e30',1,'Calgine::GameObject::operator=(GameObject &amp;&amp;)=default'],['../classCalgine_1_1GameHierarchy.html#a95e29f8dee4d48f9439c50c88e6759af',1,'Calgine::GameHierarchy::operator=()'],['../classCalgine_1_1ManagerHierarchy.html#a5b967e1070828e237d7b3de17ba86c28',1,'Calgine::ManagerHierarchy::operator=()'],['../classCalgine_1_1PhysicsWorld.html#a0c8d0e8ddb4a46899c76f2bf6da5e882',1,'Calgine::PhysicsWorld::operator=()'],['../classCalgine_1_1CameraManager.html#ac2c145c93c4939c9115de4e6a8b1c0e6',1,'Calgine::CameraManager::operator=()'],['../classCalgine_1_1Material.html#aa412ec4150c4e724c847c0d2037e2160',1,'Calgine::Material::operator=()'],['../classCalgine_1_1Mesh.html#a999050cfe054960c9e9f67856a74df64',1,'Calgine::Mesh::operator=()'],['../classCalgine_1_1Window.html#ac0fc1be57972240421ecf8c460457251',1,'Calgine::Window::operator=(const Window &amp;)=delete'],['../classCalgine_1_1Window.html#a0a7c057c1c00f1f1ec440d49344270b2',1,'Calgine::Window::operator=(Window &amp;&amp;) noexcept=delete'],['../classCalgine_1_1WindowHandler.html#a3bf8daede725665edd93a223f9b5c441',1,'Calgine::WindowHandler::operator=()']]],
+  ['origin_5foffset_14',['origin_offset',['../structtinyobj_1_1texture__option__t.html#ab6a036a11f7b1317709a4d3e25495e07',1,'tinyobj::texture_option_t']]],
+  ['other_15',['other',['../structCalgine_1_1CollisionEvent.html#a861c01a2d37d3cf732fd436fd4fd8b8b',1,'Calgine::CollisionEvent']]]
 ];

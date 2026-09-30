@@ -10,5 +10,6 @@ var searchData=
   ['displacement_5ftexname_7',['displacement_texname',['../structtinyobj_1_1material__t.html#ab69842db3e67cc7d4dcd8bfe02590f92',1,'tinyobj::material_t']]],
   ['displacement_5ftexopt_8',['displacement_texopt',['../structtinyobj_1_1material__t.html#a6f28d7a04ebb6435c62adb502847f4c3',1,'tinyobj::material_t']]],
   ['dissolve_9',['dissolve',['../structtinyobj_1_1material__t.html#a61e3561bf67f6faec6ac4f551f9956cb',1,'tinyobj::material_t']]],
-  ['dummy_10',['dummy',['../structtinyobj_1_1material__t.html#a6b1814d1066609178c81d2a4f7b34bd8',1,'tinyobj::material_t']]]
+  ['distance_10',['distance',['../structCalgine_1_1RaycastHit.html#a9f555d2c9e48ab65872cefdf71378d59',1,'Calgine::RaycastHit']]],
+  ['dummy_11',['dummy',['../structtinyobj_1_1material__t.html#a6b1814d1066609178c81d2a4f7b34bd8',1,'tinyobj::material_t']]]
 ];

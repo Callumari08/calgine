@@ -1,51 +1,70 @@
 \doxysection{renderer.\+h}
 \hypertarget{renderer_8h_source}{}\label{renderer_8h_source}\index{src/calgine/core/renderer/renderer.h@{src/calgine/core/renderer/renderer.h}}
-\mbox{\hyperlink{renderer_8h}{Go to the documentation of this file.}}
+\doxymbox{\hyperlink{renderer_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mesh_8h}{calgine/core/renderer/mesh.h}}"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{material_8h}{calgine/core/renderer/material.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{mesh_8h}{calgine/core/renderer/mesh.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{material_8h}{calgine/core/renderer/material.h}}"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}glad/gl.h"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <glm/fwd.hpp>}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1BatchRenderCommand}{BatchRenderCommand}}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \doxymbox{\hyperlink{structCalgine_1_1BatchRenderCommand}{BatchRenderCommand}}}
 \DoxyCodeLine{00012\ \{}
-\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Mesh}{Mesh}}*\ \mbox{\hyperlink{structCalgine_1_1BatchRenderCommand_a0cb4ec0278b314eccefdbc0c1abfbb98}{mesh}};}
-\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Material}{Material}}*\ \mbox{\hyperlink{structCalgine_1_1BatchRenderCommand_a714ecae078b1eb25667b4d9c04f29041}{material}};}
-\DoxyCodeLine{00015\ \ \ glm::mat4\ \mbox{\hyperlink{structCalgine_1_1BatchRenderCommand_a545a237af0fc11dadd52613bd1c0afe5}{model\_matrix}};}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classCalgine_1_1Mesh}{Mesh}}*\ \doxymbox{\hyperlink{structCalgine_1_1BatchRenderCommand_a0cb4ec0278b314eccefdbc0c1abfbb98}{mesh}};}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classCalgine_1_1Material}{Material}}*\ \doxymbox{\hyperlink{structCalgine_1_1BatchRenderCommand_a714ecae078b1eb25667b4d9c04f29041}{material}};}
+\DoxyCodeLine{00015\ \ \ glm::mat4\ \doxymbox{\hyperlink{structCalgine_1_1BatchRenderCommand_a545a237af0fc11dadd52613bd1c0afe5}{model\_matrix}};}
 \DoxyCodeLine{00016\ \};}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1Renderer}{Renderer}}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \doxymbox{\hyperlink{structCalgine_1_1LineVertex}{LineVertex}}}
 \DoxyCodeLine{00019\ \{}
-\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1Renderer}{Renderer}}\&\ get\_instance();}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{static}\ GLenum\ \mbox{\hyperlink{classCalgine_1_1Renderer_a14ee70a9306b3fbe06fc94cae98dee5e}{current\_cull\_state}};}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ submit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Mesh}{Mesh}}*\ mesh,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Material}{Material}}*\ material,\ \textcolor{keyword}{const}\ glm::mat4\ model\_matrix);}
-\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ submit(\textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1BatchRenderCommand}{BatchRenderCommand}}\ cmd);}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{classCalgine_1_1Renderer}{Renderer}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}\ begin\_frame();}
-\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ end\_frame();}
-\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{void}\ flush();}
+\DoxyCodeLine{00020\ \ \ glm::vec3\ \doxymbox{\hyperlink{structCalgine_1_1LineVertex_acec5a8a01761f83e60865374c264dc6d}{position}};}
+\DoxyCodeLine{00021\ \ \ glm::vec4\ \doxymbox{\hyperlink{structCalgine_1_1LineVertex_a2a508c286b6e36f0b123a7f505cb6bf2}{colour}};}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCalgine_1_1Shader}{Shader}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ Renderer}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{static}\ Renderer\&\ \doxymbox{\hyperlink{classCalgine_1_1Renderer_a3e76db9d70f0254171903139112749c2}{get\_instance}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{static}\ GLenum\ \doxymbox{\hyperlink{classCalgine_1_1Renderer_a14ee70a9306b3fbe06fc94cae98dee5e}{current\_cull\_state}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Renderer_a7eafe3ae0b124c16179e0f19a4429129}{submit}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classCalgine_1_1Mesh}{Mesh}}*\ mesh,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classCalgine_1_1Material}{Material}}*\ material,\ \textcolor{keyword}{const}\ glm::mat4\ model\_matrix);}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Renderer_a7eafe3ae0b124c16179e0f19a4429129}{submit}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structCalgine_1_1BatchRenderCommand}{BatchRenderCommand}}\ cmd);}
 \DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ std::vector<BatchRenderCommand>\ command\_queue;}
-\DoxyCodeLine{00037\ \ \ glm::mat4\ view\_matrix;}
-\DoxyCodeLine{00038\ \ \ glm::mat4\ projection\_matrix;}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{bool}\ had\_camera\_last\_frame\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classCalgine_1_1Renderer_ab1661e84254f849191d86672b7c4a0c8}{submit\_line}}(\textcolor{keyword}{const}\ glm::vec3\&\ from,\ \textcolor{keyword}{const}\ glm::vec3\&\ to,\ \textcolor{keyword}{const}\ glm::vec4\&\ colour);}
+\DoxyCodeLine{00040\ }
 \DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1App}{App}};}
-\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ Renderer()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \}}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{void}\ begin\_frame();}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ end\_frame();}
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ flush();}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ flush\_lines();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ release\_gl\_resources();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ std::vector<BatchRenderCommand>\ command\_queue;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ std::vector<LineVertex>\ line\_vertices;}
+\DoxyCodeLine{00056\ \ \ std::unique\_ptr<Shader>\ line\_shader;}
+\DoxyCodeLine{00057\ \ \ GLuint\ line\_vao\ =\ 0;}
+\DoxyCodeLine{00058\ \ \ GLuint\ line\_vbo\ =\ 0;}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{size\_t}\ line\_vbo\_capacity\ =\ 0;}
+\DoxyCodeLine{00060\ \ \ glm::mat4\ view\_matrix;}
+\DoxyCodeLine{00061\ \ \ glm::mat4\ projection\_matrix;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{bool}\ had\_camera\_last\_frame\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCalgine_1_1Renderer_a4097b3e04a4f8ece21f5abe1b10e6323}{App}};}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \}}
 
 \end{DoxyCode}

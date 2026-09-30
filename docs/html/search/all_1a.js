@@ -1,5 +1,21 @@
 var searchData=
 [
-  ['z_5fformatter_0',['z_formatter',['../classspdlog_1_1details_1_1z__formatter.html',1,'spdlog::details::z_formatter&lt; ScopedPadder &gt;'],['../classspdlog_1_1details_1_1z__formatter.html#abcc12e06ee33b6b244808b5d4ab9e5a1',1,'spdlog::details::z_formatter::z_formatter(padding_info padinfo, pattern_time_type time_type)'],['../classspdlog_1_1details_1_1z__formatter.html#a3085f7157d3518725b6613a8bc18eca4',1,'spdlog::details::z_formatter::z_formatter()=default'],['../classspdlog_1_1details_1_1z__formatter.html#a9bbc0082721cc9bb7233aa9406fb93ab',1,'spdlog::details::z_formatter::z_formatter(const z_formatter &amp;)=delete'],['../classspdlog_1_1details_1_1z__formatter.html#abcc12e06ee33b6b244808b5d4ab9e5a1',1,'spdlog::details::z_formatter::z_formatter(padding_info padinfo, pattern_time_type time_type)'],['../classspdlog_1_1details_1_1z__formatter.html#a3085f7157d3518725b6613a8bc18eca4',1,'spdlog::details::z_formatter::z_formatter()=default'],['../classspdlog_1_1details_1_1z__formatter.html#a9bbc0082721cc9bb7233aa9406fb93ab',1,'spdlog::details::z_formatter::z_formatter(const z_formatter &amp;)=delete']]],
-  ['zero_1',['zero',['../namespacedetail.html#ac742e301ae0a908dc31e49ac3a31fcc5ad02c4c4cde7ae76252540d116a40f23a',1,'detail::zero'],['../namespacedetail.html#ac742e301ae0a908dc31e49ac3a31fcc5ad02c4c4cde7ae76252540d116a40f23a',1,'detail::zero'],['../namespacedetail.html#a35d6744b07eecf4599d6b03f7ce0de70ad02c4c4cde7ae76252540d116a40f23a',1,'detail::zero'],['../namespacedetail.html#a35d6744b07eecf4599d6b03f7ce0de70ad02c4c4cde7ae76252540d116a40f23a',1,'detail::zero'],['../namespacedetail.html#ac742e301ae0a908dc31e49ac3a31fcc5ad02c4c4cde7ae76252540d116a40f23a',1,'detail::zero'],['../namespacedetail.html#ac742e301ae0a908dc31e49ac3a31fcc5ad02c4c4cde7ae76252540d116a40f23a',1,'detail::zero'],['../namespacedetail.html#a35d6744b07eecf4599d6b03f7ce0de70ad02c4c4cde7ae76252540d116a40f23a',1,'detail::zero'],['../namespacedetail.html#a35d6744b07eecf4599d6b03f7ce0de70ad02c4c4cde7ae76252540d116a40f23a',1,'detail::zero']]]
+  ['_7eapp_0',['~App',['../classCalgine_1_1App.html#a452bb93939d99ee75bfc65f11a4e9e3e',1,'Calgine::App']]],
+  ['_7ebehaviour_1',['~Behaviour',['../classCalgine_1_1Behaviour.html#a5f9a4ac36b5e9a7303c0708c9c9ca435',1,'Calgine::Behaviour']]],
+  ['_7eeventdata_2',['~EventData',['../structCalgine_1_1EventData.html#aa56933c517555c30990887304aa0e404',1,'Calgine::EventData']]],
+  ['_7eframebuffer_3',['~FrameBuffer',['../classCalgine_1_1FrameBuffer.html#ab0f7340098f62752d1c67e3dfd6913e9',1,'Calgine::FrameBuffer']]],
+  ['_7egameobject_4',['~GameObject',['../classCalgine_1_1GameObject.html#a3c3629e366615e73aba89eb20f79ee34',1,'Calgine::GameObject']]],
+  ['_7eindexbuffer_5',['~IndexBuffer',['../classCalgine_1_1IndexBuffer.html#abe95925c36b308b1ead578d57cbf919b',1,'Calgine::IndexBuffer']]],
+  ['_7ematerial_6',['~Material',['../classCalgine_1_1Material.html#a279448773cdf7d5c04d6c3771b010283',1,'Calgine::Material']]],
+  ['_7ematerialfilereader_7',['~MaterialFileReader',['../classtinyobj_1_1MaterialFileReader.html#a0a00d236393f9972b676a2fb6fe2b819',1,'tinyobj::MaterialFileReader']]],
+  ['_7ematerialreader_8',['~MaterialReader',['../classtinyobj_1_1MaterialReader.html#afd62ceccd9b373801226e037ea1a5f9f',1,'tinyobj::MaterialReader']]],
+  ['_7ematerialstreamreader_9',['~MaterialStreamReader',['../classtinyobj_1_1MaterialStreamReader.html#afcafa6030bbf8ea8fdbc6aefb8bebc74',1,'tinyobj::MaterialStreamReader']]],
+  ['_7emesh_10',['~Mesh',['../classCalgine_1_1Mesh.html#ad4517bf11c2ef84657c1967f039e2c13',1,'Calgine::Mesh']]],
+  ['_7erawinputdata_11',['~RawInputData',['../structCalgine_1_1RawInputData.html#afa1a4016f16636f2464c4b102f3159e3',1,'Calgine::RawInputData']]],
+  ['_7erendertexture_12',['~RenderTexture',['../classCalgine_1_1RenderTexture.html#aade68b19d360bddef6d170aad6804ccb',1,'Calgine::RenderTexture']]],
+  ['_7erigidbody_13',['~RigidBody',['../classCalgine_1_1RigidBody.html#aee3caa8d5270d9cd47eb0e61ec3a074a',1,'Calgine::RigidBody']]],
+  ['_7eshader_14',['~Shader',['../classCalgine_1_1Shader.html#a6a619bcac68ed99f52f0526dcb70c3de',1,'Calgine::Shader']]],
+  ['_7evertexarray_15',['~VertexArray',['../classCalgine_1_1VertexArray.html#a9775bc15e96f3db44922524657b3feb6',1,'Calgine::VertexArray']]],
+  ['_7evertexbuffer_16',['~VertexBuffer',['../classCalgine_1_1VertexBuffer.html#a4e932c443a82b764430f40c145f84de4',1,'Calgine::VertexBuffer']]],
+  ['_7ewindow_17',['~Window',['../classCalgine_1_1Window.html#abdd08842f6d43e392d5cd585e01a83fe',1,'Calgine::Window']]]
 ];

@@ -1,5 +1,6 @@
 var classCalgine_1_1AssetManager =
 [
+    [ "clear", "classCalgine_1_1AssetManager.html#a7366fe16822112600f91e62ec5946ca2", null ],
     [ "get_model", "classCalgine_1_1AssetManager.html#a2de653e3e428f8cd0268a52b48e16ae2", null ],
     [ "get_shader", "classCalgine_1_1AssetManager.html#ac02cdd8145c25da6457c48997ff97d25", null ],
     [ "get_texture", "classCalgine_1_1AssetManager.html#aa2cf758e7f7345c8857ce48e80a239ed", null ],

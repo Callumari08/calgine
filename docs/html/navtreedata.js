@@ -44,7 +44,8 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ],
+        [ "Enumerations", "functions_enum.html", null ],
+        [ "Enumerator", "functions_eval.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -62,11 +63,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classCalgine_1_1GameObject_1_1Iterator.html#a3d74eac033c11686840c92df83dd849c",
-"classCalgine_1_1Window.html#a56fa8c87faf7554e19965e5628e09f35",
-"renderer_8h_source.html",
-"structtinyobj_1_1material__t.html#a68c2e93c107fcc69c8ab5346e1bc8d66"
+"classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d",
+"classCalgine_1_1Shader.html#a6a619bcac68ed99f52f0526dcb70c3de",
+"hierarchy__renderer_8h.html",
+"structCalgine_1_1Model.html#a1c9dfae94be1b75d2285c03c68a643c7",
+"structtinyobj_1_1material__t.html#a7d7a7791ad94f2a5eadc2c8ee8c9a902"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+const SYNCONMSG = 'click to disable panel synchronization';
+const SYNCOFFMSG = 'click to enable panel synchronization';
+const LISTOFALLMEMBERS = 'List of all members';
