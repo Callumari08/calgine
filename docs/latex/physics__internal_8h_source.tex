@@ -246,38 +246,40 @@
 \DoxyCodeLine{00250\ }
 \DoxyCodeLine{00251\ \ \ std::unordered\_map<const\ Model*,\ ModelShapes>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a749a68a396d5b7152149b9a93364417a}{model\_shapes}};}
 \DoxyCodeLine{00252\ }
-\DoxyCodeLine{00254\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ad5c3b13c423537d1c39f501b6e320175}{last\_alpha}}\ =\ 1.0f;}
+\DoxyCodeLine{00254\ \ \ uint32\_t\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_acffe170c719e56b0ed29325741e2b4df}{bodies\_added\_since\_step}}\ =\ 0;}
 \DoxyCodeLine{00255\ }
-\DoxyCodeLine{00257\ \ \ uint32\_t\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aabda759e8f510fbd6478754f602f7493}{last\_logged\_error}}\ =\ 0;}
-\DoxyCodeLine{00258\ \ \ std::chrono::steady\_clock::time\_point\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aa1f5fe6088285d4214c454c9d61f68d5}{last\_error\_log\_time}};}
-\DoxyCodeLine{00259\ }
-\DoxyCodeLine{00260\ \ \ JPH::BodyInterface\&\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a4ab39e18e65f354bc49d38f1518a5a4d}{body\_interface}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a01febca20c987b8812ad5556042c8595}{system}}-\/>GetBodyInterface();\ \}}
-\DoxyCodeLine{00261\ }
-\DoxyCodeLine{00262\ \ \ \mbox{\hyperlink{structCalgine_1_1BodyRecord}{BodyRecord}}*\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a02b65ea146251f81c322ad5db22d1766}{record}}(uint32\_t\ \textcolor{keywordtype}{id})}
-\DoxyCodeLine{00263\ \ \ \{}
-\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}.find(\textcolor{keywordtype}{id});}
-\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordflow}{return}\ it\ ==\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}.end()\ ?\ nullptr\ :\ \&it-\/>second;}
-\DoxyCodeLine{00266\ \ \ \}}
-\DoxyCodeLine{00267\ }
-\DoxyCodeLine{00268\ \ \ \mbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}}*\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a6a9605c16ef7b314bd762afb46ae35ec}{find}}(\textcolor{keyword}{const}\ JPH::BodyID\&\ \textcolor{keywordtype}{id})\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00269\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}.find(\textcolor{keywordtype}{id}.GetIndexAndSequenceNumber());}
-\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordflow}{return}\ it\ ==\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}.end()\ ?\ nullptr\ :\ it-\/>second.owner;}
-\DoxyCodeLine{00272\ \ \ \}}
-\DoxyCodeLine{00273\ }
-\DoxyCodeLine{00274\ \ \ \textcolor{comment}{//\ Implemented\ in\ physics\_world.cxx}}
-\DoxyCodeLine{00275\ \ \ JPH::RefConst<JPH::Shape>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a26f52cba0ebd29c1cc393863fa23616f}{build\_shape}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1ColliderShape}{ColliderShape}}\&\ shape,\ \textcolor{keyword}{const}\ glm::vec3\&\ \mbox{\hyperlink{physics__world_8cxx_ae6df3ca57fc92d1bddbfc258593ec29a}{world\_scale}},\ \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{MotionType}}\ motion,\ \textcolor{keyword}{const}\ std::string\&\ owner\_name);}
-\DoxyCodeLine{00276\ \ \ JPH::RefConst<JPH::Shape>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ac552020cb969f838bba577739cd0b28d}{get\_model\_shape}}(\textcolor{keyword}{const}\ std::shared\_ptr<Model>\&\ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d}{model}},\ \textcolor{keywordtype}{bool}\ triangle\_mesh,\ \textcolor{keyword}{const}\ std::string\&\ owner\_name);}
-\DoxyCodeLine{00277\ \ \ \mbox{\hyperlink{structCalgine_1_1Pose}{Pose}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a6765e74896c8becf2d4f80ee956bc993}{read\_body\_pose}}(\textcolor{keyword}{const}\ JPH::BodyID\&\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00278\ }
-\DoxyCodeLine{00279\ \ \ \textcolor{comment}{//\ Implemented\ in\ joint.cxx}}
-\DoxyCodeLine{00280\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ac73150c66d03942ba6cc5736cffbd2da}{try\_create\_joint}}(\mbox{\hyperlink{classCalgine_1_1Joint}{Joint}}*\ joint);}
-\DoxyCodeLine{00281\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a4d73511a679868ed92d7efd57e75500e}{remove\_joint}}(uint32\_t\ joint\_id);}
-\DoxyCodeLine{00283\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_af11a90a52ac5a760e90c5b34b2eef32a}{remove\_joints\_of\_body}}(uint32\_t\ body\_id);}
-\DoxyCodeLine{00285\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a9f3619716b518baa4761360563699c24}{refresh\_joints\_of\_body}}(uint32\_t\ body\_id);}
-\DoxyCodeLine{00286\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a3afd940c53b5c5dad11441866665f93d}{update\_joint\_enabled}}(\mbox{\hyperlink{structCalgine_1_1JointRecord}{JointRecord}}\&\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a02b65ea146251f81c322ad5db22d1766}{record}});}
-\DoxyCodeLine{00287\ \};}
-\DoxyCodeLine{00288\ }
-\DoxyCodeLine{00289\ \}}
+\DoxyCodeLine{00257\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ad5c3b13c423537d1c39f501b6e320175}{last\_alpha}}\ =\ 1.0f;}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00260\ \ \ uint32\_t\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aabda759e8f510fbd6478754f602f7493}{last\_logged\_error}}\ =\ 0;}
+\DoxyCodeLine{00261\ \ \ std::chrono::steady\_clock::time\_point\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aa1f5fe6088285d4214c454c9d61f68d5}{last\_error\_log\_time}};}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ JPH::BodyInterface\&\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a4ab39e18e65f354bc49d38f1518a5a4d}{body\_interface}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a01febca20c987b8812ad5556042c8595}{system}}-\/>GetBodyInterface();\ \}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \mbox{\hyperlink{structCalgine_1_1BodyRecord}{BodyRecord}}*\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a02b65ea146251f81c322ad5db22d1766}{record}}(uint32\_t\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{00266\ \ \ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}.find(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordflow}{return}\ it\ ==\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}.end()\ ?\ nullptr\ :\ \&it-\/>second;}
+\DoxyCodeLine{00269\ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \mbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}}*\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a6a9605c16ef7b314bd762afb46ae35ec}{find}}(\textcolor{keyword}{const}\ JPH::BodyID\&\ \textcolor{keywordtype}{id})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00272\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}.find(\textcolor{keywordtype}{id}.GetIndexAndSequenceNumber());}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordflow}{return}\ it\ ==\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}.end()\ ?\ nullptr\ :\ it-\/>second.owner;}
+\DoxyCodeLine{00275\ \ \ \}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \textcolor{comment}{//\ Implemented\ in\ physics\_world.cxx}}
+\DoxyCodeLine{00278\ \ \ JPH::RefConst<JPH::Shape>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a26f52cba0ebd29c1cc393863fa23616f}{build\_shape}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1ColliderShape}{ColliderShape}}\&\ shape,\ \textcolor{keyword}{const}\ glm::vec3\&\ \mbox{\hyperlink{physics__world_8cxx_ae6df3ca57fc92d1bddbfc258593ec29a}{world\_scale}},\ \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{MotionType}}\ motion,\ \textcolor{keyword}{const}\ std::string\&\ owner\_name);}
+\DoxyCodeLine{00279\ \ \ JPH::RefConst<JPH::Shape>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ac552020cb969f838bba577739cd0b28d}{get\_model\_shape}}(\textcolor{keyword}{const}\ std::shared\_ptr<Model>\&\ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d}{model}},\ \textcolor{keywordtype}{bool}\ triangle\_mesh,\ \textcolor{keyword}{const}\ std::string\&\ owner\_name);}
+\DoxyCodeLine{00280\ \ \ \mbox{\hyperlink{structCalgine_1_1Pose}{Pose}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a6765e74896c8becf2d4f80ee956bc993}{read\_body\_pose}}(\textcolor{keyword}{const}\ JPH::BodyID\&\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \textcolor{comment}{//\ Implemented\ in\ joint.cxx}}
+\DoxyCodeLine{00283\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ac73150c66d03942ba6cc5736cffbd2da}{try\_create\_joint}}(\mbox{\hyperlink{classCalgine_1_1Joint}{Joint}}*\ joint);}
+\DoxyCodeLine{00284\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a4d73511a679868ed92d7efd57e75500e}{remove\_joint}}(uint32\_t\ joint\_id);}
+\DoxyCodeLine{00286\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_af11a90a52ac5a760e90c5b34b2eef32a}{remove\_joints\_of\_body}}(uint32\_t\ body\_id);}
+\DoxyCodeLine{00288\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a9f3619716b518baa4761360563699c24}{refresh\_joints\_of\_body}}(uint32\_t\ body\_id);}
+\DoxyCodeLine{00289\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a3afd940c53b5c5dad11441866665f93d}{update\_joint\_enabled}}(\mbox{\hyperlink{structCalgine_1_1JointRecord}{JointRecord}}\&\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a02b65ea146251f81c322ad5db22d1766}{record}});}
+\DoxyCodeLine{00290\ \};}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \}}
 
 \end{DoxyCode}

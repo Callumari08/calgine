@@ -12,6 +12,7 @@ var structCalgine_1_1PhysicsWorld_1_1Impl =
     [ "try_create_joint", "structCalgine_1_1PhysicsWorld_1_1Impl.html#ac73150c66d03942ba6cc5736cffbd2da", null ],
     [ "update_joint_enabled", "structCalgine_1_1PhysicsWorld_1_1Impl.html#a3afd940c53b5c5dad11441866665f93d", null ],
     [ "bodies", "structCalgine_1_1PhysicsWorld_1_1Impl.html#a06c4b32492c1868ce78a2b4491f9cf08", null ],
+    [ "bodies_added_since_step", "structCalgine_1_1PhysicsWorld_1_1Impl.html#acffe170c719e56b0ed29325741e2b4df", null ],
     [ "broad_phase_layer_interface", "structCalgine_1_1PhysicsWorld_1_1Impl.html#aea6e98567ab00d54556675bda45dfb98", null ],
     [ "contact_queue", "structCalgine_1_1PhysicsWorld_1_1Impl.html#a985b39ba20cf0a5dd816f003ade681c5", null ],
     [ "job_system", "structCalgine_1_1PhysicsWorld_1_1Impl.html#a4ba8febd1ec24e63ccf6db703fc9607e", null ],

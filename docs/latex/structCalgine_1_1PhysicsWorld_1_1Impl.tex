@@ -56,6 +56,8 @@ std\+::vector$<$ \mbox{\hyperlink{classCalgine_1_1Joint}{Joint}} \texorpdfstring
 \item 
 std\+::unordered\+\_\+map$<$ const \mbox{\hyperlink{structCalgine_1_1Model}{Model}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structCalgine_1_1ModelShapes}{Model\+Shapes}} $>$ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a749a68a396d5b7152149b9a93364417a}{model\+\_\+shapes}}
 \item 
+uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_acffe170c719e56b0ed29325741e2b4df}{bodies\+\_\+added\+\_\+since\+\_\+step}} = 0
+\item 
 float \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ad5c3b13c423537d1c39f501b6e320175}{last\+\_\+alpha}} = 1.\+0f
 \item 
 uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aabda759e8f510fbd6478754f602f7493}{last\+\_\+logged\+\_\+error}} = 0
@@ -145,7 +147,13 @@ Removes (and breaks) every joint attached to {\ttfamily body\+\_\+id}. Call befo
 \doxysubsubsection{\texorpdfstring{bodies}{bodies}}
 {\footnotesize\ttfamily std\+::unordered\+\_\+map$<$uint32\+\_\+t, \mbox{\hyperlink{structCalgine_1_1BodyRecord}{Body\+Record}}$>$ Calgine\+::\+Physics\+World\+::\+Impl\+::bodies}
 
-Body ID (index + sequence) -\/\texorpdfstring{$>$}{>} record. \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_aea6e98567ab00d54556675bda45dfb98}\label{structCalgine_1_1PhysicsWorld_1_1Impl_aea6e98567ab00d54556675bda45dfb98} 
+Body ID (index + sequence) -\/\texorpdfstring{$>$}{>} record. \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_acffe170c719e56b0ed29325741e2b4df}\label{structCalgine_1_1PhysicsWorld_1_1Impl_acffe170c719e56b0ed29325741e2b4df} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!bodies\_added\_since\_step@{bodies\_added\_since\_step}}
+\index{bodies\_added\_since\_step@{bodies\_added\_since\_step}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{bodies\_added\_since\_step}{bodies\_added\_since\_step}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Physics\+World\+::\+Impl\+::bodies\+\_\+added\+\_\+since\+\_\+step = 0}
+
+Bodies added to the simulation since the last step; a big batch (e.\+g. a scene load) triggers Optimize\+Broad\+Phase(). \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_aea6e98567ab00d54556675bda45dfb98}\label{structCalgine_1_1PhysicsWorld_1_1Impl_aea6e98567ab00d54556675bda45dfb98} 
 \index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!broad\_phase\_layer\_interface@{broad\_phase\_layer\_interface}}
 \index{broad\_phase\_layer\_interface@{broad\_phase\_layer\_interface}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
 \doxysubsubsection{\texorpdfstring{broad\_phase\_layer\_interface}{broad\_phase\_layer\_interface}}

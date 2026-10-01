@@ -68,8 +68,8 @@ var NAVTREEINDEX =
 "data__serialization__interface_8h.html",
 "physics__settings_8h.html",
 "structCalgine_1_1JointSettings.html#abd85a12eefadb93377a99639d2b18a30",
-"structCalgine_1_1ShaderProgram.html#a5f66a3d6d1ac5dfbb63dbd94325c596f",
-"window_8cxx.html"
+"structCalgine_1_1ShaderProgram.html",
+"vertex__buffer_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

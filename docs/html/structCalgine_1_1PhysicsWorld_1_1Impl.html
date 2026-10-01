@@ -151,6 +151,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:af2b2aafea97012a80efe08b2c9551d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a749a68a396d5b7152149b9a93364417a" id="r_a749a68a396d5b7152149b9a93364417a"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; const <a class="el" href="structCalgine_1_1Model.html">Model</a> *, <a class="el" href="structCalgine_1_1ModelShapes.html">ModelShapes</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a749a68a396d5b7152149b9a93364417a">model_shapes</a></td></tr>
 <tr class="separator:a749a68a396d5b7152149b9a93364417a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acffe170c719e56b0ed29325741e2b4df" id="r_acffe170c719e56b0ed29325741e2b4df"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#acffe170c719e56b0ed29325741e2b4df">bodies_added_since_step</a> = 0</td></tr>
+<tr class="separator:acffe170c719e56b0ed29325741e2b4df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5c3b13c423537d1c39f501b6e320175" id="r_ad5c3b13c423537d1c39f501b6e320175"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#ad5c3b13c423537d1c39f501b6e320175">last_alpha</a> = 1.0f</td></tr>
 <tr class="separator:ad5c3b13c423537d1c39f501b6e320175"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabda759e8f510fbd6478754f602f7493" id="r_aabda759e8f510fbd6478754f602f7493"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#aabda759e8f510fbd6478754f602f7493">last_logged_error</a> = 0</td></tr>
@@ -438,6 +440,21 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Body ID (index + sequence) -&gt; record. </p>
+
+</div>
+</div>
+<a id="acffe170c719e56b0ed29325741e2b4df" name="acffe170c719e56b0ed29325741e2b4df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acffe170c719e56b0ed29325741e2b4df">&#9670;&#160;</a></span>bodies_added_since_step</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Calgine::PhysicsWorld::Impl::bodies_added_since_step = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Bodies added to the simulation since the last step; a big batch (e.g. a scene load) triggers OptimizeBroadPhase(). </p>
 
 </div>
 </div>
