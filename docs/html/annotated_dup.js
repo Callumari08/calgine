@@ -24,7 +24,7 @@ var annotated_dup =
       [ "GameHierarchy", "classCalgine_1_1GameHierarchy.html", "classCalgine_1_1GameHierarchy" ],
       [ "GameObject", "classCalgine_1_1GameObject.html", "classCalgine_1_1GameObject" ],
       [ "has_deserialize_from_paramview", "structCalgine_1_1has__deserialize__from__paramview.html", null ],
-      [ "has_deserialize_from_paramview&lt; T, std::void_t&lt; decltype(std::declval&lt; T &gt;().deserialize(std::declval&lt; const DataSerializationInterface * &gt;()))&gt; &gt;", "structCalgine_1_1has__deserialize__from__paramview_3_01T_00_01std_1_1void__t_3_01decltype_07std_94428529f43becd300d98a39882c99ac.html", null ],
+      [ "has_deserialize_from_paramview< T, std::void_t< decltype(std::declval< T >().deserialize(std::declval< const DataSerializationInterface * >()))> >", "structCalgine_1_1has__deserialize__from__paramview_3_01T_00_01std_1_1void__t_3_01decltype_07std_94428529f43becd300d98a39882c99ac.html", null ],
       [ "HierarchyRenderer", "classCalgine_1_1HierarchyRenderer.html", "classCalgine_1_1HierarchyRenderer" ],
       [ "IndexBuffer", "classCalgine_1_1IndexBuffer.html", "classCalgine_1_1IndexBuffer" ],
       [ "InputAction", "structCalgine_1_1InputAction.html", "structCalgine_1_1InputAction" ],
@@ -72,16 +72,16 @@ var annotated_dup =
       [ "WindowHandler", "classCalgine_1_1WindowHandler.html", "classCalgine_1_1WindowHandler" ]
     ] ],
     [ "tinyobj", "namespacetinyobj.html", [
-      [ "texture_option_t", "structtinyobj_1_1texture__option__t.html", "structtinyobj_1_1texture__option__t" ],
-      [ "material_t", "structtinyobj_1_1material__t.html", "structtinyobj_1_1material__t" ],
-      [ "tag_t", "structtinyobj_1_1tag__t.html", "structtinyobj_1_1tag__t" ],
-      [ "index_t", "structtinyobj_1_1index__t.html", "structtinyobj_1_1index__t" ],
-      [ "mesh_t", "structtinyobj_1_1mesh__t.html", "structtinyobj_1_1mesh__t" ],
-      [ "shape_t", "structtinyobj_1_1shape__t.html", "structtinyobj_1_1shape__t" ],
       [ "attrib_t", "structtinyobj_1_1attrib__t.html", "structtinyobj_1_1attrib__t" ],
       [ "callback_t_", "structtinyobj_1_1callback__t__.html", "structtinyobj_1_1callback__t__" ],
-      [ "MaterialReader", "classtinyobj_1_1MaterialReader.html", "classtinyobj_1_1MaterialReader" ],
+      [ "index_t", "structtinyobj_1_1index__t.html", "structtinyobj_1_1index__t" ],
+      [ "material_t", "structtinyobj_1_1material__t.html", "structtinyobj_1_1material__t" ],
       [ "MaterialFileReader", "classtinyobj_1_1MaterialFileReader.html", "classtinyobj_1_1MaterialFileReader" ],
-      [ "MaterialStreamReader", "classtinyobj_1_1MaterialStreamReader.html", "classtinyobj_1_1MaterialStreamReader" ]
+      [ "MaterialReader", "classtinyobj_1_1MaterialReader.html", "classtinyobj_1_1MaterialReader" ],
+      [ "MaterialStreamReader", "classtinyobj_1_1MaterialStreamReader.html", "classtinyobj_1_1MaterialStreamReader" ],
+      [ "mesh_t", "structtinyobj_1_1mesh__t.html", "structtinyobj_1_1mesh__t" ],
+      [ "shape_t", "structtinyobj_1_1shape__t.html", "structtinyobj_1_1shape__t" ],
+      [ "tag_t", "structtinyobj_1_1tag__t.html", "structtinyobj_1_1tag__t" ],
+      [ "texture_option_t", "structtinyobj_1_1texture__option__t.html", "structtinyobj_1_1texture__option__t" ]
     ] ]
 ];

@@ -1,4 +1,4 @@
-\doxysection{Calgine::Rigid\+Body Class Reference}
+\doxysection{Calgine\+::Rigid\+Body Class Reference}
 \hypertarget{classCalgine_1_1RigidBody}{}\label{classCalgine_1_1RigidBody}\index{Calgine::RigidBody@{Calgine::RigidBody}}
 
 
@@ -7,9 +7,9 @@ Gives a \doxylink{classCalgine_1_1GameObject}{Game\+Object} a body in the \doxyl
 
 
 
-{\ttfamily \+\#include $<$rigid\+\_\+body.\+h$>$}
+{\ttfamily \#include $<$rigid\+\_\+body.\+h$>$}
 
-Inheritance diagram for Calgine::Rigid\+Body:\begin{figure}[H]
+Inheritance diagram for Calgine\+::Rigid\+Body\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{classCalgine_1_1RigidBody}
@@ -18,86 +18,87 @@ Inheritance diagram for Calgine::Rigid\+Body:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4}{Rigid\+Body}} ()
+\mbox{\hyperlink{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4}{Rigid\+Body}} ()
 \begin{DoxyCompactList}\small\item\em A dynamic 1x1x1 box. \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{classCalgine_1_1RigidBody_a46682a93192a3271a9fe6cd896fca066}{Rigid\+Body}} (const \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings}{Rigid\+Body\+Settings}} \&settings)
+\mbox{\hyperlink{classCalgine_1_1RigidBody_a46682a93192a3271a9fe6cd896fca066}{Rigid\+Body}} (const \mbox{\hyperlink{structCalgine_1_1RigidBodySettings}{Rigid\+Body\+Settings}} \&settings)
 \item 
-\doxymbox{\hyperlink{classCalgine_1_1RigidBody_aee3caa8d5270d9cd47eb0e61ec3a074a}{\texorpdfstring{$\sim$}{\string~}\+Rigid\+Body}} () override
+\mbox{\hyperlink{classCalgine_1_1RigidBody_aee3caa8d5270d9cd47eb0e61ec3a074a}{\texorpdfstring{$\sim$}{\string~}\+Rigid\+Body}} () override
 \item 
-const \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings}{Rigid\+Body\+Settings}} \& \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a3e99d8594e82508d33964545183f8afc}{get\+\_\+settings}} () const
+const \mbox{\hyperlink{structCalgine_1_1RigidBodySettings}{Rigid\+Body\+Settings}} \& \mbox{\hyperlink{classCalgine_1_1RigidBody_a3e99d8594e82508d33964545183f8afc}{get\+\_\+settings}} () const
 \item 
-\doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{Motion\+Type}} \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a664db3d4ba699b0a7e8db9136b454451}{get\+\_\+motion\+\_\+type}} () const
+\mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{Motion\+Type}} \mbox{\hyperlink{classCalgine_1_1RigidBody_a664db3d4ba699b0a7e8db9136b454451}{get\+\_\+motion\+\_\+type}} () const
 \item 
-bool \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a30a6873369eff66cc839e107b25063d8}{is\+\_\+valid}} () const
-\begin{DoxyCompactList}\small\item\em False before \doxylink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}{start\+\_\+tick()}, after destruction, or if body creation failed. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a0a2df153915924ca655b676d38a3d379}{add\+\_\+force}} (const glm::\+vec3 \&force)
+bool \mbox{\hyperlink{classCalgine_1_1RigidBody_a30a6873369eff66cc839e107b25063d8}{is\+\_\+valid}} () const
+\begin{DoxyCompactList}\small\item\em False before start\+\_\+tick(), after destruction, or if body creation failed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1RigidBody_a0a2df153915924ca655b676d38a3d379}{add\+\_\+force}} (const glm\+::vec3 \&force)
 \begin{DoxyCompactList}\small\item\em Continuous force in Newtons, applied during the next step. Call every fixed\+\_\+update for a sustained push. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a2ef1813a03d1b29552f461f98afea7d3}{add\+\_\+impulse}} (const glm::\+vec3 \&impulse)
-\begin{DoxyCompactList}\small\item\em Instant change in momentum (kg m/\+s). \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a2004ee23dfb38b61c789720a82a45af8}{add\+\_\+torque}} (const glm::\+vec3 \&torque)
+void \mbox{\hyperlink{classCalgine_1_1RigidBody_a2ef1813a03d1b29552f461f98afea7d3}{add\+\_\+impulse}} (const glm\+::vec3 \&impulse)
+\begin{DoxyCompactList}\small\item\em Instant change in momentum (kg m/s). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1RigidBody_a2004ee23dfb38b61c789720a82a45af8}{add\+\_\+torque}} (const glm\+::vec3 \&torque)
 \item 
-void \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a7941e5bcbac71a922a6617f4d8d96532}{set\+\_\+linear\+\_\+velocity}} (const glm::\+vec3 \&velocity)
+void \mbox{\hyperlink{classCalgine_1_1RigidBody_a7941e5bcbac71a922a6617f4d8d96532}{set\+\_\+linear\+\_\+velocity}} (const glm\+::vec3 \&velocity)
 \item 
-glm::\+vec3 \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a88b51d044bba5e7a3335b8ebef71d867}{get\+\_\+linear\+\_\+velocity}} () const
+glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1RigidBody_a88b51d044bba5e7a3335b8ebef71d867}{get\+\_\+linear\+\_\+velocity}} () const
 \item 
-void \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a95a733ec2a93f9b19cb6f451d2c08d39}{set\+\_\+angular\+\_\+velocity}} (const glm::\+vec3 \&velocity)
+void \mbox{\hyperlink{classCalgine_1_1RigidBody_a95a733ec2a93f9b19cb6f451d2c08d39}{set\+\_\+angular\+\_\+velocity}} (const glm\+::vec3 \&velocity)
 \item 
-glm::\+vec3 \doxymbox{\hyperlink{classCalgine_1_1RigidBody_aa94134b4a74bd4c2d5c7c0c1d5f9f5ca}{get\+\_\+angular\+\_\+velocity}} () const
+glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1RigidBody_aa94134b4a74bd4c2d5c7c0c1d5f9f5ca}{get\+\_\+angular\+\_\+velocity}} () const
 \item 
-void \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f2}{teleport}} (const glm::\+vec3 \&world\+\_\+position, const glm::\+quat \&world\+\_\+rotation)
+void \mbox{\hyperlink{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f2}{teleport}} (const glm\+::vec3 \&world\+\_\+position, const glm\+::quat \&world\+\_\+rotation)
 \begin{DoxyCompactList}\small\item\em Instantly moves the body (and the \doxylink{classCalgine_1_1GameObject}{Game\+Object}) to a world position and rotation. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a9bc1c789530845108c19f76ae811584e}{teleport}} (const glm::\+vec3 \&world\+\_\+position, const glm::\+vec3 \&world\+\_\+rotation\+\_\+degrees)
+void \mbox{\hyperlink{classCalgine_1_1RigidBody_a9bc1c789530845108c19f76ae811584e}{teleport}} (const glm\+::vec3 \&world\+\_\+position, const glm\+::vec3 \&world\+\_\+rotation\+\_\+degrees)
 \begin{DoxyCompactList}\small\item\em Same as above, with the rotation given as Euler angles in degrees. \end{DoxyCompactList}\item 
-std::\+vector$<$ const \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent}{Collision\+Event}} \texorpdfstring{$\ast$}{*} $>$ \doxymbox{\hyperlink{classCalgine_1_1RigidBody_adfa8aed7184b4739a77bb20943a4ac95}{get\+\_\+collisions}} (const \doxymbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context) const
+std\+::vector$<$ const \mbox{\hyperlink{structCalgine_1_1CollisionEvent}{Collision\+Event}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classCalgine_1_1RigidBody_adfa8aed7184b4739a77bb20943a4ac95}{get\+\_\+collisions}} (const \mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context) const
 \begin{DoxyCompactList}\small\item\em All Collision\+Events this frame that involve this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine::\+\+Behaviour}}}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
 \begin{DoxyCompactItemize}
 \item 
-virtual \doxymbox{\hyperlink{classCalgine_1_1Behaviour_a5f9a4ac36b5e9a7303c0708c9c9ca435}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
+virtual \mbox{\hyperlink{classCalgine_1_1Behaviour_a5f9a4ac36b5e9a7303c0708c9c9ca435}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
 \item 
-\doxymbox{\hyperlink{classCalgine_1_1Behaviour_a00df87c957d8f7ee0fc51f07a0542f4a}{Game\+Object}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\+\_\+game\+\_\+object}} ()
-\begin{DoxyCompactList}\small\item\em Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} that this behaviour is attached to. \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \& \doxymbox{\hyperlink{classCalgine_1_1Behaviour_aec1c964df62ee9bf87b1c05ed630a4be}{get\+\_\+transform}} ()
+\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\+\_\+game\+\_\+object}} ()
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} that this behaviour is attached to. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \& \mbox{\hyperlink{classCalgine_1_1Behaviour_aec1c964df62ee9bf87b1c05ed630a4be}{get\+\_\+transform}} ()
 \item 
-bool \doxymbox{\hyperlink{classCalgine_1_1Behaviour_a9c98d44cad6a3f3e84c935e48f1991b2}{is\+\_\+started}} () const
+bool \mbox{\hyperlink{classCalgine_1_1Behaviour_a9c98d44cad6a3f3e84c935e48f1991b2}{is\+\_\+started}} () const
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-class \doxymbox{\hyperlink{classCalgine_1_1RigidBody_abd7959b8cbcd7c25bc6c0c8b1ea26ce6}{Physics\+World}}
+class \mbox{\hyperlink{classCalgine_1_1RigidBody_abd7959b8cbcd7c25bc6c0c8b1ea26ce6}{Physics\+World}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
-\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine::\+\+Behaviour}}}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}} ()
+\mbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}} ()
 \item 
-virtual void \doxymbox{\hyperlink{classCalgine_1_1Behaviour_afc52ca163104ff8061ecaa31aa083756}{preloop\+\_\+tick}} (\doxymbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_afc52ca163104ff8061ecaa31aa083756}{preloop\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
 \begin{DoxyCompactList}\small\item\em Gets called before the main loop (see \doxylink{classCalgine_1_1App}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. \end{DoxyCompactList}\item 
-virtual void \doxymbox{\hyperlink{classCalgine_1_1Behaviour_aa20a9f9fea54e6dd8d64ad331da13734}{fixed\+\_\+update\+\_\+tick}} (\doxymbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aa20a9f9fea54e6dd8d64ad331da13734}{fixed\+\_\+update\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
 \item 
-virtual void \doxymbox{\hyperlink{classCalgine_1_1Behaviour_a62c7640f82c8dc7bca360d31b5a07a66}{update\+\_\+tick}} (\doxymbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a62c7640f82c8dc7bca360d31b5a07a66}{update\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
 \begin{DoxyCompactList}\small\item\em Gets called every frame, before \doxylink{classCalgine_1_1Behaviour_ab92f603c2bc2cbfdd9fbfaa9fdc404ce}{late\+\_\+tick()}. \end{DoxyCompactList}\item 
-virtual void \doxymbox{\hyperlink{classCalgine_1_1Behaviour_ab92f603c2bc2cbfdd9fbfaa9fdc404ce}{late\+\_\+tick}} (\doxymbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ab92f603c2bc2cbfdd9fbfaa9fdc404ce}{late\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
 \begin{DoxyCompactList}\small\item\em Gets called every frame, after \doxylink{tick__type_8h_a1586ef54a6e26a57539d06db6e6c78b5}{update()}. \end{DoxyCompactList}\item 
-virtual void \doxymbox{\hyperlink{classCalgine_1_1Behaviour_a817b9c70c4b585bc908668522dec44dd}{render\+\_\+tick}} (\doxymbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a817b9c70c4b585bc908668522dec44dd}{render\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
 \item 
-virtual void \doxymbox{\hyperlink{classCalgine_1_1Behaviour_a061fd29a42a54921325daac824784a36}{imgui\+\_\+render\+\_\+tick}} (\doxymbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a061fd29a42a54921325daac824784a36}{imgui\+\_\+render\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
 \item 
-virtual void \doxymbox{\hyperlink{classCalgine_1_1Behaviour_ad39918d214247d73bb93ee2241d44452}{final\+\_\+tick}} (\doxymbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ad39918d214247d73bb93ee2241d44452}{final\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
 \begin{DoxyCompactList}\small\item\em Gets called last before the next frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Gives a \doxylink{classCalgine_1_1GameObject}{Game\+Object} a body in the \doxylink{classCalgine_1_1PhysicsWorld}{Physics\+World}. 
 
-The body is created in \doxylink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}{start\+\_\+tick()} from the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s {\itshape world} transform. The collider size is multiplied by the world scale at that moment.
+The body is created in start\+\_\+tick() from the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s {\itshape world} transform. The collider size is multiplied by the world scale at that moment.
 
 
 \begin{DoxyItemize}
-\item dynamic: physics writes the result of every step back into the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s transform. Changing the \doxylink{classCalgine_1_1Transform}{Transform} yourself has no effect on the body; use \doxylink{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f2}{teleport()} or velocities/\+forces.
-\item kinematic: the body follows the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s world transform every step. Move the \doxylink{classCalgine_1_1GameObject}{Game\+Object} (or its parent) and the body sweeps there, pushing dynamic bodies out of the way.
-\item static: never moves. Use \doxylink{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f2}{teleport()} if you really need to move it.
+\item dynamic\+: physics writes the result of every step back into the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s transform. Changing the \doxylink{classCalgine_1_1Transform}{Transform} yourself has no effect on the body; use \doxylink{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f2}{teleport()} or velocities/forces.
+\item kinematic\+: the body follows the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s world transform every step. Move the \doxylink{classCalgine_1_1GameObject}{Game\+Object} (or its parent) and the body sweeps there, pushing dynamic bodies out of the way.
+\item static\+: never moves. Use \doxylink{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f2}{teleport()} if you really need to move it.
 \end{DoxyItemize}
 
 Disabling the \doxylink{classCalgine_1_1GameObject}{Game\+Object} (set\+\_\+active(false)) removes the body from the simulation until re-\/enabled.
@@ -105,139 +106,135 @@ Disabling the \doxylink{classCalgine_1_1GameObject}{Game\+Object} (set\+\_\+acti
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{RigidBodySettings\ settings;}
-\DoxyCodeLine{settings.shape\ =\ \doxymbox{\hyperlink{structCalgine_1_1ColliderShape_a3751775a6d0836251b45e4aaefef256e}{ColliderShape::make\_box}}(glm::vec3(1.0f));}
-\DoxyCodeLine{game\_object.add\_behaviour<\doxymbox{\hyperlink{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4}{RigidBody}}>(settings);}
+\DoxyCodeLine{settings.\mbox{\hyperlink{structCalgine_1_1RigidBodySettings_a28de0e3466b71187390d6bfd5945964d}{shape}}\ =\ \mbox{\hyperlink{structCalgine_1_1ColliderShape_a3751775a6d0836251b45e4aaefef256e}{ColliderShape::make\_box}}(glm::vec3(1.0f));}
+\DoxyCodeLine{game\_object.add\_behaviour<\mbox{\hyperlink{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4}{RigidBody}}>(settings);}
 
 \end{DoxyCode}
  
 
-\label{classCalgine_1_1RigidBody_doc-constructors}
-\Hypertarget{classCalgine_1_1RigidBody_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4}\index{Calgine::RigidBody@{Calgine::RigidBody}!RigidBody@{RigidBody}}
+\Hypertarget{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4}\label{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!RigidBody@{RigidBody}}
 \index{RigidBody@{RigidBody}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{RigidBody()}{RigidBody()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4} 
-Calgine::\+\+Rigid\+Body::\+\+Rigid\+Body (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+{\footnotesize\ttfamily Calgine\+::\+Rigid\+Body\+::\+Rigid\+Body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 
 
 A dynamic 1x1x1 box. 
 
-\Hypertarget{classCalgine_1_1RigidBody_a46682a93192a3271a9fe6cd896fca066}\index{Calgine::RigidBody@{Calgine::RigidBody}!RigidBody@{RigidBody}}
+\Hypertarget{classCalgine_1_1RigidBody_a46682a93192a3271a9fe6cd896fca066}\label{classCalgine_1_1RigidBody_a46682a93192a3271a9fe6cd896fca066} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!RigidBody@{RigidBody}}
 \index{RigidBody@{RigidBody}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{RigidBody()}{RigidBody()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a46682a93192a3271a9fe6cd896fca066} 
-Calgine::\+\+Rigid\+Body::\+\+Rigid\+Body (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings}{Rigid\+Body\+Settings}} \&}]{settings}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+{\footnotesize\ttfamily Calgine\+::\+Rigid\+Body\+::\+Rigid\+Body (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structCalgine_1_1RigidBodySettings}{Rigid\+Body\+Settings}} \&}]{settings }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
-\Hypertarget{classCalgine_1_1RigidBody_aee3caa8d5270d9cd47eb0e61ec3a074a}\index{Calgine::RigidBody@{Calgine::RigidBody}!````~RigidBody@{\texorpdfstring{$\sim$}{\string~}RigidBody}}
+\Hypertarget{classCalgine_1_1RigidBody_aee3caa8d5270d9cd47eb0e61ec3a074a}\label{classCalgine_1_1RigidBody_aee3caa8d5270d9cd47eb0e61ec3a074a} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!````~RigidBody@{\texorpdfstring{$\sim$}{\string~}RigidBody}}
 \index{````~RigidBody@{\texorpdfstring{$\sim$}{\string~}RigidBody}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RigidBody()}{\string~RigidBody()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_aee3caa8d5270d9cd47eb0e61ec3a074a} 
-Calgine::\+\+Rigid\+Body::\+\texorpdfstring{$\sim$}{\string~}\+Rigid\+Body (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+{\footnotesize\ttfamily Calgine\+::\+Rigid\+Body\+::\texorpdfstring{$\sim$}{\string~}\+Rigid\+Body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
 
 
 
-\label{classCalgine_1_1RigidBody_doc-func-members}
-\Hypertarget{classCalgine_1_1RigidBody_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classCalgine_1_1RigidBody_a0a2df153915924ca655b676d38a3d379}\index{Calgine::RigidBody@{Calgine::RigidBody}!add\_force@{add\_force}}
+\Hypertarget{classCalgine_1_1RigidBody_a0a2df153915924ca655b676d38a3d379}\label{classCalgine_1_1RigidBody_a0a2df153915924ca655b676d38a3d379} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!add\_force@{add\_force}}
 \index{add\_force@{add\_force}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{add\_force()}{add\_force()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a0a2df153915924ca655b676d38a3d379} 
-void Calgine::\+\+Rigid\+Body::\+add\+\_\+force (\begin{DoxyParamCaption}\item[{const glm::\+vec3 \&}]{force}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Calgine\+::\+Rigid\+Body\+::add\+\_\+force (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{force }\end{DoxyParamCaption})}
 
 
 
 Continuous force in Newtons, applied during the next step. Call every fixed\+\_\+update for a sustained push. 
 
-\Hypertarget{classCalgine_1_1RigidBody_a2ef1813a03d1b29552f461f98afea7d3}\index{Calgine::RigidBody@{Calgine::RigidBody}!add\_impulse@{add\_impulse}}
+\Hypertarget{classCalgine_1_1RigidBody_a2ef1813a03d1b29552f461f98afea7d3}\label{classCalgine_1_1RigidBody_a2ef1813a03d1b29552f461f98afea7d3} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!add\_impulse@{add\_impulse}}
 \index{add\_impulse@{add\_impulse}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{add\_impulse()}{add\_impulse()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a2ef1813a03d1b29552f461f98afea7d3} 
-void Calgine::\+\+Rigid\+Body::\+add\+\_\+impulse (\begin{DoxyParamCaption}\item[{const glm::\+vec3 \&}]{impulse}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Calgine\+::\+Rigid\+Body\+::add\+\_\+impulse (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{impulse }\end{DoxyParamCaption})}
 
 
 
-Instant change in momentum (kg m/\+s). 
+Instant change in momentum (kg m/s). 
 
-\Hypertarget{classCalgine_1_1RigidBody_a2004ee23dfb38b61c789720a82a45af8}\index{Calgine::RigidBody@{Calgine::RigidBody}!add\_torque@{add\_torque}}
+\Hypertarget{classCalgine_1_1RigidBody_a2004ee23dfb38b61c789720a82a45af8}\label{classCalgine_1_1RigidBody_a2004ee23dfb38b61c789720a82a45af8} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!add\_torque@{add\_torque}}
 \index{add\_torque@{add\_torque}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{add\_torque()}{add\_torque()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a2004ee23dfb38b61c789720a82a45af8} 
-void Calgine::\+\+Rigid\+Body::\+add\+\_\+torque (\begin{DoxyParamCaption}\item[{const glm::\+vec3 \&}]{torque}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Calgine\+::\+Rigid\+Body\+::add\+\_\+torque (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{torque }\end{DoxyParamCaption})}
 
-\Hypertarget{classCalgine_1_1RigidBody_aa94134b4a74bd4c2d5c7c0c1d5f9f5ca}\index{Calgine::RigidBody@{Calgine::RigidBody}!get\_angular\_velocity@{get\_angular\_velocity}}
+\Hypertarget{classCalgine_1_1RigidBody_aa94134b4a74bd4c2d5c7c0c1d5f9f5ca}\label{classCalgine_1_1RigidBody_aa94134b4a74bd4c2d5c7c0c1d5f9f5ca} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!get\_angular\_velocity@{get\_angular\_velocity}}
 \index{get\_angular\_velocity@{get\_angular\_velocity}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{get\_angular\_velocity()}{get\_angular\_velocity()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_aa94134b4a74bd4c2d5c7c0c1d5f9f5ca} 
-glm::\+vec3 Calgine::\+\+Rigid\+Body::\+get\+\_\+angular\+\_\+velocity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Rigid\+Body\+::get\+\_\+angular\+\_\+velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-\Hypertarget{classCalgine_1_1RigidBody_adfa8aed7184b4739a77bb20943a4ac95}\index{Calgine::RigidBody@{Calgine::RigidBody}!get\_collisions@{get\_collisions}}
+\Hypertarget{classCalgine_1_1RigidBody_adfa8aed7184b4739a77bb20943a4ac95}\label{classCalgine_1_1RigidBody_adfa8aed7184b4739a77bb20943a4ac95} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!get\_collisions@{get\_collisions}}
 \index{get\_collisions@{get\_collisions}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{get\_collisions()}{get\_collisions()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_adfa8aed7184b4739a77bb20943a4ac95} 
-std::\+vector$<$ const \doxymbox{\hyperlink{structCalgine_1_1CollisionEvent}{Collision\+Event}} \texorpdfstring{$\ast$}{*} $>$ Calgine::\+\+Rigid\+Body::\+get\+\_\+collisions (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&}]{event\+\_\+context}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily std\+::vector$<$ const \mbox{\hyperlink{structCalgine_1_1CollisionEvent}{Collision\+Event}} \texorpdfstring{$\ast$}{*} $>$ Calgine\+::\+Rigid\+Body\+::get\+\_\+collisions (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&}]{event\+\_\+context }\end{DoxyParamCaption}) const}
 
 
 
 All Collision\+Events this frame that involve this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
 
-\Hypertarget{classCalgine_1_1RigidBody_a88b51d044bba5e7a3335b8ebef71d867}\index{Calgine::RigidBody@{Calgine::RigidBody}!get\_linear\_velocity@{get\_linear\_velocity}}
+\Hypertarget{classCalgine_1_1RigidBody_a88b51d044bba5e7a3335b8ebef71d867}\label{classCalgine_1_1RigidBody_a88b51d044bba5e7a3335b8ebef71d867} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!get\_linear\_velocity@{get\_linear\_velocity}}
 \index{get\_linear\_velocity@{get\_linear\_velocity}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{get\_linear\_velocity()}{get\_linear\_velocity()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a88b51d044bba5e7a3335b8ebef71d867} 
-glm::\+vec3 Calgine::\+\+Rigid\+Body::\+get\+\_\+linear\+\_\+velocity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Rigid\+Body\+::get\+\_\+linear\+\_\+velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-\Hypertarget{classCalgine_1_1RigidBody_a664db3d4ba699b0a7e8db9136b454451}\index{Calgine::RigidBody@{Calgine::RigidBody}!get\_motion\_type@{get\_motion\_type}}
+\Hypertarget{classCalgine_1_1RigidBody_a664db3d4ba699b0a7e8db9136b454451}\label{classCalgine_1_1RigidBody_a664db3d4ba699b0a7e8db9136b454451} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!get\_motion\_type@{get\_motion\_type}}
 \index{get\_motion\_type@{get\_motion\_type}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{get\_motion\_type()}{get\_motion\_type()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a664db3d4ba699b0a7e8db9136b454451} 
-\doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{Motion\+Type}} Calgine::\+\+Rigid\+Body::\+get\+\_\+motion\+\_\+type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{Motion\+Type}} Calgine\+::\+Rigid\+Body\+::get\+\_\+motion\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-\Hypertarget{classCalgine_1_1RigidBody_a3e99d8594e82508d33964545183f8afc}\index{Calgine::RigidBody@{Calgine::RigidBody}!get\_settings@{get\_settings}}
+\Hypertarget{classCalgine_1_1RigidBody_a3e99d8594e82508d33964545183f8afc}\label{classCalgine_1_1RigidBody_a3e99d8594e82508d33964545183f8afc} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!get\_settings@{get\_settings}}
 \index{get\_settings@{get\_settings}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{get\_settings()}{get\_settings()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a3e99d8594e82508d33964545183f8afc} 
-const \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings}{Rigid\+Body\+Settings}} \& Calgine::\+\+Rigid\+Body::\+get\+\_\+settings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structCalgine_1_1RigidBodySettings}{Rigid\+Body\+Settings}} \& Calgine\+::\+Rigid\+Body\+::get\+\_\+settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-\Hypertarget{classCalgine_1_1RigidBody_a30a6873369eff66cc839e107b25063d8}\index{Calgine::RigidBody@{Calgine::RigidBody}!is\_valid@{is\_valid}}
+\Hypertarget{classCalgine_1_1RigidBody_a30a6873369eff66cc839e107b25063d8}\label{classCalgine_1_1RigidBody_a30a6873369eff66cc839e107b25063d8} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!is\_valid@{is\_valid}}
 \index{is\_valid@{is\_valid}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{is\_valid()}{is\_valid()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a30a6873369eff66cc839e107b25063d8} 
-bool Calgine::\+\+Rigid\+Body::\+is\+\_\+valid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Calgine\+::\+Rigid\+Body\+::is\+\_\+valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
-False before \doxylink{classCalgine_1_1Behaviour_ae4ed175037ecf4cc620bbcd83b9943ba}{start\+\_\+tick()}, after destruction, or if body creation failed. 
+False before start\+\_\+tick(), after destruction, or if body creation failed. 
 
-\Hypertarget{classCalgine_1_1RigidBody_a95a733ec2a93f9b19cb6f451d2c08d39}\index{Calgine::RigidBody@{Calgine::RigidBody}!set\_angular\_velocity@{set\_angular\_velocity}}
+\Hypertarget{classCalgine_1_1RigidBody_a95a733ec2a93f9b19cb6f451d2c08d39}\label{classCalgine_1_1RigidBody_a95a733ec2a93f9b19cb6f451d2c08d39} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!set\_angular\_velocity@{set\_angular\_velocity}}
 \index{set\_angular\_velocity@{set\_angular\_velocity}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{set\_angular\_velocity()}{set\_angular\_velocity()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a95a733ec2a93f9b19cb6f451d2c08d39} 
-void Calgine::\+\+Rigid\+Body::\+set\+\_\+angular\+\_\+velocity (\begin{DoxyParamCaption}\item[{const glm::\+vec3 \&}]{velocity}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Calgine\+::\+Rigid\+Body\+::set\+\_\+angular\+\_\+velocity (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{velocity }\end{DoxyParamCaption})}
 
-\Hypertarget{classCalgine_1_1RigidBody_a7941e5bcbac71a922a6617f4d8d96532}\index{Calgine::RigidBody@{Calgine::RigidBody}!set\_linear\_velocity@{set\_linear\_velocity}}
+\Hypertarget{classCalgine_1_1RigidBody_a7941e5bcbac71a922a6617f4d8d96532}\label{classCalgine_1_1RigidBody_a7941e5bcbac71a922a6617f4d8d96532} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!set\_linear\_velocity@{set\_linear\_velocity}}
 \index{set\_linear\_velocity@{set\_linear\_velocity}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{set\_linear\_velocity()}{set\_linear\_velocity()}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a7941e5bcbac71a922a6617f4d8d96532} 
-void Calgine::\+\+Rigid\+Body::\+set\+\_\+linear\+\_\+velocity (\begin{DoxyParamCaption}\item[{const glm::\+vec3 \&}]{velocity}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Calgine\+::\+Rigid\+Body\+::set\+\_\+linear\+\_\+velocity (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{velocity }\end{DoxyParamCaption})}
 
-\Hypertarget{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f2}\index{Calgine::RigidBody@{Calgine::RigidBody}!teleport@{teleport}}
+\Hypertarget{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f2}\label{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f2} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!teleport@{teleport}}
 \index{teleport@{teleport}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{teleport()}{teleport()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f2} 
-void Calgine::\+\+Rigid\+Body::\+teleport (\begin{DoxyParamCaption}\item[{const glm::\+vec3 \&}]{world\+\_\+position}{, }\item[{const glm::\+quat \&}]{world\+\_\+rotation}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Calgine\+::\+Rigid\+Body\+::teleport (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{world\+\_\+position,  }\item[{const glm\+::quat \&}]{world\+\_\+rotation }\end{DoxyParamCaption})}
 
 
 
 Instantly moves the body (and the \doxylink{classCalgine_1_1GameObject}{Game\+Object}) to a world position and rotation. 
 
-\Hypertarget{classCalgine_1_1RigidBody_a9bc1c789530845108c19f76ae811584e}\index{Calgine::RigidBody@{Calgine::RigidBody}!teleport@{teleport}}
+\Hypertarget{classCalgine_1_1RigidBody_a9bc1c789530845108c19f76ae811584e}\label{classCalgine_1_1RigidBody_a9bc1c789530845108c19f76ae811584e} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!teleport@{teleport}}
 \index{teleport@{teleport}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{teleport()}{teleport()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_a9bc1c789530845108c19f76ae811584e} 
-void Calgine::\+\+Rigid\+Body::\+teleport (\begin{DoxyParamCaption}\item[{const glm::\+vec3 \&}]{world\+\_\+position}{, }\item[{const glm::\+vec3 \&}]{world\+\_\+rotation\+\_\+degrees}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Calgine\+::\+Rigid\+Body\+::teleport (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{world\+\_\+position,  }\item[{const glm\+::vec3 \&}]{world\+\_\+rotation\+\_\+degrees }\end{DoxyParamCaption})}
 
 
 
@@ -245,18 +242,16 @@ Same as above, with the rotation given as Euler angles in degrees.
 
 
 
-\label{classCalgine_1_1RigidBody_doc-related-members}
-\Hypertarget{classCalgine_1_1RigidBody_doc-related-members}
 \doxysubsection{Friends And Related Symbol Documentation}
-\Hypertarget{classCalgine_1_1RigidBody_abd7959b8cbcd7c25bc6c0c8b1ea26ce6}\index{Calgine::RigidBody@{Calgine::RigidBody}!PhysicsWorld@{PhysicsWorld}}
+\Hypertarget{classCalgine_1_1RigidBody_abd7959b8cbcd7c25bc6c0c8b1ea26ce6}\label{classCalgine_1_1RigidBody_abd7959b8cbcd7c25bc6c0c8b1ea26ce6} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!PhysicsWorld@{PhysicsWorld}}
 \index{PhysicsWorld@{PhysicsWorld}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{PhysicsWorld}{PhysicsWorld}}
-{\footnotesize\ttfamily \label{classCalgine_1_1RigidBody_abd7959b8cbcd7c25bc6c0c8b1ea26ce6} 
-friend class Physics\+World\hspace{0.3cm}{\ttfamily [friend]}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{Physics\+World}}\hspace{0.3cm}{\ttfamily [friend]}}
 
 
 
-The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\+calgine/\+core/\+physics/\doxymbox{\hyperlink{rigid__body_8h}{rigid\+\_\+body.\+h}}\item 
-src/\+calgine/\+core/\+physics/\doxymbox{\hyperlink{rigid__body_8cxx}{rigid\+\_\+body.\+cxx}}\end{DoxyCompactItemize}
+src/calgine/core/physics/\mbox{\hyperlink{rigid__body_8h}{rigid\+\_\+body.\+h}}\item 
+src/calgine/core/physics/\mbox{\hyperlink{rigid__body_8cxx}{rigid\+\_\+body.\+cxx}}\end{DoxyCompactItemize}

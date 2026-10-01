@@ -63,13 +63,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classCalgine_1_1GameObject.html#aa34deb782f6ee4aff3f225050ea0109d",
-"classCalgine_1_1Shader.html#a6a619bcac68ed99f52f0526dcb70c3de",
-"hierarchy__renderer_8h.html",
-"structCalgine_1_1Model.html#a1c9dfae94be1b75d2285c03c68a643c7",
-"structtinyobj_1_1material__t.html#a7d7a7791ad94f2a5eadc2c8ee8c9a902"
+"classCalgine_1_1GameObject.html#a6b7680459248f839b1c5859bcc8aa3ad",
+"classCalgine_1_1RootGameObject.html#ae5bf15f4b36327321f3a9ebc9545c40a",
+"game__hierarchy_8h_source.html",
+"structCalgine_1_1InputActionEvent.html#ae2f0124a1d480bbe18716a6828ad42ac",
+"structtinyobj_1_1material__t.html#a324dd4bb8475271e31aeb0a5959af745"
 ];
 
-const SYNCONMSG = 'click to disable panel synchronization';
-const SYNCOFFMSG = 'click to enable panel synchronization';
-const LISTOFALLMEMBERS = 'List of all members';
+var SYNCONMSG = 'click to disable panel synchronisation';
+var SYNCOFFMSG = 'click to enable panel synchronisation';

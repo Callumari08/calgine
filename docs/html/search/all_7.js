@@ -9,5 +9,5 @@ var searchData=
   ['height_6',['height',['../classCalgine_1_1Window.html#a9645cf1a63dbcc66b2696234b5144550',1,'Calgine::Window']]],
   ['hierarchy_5frenderer_2ecxx_7',['hierarchy_renderer.cxx',['../hierarchy__renderer_8cxx.html',1,'']]],
   ['hierarchy_5frenderer_2eh_8',['hierarchy_renderer.h',['../hierarchy__renderer_8h.html',1,'']]],
-  ['hierarchyrenderer_9',['HierarchyRenderer',['../classCalgine_1_1HierarchyRenderer.html',1,'Calgine::HierarchyRenderer'],['../classCalgine_1_1HierarchyRenderer.html#aa0230b5747feae4ece8a648277589603',1,'Calgine::HierarchyRenderer::HierarchyRenderer()']]]
+  ['hierarchyrenderer_9',['hierarchyrenderer',['../classCalgine_1_1HierarchyRenderer.html',1,'Calgine::HierarchyRenderer'],['../classCalgine_1_1HierarchyRenderer.html#aa0230b5747feae4ece8a648277589603',1,'Calgine::HierarchyRenderer::HierarchyRenderer()']]]
 ];

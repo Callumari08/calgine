@@ -1,29 +1,29 @@
 \doxysection{rigid\+\_\+body.\+h}
 \hypertarget{rigid__body_8h_source}{}\label{rigid__body_8h_source}\index{src/calgine/core/physics/rigid\_body.h@{src/calgine/core/physics/rigid\_body.h}}
-\doxymbox{\hyperlink{rigid__body_8h}{Go to the documentation of this file.}}
+\mbox{\hyperlink{rigid__body_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{behaviour_8h}{calgine/core/behaviour.h}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{physics__types_8h}{calgine/core/physics/physics\_types.h}}"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{physics__world_8h}{calgine/core/physics/physics\_world.h}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{collision__event_8h}{calgine/core/physics/collision\_event.h}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{behaviour_8h}{calgine/core/behaviour.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physics__types_8h}{calgine/core/physics/physics\_types.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physics__world_8h}{calgine/core/physics/physics\_world.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{collision__event_8h}{calgine/core/physics/collision\_event.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <glm/gtc/quaternion.hpp>}}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4}{RigidBody}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}}
 \DoxyCodeLine{00036\ \{}
 \DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00039\ \ \ \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4}{RigidBody}}();}
-\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4}{RigidBody}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings}{RigidBodySettings}}\&\ settings);}
-\DoxyCodeLine{00041\ \ \ \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4}{\string~RigidBody}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{classCalgine_1_1RigidBody_a7c38987d7a24de12ca3c136ccad948d4}{RigidBody}}();}
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1RigidBodySettings}{RigidBodySettings}}\&\ settings);}
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{classCalgine_1_1RigidBody}{\string~RigidBody}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings}{RigidBodySettings}}\&\ \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a3e99d8594e82508d33964545183f8afc}{get\_settings}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ settings;\ \}}
-\DoxyCodeLine{00044\ \ \ \doxymbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{MotionType}}\ \doxymbox{\hyperlink{classCalgine_1_1RigidBody_a664db3d4ba699b0a7e8db9136b454451}{get\_motion\_type}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ settings.motion;\ \}}
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1RigidBodySettings}{RigidBodySettings}}\&\ \mbox{\hyperlink{classCalgine_1_1RigidBody_a3e99d8594e82508d33964545183f8afc}{get\_settings}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ settings;\ \}}
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{MotionType}}\ \mbox{\hyperlink{classCalgine_1_1RigidBody_a664db3d4ba699b0a7e8db9136b454451}{get\_motion\_type}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ settings.motion;\ \}}
 \DoxyCodeLine{00045\ }
 \DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{bool}\ is\_valid()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00048\ }
@@ -39,10 +39,10 @@
 \DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{void}\ teleport(\textcolor{keyword}{const}\ glm::vec3\&\ world\_position,\ \textcolor{keyword}{const}\ glm::quat\&\ world\_rotation);}
 \DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ teleport(\textcolor{keyword}{const}\ glm::vec3\&\ world\_position,\ \textcolor{keyword}{const}\ glm::vec3\&\ world\_rotation\_degrees);}
 \DoxyCodeLine{00064\ }
-\DoxyCodeLine{00066\ \ \ std::vector<const\ CollisionEvent*>\ get\_collisions(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ \ \ std::vector<const\ CollisionEvent*>\ get\_collisions(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00067\ }
 \DoxyCodeLine{00068\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00069\ \ \ \doxymbox{\hyperlink{structCalgine_1_1RigidBodySettings}{RigidBodySettings}}\ settings;}
+\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{structCalgine_1_1RigidBodySettings}{RigidBodySettings}}\ settings;}
 \DoxyCodeLine{00070\ }
 \DoxyCodeLine{00071\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint32\_t\ invalid\_body\_id\ =\ 0xffffffff;}
 \DoxyCodeLine{00072\ \ \ uint32\_t\ body\_id\ =\ invalid\_body\_id;}
@@ -51,7 +51,7 @@
 \DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{void}\ start\_tick()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{void}\ on\_destroy()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl}{PhysicsWorld::Impl}}*\ world\_impl();}
+\DoxyCodeLine{00078\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl}{PhysicsWorld::Impl}}*\ world\_impl();}
 \DoxyCodeLine{00079\ }
 \DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{void}\ create\_body();}
 \DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{void}\ destroy\_body();}
@@ -60,7 +60,7 @@
 \DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ pre\_step(\textcolor{keywordtype}{float}\ delta\_time);}
 \DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{void}\ post\_step();}
 \DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classCalgine_1_1RigidBody_abd7959b8cbcd7c25bc6c0c8b1ea26ce6}{PhysicsWorld}};}
+\DoxyCodeLine{00087\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}};}
 \DoxyCodeLine{00088\ \};}
 \DoxyCodeLine{00089\ }
 \DoxyCodeLine{00090\ \}}
