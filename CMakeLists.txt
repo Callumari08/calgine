@@ -91,6 +91,7 @@ set(CPP_RTTI_ENABLED ON CACHE BOOL "" FORCE)               # Engine uses RTTI; s
 set(INTERPROCEDURAL_OPTIMIZATION OFF CACHE BOOL "" FORCE)
 set(ENABLE_ALL_WARNINGS OFF CACHE BOOL "" FORCE)
 set(DEBUG_RENDERER_IN_DEBUG_AND_RELEASE ON CACHE BOOL "" FORCE) # Needed for collider debug drawing
+set(PROFILER_IN_DEBUG_AND_RELEASE OFF CACHE BOOL "" FORCE) # Jolt's built-in profiler times every scope; we never read it
 set(TARGET_UNIT_TESTS OFF CACHE BOOL "" FORCE)
 set(TARGET_HELLO_WORLD OFF CACHE BOOL "" FORCE)
 set(TARGET_PERFORMANCE_TEST OFF CACHE BOOL "" FORCE)
@@ -111,6 +112,13 @@ FetchContent_Declare(
     SYSTEM
 )
 FetchContent_MakeAvailable(JoltPhysics)
+
+# Jolt sets an empty CMAKE_CXX_FLAGS_DEBUG (-O0), which makes the simulation many times slower.
+# Optimize it in every config; only stepping into Jolt internals in a debugger is affected.
+option(CALGINE_OPTIMIZE_JOLT_IN_DEBUG "Compile Jolt with optimizations in Debug builds" ON)
+if(CALGINE_OPTIMIZE_JOLT_IN_DEBUG AND NOT MSVC)
+    target_compile_options(Jolt PRIVATE $<$<CONFIG:Debug>:-O2>)
+endif()
 
 # ---- RapidJSON: prefer system if requested, otherwise use FetchContent ----
 if(USE_SYSTEM_RAPIDJSON)

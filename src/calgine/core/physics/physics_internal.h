@@ -250,6 +250,9 @@ struct PhysicsWorld::Impl
 
   std::unordered_map<const Model*, ModelShapes> model_shapes;
 
+  /** Bodies added to the simulation since the last step; a big batch (e.g. a scene load) triggers OptimizeBroadPhase(). */
+  uint32_t bodies_added_since_step = 0;
+
   /** Blend factor used for the last interpolation, reused by debug drawing so wireframes match meshes. */
   float last_alpha = 1.0f;
 

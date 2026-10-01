@@ -500,6 +500,7 @@ void PhysicsWorld::step(float delta_time, EventContext& event_context)
         const Pose pose = logical_world_pose(game_object);
         body_interface.SetPositionAndRotation(record.id, to_jolt_r(pose.position), to_jolt(pose.rotation), JPH::EActivation::DontActivate);
         body_interface.AddBody(record.id, record.motion == MotionType::static_body ? JPH::EActivation::DontActivate : JPH::EActivation::Activate);
+        impl->bodies_added_since_step++;
         record.previous = record.current = pose;
       }
       else
@@ -532,6 +533,13 @@ void PhysicsWorld::step(float delta_time, EventContext& event_context)
   // ---- Simulate ----
 
   const Clock::time_point simulate_start = Clock::now();
+
+  // Bodies added one at a time leave the broad phase tree unbalanced, which slows every query until Jolt
+  // slowly rebuilds it. After a big batch, rebuild it now. Small spawns are left to Jolt's incremental rebuild.
+  constexpr uint32_t optimize_broad_phase_threshold = 256;
+  if (impl->bodies_added_since_step >= optimize_broad_phase_threshold)
+    impl->system->OptimizeBroadPhase();
+  impl->bodies_added_since_step = 0;
 
   JPH::EPhysicsUpdateError error = impl->system->Update(delta_time, std::max(1, settings.collision_steps),
                                                         impl->temp_allocator.get(), impl->job_system.get());

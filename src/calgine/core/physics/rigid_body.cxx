@@ -125,6 +125,7 @@ void RigidBody::create_body()
   if (start_in_simulation)
   {
     id = body_interface.CreateAndAddBody(creation, is_static ? JPH::EActivation::DontActivate : JPH::EActivation::Activate);
+    impl->bodies_added_since_step++;
   }
   else
   {
