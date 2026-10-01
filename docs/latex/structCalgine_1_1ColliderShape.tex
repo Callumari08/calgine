@@ -12,9 +12,13 @@ Collision shape of a \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body}, in the \
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7}{Type}} \{ \mbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a8d011327916e0f9e5e903224c4454de1}{box}}
+enum \mbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7}{Type}} \{ \newline
+\mbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a8d011327916e0f9e5e903224c4454de1}{box}}
 , \mbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7ae2fb69b63ceabf8c2e438410a10f4996}{sphere}}
 , \mbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a15bafd99b820827010c69a90ad22d598}{capsule}}
+, \mbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a1d63554dbe1a57611ca43542e61eb621}{convex\+\_\+hull}}
+, \newline
+\mbox{\hyperlink{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a93e82a3df86e5b5df1ba4ddd1a66d7fe}{mesh}}
  \}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
@@ -25,6 +29,10 @@ static \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} \mbox{
 static \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} \mbox{\hyperlink{structCalgine_1_1ColliderShape_a39bfe242b36f5e5869dffe2a59c8eebb}{make\+\_\+sphere}} (float \mbox{\hyperlink{structCalgine_1_1ColliderShape_a0041bca9054db74e263da8e40e279e73}{radius}})
 \item 
 static \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} \mbox{\hyperlink{structCalgine_1_1ColliderShape_a130fa93de950e919c6cfaa26bfe6dd58}{make\+\_\+capsule}} (float \mbox{\hyperlink{structCalgine_1_1ColliderShape_a9721688eae811c149bc41aea8589ccad}{half\+\_\+height}}, float \mbox{\hyperlink{structCalgine_1_1ColliderShape_a0041bca9054db74e263da8e40e279e73}{radius}})
+\item 
+static \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} \mbox{\hyperlink{structCalgine_1_1ColliderShape_add65a79c7074c2f1b6718d4d90baddeb}{make\+\_\+convex\+\_\+hull}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ \mbox{\hyperlink{structCalgine_1_1ColliderShape_a20a451b5441f546dbed514aab39083f9}{model}})
+\item 
+static \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} \mbox{\hyperlink{structCalgine_1_1ColliderShape_acb0ac127df8a2e83acfe805c8de345c6}{make\+\_\+mesh}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ \mbox{\hyperlink{structCalgine_1_1ColliderShape_a20a451b5441f546dbed514aab39083f9}{model}})
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -36,7 +44,9 @@ glm\+::vec3 \mbox{\hyperlink{structCalgine_1_1ColliderShape_ad16c68cb370eb3a73d8
 float \mbox{\hyperlink{structCalgine_1_1ColliderShape_a0041bca9054db74e263da8e40e279e73}{radius}} = 0.\+5f
 \begin{DoxyCompactList}\small\item\em Sphere and capsule radius. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{structCalgine_1_1ColliderShape_a9721688eae811c149bc41aea8589ccad}{half\+\_\+height}} = 0.\+5f
-\begin{DoxyCompactList}\small\item\em Capsule only\+: half the length of the cylinder part, along the local Y axis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Capsule only\+: half the length of the cylinder part, along the local Y axis. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ \mbox{\hyperlink{structCalgine_1_1ColliderShape_a20a451b5441f546dbed514aab39083f9}{model}}
+\begin{DoxyCompactList}\small\item\em convex\+\_\+hull and mesh only\+: the model whose vertices build the shape (in the model\textquotesingle{}s own units). \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -62,6 +72,14 @@ sphere&\\
 capsule&\\
 \hline
 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{convex\_hull@{convex\_hull}!Calgine::ColliderShape@{Calgine::ColliderShape}}\index{Calgine::ColliderShape@{Calgine::ColliderShape}!convex\_hull@{convex\_hull}}}\Hypertarget{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a1d63554dbe1a57611ca43542e61eb621}\label{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a1d63554dbe1a57611ca43542e61eb621} 
+convex\+\_\+hull&Smallest convex shape around a model\textquotesingle{}s vertices. Works for every motion type. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{mesh@{mesh}!Calgine::ColliderShape@{Calgine::ColliderShape}}\index{Calgine::ColliderShape@{Calgine::ColliderShape}!mesh@{mesh}}}\Hypertarget{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a93e82a3df86e5b5df1ba4ddd1a66d7fe}\label{structCalgine_1_1ColliderShape_a80c30efe53556967408ef9a182d873a7a93e82a3df86e5b5df1ba4ddd1a66d7fe} 
+mesh&The model\textquotesingle{}s exact triangles. Static and kinematic bodies only (a Jolt restriction); a dynamic body falls back to convex\+\_\+hull with a warning. \\
+\hline
+
 \end{DoxyEnumFields}
 
 
@@ -77,6 +95,18 @@ capsule&\\
 \index{make\_capsule@{make\_capsule}!Calgine::ColliderShape@{Calgine::ColliderShape}}
 \doxysubsubsection{\texorpdfstring{make\_capsule()}{make\_capsule()}}
 {\footnotesize\ttfamily static \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} Calgine\+::\+Collider\+Shape\+::make\+\_\+capsule (\begin{DoxyParamCaption}\item[{float}]{half\+\_\+height,  }\item[{float}]{radius }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{structCalgine_1_1ColliderShape_add65a79c7074c2f1b6718d4d90baddeb}\label{structCalgine_1_1ColliderShape_add65a79c7074c2f1b6718d4d90baddeb} 
+\index{Calgine::ColliderShape@{Calgine::ColliderShape}!make\_convex\_hull@{make\_convex\_hull}}
+\index{make\_convex\_hull@{make\_convex\_hull}!Calgine::ColliderShape@{Calgine::ColliderShape}}
+\doxysubsubsection{\texorpdfstring{make\_convex\_hull()}{make\_convex\_hull()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} Calgine\+::\+Collider\+Shape\+::make\+\_\+convex\+\_\+hull (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{structCalgine_1_1ColliderShape_acb0ac127df8a2e83acfe805c8de345c6}\label{structCalgine_1_1ColliderShape_acb0ac127df8a2e83acfe805c8de345c6} 
+\index{Calgine::ColliderShape@{Calgine::ColliderShape}!make\_mesh@{make\_mesh}}
+\index{make\_mesh@{make\_mesh}!Calgine::ColliderShape@{Calgine::ColliderShape}}
+\doxysubsubsection{\texorpdfstring{make\_mesh()}{make\_mesh()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} Calgine\+::\+Collider\+Shape\+::make\+\_\+mesh (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 \Hypertarget{structCalgine_1_1ColliderShape_a39bfe242b36f5e5869dffe2a59c8eebb}\label{structCalgine_1_1ColliderShape_a39bfe242b36f5e5869dffe2a59c8eebb} 
 \index{Calgine::ColliderShape@{Calgine::ColliderShape}!make\_sphere@{make\_sphere}}
@@ -106,6 +136,16 @@ Box only\+: half the size along each axis.
 
 
 Capsule only\+: half the length of the cylinder part, along the local Y axis. 
+
+\Hypertarget{structCalgine_1_1ColliderShape_a20a451b5441f546dbed514aab39083f9}\label{structCalgine_1_1ColliderShape_a20a451b5441f546dbed514aab39083f9} 
+\index{Calgine::ColliderShape@{Calgine::ColliderShape}!model@{model}}
+\index{model@{model}!Calgine::ColliderShape@{Calgine::ColliderShape}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{structCalgine_1_1Model}{Model}}$>$ Calgine\+::\+Collider\+Shape\+::model}
+
+
+
+convex\+\_\+hull and mesh only\+: the model whose vertices build the shape (in the model\textquotesingle{}s own units). 
 
 \Hypertarget{structCalgine_1_1ColliderShape_a0041bca9054db74e263da8e40e279e73}\label{structCalgine_1_1ColliderShape_a0041bca9054db74e263da8e40e279e73} 
 \index{Calgine::ColliderShape@{Calgine::ColliderShape}!radius@{radius}}

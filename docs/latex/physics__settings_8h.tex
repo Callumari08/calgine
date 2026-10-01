@@ -1,0 +1,41 @@
+\doxysection{src/calgine/core/physics/physics\+\_\+settings.h File Reference}
+\hypertarget{physics__settings_8h}{}\label{physics__settings_8h}\index{src/calgine/core/physics/physics\_settings.h@{src/calgine/core/physics/physics\_settings.h}}
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$glm/glm.\+hpp$>$}\newline
+{\ttfamily \#include "{}calgine\+\_\+api.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings}{Calgine\+::\+Collision\+Layer\+Settings}}
+\begin{DoxyCompactList}\small\item\em Named collision layers and which pairs of layers collide. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCalgine_1_1PhysicsSettings}{Calgine\+::\+Physics\+Settings}}
+\begin{DoxyCompactList}\small\item\em Physics configuration, set through app.\+settings.\+physics before \doxylink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{App\+::start\+\_\+systems()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCalgine}{Calgine}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Calgine\+::\+Collision\+Layer}} = uint8\+\_\+t
+\begin{DoxyCompactList}\small\item\em Index of a collision layer, 0 to max\+\_\+collision\+\_\+layers -\/ 1. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Calgine\+::\+Collision\+Layer\+Mask}} = uint16\+\_\+t
+\begin{DoxyCompactList}\small\item\em One bit per collision layer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Collision\+Layer\+Mask}} \mbox{\hyperlink{namespaceCalgine_a07d0c31a68e19035c6054cc09df1cfc0}{Calgine\+::collision\+\_\+layer\+\_\+bit}} (\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} layer)
+\begin{DoxyCompactList}\small\item\em Mask with only {\ttfamily layer} set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint32\+\_\+t \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{Calgine\+::max\+\_\+collision\+\_\+layers}} = 16
+\item 
+constexpr \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} \mbox{\hyperlink{namespaceCalgine_a594a2849ee70804a9645862ecd781010}{Calgine\+::default\+\_\+collision\+\_\+layer}} = 0
+\item 
+constexpr \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Collision\+Layer\+Mask}} \mbox{\hyperlink{namespaceCalgine_adb86c761ac18d7fd076eca5483a24583}{Calgine\+::all\+\_\+collision\+\_\+layers}} = 0x\+FFFF
+\end{DoxyCompactItemize}

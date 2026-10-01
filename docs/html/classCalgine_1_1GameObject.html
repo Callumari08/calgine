@@ -168,6 +168,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a51e53ea78079b5d850e12fe8caea2dda" id="r_a51e53ea78079b5d850e12fe8caea2dda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a51e53ea78079b5d850e12fe8caea2dda">set_world_transform</a> (const <a class="el" href="classCalgine_1_1Transform.html">Transform</a> &amp;world_transform)</td></tr>
 <tr class="memdesc:a51e53ea78079b5d850e12fe8caea2dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets position, rotation and scale in world space.  <br /></td></tr>
 <tr class="separator:a51e53ea78079b5d850e12fe8caea2dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add4af37ba603b402213a5cd19611bc9d" id="r_add4af37ba603b402213a5cd19611bc9d"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#add4af37ba603b402213a5cd19611bc9d">get_render_matrix</a> () const</td></tr>
+<tr class="memdesc:add4af37ba603b402213a5cd19611bc9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">World matrix used for drawing: the override if set, otherwise parent render matrix * local.  <br /></td></tr>
+<tr class="separator:add4af37ba603b402213a5cd19611bc9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eac3a8fcd564240702a7ff364d508ec" id="r_a1eac3a8fcd564240702a7ff364d508ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCalgine_1_1Transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a1eac3a8fcd564240702a7ff364d508ec">get_render_transform</a> () const</td></tr>
+<tr class="memdesc:a1eac3a8fcd564240702a7ff364d508ec"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCalgine_1_1GameObject.html#add4af37ba603b402213a5cd19611bc9d" title="World matrix used for drawing: the override if set, otherwise parent render matrix * local.">get_render_matrix()</a> decomposed into a <a class="el" href="classCalgine_1_1Transform.html" title="Position, rotation (Euler angles in degrees, applied X then Y then Z) and scale.">Transform</a> (used by cameras).  <br /></td></tr>
+<tr class="separator:a1eac3a8fcd564240702a7ff364d508ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a780d3fa87adf7027b62aa918928801db" id="r_a780d3fa87adf7027b62aa918928801db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a780d3fa87adf7027b62aa918928801db">set_render_override</a> (const glm::mat4 &amp;world_matrix)</td></tr>
+<tr class="memdesc:a780d3fa87adf7027b62aa918928801db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw this object at <code>world_matrix</code> instead of its world transform. Normally set by the physics system.  <br /></td></tr>
+<tr class="separator:a780d3fa87adf7027b62aa918928801db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a654013081cfc2995d9afed713d2c59cf" id="r_a654013081cfc2995d9afed713d2c59cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a654013081cfc2995d9afed713d2c59cf">clear_render_override</a> ()</td></tr>
+<tr class="separator:a654013081cfc2995d9afed713d2c59cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30eb14a1a74c64900c5b369364b9137b" id="r_a30eb14a1a74c64900c5b369364b9137b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a30eb14a1a74c64900c5b369364b9137b">has_render_override</a> () const</td></tr>
+<tr class="separator:a30eb14a1a74c64900c5b369364b9137b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a058a205e6bb78fa9a2bac40340dfa808" id="r_a058a205e6bb78fa9a2bac40340dfa808"><td class="memTemplParams" colspan="2">template&lt;typename T_behaviour , typename... Args&gt; <br />
 requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1Behaviour.html">Behaviour</a>&gt;</td></tr>
 <tr class="memitem:a058a205e6bb78fa9a2bac40340dfa808"><td class="memTemplItemLeft" align="right" valign="top">T_behaviour *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCalgine_1_1GameObject.html#a058a205e6bb78fa9a2bac40340dfa808">add_behaviour</a> (Args &amp;&amp;... args)</td></tr>
@@ -428,6 +441,31 @@ requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1B
 
 </div>
 </div>
+<a id="a654013081cfc2995d9afed713d2c59cf" name="a654013081cfc2995d9afed713d2c59cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a654013081cfc2995d9afed713d2c59cf">&#9670;&#160;</a></span>clear_render_override()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Calgine::GameObject::clear_render_override </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a97c1b01c0e3e8985d1a327ed75199bb7" name="a97c1b01c0e3e8985d1a327ed75199bb7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97c1b01c0e3e8985d1a327ed75199bb7">&#9670;&#160;</a></span>destroy()</h2>
 
@@ -576,6 +614,44 @@ requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1B
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="add4af37ba603b402213a5cd19611bc9d" name="add4af37ba603b402213a5cd19611bc9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add4af37ba603b402213a5cd19611bc9d">&#9670;&#160;</a></span>get_render_matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 Calgine::GameObject::get_render_matrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>World matrix used for drawing: the override if set, otherwise parent render matrix * local. </p>
+
+</div>
+</div>
+<a id="a1eac3a8fcd564240702a7ff364d508ec" name="a1eac3a8fcd564240702a7ff364d508ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eac3a8fcd564240702a7ff364d508ec">&#9670;&#160;</a></span>get_render_transform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCalgine_1_1Transform.html">Transform</a> Calgine::GameObject::get_render_transform </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCalgine_1_1GameObject.html#add4af37ba603b402213a5cd19611bc9d" title="World matrix used for drawing: the override if set, otherwise parent render matrix * local.">get_render_matrix()</a> decomposed into a <a class="el" href="classCalgine_1_1Transform.html" title="Position, rotation (Euler angles in degrees, applied X then Y then Z) and scale.">Transform</a> (used by cameras). </p>
 
 </div>
 </div>
@@ -736,6 +812,31 @@ requires std::derived_from&lt;T_behaviour, <a class="el" href="classCalgine_1_1B
           <td> const</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a30eb14a1a74c64900c5b369364b9137b" name="a30eb14a1a74c64900c5b369364b9137b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30eb14a1a74c64900c5b369364b9137b">&#9670;&#160;</a></span>has_render_override()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Calgine::GameObject::has_render_override </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -954,6 +1055,34 @@ requires std::derived_from&lt;T, <a class="el" href="classCalgine_1_1GameObject.
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a780d3fa87adf7027b62aa918928801db" name="a780d3fa87adf7027b62aa918928801db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a780d3fa87adf7027b62aa918928801db">&#9670;&#160;</a></span>set_render_override()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Calgine::GameObject::set_render_override </td>
+          <td>(</td>
+          <td class="paramtype">const glm::mat4 &amp;&#160;</td>
+          <td class="paramname"><em>world_matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Draw this object at <code>world_matrix</code> instead of its world transform. Normally set by the physics system. </p>
 
 </div>
 </div>

@@ -49,7 +49,15 @@ void \mbox{\hyperlink{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f
 void \mbox{\hyperlink{classCalgine_1_1RigidBody_a9bc1c789530845108c19f76ae811584e}{teleport}} (const glm\+::vec3 \&world\+\_\+position, const glm\+::vec3 \&world\+\_\+rotation\+\_\+degrees)
 \begin{DoxyCompactList}\small\item\em Same as above, with the rotation given as Euler angles in degrees. \end{DoxyCompactList}\item 
 std\+::vector$<$ const \mbox{\hyperlink{structCalgine_1_1CollisionEvent}{Collision\+Event}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classCalgine_1_1RigidBody_adfa8aed7184b4739a77bb20943a4ac95}{get\+\_\+collisions}} (const \mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context) const
-\begin{DoxyCompactList}\small\item\em All Collision\+Events this frame that involve this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em All Collision\+Events this frame that involve this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1RigidBody_a42f56541abde0a5c07f6a3a198bbff7b}{set\+\_\+layer}} (\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} layer)
+\begin{DoxyCompactList}\small\item\em Moves the body to another collision layer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} \mbox{\hyperlink{classCalgine_1_1RigidBody_afa451a5f7c2e8d04d6611b9b9abc6e97}{get\+\_\+layer}} () const
+\item 
+void \mbox{\hyperlink{classCalgine_1_1RigidBody_a710f588292b70608a5aefe79a8ed7580}{refresh\+\_\+shape}} ()
+\begin{DoxyCompactList}\small\item\em Rebuilds the collider from the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s current world scale (and recalculates mass). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1RigidBody_aa606789563f1f18e5d366bfe71f47fcb}{set\+\_\+interpolate}} (bool interpolate)
+\begin{DoxyCompactList}\small\item\em Turns render interpolation on or off for this body. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -66,6 +74,10 @@ bool \mbox{\hyperlink{classCalgine_1_1Behaviour_a9c98d44cad6a3f3e84c935e48f1991b
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1RigidBody_abd7959b8cbcd7c25bc6c0c8b1ea26ce6}{Physics\+World}}
+\item 
+struct \mbox{\hyperlink{classCalgine_1_1RigidBody_a9c98cd04d28b858c8def96853fc16683}{Physics\+World\+::\+Impl}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1RigidBody_a2b27269e818d7b63995be0e0f812bf54}{Joint}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
@@ -97,11 +109,15 @@ The body is created in start\+\_\+tick() from the \doxylink{classCalgine_1_1Game
 
 \begin{DoxyItemize}
 \item dynamic\+: physics writes the result of every step back into the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s transform. Changing the \doxylink{classCalgine_1_1Transform}{Transform} yourself has no effect on the body; use \doxylink{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f2}{teleport()} or velocities/forces.
-\item kinematic\+: the body follows the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s world transform every step. Move the \doxylink{classCalgine_1_1GameObject}{Game\+Object} (or its parent) and the body sweeps there, pushing dynamic bodies out of the way.
+\item kinematic\+: the body follows the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s world transform every step. Move the \doxylink{classCalgine_1_1GameObject}{Game\+Object} (or its parent) and the body sweeps there, pushing dynamic bodies out of the way. Move kinematic bodies (and any parent that carries them) in \doxylink{classCalgine_1_1Behaviour_aa20a9f9fea54e6dd8d64ad331da13734}{fixed\+\_\+update\+\_\+tick()}, using \doxylink{classCalgine_1_1Time_a812eed673100109263c73a08ab5f6d8b}{Time\+::fixed\+\_\+delta\+\_\+time()}. Physics steps run before \doxylink{classCalgine_1_1Behaviour_a62c7640f82c8dc7bca360d31b5a07a66}{update\+\_\+tick()}, so movement made in \doxylink{classCalgine_1_1Behaviour_a62c7640f82c8dc7bca360d31b5a07a66}{update\+\_\+tick()} only reaches the body on the next frame\+: the collider trails the mesh by one frame of motion, which grows with frame time under load. Movement from \doxylink{classCalgine_1_1Behaviour_a62c7640f82c8dc7bca360d31b5a07a66}{update\+\_\+tick()} also lands in a single physics step, so the body jumps instead of sweeping smoothly.
 \item static\+: never moves. Use \doxylink{classCalgine_1_1RigidBody_a11b9531e8a491f56d645c46f93ff18f2}{teleport()} if you really need to move it.
 \end{DoxyItemize}
 
 Disabling the \doxylink{classCalgine_1_1GameObject}{Game\+Object} (set\+\_\+active(false)) removes the body from the simulation until re-\/enabled.
+
+Rendering\+: with interpolation on (the default), moving bodies are drawn at a pose blended between the last two physics steps, through \doxylink{classCalgine_1_1GameObject_add4af37ba603b402213a5cd19611bc9d}{Game\+Object\+::get\+\_\+render\+\_\+matrix()}. The logical \doxylink{classCalgine_1_1Transform}{Transform} still holds the latest simulated pose, so game code reading it sees where the body really is.
+
+Scale\+: the collider is built from the world scale when the body is created. Call \doxylink{classCalgine_1_1RigidBody_a710f588292b70608a5aefe79a8ed7580}{refresh\+\_\+shape()} after changing scale, or set \doxylink{structCalgine_1_1RigidBodySettings_ada58d3e3c122ce5b1783bbc13d63c40e}{Rigid\+Body\+Settings\+::track\+\_\+scale} to do it automatically.
 
 
 \begin{DoxyCode}{0}
@@ -180,6 +196,12 @@ Instant change in momentum (kg m/s).
 
 All Collision\+Events this frame that involve this \doxylink{classCalgine_1_1GameObject}{Game\+Object}. 
 
+\Hypertarget{classCalgine_1_1RigidBody_afa451a5f7c2e8d04d6611b9b9abc6e97}\label{classCalgine_1_1RigidBody_afa451a5f7c2e8d04d6611b9b9abc6e97} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!get\_layer@{get\_layer}}
+\index{get\_layer@{get\_layer}!Calgine::RigidBody@{Calgine::RigidBody}}
+\doxysubsubsection{\texorpdfstring{get\_layer()}{get\_layer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} Calgine\+::\+Rigid\+Body\+::get\+\_\+layer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
 \Hypertarget{classCalgine_1_1RigidBody_a88b51d044bba5e7a3335b8ebef71d867}\label{classCalgine_1_1RigidBody_a88b51d044bba5e7a3335b8ebef71d867} 
 \index{Calgine::RigidBody@{Calgine::RigidBody}!get\_linear\_velocity@{get\_linear\_velocity}}
 \index{get\_linear\_velocity@{get\_linear\_velocity}!Calgine::RigidBody@{Calgine::RigidBody}}
@@ -208,11 +230,41 @@ All Collision\+Events this frame that involve this \doxylink{classCalgine_1_1Gam
 
 False before start\+\_\+tick(), after destruction, or if body creation failed. 
 
+\Hypertarget{classCalgine_1_1RigidBody_a710f588292b70608a5aefe79a8ed7580}\label{classCalgine_1_1RigidBody_a710f588292b70608a5aefe79a8ed7580} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!refresh\_shape@{refresh\_shape}}
+\index{refresh\_shape@{refresh\_shape}!Calgine::RigidBody@{Calgine::RigidBody}}
+\doxysubsubsection{\texorpdfstring{refresh\_shape()}{refresh\_shape()}}
+{\footnotesize\ttfamily void Calgine\+::\+Rigid\+Body\+::refresh\+\_\+shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rebuilds the collider from the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s current world scale (and recalculates mass). 
+
 \Hypertarget{classCalgine_1_1RigidBody_a95a733ec2a93f9b19cb6f451d2c08d39}\label{classCalgine_1_1RigidBody_a95a733ec2a93f9b19cb6f451d2c08d39} 
 \index{Calgine::RigidBody@{Calgine::RigidBody}!set\_angular\_velocity@{set\_angular\_velocity}}
 \index{set\_angular\_velocity@{set\_angular\_velocity}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{set\_angular\_velocity()}{set\_angular\_velocity()}}
 {\footnotesize\ttfamily void Calgine\+::\+Rigid\+Body\+::set\+\_\+angular\+\_\+velocity (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{velocity }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1RigidBody_aa606789563f1f18e5d366bfe71f47fcb}\label{classCalgine_1_1RigidBody_aa606789563f1f18e5d366bfe71f47fcb} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!set\_interpolate@{set\_interpolate}}
+\index{set\_interpolate@{set\_interpolate}!Calgine::RigidBody@{Calgine::RigidBody}}
+\doxysubsubsection{\texorpdfstring{set\_interpolate()}{set\_interpolate()}}
+{\footnotesize\ttfamily void Calgine\+::\+Rigid\+Body\+::set\+\_\+interpolate (\begin{DoxyParamCaption}\item[{bool}]{interpolate }\end{DoxyParamCaption})}
+
+
+
+Turns render interpolation on or off for this body. 
+
+\Hypertarget{classCalgine_1_1RigidBody_a42f56541abde0a5c07f6a3a198bbff7b}\label{classCalgine_1_1RigidBody_a42f56541abde0a5c07f6a3a198bbff7b} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!set\_layer@{set\_layer}}
+\index{set\_layer@{set\_layer}!Calgine::RigidBody@{Calgine::RigidBody}}
+\doxysubsubsection{\texorpdfstring{set\_layer()}{set\_layer()}}
+{\footnotesize\ttfamily void Calgine\+::\+Rigid\+Body\+::set\+\_\+layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{layer }\end{DoxyParamCaption})}
+
+
+
+Moves the body to another collision layer. 
 
 \Hypertarget{classCalgine_1_1RigidBody_a7941e5bcbac71a922a6617f4d8d96532}\label{classCalgine_1_1RigidBody_a7941e5bcbac71a922a6617f4d8d96532} 
 \index{Calgine::RigidBody@{Calgine::RigidBody}!set\_linear\_velocity@{set\_linear\_velocity}}
@@ -243,11 +295,23 @@ Same as above, with the rotation given as Euler angles in degrees.
 
 
 \doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classCalgine_1_1RigidBody_a2b27269e818d7b63995be0e0f812bf54}\label{classCalgine_1_1RigidBody_a2b27269e818d7b63995be0e0f812bf54} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!Joint@{Joint}}
+\index{Joint@{Joint}!Calgine::RigidBody@{Calgine::RigidBody}}
+\doxysubsubsection{\texorpdfstring{Joint}{Joint}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classCalgine_1_1Joint}{Joint}}\hspace{0.3cm}{\ttfamily [friend]}}
+
 \Hypertarget{classCalgine_1_1RigidBody_abd7959b8cbcd7c25bc6c0c8b1ea26ce6}\label{classCalgine_1_1RigidBody_abd7959b8cbcd7c25bc6c0c8b1ea26ce6} 
 \index{Calgine::RigidBody@{Calgine::RigidBody}!PhysicsWorld@{PhysicsWorld}}
 \index{PhysicsWorld@{PhysicsWorld}!Calgine::RigidBody@{Calgine::RigidBody}}
 \doxysubsubsection{\texorpdfstring{PhysicsWorld}{PhysicsWorld}}
 {\footnotesize\ttfamily friend class \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{Physics\+World}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classCalgine_1_1RigidBody_a9c98cd04d28b858c8def96853fc16683}\label{classCalgine_1_1RigidBody_a9c98cd04d28b858c8def96853fc16683} 
+\index{Calgine::RigidBody@{Calgine::RigidBody}!PhysicsWorld::Impl@{PhysicsWorld::Impl}}
+\index{PhysicsWorld::Impl@{PhysicsWorld::Impl}!Calgine::RigidBody@{Calgine::RigidBody}}
+\doxysubsubsection{\texorpdfstring{PhysicsWorld::Impl}{PhysicsWorld::Impl}}
+{\footnotesize\ttfamily friend struct \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl}{Physics\+World\+::\+Impl}}\hspace{0.3cm}{\ttfamily [friend]}}
 
 
 

@@ -6,5 +6,7 @@ var classCalgine_1_1Mesh =
     [ "bind", "classCalgine_1_1Mesh.html#a616c0a2995d0467563ebb9bd6fd9bd09", null ],
     [ "draw", "classCalgine_1_1Mesh.html#a03bd0c347d14bd7e7ea702f054b1a840", null ],
     [ "get_index_count", "classCalgine_1_1Mesh.html#a348e3c54a0d2f8e8fe30fcd23d4d86c6", null ],
+    [ "get_indices", "classCalgine_1_1Mesh.html#aa60fe4e3b7f744115d141ce8ec278136", null ],
+    [ "get_positions", "classCalgine_1_1Mesh.html#aa3bf48780d664091f1958dc58210b2a5", null ],
     [ "operator=", "classCalgine_1_1Mesh.html#a999050cfe054960c9e9f67856a74df64", null ]
 ];

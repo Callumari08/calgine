@@ -8,13 +8,19 @@ var classCalgine_1_1RigidBody =
     [ "add_torque", "classCalgine_1_1RigidBody.html#a2004ee23dfb38b61c789720a82a45af8", null ],
     [ "get_angular_velocity", "classCalgine_1_1RigidBody.html#aa94134b4a74bd4c2d5c7c0c1d5f9f5ca", null ],
     [ "get_collisions", "classCalgine_1_1RigidBody.html#adfa8aed7184b4739a77bb20943a4ac95", null ],
+    [ "get_layer", "classCalgine_1_1RigidBody.html#afa451a5f7c2e8d04d6611b9b9abc6e97", null ],
     [ "get_linear_velocity", "classCalgine_1_1RigidBody.html#a88b51d044bba5e7a3335b8ebef71d867", null ],
     [ "get_motion_type", "classCalgine_1_1RigidBody.html#a664db3d4ba699b0a7e8db9136b454451", null ],
     [ "get_settings", "classCalgine_1_1RigidBody.html#a3e99d8594e82508d33964545183f8afc", null ],
     [ "is_valid", "classCalgine_1_1RigidBody.html#a30a6873369eff66cc839e107b25063d8", null ],
+    [ "refresh_shape", "classCalgine_1_1RigidBody.html#a710f588292b70608a5aefe79a8ed7580", null ],
     [ "set_angular_velocity", "classCalgine_1_1RigidBody.html#a95a733ec2a93f9b19cb6f451d2c08d39", null ],
+    [ "set_interpolate", "classCalgine_1_1RigidBody.html#aa606789563f1f18e5d366bfe71f47fcb", null ],
+    [ "set_layer", "classCalgine_1_1RigidBody.html#a42f56541abde0a5c07f6a3a198bbff7b", null ],
     [ "set_linear_velocity", "classCalgine_1_1RigidBody.html#a7941e5bcbac71a922a6617f4d8d96532", null ],
     [ "teleport", "classCalgine_1_1RigidBody.html#a11b9531e8a491f56d645c46f93ff18f2", null ],
     [ "teleport", "classCalgine_1_1RigidBody.html#a9bc1c789530845108c19f76ae811584e", null ],
-    [ "PhysicsWorld", "classCalgine_1_1RigidBody.html#abd7959b8cbcd7c25bc6c0c8b1ea26ce6", null ]
+    [ "Joint", "classCalgine_1_1RigidBody.html#a2b27269e818d7b63995be0e0f812bf54", null ],
+    [ "PhysicsWorld", "classCalgine_1_1RigidBody.html#abd7959b8cbcd7c25bc6c0c8b1ea26ce6", null ],
+    [ "PhysicsWorld::Impl", "classCalgine_1_1RigidBody.html#a9c98cd04d28b858c8def96853fc16683", null ]
 ];

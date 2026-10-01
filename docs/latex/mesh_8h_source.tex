@@ -28,15 +28,21 @@
 \DoxyCodeLine{00024\ }
 \DoxyCodeLine{00025\ \ \ \textcolor{keyword}{inline}\ uint32\_t\ \mbox{\hyperlink{classCalgine_1_1Mesh_a348e3c54a0d2f8e8fe30fcd23d4d86c6}{get\_index\_count}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ index\_count;\ \}}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00028\ \ \ std::unique\_ptr<VertexArray>\ vao;}
-\DoxyCodeLine{00029\ \ \ std::unique\_ptr<VertexBuffer>\ vbo;}
-\DoxyCodeLine{00030\ \ \ std::unique\_ptr<IndexBuffer>\ ibo;}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ uint32\_t\ index\_count;}
-\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{const}\ std::vector<glm::vec3>\&\ \mbox{\hyperlink{classCalgine_1_1Mesh_aa3bf48780d664091f1958dc58210b2a5}{get\_positions}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ positions;\ \}}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ \mbox{\hyperlink{classCalgine_1_1Mesh_aa60fe4e3b7f744115d141ce8ec278136}{get\_indices}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ indices;\ \}}
 \DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ std::vector<glm::vec3>\ positions;}
+\DoxyCodeLine{00037\ \ \ std::vector<uint32\_t>\ indices;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ std::unique\_ptr<VertexArray>\ vao;}
+\DoxyCodeLine{00040\ \ \ std::unique\_ptr<VertexBuffer>\ vbo;}
+\DoxyCodeLine{00041\ \ \ std::unique\_ptr<IndexBuffer>\ ibo;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ uint32\_t\ index\_count;}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \}}
 
 \end{DoxyCode}

@@ -1,0 +1,132 @@
+\doxysection{Calgine\+::Body\+Record Struct Reference}
+\hypertarget{structCalgine_1_1BodyRecord}{}\label{structCalgine_1_1BodyRecord}\index{Calgine::BodyRecord@{Calgine::BodyRecord}}
+
+
+{\ttfamily \#include $<$physics\+\_\+internal.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structCalgine_1_1BodyRecord_a209b82e85c1155de07db220385f86109}{owner}} = nullptr
+\item 
+JPH\+::\+Body\+ID \mbox{\hyperlink{structCalgine_1_1BodyRecord_a3b990b7976d15f2bbd44c79c7e83565f}{id}}
+\item 
+\mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{Motion\+Type}} \mbox{\hyperlink{structCalgine_1_1BodyRecord_a6592cfb4d1d8727f8964cbcf3b0d1163}{motion}} = \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4cab72f3bd391ba731a35708bfd8cd8a68f}{Motion\+Type\+::dynamic}}
+\item 
+bool \mbox{\hyperlink{structCalgine_1_1BodyRecord_afcd2cdcef356a6b6ee878b1998a6eaca}{in\+\_\+simulation}} = false
+\item 
+bool \mbox{\hyperlink{structCalgine_1_1BodyRecord_adb830a574780b6c162b61fac12506176}{is\+\_\+sensor}} = false
+\item 
+bool \mbox{\hyperlink{structCalgine_1_1BodyRecord_af6b59b3a18195a42da789093bd44fc16}{interpolate}} = true
+\item 
+bool \mbox{\hyperlink{structCalgine_1_1BodyRecord_ad3cfa5ccc1f9a2957ac85162f5a390a6}{track\+\_\+scale}} = false
+\item 
+glm\+::vec3 \mbox{\hyperlink{structCalgine_1_1BodyRecord_ae34565d790d75a4852c8bf329ce68e7d}{shape\+\_\+scale}} = glm\+::vec3(1.\+0f)
+\item 
+JPH\+::\+Ref\+Const$<$ JPH\+::\+Shape $>$ \mbox{\hyperlink{structCalgine_1_1BodyRecord_ace91f06b1e70ccafbb0f681a0ca235bb}{shape}}
+\item 
+\mbox{\hyperlink{structCalgine_1_1Pose}{Pose}} \mbox{\hyperlink{structCalgine_1_1BodyRecord_a8b462f3ba2d132b4c665b6d752dfd55c}{previous}}
+\item 
+\mbox{\hyperlink{structCalgine_1_1Pose}{Pose}} \mbox{\hyperlink{structCalgine_1_1BodyRecord_ad77ebe170654267cf1ce97b59a43f753}{current}}
+\item 
+\mbox{\hyperlink{structCalgine_1_1Pose}{Pose}} \mbox{\hyperlink{structCalgine_1_1BodyRecord_a57a1eedb20f0e5b03f93ee742ab073aa}{last\+\_\+fixed\+\_\+logical}}
+\item 
+bool \mbox{\hyperlink{structCalgine_1_1BodyRecord_a5eced220d4fa2b550529cf315f5c0cfb}{has\+\_\+last\+\_\+fixed\+\_\+logical}} = false
+\item 
+bool \mbox{\hyperlink{structCalgine_1_1BodyRecord_af4813a14e83921cace2b133948f79592}{warned\+\_\+moved\+\_\+outside\+\_\+fixed}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Everything the world tracks per \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body}. Only touched on the main thread. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCalgine_1_1BodyRecord_ad77ebe170654267cf1ce97b59a43f753}\label{structCalgine_1_1BodyRecord_ad77ebe170654267cf1ce97b59a43f753} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!current@{current}}
+\index{current@{current}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{current}{current}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCalgine_1_1Pose}{Pose}} Calgine\+::\+Body\+Record\+::current}
+
+\Hypertarget{structCalgine_1_1BodyRecord_a5eced220d4fa2b550529cf315f5c0cfb}\label{structCalgine_1_1BodyRecord_a5eced220d4fa2b550529cf315f5c0cfb} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!has\_last\_fixed\_logical@{has\_last\_fixed\_logical}}
+\index{has\_last\_fixed\_logical@{has\_last\_fixed\_logical}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{has\_last\_fixed\_logical}{has\_last\_fixed\_logical}}
+{\footnotesize\ttfamily bool Calgine\+::\+Body\+Record\+::has\+\_\+last\+\_\+fixed\+\_\+logical = false}
+
+\Hypertarget{structCalgine_1_1BodyRecord_a3b990b7976d15f2bbd44c79c7e83565f}\label{structCalgine_1_1BodyRecord_a3b990b7976d15f2bbd44c79c7e83565f} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!id@{id}}
+\index{id@{id}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily JPH\+::\+Body\+ID Calgine\+::\+Body\+Record\+::id}
+
+\Hypertarget{structCalgine_1_1BodyRecord_afcd2cdcef356a6b6ee878b1998a6eaca}\label{structCalgine_1_1BodyRecord_afcd2cdcef356a6b6ee878b1998a6eaca} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!in\_simulation@{in\_simulation}}
+\index{in\_simulation@{in\_simulation}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{in\_simulation}{in\_simulation}}
+{\footnotesize\ttfamily bool Calgine\+::\+Body\+Record\+::in\+\_\+simulation = false}
+
+\Hypertarget{structCalgine_1_1BodyRecord_af6b59b3a18195a42da789093bd44fc16}\label{structCalgine_1_1BodyRecord_af6b59b3a18195a42da789093bd44fc16} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!interpolate@{interpolate}}
+\index{interpolate@{interpolate}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{interpolate}{interpolate}}
+{\footnotesize\ttfamily bool Calgine\+::\+Body\+Record\+::interpolate = true}
+
+\Hypertarget{structCalgine_1_1BodyRecord_adb830a574780b6c162b61fac12506176}\label{structCalgine_1_1BodyRecord_adb830a574780b6c162b61fac12506176} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!is\_sensor@{is\_sensor}}
+\index{is\_sensor@{is\_sensor}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{is\_sensor}{is\_sensor}}
+{\footnotesize\ttfamily bool Calgine\+::\+Body\+Record\+::is\+\_\+sensor = false}
+
+\Hypertarget{structCalgine_1_1BodyRecord_a57a1eedb20f0e5b03f93ee742ab073aa}\label{structCalgine_1_1BodyRecord_a57a1eedb20f0e5b03f93ee742ab073aa} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!last\_fixed\_logical@{last\_fixed\_logical}}
+\index{last\_fixed\_logical@{last\_fixed\_logical}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{last\_fixed\_logical}{last\_fixed\_logical}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCalgine_1_1Pose}{Pose}} Calgine\+::\+Body\+Record\+::last\+\_\+fixed\+\_\+logical}
+
+Kinematic bodies\+: logical pose at the end of the last fixed phase, to spot moves made outside fixed update. \Hypertarget{structCalgine_1_1BodyRecord_a6592cfb4d1d8727f8964cbcf3b0d1163}\label{structCalgine_1_1BodyRecord_a6592cfb4d1d8727f8964cbcf3b0d1163} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!motion@{motion}}
+\index{motion@{motion}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{motion}{motion}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{Motion\+Type}} Calgine\+::\+Body\+Record\+::motion = \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4cab72f3bd391ba731a35708bfd8cd8a68f}{Motion\+Type\+::dynamic}}}
+
+\Hypertarget{structCalgine_1_1BodyRecord_a209b82e85c1155de07db220385f86109}\label{structCalgine_1_1BodyRecord_a209b82e85c1155de07db220385f86109} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!owner@{owner}}
+\index{owner@{owner}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{owner}{owner}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}}\texorpdfstring{$\ast$}{*} Calgine\+::\+Body\+Record\+::owner = nullptr}
+
+\Hypertarget{structCalgine_1_1BodyRecord_a8b462f3ba2d132b4c665b6d752dfd55c}\label{structCalgine_1_1BodyRecord_a8b462f3ba2d132b4c665b6d752dfd55c} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!previous@{previous}}
+\index{previous@{previous}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{previous}{previous}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCalgine_1_1Pose}{Pose}} Calgine\+::\+Body\+Record\+::previous}
+
+Body pose after the previous step and after the latest step, for render interpolation. \Hypertarget{structCalgine_1_1BodyRecord_ace91f06b1e70ccafbb0f681a0ca235bb}\label{structCalgine_1_1BodyRecord_ace91f06b1e70ccafbb0f681a0ca235bb} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!shape@{shape}}
+\index{shape@{shape}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{shape}{shape}}
+{\footnotesize\ttfamily JPH\+::\+Ref\+Const$<$JPH\+::\+Shape$>$ Calgine\+::\+Body\+Record\+::shape}
+
+\Hypertarget{structCalgine_1_1BodyRecord_ae34565d790d75a4852c8bf329ce68e7d}\label{structCalgine_1_1BodyRecord_ae34565d790d75a4852c8bf329ce68e7d} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!shape\_scale@{shape\_scale}}
+\index{shape\_scale@{shape\_scale}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{shape\_scale}{shape\_scale}}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Body\+Record\+::shape\+\_\+scale = glm\+::vec3(1.\+0f)}
+
+World scale the collider was built for; also used to draw the interpolated pose. \Hypertarget{structCalgine_1_1BodyRecord_ad3cfa5ccc1f9a2957ac85162f5a390a6}\label{structCalgine_1_1BodyRecord_ad3cfa5ccc1f9a2957ac85162f5a390a6} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!track\_scale@{track\_scale}}
+\index{track\_scale@{track\_scale}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{track\_scale}{track\_scale}}
+{\footnotesize\ttfamily bool Calgine\+::\+Body\+Record\+::track\+\_\+scale = false}
+
+\Hypertarget{structCalgine_1_1BodyRecord_af4813a14e83921cace2b133948f79592}\label{structCalgine_1_1BodyRecord_af4813a14e83921cace2b133948f79592} 
+\index{Calgine::BodyRecord@{Calgine::BodyRecord}!warned\_moved\_outside\_fixed@{warned\_moved\_outside\_fixed}}
+\index{warned\_moved\_outside\_fixed@{warned\_moved\_outside\_fixed}!Calgine::BodyRecord@{Calgine::BodyRecord}}
+\doxysubsubsection{\texorpdfstring{warned\_moved\_outside\_fixed}{warned\_moved\_outside\_fixed}}
+{\footnotesize\ttfamily bool Calgine\+::\+Body\+Record\+::warned\+\_\+moved\+\_\+outside\+\_\+fixed = false}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/physics/\mbox{\hyperlink{physics__internal_8h}{physics\+\_\+internal.\+h}}\end{DoxyCompactItemize}

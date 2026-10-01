@@ -20,7 +20,11 @@ void \mbox{\hyperlink{classCalgine_1_1Mesh_a616c0a2995d0467563ebb9bd6fd9bd09}{bi
 void \mbox{\hyperlink{classCalgine_1_1Mesh_a03bd0c347d14bd7e7ea702f054b1a840}{draw}} () const
 \item 
 uint32\+\_\+t \mbox{\hyperlink{classCalgine_1_1Mesh_a348e3c54a0d2f8e8fe30fcd23d4d86c6}{get\+\_\+index\+\_\+count}} () const
-\end{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ glm\+::vec3 $>$ \& \mbox{\hyperlink{classCalgine_1_1Mesh_aa3bf48780d664091f1958dc58210b2a5}{get\+\_\+positions}} () const
+\begin{DoxyCompactList}\small\item\em CPU copy of the vertex positions, kept after upload for collision shapes (see \doxylink{structCalgine_1_1ColliderShape_add65a79c7074c2f1b6718d4d90baddeb}{Collider\+Shape\+::make\+\_\+convex\+\_\+hull} / make\+\_\+mesh). \end{DoxyCompactList}\item 
+const std\+::vector$<$ uint32\+\_\+t $>$ \& \mbox{\hyperlink{classCalgine_1_1Mesh_aa60fe4e3b7f744115d141ce8ec278136}{get\+\_\+indices}} () const
+\begin{DoxyCompactList}\small\item\em CPU copy of the triangle indices into \doxylink{classCalgine_1_1Mesh_aa3bf48780d664091f1958dc58210b2a5}{get\+\_\+positions()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -62,6 +66,26 @@ uint32\+\_\+t \mbox{\hyperlink{classCalgine_1_1Mesh_a348e3c54a0d2f8e8fe30fcd23d4
 \index{get\_index\_count@{get\_index\_count}!Calgine::Mesh@{Calgine::Mesh}}
 \doxysubsubsection{\texorpdfstring{get\_index\_count()}{get\_index\_count()}}
 {\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Mesh\+::get\+\_\+index\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1Mesh_aa60fe4e3b7f744115d141ce8ec278136}\label{classCalgine_1_1Mesh_aa60fe4e3b7f744115d141ce8ec278136} 
+\index{Calgine::Mesh@{Calgine::Mesh}!get\_indices@{get\_indices}}
+\index{get\_indices@{get\_indices}!Calgine::Mesh@{Calgine::Mesh}}
+\doxysubsubsection{\texorpdfstring{get\_indices()}{get\_indices()}}
+{\footnotesize\ttfamily const std\+::vector$<$ uint32\+\_\+t $>$ \& Calgine\+::\+Mesh\+::get\+\_\+indices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+CPU copy of the triangle indices into \doxylink{classCalgine_1_1Mesh_aa3bf48780d664091f1958dc58210b2a5}{get\+\_\+positions()}. 
+
+\Hypertarget{classCalgine_1_1Mesh_aa3bf48780d664091f1958dc58210b2a5}\label{classCalgine_1_1Mesh_aa3bf48780d664091f1958dc58210b2a5} 
+\index{Calgine::Mesh@{Calgine::Mesh}!get\_positions@{get\_positions}}
+\index{get\_positions@{get\_positions}!Calgine::Mesh@{Calgine::Mesh}}
+\doxysubsubsection{\texorpdfstring{get\_positions()}{get\_positions()}}
+{\footnotesize\ttfamily const std\+::vector$<$ glm\+::vec3 $>$ \& Calgine\+::\+Mesh\+::get\+\_\+positions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+CPU copy of the vertex positions, kept after upload for collision shapes (see \doxylink{structCalgine_1_1ColliderShape_add65a79c7074c2f1b6718d4d90baddeb}{Collider\+Shape\+::make\+\_\+convex\+\_\+hull} / make\+\_\+mesh). 
 
 \Hypertarget{classCalgine_1_1Mesh_a999050cfe054960c9e9f67856a74df64}\label{classCalgine_1_1Mesh_a999050cfe054960c9e9f67856a74df64} 
 \index{Calgine::Mesh@{Calgine::Mesh}!operator=@{operator=}}

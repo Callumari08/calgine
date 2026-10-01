@@ -127,6 +127,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a792e2f8ceb144b7e13fe2c6b9b5e7547" id="r_a792e2f8ceb144b7e13fe2c6b9b5e7547"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1AppSettings.html#a792e2f8ceb144b7e13fe2c6b9b5e7547">imgui_config_path</a> = &quot;&quot;</td></tr>
 <tr class="memdesc:a792e2f8ceb144b7e13fe2c6b9b5e7547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Path to the ImGui configuration file. If empty, defaults to "imgui.ini".  <br /></td></tr>
 <tr class="separator:a792e2f8ceb144b7e13fe2c6b9b5e7547"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2cb6906108d5f4fd7502026e82dda4d" id="r_ae2cb6906108d5f4fd7502026e82dda4d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1AppSettings.html#ae2cb6906108d5f4fd7502026e82dda4d">max_fixed_steps_per_frame</a> = 5</td></tr>
+<tr class="memdesc:ae2cb6906108d5f4fd7502026e82dda4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most fixed steps (fixed_update + physics) run in one frame. 0 = unlimited.  <br /></td></tr>
+<tr class="separator:ae2cb6906108d5f4fd7502026e82dda4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaea9a4eb8a3fbf3860678b505a830b1" id="r_acaea9a4eb8a3fbf3860678b505a830b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCalgine_1_1PhysicsSettings.html">PhysicsSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1AppSettings.html#acaea9a4eb8a3fbf3860678b505a830b1">physics</a></td></tr>
+<tr class="memdesc:acaea9a4eb8a3fbf3860678b505a830b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Physics configuration (limits, threads, gravity, collision layers, interpolation).  <br /></td></tr>
+<tr class="separator:acaea9a4eb8a3fbf3860678b505a830b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Configuration settings for a <a class="el" href="namespaceCalgine.html">Calgine</a> application. </p>
@@ -251,6 +257,39 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2cb6906108d5f4fd7502026e82dda4d" name="ae2cb6906108d5f4fd7502026e82dda4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2cb6906108d5f4fd7502026e82dda4d">&#9670;&#160;</a></span>max_fixed_steps_per_frame</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Calgine::AppSettings::max_fixed_steps_per_frame = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Most fixed steps (fixed_update + physics) run in one frame. 0 = unlimited. </p>
+<p>When a frame falls further behind than this, the extra time is dropped: the simulation runs slower than real time, but frames stay short so the game remains responsive. Without a cap, a slow step makes the next frame run even more steps, and the game can grind to a near halt. </p>
+
+</div>
+</div>
+<a id="acaea9a4eb8a3fbf3860678b505a830b1" name="acaea9a4eb8a3fbf3860678b505a830b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaea9a4eb8a3fbf3860678b505a830b1">&#9670;&#160;</a></span>physics</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structCalgine_1_1PhysicsSettings.html">PhysicsSettings</a> Calgine::AppSettings::physics</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Physics configuration (limits, threads, gravity, collision layers, interpolation). </p>
 
 </div>
 </div>

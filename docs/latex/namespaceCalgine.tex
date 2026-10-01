@@ -4,8 +4,6 @@
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceCalgine_1_1PhysicsBroadPhaseLayers}{Physics\+Broad\+Phase\+Layers}}
-\item 
-namespace \mbox{\hyperlink{namespaceCalgine_1_1PhysicsLayers}{Physics\+Layers}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
@@ -24,6 +22,8 @@ class \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}
 \begin{DoxyCompactList}\small\item\em Gives access to tick updates for users. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classCalgine_1_1BehaviourRegistry}{Behaviour\+Registry}}
 \item 
+struct \mbox{\hyperlink{structCalgine_1_1BodyRecord}{Body\+Record}}
+\item 
 class \mbox{\hyperlink{classCalgine_1_1BroadPhaseLayerInterfaceImpl}{Broad\+Phase\+Layer\+Interface\+Impl}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1Camera}{Camera}}
@@ -38,6 +38,8 @@ struct \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}}
 \begin{DoxyCompactList}\small\item\em Collision shape of a \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body}, in the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s local units (multiplied by world scale). \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structCalgine_1_1CollisionEvent}{Collision\+Event}}
 \begin{DoxyCompactList}\small\item\em Submitted to the \doxylink{classCalgine_1_1EventContext}{Event\+Context} by the physics system when two Rigid\+Bodies start or stop touching. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings}{Collision\+Layer\+Settings}}
+\begin{DoxyCompactList}\small\item\em Named collision layers and which pairs of layers collide. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classCalgine_1_1ContactQueue}{Contact\+Queue}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1DataSerializationInterface}{Data\+Serialization\+Interface}}
@@ -72,6 +74,12 @@ struct \mbox{\hyperlink{structCalgine_1_1InputMapping}{Input\+Mapping}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{Input\+System\+Behaviour}}
 \item 
+class \mbox{\hyperlink{classCalgine_1_1Joint}{Joint}}
+\begin{DoxyCompactList}\small\item\em Connects this \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} to another \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body}, or to the world. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCalgine_1_1JointRecord}{Joint\+Record}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1JointSettings}{Joint\+Settings}}
+\begin{DoxyCompactList}\small\item\em Settings used when a \doxylink{classCalgine_1_1Joint}{Joint} connects its bodies. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structCalgine_1_1LineVertex}{Line\+Vertex}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1Log}{Log}}
@@ -94,14 +102,20 @@ class \mbox{\hyperlink{classCalgine_1_1MeshRenderer}{Mesh\+Renderer}}
 \item 
 struct \mbox{\hyperlink{structCalgine_1_1Model}{Model}}
 \item 
+struct \mbox{\hyperlink{structCalgine_1_1ModelShapes}{Model\+Shapes}}
+\item 
 class \mbox{\hyperlink{classCalgine_1_1ObjectLayerPairFilterImpl}{Object\+Layer\+Pair\+Filter\+Impl}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1ObjectVsBroadPhaseLayerFilterImpl}{Object\+Vs\+Broad\+Phase\+Layer\+Filter\+Impl}}
 \item 
+struct \mbox{\hyperlink{structCalgine_1_1PhysicsSettings}{Physics\+Settings}}
+\begin{DoxyCompactList}\small\item\em Physics configuration, set through app.\+settings.\+physics before \doxylink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{App\+::start\+\_\+systems()}. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats}{Physics\+Step\+Stats}}
 \begin{DoxyCompactList}\small\item\em Timing and counts for a single physics step (see \doxylink{classCalgine_1_1PhysicsWorld_a01058e687e1784300f8ed3cbb25797dd}{Physics\+World\+::get\+\_\+last\+\_\+step\+\_\+stats()}). \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{Physics\+World}}
 \begin{DoxyCompactList}\small\item\em The engine\textquotesingle{}s physics simulation (backed by Jolt Physics). \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCalgine_1_1Pose}{Pose}}
+\item 
 struct \mbox{\hyperlink{structCalgine_1_1QueuedContact}{Queued\+Contact}}
 \item 
 struct \mbox{\hyperlink{structCalgine_1_1RawInputData}{Raw\+Input\+Data}}
@@ -117,7 +131,7 @@ struct \mbox{\hyperlink{structCalgine_1_1RawMouseMoveData}{Raw\+Mouse\+Move\+Dat
 struct \mbox{\hyperlink{structCalgine_1_1RawMouseWheelData}{Raw\+Mouse\+Wheel\+Data}}
 \item 
 struct \mbox{\hyperlink{structCalgine_1_1RaycastHit}{Raycast\+Hit}}
-\begin{DoxyCompactList}\small\item\em Result of \doxylink{classCalgine_1_1PhysicsWorld_a08e14c1d307baf7e675da9c21ad1477f}{Physics\+World\+::raycast()}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Result of \doxylink{classCalgine_1_1PhysicsWorld_ad087ea25aa1a2639b524276d676cee5f}{Physics\+World\+::raycast()}. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classCalgine_1_1Renderer}{Renderer}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1RenderTexture}{Render\+Texture}}
@@ -154,7 +168,11 @@ class \mbox{\hyperlink{classCalgine_1_1WindowHandler}{Window\+Handler}}
 using \mbox{\hyperlink{namespaceCalgine_afb5760e5bfac1a89c723a759e497f60a}{Behaviour\+Factory}} = std\+::function$<$ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}} \texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{classCalgine_1_1DataSerializationInterface}{Data\+Serialization\+Interface}} const  \texorpdfstring{$\ast$}{*})$>$
 \item 
 using \mbox{\hyperlink{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0}{Input\+Value}} = std\+::variant$<$ \mbox{\hyperlink{unionCalgine_1_1InputButton}{Input\+Button}}, float, glm\+::vec2, glm\+::vec3 $>$
-\end{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} = uint8\+\_\+t
+\begin{DoxyCompactList}\small\item\em Index of a collision layer, 0 to max\+\_\+collision\+\_\+layers -\/ 1. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Collision\+Layer\+Mask}} = uint16\+\_\+t
+\begin{DoxyCompactList}\small\item\em One bit per collision layer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -162,6 +180,15 @@ enum \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5e}{Asset\
 , \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d}{model}}
 , \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eac3b16e8a9ede3ae91467682b97ea5dc3}{fragment}}
 , \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5ea6869c366525aff7bd2b44caf55a44555}{vertex}}
+ \}
+\item 
+enum class \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9}{Joint\+Type}} \{ \newline
+\mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9acec315e3d0975e5cc2811d5d8725f149}{fixed}}
+, \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a78ee54aa8f813885fe2fe20d232518b9}{point}}
+, \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a2e115f4171ceb952bca742eb60fc7e81}{hinge}}
+, \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a10bf08f0bbd6689475be65b4ae441bd9}{slider}}
+, \newline
+\mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9aa74ec9c5b6882f79e32a8fbd8da90c1b}{distance}}
  \}
 \item 
 enum class \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{Motion\+Type}} \{ \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4ca3802c2b14860b60e9acb8d1910285d92}{static\+\_\+body}}
@@ -181,6 +208,8 @@ enum \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7}{Vsync\
 \item 
 \mbox{\hyperlink{namespaceCalgine_ae6cde713ba7b0834f8982713f7d872fd}{CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR}} (\mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{Input\+System\+Behaviour}}, "{}input\+\_\+system"{})
 \item 
+\mbox{\hyperlink{namespaceCalgine_a58ae2879cedbc130cd1a924a88a3a764}{CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR}} (\mbox{\hyperlink{classCalgine_1_1Joint}{Joint}}, "{}joint"{})
+\item 
 JPH\+::\+Vec3 \mbox{\hyperlink{namespaceCalgine_a3fba88f0cdfbcb09213824490e2c359f}{to\+\_\+jolt}} (const glm\+::vec3 \&v)
 \item 
 JPH\+::\+Quat \mbox{\hyperlink{namespaceCalgine_a20e0af1009d03b8f11c4cd982c87729b}{to\+\_\+jolt}} (const glm\+::quat \&q)
@@ -191,6 +220,14 @@ glm\+::quat \mbox{\hyperlink{namespaceCalgine_a6998b770127bc0a67dcddb0fb7ea6b43}
 \item 
 JPH\+::\+RVec3 \mbox{\hyperlink{namespaceCalgine_ad50a9cbcfcf3c96c045f850bd37f5e8c}{to\+\_\+jolt\+\_\+r}} (const glm\+::vec3 \&v)
 \item 
+JPH\+::\+Object\+Layer \mbox{\hyperlink{namespaceCalgine_a2f8d3d27c0eb90462d4c10fb2ef8524c}{make\+\_\+object\+\_\+layer}} (\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} layer, bool moving)
+\item 
+\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} \mbox{\hyperlink{namespaceCalgine_a405ed6dd9d4929e98ca24459f045251c}{collision\+\_\+layer\+\_\+of}} (JPH\+::\+Object\+Layer object\+\_\+layer)
+\item 
+bool \mbox{\hyperlink{namespaceCalgine_a6e037b4a3cc365d0b1b04ff394ada67a}{is\+\_\+moving\+\_\+layer}} (JPH\+::\+Object\+Layer object\+\_\+layer)
+\item 
+constexpr \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Collision\+Layer\+Mask}} \mbox{\hyperlink{namespaceCalgine_a07d0c31a68e19035c6054cc09df1cfc0}{collision\+\_\+layer\+\_\+bit}} (\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} layer)
+\begin{DoxyCompactList}\small\item\em Mask with only {\ttfamily layer} set. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespaceCalgine_a67dfdc54339eb8da11e4b05c9f43d773}{CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR}} (\mbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}}, "{}rigid\+\_\+body"{})
 \item 
 \mbox{\hyperlink{namespaceCalgine_a266956145afa6b8cfcf50623ffab2b23}{CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR}} (\mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{Camera\+Behaviour}}, "{}camera"{})
@@ -201,6 +238,12 @@ JPH\+::\+RVec3 \mbox{\hyperlink{namespaceCalgine_ad50a9cbcfcf3c96c045f850bd37f5e
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
+\item 
+constexpr uint32\+\_\+t \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{max\+\_\+collision\+\_\+layers}} = 16
+\item 
+constexpr \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} \mbox{\hyperlink{namespaceCalgine_a594a2849ee70804a9645862ecd781010}{default\+\_\+collision\+\_\+layer}} = 0
+\item 
+constexpr \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Collision\+Layer\+Mask}} \mbox{\hyperlink{namespaceCalgine_adb86c761ac18d7fd076eca5483a24583}{all\+\_\+collision\+\_\+layers}} = 0x\+FFFF
 \item 
 constexpr const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceCalgine_ae3a8dec8e5f3e77e4b7e74cb80151d23}{DEFAULT\+\_\+\+VERTEX\+\_\+\+SHADER}}
 \item 
@@ -218,6 +261,26 @@ constexpr const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceCalgin
 \index{BehaviourFactory@{BehaviourFactory}!Calgine@{Calgine}}
 \doxysubsubsection{\texorpdfstring{BehaviourFactory}{BehaviourFactory}}
 {\footnotesize\ttfamily using \mbox{\hyperlink{namespaceCalgine_afb5760e5bfac1a89c723a759e497f60a}{Calgine\+::\+Behaviour\+Factory}} = typedef std\+::function$<$\mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}\texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}}\texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{classCalgine_1_1DataSerializationInterface}{Data\+Serialization\+Interface}} const\texorpdfstring{$\ast$}{*})$>$}
+
+\Hypertarget{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}\label{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0} 
+\index{Calgine@{Calgine}!CollisionLayer@{CollisionLayer}}
+\index{CollisionLayer@{CollisionLayer}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{CollisionLayer}{CollisionLayer}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Calgine\+::\+Collision\+Layer}} = typedef uint8\+\_\+t}
+
+
+
+Index of a collision layer, 0 to max\+\_\+collision\+\_\+layers -\/ 1. 
+
+\Hypertarget{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}\label{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc} 
+\index{Calgine@{Calgine}!CollisionLayerMask@{CollisionLayerMask}}
+\index{CollisionLayerMask@{CollisionLayerMask}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{CollisionLayerMask}{CollisionLayerMask}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Calgine\+::\+Collision\+Layer\+Mask}} = typedef uint16\+\_\+t}
+
+
+
+One bit per collision layer. 
 
 \Hypertarget{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0}\label{namespaceCalgine_a87e29805810b60dcb03fa356115bdfc0} 
 \index{Calgine@{Calgine}!InputValue@{InputValue}}
@@ -252,6 +315,34 @@ vertex&\\
 \hline
 
 \end{DoxyEnumFields}
+\Hypertarget{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9}\label{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9} 
+\index{Calgine@{Calgine}!JointType@{JointType}}
+\index{JointType@{JointType}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{JointType}{JointType}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9}{Calgine\+::\+Joint\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fixed@{fixed}!Calgine@{Calgine}}\index{Calgine@{Calgine}!fixed@{fixed}}}\Hypertarget{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9acec315e3d0975e5cc2811d5d8725f149}\label{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9acec315e3d0975e5cc2811d5d8725f149} 
+fixed&Locks the two bodies together in their current relative position and rotation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{point@{point}!Calgine@{Calgine}}\index{Calgine@{Calgine}!point@{point}}}\Hypertarget{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a78ee54aa8f813885fe2fe20d232518b9}\label{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a78ee54aa8f813885fe2fe20d232518b9} 
+point&Ball-\/and-\/socket\+: the anchor points stay together, rotation is free. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{hinge@{hinge}!Calgine@{Calgine}}\index{Calgine@{Calgine}!hinge@{hinge}}}\Hypertarget{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a2e115f4171ceb952bca742eb60fc7e81}\label{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a2e115f4171ceb952bca742eb60fc7e81} 
+hinge&Door hinge\+: rotation only around the axis. Supports limits (degrees) and a motor (degrees/second). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{slider@{slider}!Calgine@{Calgine}}\index{Calgine@{Calgine}!slider@{slider}}}\Hypertarget{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a10bf08f0bbd6689475be65b4ae441bd9}\label{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a10bf08f0bbd6689475be65b4ae441bd9} 
+slider&Rail\+: movement only along the axis, no rotation. Supports limits (metres) and a motor (metres/second). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{distance@{distance}!Calgine@{Calgine}}\index{Calgine@{Calgine}!distance@{distance}}}\Hypertarget{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9aa74ec9c5b6882f79e32a8fbd8da90c1b}\label{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9aa74ec9c5b6882f79e32a8fbd8da90c1b} 
+distance&Rope or rod\+: keeps the anchor points between min\+\_\+distance and max\+\_\+distance apart. \\
+\hline
+
+\end{DoxyEnumFields}
 \Hypertarget{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}\label{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c} 
 \index{Calgine@{Calgine}!MotionType@{MotionType}}
 \index{MotionType@{MotionType}!Calgine@{Calgine}}
@@ -268,7 +359,7 @@ static\+\_\+body&Never moves (floors, walls). \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{kinematic@{kinematic}!Calgine@{Calgine}}\index{Calgine@{Calgine}!kinematic@{kinematic}}}\Hypertarget{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4ca82221355e8922f4e93a2455d99c04aa2}\label{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4ca82221355e8922f4e93a2455d99c04aa2} 
-kinematic&Moved by code through its \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s \doxylink{classCalgine_1_1Transform}{Transform}; pushes dynamic bodies but isn\textquotesingle{}t pushed back. \\
+kinematic&Moved by code through its \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s \doxylink{classCalgine_1_1Transform}{Transform}; pushes dynamic bodies but isn\textquotesingle{}t pushed back. Move it in fixed\+\_\+update\+\_\+tick(), see \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body}. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{dynamic@{dynamic}!Calgine@{Calgine}}\index{Calgine@{Calgine}!dynamic@{dynamic}}}\Hypertarget{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4cab72f3bd391ba731a35708bfd8cd8a68f}\label{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4cab72f3bd391ba731a35708bfd8cd8a68f} 
@@ -302,32 +393,60 @@ adaptive&\\
 \Hypertarget{namespaceCalgine_a266956145afa6b8cfcf50623ffab2b23}\label{namespaceCalgine_a266956145afa6b8cfcf50623ffab2b23} 
 \index{Calgine@{Calgine}!CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}}
 \index{CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}!Calgine@{Calgine}}
-\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
 {\footnotesize\ttfamily Calgine\+::\+CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1CameraBehaviour}{Camera\+Behaviour}}}]{,  }\item[{"{}camera"{}}]{ }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceCalgine_a3eec104b7f64f2e1f05a6bd9bf8ee62c}\label{namespaceCalgine_a3eec104b7f64f2e1f05a6bd9bf8ee62c} 
 \index{Calgine@{Calgine}!CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}}
 \index{CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}!Calgine@{Calgine}}
-\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
 {\footnotesize\ttfamily Calgine\+::\+CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1FpsDisplay}{Fps\+Display}}}]{,  }\item[{"{}fps\+\_\+display"{}}]{ }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceCalgine_ae6cde713ba7b0834f8982713f7d872fd}\label{namespaceCalgine_ae6cde713ba7b0834f8982713f7d872fd} 
 \index{Calgine@{Calgine}!CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}}
 \index{CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}!Calgine@{Calgine}}
-\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
 {\footnotesize\ttfamily Calgine\+::\+CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{Input\+System\+Behaviour}}}]{,  }\item[{"{}input\+\_\+system"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceCalgine_a58ae2879cedbc130cd1a924a88a3a764}\label{namespaceCalgine_a58ae2879cedbc130cd1a924a88a3a764} 
+\index{Calgine@{Calgine}!CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}}
+\index{CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily Calgine\+::\+CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1Joint}{Joint}}}]{,  }\item[{"{}joint"{}}]{ }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceCalgine_a7ccdbc6c1f2e5cb83aeedb663cd6c639}\label{namespaceCalgine_a7ccdbc6c1f2e5cb83aeedb663cd6c639} 
 \index{Calgine@{Calgine}!CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}}
 \index{CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}!Calgine@{Calgine}}
-\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
 {\footnotesize\ttfamily Calgine\+::\+CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1MeshRenderer}{Mesh\+Renderer}}}]{,  }\item[{"{}mesh\+\_\+renderer"{}}]{ }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceCalgine_a67dfdc54339eb8da11e4b05c9f43d773}\label{namespaceCalgine_a67dfdc54339eb8da11e4b05c9f43d773} 
 \index{Calgine@{Calgine}!CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}}
 \index{CALGINE\_REGISTER\_BEHAVIOUR@{CALGINE\_REGISTER\_BEHAVIOUR}!Calgine@{Calgine}}
-\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+\doxysubsubsection{\texorpdfstring{CALGINE\_REGISTER\_BEHAVIOUR()}{CALGINE\_REGISTER\_BEHAVIOUR()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
 {\footnotesize\ttfamily Calgine\+::\+CALGINE\+\_\+\+REGISTER\+\_\+\+BEHAVIOUR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}}}]{,  }\item[{"{}rigid\+\_\+body"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceCalgine_a07d0c31a68e19035c6054cc09df1cfc0}\label{namespaceCalgine_a07d0c31a68e19035c6054cc09df1cfc0} 
+\index{Calgine@{Calgine}!collision\_layer\_bit@{collision\_layer\_bit}}
+\index{collision\_layer\_bit@{collision\_layer\_bit}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{collision\_layer\_bit()}{collision\_layer\_bit()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Collision\+Layer\+Mask}} Calgine\+::collision\+\_\+layer\+\_\+bit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{layer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Mask with only {\ttfamily layer} set. 
+
+\Hypertarget{namespaceCalgine_a405ed6dd9d4929e98ca24459f045251c}\label{namespaceCalgine_a405ed6dd9d4929e98ca24459f045251c} 
+\index{Calgine@{Calgine}!collision\_layer\_of@{collision\_layer\_of}}
+\index{collision\_layer\_of@{collision\_layer\_of}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{collision\_layer\_of()}{collision\_layer\_of()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} Calgine\+::collision\+\_\+layer\+\_\+of (\begin{DoxyParamCaption}\item[{JPH\+::\+Object\+Layer}]{object\+\_\+layer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{namespaceCalgine_a6e037b4a3cc365d0b1b04ff394ada67a}\label{namespaceCalgine_a6e037b4a3cc365d0b1b04ff394ada67a} 
+\index{Calgine@{Calgine}!is\_moving\_layer@{is\_moving\_layer}}
+\index{is\_moving\_layer@{is\_moving\_layer}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{is\_moving\_layer()}{is\_moving\_layer()}}
+{\footnotesize\ttfamily bool Calgine\+::is\+\_\+moving\+\_\+layer (\begin{DoxyParamCaption}\item[{JPH\+::\+Object\+Layer}]{object\+\_\+layer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{namespaceCalgine_a5bd3b3e7aec9b17a0d3d1418ef90415f}\label{namespaceCalgine_a5bd3b3e7aec9b17a0d3d1418ef90415f} 
 \index{Calgine@{Calgine}!make\_behaviour\_factory@{make\_behaviour\_factory}}
@@ -335,6 +454,12 @@ adaptive&\\
 \doxysubsubsection{\texorpdfstring{make\_behaviour\_factory()}{make\_behaviour\_factory()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 \mbox{\hyperlink{namespaceCalgine_afb5760e5bfac1a89c723a759e497f60a}{Behaviour\+Factory}} Calgine\+::make\+\_\+behaviour\+\_\+factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceCalgine_a2f8d3d27c0eb90462d4c10fb2ef8524c}\label{namespaceCalgine_a2f8d3d27c0eb90462d4c10fb2ef8524c} 
+\index{Calgine@{Calgine}!make\_object\_layer@{make\_object\_layer}}
+\index{make\_object\_layer@{make\_object\_layer}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{make\_object\_layer()}{make\_object\_layer()}}
+{\footnotesize\ttfamily JPH\+::\+Object\+Layer Calgine\+::make\+\_\+object\+\_\+layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{layer,  }\item[{bool}]{moving }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{namespaceCalgine_a6998b770127bc0a67dcddb0fb7ea6b43}\label{namespaceCalgine_a6998b770127bc0a67dcddb0fb7ea6b43} 
 \index{Calgine@{Calgine}!to\_glm@{to\_glm}}
@@ -369,6 +494,18 @@ adaptive&\\
 
 
 \doxysubsection{Variable Documentation}
+\Hypertarget{namespaceCalgine_adb86c761ac18d7fd076eca5483a24583}\label{namespaceCalgine_adb86c761ac18d7fd076eca5483a24583} 
+\index{Calgine@{Calgine}!all\_collision\_layers@{all\_collision\_layers}}
+\index{all\_collision\_layers@{all\_collision\_layers}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{all\_collision\_layers}{all\_collision\_layers}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Collision\+Layer\+Mask}} Calgine\+::all\+\_\+collision\+\_\+layers = 0x\+FFFF\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{namespaceCalgine_a594a2849ee70804a9645862ecd781010}\label{namespaceCalgine_a594a2849ee70804a9645862ecd781010} 
+\index{Calgine@{Calgine}!default\_collision\_layer@{default\_collision\_layer}}
+\index{default\_collision\_layer@{default\_collision\_layer}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{default\_collision\_layer}{default\_collision\_layer}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} Calgine\+::default\+\_\+collision\+\_\+layer = 0\hspace{0.3cm}{\ttfamily [constexpr]}}
+
 \Hypertarget{namespaceCalgine_a346c7e22b55226cdd4bda449c4c65eb8}\label{namespaceCalgine_a346c7e22b55226cdd4bda449c4c65eb8} 
 \index{Calgine@{Calgine}!DEFAULT\_FRAGMENT\_SHADER@{DEFAULT\_FRAGMENT\_SHADER}}
 \index{DEFAULT\_FRAGMENT\_SHADER@{DEFAULT\_FRAGMENT\_SHADER}!Calgine@{Calgine}}
@@ -464,3 +601,9 @@ adaptive&\\
 \DoxyCodeLine{\textcolor{stringliteral}{)"{}}}
 
 \end{DoxyCode}
+\Hypertarget{namespaceCalgine_a1a883e986613dc966589944825492455}\label{namespaceCalgine_a1a883e986613dc966589944825492455} 
+\index{Calgine@{Calgine}!max\_collision\_layers@{max\_collision\_layers}}
+\index{max\_collision\_layers@{max\_collision\_layers}!Calgine@{Calgine}}
+\doxysubsubsection{\texorpdfstring{max\_collision\_layers}{max\_collision\_layers}}
+{\footnotesize\ttfamily constexpr uint32\+\_\+t Calgine\+::max\+\_\+collision\+\_\+layers = 16\hspace{0.3cm}{\ttfamily [constexpr]}}
+

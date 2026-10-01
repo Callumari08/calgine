@@ -4,79 +4,111 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physics__types_8h}{calgine/core/physics/physics\_types.h}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }EventContext;}
-\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }RigidBody;}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats}{PhysicsStepStats}}}
-\DoxyCodeLine{00019\ \{}
-\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{float}\ pre\_step\_ms\ =\ 0.0f;}
-\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{float}\ simulate\_ms\ =\ 0.0f;}
-\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{float}\ post\_step\_ms\ =\ 0.0f;}
-\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{float}\ events\_ms\ =\ 0.0f;}
-\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{float}\ total\_ms\ =\ 0.0f;}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ uint32\_t\ bodies\ =\ 0;}
-\DoxyCodeLine{00032\ \ \ uint32\_t\ active\_bodies\ =\ 0;}
-\DoxyCodeLine{00033\ \ \ uint32\_t\ collision\_events\ =\ 0;}
-\DoxyCodeLine{00034\ \};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}}}
-\DoxyCodeLine{00047\ \{}
-\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}}\&\ get\_instance();}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a53f979e91c92157726af7bbb94f0f3a5}{PhysicsWorld}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}}\&\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a0c8d0e8ddb4a46899c76f2bf6da5e882}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a931c9f5d20618da65afbf86c307ab112}{is\_initialized}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ impl\ !=\ \textcolor{keyword}{nullptr};\ \}}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ set\_gravity(\textcolor{keyword}{const}\ glm::vec3\&\ gravity);}
-\DoxyCodeLine{00057\ \ \ glm::vec3\ get\_gravity()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00066\ \ \ std::optional<RaycastHit>\ raycast(\textcolor{keyword}{const}\ glm::vec3\&\ origin,\ \textcolor{keyword}{const}\ glm::vec3\&\ direction,\ \textcolor{keywordtype}{float}\ max\_distance)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physics__settings_8h}{calgine/core/physics/physics\_settings.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physics__types_8h}{calgine/core/physics/physics\_types.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }EventContext;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }RigidBody;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }Joint;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats}{PhysicsStepStats}}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{float}\ pre\_step\_ms\ =\ 0.0f;}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{float}\ simulate\_ms\ =\ 0.0f;}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{float}\ post\_step\_ms\ =\ 0.0f;}
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{float}\ events\_ms\ =\ 0.0f;}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{float}\ total\_ms\ =\ 0.0f;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ uint32\_t\ bodies\ =\ 0;}
+\DoxyCodeLine{00034\ \ \ uint32\_t\ active\_bodies\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ uint32\_t\ collision\_events\ =\ 0;}
+\DoxyCodeLine{00036\ \ \ uint32\_t\ joints\ =\ 0;}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}}}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}}\&\ get\_instance();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a53f979e91c92157726af7bbb94f0f3a5}{PhysicsWorld}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}}\&\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a0c8d0e8ddb4a46899c76f2bf6da5e882}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a931c9f5d20618da65afbf86c307ab112}{is\_initialized}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ impl\ !=\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1PhysicsSettings}{PhysicsSettings}}\&\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_aa66432935d251a0c3afdef64d24c1dcf}{get\_settings}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ settings;\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ set\_gravity(\textcolor{keyword}{const}\ glm::vec3\&\ gravity);}
+\DoxyCodeLine{00064\ \ \ glm::vec3\ get\_gravity()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/\ Collision\ layers\ -\/-\/-\/-\/}}
 \DoxyCodeLine{00067\ }
-\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a05d9a09e9dfff6eb8007491503025a9f}{set\_debug\_draw\_enabled}}(\textcolor{keywordtype}{bool}\ enabled)\ \{\ debug\_draw\_enabled\ =\ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544}{enabled}};\ \}}
-\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a6670200a83a8db57eda419cf0edf6684}{is\_debug\_draw\_enabled}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ debug\_draw\_enabled;\ \}}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{size\_t}\ get\_body\_count()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{void}\ set\_layers\_collide(\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ a,\ \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ b,\ \textcolor{keywordtype}{bool}\ collide);}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_aed2b244a74ad17b237e3fb9ecfd2fe80}{do\_layers\_collide}}(\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ a,\ \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ b)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ settings.layers.collides(a,\ b);\ \}}
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a5eef3d0fd78a66d54c0ffbef85596f1c}{set\_layer\_name}}(\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ layer,\ \textcolor{keyword}{const}\ std::string\&\ name)\ \{\ settings.layers.set\_name(layer,\ name);\ \}}
+\DoxyCodeLine{00072\ \ \ \textcolor{keyword}{const}\ std::string\&\ get\_layer\_name(\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ layer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ \ \ std::optional<CollisionLayer>\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a5c6ec91007c350c9cff86b8bd0c14d21}{find\_layer}}(\textcolor{keyword}{const}\ std::string\&\ name)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ settings.layers.find(name);\ \}}
 \DoxyCodeLine{00074\ }
-\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats}{PhysicsStepStats}}\&\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a01058e687e1784300f8ed3cbb25797dd}{get\_last\_step\_stats}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ last\_step\_stats;\ \}}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00079\ \ \ uint64\_t\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_aff9475186daa0fd6bbe14d505db82511}{get\_total\_steps}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ total\_steps;\ \}}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a0cae641b807750faf16091bb9bda527e}{set\_step\_stats\_callback}}(std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats}{PhysicsStepStats}}\&)>\ callback)\ \{\ step\_stats\_callback\ =\ std::move(callback);\ \}}
+\DoxyCodeLine{00075\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/\ Queries\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00086\ \ \ std::optional<RaycastHit>\ raycast(\textcolor{keyword}{const}\ glm::vec3\&\ origin,\ \textcolor{keyword}{const}\ glm::vec3\&\ direction,\ \textcolor{keywordtype}{float}\ max\_distance,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{CollisionLayerMask}}\ layers\ =\ all\_collision\_layers,\ \textcolor{keywordtype}{bool}\ include\_sensors\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{struct\ }Impl;}
+\DoxyCodeLine{00089\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/\ Rendering\ -\/-\/-\/-\/}}
 \DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00092\ \ \ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}}();}
-\DoxyCodeLine{00093\ \ \ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{\string~PhysicsWorld}}();}
+\DoxyCodeLine{00092\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_ac85106ec4328f421a56e66ec7d32ae48}{set\_interpolation\_enabled}}(\textcolor{keywordtype}{bool}\ enabled)\ \{\ settings.interpolation\ =\ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544}{enabled}};\ \}}
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a012cdb4d43a3b00d98163985c2183943}{is\_interpolation\_enabled}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ settings.interpolation;\ \}}
 \DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \ \ \textcolor{keywordtype}{void}\ init();}
-\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{void}\ step(\textcolor{keywordtype}{float}\ delta\_time,\ \mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
-\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{void}\ debug\_draw();}
-\DoxyCodeLine{00098\ \ \ \textcolor{keywordtype}{void}\ shutdown();}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \ \ Impl*\ get\_impl()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ impl.get();\ \}}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ \ \ std::unique\_ptr<Impl>\ impl;}
-\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{bool}\ debug\_draw\_enabled\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \ \ PhysicsStepStats\ last\_step\_stats;}
-\DoxyCodeLine{00106\ \ \ uint64\_t\ total\_steps\ =\ 0;}
-\DoxyCodeLine{00107\ \ \ std::function<void(\textcolor{keyword}{const}\ PhysicsStepStats\&)>\ step\_stats\_callback;}
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a05d9a09e9dfff6eb8007491503025a9f}{set\_debug\_draw\_enabled}}(\textcolor{keywordtype}{bool}\ enabled)\ \{\ debug\_draw\_enabled\ =\ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544}{enabled}};\ \}}
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a6670200a83a8db57eda419cf0edf6684}{is\_debug\_draw\_enabled}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ debug\_draw\_enabled;\ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/\ Stats\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{size\_t}\ get\_body\_count()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{size\_t}\ get\_joint\_count()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats}{PhysicsStepStats}}\&\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a01058e687e1784300f8ed3cbb25797dd}{get\_last\_step\_stats}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ last\_step\_stats;\ \}}
 \DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1App}{App}};}
-\DoxyCodeLine{00110\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}};}
-\DoxyCodeLine{00111\ \};}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \}}
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a3159f1d67be65cbff5e6192f3e2d682f}{get\_last\_interpolation\_ms}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ last\_interpolation\_ms;\ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00113\ \ \ uint64\_t\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_aff9475186daa0fd6bbe14d505db82511}{get\_total\_steps}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ total\_steps;\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a0cae641b807750faf16091bb9bda527e}{set\_step\_stats\_callback}}(std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats}{PhysicsStepStats}}\&)>\ callback)\ \{\ step\_stats\_callback\ =\ std::move(callback);\ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \textcolor{keyword}{struct\ }Impl;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00126\ \ \ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{PhysicsWorld}}();}
+\DoxyCodeLine{00127\ \ \ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{\string~PhysicsWorld}}();}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \textcolor{comment}{//\ Lifecycle,\ driven\ by\ App.}}
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordtype}{void}\ init(\textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1PhysicsSettings}{PhysicsSettings}}\&\ settings);}
+\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{void}\ begin\_fixed\_phase();}
+\DoxyCodeLine{00132\ \ \ \textcolor{keywordtype}{void}\ step(\textcolor{keywordtype}{float}\ delta\_time,\ \mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00133\ \ \ \textcolor{keywordtype}{void}\ update\_interpolation(\textcolor{keywordtype}{float}\ alpha);}
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{void}\ debug\_draw();}
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordtype}{void}\ shutdown();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ Impl*\ get\_impl()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ impl.get();\ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ std::unique\_ptr<Impl>\ impl;}
+\DoxyCodeLine{00140\ \ \ PhysicsSettings\ settings;}
+\DoxyCodeLine{00141\ \ \ \textcolor{keywordtype}{bool}\ debug\_draw\_enabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ PhysicsStepStats\ last\_step\_stats;}
+\DoxyCodeLine{00144\ \ \ \textcolor{keywordtype}{float}\ last\_interpolation\_ms\ =\ 0.0f;}
+\DoxyCodeLine{00145\ \ \ uint64\_t\ total\_steps\ =\ 0;}
+\DoxyCodeLine{00146\ \ \ std::function<void(\textcolor{keyword}{const}\ PhysicsStepStats\&)>\ step\_stats\_callback;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1App}{App}};}
+\DoxyCodeLine{00149\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}};}
+\DoxyCodeLine{00150\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1Joint}{Joint}};}
+\DoxyCodeLine{00151\ \};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \}}
 
 \end{DoxyCode}

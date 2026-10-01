@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['physicsworld_0',['PhysicsWorld',['../classCalgine_1_1RigidBody.html#abd7959b8cbcd7c25bc6c0c8b1ea26ce6',1,'Calgine::RigidBody']]]
+  ['joint_0',['joint',['../classCalgine_1_1PhysicsWorld.html#a2b27269e818d7b63995be0e0f812bf54',1,'Calgine::PhysicsWorld::Joint'],['../classCalgine_1_1RigidBody.html#a2b27269e818d7b63995be0e0f812bf54',1,'Calgine::RigidBody::Joint']]]
 ];

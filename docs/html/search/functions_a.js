@@ -1,16 +1,12 @@
 var searchData=
 [
-  ['main_5floop_0',['main_loop',['../classCalgine_1_1App.html#a25b8f54a7509d91d9a577d85568c31b7',1,'Calgine::App']]],
-  ['make_5fbehaviour_5ffactory_1',['make_behaviour_factory',['../namespaceCalgine.html#a5bd3b3e7aec9b17a0d3d1418ef90415f',1,'Calgine']]],
-  ['make_5fbox_2',['make_box',['../structCalgine_1_1ColliderShape.html#a3751775a6d0836251b45e4aaefef256e',1,'Calgine::ColliderShape']]],
-  ['make_5fcapsule_3',['make_capsule',['../structCalgine_1_1ColliderShape.html#a130fa93de950e919c6cfaa26bfe6dd58',1,'Calgine::ColliderShape']]],
-  ['make_5fsphere_4',['make_sphere',['../structCalgine_1_1ColliderShape.html#a39bfe242b36f5e5869dffe2a59c8eebb',1,'Calgine::ColliderShape']]],
-  ['managerhierarchy_5',['ManagerHierarchy',['../classCalgine_1_1ManagerHierarchy.html#ab42297b23491f0f1fb581d11b0a0b2f6',1,'Calgine::ManagerHierarchy']]],
-  ['mapentityproperties_6',['MapEntityProperties',['../classCalgine_1_1MapEntityProperties.html#ac7645693efbac322d6fedbddc27ef74d',1,'Calgine::MapEntityProperties']]],
-  ['material_7',['material',['../classCalgine_1_1Material.html#a9004603bd82571fa2883239e527fea63',1,'Calgine::Material::Material(std::shared_ptr&lt; Shader &gt; shader=nullptr)'],['../classCalgine_1_1Material.html#a46df7b767cb9f38d0055a997f51c79f0',1,'Calgine::Material::Material(const Material &amp;)=delete']]],
-  ['materialfilereader_8',['MaterialFileReader',['../classtinyobj_1_1MaterialFileReader.html#aeb0c6d0e32d7876394e570a7b18adc8a',1,'tinyobj::MaterialFileReader']]],
-  ['materialreader_9',['MaterialReader',['../classtinyobj_1_1MaterialReader.html#a701bdd6217518e0afb5596fcb59925b6',1,'tinyobj::MaterialReader']]],
-  ['materialstreamreader_10',['MaterialStreamReader',['../classtinyobj_1_1MaterialStreamReader.html#a6a6b7167e62d239cb3b002b6aa183773',1,'tinyobj::MaterialStreamReader']]],
-  ['mesh_11',['mesh',['../classCalgine_1_1Mesh.html#a7515498b20eb594cc1e990ce6b18a19f',1,'Calgine::Mesh::Mesh(const std::span&lt; const Vertex &gt; vertices, std::span&lt; const uint32_t &gt; indices)'],['../classCalgine_1_1Mesh.html#a6d6c694c16201b6abc5a8c100108db14',1,'Calgine::Mesh::Mesh(Mesh &amp;&amp;)=default']]],
-  ['meshrenderer_12',['meshrenderer',['../classCalgine_1_1MeshRenderer.html#ae00e59dde297967364d615b6c952eb11',1,'Calgine::MeshRenderer::MeshRenderer()=default'],['../classCalgine_1_1MeshRenderer.html#aa3c6db368f22b70027f2fc868c4332e2',1,'Calgine::MeshRenderer::MeshRenderer(std::shared_ptr&lt; Model &gt; model)']]]
+  ['late_5ftick_0',['late_tick',['../classCalgine_1_1Behaviour.html#ab92f603c2bc2cbfdd9fbfaa9fdc404ce',1,'Calgine::Behaviour']]],
+  ['list_5fregistered_1',['list_registered',['../classCalgine_1_1BehaviourRegistry.html#ab7f80af0ef0d4205fb6ecdf435ab3529',1,'Calgine::BehaviourRegistry']]],
+  ['load_5finput_5fconfig_2',['load_input_config',['../classCalgine_1_1AssetManager.html#a9caf53b52d33b59941e1a8c0ec189473',1,'Calgine::AssetManager']]],
+  ['load_5fmodel_3',['load_model',['../classCalgine_1_1AssetManager.html#a23a4fc867619f4c63a261ca5fa6a4242',1,'Calgine::AssetManager']]],
+  ['load_5fshader_4',['load_shader',['../classCalgine_1_1AssetManager.html#a4ab3feef9dad6065bd83f6a2313c43b2',1,'Calgine::AssetManager']]],
+  ['load_5ftexture_5',['load_texture',['../classCalgine_1_1AssetManager.html#a3067af1baa0ecd164a31cbc617ab45a4',1,'Calgine::AssetManager']]],
+  ['loadmtl_6',['LoadMtl',['../namespacetinyobj.html#aa7a035d152857396e5cde8ebff8b2b9e',1,'tinyobj']]],
+  ['loadobj_7',['loadobj',['../namespacetinyobj.html#a5678f6df6cb6d01bb89453022d997503',1,'tinyobj::LoadObj(attrib_t *attrib, std::vector&lt; shape_t &gt; *shapes, std::vector&lt; material_t &gt; *materials, std::string *err, const char *filename, const char *mtl_basedir=NULL, bool triangulate=true)'],['../namespacetinyobj.html#ad1e942879313375fcd1b08b7d6e7f89d',1,'tinyobj::LoadObj(attrib_t *attrib, std::vector&lt; shape_t &gt; *shapes, std::vector&lt; material_t &gt; *materials, std::string *err, std::istream *inStream, MaterialReader *readMatFn=NULL, bool triangulate=true)']]],
+  ['loadobjwithcallback_8',['LoadObjWithCallback',['../namespacetinyobj.html#add9ad979e8011ccdfac2e1ec8def5359',1,'tinyobj']]]
 ];

@@ -8,5 +8,7 @@ var structCalgine_1_1AppSettings =
     [ "framebuffer_width", "structCalgine_1_1AppSettings.html#a93f4fde3e5f552ba77935227a5b51247", null ],
     [ "imgui_config_path", "structCalgine_1_1AppSettings.html#a792e2f8ceb144b7e13fe2c6b9b5e7547", null ],
     [ "imgui_context", "structCalgine_1_1AppSettings.html#a9a400188cc53d6a4a7a3c12c47c9fc56", null ],
+    [ "max_fixed_steps_per_frame", "structCalgine_1_1AppSettings.html#ae2cb6906108d5f4fd7502026e82dda4d", null ],
+    [ "physics", "structCalgine_1_1AppSettings.html#acaea9a4eb8a3fbf3860678b505a830b1", null ],
     [ "render_framebuffer_to_screen", "structCalgine_1_1AppSettings.html#a934eb71fcaf71fc90dcdc34afc2c601b", null ]
 ];

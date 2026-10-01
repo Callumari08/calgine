@@ -1,0 +1,146 @@
+\doxysection{Calgine\+::Physics\+Settings Struct Reference}
+\hypertarget{structCalgine_1_1PhysicsSettings}{}\label{structCalgine_1_1PhysicsSettings}\index{Calgine::PhysicsSettings@{Calgine::PhysicsSettings}}
+
+
+Physics configuration, set through app.\+settings.\+physics before \doxylink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{App\+::start\+\_\+systems()}.  
+
+
+
+
+{\ttfamily \#include $<$physics\+\_\+settings.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{structCalgine_1_1PhysicsSettings_ab312e4fc54b72dc2cabe43afc05c9362}{gravity}} = glm\+::vec3(0.\+0f, -\/9.\+81f, 0.\+0f)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsSettings_a0bc269f40f535633bcb1707bccb065d2}{max\+\_\+bodies}} = 65536
+\begin{DoxyCompactList}\small\item\em Maximum number of bodies that can exist at once. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsSettings_a1e9f8b4bb7141fa7d33c3c488136834b}{max\+\_\+body\+\_\+pairs}} = 65536
+\begin{DoxyCompactList}\small\item\em Maximum number of body pairs whose bounding boxes overlap at once. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsSettings_a14770117ccce9e2d99c362976eeef7e3}{max\+\_\+contact\+\_\+constraints}} = 65536
+\begin{DoxyCompactList}\small\item\em Maximum number of contact constraints (roughly touching pairs x contact points) per step. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsSettings_aad852833bfbd987b0f7670a2bc040ed3}{temp\+\_\+allocator\+\_\+mb}} = 10
+\begin{DoxyCompactList}\small\item\em Scratch memory preallocated for each step, in megabytes. Falls back to malloc when exceeded. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structCalgine_1_1PhysicsSettings_afd1d8444736306df85a6188112116f45}{worker\+\_\+threads}} = -\/1
+\begin{DoxyCompactList}\small\item\em Physics worker threads. -\/1 means one per CPU core, minus one. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structCalgine_1_1PhysicsSettings_a05bccb99e066a251229c571a31843a2d}{collision\+\_\+steps}} = 1
+\begin{DoxyCompactList}\small\item\em Collision sub-\/steps per fixed step. Raise for fast or very stiff setups (costs proportionally more). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structCalgine_1_1PhysicsSettings_af6cbb730a5e31d12daaf89e9468f3632}{interpolation}} = true
+\begin{DoxyCompactList}\small\item\em Draw moving bodies at a pose blended between the last two physics steps. Makes motion smooth at any frame rate, at the cost of drawing up to one step (1/60 s) behind. Individual bodies can opt out with \doxylink{structCalgine_1_1RigidBodySettings_a0a78dcc86263c8a53631ba83819e0e1c}{Rigid\+Body\+Settings\+::interpolate}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structCalgine_1_1PhysicsSettings_a98cc6c0bee4593c9b452210cfd167982}{warn\+\_\+kinematic\+\_\+moved\+\_\+outside\+\_\+fixed\+\_\+update}} = true
+\begin{DoxyCompactList}\small\item\em \doxylink{classCalgine_1_1Log}{Log} a one-\/time warning when a kinematic body is moved outside fixed\+\_\+update\+\_\+tick() (its collider will trail it). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings}{Collision\+Layer\+Settings}} \mbox{\hyperlink{structCalgine_1_1PhysicsSettings_ad58bbae70579f5712cbc3520644ac64d}{layers}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Physics configuration, set through app.\+settings.\+physics before \doxylink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{App\+::start\+\_\+systems()}. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{app.settings.physics.gravity\ =\ glm::vec3(0.0f,\ -\/20.0f,\ 0.0f);}
+\DoxyCodeLine{app.settings.physics.max\_bodies\ =\ 100000;}
+\DoxyCodeLine{app.start\_systems();}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCalgine_1_1PhysicsSettings_a05bccb99e066a251229c571a31843a2d}\label{structCalgine_1_1PhysicsSettings_a05bccb99e066a251229c571a31843a2d} 
+\index{Calgine::PhysicsSettings@{Calgine::PhysicsSettings}!collision\_steps@{collision\_steps}}
+\index{collision\_steps@{collision\_steps}!Calgine::PhysicsSettings@{Calgine::PhysicsSettings}}
+\doxysubsubsection{\texorpdfstring{collision\_steps}{collision\_steps}}
+{\footnotesize\ttfamily int Calgine\+::\+Physics\+Settings\+::collision\+\_\+steps = 1}
+
+
+
+Collision sub-\/steps per fixed step. Raise for fast or very stiff setups (costs proportionally more). 
+
+\Hypertarget{structCalgine_1_1PhysicsSettings_ab312e4fc54b72dc2cabe43afc05c9362}\label{structCalgine_1_1PhysicsSettings_ab312e4fc54b72dc2cabe43afc05c9362} 
+\index{Calgine::PhysicsSettings@{Calgine::PhysicsSettings}!gravity@{gravity}}
+\index{gravity@{gravity}!Calgine::PhysicsSettings@{Calgine::PhysicsSettings}}
+\doxysubsubsection{\texorpdfstring{gravity}{gravity}}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Physics\+Settings\+::gravity = glm\+::vec3(0.\+0f, -\/9.\+81f, 0.\+0f)}
+
+\Hypertarget{structCalgine_1_1PhysicsSettings_af6cbb730a5e31d12daaf89e9468f3632}\label{structCalgine_1_1PhysicsSettings_af6cbb730a5e31d12daaf89e9468f3632} 
+\index{Calgine::PhysicsSettings@{Calgine::PhysicsSettings}!interpolation@{interpolation}}
+\index{interpolation@{interpolation}!Calgine::PhysicsSettings@{Calgine::PhysicsSettings}}
+\doxysubsubsection{\texorpdfstring{interpolation}{interpolation}}
+{\footnotesize\ttfamily bool Calgine\+::\+Physics\+Settings\+::interpolation = true}
+
+
+
+Draw moving bodies at a pose blended between the last two physics steps. Makes motion smooth at any frame rate, at the cost of drawing up to one step (1/60 s) behind. Individual bodies can opt out with \doxylink{structCalgine_1_1RigidBodySettings_a0a78dcc86263c8a53631ba83819e0e1c}{Rigid\+Body\+Settings\+::interpolate}. 
+
+\Hypertarget{structCalgine_1_1PhysicsSettings_ad58bbae70579f5712cbc3520644ac64d}\label{structCalgine_1_1PhysicsSettings_ad58bbae70579f5712cbc3520644ac64d} 
+\index{Calgine::PhysicsSettings@{Calgine::PhysicsSettings}!layers@{layers}}
+\index{layers@{layers}!Calgine::PhysicsSettings@{Calgine::PhysicsSettings}}
+\doxysubsubsection{\texorpdfstring{layers}{layers}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings}{Collision\+Layer\+Settings}} Calgine\+::\+Physics\+Settings\+::layers}
+
+\Hypertarget{structCalgine_1_1PhysicsSettings_a0bc269f40f535633bcb1707bccb065d2}\label{structCalgine_1_1PhysicsSettings_a0bc269f40f535633bcb1707bccb065d2} 
+\index{Calgine::PhysicsSettings@{Calgine::PhysicsSettings}!max\_bodies@{max\_bodies}}
+\index{max\_bodies@{max\_bodies}!Calgine::PhysicsSettings@{Calgine::PhysicsSettings}}
+\doxysubsubsection{\texorpdfstring{max\_bodies}{max\_bodies}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Physics\+Settings\+::max\+\_\+bodies = 65536}
+
+
+
+Maximum number of bodies that can exist at once. 
+
+\Hypertarget{structCalgine_1_1PhysicsSettings_a1e9f8b4bb7141fa7d33c3c488136834b}\label{structCalgine_1_1PhysicsSettings_a1e9f8b4bb7141fa7d33c3c488136834b} 
+\index{Calgine::PhysicsSettings@{Calgine::PhysicsSettings}!max\_body\_pairs@{max\_body\_pairs}}
+\index{max\_body\_pairs@{max\_body\_pairs}!Calgine::PhysicsSettings@{Calgine::PhysicsSettings}}
+\doxysubsubsection{\texorpdfstring{max\_body\_pairs}{max\_body\_pairs}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Physics\+Settings\+::max\+\_\+body\+\_\+pairs = 65536}
+
+
+
+Maximum number of body pairs whose bounding boxes overlap at once. 
+
+\Hypertarget{structCalgine_1_1PhysicsSettings_a14770117ccce9e2d99c362976eeef7e3}\label{structCalgine_1_1PhysicsSettings_a14770117ccce9e2d99c362976eeef7e3} 
+\index{Calgine::PhysicsSettings@{Calgine::PhysicsSettings}!max\_contact\_constraints@{max\_contact\_constraints}}
+\index{max\_contact\_constraints@{max\_contact\_constraints}!Calgine::PhysicsSettings@{Calgine::PhysicsSettings}}
+\doxysubsubsection{\texorpdfstring{max\_contact\_constraints}{max\_contact\_constraints}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Physics\+Settings\+::max\+\_\+contact\+\_\+constraints = 65536}
+
+
+
+Maximum number of contact constraints (roughly touching pairs x contact points) per step. 
+
+\Hypertarget{structCalgine_1_1PhysicsSettings_aad852833bfbd987b0f7670a2bc040ed3}\label{structCalgine_1_1PhysicsSettings_aad852833bfbd987b0f7670a2bc040ed3} 
+\index{Calgine::PhysicsSettings@{Calgine::PhysicsSettings}!temp\_allocator\_mb@{temp\_allocator\_mb}}
+\index{temp\_allocator\_mb@{temp\_allocator\_mb}!Calgine::PhysicsSettings@{Calgine::PhysicsSettings}}
+\doxysubsubsection{\texorpdfstring{temp\_allocator\_mb}{temp\_allocator\_mb}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Physics\+Settings\+::temp\+\_\+allocator\+\_\+mb = 10}
+
+
+
+Scratch memory preallocated for each step, in megabytes. Falls back to malloc when exceeded. 
+
+\Hypertarget{structCalgine_1_1PhysicsSettings_a98cc6c0bee4593c9b452210cfd167982}\label{structCalgine_1_1PhysicsSettings_a98cc6c0bee4593c9b452210cfd167982} 
+\index{Calgine::PhysicsSettings@{Calgine::PhysicsSettings}!warn\_kinematic\_moved\_outside\_fixed\_update@{warn\_kinematic\_moved\_outside\_fixed\_update}}
+\index{warn\_kinematic\_moved\_outside\_fixed\_update@{warn\_kinematic\_moved\_outside\_fixed\_update}!Calgine::PhysicsSettings@{Calgine::PhysicsSettings}}
+\doxysubsubsection{\texorpdfstring{warn\_kinematic\_moved\_outside\_fixed\_update}{warn\_kinematic\_moved\_outside\_fixed\_update}}
+{\footnotesize\ttfamily bool Calgine\+::\+Physics\+Settings\+::warn\+\_\+kinematic\+\_\+moved\+\_\+outside\+\_\+fixed\+\_\+update = true}
+
+
+
+\doxylink{classCalgine_1_1Log}{Log} a one-\/time warning when a kinematic body is moved outside fixed\+\_\+update\+\_\+tick() (its collider will trail it). 
+
+\Hypertarget{structCalgine_1_1PhysicsSettings_afd1d8444736306df85a6188112116f45}\label{structCalgine_1_1PhysicsSettings_afd1d8444736306df85a6188112116f45} 
+\index{Calgine::PhysicsSettings@{Calgine::PhysicsSettings}!worker\_threads@{worker\_threads}}
+\index{worker\_threads@{worker\_threads}!Calgine::PhysicsSettings@{Calgine::PhysicsSettings}}
+\doxysubsubsection{\texorpdfstring{worker\_threads}{worker\_threads}}
+{\footnotesize\ttfamily int Calgine\+::\+Physics\+Settings\+::worker\+\_\+threads = -\/1}
+
+
+
+Physics worker threads. -\/1 means one per CPU core, minus one. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/physics/\mbox{\hyperlink{physics__settings_8h}{physics\+\_\+settings.\+h}}\end{DoxyCompactItemize}

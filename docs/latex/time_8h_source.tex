@@ -17,30 +17,37 @@
 \DoxyCodeLine{00013\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCalgine_1_1Time_a1b1984a78828f7a20fb57ca4632156e5}{time}}()\ \{\ \textcolor{keywordflow}{return}\ Time::get\_instance().get\_time();\ \}}
 \DoxyCodeLine{00014\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1Time_ac039298fea4c2f0ca463943f5af1ae9a}{delta\_time}}()\ \{\ \textcolor{keywordflow}{return}\ Time::get\_instance().get\_delta\_time();\ \}}
 \DoxyCodeLine{00015\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1Time_a812eed673100109263c73a08ab5f6d8b}{fixed\_delta\_time}}()\ \{\ \textcolor{keywordflow}{return}\ Time::get\_instance().get\_fixed\_delta\_time();\ \}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1Time_a478b60c4750da7ff55bb68671da82315}{get\_time}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ t;\ \}}
-\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1Time_a1d27de524a7359756c625e850fb6c942}{get\_delta\_time}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ dt;\ \}}
-\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1Time_a598d7aef24c1484c1568a10ca5d8bfb4}{get\_fixed\_delta\_time}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ fixed\_dt;\ \}}
-\DoxyCodeLine{00020\ \ \ }
-\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{int}\ consume\_fixed\_timesteps();}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}\ init();}
-\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tick__type_8h_a1586ef54a6e26a57539d06db6e6c78b5}{update}}();}
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1Time_aa0c53a44c37531d1315417745c01802c}{fixed\_alpha}}()\ \{\ \textcolor{keywordflow}{return}\ Time::get\_instance().get\_fixed\_alpha();\ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1Time_a478b60c4750da7ff55bb68671da82315}{get\_time}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ t;\ \}}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1Time_a1d27de524a7359756c625e850fb6c942}{get\_delta\_time}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ dt;\ \}}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1Time_a598d7aef24c1484c1568a10ca5d8bfb4}{get\_fixed\_delta\_time}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ fixed\_dt;\ \}}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCalgine_1_1Time_ae50863408e6305969812cfc3bf8628e4}{get\_fixed\_alpha}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ fixed\_dt\ >\ 0.0f\ ?\ accumulated\_time\ /\ fixed\_dt\ :\ 0.0f;\ \}}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{double}\ t\ =\ 0.0f;}
-\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{float}\ dt\ =\ 1.0f;}
-\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{float}\ fixed\_dt\ =\ 1.0f\ /\ 60.0f;}
-\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{float}\ accumulated\_time\ =\ 0.0f;}
+\DoxyCodeLine{00028\ \ \ uint64\_t\ \mbox{\hyperlink{classCalgine_1_1Time_a8ded2ad91089c855e044d1890cac1214}{get\_dropped\_fixed\_steps}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ dropped\_fixed\_steps;\ \}}
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCalgine_1_1Time_a17b3f7ec6bd4723bb7220bdaab6b4ac6}{get\_last\_dropped\_fixed\_steps}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ last\_dropped\_fixed\_steps;\ \}}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{float}\ previous\_time\ =\ 0.0f;}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ uint64\_t\ frequency\ =\ 0;}
-\DoxyCodeLine{00035\ \ \ uint64\_t\ previous\_counter\ =\ 0;}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1App}{App}};}
-\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{int}\ consume\_fixed\_timesteps(\textcolor{keywordtype}{int}\ max\_steps\ =\ 0);}
 \DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \}}
+\DoxyCodeLine{00040\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ init();}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tick__type_8h_a1586ef54a6e26a57539d06db6e6c78b5}{update}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{double}\ t\ =\ 0.0f;}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{float}\ dt\ =\ 1.0f;}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{float}\ fixed\_dt\ =\ 1.0f\ /\ 60.0f;}
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{float}\ accumulated\_time\ =\ 0.0f;}
+\DoxyCodeLine{00048\ \ \ uint64\_t\ dropped\_fixed\_steps\ =\ 0;}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{int}\ last\_dropped\_fixed\_steps\ =\ 0;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{float}\ previous\_time\ =\ 0.0f;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ uint64\_t\ frequency\ =\ 0;}
+\DoxyCodeLine{00054\ \ \ uint64\_t\ previous\_counter\ =\ 0;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1App}{App}};}
+\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \}}
 
 \end{DoxyCode}

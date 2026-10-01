@@ -9,7 +9,25 @@
 \item 
 JPH\+::\+Body\+Interface \& \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a4ab39e18e65f354bc49d38f1518a5a4d}{body\+\_\+interface}} ()
 \item 
+\mbox{\hyperlink{structCalgine_1_1BodyRecord}{Body\+Record}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a02b65ea146251f81c322ad5db22d1766}{record}} (uint32\+\_\+t id)
+\item 
 \mbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a6a9605c16ef7b314bd762afb46ae35ec}{find}} (const JPH\+::\+Body\+ID \&id) const
+\item 
+JPH\+::\+Ref\+Const$<$ JPH\+::\+Shape $>$ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a26f52cba0ebd29c1cc393863fa23616f}{build\+\_\+shape}} (const \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} \&shape, const glm\+::vec3 \&\mbox{\hyperlink{physics__world_8cxx_ae6df3ca57fc92d1bddbfc258593ec29a}{world\+\_\+scale}}, \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{Motion\+Type}} motion, const std\+::string \&owner\+\_\+name)
+\item 
+JPH\+::\+Ref\+Const$<$ JPH\+::\+Shape $>$ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ac552020cb969f838bba577739cd0b28d}{get\+\_\+model\+\_\+shape}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ \&\mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d}{model}}, bool triangle\+\_\+mesh, const std\+::string \&owner\+\_\+name)
+\item 
+\mbox{\hyperlink{structCalgine_1_1Pose}{Pose}} \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a6765e74896c8becf2d4f80ee956bc993}{read\+\_\+body\+\_\+pose}} (const JPH\+::\+Body\+ID \&id)
+\item 
+bool \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ac73150c66d03942ba6cc5736cffbd2da}{try\+\_\+create\+\_\+joint}} (\mbox{\hyperlink{classCalgine_1_1Joint}{Joint}} \texorpdfstring{$\ast$}{*}joint)
+\item 
+void \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a4d73511a679868ed92d7efd57e75500e}{remove\+\_\+joint}} (uint32\+\_\+t joint\+\_\+id)
+\item 
+void \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_af11a90a52ac5a760e90c5b34b2eef32a}{remove\+\_\+joints\+\_\+of\+\_\+body}} (uint32\+\_\+t body\+\_\+id)
+\item 
+void \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a9f3619716b518baa4761360563699c24}{refresh\+\_\+joints\+\_\+of\+\_\+body}} (uint32\+\_\+t body\+\_\+id)
+\item 
+void \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a3afd940c53b5c5dad11441866665f93d}{update\+\_\+joint\+\_\+enabled}} (\mbox{\hyperlink{structCalgine_1_1JointRecord}{Joint\+Record}} \&\mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a02b65ea146251f81c322ad5db22d1766}{record}})
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -28,11 +46,26 @@ std\+::unique\+\_\+ptr$<$ JPH\+::\+Physics\+System $>$ \mbox{\hyperlink{structCa
 \item 
 \mbox{\hyperlink{classCalgine_1_1ContactQueue}{Contact\+Queue}} \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a985b39ba20cf0a5dd816f003ade681c5}{contact\+\_\+queue}}
 \item 
-std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \mbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ae59b6da4fb40bccc59c2beb49b4f94f1}{bodies}}
+std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \mbox{\hyperlink{structCalgine_1_1BodyRecord}{Body\+Record}} $>$ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}
+\item 
+std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \mbox{\hyperlink{structCalgine_1_1JointRecord}{Joint\+Record}} $>$ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a1e74ee0f29cd6104d5062e096f514324}{joints}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aabf1c5c56a9c7f1703ae2c28433ee252}{next\+\_\+joint\+\_\+id}} = 0
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classCalgine_1_1Joint}{Joint}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_af2b2aafea97012a80efe08b2c9551d6c}{pending\+\_\+joints}}
+\item 
+std\+::unordered\+\_\+map$<$ const \mbox{\hyperlink{structCalgine_1_1Model}{Model}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structCalgine_1_1ModelShapes}{Model\+Shapes}} $>$ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a749a68a396d5b7152149b9a93364417a}{model\+\_\+shapes}}
+\item 
+float \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ad5c3b13c423537d1c39f501b6e320175}{last\+\_\+alpha}} = 1.\+0f
 \item 
 uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aabda759e8f510fbd6478754f602f7493}{last\+\_\+logged\+\_\+error}} = 0
 \item 
 std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aa1f5fe6088285d4214c454c9d61f68d5}{last\+\_\+error\+\_\+log\+\_\+time}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a0c0225a51cf01ab8cf13c44fd2bfe808}{invalid\+\_\+id}} = 0xffffffff
 \end{DoxyCompactItemize}
 
 
@@ -43,22 +76,76 @@ std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{structCal
 \doxysubsubsection{\texorpdfstring{body\_interface()}{body\_interface()}}
 {\footnotesize\ttfamily JPH\+::\+Body\+Interface \& Calgine\+::\+Physics\+World\+::\+Impl\+::body\+\_\+interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a26f52cba0ebd29c1cc393863fa23616f}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a26f52cba0ebd29c1cc393863fa23616f} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!build\_shape@{build\_shape}}
+\index{build\_shape@{build\_shape}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{build\_shape()}{build\_shape()}}
+{\footnotesize\ttfamily JPH\+::\+Ref\+Const$<$ JPH\+::\+Shape $>$ Calgine\+::\+Physics\+World\+::\+Impl\+::build\+\_\+shape (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} \&}]{shape,  }\item[{const glm\+::vec3 \&}]{world\+\_\+scale,  }\item[{\mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{Motion\+Type}}}]{motion,  }\item[{const std\+::string \&}]{owner\+\_\+name }\end{DoxyParamCaption})}
+
 \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a6a9605c16ef7b314bd762afb46ae35ec}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a6a9605c16ef7b314bd762afb46ae35ec} 
 \index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!find@{find}}
 \index{find@{find}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
 \doxysubsubsection{\texorpdfstring{find()}{find()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}} \texorpdfstring{$\ast$}{*} Calgine\+::\+Physics\+World\+::\+Impl\+::find (\begin{DoxyParamCaption}\item[{const JPH\+::\+Body\+ID \&}]{id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_ac552020cb969f838bba577739cd0b28d}\label{structCalgine_1_1PhysicsWorld_1_1Impl_ac552020cb969f838bba577739cd0b28d} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!get\_model\_shape@{get\_model\_shape}}
+\index{get\_model\_shape@{get\_model\_shape}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{get\_model\_shape()}{get\_model\_shape()}}
+{\footnotesize\ttfamily JPH\+::\+Ref\+Const$<$ JPH\+::\+Shape $>$ Calgine\+::\+Physics\+World\+::\+Impl\+::get\+\_\+model\+\_\+shape (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCalgine_1_1Model}{Model}} $>$ \&}]{model,  }\item[{bool}]{triangle\+\_\+mesh,  }\item[{const std\+::string \&}]{owner\+\_\+name }\end{DoxyParamCaption})}
+
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a6765e74896c8becf2d4f80ee956bc993}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a6765e74896c8becf2d4f80ee956bc993} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!read\_body\_pose@{read\_body\_pose}}
+\index{read\_body\_pose@{read\_body\_pose}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{read\_body\_pose()}{read\_body\_pose()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCalgine_1_1Pose}{Pose}} Calgine\+::\+Physics\+World\+::\+Impl\+::read\+\_\+body\+\_\+pose (\begin{DoxyParamCaption}\item[{const JPH\+::\+Body\+ID \&}]{id }\end{DoxyParamCaption})}
+
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a02b65ea146251f81c322ad5db22d1766}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a02b65ea146251f81c322ad5db22d1766} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!record@{record}}
+\index{record@{record}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{record()}{record()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCalgine_1_1BodyRecord}{Body\+Record}} \texorpdfstring{$\ast$}{*} Calgine\+::\+Physics\+World\+::\+Impl\+::record (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a9f3619716b518baa4761360563699c24}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a9f3619716b518baa4761360563699c24} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!refresh\_joints\_of\_body@{refresh\_joints\_of\_body}}
+\index{refresh\_joints\_of\_body@{refresh\_joints\_of\_body}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{refresh\_joints\_of\_body()}{refresh\_joints\_of\_body()}}
+{\footnotesize\ttfamily void Calgine\+::\+Physics\+World\+::\+Impl\+::refresh\+\_\+joints\+\_\+of\+\_\+body (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{body\+\_\+id }\end{DoxyParamCaption})}
+
+Enables/disables joints attached to {\ttfamily body\+\_\+id} when it enters or leaves the simulation. \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a4d73511a679868ed92d7efd57e75500e}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a4d73511a679868ed92d7efd57e75500e} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!remove\_joint@{remove\_joint}}
+\index{remove\_joint@{remove\_joint}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{remove\_joint()}{remove\_joint()}}
+{\footnotesize\ttfamily void Calgine\+::\+Physics\+World\+::\+Impl\+::remove\+\_\+joint (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{joint\+\_\+id }\end{DoxyParamCaption})}
+
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_af11a90a52ac5a760e90c5b34b2eef32a}\label{structCalgine_1_1PhysicsWorld_1_1Impl_af11a90a52ac5a760e90c5b34b2eef32a} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!remove\_joints\_of\_body@{remove\_joints\_of\_body}}
+\index{remove\_joints\_of\_body@{remove\_joints\_of\_body}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{remove\_joints\_of\_body()}{remove\_joints\_of\_body()}}
+{\footnotesize\ttfamily void Calgine\+::\+Physics\+World\+::\+Impl\+::remove\+\_\+joints\+\_\+of\+\_\+body (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{body\+\_\+id }\end{DoxyParamCaption})}
+
+Removes (and breaks) every joint attached to {\ttfamily body\+\_\+id}. Call before destroying the body. \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_ac73150c66d03942ba6cc5736cffbd2da}\label{structCalgine_1_1PhysicsWorld_1_1Impl_ac73150c66d03942ba6cc5736cffbd2da} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!try\_create\_joint@{try\_create\_joint}}
+\index{try\_create\_joint@{try\_create\_joint}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{try\_create\_joint()}{try\_create\_joint()}}
+{\footnotesize\ttfamily bool Calgine\+::\+Physics\+World\+::\+Impl\+::try\+\_\+create\+\_\+joint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalgine_1_1Joint}{Joint}} \texorpdfstring{$\ast$}{*}}]{joint }\end{DoxyParamCaption})}
+
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a3afd940c53b5c5dad11441866665f93d}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a3afd940c53b5c5dad11441866665f93d} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!update\_joint\_enabled@{update\_joint\_enabled}}
+\index{update\_joint\_enabled@{update\_joint\_enabled}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{update\_joint\_enabled()}{update\_joint\_enabled()}}
+{\footnotesize\ttfamily void Calgine\+::\+Physics\+World\+::\+Impl\+::update\+\_\+joint\+\_\+enabled (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCalgine_1_1JointRecord}{Joint\+Record}} \&}]{record }\end{DoxyParamCaption})}
+
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_ae59b6da4fb40bccc59c2beb49b4f94f1}\label{structCalgine_1_1PhysicsWorld_1_1Impl_ae59b6da4fb40bccc59c2beb49b4f94f1} 
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08} 
 \index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!bodies@{bodies}}
 \index{bodies@{bodies}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
 \doxysubsubsection{\texorpdfstring{bodies}{bodies}}
-{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$uint32\+\_\+t, \mbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}}\texorpdfstring{$\ast$}{*}$>$ Calgine\+::\+Physics\+World\+::\+Impl\+::bodies}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$uint32\+\_\+t, \mbox{\hyperlink{structCalgine_1_1BodyRecord}{Body\+Record}}$>$ Calgine\+::\+Physics\+World\+::\+Impl\+::bodies}
 
-Body ID (index + sequence) -\/\texorpdfstring{$>$}{>} owning \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body}. Only touched on the main thread. \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_aea6e98567ab00d54556675bda45dfb98}\label{structCalgine_1_1PhysicsWorld_1_1Impl_aea6e98567ab00d54556675bda45dfb98} 
+Body ID (index + sequence) -\/\texorpdfstring{$>$}{>} record. \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_aea6e98567ab00d54556675bda45dfb98}\label{structCalgine_1_1PhysicsWorld_1_1Impl_aea6e98567ab00d54556675bda45dfb98} 
 \index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!broad\_phase\_layer\_interface@{broad\_phase\_layer\_interface}}
 \index{broad\_phase\_layer\_interface@{broad\_phase\_layer\_interface}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
 \doxysubsubsection{\texorpdfstring{broad\_phase\_layer\_interface}{broad\_phase\_layer\_interface}}
@@ -70,13 +157,31 @@ Body ID (index + sequence) -\/\texorpdfstring{$>$}{>} owning \doxylink{classCalg
 \doxysubsubsection{\texorpdfstring{contact\_queue}{contact\_queue}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1ContactQueue}{Contact\+Queue}} Calgine\+::\+Physics\+World\+::\+Impl\+::contact\+\_\+queue}
 
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a0c0225a51cf01ab8cf13c44fd2bfe808}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a0c0225a51cf01ab8cf13c44fd2bfe808} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!invalid\_id@{invalid\_id}}
+\index{invalid\_id@{invalid\_id}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{invalid\_id}{invalid\_id}}
+{\footnotesize\ttfamily constexpr uint32\+\_\+t Calgine\+::\+Physics\+World\+::\+Impl\+::invalid\+\_\+id = 0xffffffff\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
 \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a4ba8febd1ec24e63ccf6db703fc9607e}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a4ba8febd1ec24e63ccf6db703fc9607e} 
 \index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!job\_system@{job\_system}}
 \index{job\_system@{job\_system}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
 \doxysubsubsection{\texorpdfstring{job\_system}{job\_system}}
 {\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$JPH\+::\+Job\+System\+Thread\+Pool$>$ Calgine\+::\+Physics\+World\+::\+Impl\+::job\+\_\+system}
 
-\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_aa1f5fe6088285d4214c454c9d61f68d5}\label{structCalgine_1_1PhysicsWorld_1_1Impl_aa1f5fe6088285d4214c454c9d61f68d5} 
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a1e74ee0f29cd6104d5062e096f514324}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a1e74ee0f29cd6104d5062e096f514324} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!joints@{joints}}
+\index{joints@{joints}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{joints}{joints}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$uint32\+\_\+t, \mbox{\hyperlink{structCalgine_1_1JointRecord}{Joint\+Record}}$>$ Calgine\+::\+Physics\+World\+::\+Impl\+::joints}
+
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_ad5c3b13c423537d1c39f501b6e320175}\label{structCalgine_1_1PhysicsWorld_1_1Impl_ad5c3b13c423537d1c39f501b6e320175} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!last\_alpha@{last\_alpha}}
+\index{last\_alpha@{last\_alpha}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{last\_alpha}{last\_alpha}}
+{\footnotesize\ttfamily float Calgine\+::\+Physics\+World\+::\+Impl\+::last\+\_\+alpha = 1.\+0f}
+
+Blend factor used for the last interpolation, reused by debug drawing so wireframes match meshes. \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_aa1f5fe6088285d4214c454c9d61f68d5}\label{structCalgine_1_1PhysicsWorld_1_1Impl_aa1f5fe6088285d4214c454c9d61f68d5} 
 \index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!last\_error\_log\_time@{last\_error\_log\_time}}
 \index{last\_error\_log\_time@{last\_error\_log\_time}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
 \doxysubsubsection{\texorpdfstring{last\_error\_log\_time}{last\_error\_log\_time}}
@@ -88,7 +193,19 @@ Body ID (index + sequence) -\/\texorpdfstring{$>$}{>} owning \doxylink{classCalg
 \doxysubsubsection{\texorpdfstring{last\_logged\_error}{last\_logged\_error}}
 {\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Physics\+World\+::\+Impl\+::last\+\_\+logged\+\_\+error = 0}
 
-Last EPhysics\+Update\+Error flags that were logged, and when (to avoid logging every step). \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a2d3d82ad68861e3dd0ba4835672bb1ca}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a2d3d82ad68861e3dd0ba4835672bb1ca} 
+Last EPhysics\+Update\+Error flags that were logged, and when (to avoid logging every step). \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a749a68a396d5b7152149b9a93364417a}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a749a68a396d5b7152149b9a93364417a} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!model\_shapes@{model\_shapes}}
+\index{model\_shapes@{model\_shapes}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{model\_shapes}{model\_shapes}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$const \mbox{\hyperlink{structCalgine_1_1Model}{Model}}\texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structCalgine_1_1ModelShapes}{Model\+Shapes}}$>$ Calgine\+::\+Physics\+World\+::\+Impl\+::model\+\_\+shapes}
+
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_aabf1c5c56a9c7f1703ae2c28433ee252}\label{structCalgine_1_1PhysicsWorld_1_1Impl_aabf1c5c56a9c7f1703ae2c28433ee252} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!next\_joint\_id@{next\_joint\_id}}
+\index{next\_joint\_id@{next\_joint\_id}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{next\_joint\_id}{next\_joint\_id}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Physics\+World\+::\+Impl\+::next\+\_\+joint\+\_\+id = 0}
+
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a2d3d82ad68861e3dd0ba4835672bb1ca}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a2d3d82ad68861e3dd0ba4835672bb1ca} 
 \index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!object\_pair\_filter@{object\_pair\_filter}}
 \index{object\_pair\_filter@{object\_pair\_filter}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
 \doxysubsubsection{\texorpdfstring{object\_pair\_filter}{object\_pair\_filter}}
@@ -100,7 +217,13 @@ Last EPhysics\+Update\+Error flags that were logged, and when (to avoid logging 
 \doxysubsubsection{\texorpdfstring{object\_vs\_broad\_phase\_filter}{object\_vs\_broad\_phase\_filter}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1ObjectVsBroadPhaseLayerFilterImpl}{Object\+Vs\+Broad\+Phase\+Layer\+Filter\+Impl}} Calgine\+::\+Physics\+World\+::\+Impl\+::object\+\_\+vs\+\_\+broad\+\_\+phase\+\_\+filter}
 
-\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a01febca20c987b8812ad5556042c8595}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a01febca20c987b8812ad5556042c8595} 
+\Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_af2b2aafea97012a80efe08b2c9551d6c}\label{structCalgine_1_1PhysicsWorld_1_1Impl_af2b2aafea97012a80efe08b2c9551d6c} 
+\index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!pending\_joints@{pending\_joints}}
+\index{pending\_joints@{pending\_joints}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
+\doxysubsubsection{\texorpdfstring{pending\_joints}{pending\_joints}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classCalgine_1_1Joint}{Joint}}\texorpdfstring{$\ast$}{*}$>$ Calgine\+::\+Physics\+World\+::\+Impl\+::pending\+\_\+joints}
+
+Joints waiting for their bodies to exist. \Hypertarget{structCalgine_1_1PhysicsWorld_1_1Impl_a01febca20c987b8812ad5556042c8595}\label{structCalgine_1_1PhysicsWorld_1_1Impl_a01febca20c987b8812ad5556042c8595} 
 \index{Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}!system@{system}}
 \index{system@{system}!Calgine::PhysicsWorld::Impl@{Calgine::PhysicsWorld::Impl}}
 \doxysubsubsection{\texorpdfstring{system}{system}}
@@ -114,6 +237,8 @@ Last EPhysics\+Update\+Error flags that were logged, and when (to avoid logging 
 
 
 
-The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/calgine/core/physics/\mbox{\hyperlink{physics__internal_8h}{physics\+\_\+internal.\+h}}\end{DoxyCompactItemize}
+src/calgine/core/physics/\mbox{\hyperlink{physics__internal_8h}{physics\+\_\+internal.\+h}}\item 
+src/calgine/core/physics/\mbox{\hyperlink{joint_8cxx}{joint.\+cxx}}\item 
+src/calgine/core/physics/\mbox{\hyperlink{physics__world_8cxx}{physics\+\_\+world.\+cxx}}\end{DoxyCompactItemize}

@@ -27,219 +27,232 @@
 \DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544}{enabled}}\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00028\ }
 \DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\ transform;}
-\DoxyCodeLine{00030\ \ \ std::string\ name\ =\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00031\ \ \ std::unordered\_map<std::type\_index,\ std::unique\_ptr<Behaviour>>\ behaviours;}
-\DoxyCodeLine{00032\ \ \ std::vector<std::unique\_ptr<GameObject>>\ children;}
-\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ parent\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ queue\ to\ hold\ objects\ whose\ memory\ must\ be\ released\ AFTER\ their\ member\ functions\ finish}}
-\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::vector<std::unique\_ptr<GameObject>>\ pending\_deletes;}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ tick\_self\_and\_children(\textcolor{keyword}{const}\ TickType\ tick\_type,\ \mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ process\_pending\_deletes();}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ parent,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\ transform,\ \textcolor{keyword}{const}\ std::string\ name);}
-\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{\string~GameObject}}();}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint32\_t\ \mbox{\hyperlink{classCalgine_1_1GameObject_aa1b103accd62c24bb8274c9578147dca}{get\_num\_game\_objects}}()\ \{\ \textcolor{keywordflow}{return}\ num\_game\_objects;\ \}}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ destroy();}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ std::unique\_ptr<GameObject>\ detach\_child(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ child);}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ convenience:\ immediately\ erase\ and\ delete\ child\ (use\ only\ if\ caller\ is\ external\ owner)}}
-\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{bool}\ remove\_child\_immediate(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ child);}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_a4aecf696b321ec1554a1a1caf46fd289}{GameObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_ae60d4b1987fbd4ec0458a13719d1239e}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_aa6e185519ecdf22d9754afdb2da1f701}{GameObject}}(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\&)\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_a03121f27fb122fb29542ca8c78b40e30}{operator=}}(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\&)\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1GameObject_a2166a4e0a26229a7b1ce8bbe7fb23914}{is\_enabled}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544}{enabled}};\ \}}
-\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ set\_active(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \_enabled);}
-\DoxyCodeLine{00063\ \ \ }
-\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_a406397e8c9477102f3a41424f4cfe091}{get\_transform}}()\ \{\ \textcolor{keywordflow}{return}\ transform;\ \}}
-\DoxyCodeLine{00068\ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_a5ebcf563c4a443894d35080c31a1b81b}{get\_transform}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ transform;\ \}}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/\ World\ space\ -\/-\/-\/-\/}}
-\DoxyCodeLine{00071\ \ \ \textcolor{comment}{//\ World\ values\ are\ computed\ on\ demand\ from\ the\ parent\ chain.}}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00074\ \ \ glm::mat4\ get\_world\_matrix()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00076\ \ \ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\ get\_world\_transform()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00077\ \ \ glm::vec3\ get\_world\_position()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00078\ \ \ glm::quat\ get\_world\_rotation()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00079\ \ \ glm::vec3\ get\_world\_scale()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00082\ \ \ \textcolor{keywordtype}{void}\ set\_world\_position(\textcolor{keyword}{const}\ glm::vec3\&\ position);}
-\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ set\_world\_rotation(\textcolor{keyword}{const}\ glm::quat\&\ rotation);}
-\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{void}\ set\_world\_transform(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\&\ world\_transform);}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
-\DoxyCodeLine{00090\ \ \ T\_behaviour*\ add\_behaviour(Args\&\&...\ args);}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour>}
-\DoxyCodeLine{00093\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
-\DoxyCodeLine{00094\ \ \ T\_behaviour*\ get\_behaviour()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour>}
-\DoxyCodeLine{00097\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
-\DoxyCodeLine{00098\ \ \ \textcolor{keywordtype}{bool}\ has\_behaviour()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \ \ \textcolor{comment}{//\ Deferred\ startup:\ add\ behaviour\ but\ don't\ call\ start\_tick()\ until\ start\_behaviours\_recursive()\ is\ called}}
-\DoxyCodeLine{00101\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00102\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
-\DoxyCodeLine{00103\ \ \ T\_behaviour*\ add\_behaviour\_deferred(Args\&\&...\ args);}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \ \ \textcolor{comment}{//\ Start\ all\ behaviours\ in\ this\ GameObject\ and\ children\ (called\ after\ all\ objects\ created)}}
-\DoxyCodeLine{00106\ \ \ \textcolor{keywordtype}{void}\ start\_behaviours\_recursive();}
+\DoxyCodeLine{00030\ \ \ std::optional<glm::mat4>\ render\_override;}
+\DoxyCodeLine{00031\ \ \ std::string\ name\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00032\ \ \ std::unordered\_map<std::type\_index,\ std::unique\_ptr<Behaviour>>\ behaviours;}
+\DoxyCodeLine{00033\ \ \ std::vector<std::unique\_ptr<GameObject>>\ children;}
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ parent\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ queue\ to\ hold\ objects\ whose\ memory\ must\ be\ released\ AFTER\ their\ member\ functions\ finish}}
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::vector<std::unique\_ptr<GameObject>>\ pending\_deletes;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{void}\ tick\_self\_and\_children(\textcolor{keyword}{const}\ TickType\ tick\_type,\ \mbox{\hyperlink{classCalgine_1_1EventContext}{EventContext}}\&\ event\_context);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ process\_pending\_deletes();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ parent,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\ transform,\ \textcolor{keyword}{const}\ std::string\ name);}
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{\string~GameObject}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint32\_t\ \mbox{\hyperlink{classCalgine_1_1GameObject_aa1b103accd62c24bb8274c9578147dca}{get\_num\_game\_objects}}()\ \{\ \textcolor{keywordflow}{return}\ num\_game\_objects;\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ destroy();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ std::unique\_ptr<GameObject>\ detach\_child(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ child);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{comment}{//\ convenience:\ immediately\ erase\ and\ delete\ child\ (use\ only\ if\ caller\ is\ external\ owner)}}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{bool}\ remove\_child\_immediate(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ child);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_a4aecf696b321ec1554a1a1caf46fd289}{GameObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_ae60d4b1987fbd4ec0458a13719d1239e}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_aa6e185519ecdf22d9754afdb2da1f701}{GameObject}}(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_a03121f27fb122fb29542ca8c78b40e30}{operator=}}(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1GameObject_a2166a4e0a26229a7b1ce8bbe7fb23914}{is\_enabled}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544}{enabled}};\ \}}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ set\_active(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \_enabled);}
+\DoxyCodeLine{00064\ \ \ }
+\DoxyCodeLine{00068\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_a406397e8c9477102f3a41424f4cfe091}{get\_transform}}()\ \{\ \textcolor{keywordflow}{return}\ transform;\ \}}
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_a5ebcf563c4a443894d35080c31a1b81b}{get\_transform}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ transform;\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/\ World\ space\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00072\ \ \ \textcolor{comment}{//\ World\ values\ are\ computed\ on\ demand\ from\ the\ parent\ chain.}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00075\ \ \ glm::mat4\ get\_world\_matrix()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ \ \ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\ get\_world\_transform()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ \ \ glm::vec3\ get\_world\_position()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ \ \ glm::quat\ get\_world\_rotation()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ \ \ glm::vec3\ get\_world\_scale()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{void}\ set\_world\_position(\textcolor{keyword}{const}\ glm::vec3\&\ position);}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{void}\ set\_world\_rotation(\textcolor{keyword}{const}\ glm::quat\&\ rotation);}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{void}\ set\_world\_transform(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\&\ world\_transform);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/\ Render\ space\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00090\ \ \ \textcolor{comment}{//\ What\ renderers\ and\ cameras\ draw.\ Normally\ identical\ to\ world\ space,\ but\ physics\ can\ override\ it}}
+\DoxyCodeLine{00091\ \ \ \textcolor{comment}{//\ with\ a\ pose\ blended\ between\ the\ last\ two\ physics\ steps\ (interpolation),\ so\ motion\ looks\ smooth}}
+\DoxyCodeLine{00092\ \ \ \textcolor{comment}{//\ at\ any\ frame\ rate.\ Children\ of\ an\ overridden\ object\ follow\ its\ render\ pose.}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00095\ \ \ glm::mat4\ get\_render\_matrix()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00097\ \ \ \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}}\ get\_render\_transform()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1GameObject_a780d3fa87adf7027b62aa918928801db}{set\_render\_override}}(\textcolor{keyword}{const}\ glm::mat4\&\ world\_matrix)\ \{\ render\_override\ =\ world\_matrix;\ \}}
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1GameObject_a654013081cfc2995d9afed713d2c59cf}{clear\_render\_override}}()\ \{\ render\_override.reset();\ \}}
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1GameObject_a30eb14a1a74c64900c5b369364b9137b}{has\_render\_override}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ render\_override.has\_value();\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00105\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
+\DoxyCodeLine{00106\ \ \ T\_behaviour*\ add\_behaviour(Args\&\&...\ args);}
 \DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \textcolor{comment}{//\ Add\ a\ behaviour\ by\ its\ registered\ type\ name\ (for\ runtime\ instantiation)}}
-\DoxyCodeLine{00109\ \ \ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}*\ add\_behaviour\_by\_name(\textcolor{keyword}{const}\ std::string\&\ type\_name);}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\ =\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}},\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T,\ GameObject>}
-\DoxyCodeLine{00113\ \ \ T\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_accf41615441ecc4f14ae550a1c3dba5f}{instantiate\_child}}(Args\&\&...\ args)}
-\DoxyCodeLine{00114\ \ \ \{}
-\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{auto}\ child\ =\ std::make\_unique<T>(\textcolor{keyword}{this},\ std::forward<Args>(args)...);}
-\DoxyCodeLine{00116\ \ \ \ \ children.emplace\_back(std::move(child));}
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{static\_cast<}T*\textcolor{keyword}{>}(children.back().get());}
-\DoxyCodeLine{00118\ \ \ \}}
-\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00108\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour>}
+\DoxyCodeLine{00109\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
+\DoxyCodeLine{00110\ \ \ T\_behaviour*\ get\_behaviour()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour>}
+\DoxyCodeLine{00113\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{bool}\ has\_behaviour()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \textcolor{comment}{//\ Deferred\ startup:\ add\ behaviour\ but\ don't\ call\ start\_tick()\ until\ start\_behaviours\_recursive()\ is\ called}}
+\DoxyCodeLine{00117\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00118\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
+\DoxyCodeLine{00119\ \ \ T\_behaviour*\ add\_behaviour\_deferred(Args\&\&...\ args);}
 \DoxyCodeLine{00120\ }
-\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{void}\ set\_parent(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ parent,\ \textcolor{keywordtype}{bool}\ keep\_world\_transform\ =\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{bool}\ is\_descendant\_of(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \ \ std::optional<std::reference\_wrapper<GameObject>>\ get\_parent()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00134\ }
-\DoxyCodeLine{00141\ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classCalgine_1_1GameObject_aa34deb782f6ee4aff3f225050ea0109d}{get\_name}}()}
-\DoxyCodeLine{00142\ \ \ \{}
-\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{return}\ name;}
-\DoxyCodeLine{00144\ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \textcolor{comment}{//\ Start\ all\ behaviours\ in\ this\ GameObject\ and\ children\ (called\ after\ all\ objects\ created)}}
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{void}\ start\_behaviours\_recursive();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \textcolor{comment}{//\ Add\ a\ behaviour\ by\ its\ registered\ type\ name\ (for\ runtime\ instantiation)}}
+\DoxyCodeLine{00125\ \ \ \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}*\ add\_behaviour\_by\_name(\textcolor{keyword}{const}\ std::string\&\ type\_name);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\ =\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}},\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00128\ \ \ \textcolor{keyword}{requires}\ std::derived\_from<T,\ GameObject>}
+\DoxyCodeLine{00129\ \ \ T\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_accf41615441ecc4f14ae550a1c3dba5f}{instantiate\_child}}(Args\&\&...\ args)}
+\DoxyCodeLine{00130\ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{auto}\ child\ =\ std::make\_unique<T>(\textcolor{keyword}{this},\ std::forward<Args>(args)...);}
+\DoxyCodeLine{00132\ \ \ \ \ children.emplace\_back(std::move(child));}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{static\_cast<}T*\textcolor{keyword}{>}(children.back().get());}
+\DoxyCodeLine{00134\ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00144\ \ \ \textcolor{keywordtype}{void}\ set\_parent(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ parent,\ \textcolor{keywordtype}{bool}\ keep\_world\_transform\ =\ \textcolor{keyword}{true});}
 \DoxyCodeLine{00145\ }
-\DoxyCodeLine{00146\ \ \ \textcolor{keywordtype}{void}\ set\_name(std::string\ \_name);}
-\DoxyCodeLine{00147\ }
-\DoxyCodeLine{00148\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1App}{App}};}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ \ \ \textcolor{comment}{//\ Iterator\ for\ depth-\/first\ traversal}}
-\DoxyCodeLine{00151\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}\ \{}
-\DoxyCodeLine{00152\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00153\ \ \ \ \ std::stack<GameObject*>\ stack;}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00156\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator_a3d74eac033c11686840c92df83dd849c}{Iterator}}(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ root)\ \{}
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (root)\ stack.push(root);}
-\DoxyCodeLine{00158\ \ \ \ \ \}}
-\DoxyCodeLine{00159\ }
-\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator_a5bca68349c9239e30ce40338907da815}{Iterator}}()\ \{\}}
+\DoxyCodeLine{00147\ \ \ \textcolor{keywordtype}{bool}\ is\_descendant\_of(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ std::optional<std::reference\_wrapper<GameObject>>\ get\_parent()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00157\ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classCalgine_1_1GameObject_aa34deb782f6ee4aff3f225050ea0109d}{get\_name}}()}
+\DoxyCodeLine{00158\ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{return}\ name;}
+\DoxyCodeLine{00160\ \ \ \}}
 \DoxyCodeLine{00161\ }
-\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator_a4be84b1be8b2f0eb7954b0c8a2d8bcce}{operator*}}()\ \{\ \textcolor{keywordflow}{return}\ *stack.top();\ \}}
-\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator_acea87bca74dcd4577dd8493b11a29ad7}{operator-\/>}}()\ \{\ \textcolor{keywordflow}{return}\ stack.top();\ \}}
-\DoxyCodeLine{00164\ }
-\DoxyCodeLine{00165\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator_a05dc421016ef86d15b5f0875091b4870}{operator++}}()\ \{}
-\DoxyCodeLine{00166\ \ \ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ current\ =\ stack.top();}
-\DoxyCodeLine{00167\ \ \ \ \ \ \ stack.pop();}
-\DoxyCodeLine{00168\ }
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ children\ =\ current-\/>children;}
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ children.rbegin();\ it\ !=\ children.rend();\ ++it)\ \{}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ stack.push(it-\/>get());}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00162\ \ \ \textcolor{keywordtype}{void}\ set\_name(std::string\ \_name);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1App}{App}};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \textcolor{comment}{//\ Iterator\ for\ depth-\/first\ traversal}}
+\DoxyCodeLine{00167\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}\ \{}
+\DoxyCodeLine{00168\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00169\ \ \ \ \ std::stack<GameObject*>\ stack;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator_a3d74eac033c11686840c92df83dd849c}{Iterator}}(\mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ root)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (root)\ stack.push(root);}
 \DoxyCodeLine{00174\ \ \ \ \ \}}
 \DoxyCodeLine{00175\ }
-\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator_a9aa2a5504363016061a52373239a47cb}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}\&\ other)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ stack.size()\ !=\ other.stack.size();}
-\DoxyCodeLine{00178\ \ \ \ \ \}}
-\DoxyCodeLine{00179\ \ \ \};}
+\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator_a5bca68349c9239e30ce40338907da815}{Iterator}}()\ \{\}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator_a4be84b1be8b2f0eb7954b0c8a2d8bcce}{operator*}}()\ \{\ \textcolor{keywordflow}{return}\ *stack.top();\ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator_acea87bca74dcd4577dd8493b11a29ad7}{operator-\/>}}()\ \{\ \textcolor{keywordflow}{return}\ stack.top();\ \}}
 \DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}\ \mbox{\hyperlink{classCalgine_1_1GameObject_acbd6a727b4948fbbef2e4b2cad78a965}{begin}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}(\textcolor{keyword}{this});\ \}}
-\DoxyCodeLine{00182\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}\ \mbox{\hyperlink{classCalgine_1_1GameObject_a82dd591a82d55f87b6dcfa7579764642}{end}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}();\ \}}
-\DoxyCodeLine{00183\ \};}
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}\&\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator_a05dc421016ef86d15b5f0875091b4870}{operator++}}()\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject}{GameObject}}*\ current\ =\ stack.top();}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ stack.pop();}
 \DoxyCodeLine{00184\ }
-\DoxyCodeLine{00185\ \textcolor{comment}{//\ Templates}}
-\DoxyCodeLine{00186\ }
-\DoxyCodeLine{00187\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00188\ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
-\DoxyCodeLine{00189\ T\_behaviour*\ \mbox{\hyperlink{classCalgine_1_1GameObject_a058a205e6bb78fa9a2bac40340dfa808}{GameObject::add\_behaviour}}(Args\&\&...\ args)}
-\DoxyCodeLine{00190\ \{}
-\DoxyCodeLine{00191\ \ \ \textcolor{keyword}{auto}\ [it,\ inserted]\ =\ behaviours.emplace(}
-\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{typeid}(T\_behaviour),}
-\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{nullptr}}
-\DoxyCodeLine{00194\ \ \ );}
-\DoxyCodeLine{00195\ \ \ \textcolor{keywordflow}{if}\ (!inserted)\ }
-\DoxyCodeLine{00196\ \ \ \{}
-\DoxyCodeLine{00197\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1Log_a41f2a12df7fc534dc3179c7f4e80f84f}{Log::get\_engine\_logger}}()-\/>warn(\textcolor{stringliteral}{"{}Behaviour\ already\ exists\ on\ GameObject:\ \{\}"{}},\ \mbox{\hyperlink{classCalgine_1_1GameObject_aa34deb782f6ee4aff3f225050ea0109d}{get\_name}}());}
-\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00199\ \ \ \}}
-\DoxyCodeLine{00200\ \ \ std::unique\_ptr<Behaviour>\ owned;}
-\DoxyCodeLine{00201\ \ \ \ }
-\DoxyCodeLine{00202\ \ \ }
-\DoxyCodeLine{00203\ \ \ owned.reset(Behaviour::create<T\_behaviour>(std::forward<Args>(args)...));}
-\DoxyCodeLine{00204\ \ \ }
-\DoxyCodeLine{00205\ \ \ \textcolor{keywordflow}{if}(!owned-\/>attach\_owner(\textcolor{keyword}{this}))}
-\DoxyCodeLine{00206\ \ \ \{}
-\DoxyCodeLine{00207\ \ \ \ \ behaviours.erase(it);}
-\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00209\ \ \ \}}
-\DoxyCodeLine{00210\ \ \ }
-\DoxyCodeLine{00211\ \ \ it-\/>second\ =\ std::move(owned);}
-\DoxyCodeLine{00212\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}T\_behaviour*\textcolor{keyword}{>}(it-\/>second.get());}
-\DoxyCodeLine{00213\ \}}
-\DoxyCodeLine{00214\ }
-\DoxyCodeLine{00215\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour>}
-\DoxyCodeLine{00216\ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
-\DoxyCodeLine{00217\ T\_behaviour*\ \mbox{\hyperlink{classCalgine_1_1GameObject_a7b9fc3d7cd0516f2166c93101ce514e2}{GameObject::get\_behaviour}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00218\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00219\ \ \ \textcolor{keyword}{auto}\ it\ =\ behaviours.find(\textcolor{keyword}{typeid}(T\_behaviour));}
-\DoxyCodeLine{00220\ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ behaviours.end())}
-\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00222\ }
-\DoxyCodeLine{00223\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}T\_behaviour*\textcolor{keyword}{>}(it-\/>second.get());}
-\DoxyCodeLine{00224\ \}}
-\DoxyCodeLine{00225\ }
-\DoxyCodeLine{00226\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour>}
-\DoxyCodeLine{00227\ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
-\DoxyCodeLine{00228\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1GameObject_a640ffd517f6face466df2d6477d80d6d}{GameObject::has\_behaviour}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00229\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00230\ \ \ \textcolor{keywordflow}{return}\ behaviours.contains(\textcolor{keyword}{typeid}(T\_behaviour));}
-\DoxyCodeLine{00231\ \}}
-\DoxyCodeLine{00232\ }
-\DoxyCodeLine{00233\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00234\ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
-\DoxyCodeLine{00235\ T\_behaviour*\ \mbox{\hyperlink{classCalgine_1_1GameObject_a34e4e461d2516e8a6c6d2bd5a21e3208}{GameObject::add\_behaviour\_deferred}}(Args\&\&...\ args)}
-\DoxyCodeLine{00236\ \{}
-\DoxyCodeLine{00237\ \ \ \textcolor{keyword}{auto}\ [it,\ inserted]\ =\ behaviours.emplace(}
-\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{typeid}(T\_behaviour),}
-\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keyword}{nullptr}}
-\DoxyCodeLine{00240\ \ \ );}
-\DoxyCodeLine{00241\ \ \ \textcolor{keywordflow}{if}\ (!inserted)\ }
-\DoxyCodeLine{00242\ \ \ \{}
-\DoxyCodeLine{00243\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1Log_a41f2a12df7fc534dc3179c7f4e80f84f}{Log::get\_engine\_logger}}()-\/>warn(\textcolor{stringliteral}{"{}Behaviour\ already\ exists\ on\ GameObject:\ \{\}"{}},\ \mbox{\hyperlink{classCalgine_1_1GameObject_aa34deb782f6ee4aff3f225050ea0109d}{get\_name}}());}
-\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00245\ \ \ \}}
-\DoxyCodeLine{00246\ \ \ std::unique\_ptr<Behaviour>\ owned;}
-\DoxyCodeLine{00247\ \ \ }
-\DoxyCodeLine{00248\ \ \ owned.reset(Behaviour::create<T\_behaviour>(std::forward<Args>(args)...));}
-\DoxyCodeLine{00249\ \ \ }
-\DoxyCodeLine{00250\ \ \ \textcolor{keywordflow}{if}(!owned-\/>attach\_owner(\textcolor{keyword}{this}))}
-\DoxyCodeLine{00251\ \ \ \{}
-\DoxyCodeLine{00252\ \ \ \ \ behaviours.erase(it);}
-\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00254\ \ \ \}}
-\DoxyCodeLine{00255\ \ \ }
-\DoxyCodeLine{00256\ \ \ it-\/>second\ =\ std::move(owned);}
-\DoxyCodeLine{00257\ \ \ T\_behaviour*\ behaviour\ =\ \textcolor{keyword}{static\_cast<}T\_behaviour*\textcolor{keyword}{>}(it-\/>second.get());}
-\DoxyCodeLine{00258\ \ \ }
-\DoxyCodeLine{00259\ \ \ \textcolor{comment}{//\ Mark\ as\ not\ started\ -\/\ start\_tick()\ will\ be\ called\ later\ by\ start\_behaviours\_recursive()}}
-\DoxyCodeLine{00260\ \ \ behaviour-\/>set\_started(\textcolor{keyword}{false});}
-\DoxyCodeLine{00261\ \ \ }
-\DoxyCodeLine{00262\ \ \ \textcolor{keywordflow}{return}\ behaviour;}
-\DoxyCodeLine{00263\ \}}
-\DoxyCodeLine{00264\ }
-\DoxyCodeLine{00265\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ children\ =\ current-\/>children;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ children.rbegin();\ it\ !=\ children.rend();\ ++it)\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ stack.push(it-\/>get());}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator_a9aa2a5504363016061a52373239a47cb}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ stack.size()\ !=\ other.stack.size();}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ \ \ \};}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}\ \mbox{\hyperlink{classCalgine_1_1GameObject_acbd6a727b4948fbbef2e4b2cad78a965}{begin}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}(\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00198\ \ \ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}\ \mbox{\hyperlink{classCalgine_1_1GameObject_a82dd591a82d55f87b6dcfa7579764642}{end}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}}();\ \}}
+\DoxyCodeLine{00199\ \};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{comment}{//\ Templates}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00204\ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
+\DoxyCodeLine{00205\ T\_behaviour*\ \mbox{\hyperlink{classCalgine_1_1GameObject_a058a205e6bb78fa9a2bac40340dfa808}{GameObject::add\_behaviour}}(Args\&\&...\ args)}
+\DoxyCodeLine{00206\ \{}
+\DoxyCodeLine{00207\ \ \ \textcolor{keyword}{auto}\ [it,\ inserted]\ =\ behaviours.emplace(}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{typeid}(T\_behaviour),}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{nullptr}}
+\DoxyCodeLine{00210\ \ \ );}
+\DoxyCodeLine{00211\ \ \ \textcolor{keywordflow}{if}\ (!inserted)\ }
+\DoxyCodeLine{00212\ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1Log_a41f2a12df7fc534dc3179c7f4e80f84f}{Log::get\_engine\_logger}}()-\/>warn(\textcolor{stringliteral}{"{}Behaviour\ already\ exists\ on\ GameObject:\ \{\}"{}},\ \mbox{\hyperlink{classCalgine_1_1GameObject_aa34deb782f6ee4aff3f225050ea0109d}{get\_name}}());}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00215\ \ \ \}}
+\DoxyCodeLine{00216\ \ \ std::unique\_ptr<Behaviour>\ owned;}
+\DoxyCodeLine{00217\ \ \ \ }
+\DoxyCodeLine{00218\ \ \ }
+\DoxyCodeLine{00219\ \ \ owned.reset(Behaviour::create<T\_behaviour>(std::forward<Args>(args)...));}
+\DoxyCodeLine{00220\ \ \ }
+\DoxyCodeLine{00221\ \ \ \textcolor{keywordflow}{if}(!owned-\/>attach\_owner(\textcolor{keyword}{this}))}
+\DoxyCodeLine{00222\ \ \ \{}
+\DoxyCodeLine{00223\ \ \ \ \ behaviours.erase(it);}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00225\ \ \ \}}
+\DoxyCodeLine{00226\ \ \ }
+\DoxyCodeLine{00227\ \ \ it-\/>second\ =\ std::move(owned);}
+\DoxyCodeLine{00228\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}T\_behaviour*\textcolor{keyword}{>}(it-\/>second.get());}
+\DoxyCodeLine{00229\ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour>}
+\DoxyCodeLine{00232\ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
+\DoxyCodeLine{00233\ T\_behaviour*\ \mbox{\hyperlink{classCalgine_1_1GameObject_a7b9fc3d7cd0516f2166c93101ce514e2}{GameObject::get\_behaviour}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00234\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00235\ \ \ \textcolor{keyword}{auto}\ it\ =\ behaviours.find(\textcolor{keyword}{typeid}(T\_behaviour));}
+\DoxyCodeLine{00236\ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ behaviours.end())}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}T\_behaviour*\textcolor{keyword}{>}(it-\/>second.get());}
+\DoxyCodeLine{00240\ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour>}
+\DoxyCodeLine{00243\ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
+\DoxyCodeLine{00244\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1GameObject_a640ffd517f6face466df2d6477d80d6d}{GameObject::has\_behaviour}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00245\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00246\ \ \ \textcolor{keywordflow}{return}\ behaviours.contains(\textcolor{keyword}{typeid}(T\_behaviour));}
+\DoxyCodeLine{00247\ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\_behaviour,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00250\ \textcolor{keyword}{requires}\ std::derived\_from<T\_behaviour,\ Behaviour>}
+\DoxyCodeLine{00251\ T\_behaviour*\ \mbox{\hyperlink{classCalgine_1_1GameObject_a34e4e461d2516e8a6c6d2bd5a21e3208}{GameObject::add\_behaviour\_deferred}}(Args\&\&...\ args)}
+\DoxyCodeLine{00252\ \{}
+\DoxyCodeLine{00253\ \ \ \textcolor{keyword}{auto}\ [it,\ inserted]\ =\ behaviours.emplace(}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keyword}{typeid}(T\_behaviour),}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keyword}{nullptr}}
+\DoxyCodeLine{00256\ \ \ );}
+\DoxyCodeLine{00257\ \ \ \textcolor{keywordflow}{if}\ (!inserted)\ }
+\DoxyCodeLine{00258\ \ \ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \mbox{\hyperlink{classCalgine_1_1Log_a41f2a12df7fc534dc3179c7f4e80f84f}{Log::get\_engine\_logger}}()-\/>warn(\textcolor{stringliteral}{"{}Behaviour\ already\ exists\ on\ GameObject:\ \{\}"{}},\ \mbox{\hyperlink{classCalgine_1_1GameObject_aa34deb782f6ee4aff3f225050ea0109d}{get\_name}}());}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00261\ \ \ \}}
+\DoxyCodeLine{00262\ \ \ std::unique\_ptr<Behaviour>\ owned;}
+\DoxyCodeLine{00263\ \ \ }
+\DoxyCodeLine{00264\ \ \ owned.reset(Behaviour::create<T\_behaviour>(std::forward<Args>(args)...));}
+\DoxyCodeLine{00265\ \ \ }
+\DoxyCodeLine{00266\ \ \ \textcolor{keywordflow}{if}(!owned-\/>attach\_owner(\textcolor{keyword}{this}))}
+\DoxyCodeLine{00267\ \ \ \{}
+\DoxyCodeLine{00268\ \ \ \ \ behaviours.erase(it);}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00270\ \ \ \}}
+\DoxyCodeLine{00271\ \ \ }
+\DoxyCodeLine{00272\ \ \ it-\/>second\ =\ std::move(owned);}
+\DoxyCodeLine{00273\ \ \ T\_behaviour*\ behaviour\ =\ \textcolor{keyword}{static\_cast<}T\_behaviour*\textcolor{keyword}{>}(it-\/>second.get());}
+\DoxyCodeLine{00274\ \ \ }
+\DoxyCodeLine{00275\ \ \ \textcolor{comment}{//\ Mark\ as\ not\ started\ -\/\ start\_tick()\ will\ be\ called\ later\ by\ start\_behaviours\_recursive()}}
+\DoxyCodeLine{00276\ \ \ behaviour-\/>set\_started(\textcolor{keyword}{false});}
+\DoxyCodeLine{00277\ \ \ }
+\DoxyCodeLine{00278\ \ \ \textcolor{keywordflow}{return}\ behaviour;}
+\DoxyCodeLine{00279\ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \}\ \textcolor{comment}{//\ namespace\ Calgine}}
 
 \end{DoxyCode}

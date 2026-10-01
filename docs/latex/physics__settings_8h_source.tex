@@ -1,0 +1,105 @@
+\doxysection{physics\+\_\+settings.\+h}
+\hypertarget{physics__settings_8h_source}{}\label{physics__settings_8h_source}\index{src/calgine/core/physics/physics\_settings.h@{src/calgine/core/physics/physics\_settings.h}}
+\mbox{\hyperlink{physics__settings_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__api_8h}{calgine\_api.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ =\ uint8\_t;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{CollisionLayerMask}}\ =\ uint16\_t;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{constexpr}\ uint32\_t\ \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{max\_collision\_layers}}\ =\ 16;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ \mbox{\hyperlink{namespaceCalgine_a594a2849ee70804a9645862ecd781010}{default\_collision\_layer}}\ =\ 0;}
+\DoxyCodeLine{00019\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{CollisionLayerMask}}\ \mbox{\hyperlink{namespaceCalgine_adb86c761ac18d7fd076eca5483a24583}{all\_collision\_layers}}\ =\ 0xFFFF;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{CollisionLayerMask}}\ \mbox{\hyperlink{namespaceCalgine_a07d0c31a68e19035c6054cc09df1cfc0}{collision\_layer\_bit}}(\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ layer)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{CollisionLayerMask}}\textcolor{keyword}{>}(1u\ <<\ layer);\ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings}{CollisionLayerSettings}}}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ std::array<std::string,\ max\_collision\_layers>\ names\ \{\ \textcolor{stringliteral}{"{}default"{}}\ \};}
+\DoxyCodeLine{00041\ \ \ std::array<CollisionLayerMask,\ max\_collision\_layers>\ collides\_with\ =\ make\_all\_collide();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings_a5164cbc51e3478d03da45084d5baa1dd}{set\_name}}(\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ layer,\ \textcolor{keyword}{const}\ std::string\&\ name)}
+\DoxyCodeLine{00044\ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (layer\ <\ \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{max\_collision\_layers}})}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ names[layer]\ =\ name;}
+\DoxyCodeLine{00047\ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings_a2691172978a9d67a44a576c941ead6f3}{set\_collides}}(\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ a,\ \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ b,\ \textcolor{keywordtype}{bool}\ collide)}
+\DoxyCodeLine{00051\ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ >=\ \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{max\_collision\_layers}}\ ||\ b\ >=\ \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{max\_collision\_layers}})}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{if}\ (collide)}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ collides\_with[a]\ |=\ \mbox{\hyperlink{namespaceCalgine_a07d0c31a68e19035c6054cc09df1cfc0}{collision\_layer\_bit}}(b);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ collides\_with[b]\ |=\ \mbox{\hyperlink{namespaceCalgine_a07d0c31a68e19035c6054cc09df1cfc0}{collision\_layer\_bit}}(a);}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ collides\_with[a]\ \&=\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{CollisionLayerMask}}\textcolor{keyword}{>}(\string~collision\_layer\_bit(b));}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ collides\_with[b]\ \&=\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{CollisionLayerMask}}\textcolor{keyword}{>}(\string~collision\_layer\_bit(a));}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings_a16490772cdd408e03fa570d531dd06e7}{collides}}(\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ a,\ \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ b)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00068\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ >=\ \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{max\_collision\_layers}}\ ||\ b\ >=\ \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{max\_collision\_layers}})}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ (collides\_with[a]\ \&\ \mbox{\hyperlink{namespaceCalgine_a07d0c31a68e19035c6054cc09df1cfc0}{collision\_layer\_bit}}(b))\ !=\ 0;}
+\DoxyCodeLine{00072\ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00075\ \ \ std::optional<CollisionLayer>\ \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings_a592f8f53a0abd166c6e249297663d68f}{find}}(\textcolor{keyword}{const}\ std::string\&\ name)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00076\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{max\_collision\_layers}};\ i++)}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!name.empty()\ \&\&\ names[i]\ ==\ name)}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\textcolor{keyword}{>}(i);}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ std::nullopt;}
+\DoxyCodeLine{00081\ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00084\ \ \ \textcolor{keyword}{static}\ std::array<CollisionLayerMask,\ max\_collision\_layers>\ make\_all\_collide()}
+\DoxyCodeLine{00085\ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ std::array<CollisionLayerMask,\ max\_collision\_layers>\ masks\ \{\};}
+\DoxyCodeLine{00087\ \ \ \ \ masks.fill(all\_collision\_layers);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ masks;}
+\DoxyCodeLine{00089\ \ \ \}}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{calgine__api_8h_a4e7aacb34d39acc08f8f3619a3b56395}{CALGINE\_API}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsSettings}{PhysicsSettings}}}
+\DoxyCodeLine{00102\ \{}
+\DoxyCodeLine{00103\ \ \ glm::vec3\ gravity\ =\ glm::vec3(0.0f,\ -\/9.81f,\ 0.0f);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/\ Capacity\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00106\ \ \ \textcolor{comment}{//\ When\ these\ run\ out\ Jolt\ drops\ contacts\ (and\ logs\ a\ warning);\ raise\ them\ for\ very\ large\ scenes.}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00109\ \ \ uint32\_t\ max\_bodies\ =\ 65536;}
+\DoxyCodeLine{00111\ \ \ uint32\_t\ max\_body\_pairs\ =\ 65536;}
+\DoxyCodeLine{00113\ \ \ uint32\_t\ max\_contact\_constraints\ =\ 65536;}
+\DoxyCodeLine{00115\ \ \ uint32\_t\ temp\_allocator\_mb\ =\ 10;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/\ Simulation\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{int}\ worker\_threads\ =\ -\/1;}
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{int}\ collision\_steps\ =\ 1;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/\ Rendering\ /\ diagnostics\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{bool}\ interpolation\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{bool}\ warn\_kinematic\_moved\_outside\_fixed\_update\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings}{CollisionLayerSettings}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsSettings_ad58bbae70579f5712cbc3520644ac64d}{layers}};}
+\DoxyCodeLine{00137\ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \}}
+
+\end{DoxyCode}

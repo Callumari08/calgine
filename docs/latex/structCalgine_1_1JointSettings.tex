@@ -1,0 +1,179 @@
+\doxysection{Calgine\+::Joint\+Settings Struct Reference}
+\hypertarget{structCalgine_1_1JointSettings}{}\label{structCalgine_1_1JointSettings}\index{Calgine::JointSettings@{Calgine::JointSettings}}
+
+
+Settings used when a \doxylink{classCalgine_1_1Joint}{Joint} connects its bodies.  
+
+
+
+
+{\ttfamily \#include $<$joint.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9}{Joint\+Type}} \mbox{\hyperlink{structCalgine_1_1JointSettings_aa59e1eccdeafe0f0f84e4b79af080ba7}{type}} = \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a78ee54aa8f813885fe2fe20d232518b9}{Joint\+Type\+::point}}
+\item 
+\mbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structCalgine_1_1JointSettings_a0c8fefa25d9f53276b205ec9f675310f}{connected\+\_\+body}} = nullptr
+\begin{DoxyCompactList}\small\item\em The other body. nullptr attaches the joint to the world (a fixed point in space). \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{structCalgine_1_1JointSettings_a07b1f2dd24c3797cf72ec5db50d228ac}{anchor}} = glm\+::vec3(0.\+0f)
+\begin{DoxyCompactList}\small\item\em Attachment point on this joint\textquotesingle{}s own body. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structCalgine_1_1JointSettings_ad49b13f5f1a38f3ddc111a7a52de1e54}{anchor\+\_\+is\+\_\+local}} = true
+\item 
+glm\+::vec3 \mbox{\hyperlink{structCalgine_1_1JointSettings_abf5a0e0bdf8333d82e5eaa57dfb75736}{connected\+\_\+anchor}} = glm\+::vec3(0.\+0f)
+\begin{DoxyCompactList}\small\item\em Distance joints only\+: attachment point on the connected body (local to it, or world space if attached to the world). \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{structCalgine_1_1JointSettings_afa218e446b5429275b86bf3527515bb0}{axis}} = glm\+::vec3(0.\+0f, 1.\+0f, 0.\+0f)
+\begin{DoxyCompactList}\small\item\em Hinge rotation axis, or slider direction. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structCalgine_1_1JointSettings_a822bc6bf3aca57cf907dde46ad4788e8}{axis\+\_\+is\+\_\+local}} = true
+\item 
+bool \mbox{\hyperlink{structCalgine_1_1JointSettings_aaa2c1bd095b1b4bbe9bc96c28449ba1e}{limits\+\_\+enabled}} = false
+\begin{DoxyCompactList}\small\item\em Hinge (degrees) or slider (metres) limits, relative to the pose when the joint is created. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structCalgine_1_1JointSettings_a899981b53249a2a50152ff9ef0c7f239}{limit\+\_\+min}} = 0.\+0f
+\item 
+float \mbox{\hyperlink{structCalgine_1_1JointSettings_ab2730bd1cb41fa96a0494f79ccbe0a24}{limit\+\_\+max}} = 0.\+0f
+\item 
+float \mbox{\hyperlink{structCalgine_1_1JointSettings_abd85a12eefadb93377a99639d2b18a30}{min\+\_\+distance}} = -\/1.\+0f
+\begin{DoxyCompactList}\small\item\em Distance joints\+: allowed distance range. Negative means "{}the distance when the joint is created"{}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structCalgine_1_1JointSettings_a5ed4943f78a2dda428dd9cc72843a850}{max\+\_\+distance}} = -\/1.\+0f
+\item 
+bool \mbox{\hyperlink{structCalgine_1_1JointSettings_a2c02690a0c130b487e5ef9052b11d096}{motor\+\_\+enabled}} = false
+\begin{DoxyCompactList}\small\item\em Hinge and slider\+: drive the joint at a target speed (degrees/s or metres/s). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structCalgine_1_1JointSettings_a04c9be6b868ee385b6c7b1c81bc8cf89}{motor\+\_\+target\+\_\+velocity}} = 0.\+0f
+\item 
+float \mbox{\hyperlink{structCalgine_1_1JointSettings_a50dea3c7eeedd29042b80e8eb165b215}{motor\+\_\+max\+\_\+force}} = FLT\+\_\+\+MAX
+\begin{DoxyCompactList}\small\item\em Strongest torque (N m, hinge) or force (N, slider) the motor may use. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Settings used when a \doxylink{classCalgine_1_1Joint}{Joint} connects its bodies. 
+
+Anchors and axes are local to their \doxylink{classCalgine_1_1GameObject}{Game\+Object} by default, and are converted to world space once, when the joint is created. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCalgine_1_1JointSettings_a07b1f2dd24c3797cf72ec5db50d228ac}\label{structCalgine_1_1JointSettings_a07b1f2dd24c3797cf72ec5db50d228ac} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!anchor@{anchor}}
+\index{anchor@{anchor}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{anchor}{anchor}}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Joint\+Settings\+::anchor = glm\+::vec3(0.\+0f)}
+
+
+
+Attachment point on this joint\textquotesingle{}s own body. 
+
+\Hypertarget{structCalgine_1_1JointSettings_ad49b13f5f1a38f3ddc111a7a52de1e54}\label{structCalgine_1_1JointSettings_ad49b13f5f1a38f3ddc111a7a52de1e54} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!anchor\_is\_local@{anchor\_is\_local}}
+\index{anchor\_is\_local@{anchor\_is\_local}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{anchor\_is\_local}{anchor\_is\_local}}
+{\footnotesize\ttfamily bool Calgine\+::\+Joint\+Settings\+::anchor\+\_\+is\+\_\+local = true}
+
+\Hypertarget{structCalgine_1_1JointSettings_afa218e446b5429275b86bf3527515bb0}\label{structCalgine_1_1JointSettings_afa218e446b5429275b86bf3527515bb0} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!axis@{axis}}
+\index{axis@{axis}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{axis}{axis}}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Joint\+Settings\+::axis = glm\+::vec3(0.\+0f, 1.\+0f, 0.\+0f)}
+
+
+
+Hinge rotation axis, or slider direction. 
+
+\Hypertarget{structCalgine_1_1JointSettings_a822bc6bf3aca57cf907dde46ad4788e8}\label{structCalgine_1_1JointSettings_a822bc6bf3aca57cf907dde46ad4788e8} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!axis\_is\_local@{axis\_is\_local}}
+\index{axis\_is\_local@{axis\_is\_local}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{axis\_is\_local}{axis\_is\_local}}
+{\footnotesize\ttfamily bool Calgine\+::\+Joint\+Settings\+::axis\+\_\+is\+\_\+local = true}
+
+\Hypertarget{structCalgine_1_1JointSettings_abf5a0e0bdf8333d82e5eaa57dfb75736}\label{structCalgine_1_1JointSettings_abf5a0e0bdf8333d82e5eaa57dfb75736} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!connected\_anchor@{connected\_anchor}}
+\index{connected\_anchor@{connected\_anchor}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{connected\_anchor}{connected\_anchor}}
+{\footnotesize\ttfamily glm\+::vec3 Calgine\+::\+Joint\+Settings\+::connected\+\_\+anchor = glm\+::vec3(0.\+0f)}
+
+
+
+Distance joints only\+: attachment point on the connected body (local to it, or world space if attached to the world). 
+
+\Hypertarget{structCalgine_1_1JointSettings_a0c8fefa25d9f53276b205ec9f675310f}\label{structCalgine_1_1JointSettings_a0c8fefa25d9f53276b205ec9f675310f} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!connected\_body@{connected\_body}}
+\index{connected\_body@{connected\_body}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{connected\_body}{connected\_body}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}}\texorpdfstring{$\ast$}{*} Calgine\+::\+Joint\+Settings\+::connected\+\_\+body = nullptr}
+
+
+
+The other body. nullptr attaches the joint to the world (a fixed point in space). 
+
+\Hypertarget{structCalgine_1_1JointSettings_ab2730bd1cb41fa96a0494f79ccbe0a24}\label{structCalgine_1_1JointSettings_ab2730bd1cb41fa96a0494f79ccbe0a24} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!limit\_max@{limit\_max}}
+\index{limit\_max@{limit\_max}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{limit\_max}{limit\_max}}
+{\footnotesize\ttfamily float Calgine\+::\+Joint\+Settings\+::limit\+\_\+max = 0.\+0f}
+
+\Hypertarget{structCalgine_1_1JointSettings_a899981b53249a2a50152ff9ef0c7f239}\label{structCalgine_1_1JointSettings_a899981b53249a2a50152ff9ef0c7f239} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!limit\_min@{limit\_min}}
+\index{limit\_min@{limit\_min}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{limit\_min}{limit\_min}}
+{\footnotesize\ttfamily float Calgine\+::\+Joint\+Settings\+::limit\+\_\+min = 0.\+0f}
+
+\Hypertarget{structCalgine_1_1JointSettings_aaa2c1bd095b1b4bbe9bc96c28449ba1e}\label{structCalgine_1_1JointSettings_aaa2c1bd095b1b4bbe9bc96c28449ba1e} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!limits\_enabled@{limits\_enabled}}
+\index{limits\_enabled@{limits\_enabled}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{limits\_enabled}{limits\_enabled}}
+{\footnotesize\ttfamily bool Calgine\+::\+Joint\+Settings\+::limits\+\_\+enabled = false}
+
+
+
+Hinge (degrees) or slider (metres) limits, relative to the pose when the joint is created. 
+
+\Hypertarget{structCalgine_1_1JointSettings_a5ed4943f78a2dda428dd9cc72843a850}\label{structCalgine_1_1JointSettings_a5ed4943f78a2dda428dd9cc72843a850} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!max\_distance@{max\_distance}}
+\index{max\_distance@{max\_distance}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{max\_distance}{max\_distance}}
+{\footnotesize\ttfamily float Calgine\+::\+Joint\+Settings\+::max\+\_\+distance = -\/1.\+0f}
+
+\Hypertarget{structCalgine_1_1JointSettings_abd85a12eefadb93377a99639d2b18a30}\label{structCalgine_1_1JointSettings_abd85a12eefadb93377a99639d2b18a30} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!min\_distance@{min\_distance}}
+\index{min\_distance@{min\_distance}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{min\_distance}{min\_distance}}
+{\footnotesize\ttfamily float Calgine\+::\+Joint\+Settings\+::min\+\_\+distance = -\/1.\+0f}
+
+
+
+Distance joints\+: allowed distance range. Negative means "{}the distance when the joint is created"{}. 
+
+\Hypertarget{structCalgine_1_1JointSettings_a2c02690a0c130b487e5ef9052b11d096}\label{structCalgine_1_1JointSettings_a2c02690a0c130b487e5ef9052b11d096} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!motor\_enabled@{motor\_enabled}}
+\index{motor\_enabled@{motor\_enabled}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{motor\_enabled}{motor\_enabled}}
+{\footnotesize\ttfamily bool Calgine\+::\+Joint\+Settings\+::motor\+\_\+enabled = false}
+
+
+
+Hinge and slider\+: drive the joint at a target speed (degrees/s or metres/s). 
+
+\Hypertarget{structCalgine_1_1JointSettings_a50dea3c7eeedd29042b80e8eb165b215}\label{structCalgine_1_1JointSettings_a50dea3c7eeedd29042b80e8eb165b215} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!motor\_max\_force@{motor\_max\_force}}
+\index{motor\_max\_force@{motor\_max\_force}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{motor\_max\_force}{motor\_max\_force}}
+{\footnotesize\ttfamily float Calgine\+::\+Joint\+Settings\+::motor\+\_\+max\+\_\+force = FLT\+\_\+\+MAX}
+
+
+
+Strongest torque (N m, hinge) or force (N, slider) the motor may use. 
+
+\Hypertarget{structCalgine_1_1JointSettings_a04c9be6b868ee385b6c7b1c81bc8cf89}\label{structCalgine_1_1JointSettings_a04c9be6b868ee385b6c7b1c81bc8cf89} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!motor\_target\_velocity@{motor\_target\_velocity}}
+\index{motor\_target\_velocity@{motor\_target\_velocity}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{motor\_target\_velocity}{motor\_target\_velocity}}
+{\footnotesize\ttfamily float Calgine\+::\+Joint\+Settings\+::motor\+\_\+target\+\_\+velocity = 0.\+0f}
+
+\Hypertarget{structCalgine_1_1JointSettings_aa59e1eccdeafe0f0f84e4b79af080ba7}\label{structCalgine_1_1JointSettings_aa59e1eccdeafe0f0f84e4b79af080ba7} 
+\index{Calgine::JointSettings@{Calgine::JointSettings}!type@{type}}
+\index{type@{type}!Calgine::JointSettings@{Calgine::JointSettings}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9}{Joint\+Type}} Calgine\+::\+Joint\+Settings\+::type = \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a78ee54aa8f813885fe2fe20d232518b9}{Joint\+Type\+::point}}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/physics/\mbox{\hyperlink{joint_8h}{joint.\+h}}\end{DoxyCompactItemize}

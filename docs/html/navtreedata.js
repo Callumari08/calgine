@@ -43,7 +43,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
@@ -63,11 +63,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classCalgine_1_1GameObject.html#a6b7680459248f839b1c5859bcc8aa3ad",
-"classCalgine_1_1RootGameObject.html#ae5bf15f4b36327321f3a9ebc9545c40a",
-"game__hierarchy_8h_source.html",
-"structCalgine_1_1InputActionEvent.html#ae2f0124a1d480bbe18716a6828ad42ac",
-"structtinyobj_1_1material__t.html#a324dd4bb8475271e31aeb0a5959af745"
+"classCalgine_1_1GameObject.html#a5ebcf563c4a443894d35080c31a1b81b",
+"classCalgine_1_1PhysicsWorld.html#ad087ea25aa1a2639b524276d676cee5f",
+"data__serialization__interface_8h.html",
+"physics__settings_8h.html",
+"structCalgine_1_1JointSettings.html#abd85a12eefadb93377a99639d2b18a30",
+"structCalgine_1_1ShaderProgram.html#a5f66a3d6d1ac5dfbb63dbd94325c596f",
+"window_8cxx.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

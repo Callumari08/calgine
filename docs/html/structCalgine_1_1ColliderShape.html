@@ -105,9 +105,14 @@ $(document).ready(function(){initNavTree('structCalgine_1_1ColliderShape.html','
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a80c30efe53556967408ef9a182d873a7" id="r_a80c30efe53556967408ef9a182d873a7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1ColliderShape.html#a80c30efe53556967408ef9a182d873a7">Type</a> { <a class="el" href="structCalgine_1_1ColliderShape.html#a80c30efe53556967408ef9a182d873a7a8d011327916e0f9e5e903224c4454de1">box</a>
+<tr class="memitem:a80c30efe53556967408ef9a182d873a7" id="r_a80c30efe53556967408ef9a182d873a7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1ColliderShape.html#a80c30efe53556967408ef9a182d873a7">Type</a> { <br />
+&#160;&#160;<a class="el" href="structCalgine_1_1ColliderShape.html#a80c30efe53556967408ef9a182d873a7a8d011327916e0f9e5e903224c4454de1">box</a>
 , <a class="el" href="structCalgine_1_1ColliderShape.html#a80c30efe53556967408ef9a182d873a7ae2fb69b63ceabf8c2e438410a10f4996">sphere</a>
 , <a class="el" href="structCalgine_1_1ColliderShape.html#a80c30efe53556967408ef9a182d873a7a15bafd99b820827010c69a90ad22d598">capsule</a>
+, <a class="el" href="structCalgine_1_1ColliderShape.html#a80c30efe53556967408ef9a182d873a7a1d63554dbe1a57611ca43542e61eb621">convex_hull</a>
+, <br />
+&#160;&#160;<a class="el" href="structCalgine_1_1ColliderShape.html#a80c30efe53556967408ef9a182d873a7a93e82a3df86e5b5df1ba4ddd1a66d7fe">mesh</a>
+<br />
  }</td></tr>
 <tr class="separator:a80c30efe53556967408ef9a182d873a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -119,6 +124,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a39bfe242b36f5e5869dffe2a59c8eebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a130fa93de950e919c6cfaa26bfe6dd58" id="r_a130fa93de950e919c6cfaa26bfe6dd58"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structCalgine_1_1ColliderShape.html">ColliderShape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1ColliderShape.html#a130fa93de950e919c6cfaa26bfe6dd58">make_capsule</a> (float <a class="el" href="structCalgine_1_1ColliderShape.html#a9721688eae811c149bc41aea8589ccad">half_height</a>, float <a class="el" href="structCalgine_1_1ColliderShape.html#a0041bca9054db74e263da8e40e279e73">radius</a>)</td></tr>
 <tr class="separator:a130fa93de950e919c6cfaa26bfe6dd58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add65a79c7074c2f1b6718d4d90baddeb" id="r_add65a79c7074c2f1b6718d4d90baddeb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structCalgine_1_1ColliderShape.html">ColliderShape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1ColliderShape.html#add65a79c7074c2f1b6718d4d90baddeb">make_convex_hull</a> (std::shared_ptr&lt; <a class="el" href="structCalgine_1_1Model.html">Model</a> &gt; <a class="el" href="structCalgine_1_1ColliderShape.html#a20a451b5441f546dbed514aab39083f9">model</a>)</td></tr>
+<tr class="separator:add65a79c7074c2f1b6718d4d90baddeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb0ac127df8a2e83acfe805c8de345c6" id="r_acb0ac127df8a2e83acfe805c8de345c6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structCalgine_1_1ColliderShape.html">ColliderShape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1ColliderShape.html#acb0ac127df8a2e83acfe805c8de345c6">make_mesh</a> (std::shared_ptr&lt; <a class="el" href="structCalgine_1_1Model.html">Model</a> &gt; <a class="el" href="structCalgine_1_1ColliderShape.html#a20a451b5441f546dbed514aab39083f9">model</a>)</td></tr>
+<tr class="separator:acb0ac127df8a2e83acfe805c8de345c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -133,6 +142,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a9721688eae811c149bc41aea8589ccad" id="r_a9721688eae811c149bc41aea8589ccad"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1ColliderShape.html#a9721688eae811c149bc41aea8589ccad">half_height</a> = 0.5f</td></tr>
 <tr class="memdesc:a9721688eae811c149bc41aea8589ccad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Capsule only: half the length of the cylinder part, along the local Y axis.  <br /></td></tr>
 <tr class="separator:a9721688eae811c149bc41aea8589ccad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20a451b5441f546dbed514aab39083f9" id="r_a20a451b5441f546dbed514aab39083f9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structCalgine_1_1Model.html">Model</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1ColliderShape.html#a20a451b5441f546dbed514aab39083f9">model</a></td></tr>
+<tr class="memdesc:a20a451b5441f546dbed514aab39083f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">convex_hull and mesh only: the model whose vertices build the shape (in the model's own units).  <br /></td></tr>
+<tr class="separator:a20a451b5441f546dbed514aab39083f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Collision shape of a <a class="el" href="classCalgine_1_1RigidBody.html" title="Gives a GameObject a body in the PhysicsWorld.">RigidBody</a>, in the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...">GameObject</a>'s local units (multiplied by world scale). </p>
@@ -152,6 +164,10 @@ Public Attributes</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a80c30efe53556967408ef9a182d873a7a8d011327916e0f9e5e903224c4454de1" name="a80c30efe53556967408ef9a182d873a7a8d011327916e0f9e5e903224c4454de1"></a>box&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a80c30efe53556967408ef9a182d873a7ae2fb69b63ceabf8c2e438410a10f4996" name="a80c30efe53556967408ef9a182d873a7ae2fb69b63ceabf8c2e438410a10f4996"></a>sphere&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a80c30efe53556967408ef9a182d873a7a15bafd99b820827010c69a90ad22d598" name="a80c30efe53556967408ef9a182d873a7a15bafd99b820827010c69a90ad22d598"></a>capsule&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a80c30efe53556967408ef9a182d873a7a1d63554dbe1a57611ca43542e61eb621" name="a80c30efe53556967408ef9a182d873a7a1d63554dbe1a57611ca43542e61eb621"></a>convex_hull&#160;</td><td class="fielddoc"><p>Smallest convex shape around a model's vertices. Works for every motion type. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a80c30efe53556967408ef9a182d873a7a93e82a3df86e5b5df1ba4ddd1a66d7fe" name="a80c30efe53556967408ef9a182d873a7a93e82a3df86e5b5df1ba4ddd1a66d7fe"></a>mesh&#160;</td><td class="fielddoc"><p>The model's exact triangles. Static and kinematic bodies only (a Jolt restriction); a dynamic body falls back to convex_hull with a warning. </p>
+</td></tr>
 </table>
 
 </div>
@@ -219,6 +235,58 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="add65a79c7074c2f1b6718d4d90baddeb" name="add65a79c7074c2f1b6718d4d90baddeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add65a79c7074c2f1b6718d4d90baddeb">&#9670;&#160;</a></span>make_convex_hull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structCalgine_1_1ColliderShape.html">ColliderShape</a> Calgine::ColliderShape::make_convex_hull </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="structCalgine_1_1Model.html">Model</a> &gt;&#160;</td>
+          <td class="paramname"><em>model</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb0ac127df8a2e83acfe805c8de345c6" name="acb0ac127df8a2e83acfe805c8de345c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb0ac127df8a2e83acfe805c8de345c6">&#9670;&#160;</a></span>make_mesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structCalgine_1_1ColliderShape.html">ColliderShape</a> Calgine::ColliderShape::make_mesh </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="structCalgine_1_1Model.html">Model</a> &gt;&#160;</td>
+          <td class="paramname"><em>model</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a39bfe242b36f5e5869dffe2a59c8eebb" name="a39bfe242b36f5e5869dffe2a59c8eebb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a39bfe242b36f5e5869dffe2a59c8eebb">&#9670;&#160;</a></span>make_sphere()</h2>
 
@@ -275,6 +343,22 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Capsule only: half the length of the cylinder part, along the local Y axis. </p>
+
+</div>
+</div>
+<a id="a20a451b5441f546dbed514aab39083f9" name="a20a451b5441f546dbed514aab39083f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20a451b5441f546dbed514aab39083f9">&#9670;&#160;</a></span>model</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="structCalgine_1_1Model.html">Model</a>&gt; Calgine::ColliderShape::model</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>convex_hull and mesh only: the model whose vertices build the shape (in the model's own units). </p>
 
 </div>
 </div>

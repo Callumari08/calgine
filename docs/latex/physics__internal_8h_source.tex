@@ -16,191 +16,268 @@
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <Jolt/Physics/Collision/ContactListener.h>}}
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <Jolt/Physics/Collision/ObjectLayer.h>}}
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h>}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <Jolt/Physics/PhysicsSystem.h>}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifdef\ JPH\_DEBUG\_RENDERER}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <Jolt/Renderer/DebugRendererSimple.h>}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physics__world_8h}{calgine/core/physics/physics\_world.h}}"{}}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <chrono>}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <glm/gtc/quaternion.hpp>}}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <Jolt/Physics/Constraints/TwoBodyConstraint.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <Jolt/Physics/PhysicsSystem.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifdef\ JPH\_DEBUG\_RENDERER}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <Jolt/Renderer/DebugRendererSimple.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{physics__world_8h}{calgine/core/physics/physics\_world.h}}"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{joint_8h}{calgine/core/physics/joint.h}}"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calgine__pch_8h}{calgine\_pch.h}}"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <glm/gtc/quaternion.hpp>}}
 \DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }RigidBody;}
+\DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCalgine}{Calgine}}\ \{}
 \DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{comment}{//\ -\/-\/-\/-\/\ glm\ <-\/>\ Jolt\ conversions\ -\/-\/-\/-\/}}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{keyword}{inline}\ JPH::Vec3\ \mbox{\hyperlink{namespaceCalgine_a3fba88f0cdfbcb09213824490e2c359f}{to\_jolt}}(\textcolor{keyword}{const}\ glm::vec3\&\ v)\ \{\ \textcolor{keywordflow}{return}\ JPH::Vec3(v.x,\ v.y,\ v.z);\ \}}
-\DoxyCodeLine{00034\ \textcolor{keyword}{inline}\ JPH::Quat\ \mbox{\hyperlink{namespaceCalgine_a3fba88f0cdfbcb09213824490e2c359f}{to\_jolt}}(\textcolor{keyword}{const}\ glm::quat\&\ q)\ \{\ \textcolor{keywordflow}{return}\ JPH::Quat(q.x,\ q.y,\ q.z,\ q.w).Normalized();\ \}}
-\DoxyCodeLine{00035\ \textcolor{keyword}{inline}\ glm::vec3\ \mbox{\hyperlink{namespaceCalgine_ade91f61cc5cd86023067892bfe702c19}{to\_glm}}(JPH::Vec3Arg\ v)\ \{\ \textcolor{keywordflow}{return}\ glm::vec3(v.GetX(),\ v.GetY(),\ v.GetZ());\ \}}
-\DoxyCodeLine{00036\ \textcolor{keyword}{inline}\ glm::quat\ \mbox{\hyperlink{namespaceCalgine_ade91f61cc5cd86023067892bfe702c19}{to\_glm}}(JPH::QuatArg\ q)\ \{\ \textcolor{keywordflow}{return}\ glm::quat(q.GetW(),\ q.GetX(),\ q.GetY(),\ q.GetZ());\ \}}
-\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#ifdef\ JPH\_DOUBLE\_PRECISION}}
-\DoxyCodeLine{00038\ \textcolor{keyword}{inline}\ JPH::RVec3\ \mbox{\hyperlink{namespaceCalgine_ad50a9cbcfcf3c96c045f850bd37f5e8c}{to\_jolt\_r}}(\textcolor{keyword}{const}\ glm::vec3\&\ v)\ \{\ \textcolor{keywordflow}{return}\ JPH::RVec3(v.x,\ v.y,\ v.z);\ \}}
-\DoxyCodeLine{00039\ \textcolor{keyword}{inline}\ glm::vec3\ \mbox{\hyperlink{namespaceCalgine_ade91f61cc5cd86023067892bfe702c19}{to\_glm}}(JPH::RVec3Arg\ v)\ \{\ \textcolor{keywordflow}{return}\ glm::vec3(\textcolor{keywordtype}{float}(v.GetX()),\ \textcolor{keywordtype}{float}(v.GetY()),\ \textcolor{keywordtype}{float}(v.GetZ()));\ \}}
-\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00041\ \textcolor{keyword}{inline}\ JPH::RVec3\ \mbox{\hyperlink{namespaceCalgine_ad50a9cbcfcf3c96c045f850bd37f5e8c}{to\_jolt\_r}}(\textcolor{keyword}{const}\ glm::vec3\&\ v)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCalgine_a3fba88f0cdfbcb09213824490e2c359f}{to\_jolt}}(v);\ \}}
-\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{comment}{//\ -\/-\/-\/-\/\ Collision\ layers\ -\/-\/-\/-\/}}
-\DoxyCodeLine{00045\ \textcolor{comment}{//\ Two\ layers:\ static\ bodies\ never\ test\ against\ each\ other;\ everything\ else\ collides\ with\ everything.}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }RigidBody;}
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }Joint;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ -\/-\/-\/-\/\ glm\ <-\/>\ Jolt\ conversions\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{inline}\ JPH::Vec3\ \mbox{\hyperlink{namespaceCalgine_a3fba88f0cdfbcb09213824490e2c359f}{to\_jolt}}(\textcolor{keyword}{const}\ glm::vec3\&\ v)\ \{\ \textcolor{keywordflow}{return}\ JPH::Vec3(v.x,\ v.y,\ v.z);\ \}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{inline}\ JPH::Quat\ \mbox{\hyperlink{namespaceCalgine_a3fba88f0cdfbcb09213824490e2c359f}{to\_jolt}}(\textcolor{keyword}{const}\ glm::quat\&\ q)\ \{\ \textcolor{keywordflow}{return}\ JPH::Quat(q.x,\ q.y,\ q.z,\ q.w).Normalized();\ \}}
+\DoxyCodeLine{00038\ \textcolor{keyword}{inline}\ glm::vec3\ \mbox{\hyperlink{namespaceCalgine_ade91f61cc5cd86023067892bfe702c19}{to\_glm}}(JPH::Vec3Arg\ v)\ \{\ \textcolor{keywordflow}{return}\ glm::vec3(v.GetX(),\ v.GetY(),\ v.GetZ());\ \}}
+\DoxyCodeLine{00039\ \textcolor{keyword}{inline}\ glm::quat\ \mbox{\hyperlink{namespaceCalgine_ade91f61cc5cd86023067892bfe702c19}{to\_glm}}(JPH::QuatArg\ q)\ \{\ \textcolor{keywordflow}{return}\ glm::quat(q.GetW(),\ q.GetX(),\ q.GetY(),\ q.GetZ());\ \}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifdef\ JPH\_DOUBLE\_PRECISION}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{inline}\ JPH::RVec3\ \mbox{\hyperlink{namespaceCalgine_ad50a9cbcfcf3c96c045f850bd37f5e8c}{to\_jolt\_r}}(\textcolor{keyword}{const}\ glm::vec3\&\ v)\ \{\ \textcolor{keywordflow}{return}\ JPH::RVec3(v.x,\ v.y,\ v.z);\ \}}
+\DoxyCodeLine{00042\ \textcolor{keyword}{inline}\ glm::vec3\ \mbox{\hyperlink{namespaceCalgine_ade91f61cc5cd86023067892bfe702c19}{to\_glm}}(JPH::RVec3Arg\ v)\ \{\ \textcolor{keywordflow}{return}\ glm::vec3(\textcolor{keywordtype}{float}(v.GetX()),\ \textcolor{keywordtype}{float}(v.GetY()),\ \textcolor{keywordtype}{float}(v.GetZ()));\ \}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{inline}\ JPH::RVec3\ \mbox{\hyperlink{namespaceCalgine_ad50a9cbcfcf3c96c045f850bd37f5e8c}{to\_jolt\_r}}(\textcolor{keyword}{const}\ glm::vec3\&\ v)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCalgine_a3fba88f0cdfbcb09213824490e2c359f}{to\_jolt}}(v);\ \}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{keyword}{namespace\ }PhysicsLayers}
-\DoxyCodeLine{00048\ \{}
-\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ JPH::ObjectLayer\ non\_moving\ =\ 0;}
-\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ JPH::ObjectLayer\ moving\ =\ 1;}
-\DoxyCodeLine{00051\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ JPH::ObjectLayer\ count\ =\ 2;}
-\DoxyCodeLine{00052\ \}}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{keyword}{namespace\ }PhysicsBroadPhaseLayers}
-\DoxyCodeLine{00055\ \{}
-\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ JPH::BroadPhaseLayer\ non\_moving(0);}
-\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ JPH::BroadPhaseLayer\ moving(1);}
-\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ JPH::uint\ count\ =\ 2;}
-\DoxyCodeLine{00059\ \}}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1ObjectLayerPairFilterImpl}{ObjectLayerPairFilterImpl}}\ \mbox{\hyperlink{tick__type_8h_a46a85338742bf5c446ee7a462d658889}{final}}\ :\ \textcolor{keyword}{public}\ JPH::ObjectLayerPairFilter}
-\DoxyCodeLine{00062\ \{}
-\DoxyCodeLine{00063\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1ObjectLayerPairFilterImpl_a0704cd2d4ad1445b87bac02f98db01b9}{ShouldCollide}}(JPH::ObjectLayer\ object\_1,\ JPH::ObjectLayer\ object\_2)\textcolor{keyword}{\ const\ override}}
-\DoxyCodeLine{00065\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (object\_1\ ==\ PhysicsLayers::non\_moving)}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ object\_2\ ==\ PhysicsLayers::moving;}
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00069\ \ \ \}}
-\DoxyCodeLine{00070\ \};}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1BroadPhaseLayerInterfaceImpl}{BroadPhaseLayerInterfaceImpl}}\ \mbox{\hyperlink{tick__type_8h_a46a85338742bf5c446ee7a462d658889}{final}}\ :\ \textcolor{keyword}{public}\ JPH::BroadPhaseLayerInterface}
-\DoxyCodeLine{00073\ \{}
-\DoxyCodeLine{00074\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00075\ \ \ JPH::uint\ \mbox{\hyperlink{classCalgine_1_1BroadPhaseLayerInterfaceImpl_a2857cfba07c348efc206262cc3b90e7b}{GetNumBroadPhaseLayers}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ PhysicsBroadPhaseLayers::count;\ \}}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ JPH::BroadPhaseLayer\ \mbox{\hyperlink{classCalgine_1_1BroadPhaseLayerInterfaceImpl_a5ca81ed56da8b130192b34cb60e358d8}{GetBroadPhaseLayer}}(JPH::ObjectLayer\ layer)\textcolor{keyword}{\ const\ override}}
-\DoxyCodeLine{00078\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{return}\ layer\ ==\ PhysicsLayers::non\_moving\ ?\ PhysicsBroadPhaseLayers::non\_moving\ :\ PhysicsBroadPhaseLayers::moving;}
-\DoxyCodeLine{00080\ \ \ \}}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#if\ defined(JPH\_EXTERNAL\_PROFILE)\ ||\ defined(JPH\_PROFILE\_ENABLED)}}
-\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GetBroadPhaseLayerName(JPH::BroadPhaseLayer\ layer)\textcolor{keyword}{\ const\ override}}
-\DoxyCodeLine{00084\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{return}\ layer\ ==\ PhysicsBroadPhaseLayers::non\_moving\ ?\ \textcolor{stringliteral}{"{}non\_moving"{}}\ :\ \textcolor{stringliteral}{"{}moving"{}};}
-\DoxyCodeLine{00086\ \ \ \}}
-\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00088\ \};}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1ObjectVsBroadPhaseLayerFilterImpl}{ObjectVsBroadPhaseLayerFilterImpl}}\ \mbox{\hyperlink{tick__type_8h_a46a85338742bf5c446ee7a462d658889}{final}}\ :\ \textcolor{keyword}{public}\ JPH::ObjectVsBroadPhaseLayerFilter}
-\DoxyCodeLine{00091\ \{}
-\DoxyCodeLine{00092\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1ObjectVsBroadPhaseLayerFilterImpl_a15a27a4865eab7dd134a7e02c4ae0eae}{ShouldCollide}}(JPH::ObjectLayer\ layer\_1,\ JPH::BroadPhaseLayer\ layer\_2)\textcolor{keyword}{\ const\ override}}
-\DoxyCodeLine{00094\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (layer\_1\ ==\ PhysicsLayers::non\_moving)}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ layer\_2\ ==\ PhysicsBroadPhaseLayers::moving;}
-\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00098\ \ \ \}}
-\DoxyCodeLine{00099\ \};}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \textcolor{comment}{//\ -\/-\/-\/-\/\ Contact\ queue\ -\/-\/-\/-\/}}
-\DoxyCodeLine{00102\ \textcolor{comment}{//\ Jolt\ calls\ these\ from\ its\ worker\ threads\ during\ PhysicsSystem::Update(),\ so\ we\ only\ record\ body\ IDs}}
-\DoxyCodeLine{00103\ \textcolor{comment}{//\ here.\ PhysicsWorld::step()\ turns\ them\ into\ CollisionEvents\ on\ the\ main\ thread\ afterwards.}}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCalgine_1_1QueuedContact}{QueuedContact}}}
-\DoxyCodeLine{00106\ \{}
-\DoxyCodeLine{00107\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1QueuedContact_af02563ecc3e5f06b251e4c72b3762cd4}{is\_enter}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00108\ \ \ JPH::BodyID\ \mbox{\hyperlink{structCalgine_1_1QueuedContact_aea6c406bf5b75cc5c5d127f0f7e8c5e1}{body\_1}};}
-\DoxyCodeLine{00109\ \ \ JPH::BodyID\ \mbox{\hyperlink{structCalgine_1_1QueuedContact_a1eb1c01151d1e99449a5dd7f888a0f1b}{body\_2}};}
-\DoxyCodeLine{00110\ \ \ glm::vec3\ \mbox{\hyperlink{structCalgine_1_1QueuedContact_a1c3e473556e540930654f4468074b866}{point}}\ =\ glm::vec3(0.0f);}
-\DoxyCodeLine{00111\ \ \ glm::vec3\ \mbox{\hyperlink{structCalgine_1_1QueuedContact_ac27706d625bf9d0ac26d0e89edebbc7f}{normal}}\ =\ glm::vec3(0.0f);}
-\DoxyCodeLine{00112\ \};}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1ContactQueue}{ContactQueue}}\ \mbox{\hyperlink{tick__type_8h_a46a85338742bf5c446ee7a462d658889}{final}}\ :\ \textcolor{keyword}{public}\ JPH::ContactListener}
-\DoxyCodeLine{00115\ \{}
-\DoxyCodeLine{00116\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1ContactQueue_a28c9d667608581af3404bdabdb87844f}{OnContactAdded}}(\textcolor{keyword}{const}\ JPH::Body\&\ body\_1,\ \textcolor{keyword}{const}\ JPH::Body\&\ body\_2,\ \textcolor{keyword}{const}\ JPH::ContactManifold\&\ manifold,\ JPH::ContactSettings\&)\textcolor{keyword}{\ override}}
-\DoxyCodeLine{00118\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{structCalgine_1_1QueuedContact}{QueuedContact}}\ contact;}
-\DoxyCodeLine{00120\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_af02563ecc3e5f06b251e4c72b3762cd4}{is\_enter}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00121\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_aea6c406bf5b75cc5c5d127f0f7e8c5e1}{body\_1}}\ =\ body\_1.GetID();}
-\DoxyCodeLine{00122\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_a1eb1c01151d1e99449a5dd7f888a0f1b}{body\_2}}\ =\ body\_2.GetID();}
-\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{if}\ (manifold.mRelativeContactPointsOn1.size()\ >\ 0)}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_a1c3e473556e540930654f4468074b866}{point}}\ =\ \mbox{\hyperlink{namespaceCalgine_ade91f61cc5cd86023067892bfe702c19}{to\_glm}}(manifold.GetWorldSpaceContactPointOn1(0));}
-\DoxyCodeLine{00125\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_ac27706d625bf9d0ac26d0e89edebbc7f}{normal}}\ =\ \mbox{\hyperlink{namespaceCalgine_ade91f61cc5cd86023067892bfe702c19}{to\_glm}}(manifold.mWorldSpaceNormal);}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(mutex);}
-\DoxyCodeLine{00128\ \ \ \ \ contacts.push\_back(contact);}
-\DoxyCodeLine{00129\ \ \ \}}
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1ContactQueue_a4afe803f766bda8eab7c87628dd6eca7}{OnContactRemoved}}(\textcolor{keyword}{const}\ JPH::SubShapeIDPair\&\ pair)\textcolor{keyword}{\ override}}
-\DoxyCodeLine{00132\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{structCalgine_1_1QueuedContact}{QueuedContact}}\ contact;}
-\DoxyCodeLine{00134\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_af02563ecc3e5f06b251e4c72b3762cd4}{is\_enter}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00135\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_aea6c406bf5b75cc5c5d127f0f7e8c5e1}{body\_1}}\ =\ pair.GetBody1ID();}
-\DoxyCodeLine{00136\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_a1eb1c01151d1e99449a5dd7f888a0f1b}{body\_2}}\ =\ pair.GetBody2ID();}
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ -\/-\/-\/-\/\ Collision\ layers\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ A\ Jolt\ ObjectLayer\ packs\ the\ user's\ collision\ layer\ and\ whether\ the\ body\ can\ move:}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ \ \ object\_layer\ =\ (collision\_layer\ <<\ 1)\ |\ moving}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ Static\ bodies\ go\ in\ the\ "{}non\_moving"{}\ broad\ phase\ tree\ and\ never\ test\ against\ each\ other.}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{namespace\ }PhysicsBroadPhaseLayers}
+\DoxyCodeLine{00053\ \{}
+\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ JPH::BroadPhaseLayer\ non\_moving(0);}
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ JPH::BroadPhaseLayer\ moving(1);}
+\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ JPH::uint\ count\ =\ 2;}
+\DoxyCodeLine{00057\ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{inline}\ JPH::ObjectLayer\ \mbox{\hyperlink{namespaceCalgine_a2f8d3d27c0eb90462d4c10fb2ef8524c}{make\_object\_layer}}(\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ layer,\ \textcolor{keywordtype}{bool}\ moving)}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}JPH::ObjectLayer\textcolor{keyword}{>}((\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(layer)\ <<\ 1)\ |\ (moving\ ?\ 1u\ :\ 0u));}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\ \mbox{\hyperlink{namespaceCalgine_a405ed6dd9d4929e98ca24459f045251c}{collision\_layer\_of}}(JPH::ObjectLayer\ object\_layer)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{CollisionLayer}}\textcolor{keyword}{>}(object\_layer\ >>\ 1);\ \}}
+\DoxyCodeLine{00064\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCalgine_a6e037b4a3cc365d0b1b04ff394ada67a}{is\_moving\_layer}}(JPH::ObjectLayer\ object\_layer)\ \{\ \textcolor{keywordflow}{return}\ (object\_layer\ \&\ 1u)\ !=\ 0;\ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1ObjectLayerPairFilterImpl}{ObjectLayerPairFilterImpl}}\ \mbox{\hyperlink{tick__type_8h_a46a85338742bf5c446ee7a462d658889}{final}}\ :\ \textcolor{keyword}{public}\ JPH::ObjectLayerPairFilter}
+\DoxyCodeLine{00067\ \{}
+\DoxyCodeLine{00068\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings}{CollisionLayerSettings}}*\ \mbox{\hyperlink{classCalgine_1_1ObjectLayerPairFilterImpl_a651673d58f72e77ac58ecfab9f0492e4}{layers}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1ObjectLayerPairFilterImpl_a0704cd2d4ad1445b87bac02f98db01b9}{ShouldCollide}}(JPH::ObjectLayer\ object\_1,\ JPH::ObjectLayer\ object\_2)\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00072\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespaceCalgine_a6e037b4a3cc365d0b1b04ff394ada67a}{is\_moving\_layer}}(object\_1)\ \&\&\ !\mbox{\hyperlink{namespaceCalgine_a6e037b4a3cc365d0b1b04ff394ada67a}{is\_moving\_layer}}(object\_2))}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCalgine_1_1ObjectLayerPairFilterImpl_a651673d58f72e77ac58ecfab9f0492e4}{layers}}-\/>\mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings_a16490772cdd408e03fa570d531dd06e7}{collides}}(\mbox{\hyperlink{namespaceCalgine_a405ed6dd9d4929e98ca24459f045251c}{collision\_layer\_of}}(object\_1),\ \mbox{\hyperlink{namespaceCalgine_a405ed6dd9d4929e98ca24459f045251c}{collision\_layer\_of}}(object\_2));}
+\DoxyCodeLine{00076\ \ \ \}}
+\DoxyCodeLine{00077\ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1BroadPhaseLayerInterfaceImpl}{BroadPhaseLayerInterfaceImpl}}\ \mbox{\hyperlink{tick__type_8h_a46a85338742bf5c446ee7a462d658889}{final}}\ :\ \textcolor{keyword}{public}\ JPH::BroadPhaseLayerInterface}
+\DoxyCodeLine{00080\ \{}
+\DoxyCodeLine{00081\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00082\ \ \ JPH::uint\ \mbox{\hyperlink{classCalgine_1_1BroadPhaseLayerInterfaceImpl_a2857cfba07c348efc206262cc3b90e7b}{GetNumBroadPhaseLayers}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ PhysicsBroadPhaseLayers::count;\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ JPH::BroadPhaseLayer\ \mbox{\hyperlink{classCalgine_1_1BroadPhaseLayerInterfaceImpl_a5ca81ed56da8b130192b34cb60e358d8}{GetBroadPhaseLayer}}(JPH::ObjectLayer\ layer)\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00085\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCalgine_a6e037b4a3cc365d0b1b04ff394ada67a}{is\_moving\_layer}}(layer)\ ?\ PhysicsBroadPhaseLayers::moving\ :\ PhysicsBroadPhaseLayers::non\_moving;}
+\DoxyCodeLine{00087\ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#if\ defined(JPH\_EXTERNAL\_PROFILE)\ ||\ defined(JPH\_PROFILE\_ENABLED)}}
+\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GetBroadPhaseLayerName(JPH::BroadPhaseLayer\ layer)\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ layer\ ==\ PhysicsBroadPhaseLayers::non\_moving\ ?\ \textcolor{stringliteral}{"{}non\_moving"{}}\ :\ \textcolor{stringliteral}{"{}moving"{}};}
+\DoxyCodeLine{00093\ \ \ \}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1ObjectVsBroadPhaseLayerFilterImpl}{ObjectVsBroadPhaseLayerFilterImpl}}\ \mbox{\hyperlink{tick__type_8h_a46a85338742bf5c446ee7a462d658889}{final}}\ :\ \textcolor{keyword}{public}\ JPH::ObjectVsBroadPhaseLayerFilter}
+\DoxyCodeLine{00098\ \{}
+\DoxyCodeLine{00099\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCalgine_1_1ObjectVsBroadPhaseLayerFilterImpl_a15a27a4865eab7dd134a7e02c4ae0eae}{ShouldCollide}}(JPH::ObjectLayer\ layer\_1,\ JPH::BroadPhaseLayer\ layer\_2)\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00101\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespaceCalgine_a6e037b4a3cc365d0b1b04ff394ada67a}{is\_moving\_layer}}(layer\_1))}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ layer\_2\ ==\ PhysicsBroadPhaseLayers::moving;}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00105\ \ \ \}}
+\DoxyCodeLine{00106\ \};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{comment}{//\ -\/-\/-\/-\/\ Contact\ queue\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00109\ \textcolor{comment}{//\ Jolt\ calls\ these\ from\ its\ worker\ threads\ during\ PhysicsSystem::Update(),\ so\ we\ only\ record\ body\ IDs}}
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ here.\ PhysicsWorld::step()\ turns\ them\ into\ CollisionEvents\ on\ the\ main\ thread\ afterwards.}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCalgine_1_1QueuedContact}{QueuedContact}}}
+\DoxyCodeLine{00113\ \{}
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1QueuedContact_af02563ecc3e5f06b251e4c72b3762cd4}{is\_enter}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00115\ \ \ JPH::BodyID\ \mbox{\hyperlink{structCalgine_1_1QueuedContact_aea6c406bf5b75cc5c5d127f0f7e8c5e1}{body\_1}};}
+\DoxyCodeLine{00116\ \ \ JPH::BodyID\ \mbox{\hyperlink{structCalgine_1_1QueuedContact_a1eb1c01151d1e99449a5dd7f888a0f1b}{body\_2}};}
+\DoxyCodeLine{00117\ \ \ glm::vec3\ \mbox{\hyperlink{structCalgine_1_1QueuedContact_a1c3e473556e540930654f4468074b866}{point}}\ =\ glm::vec3(0.0f);}
+\DoxyCodeLine{00118\ \ \ glm::vec3\ \mbox{\hyperlink{structCalgine_1_1QueuedContact_ac27706d625bf9d0ac26d0e89edebbc7f}{normal}}\ =\ glm::vec3(0.0f);}
+\DoxyCodeLine{00119\ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalgine_1_1ContactQueue}{ContactQueue}}\ \mbox{\hyperlink{tick__type_8h_a46a85338742bf5c446ee7a462d658889}{final}}\ :\ \textcolor{keyword}{public}\ JPH::ContactListener}
+\DoxyCodeLine{00122\ \{}
+\DoxyCodeLine{00123\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1ContactQueue_a28c9d667608581af3404bdabdb87844f}{OnContactAdded}}(\textcolor{keyword}{const}\ JPH::Body\&\ body\_1,\ \textcolor{keyword}{const}\ JPH::Body\&\ body\_2,\ \textcolor{keyword}{const}\ JPH::ContactManifold\&\ manifold,\ JPH::ContactSettings\&)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00125\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{structCalgine_1_1QueuedContact}{QueuedContact}}\ contact;}
+\DoxyCodeLine{00127\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_af02563ecc3e5f06b251e4c72b3762cd4}{is\_enter}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00128\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_aea6c406bf5b75cc5c5d127f0f7e8c5e1}{body\_1}}\ =\ body\_1.GetID();}
+\DoxyCodeLine{00129\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_a1eb1c01151d1e99449a5dd7f888a0f1b}{body\_2}}\ =\ body\_2.GetID();}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{if}\ (manifold.mRelativeContactPointsOn1.size()\ >\ 0)}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_a1c3e473556e540930654f4468074b866}{point}}\ =\ \mbox{\hyperlink{namespaceCalgine_ade91f61cc5cd86023067892bfe702c19}{to\_glm}}(manifold.GetWorldSpaceContactPointOn1(0));}
+\DoxyCodeLine{00132\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_ac27706d625bf9d0ac26d0e89edebbc7f}{normal}}\ =\ \mbox{\hyperlink{namespaceCalgine_ade91f61cc5cd86023067892bfe702c19}{to\_glm}}(manifold.mWorldSpaceNormal);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(mutex);}
+\DoxyCodeLine{00135\ \ \ \ \ contacts.push\_back(contact);}
+\DoxyCodeLine{00136\ \ \ \}}
 \DoxyCodeLine{00137\ }
-\DoxyCodeLine{00138\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(mutex);}
-\DoxyCodeLine{00139\ \ \ \ \ contacts.push\_back(contact);}
-\DoxyCodeLine{00140\ \ \ \}}
-\DoxyCodeLine{00141\ }
-\DoxyCodeLine{00142\ \ \ std::vector<QueuedContact>\ \mbox{\hyperlink{classCalgine_1_1ContactQueue_ad958cbb5334ba198cb90b09e67eb1540}{take}}()}
-\DoxyCodeLine{00143\ \ \ \{}
-\DoxyCodeLine{00144\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(mutex);}
-\DoxyCodeLine{00145\ \ \ \ \ std::vector<QueuedContact>\ out;}
-\DoxyCodeLine{00146\ \ \ \ \ out.swap(contacts);}
-\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
-\DoxyCodeLine{00148\ \ \ \}}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00151\ \ \ std::mutex\ mutex;}
-\DoxyCodeLine{00152\ \ \ std::vector<QueuedContact>\ contacts;}
-\DoxyCodeLine{00153\ \};}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ \textcolor{comment}{//\ -\/-\/-\/-\/\ Debug\ renderer\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalgine_1_1ContactQueue_a4afe803f766bda8eab7c87628dd6eca7}{OnContactRemoved}}(\textcolor{keyword}{const}\ JPH::SubShapeIDPair\&\ pair)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00139\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{structCalgine_1_1QueuedContact}{QueuedContact}}\ contact;}
+\DoxyCodeLine{00141\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_af02563ecc3e5f06b251e4c72b3762cd4}{is\_enter}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00142\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_aea6c406bf5b75cc5c5d127f0f7e8c5e1}{body\_1}}\ =\ pair.GetBody1ID();}
+\DoxyCodeLine{00143\ \ \ \ \ contact.\mbox{\hyperlink{structCalgine_1_1QueuedContact_a1eb1c01151d1e99449a5dd7f888a0f1b}{body\_2}}\ =\ pair.GetBody2ID();}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(mutex);}
+\DoxyCodeLine{00146\ \ \ \ \ contacts.push\_back(contact);}
+\DoxyCodeLine{00147\ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ std::vector<QueuedContact>\ \mbox{\hyperlink{classCalgine_1_1ContactQueue_ad958cbb5334ba198cb90b09e67eb1540}{take}}()}
+\DoxyCodeLine{00150\ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ std::lock\_guard<std::mutex>\ lock(mutex);}
+\DoxyCodeLine{00152\ \ \ \ \ std::vector<QueuedContact>\ out;}
+\DoxyCodeLine{00153\ \ \ \ \ out.swap(contacts);}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00155\ \ \ \}}
 \DoxyCodeLine{00156\ }
-\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#ifdef\ JPH\_DEBUG\_RENDERER}}
-\DoxyCodeLine{00158\ \textcolor{keyword}{class\ }PhysicsDebugRenderer\ \mbox{\hyperlink{tick__type_8h_a46a85338742bf5c446ee7a462d658889}{final}}\ :\ \textcolor{keyword}{public}\ JPH::DebugRendererSimple}
-\DoxyCodeLine{00159\ \{}
-\DoxyCodeLine{00160\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00161\ \ \ \textcolor{keywordtype}{void}\ DrawLine(JPH::RVec3Arg\ from,\ JPH::RVec3Arg\ to,\ JPH::ColorArg\ colour)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00162\ \ \ \textcolor{keywordtype}{void}\ DrawTriangle(JPH::RVec3Arg\ v1,\ JPH::RVec3Arg\ v2,\ JPH::RVec3Arg\ v3,\ JPH::ColorArg\ colour,\ ECastShadow\ cast\_shadow)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00163\ \ \ \textcolor{keywordtype}{void}\ DrawText3D(JPH::RVec3Arg,\ \textcolor{keyword}{const}\ std::string\_view\&,\ JPH::ColorArg,\ \textcolor{keywordtype}{float})\textcolor{keyword}{\ override\ }\{\}}
-\DoxyCodeLine{00164\ \};}
-\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00167\ \textcolor{comment}{//\ -\/-\/-\/-\/\ World\ state\ -\/-\/-\/-\/}}
-\DoxyCodeLine{00168\ }
-\DoxyCodeLine{00169\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl}{PhysicsWorld::Impl}}}
-\DoxyCodeLine{00170\ \{}
-\DoxyCodeLine{00171\ \ \ \textcolor{comment}{//\ Falls\ back\ to\ malloc\ when\ the\ preallocated\ block\ runs\ out\ (plain\ TempAllocatorImpl\ aborts).}}
-\DoxyCodeLine{00172\ \ \ std::unique\_ptr<JPH::TempAllocatorImplWithMallocFallback>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a59b910636959c1991fa8f65f50eee48a}{temp\_allocator}};}
-\DoxyCodeLine{00173\ \ \ std::unique\_ptr<JPH::JobSystemThreadPool>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a4ba8febd1ec24e63ccf6db703fc9607e}{job\_system}};}
-\DoxyCodeLine{00174\ }
-\DoxyCodeLine{00175\ \ \ \mbox{\hyperlink{classCalgine_1_1BroadPhaseLayerInterfaceImpl}{BroadPhaseLayerInterfaceImpl}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aea6e98567ab00d54556675bda45dfb98}{broad\_phase\_layer\_interface}};}
-\DoxyCodeLine{00176\ \ \ \mbox{\hyperlink{classCalgine_1_1ObjectVsBroadPhaseLayerFilterImpl}{ObjectVsBroadPhaseLayerFilterImpl}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ad3a3fbbc79020516553b977f5c112158}{object\_vs\_broad\_phase\_filter}};}
-\DoxyCodeLine{00177\ \ \ \mbox{\hyperlink{classCalgine_1_1ObjectLayerPairFilterImpl}{ObjectLayerPairFilterImpl}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a2d3d82ad68861e3dd0ba4835672bb1ca}{object\_pair\_filter}};}
-\DoxyCodeLine{00178\ }
-\DoxyCodeLine{00179\ \ \ std::unique\_ptr<JPH::PhysicsSystem>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a01febca20c987b8812ad5556042c8595}{system}};}
-\DoxyCodeLine{00180\ \ \ \mbox{\hyperlink{classCalgine_1_1ContactQueue}{ContactQueue}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a985b39ba20cf0a5dd816f003ade681c5}{contact\_queue}};}
+\DoxyCodeLine{00157\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00158\ \ \ std::mutex\ mutex;}
+\DoxyCodeLine{00159\ \ \ std::vector<QueuedContact>\ contacts;}
+\DoxyCodeLine{00160\ \};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{comment}{//\ -\/-\/-\/-\/\ Debug\ renderer\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#ifdef\ JPH\_DEBUG\_RENDERER}}
+\DoxyCodeLine{00165\ \textcolor{keyword}{class\ }PhysicsDebugRenderer\ \mbox{\hyperlink{tick__type_8h_a46a85338742bf5c446ee7a462d658889}{final}}\ :\ \textcolor{keyword}{public}\ JPH::DebugRendererSimple}
+\DoxyCodeLine{00166\ \{}
+\DoxyCodeLine{00167\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00168\ \ \ \textcolor{keywordtype}{void}\ DrawLine(JPH::RVec3Arg\ from,\ JPH::RVec3Arg\ to,\ JPH::ColorArg\ colour)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00169\ \ \ \textcolor{keywordtype}{void}\ DrawTriangle(JPH::RVec3Arg\ v1,\ JPH::RVec3Arg\ v2,\ JPH::RVec3Arg\ v3,\ JPH::ColorArg\ colour,\ ECastShadow\ cast\_shadow)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00170\ \ \ \textcolor{keywordtype}{void}\ DrawText3D(JPH::RVec3Arg,\ \textcolor{keyword}{const}\ std::string\_view\&,\ JPH::ColorArg,\ \textcolor{keywordtype}{float})\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00171\ \};}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{comment}{//\ -\/-\/-\/-\/\ World\ state\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCalgine_1_1Pose}{Pose}}}
+\DoxyCodeLine{00177\ \{}
+\DoxyCodeLine{00178\ \ \ glm::vec3\ \mbox{\hyperlink{structCalgine_1_1Pose_a4cf8acc940e1e9354f63fba0d7c87c0d}{position}}\ =\ glm::vec3(0.0f);}
+\DoxyCodeLine{00179\ \ \ glm::quat\ \mbox{\hyperlink{structCalgine_1_1Pose_a7c694155836c22312571810ec98a0dd7}{rotation}}\ =\ glm::quat(1.0f,\ 0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{00180\ \};}
 \DoxyCodeLine{00181\ }
-\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#ifdef\ JPH\_DEBUG\_RENDERER}}
-\DoxyCodeLine{00183\ \ \ std::unique\_ptr<PhysicsDebugRenderer>\ debug\_renderer;}
-\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00185\ }
-\DoxyCodeLine{00187\ \ \ std::unordered\_map<uint32\_t,\ RigidBody*>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ae59b6da4fb40bccc59c2beb49b4f94f1}{bodies}};}
-\DoxyCodeLine{00188\ }
-\DoxyCodeLine{00190\ \ \ uint32\_t\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aabda759e8f510fbd6478754f602f7493}{last\_logged\_error}}\ =\ 0;}
-\DoxyCodeLine{00191\ \ \ std::chrono::steady\_clock::time\_point\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aa1f5fe6088285d4214c454c9d61f68d5}{last\_error\_log\_time}};}
+\DoxyCodeLine{00183\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCalgine_1_1BodyRecord}{BodyRecord}}}
+\DoxyCodeLine{00184\ \{}
+\DoxyCodeLine{00185\ \ \ \mbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}}*\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_a209b82e85c1155de07db220385f86109}{owner}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00186\ \ \ JPH::BodyID\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_a3b990b7976d15f2bbd44c79c7e83565f}{id}};}
+\DoxyCodeLine{00187\ \ \ \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{MotionType}}\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_a6592cfb4d1d8727f8964cbcf3b0d1163}{motion}}\ =\ \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4cab72f3bd391ba731a35708bfd8cd8a68f}{MotionType::dynamic}};}
+\DoxyCodeLine{00188\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_afcd2cdcef356a6b6ee878b1998a6eaca}{in\_simulation}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00189\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_adb830a574780b6c162b61fac12506176}{is\_sensor}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00190\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_af6b59b3a18195a42da789093bd44fc16}{interpolate}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00191\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_ad3cfa5ccc1f9a2957ac85162f5a390a6}{track\_scale}}\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{00192\ }
-\DoxyCodeLine{00193\ \ \ JPH::BodyInterface\&\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a4ab39e18e65f354bc49d38f1518a5a4d}{body\_interface}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a01febca20c987b8812ad5556042c8595}{system}}-\/>GetBodyInterface();\ \}}
-\DoxyCodeLine{00194\ }
-\DoxyCodeLine{00195\ \ \ \mbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}}*\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a6a9605c16ef7b314bd762afb46ae35ec}{find}}(\textcolor{keyword}{const}\ JPH::BodyID\&\ \textcolor{keywordtype}{id})\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00196\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ae59b6da4fb40bccc59c2beb49b4f94f1}{bodies}}.find(\textcolor{keywordtype}{id}.GetIndexAndSequenceNumber());}
-\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{return}\ it\ ==\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ae59b6da4fb40bccc59c2beb49b4f94f1}{bodies}}.end()\ ?\ nullptr\ :\ it-\/>second;}
-\DoxyCodeLine{00199\ \ \ \}}
-\DoxyCodeLine{00200\ \};}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00202\ \}}
+\DoxyCodeLine{00194\ \ \ glm::vec3\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_ae34565d790d75a4852c8bf329ce68e7d}{shape\_scale}}\ =\ glm::vec3(1.0f);}
+\DoxyCodeLine{00195\ \ \ JPH::RefConst<JPH::Shape>\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_ace91f06b1e70ccafbb0f681a0ca235bb}{shape}};}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00198\ \ \ \mbox{\hyperlink{structCalgine_1_1Pose}{Pose}}\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_a8b462f3ba2d132b4c665b6d752dfd55c}{previous}};}
+\DoxyCodeLine{00199\ \ \ \mbox{\hyperlink{structCalgine_1_1Pose}{Pose}}\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_ad77ebe170654267cf1ce97b59a43f753}{current}};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00202\ \ \ \mbox{\hyperlink{structCalgine_1_1Pose}{Pose}}\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_a57a1eedb20f0e5b03f93ee742ab073aa}{last\_fixed\_logical}};}
+\DoxyCodeLine{00203\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_a5eced220d4fa2b550529cf315f5c0cfb}{has\_last\_fixed\_logical}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00204\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1BodyRecord_af4813a14e83921cace2b133948f79592}{warned\_moved\_outside\_fixed}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00205\ \};}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCalgine_1_1JointRecord}{JointRecord}}}
+\DoxyCodeLine{00208\ \{}
+\DoxyCodeLine{00209\ \ \ \mbox{\hyperlink{classCalgine_1_1Joint}{Joint}}*\ \mbox{\hyperlink{structCalgine_1_1JointRecord_ab63d50ef87b04c8b5e3d0674ffddd59c}{owner}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00210\ \ \ JPH::Ref<JPH::TwoBodyConstraint>\ \mbox{\hyperlink{structCalgine_1_1JointRecord_ae6870f8225ab92c649e1a1cdb264a80a}{constraint}};}
+\DoxyCodeLine{00211\ \ \ uint32\_t\ \mbox{\hyperlink{structCalgine_1_1JointRecord_ae8adb5fb414ac12140225ce4ae5c23a9}{body\_a}}\ =\ 0xffffffff;}
+\DoxyCodeLine{00213\ \ \ uint32\_t\ \mbox{\hyperlink{structCalgine_1_1JointRecord_ad9af907b3f8df6fe27a652a0fc03c8d3}{body\_b}}\ =\ 0xffffffff;}
+\DoxyCodeLine{00214\ \};}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00217\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCalgine_1_1ModelShapes}{ModelShapes}}}
+\DoxyCodeLine{00218\ \{}
+\DoxyCodeLine{00219\ \ \ std::weak\_ptr<Model>\ \mbox{\hyperlink{structCalgine_1_1ModelShapes_a6a5d144204169484b4ec703da9599b5b}{model}};}
+\DoxyCodeLine{00220\ \ \ JPH::RefConst<JPH::Shape>\ \mbox{\hyperlink{structCalgine_1_1ModelShapes_a3329a4e6ef261857dae7398708688925}{convex\_hull}};}
+\DoxyCodeLine{00221\ \ \ JPH::RefConst<JPH::Shape>\ \mbox{\hyperlink{structCalgine_1_1ModelShapes_aec16b84bd65ce54f69bab0bd94451aaa}{mesh}};}
+\DoxyCodeLine{00222\ \};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl}{PhysicsWorld::Impl}}}
+\DoxyCodeLine{00225\ \{}
+\DoxyCodeLine{00226\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint32\_t\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a0c0225a51cf01ab8cf13c44fd2bfe808}{invalid\_id}}\ =\ 0xffffffff;}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \textcolor{comment}{//\ Falls\ back\ to\ malloc\ when\ the\ preallocated\ block\ runs\ out\ (plain\ TempAllocatorImpl\ aborts).}}
+\DoxyCodeLine{00229\ \ \ std::unique\_ptr<JPH::TempAllocatorImplWithMallocFallback>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a59b910636959c1991fa8f65f50eee48a}{temp\_allocator}};}
+\DoxyCodeLine{00230\ \ \ std::unique\_ptr<JPH::JobSystemThreadPool>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a4ba8febd1ec24e63ccf6db703fc9607e}{job\_system}};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \mbox{\hyperlink{classCalgine_1_1BroadPhaseLayerInterfaceImpl}{BroadPhaseLayerInterfaceImpl}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aea6e98567ab00d54556675bda45dfb98}{broad\_phase\_layer\_interface}};}
+\DoxyCodeLine{00233\ \ \ \mbox{\hyperlink{classCalgine_1_1ObjectVsBroadPhaseLayerFilterImpl}{ObjectVsBroadPhaseLayerFilterImpl}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ad3a3fbbc79020516553b977f5c112158}{object\_vs\_broad\_phase\_filter}};}
+\DoxyCodeLine{00234\ \ \ \mbox{\hyperlink{classCalgine_1_1ObjectLayerPairFilterImpl}{ObjectLayerPairFilterImpl}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a2d3d82ad68861e3dd0ba4835672bb1ca}{object\_pair\_filter}};}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ std::unique\_ptr<JPH::PhysicsSystem>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a01febca20c987b8812ad5556042c8595}{system}};}
+\DoxyCodeLine{00237\ \ \ \mbox{\hyperlink{classCalgine_1_1ContactQueue}{ContactQueue}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a985b39ba20cf0a5dd816f003ade681c5}{contact\_queue}};}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#ifdef\ JPH\_DEBUG\_RENDERER}}
+\DoxyCodeLine{00240\ \ \ std::unique\_ptr<PhysicsDebugRenderer>\ debug\_renderer;}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00244\ \ \ std::unordered\_map<uint32\_t,\ BodyRecord>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}};}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ std::unordered\_map<uint32\_t,\ JointRecord>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a1e74ee0f29cd6104d5062e096f514324}{joints}};}
+\DoxyCodeLine{00247\ \ \ uint32\_t\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aabf1c5c56a9c7f1703ae2c28433ee252}{next\_joint\_id}}\ =\ 0;}
+\DoxyCodeLine{00249\ \ \ std::vector<Joint*>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_af2b2aafea97012a80efe08b2c9551d6c}{pending\_joints}};}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ std::unordered\_map<const\ Model*,\ ModelShapes>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a749a68a396d5b7152149b9a93364417a}{model\_shapes}};}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00254\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ad5c3b13c423537d1c39f501b6e320175}{last\_alpha}}\ =\ 1.0f;}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00257\ \ \ uint32\_t\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aabda759e8f510fbd6478754f602f7493}{last\_logged\_error}}\ =\ 0;}
+\DoxyCodeLine{00258\ \ \ std::chrono::steady\_clock::time\_point\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_aa1f5fe6088285d4214c454c9d61f68d5}{last\_error\_log\_time}};}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ JPH::BodyInterface\&\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a4ab39e18e65f354bc49d38f1518a5a4d}{body\_interface}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a01febca20c987b8812ad5556042c8595}{system}}-\/>GetBodyInterface();\ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \mbox{\hyperlink{structCalgine_1_1BodyRecord}{BodyRecord}}*\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a02b65ea146251f81c322ad5db22d1766}{record}}(uint32\_t\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{00263\ \ \ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}.find(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordflow}{return}\ it\ ==\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}.end()\ ?\ nullptr\ :\ \&it-\/>second;}
+\DoxyCodeLine{00266\ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \mbox{\hyperlink{classCalgine_1_1RigidBody}{RigidBody}}*\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a6a9605c16ef7b314bd762afb46ae35ec}{find}}(\textcolor{keyword}{const}\ JPH::BodyID\&\ \textcolor{keywordtype}{id})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00269\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}.find(\textcolor{keywordtype}{id}.GetIndexAndSequenceNumber());}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordflow}{return}\ it\ ==\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a06c4b32492c1868ce78a2b4491f9cf08}{bodies}}.end()\ ?\ nullptr\ :\ it-\/>second.owner;}
+\DoxyCodeLine{00272\ \ \ \}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \textcolor{comment}{//\ Implemented\ in\ physics\_world.cxx}}
+\DoxyCodeLine{00275\ \ \ JPH::RefConst<JPH::Shape>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a26f52cba0ebd29c1cc393863fa23616f}{build\_shape}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structCalgine_1_1ColliderShape}{ColliderShape}}\&\ shape,\ \textcolor{keyword}{const}\ glm::vec3\&\ \mbox{\hyperlink{physics__world_8cxx_ae6df3ca57fc92d1bddbfc258593ec29a}{world\_scale}},\ \mbox{\hyperlink{namespaceCalgine_a0bd93786fde78b22db760b7a8cd47b4c}{MotionType}}\ motion,\ \textcolor{keyword}{const}\ std::string\&\ owner\_name);}
+\DoxyCodeLine{00276\ \ \ JPH::RefConst<JPH::Shape>\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ac552020cb969f838bba577739cd0b28d}{get\_model\_shape}}(\textcolor{keyword}{const}\ std::shared\_ptr<Model>\&\ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d}{model}},\ \textcolor{keywordtype}{bool}\ triangle\_mesh,\ \textcolor{keyword}{const}\ std::string\&\ owner\_name);}
+\DoxyCodeLine{00277\ \ \ \mbox{\hyperlink{structCalgine_1_1Pose}{Pose}}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a6765e74896c8becf2d4f80ee956bc993}{read\_body\_pose}}(\textcolor{keyword}{const}\ JPH::BodyID\&\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \textcolor{comment}{//\ Implemented\ in\ joint.cxx}}
+\DoxyCodeLine{00280\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_ac73150c66d03942ba6cc5736cffbd2da}{try\_create\_joint}}(\mbox{\hyperlink{classCalgine_1_1Joint}{Joint}}*\ joint);}
+\DoxyCodeLine{00281\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a4d73511a679868ed92d7efd57e75500e}{remove\_joint}}(uint32\_t\ joint\_id);}
+\DoxyCodeLine{00283\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_af11a90a52ac5a760e90c5b34b2eef32a}{remove\_joints\_of\_body}}(uint32\_t\ body\_id);}
+\DoxyCodeLine{00285\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a9f3619716b518baa4761360563699c24}{refresh\_joints\_of\_body}}(uint32\_t\ body\_id);}
+\DoxyCodeLine{00286\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a3afd940c53b5c5dad11441866665f93d}{update\_joint\_enabled}}(\mbox{\hyperlink{structCalgine_1_1JointRecord}{JointRecord}}\&\ \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl_a02b65ea146251f81c322ad5db22d1766}{record}});}
+\DoxyCodeLine{00287\ \};}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \}}
 
 \end{DoxyCode}

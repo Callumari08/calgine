@@ -1,7 +1,13 @@
 var searchData=
 [
-  ['unbind_0',['unbind',['../classCalgine_1_1IndexBuffer.html#a1507e36db589df056bf5b27611994ac4',1,'Calgine::IndexBuffer::unbind()'],['../classCalgine_1_1VertexBuffer.html#af8849cc1c7564269f724b7d6bd34a783',1,'Calgine::VertexBuffer::unbind()'],['../classCalgine_1_1FrameBuffer.html#ac8d46b5ba91f138ab62d74ed717246f2',1,'Calgine::FrameBuffer::unbind()'],['../classCalgine_1_1RenderTexture.html#ae62b313614e8800339fac4ed7dedfd9d',1,'Calgine::RenderTexture::unbind()'],['../classCalgine_1_1Shader.html#ae618515f28fded93134e3f22d288ce40',1,'Calgine::Shader::unbind()']]],
-  ['update_1',['update',['../classCalgine_1_1Camera.html#aaa02bee726d4d4b9a4895139eb4fcc49',1,'Calgine::Camera']]],
-  ['update_5fprojection_2',['update_projection',['../classCalgine_1_1Camera.html#a55d76efe38571e2476032c66d7c1dd14',1,'Calgine::Camera']]],
-  ['update_5ftick_3',['update_tick',['../classCalgine_1_1Behaviour.html#a62c7640f82c8dc7bca360d31b5a07a66',1,'Calgine::Behaviour']]]
+  ['take_0',['take',['../classCalgine_1_1ContactQueue.html#ad958cbb5334ba198cb90b09e67eb1540',1,'Calgine::ContactQueue']]],
+  ['teleport_1',['teleport',['../classCalgine_1_1RigidBody.html#a11b9531e8a491f56d645c46f93ff18f2',1,'Calgine::RigidBody::teleport(const glm::vec3 &amp;world_position, const glm::quat &amp;world_rotation)'],['../classCalgine_1_1RigidBody.html#a9bc1c789530845108c19f76ae811584e',1,'Calgine::RigidBody::teleport(const glm::vec3 &amp;world_position, const glm::vec3 &amp;world_rotation_degrees)']]],
+  ['texture_2',['Texture',['../classCalgine_1_1Texture.html#aed6f4322e9aa48fc513fa47d564ee1d0',1,'Calgine::Texture']]],
+  ['time_3',['time',['../classCalgine_1_1Time.html#a1b1984a78828f7a20fb57ca4632156e5',1,'Calgine::Time']]],
+  ['to_5fglm_4',['to_glm',['../namespaceCalgine.html#ade91f61cc5cd86023067892bfe702c19',1,'Calgine::to_glm(JPH::Vec3Arg v)'],['../namespaceCalgine.html#a6998b770127bc0a67dcddb0fb7ea6b43',1,'Calgine::to_glm(JPH::QuatArg q)']]],
+  ['to_5fjolt_5',['to_jolt',['../namespaceCalgine.html#a3fba88f0cdfbcb09213824490e2c359f',1,'Calgine::to_jolt(const glm::vec3 &amp;v)'],['../namespaceCalgine.html#a20e0af1009d03b8f11c4cd982c87729b',1,'Calgine::to_jolt(const glm::quat &amp;q)']]],
+  ['to_5fjolt_5fr_6',['to_jolt_r',['../namespaceCalgine.html#ad50a9cbcfcf3c96c045f850bd37f5e8c',1,'Calgine']]],
+  ['to_5fmatrix_7',['to_matrix',['../classCalgine_1_1Transform.html#ac7f5d6e7d9ddde7152e7873f433fe8cb',1,'Calgine::Transform']]],
+  ['transform_8',['Transform',['../classCalgine_1_1Transform.html#a427e4bdaef21978b84bcb515493558a3',1,'Calgine::Transform']]],
+  ['try_5fcreate_5fjoint_9',['try_create_joint',['../structCalgine_1_1PhysicsWorld_1_1Impl.html#ac73150c66d03942ba6cc5736cffbd2da',1,'Calgine::PhysicsWorld::Impl']]]
 ];

@@ -124,17 +124,23 @@ $(document).ready(function(){initNavTree('mesh_8h_source.html',''); initResizabl
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classCalgine_1_1Mesh.html#a348e3c54a0d2f8e8fe30fcd23d4d86c6">   25</a></span>  <span class="keyword">inline</span> uint32_t <a class="code hl_function" href="classCalgine_1_1Mesh.html#a348e3c54a0d2f8e8fe30fcd23d4d86c6">get_index_count</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> index_count; }</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  std::unique_ptr&lt;VertexArray&gt; vao;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  std::unique_ptr&lt;VertexBuffer&gt; vbo;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  std::unique_ptr&lt;IndexBuffer&gt; ibo;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  uint32_t index_count;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
-</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classCalgine_1_1Mesh.html#aa3bf48780d664091f1958dc58210b2a5">   31</a></span>  <span class="keyword">const</span> std::vector&lt;glm::vec3&gt;&amp; <a class="code hl_function" href="classCalgine_1_1Mesh.html#aa3bf48780d664091f1958dc58210b2a5">get_positions</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> positions; }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classCalgine_1_1Mesh.html#aa60fe4e3b7f744115d141ce8ec278136">   33</a></span>  <span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; <a class="code hl_function" href="classCalgine_1_1Mesh.html#aa60fe4e3b7f744115d141ce8ec278136">get_indices</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> indices; }</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  std::vector&lt;glm::vec3&gt; positions;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  std::vector&lt;uint32_t&gt; indices;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  std::unique_ptr&lt;VertexArray&gt; vao;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  std::unique_ptr&lt;VertexBuffer&gt; vbo;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  std::unique_ptr&lt;IndexBuffer&gt; ibo;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  uint32_t index_count;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
 <div class="ttc" id="acalgine__api_8h_html"><div class="ttname"><a href="calgine__api_8h.html">calgine_api.h</a></div></div>
 <div class="ttc" id="acalgine__api_8h_html_a4e7aacb34d39acc08f8f3619a3b56395"><div class="ttname"><a href="calgine__api_8h.html#a4e7aacb34d39acc08f8f3619a3b56395">CALGINE_API</a></div><div class="ttdeci">#define CALGINE_API</div><div class="ttdef"><b>Definition</b> calgine_api.h:10</div></div>
 <div class="ttc" id="acalgine__pch_8h_html"><div class="ttname"><a href="calgine__pch_8h.html">calgine_pch.h</a></div></div>
@@ -142,6 +148,8 @@ $(document).ready(function(){initNavTree('mesh_8h_source.html',''); initResizabl
 <div class="ttc" id="aclassCalgine_1_1Mesh_html_a348e3c54a0d2f8e8fe30fcd23d4d86c6"><div class="ttname"><a href="classCalgine_1_1Mesh.html#a348e3c54a0d2f8e8fe30fcd23d4d86c6">Calgine::Mesh::get_index_count</a></div><div class="ttdeci">uint32_t get_index_count() const</div><div class="ttdef"><b>Definition</b> mesh.h:25</div></div>
 <div class="ttc" id="aclassCalgine_1_1Mesh_html_a6d6c694c16201b6abc5a8c100108db14"><div class="ttname"><a href="classCalgine_1_1Mesh.html#a6d6c694c16201b6abc5a8c100108db14">Calgine::Mesh::Mesh</a></div><div class="ttdeci">Mesh(Mesh &amp;&amp;)=default</div></div>
 <div class="ttc" id="aclassCalgine_1_1Mesh_html_a999050cfe054960c9e9f67856a74df64"><div class="ttname"><a href="classCalgine_1_1Mesh.html#a999050cfe054960c9e9f67856a74df64">Calgine::Mesh::operator=</a></div><div class="ttdeci">Mesh &amp; operator=(Mesh &amp;&amp;)=default</div></div>
+<div class="ttc" id="aclassCalgine_1_1Mesh_html_aa3bf48780d664091f1958dc58210b2a5"><div class="ttname"><a href="classCalgine_1_1Mesh.html#aa3bf48780d664091f1958dc58210b2a5">Calgine::Mesh::get_positions</a></div><div class="ttdeci">const std::vector&lt; glm::vec3 &gt; &amp; get_positions() const</div><div class="ttdoc">CPU copy of the vertex positions, kept after upload for collision shapes (see ColliderShape::make_con...</div><div class="ttdef"><b>Definition</b> mesh.h:31</div></div>
+<div class="ttc" id="aclassCalgine_1_1Mesh_html_aa60fe4e3b7f744115d141ce8ec278136"><div class="ttname"><a href="classCalgine_1_1Mesh.html#aa60fe4e3b7f744115d141ce8ec278136">Calgine::Mesh::get_indices</a></div><div class="ttdeci">const std::vector&lt; uint32_t &gt; &amp; get_indices() const</div><div class="ttdoc">CPU copy of the triangle indices into get_positions().</div><div class="ttdef"><b>Definition</b> mesh.h:33</div></div>
 <div class="ttc" id="aclassCalgine_1_1Mesh_html_ad4517bf11c2ef84657c1967f039e2c13"><div class="ttname"><a href="classCalgine_1_1Mesh.html#ad4517bf11c2ef84657c1967f039e2c13">Calgine::Mesh::~Mesh</a></div><div class="ttdeci">~Mesh()=default</div></div>
 <div class="ttc" id="aindex__buffer_8h_html"><div class="ttname"><a href="index__buffer_8h.html">index_buffer.h</a></div></div>
 <div class="ttc" id="anamespaceCalgine_html"><div class="ttname"><a href="namespaceCalgine.html">Calgine</a></div><div class="ttdef"><b>Definition</b> app.cxx:31</div></div>

@@ -107,6 +107,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:af30a8b57898f11ebcebf79bcefa2f0a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28de0e3466b71187390d6bfd5945964d" id="r_a28de0e3466b71187390d6bfd5945964d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCalgine_1_1ColliderShape.html">ColliderShape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1RigidBodySettings.html#a28de0e3466b71187390d6bfd5945964d">shape</a></td></tr>
 <tr class="separator:a28de0e3466b71187390d6bfd5945964d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24715530baa74d7416b498d59d2780bb" id="r_a24715530baa74d7416b498d59d2780bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1RigidBodySettings.html#a24715530baa74d7416b498d59d2780bb">layer</a> = <a class="el" href="namespaceCalgine.html#a594a2849ee70804a9645862ecd781010">default_collision_layer</a></td></tr>
+<tr class="memdesc:a24715530baa74d7416b498d59d2780bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collision layer (see <a class="el" href="structCalgine_1_1CollisionLayerSettings.html" title="Named collision layers and which pairs of layers collide.">CollisionLayerSettings</a>).  <br /></td></tr>
+<tr class="separator:a24715530baa74d7416b498d59d2780bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ef4ea2698a4d8eb39f8f6ba3946a2c5" id="r_a6ef4ea2698a4d8eb39f8f6ba3946a2c5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1RigidBodySettings.html#a6ef4ea2698a4d8eb39f8f6ba3946a2c5">mass</a> = 0.0f</td></tr>
 <tr class="memdesc:a6ef4ea2698a4d8eb39f8f6ba3946a2c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mass in kg. 0 means "calculate from the shape's volume" (density 1000 kg/m^3).  <br /></td></tr>
 <tr class="separator:a6ef4ea2698a4d8eb39f8f6ba3946a2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,6 +128,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a98f12ca0d2e9d44334bcdf45a210f85d" id="r_a98f12ca0d2e9d44334bcdf45a210f85d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1RigidBodySettings.html#a98f12ca0d2e9d44334bcdf45a210f85d">is_sensor</a> = false</td></tr>
 <tr class="memdesc:a98f12ca0d2e9d44334bcdf45a210f85d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensors report collisions but don't physically block anything (triggers).  <br /></td></tr>
 <tr class="separator:a98f12ca0d2e9d44334bcdf45a210f85d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a78dcc86263c8a53631ba83819e0e1c" id="r_a0a78dcc86263c8a53631ba83819e0e1c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1RigidBodySettings.html#a0a78dcc86263c8a53631ba83819e0e1c">interpolate</a> = true</td></tr>
+<tr class="memdesc:a0a78dcc86263c8a53631ba83819e0e1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw this body at a pose blended between physics steps (also needs <a class="el" href="structCalgine_1_1PhysicsSettings.html#af6cbb730a5e31d12daaf89e9468f3632" title="Draw moving bodies at a pose blended between the last two physics steps. Makes motion smooth at any f...">PhysicsSettings::interpolation</a>).  <br /></td></tr>
+<tr class="separator:a0a78dcc86263c8a53631ba83819e0e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada58d3e3c122ce5b1783bbc13d63c40e" id="r_ada58d3e3c122ce5b1783bbc13d63c40e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1RigidBodySettings.html#ada58d3e3c122ce5b1783bbc13d63c40e">track_scale</a> = false</td></tr>
+<tr class="memdesc:ada58d3e3c122ce5b1783bbc13d63c40e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebuild the collider whenever the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...">GameObject</a>'s world scale changes. Costs a matrix decompose per body per step, so it's off by default; <a class="el" href="classCalgine_1_1RigidBody.html#a710f588292b70608a5aefe79a8ed7580" title="Rebuilds the collider from the GameObject&#39;s current world scale (and recalculates mass).">RigidBody::refresh_shape()</a> does it on demand.  <br /></td></tr>
+<tr class="separator:ada58d3e3c122ce5b1783bbc13d63c40e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Settings used when a <a class="el" href="classCalgine_1_1RigidBody.html" title="Gives a GameObject a body in the PhysicsWorld.">RigidBody</a> creates its physics body. </p>
@@ -173,6 +182,22 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a0a78dcc86263c8a53631ba83819e0e1c" name="a0a78dcc86263c8a53631ba83819e0e1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a78dcc86263c8a53631ba83819e0e1c">&#9670;&#160;</a></span>interpolate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Calgine::RigidBodySettings::interpolate = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw this body at a pose blended between physics steps (also needs <a class="el" href="structCalgine_1_1PhysicsSettings.html#af6cbb730a5e31d12daaf89e9468f3632" title="Draw moving bodies at a pose blended between the last two physics steps. Makes motion smooth at any f...">PhysicsSettings::interpolation</a>). </p>
+
+</div>
+</div>
 <a id="a98f12ca0d2e9d44334bcdf45a210f85d" name="a98f12ca0d2e9d44334bcdf45a210f85d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a98f12ca0d2e9d44334bcdf45a210f85d">&#9670;&#160;</a></span>is_sensor</h2>
 
@@ -186,6 +211,22 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sensors report collisions but don't physically block anything (triggers). </p>
+
+</div>
+</div>
+<a id="a24715530baa74d7416b498d59d2780bb" name="a24715530baa74d7416b498d59d2780bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24715530baa74d7416b498d59d2780bb">&#9670;&#160;</a></span>layer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a> Calgine::RigidBodySettings::layer = <a class="el" href="namespaceCalgine.html#a594a2849ee70804a9645862ecd781010">default_collision_layer</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Collision layer (see <a class="el" href="structCalgine_1_1CollisionLayerSettings.html" title="Named collision layers and which pairs of layers collide.">CollisionLayerSettings</a>). </p>
 
 </div>
 </div>
@@ -260,6 +301,22 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada58d3e3c122ce5b1783bbc13d63c40e" name="ada58d3e3c122ce5b1783bbc13d63c40e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada58d3e3c122ce5b1783bbc13d63c40e">&#9670;&#160;</a></span>track_scale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Calgine::RigidBodySettings::track_scale = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rebuild the collider whenever the <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...">GameObject</a>'s world scale changes. Costs a matrix decompose per body per step, so it's off by default; <a class="el" href="classCalgine_1_1RigidBody.html#a710f588292b70608a5aefe79a8ed7580" title="Rebuilds the collider from the GameObject&#39;s current world scale (and recalculates mass).">RigidBody::refresh_shape()</a> does it on demand. </p>
 
 </div>
 </div>

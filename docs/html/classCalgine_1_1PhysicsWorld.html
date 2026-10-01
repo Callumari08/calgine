@@ -117,24 +117,49 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0c8d0e8ddb4a46899c76f2bf6da5e882"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a931c9f5d20618da65afbf86c307ab112" id="r_a931c9f5d20618da65afbf86c307ab112"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a931c9f5d20618da65afbf86c307ab112">is_initialized</a> () const</td></tr>
 <tr class="separator:a931c9f5d20618da65afbf86c307ab112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa66432935d251a0c3afdef64d24c1dcf" id="r_aa66432935d251a0c3afdef64d24c1dcf"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structCalgine_1_1PhysicsSettings.html">PhysicsSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#aa66432935d251a0c3afdef64d24c1dcf">get_settings</a> () const</td></tr>
+<tr class="memdesc:aa66432935d251a0c3afdef64d24c1dcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The settings the world was created with (with any runtime changes applied).  <br /></td></tr>
+<tr class="separator:aa66432935d251a0c3afdef64d24c1dcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaa14566893af7c96b27b9389ec936f9" id="r_aeaa14566893af7c96b27b9389ec936f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#aeaa14566893af7c96b27b9389ec936f9">set_gravity</a> (const glm::vec3 &amp;gravity)</td></tr>
 <tr class="separator:aeaa14566893af7c96b27b9389ec936f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e2faa078ac4c254c4ecc00449d4a33c" id="r_a4e2faa078ac4c254c4ecc00449d4a33c"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a4e2faa078ac4c254c4ecc00449d4a33c">get_gravity</a> () const</td></tr>
 <tr class="separator:a4e2faa078ac4c254c4ecc00449d4a33c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08e14c1d307baf7e675da9c21ad1477f" id="r_a08e14c1d307baf7e675da9c21ad1477f"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structCalgine_1_1RaycastHit.html">RaycastHit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a08e14c1d307baf7e675da9c21ad1477f">raycast</a> (const glm::vec3 &amp;origin, const glm::vec3 &amp;direction, float max_distance) const</td></tr>
-<tr class="memdesc:a08e14c1d307baf7e675da9c21ad1477f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Casts a ray against every body in the world and returns the closest hit.  <br /></td></tr>
-<tr class="separator:a08e14c1d307baf7e675da9c21ad1477f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6774ef257884a524b3a7805e462d5060" id="r_a6774ef257884a524b3a7805e462d5060"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a6774ef257884a524b3a7805e462d5060">set_layers_collide</a> (<a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a> a, <a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a> b, bool collide)</td></tr>
+<tr class="memdesc:a6774ef257884a524b3a7805e462d5060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes whether two layers collide, at runtime.  <br /></td></tr>
+<tr class="separator:a6774ef257884a524b3a7805e462d5060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed2b244a74ad17b237e3fb9ecfd2fe80" id="r_aed2b244a74ad17b237e3fb9ecfd2fe80"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#aed2b244a74ad17b237e3fb9ecfd2fe80">do_layers_collide</a> (<a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a> a, <a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a> b) const</td></tr>
+<tr class="separator:aed2b244a74ad17b237e3fb9ecfd2fe80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eef3d0fd78a66d54c0ffbef85596f1c" id="r_a5eef3d0fd78a66d54c0ffbef85596f1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a5eef3d0fd78a66d54c0ffbef85596f1c">set_layer_name</a> (<a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a> layer, const std::string &amp;name)</td></tr>
+<tr class="separator:a5eef3d0fd78a66d54c0ffbef85596f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33905f821fddb61bb0d0babc4a27b180" id="r_a33905f821fddb61bb0d0babc4a27b180"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a33905f821fddb61bb0d0babc4a27b180">get_layer_name</a> (<a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a> layer) const</td></tr>
+<tr class="separator:a33905f821fddb61bb0d0babc4a27b180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c6ec91007c350c9cff86b8bd0c14d21" id="r_a5c6ec91007c350c9cff86b8bd0c14d21"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a5c6ec91007c350c9cff86b8bd0c14d21">find_layer</a> (const std::string &amp;name) const</td></tr>
+<tr class="separator:a5c6ec91007c350c9cff86b8bd0c14d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad087ea25aa1a2639b524276d676cee5f" id="r_ad087ea25aa1a2639b524276d676cee5f"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structCalgine_1_1RaycastHit.html">RaycastHit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#ad087ea25aa1a2639b524276d676cee5f">raycast</a> (const glm::vec3 &amp;origin, const glm::vec3 &amp;direction, float max_distance, <a class="el" href="namespaceCalgine.html#a6cd2cb4b6e8a5772005517c9dd5c45bc">CollisionLayerMask</a> layers=<a class="el" href="namespaceCalgine.html#adb86c761ac18d7fd076eca5483a24583">all_collision_layers</a>, bool include_sensors=false) const</td></tr>
+<tr class="memdesc:ad087ea25aa1a2639b524276d676cee5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Casts a ray against every body in the world and returns the closest hit.  <br /></td></tr>
+<tr class="separator:ad087ea25aa1a2639b524276d676cee5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac85106ec4328f421a56e66ec7d32ae48" id="r_ac85106ec4328f421a56e66ec7d32ae48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#ac85106ec4328f421a56e66ec7d32ae48">set_interpolation_enabled</a> (bool <a class="el" href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544">enabled</a>)</td></tr>
+<tr class="memdesc:ac85106ec4328f421a56e66ec7d32ae48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns render interpolation on or off for every body (see <a class="el" href="structCalgine_1_1PhysicsSettings.html#af6cbb730a5e31d12daaf89e9468f3632" title="Draw moving bodies at a pose blended between the last two physics steps. Makes motion smooth at any f...">PhysicsSettings::interpolation</a>).  <br /></td></tr>
+<tr class="separator:ac85106ec4328f421a56e66ec7d32ae48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a012cdb4d43a3b00d98163985c2183943" id="r_a012cdb4d43a3b00d98163985c2183943"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a012cdb4d43a3b00d98163985c2183943">is_interpolation_enabled</a> () const</td></tr>
+<tr class="separator:a012cdb4d43a3b00d98163985c2183943"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05d9a09e9dfff6eb8007491503025a9f" id="r_a05d9a09e9dfff6eb8007491503025a9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a05d9a09e9dfff6eb8007491503025a9f">set_debug_draw_enabled</a> (bool <a class="el" href="namespaceCalgine.html#a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544">enabled</a>)</td></tr>
-<tr class="memdesc:a05d9a09e9dfff6eb8007491503025a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">When enabled, collider wireframes are drawn every frame.  <br /></td></tr>
+<tr class="memdesc:a05d9a09e9dfff6eb8007491503025a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">When enabled, collider wireframes and joints are drawn every frame.  <br /></td></tr>
 <tr class="separator:a05d9a09e9dfff6eb8007491503025a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6670200a83a8db57eda419cf0edf6684" id="r_a6670200a83a8db57eda419cf0edf6684"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a6670200a83a8db57eda419cf0edf6684">is_debug_draw_enabled</a> () const</td></tr>
 <tr class="separator:a6670200a83a8db57eda419cf0edf6684"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a426f28fccbc459c0f746070b368e6932" id="r_a426f28fccbc459c0f746070b368e6932"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a426f28fccbc459c0f746070b368e6932">get_body_count</a> () const</td></tr>
 <tr class="memdesc:a426f28fccbc459c0f746070b368e6932"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of RigidBodies currently registered with the world.  <br /></td></tr>
 <tr class="separator:a426f28fccbc459c0f746070b368e6932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e471589b45f8c188c1b0e5077c7a6a2" id="r_a0e471589b45f8c188c1b0e5077c7a6a2"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a0e471589b45f8c188c1b0e5077c7a6a2">get_joint_count</a> () const</td></tr>
+<tr class="memdesc:a0e471589b45f8c188c1b0e5077c7a6a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of joints currently active in the world.  <br /></td></tr>
+<tr class="separator:a0e471589b45f8c188c1b0e5077c7a6a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01058e687e1784300f8ed3cbb25797dd" id="r_a01058e687e1784300f8ed3cbb25797dd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structCalgine_1_1PhysicsStepStats.html">PhysicsStepStats</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a01058e687e1784300f8ed3cbb25797dd">get_last_step_stats</a> () const</td></tr>
 <tr class="memdesc:a01058e687e1784300f8ed3cbb25797dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stats for the most recent physics step.  <br /></td></tr>
 <tr class="separator:a01058e687e1784300f8ed3cbb25797dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3159f1d67be65cbff5e6192f3e2d682f" id="r_a3159f1d67be65cbff5e6192f3e2d682f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a3159f1d67be65cbff5e6192f3e2d682f">get_last_interpolation_ms</a> () const</td></tr>
+<tr class="memdesc:a3159f1d67be65cbff5e6192f3e2d682f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCalgine_1_1Time.html">Time</a> spent blending body poses for rendering in the most recent frame, in milliseconds.  <br /></td></tr>
+<tr class="separator:a3159f1d67be65cbff5e6192f3e2d682f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff9475186daa0fd6bbe14d505db82511" id="r_aff9475186daa0fd6bbe14d505db82511"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#aff9475186daa0fd6bbe14d505db82511">get_total_steps</a> () const</td></tr>
 <tr class="memdesc:aff9475186daa0fd6bbe14d505db82511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of steps simulated since init().  <br /></td></tr>
 <tr class="separator:aff9475186daa0fd6bbe14d505db82511"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,11 +178,13 @@ Friends</h2></td></tr>
 <tr class="separator:a4097b3e04a4f8ece21f5abe1b10e6323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb8b03bec6b0a8e0834c8358c93039d2" id="r_abb8b03bec6b0a8e0834c8358c93039d2"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#abb8b03bec6b0a8e0834c8358c93039d2">RigidBody</a></td></tr>
 <tr class="separator:abb8b03bec6b0a8e0834c8358c93039d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b27269e818d7b63995be0e0f812bf54" id="r_a2b27269e818d7b63995be0e0f812bf54"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1PhysicsWorld.html#a2b27269e818d7b63995be0e0f812bf54">Joint</a></td></tr>
+<tr class="separator:a2b27269e818d7b63995be0e0f812bf54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The engine's physics simulation (backed by Jolt Physics). </p>
-<p>The <a class="el" href="classCalgine_1_1App.html" title="Base class for all Calgine applications.">App</a> owns the lifecycle: the world is created in <a class="el" href="classCalgine_1_1App.html#a52ea702157554748e98b84dc0132e39f" title="Initializes all required systems (SDL3, OpenGL, logging).">App::systems_init()</a>, stepped once per fixed timestep right after every <a class="el" href="classCalgine_1_1Behaviour.html" title="Gives access to tick updates for users.">Behaviour</a>'s fixed_update_tick(), and shut down when the <a class="el" href="classCalgine_1_1App.html" title="Base class for all Calgine applications.">App</a> is destroyed.</p>
-<p>Add a <a class="el" href="classCalgine_1_1RigidBody.html" title="Gives a GameObject a body in the PhysicsWorld.">RigidBody</a> behaviour to a <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> to give it a body in this world. Collisions are reported through the <a class="el" href="classCalgine_1_1EventContext.html">EventContext</a> as <a class="el" href="structCalgine_1_1CollisionEvent.html" title="Submitted to the EventContext by the physics system when two RigidBodies start or stop touching.">CollisionEvent</a> (see <a class="el" href="collision__event_8h.html">collision_event.h</a>). </p>
+<p>The <a class="el" href="classCalgine_1_1App.html" title="Base class for all Calgine applications.">App</a> owns the lifecycle: the world is created in <a class="el" href="classCalgine_1_1App.html#a52ea702157554748e98b84dc0132e39f" title="Initializes all required systems (SDL3, OpenGL, logging).">App::systems_init()</a> from app.settings.physics, stepped once per fixed timestep right after every <a class="el" href="classCalgine_1_1Behaviour.html" title="Gives access to tick updates for users.">Behaviour</a>'s fixed_update_tick(), and shut down when the <a class="el" href="classCalgine_1_1App.html" title="Base class for all Calgine applications.">App</a> is destroyed.</p>
+<p>Add a <a class="el" href="classCalgine_1_1RigidBody.html" title="Gives a GameObject a body in the PhysicsWorld.">RigidBody</a> behaviour to a <a class="el" href="classCalgine_1_1GameObject.html" title="GameObjects are objects within the Heirarchy that have multiple Behaviour subclasses attached to them...">GameObject</a> to give it a body in this world, and a <a class="el" href="classCalgine_1_1Joint.html" title="Connects this GameObject&#39;s RigidBody to another RigidBody, or to the world.">Joint</a> behaviour to connect two bodies. Collisions are reported through the <a class="el" href="classCalgine_1_1EventContext.html">EventContext</a> as <a class="el" href="structCalgine_1_1CollisionEvent.html" title="Submitted to the EventContext by the physics system when two RigidBodies start or stop touching.">CollisionEvent</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a53f979e91c92157726af7bbb94f0f3a5" name="a53f979e91c92157726af7bbb94f0f3a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53f979e91c92157726af7bbb94f0f3a5">&#9670;&#160;</a></span>PhysicsWorld()</h2>
@@ -186,6 +213,68 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aed2b244a74ad17b237e3fb9ecfd2fe80" name="aed2b244a74ad17b237e3fb9ecfd2fe80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed2b244a74ad17b237e3fb9ecfd2fe80">&#9670;&#160;</a></span>do_layers_collide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Calgine::PhysicsWorld::do_layers_collide </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a>&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c6ec91007c350c9cff86b8bd0c14d21" name="a5c6ec91007c350c9cff86b8bd0c14d21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c6ec91007c350c9cff86b8bd0c14d21">&#9670;&#160;</a></span>find_layer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; <a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a> &gt; Calgine::PhysicsWorld::find_layer </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a426f28fccbc459c0f746070b368e6932" name="a426f28fccbc459c0f746070b368e6932"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a426f28fccbc459c0f746070b368e6932">&#9670;&#160;</a></span>get_body_count()</h2>
 
@@ -247,6 +336,52 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a0e471589b45f8c188c1b0e5077c7a6a2" name="a0e471589b45f8c188c1b0e5077c7a6a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e471589b45f8c188c1b0e5077c7a6a2">&#9670;&#160;</a></span>get_joint_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Calgine::PhysicsWorld::get_joint_count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of joints currently active in the world. </p>
+
+</div>
+</div>
+<a id="a3159f1d67be65cbff5e6192f3e2d682f" name="a3159f1d67be65cbff5e6192f3e2d682f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3159f1d67be65cbff5e6192f3e2d682f">&#9670;&#160;</a></span>get_last_interpolation_ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Calgine::PhysicsWorld::get_last_interpolation_ms </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCalgine_1_1Time.html">Time</a> spent blending body poses for rendering in the most recent frame, in milliseconds. </p>
+
+</div>
+</div>
 <a id="a01058e687e1784300f8ed3cbb25797dd" name="a01058e687e1784300f8ed3cbb25797dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01058e687e1784300f8ed3cbb25797dd">&#9670;&#160;</a></span>get_last_step_stats()</h2>
 
@@ -271,6 +406,51 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Stats for the most recent physics step. </p>
+
+</div>
+</div>
+<a id="a33905f821fddb61bb0d0babc4a27b180" name="a33905f821fddb61bb0d0babc4a27b180"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33905f821fddb61bb0d0babc4a27b180">&#9670;&#160;</a></span>get_layer_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; Calgine::PhysicsWorld::get_layer_name </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a>&#160;</td>
+          <td class="paramname"><em>layer</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa66432935d251a0c3afdef64d24c1dcf" name="aa66432935d251a0c3afdef64d24c1dcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa66432935d251a0c3afdef64d24c1dcf">&#9670;&#160;</a></span>get_settings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structCalgine_1_1PhysicsSettings.html">PhysicsSettings</a> &amp; Calgine::PhysicsWorld::get_settings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The settings the world was created with (with any runtime changes applied). </p>
 
 </div>
 </div>
@@ -351,6 +531,31 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a012cdb4d43a3b00d98163985c2183943" name="a012cdb4d43a3b00d98163985c2183943"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a012cdb4d43a3b00d98163985c2183943">&#9670;&#160;</a></span>is_interpolation_enabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Calgine::PhysicsWorld::is_interpolation_enabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0c8d0e8ddb4a46899c76f2bf6da5e882" name="a0c8d0e8ddb4a46899c76f2bf6da5e882"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0c8d0e8ddb4a46899c76f2bf6da5e882">&#9670;&#160;</a></span>operator=()</h2>
 
@@ -377,8 +582,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a08e14c1d307baf7e675da9c21ad1477f" name="a08e14c1d307baf7e675da9c21ad1477f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08e14c1d307baf7e675da9c21ad1477f">&#9670;&#160;</a></span>raycast()</h2>
+<a id="ad087ea25aa1a2639b524276d676cee5f" name="ad087ea25aa1a2639b524276d676cee5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad087ea25aa1a2639b524276d676cee5f">&#9670;&#160;</a></span>raycast()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -399,7 +604,19 @@ Friends</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>max_distance</em>&#160;</td>
+          <td class="paramname"><em>max_distance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceCalgine.html#a6cd2cb4b6e8a5772005517c9dd5c45bc">CollisionLayerMask</a>&#160;</td>
+          <td class="paramname"><em>layers</em> = <code><a class="el" href="namespaceCalgine.html#adb86c761ac18d7fd076eca5483a24583">all_collision_layers</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>include_sensors</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -415,6 +632,8 @@ Friends</h2></td></tr>
     <tr><td class="paramname">origin</td><td>World-space start of the ray. </td></tr>
     <tr><td class="paramname">direction</td><td>Direction of the ray (does not need to be normalized). </td></tr>
     <tr><td class="paramname">max_distance</td><td>How far the ray travels. </td></tr>
+    <tr><td class="paramname">layers</td><td>Only bodies in these layers can be hit. </td></tr>
+    <tr><td class="paramname">include_sensors</td><td>Whether sensor bodies can be hit. </td></tr>
   </table>
   </dd>
 </dl>
@@ -445,7 +664,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>When enabled, collider wireframes are drawn every frame. </p>
+<p>When enabled, collider wireframes and joints are drawn every frame. </p>
 
 </div>
 </div>
@@ -464,6 +683,106 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac85106ec4328f421a56e66ec7d32ae48" name="ac85106ec4328f421a56e66ec7d32ae48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac85106ec4328f421a56e66ec7d32ae48">&#9670;&#160;</a></span>set_interpolation_enabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Calgine::PhysicsWorld::set_interpolation_enabled </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Turns render interpolation on or off for every body (see <a class="el" href="structCalgine_1_1PhysicsSettings.html#af6cbb730a5e31d12daaf89e9468f3632" title="Draw moving bodies at a pose blended between the last two physics steps. Makes motion smooth at any f...">PhysicsSettings::interpolation</a>). </p>
+
+</div>
+</div>
+<a id="a5eef3d0fd78a66d54c0ffbef85596f1c" name="a5eef3d0fd78a66d54c0ffbef85596f1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eef3d0fd78a66d54c0ffbef85596f1c">&#9670;&#160;</a></span>set_layer_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Calgine::PhysicsWorld::set_layer_name </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a>&#160;</td>
+          <td class="paramname"><em>layer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6774ef257884a524b3a7805e462d5060" name="a6774ef257884a524b3a7805e462d5060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6774ef257884a524b3a7805e462d5060">&#9670;&#160;</a></span>set_layers_collide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Calgine::PhysicsWorld::set_layers_collide </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceCalgine.html#ab9577d0a99a6e1649c54f7b7539b94c0">CollisionLayer</a>&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>collide</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes whether two layers collide, at runtime. </p>
 
 </div>
 </div>
@@ -508,6 +827,28 @@ Friends</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">friend class <a class="el" href="classCalgine_1_1App.html">App</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b27269e818d7b63995be0e0f812bf54" name="a2b27269e818d7b63995be0e0f812bf54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b27269e818d7b63995be0e0f812bf54">&#9670;&#160;</a></span>Joint</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classCalgine_1_1Joint.html">Joint</a></td>
         </tr>
       </table>
   </td>

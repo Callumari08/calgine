@@ -1,0 +1,98 @@
+\doxysection{Calgine\+::Collision\+Layer\+Settings Struct Reference}
+\hypertarget{structCalgine_1_1CollisionLayerSettings}{}\label{structCalgine_1_1CollisionLayerSettings}\index{Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}}
+
+
+Named collision layers and which pairs of layers collide.  
+
+
+
+
+{\ttfamily \#include $<$physics\+\_\+settings.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings_a5164cbc51e3478d03da45084d5baa1dd}{set\+\_\+name}} (\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} layer, const std\+::string \&name)
+\item 
+void \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings_a2691172978a9d67a44a576c941ead6f3}{set\+\_\+collides}} (\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} a, \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} b, bool collide)
+\begin{DoxyCompactList}\small\item\em Sets whether layers {\ttfamily a} and {\ttfamily b} collide (symmetric). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings_a16490772cdd408e03fa570d531dd06e7}{collides}} (\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} a, \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} b) const
+\item 
+std\+::optional$<$ \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} $>$ \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings_a592f8f53a0abd166c6e249297663d68f}{find}} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Layer index for a name, if any layer has it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ std\+::string, \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{max\+\_\+collision\+\_\+layers}} $>$ \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings_aafee2d1a6b80a73985c9c894c01ed62d}{names}} \{ "{}default"{} \}
+\item 
+std\+::array$<$ \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Collision\+Layer\+Mask}}, \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{max\+\_\+collision\+\_\+layers}} $>$ \mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings_a563ba33028cf30fa4075f4a446003a47}{collides\+\_\+with}} = make\+\_\+all\+\_\+collide()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Named collision layers and which pairs of layers collide. 
+
+Every \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} belongs to one layer (\doxylink{structCalgine_1_1RigidBodySettings_a24715530baa74d7416b498d59d2780bb}{Rigid\+Body\+Settings\+::layer}). Two bodies only collide if their layers are set to collide with each other. By default there is one named layer, "{}default"{}, and every layer collides with every other layer.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\&\ layers\ =\ app.settings.physics.layers;}
+\DoxyCodeLine{layers.set\_name(1,\ \textcolor{stringliteral}{"{}ghosts"{}});}
+\DoxyCodeLine{layers.set\_collides(1,\ 1,\ \textcolor{keyword}{false});\ \ \ \textcolor{comment}{//\ ghosts\ pass\ through\ each\ other}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structCalgine_1_1CollisionLayerSettings_a16490772cdd408e03fa570d531dd06e7}\label{structCalgine_1_1CollisionLayerSettings_a16490772cdd408e03fa570d531dd06e7} 
+\index{Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}!collides@{collides}}
+\index{collides@{collides}!Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}}
+\doxysubsubsection{\texorpdfstring{collides()}{collides()}}
+{\footnotesize\ttfamily bool Calgine\+::\+Collision\+Layer\+Settings\+::collides (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{a,  }\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{b }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structCalgine_1_1CollisionLayerSettings_a592f8f53a0abd166c6e249297663d68f}\label{structCalgine_1_1CollisionLayerSettings_a592f8f53a0abd166c6e249297663d68f} 
+\index{Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}!find@{find}}
+\index{find@{find}!Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} $>$ Calgine\+::\+Collision\+Layer\+Settings\+::find (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Layer index for a name, if any layer has it. 
+
+\Hypertarget{structCalgine_1_1CollisionLayerSettings_a2691172978a9d67a44a576c941ead6f3}\label{structCalgine_1_1CollisionLayerSettings_a2691172978a9d67a44a576c941ead6f3} 
+\index{Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}!set\_collides@{set\_collides}}
+\index{set\_collides@{set\_collides}!Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}}
+\doxysubsubsection{\texorpdfstring{set\_collides()}{set\_collides()}}
+{\footnotesize\ttfamily void Calgine\+::\+Collision\+Layer\+Settings\+::set\+\_\+collides (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{a,  }\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{b,  }\item[{bool}]{collide }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets whether layers {\ttfamily a} and {\ttfamily b} collide (symmetric). 
+
+\Hypertarget{structCalgine_1_1CollisionLayerSettings_a5164cbc51e3478d03da45084d5baa1dd}\label{structCalgine_1_1CollisionLayerSettings_a5164cbc51e3478d03da45084d5baa1dd} 
+\index{Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}!set\_name@{set\_name}}
+\index{set\_name@{set\_name}!Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}}
+\doxysubsubsection{\texorpdfstring{set\_name()}{set\_name()}}
+{\footnotesize\ttfamily void Calgine\+::\+Collision\+Layer\+Settings\+::set\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{layer,  }\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCalgine_1_1CollisionLayerSettings_a563ba33028cf30fa4075f4a446003a47}\label{structCalgine_1_1CollisionLayerSettings_a563ba33028cf30fa4075f4a446003a47} 
+\index{Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}!collides\_with@{collides\_with}}
+\index{collides\_with@{collides\_with}!Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}}
+\doxysubsubsection{\texorpdfstring{collides\_with}{collides\_with}}
+{\footnotesize\ttfamily std\+::array$<$\mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Collision\+Layer\+Mask}}, \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{max\+\_\+collision\+\_\+layers}}$>$ Calgine\+::\+Collision\+Layer\+Settings\+::collides\+\_\+with = make\+\_\+all\+\_\+collide()}
+
+\Hypertarget{structCalgine_1_1CollisionLayerSettings_aafee2d1a6b80a73985c9c894c01ed62d}\label{structCalgine_1_1CollisionLayerSettings_aafee2d1a6b80a73985c9c894c01ed62d} 
+\index{Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}!names@{names}}
+\index{names@{names}!Calgine::CollisionLayerSettings@{Calgine::CollisionLayerSettings}}
+\doxysubsubsection{\texorpdfstring{names}{names}}
+{\footnotesize\ttfamily std\+::array$<$std\+::string, \mbox{\hyperlink{namespaceCalgine_a1a883e986613dc966589944825492455}{max\+\_\+collision\+\_\+layers}}$>$ Calgine\+::\+Collision\+Layer\+Settings\+::names \{ "{}default"{} \}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/physics/\mbox{\hyperlink{physics__settings_8h}{physics\+\_\+settings.\+h}}\end{DoxyCompactItemize}

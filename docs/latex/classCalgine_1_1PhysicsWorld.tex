@@ -23,20 +23,40 @@ struct \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl}{Impl}}
 \item 
 bool \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a931c9f5d20618da65afbf86c307ab112}{is\+\_\+initialized}} () const
 \item 
+const \mbox{\hyperlink{structCalgine_1_1PhysicsSettings}{Physics\+Settings}} \& \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_aa66432935d251a0c3afdef64d24c1dcf}{get\+\_\+settings}} () const
+\begin{DoxyCompactList}\small\item\em The settings the world was created with (with any runtime changes applied). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_aeaa14566893af7c96b27b9389ec936f9}{set\+\_\+gravity}} (const glm\+::vec3 \&gravity)
 \item 
 glm\+::vec3 \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a4e2faa078ac4c254c4ecc00449d4a33c}{get\+\_\+gravity}} () const
 \item 
-std\+::optional$<$ \mbox{\hyperlink{structCalgine_1_1RaycastHit}{Raycast\+Hit}} $>$ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a08e14c1d307baf7e675da9c21ad1477f}{raycast}} (const glm\+::vec3 \&origin, const glm\+::vec3 \&direction, float max\+\_\+distance) const
+void \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a6774ef257884a524b3a7805e462d5060}{set\+\_\+layers\+\_\+collide}} (\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} a, \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} b, bool collide)
+\begin{DoxyCompactList}\small\item\em Changes whether two layers collide, at runtime. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_aed2b244a74ad17b237e3fb9ecfd2fe80}{do\+\_\+layers\+\_\+collide}} (\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} a, \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} b) const
+\item 
+void \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a5eef3d0fd78a66d54c0ffbef85596f1c}{set\+\_\+layer\+\_\+name}} (\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} layer, const std\+::string \&name)
+\item 
+const std\+::string \& \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a33905f821fddb61bb0d0babc4a27b180}{get\+\_\+layer\+\_\+name}} (\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} layer) const
+\item 
+std\+::optional$<$ \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} $>$ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a5c6ec91007c350c9cff86b8bd0c14d21}{find\+\_\+layer}} (const std\+::string \&name) const
+\item 
+std\+::optional$<$ \mbox{\hyperlink{structCalgine_1_1RaycastHit}{Raycast\+Hit}} $>$ \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_ad087ea25aa1a2639b524276d676cee5f}{raycast}} (const glm\+::vec3 \&origin, const glm\+::vec3 \&direction, float max\+\_\+distance, \mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Collision\+Layer\+Mask}} layers=\mbox{\hyperlink{namespaceCalgine_adb86c761ac18d7fd076eca5483a24583}{all\+\_\+collision\+\_\+layers}}, bool include\+\_\+sensors=false) const
 \begin{DoxyCompactList}\small\item\em Casts a ray against every body in the world and returns the closest hit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_ac85106ec4328f421a56e66ec7d32ae48}{set\+\_\+interpolation\+\_\+enabled}} (bool \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544}{enabled}})
+\begin{DoxyCompactList}\small\item\em Turns render interpolation on or off for every body (see \doxylink{structCalgine_1_1PhysicsSettings_af6cbb730a5e31d12daaf89e9468f3632}{Physics\+Settings\+::interpolation}). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a012cdb4d43a3b00d98163985c2183943}{is\+\_\+interpolation\+\_\+enabled}} () const
+\item 
 void \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a05d9a09e9dfff6eb8007491503025a9f}{set\+\_\+debug\+\_\+draw\+\_\+enabled}} (bool \mbox{\hyperlink{namespaceCalgine_a5e634c63a11d465e660fdf17e9e913c7a19cd12730a3407646793da929e4ea544}{enabled}})
-\begin{DoxyCompactList}\small\item\em When enabled, collider wireframes are drawn every frame. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em When enabled, collider wireframes and joints are drawn every frame. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a6670200a83a8db57eda419cf0edf6684}{is\+\_\+debug\+\_\+draw\+\_\+enabled}} () const
 \item 
 size\+\_\+t \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a426f28fccbc459c0f746070b368e6932}{get\+\_\+body\+\_\+count}} () const
 \begin{DoxyCompactList}\small\item\em Number of Rigid\+Bodies currently registered with the world. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a0e471589b45f8c188c1b0e5077c7a6a2}{get\+\_\+joint\+\_\+count}} () const
+\begin{DoxyCompactList}\small\item\em Number of joints currently active in the world. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats}{Physics\+Step\+Stats}} \& \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a01058e687e1784300f8ed3cbb25797dd}{get\+\_\+last\+\_\+step\+\_\+stats}} () const
 \begin{DoxyCompactList}\small\item\em Stats for the most recent physics step. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a3159f1d67be65cbff5e6192f3e2d682f}{get\+\_\+last\+\_\+interpolation\+\_\+ms}} () const
+\begin{DoxyCompactList}\small\item\em \doxylink{classCalgine_1_1Time}{Time} spent blending body poses for rendering in the most recent frame, in milliseconds. \end{DoxyCompactList}\item 
 uint64\+\_\+t \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_aff9475186daa0fd6bbe14d505db82511}{get\+\_\+total\+\_\+steps}} () const
 \begin{DoxyCompactList}\small\item\em Number of steps simulated since init(). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a0cae641b807750faf16091bb9bda527e}{set\+\_\+step\+\_\+stats\+\_\+callback}} (std\+::function$<$ void(const \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats}{Physics\+Step\+Stats}} \&)$>$ callback)
@@ -52,15 +72,17 @@ static \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{Physics\+World}} \& \mbox{
 class \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a4097b3e04a4f8ece21f5abe1b10e6323}{App}}
 \item 
 class \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_abb8b03bec6b0a8e0834c8358c93039d2}{Rigid\+Body}}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1PhysicsWorld_a2b27269e818d7b63995be0e0f812bf54}{Joint}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 The engine\textquotesingle{}s physics simulation (backed by Jolt Physics). 
 
-The \doxylink{classCalgine_1_1App}{App} owns the lifecycle\+: the world is created in \doxylink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{App\+::systems\+\_\+init()}, stepped once per fixed timestep right after every \doxylink{classCalgine_1_1Behaviour}{Behaviour}\textquotesingle{}s fixed\+\_\+update\+\_\+tick(), and shut down when the \doxylink{classCalgine_1_1App}{App} is destroyed.
+The \doxylink{classCalgine_1_1App}{App} owns the lifecycle\+: the world is created in \doxylink{classCalgine_1_1App_a52ea702157554748e98b84dc0132e39f}{App\+::systems\+\_\+init()} from app.\+settings.\+physics, stepped once per fixed timestep right after every \doxylink{classCalgine_1_1Behaviour}{Behaviour}\textquotesingle{}s fixed\+\_\+update\+\_\+tick(), and shut down when the \doxylink{classCalgine_1_1App}{App} is destroyed.
 
-Add a \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} behaviour to a \doxylink{classCalgine_1_1GameObject}{Game\+Object} to give it a body in this world. Collisions are reported through the \doxylink{classCalgine_1_1EventContext}{Event\+Context} as \doxylink{structCalgine_1_1CollisionEvent}{Collision\+Event} (see \doxylink{collision__event_8h}{collision\+\_\+event.\+h}). 
+Add a \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} behaviour to a \doxylink{classCalgine_1_1GameObject}{Game\+Object} to give it a body in this world, and a \doxylink{classCalgine_1_1Joint}{Joint} behaviour to connect two bodies. Collisions are reported through the \doxylink{classCalgine_1_1EventContext}{Event\+Context} as \doxylink{structCalgine_1_1CollisionEvent}{Collision\+Event}. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classCalgine_1_1PhysicsWorld_a53f979e91c92157726af7bbb94f0f3a5}\label{classCalgine_1_1PhysicsWorld_a53f979e91c92157726af7bbb94f0f3a5} 
@@ -72,6 +94,18 @@ Add a \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} behaviour to a \doxylink
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1PhysicsWorld_aed2b244a74ad17b237e3fb9ecfd2fe80}\label{classCalgine_1_1PhysicsWorld_aed2b244a74ad17b237e3fb9ecfd2fe80} 
+\index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!do\_layers\_collide@{do\_layers\_collide}}
+\index{do\_layers\_collide@{do\_layers\_collide}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
+\doxysubsubsection{\texorpdfstring{do\_layers\_collide()}{do\_layers\_collide()}}
+{\footnotesize\ttfamily bool Calgine\+::\+Physics\+World\+::do\+\_\+layers\+\_\+collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{a,  }\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{b }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1PhysicsWorld_a5c6ec91007c350c9cff86b8bd0c14d21}\label{classCalgine_1_1PhysicsWorld_a5c6ec91007c350c9cff86b8bd0c14d21} 
+\index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!find\_layer@{find\_layer}}
+\index{find\_layer@{find\_layer}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
+\doxysubsubsection{\texorpdfstring{find\_layer()}{find\_layer()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} $>$ Calgine\+::\+Physics\+World\+::find\+\_\+layer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
 \Hypertarget{classCalgine_1_1PhysicsWorld_a426f28fccbc459c0f746070b368e6932}\label{classCalgine_1_1PhysicsWorld_a426f28fccbc459c0f746070b368e6932} 
 \index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!get\_body\_count@{get\_body\_count}}
 \index{get\_body\_count@{get\_body\_count}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
@@ -94,6 +128,26 @@ Number of Rigid\+Bodies currently registered with the world.
 \doxysubsubsection{\texorpdfstring{get\_instance()}{get\_instance()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{Physics\+World}} \& Calgine\+::\+Physics\+World\+::get\+\_\+instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+\Hypertarget{classCalgine_1_1PhysicsWorld_a0e471589b45f8c188c1b0e5077c7a6a2}\label{classCalgine_1_1PhysicsWorld_a0e471589b45f8c188c1b0e5077c7a6a2} 
+\index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!get\_joint\_count@{get\_joint\_count}}
+\index{get\_joint\_count@{get\_joint\_count}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
+\doxysubsubsection{\texorpdfstring{get\_joint\_count()}{get\_joint\_count()}}
+{\footnotesize\ttfamily size\+\_\+t Calgine\+::\+Physics\+World\+::get\+\_\+joint\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Number of joints currently active in the world. 
+
+\Hypertarget{classCalgine_1_1PhysicsWorld_a3159f1d67be65cbff5e6192f3e2d682f}\label{classCalgine_1_1PhysicsWorld_a3159f1d67be65cbff5e6192f3e2d682f} 
+\index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!get\_last\_interpolation\_ms@{get\_last\_interpolation\_ms}}
+\index{get\_last\_interpolation\_ms@{get\_last\_interpolation\_ms}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
+\doxysubsubsection{\texorpdfstring{get\_last\_interpolation\_ms()}{get\_last\_interpolation\_ms()}}
+{\footnotesize\ttfamily float Calgine\+::\+Physics\+World\+::get\+\_\+last\+\_\+interpolation\+\_\+ms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxylink{classCalgine_1_1Time}{Time} spent blending body poses for rendering in the most recent frame, in milliseconds. 
+
 \Hypertarget{classCalgine_1_1PhysicsWorld_a01058e687e1784300f8ed3cbb25797dd}\label{classCalgine_1_1PhysicsWorld_a01058e687e1784300f8ed3cbb25797dd} 
 \index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!get\_last\_step\_stats@{get\_last\_step\_stats}}
 \index{get\_last\_step\_stats@{get\_last\_step\_stats}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
@@ -103,6 +157,22 @@ Number of Rigid\+Bodies currently registered with the world.
 
 
 Stats for the most recent physics step. 
+
+\Hypertarget{classCalgine_1_1PhysicsWorld_a33905f821fddb61bb0d0babc4a27b180}\label{classCalgine_1_1PhysicsWorld_a33905f821fddb61bb0d0babc4a27b180} 
+\index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!get\_layer\_name@{get\_layer\_name}}
+\index{get\_layer\_name@{get\_layer\_name}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
+\doxysubsubsection{\texorpdfstring{get\_layer\_name()}{get\_layer\_name()}}
+{\footnotesize\ttfamily const std\+::string \& Calgine\+::\+Physics\+World\+::get\+\_\+layer\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{layer }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classCalgine_1_1PhysicsWorld_aa66432935d251a0c3afdef64d24c1dcf}\label{classCalgine_1_1PhysicsWorld_aa66432935d251a0c3afdef64d24c1dcf} 
+\index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!get\_settings@{get\_settings}}
+\index{get\_settings@{get\_settings}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
+\doxysubsubsection{\texorpdfstring{get\_settings()}{get\_settings()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structCalgine_1_1PhysicsSettings}{Physics\+Settings}} \& Calgine\+::\+Physics\+World\+::get\+\_\+settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The settings the world was created with (with any runtime changes applied). 
 
 \Hypertarget{classCalgine_1_1PhysicsWorld_aff9475186daa0fd6bbe14d505db82511}\label{classCalgine_1_1PhysicsWorld_aff9475186daa0fd6bbe14d505db82511} 
 \index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!get\_total\_steps@{get\_total\_steps}}
@@ -126,17 +196,23 @@ Number of steps simulated since init().
 \doxysubsubsection{\texorpdfstring{is\_initialized()}{is\_initialized()}}
 {\footnotesize\ttfamily bool Calgine\+::\+Physics\+World\+::is\+\_\+initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
+\Hypertarget{classCalgine_1_1PhysicsWorld_a012cdb4d43a3b00d98163985c2183943}\label{classCalgine_1_1PhysicsWorld_a012cdb4d43a3b00d98163985c2183943} 
+\index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!is\_interpolation\_enabled@{is\_interpolation\_enabled}}
+\index{is\_interpolation\_enabled@{is\_interpolation\_enabled}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
+\doxysubsubsection{\texorpdfstring{is\_interpolation\_enabled()}{is\_interpolation\_enabled()}}
+{\footnotesize\ttfamily bool Calgine\+::\+Physics\+World\+::is\+\_\+interpolation\+\_\+enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
 \Hypertarget{classCalgine_1_1PhysicsWorld_a0c8d0e8ddb4a46899c76f2bf6da5e882}\label{classCalgine_1_1PhysicsWorld_a0c8d0e8ddb4a46899c76f2bf6da5e882} 
 \index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!operator=@{operator=}}
 \index{operator=@{operator=}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{Physics\+World}} \& Calgine\+::\+Physics\+World\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{Physics\+World}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
-\Hypertarget{classCalgine_1_1PhysicsWorld_a08e14c1d307baf7e675da9c21ad1477f}\label{classCalgine_1_1PhysicsWorld_a08e14c1d307baf7e675da9c21ad1477f} 
+\Hypertarget{classCalgine_1_1PhysicsWorld_ad087ea25aa1a2639b524276d676cee5f}\label{classCalgine_1_1PhysicsWorld_ad087ea25aa1a2639b524276d676cee5f} 
 \index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!raycast@{raycast}}
 \index{raycast@{raycast}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
 \doxysubsubsection{\texorpdfstring{raycast()}{raycast()}}
-{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{structCalgine_1_1RaycastHit}{Raycast\+Hit}} $>$ Calgine\+::\+Physics\+World\+::raycast (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{origin,  }\item[{const glm\+::vec3 \&}]{direction,  }\item[{float}]{max\+\_\+distance }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{structCalgine_1_1RaycastHit}{Raycast\+Hit}} $>$ Calgine\+::\+Physics\+World\+::raycast (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{origin,  }\item[{const glm\+::vec3 \&}]{direction,  }\item[{float}]{max\+\_\+distance,  }\item[{\mbox{\hyperlink{namespaceCalgine_a6cd2cb4b6e8a5772005517c9dd5c45bc}{Collision\+Layer\+Mask}}}]{layers = {\ttfamily \mbox{\hyperlink{namespaceCalgine_adb86c761ac18d7fd076eca5483a24583}{all\+\_\+collision\+\_\+layers}}},  }\item[{bool}]{include\+\_\+sensors = {\ttfamily false} }\end{DoxyParamCaption}) const}
 
 
 
@@ -150,6 +226,10 @@ Casts a ray against every body in the world and returns the closest hit.
 \hline
 {\em max\+\_\+distance} & How far the ray travels. \\
 \hline
+{\em layers} & Only bodies in these layers can be hit. \\
+\hline
+{\em include\+\_\+sensors} & Whether sensor bodies can be hit. \\
+\hline
 \end{DoxyParams}
 \Hypertarget{classCalgine_1_1PhysicsWorld_a05d9a09e9dfff6eb8007491503025a9f}\label{classCalgine_1_1PhysicsWorld_a05d9a09e9dfff6eb8007491503025a9f} 
 \index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!set\_debug\_draw\_enabled@{set\_debug\_draw\_enabled}}
@@ -159,13 +239,39 @@ Casts a ray against every body in the world and returns the closest hit.
 
 
 
-When enabled, collider wireframes are drawn every frame. 
+When enabled, collider wireframes and joints are drawn every frame. 
 
 \Hypertarget{classCalgine_1_1PhysicsWorld_aeaa14566893af7c96b27b9389ec936f9}\label{classCalgine_1_1PhysicsWorld_aeaa14566893af7c96b27b9389ec936f9} 
 \index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!set\_gravity@{set\_gravity}}
 \index{set\_gravity@{set\_gravity}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
 \doxysubsubsection{\texorpdfstring{set\_gravity()}{set\_gravity()}}
 {\footnotesize\ttfamily void Calgine\+::\+Physics\+World\+::set\+\_\+gravity (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{gravity }\end{DoxyParamCaption})}
+
+\Hypertarget{classCalgine_1_1PhysicsWorld_ac85106ec4328f421a56e66ec7d32ae48}\label{classCalgine_1_1PhysicsWorld_ac85106ec4328f421a56e66ec7d32ae48} 
+\index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!set\_interpolation\_enabled@{set\_interpolation\_enabled}}
+\index{set\_interpolation\_enabled@{set\_interpolation\_enabled}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
+\doxysubsubsection{\texorpdfstring{set\_interpolation\_enabled()}{set\_interpolation\_enabled()}}
+{\footnotesize\ttfamily void Calgine\+::\+Physics\+World\+::set\+\_\+interpolation\+\_\+enabled (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Turns render interpolation on or off for every body (see \doxylink{structCalgine_1_1PhysicsSettings_af6cbb730a5e31d12daaf89e9468f3632}{Physics\+Settings\+::interpolation}). 
+
+\Hypertarget{classCalgine_1_1PhysicsWorld_a5eef3d0fd78a66d54c0ffbef85596f1c}\label{classCalgine_1_1PhysicsWorld_a5eef3d0fd78a66d54c0ffbef85596f1c} 
+\index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!set\_layer\_name@{set\_layer\_name}}
+\index{set\_layer\_name@{set\_layer\_name}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
+\doxysubsubsection{\texorpdfstring{set\_layer\_name()}{set\_layer\_name()}}
+{\footnotesize\ttfamily void Calgine\+::\+Physics\+World\+::set\+\_\+layer\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{layer,  }\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1PhysicsWorld_a6774ef257884a524b3a7805e462d5060}\label{classCalgine_1_1PhysicsWorld_a6774ef257884a524b3a7805e462d5060} 
+\index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!set\_layers\_collide@{set\_layers\_collide}}
+\index{set\_layers\_collide@{set\_layers\_collide}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
+\doxysubsubsection{\texorpdfstring{set\_layers\_collide()}{set\_layers\_collide()}}
+{\footnotesize\ttfamily void Calgine\+::\+Physics\+World\+::set\+\_\+layers\+\_\+collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{a,  }\item[{\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}}}]{b,  }\item[{bool}]{collide }\end{DoxyParamCaption})}
+
+
+
+Changes whether two layers collide, at runtime. 
 
 \Hypertarget{classCalgine_1_1PhysicsWorld_a0cae641b807750faf16091bb9bda527e}\label{classCalgine_1_1PhysicsWorld_a0cae641b807750faf16091bb9bda527e} 
 \index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!set\_step\_stats\_callback@{set\_step\_stats\_callback}}
@@ -185,6 +291,12 @@ A frame can run zero or several steps, so use this rather than polling \doxylink
 \index{App@{App}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
 \doxysubsubsection{\texorpdfstring{App}{App}}
 {\footnotesize\ttfamily friend class \mbox{\hyperlink{classCalgine_1_1App}{App}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classCalgine_1_1PhysicsWorld_a2b27269e818d7b63995be0e0f812bf54}\label{classCalgine_1_1PhysicsWorld_a2b27269e818d7b63995be0e0f812bf54} 
+\index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!Joint@{Joint}}
+\index{Joint@{Joint}!Calgine::PhysicsWorld@{Calgine::PhysicsWorld}}
+\doxysubsubsection{\texorpdfstring{Joint}{Joint}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classCalgine_1_1Joint}{Joint}}\hspace{0.3cm}{\ttfamily [friend]}}
 
 \Hypertarget{classCalgine_1_1PhysicsWorld_abb8b03bec6b0a8e0834c8358c93039d2}\label{classCalgine_1_1PhysicsWorld_abb8b03bec6b0a8e0834c8358c93039d2} 
 \index{Calgine::PhysicsWorld@{Calgine::PhysicsWorld}!RigidBody@{RigidBody}}

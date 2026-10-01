@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('structCalgine_1_1PhysicsWorld_1_1Impl.
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="structCalgine_1_1PhysicsWorld_1_1Impl-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Calgine::PhysicsWorld::Impl Struct Reference</div></div>
 </div><!--header-->
@@ -103,8 +104,26 @@ $(document).ready(function(){initNavTree('structCalgine_1_1PhysicsWorld_1_1Impl.
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4ab39e18e65f354bc49d38f1518a5a4d" id="r_a4ab39e18e65f354bc49d38f1518a5a4d"><td class="memItemLeft" align="right" valign="top">JPH::BodyInterface &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a4ab39e18e65f354bc49d38f1518a5a4d">body_interface</a> ()</td></tr>
 <tr class="separator:a4ab39e18e65f354bc49d38f1518a5a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02b65ea146251f81c322ad5db22d1766" id="r_a02b65ea146251f81c322ad5db22d1766"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCalgine_1_1BodyRecord.html">BodyRecord</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a02b65ea146251f81c322ad5db22d1766">record</a> (uint32_t id)</td></tr>
+<tr class="separator:a02b65ea146251f81c322ad5db22d1766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a9605c16ef7b314bd762afb46ae35ec" id="r_a6a9605c16ef7b314bd762afb46ae35ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCalgine_1_1RigidBody.html">RigidBody</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a6a9605c16ef7b314bd762afb46ae35ec">find</a> (const JPH::BodyID &amp;id) const</td></tr>
 <tr class="separator:a6a9605c16ef7b314bd762afb46ae35ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26f52cba0ebd29c1cc393863fa23616f" id="r_a26f52cba0ebd29c1cc393863fa23616f"><td class="memItemLeft" align="right" valign="top">JPH::RefConst&lt; JPH::Shape &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a26f52cba0ebd29c1cc393863fa23616f">build_shape</a> (const <a class="el" href="structCalgine_1_1ColliderShape.html">ColliderShape</a> &amp;shape, const glm::vec3 &amp;<a class="el" href="physics__world_8cxx.html#ae6df3ca57fc92d1bddbfc258593ec29a">world_scale</a>, <a class="el" href="namespaceCalgine.html#a0bd93786fde78b22db760b7a8cd47b4c">MotionType</a> motion, const std::string &amp;owner_name)</td></tr>
+<tr class="separator:a26f52cba0ebd29c1cc393863fa23616f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac552020cb969f838bba577739cd0b28d" id="r_ac552020cb969f838bba577739cd0b28d"><td class="memItemLeft" align="right" valign="top">JPH::RefConst&lt; JPH::Shape &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#ac552020cb969f838bba577739cd0b28d">get_model_shape</a> (const std::shared_ptr&lt; <a class="el" href="structCalgine_1_1Model.html">Model</a> &gt; &amp;<a class="el" href="namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d">model</a>, bool triangle_mesh, const std::string &amp;owner_name)</td></tr>
+<tr class="separator:ac552020cb969f838bba577739cd0b28d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6765e74896c8becf2d4f80ee956bc993" id="r_a6765e74896c8becf2d4f80ee956bc993"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCalgine_1_1Pose.html">Pose</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a6765e74896c8becf2d4f80ee956bc993">read_body_pose</a> (const JPH::BodyID &amp;id)</td></tr>
+<tr class="separator:a6765e74896c8becf2d4f80ee956bc993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac73150c66d03942ba6cc5736cffbd2da" id="r_ac73150c66d03942ba6cc5736cffbd2da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#ac73150c66d03942ba6cc5736cffbd2da">try_create_joint</a> (<a class="el" href="classCalgine_1_1Joint.html">Joint</a> *joint)</td></tr>
+<tr class="separator:ac73150c66d03942ba6cc5736cffbd2da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d73511a679868ed92d7efd57e75500e" id="r_a4d73511a679868ed92d7efd57e75500e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a4d73511a679868ed92d7efd57e75500e">remove_joint</a> (uint32_t joint_id)</td></tr>
+<tr class="separator:a4d73511a679868ed92d7efd57e75500e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af11a90a52ac5a760e90c5b34b2eef32a" id="r_af11a90a52ac5a760e90c5b34b2eef32a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#af11a90a52ac5a760e90c5b34b2eef32a">remove_joints_of_body</a> (uint32_t body_id)</td></tr>
+<tr class="separator:af11a90a52ac5a760e90c5b34b2eef32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f3619716b518baa4761360563699c24" id="r_a9f3619716b518baa4761360563699c24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a9f3619716b518baa4761360563699c24">refresh_joints_of_body</a> (uint32_t body_id)</td></tr>
+<tr class="separator:a9f3619716b518baa4761360563699c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3afd940c53b5c5dad11441866665f93d" id="r_a3afd940c53b5c5dad11441866665f93d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a3afd940c53b5c5dad11441866665f93d">update_joint_enabled</a> (<a class="el" href="structCalgine_1_1JointRecord.html">JointRecord</a> &amp;<a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a02b65ea146251f81c322ad5db22d1766">record</a>)</td></tr>
+<tr class="separator:a3afd940c53b5c5dad11441866665f93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -122,12 +141,27 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a01febca20c987b8812ad5556042c8595"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a985b39ba20cf0a5dd816f003ade681c5" id="r_a985b39ba20cf0a5dd816f003ade681c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCalgine_1_1ContactQueue.html">ContactQueue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a985b39ba20cf0a5dd816f003ade681c5">contact_queue</a></td></tr>
 <tr class="separator:a985b39ba20cf0a5dd816f003ade681c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae59b6da4fb40bccc59c2beb49b4f94f1" id="r_ae59b6da4fb40bccc59c2beb49b4f94f1"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; uint32_t, <a class="el" href="classCalgine_1_1RigidBody.html">RigidBody</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#ae59b6da4fb40bccc59c2beb49b4f94f1">bodies</a></td></tr>
-<tr class="separator:ae59b6da4fb40bccc59c2beb49b4f94f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06c4b32492c1868ce78a2b4491f9cf08" id="r_a06c4b32492c1868ce78a2b4491f9cf08"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; uint32_t, <a class="el" href="structCalgine_1_1BodyRecord.html">BodyRecord</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a06c4b32492c1868ce78a2b4491f9cf08">bodies</a></td></tr>
+<tr class="separator:a06c4b32492c1868ce78a2b4491f9cf08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e74ee0f29cd6104d5062e096f514324" id="r_a1e74ee0f29cd6104d5062e096f514324"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; uint32_t, <a class="el" href="structCalgine_1_1JointRecord.html">JointRecord</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a1e74ee0f29cd6104d5062e096f514324">joints</a></td></tr>
+<tr class="separator:a1e74ee0f29cd6104d5062e096f514324"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabf1c5c56a9c7f1703ae2c28433ee252" id="r_aabf1c5c56a9c7f1703ae2c28433ee252"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#aabf1c5c56a9c7f1703ae2c28433ee252">next_joint_id</a> = 0</td></tr>
+<tr class="separator:aabf1c5c56a9c7f1703ae2c28433ee252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b2aafea97012a80efe08b2c9551d6c" id="r_af2b2aafea97012a80efe08b2c9551d6c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classCalgine_1_1Joint.html">Joint</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#af2b2aafea97012a80efe08b2c9551d6c">pending_joints</a></td></tr>
+<tr class="separator:af2b2aafea97012a80efe08b2c9551d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a749a68a396d5b7152149b9a93364417a" id="r_a749a68a396d5b7152149b9a93364417a"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; const <a class="el" href="structCalgine_1_1Model.html">Model</a> *, <a class="el" href="structCalgine_1_1ModelShapes.html">ModelShapes</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a749a68a396d5b7152149b9a93364417a">model_shapes</a></td></tr>
+<tr class="separator:a749a68a396d5b7152149b9a93364417a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5c3b13c423537d1c39f501b6e320175" id="r_ad5c3b13c423537d1c39f501b6e320175"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#ad5c3b13c423537d1c39f501b6e320175">last_alpha</a> = 1.0f</td></tr>
+<tr class="separator:ad5c3b13c423537d1c39f501b6e320175"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabda759e8f510fbd6478754f602f7493" id="r_aabda759e8f510fbd6478754f602f7493"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#aabda759e8f510fbd6478754f602f7493">last_logged_error</a> = 0</td></tr>
 <tr class="separator:aabda759e8f510fbd6478754f602f7493"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1f5fe6088285d4214c454c9d61f68d5" id="r_aa1f5fe6088285d4214c454c9d61f68d5"><td class="memItemLeft" align="right" valign="top">std::chrono::steady_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#aa1f5fe6088285d4214c454c9d61f68d5">last_error_log_time</a></td></tr>
 <tr class="separator:aa1f5fe6088285d4214c454c9d61f68d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a0c0225a51cf01ab8cf13c44fd2bfe808" id="r_a0c0225a51cf01ab8cf13c44fd2bfe808"><td class="memItemLeft" align="right" valign="top">static constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsWorld_1_1Impl.html#a0c0225a51cf01ab8cf13c44fd2bfe808">invalid_id</a> = 0xffffffff</td></tr>
+<tr class="separator:a0c0225a51cf01ab8cf13c44fd2bfe808"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4ab39e18e65f354bc49d38f1518a5a4d" name="a4ab39e18e65f354bc49d38f1518a5a4d"></a>
@@ -151,6 +185,46 @@ Public Attributes</h2></td></tr>
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a26f52cba0ebd29c1cc393863fa23616f" name="a26f52cba0ebd29c1cc393863fa23616f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26f52cba0ebd29c1cc393863fa23616f">&#9670;&#160;</a></span>build_shape()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">JPH::RefConst&lt; JPH::Shape &gt; Calgine::PhysicsWorld::Impl::build_shape </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structCalgine_1_1ColliderShape.html">ColliderShape</a> &amp;&#160;</td>
+          <td class="paramname"><em>shape</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::vec3 &amp;&#160;</td>
+          <td class="paramname"><em>world_scale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceCalgine.html#a0bd93786fde78b22db760b7a8cd47b4c">MotionType</a>&#160;</td>
+          <td class="paramname"><em>motion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>owner_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
@@ -181,19 +255,189 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ae59b6da4fb40bccc59c2beb49b4f94f1" name="ae59b6da4fb40bccc59c2beb49b4f94f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae59b6da4fb40bccc59c2beb49b4f94f1">&#9670;&#160;</a></span>bodies</h2>
+<a id="ac552020cb969f838bba577739cd0b28d" name="ac552020cb969f838bba577739cd0b28d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac552020cb969f838bba577739cd0b28d">&#9670;&#160;</a></span>get_model_shape()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt;uint32_t, <a class="el" href="classCalgine_1_1RigidBody.html">RigidBody</a>*&gt; Calgine::PhysicsWorld::Impl::bodies</td>
+          <td class="memname">JPH::RefConst&lt; JPH::Shape &gt; Calgine::PhysicsWorld::Impl::get_model_shape </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="structCalgine_1_1Model.html">Model</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>triangle_mesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>owner_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Body ID (index + sequence) -&gt; owning <a class="el" href="classCalgine_1_1RigidBody.html" title="Gives a GameObject a body in the PhysicsWorld.">RigidBody</a>. Only touched on the main thread. </p>
+
+</div>
+</div>
+<a id="a6765e74896c8becf2d4f80ee956bc993" name="a6765e74896c8becf2d4f80ee956bc993"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6765e74896c8becf2d4f80ee956bc993">&#9670;&#160;</a></span>read_body_pose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structCalgine_1_1Pose.html">Pose</a> Calgine::PhysicsWorld::Impl::read_body_pose </td>
+          <td>(</td>
+          <td class="paramtype">const JPH::BodyID &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02b65ea146251f81c322ad5db22d1766" name="a02b65ea146251f81c322ad5db22d1766"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02b65ea146251f81c322ad5db22d1766">&#9670;&#160;</a></span>record()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structCalgine_1_1BodyRecord.html">BodyRecord</a> * Calgine::PhysicsWorld::Impl::record </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f3619716b518baa4761360563699c24" name="a9f3619716b518baa4761360563699c24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f3619716b518baa4761360563699c24">&#9670;&#160;</a></span>refresh_joints_of_body()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Calgine::PhysicsWorld::Impl::refresh_joints_of_body </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>body_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enables/disables joints attached to <code>body_id</code> when it enters or leaves the simulation. </p>
+
+</div>
+</div>
+<a id="a4d73511a679868ed92d7efd57e75500e" name="a4d73511a679868ed92d7efd57e75500e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d73511a679868ed92d7efd57e75500e">&#9670;&#160;</a></span>remove_joint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Calgine::PhysicsWorld::Impl::remove_joint </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>joint_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af11a90a52ac5a760e90c5b34b2eef32a" name="af11a90a52ac5a760e90c5b34b2eef32a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af11a90a52ac5a760e90c5b34b2eef32a">&#9670;&#160;</a></span>remove_joints_of_body()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Calgine::PhysicsWorld::Impl::remove_joints_of_body </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>body_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Removes (and breaks) every joint attached to <code>body_id</code>. Call before destroying the body. </p>
+
+</div>
+</div>
+<a id="ac73150c66d03942ba6cc5736cffbd2da" name="ac73150c66d03942ba6cc5736cffbd2da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac73150c66d03942ba6cc5736cffbd2da">&#9670;&#160;</a></span>try_create_joint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Calgine::PhysicsWorld::Impl::try_create_joint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCalgine_1_1Joint.html">Joint</a> *&#160;</td>
+          <td class="paramname"><em>joint</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3afd940c53b5c5dad11441866665f93d" name="a3afd940c53b5c5dad11441866665f93d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3afd940c53b5c5dad11441866665f93d">&#9670;&#160;</a></span>update_joint_enabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Calgine::PhysicsWorld::Impl::update_joint_enabled </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structCalgine_1_1JointRecord.html">JointRecord</a> &amp;&#160;</td>
+          <td class="paramname"><em>record</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a06c4b32492c1868ce78a2b4491f9cf08" name="a06c4b32492c1868ce78a2b4491f9cf08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06c4b32492c1868ce78a2b4491f9cf08">&#9670;&#160;</a></span>bodies</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;uint32_t, <a class="el" href="structCalgine_1_1BodyRecord.html">BodyRecord</a>&gt; Calgine::PhysicsWorld::Impl::bodies</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Body ID (index + sequence) -&gt; record. </p>
 
 </div>
 </div>
@@ -225,6 +469,28 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a0c0225a51cf01ab8cf13c44fd2bfe808" name="a0c0225a51cf01ab8cf13c44fd2bfe808"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c0225a51cf01ab8cf13c44fd2bfe808">&#9670;&#160;</a></span>invalid_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t Calgine::PhysicsWorld::Impl::invalid_id = 0xffffffff</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a4ba8febd1ec24e63ccf6db703fc9607e" name="a4ba8febd1ec24e63ccf6db703fc9607e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ba8febd1ec24e63ccf6db703fc9607e">&#9670;&#160;</a></span>job_system</h2>
 
@@ -236,6 +502,35 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e74ee0f29cd6104d5062e096f514324" name="a1e74ee0f29cd6104d5062e096f514324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e74ee0f29cd6104d5062e096f514324">&#9670;&#160;</a></span>joints</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;uint32_t, <a class="el" href="structCalgine_1_1JointRecord.html">JointRecord</a>&gt; Calgine::PhysicsWorld::Impl::joints</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad5c3b13c423537d1c39f501b6e320175" name="ad5c3b13c423537d1c39f501b6e320175"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5c3b13c423537d1c39f501b6e320175">&#9670;&#160;</a></span>last_alpha</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Calgine::PhysicsWorld::Impl::last_alpha = 1.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Blend factor used for the last interpolation, reused by debug drawing so wireframes match meshes. </p>
 
 </div>
 </div>
@@ -268,6 +563,34 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a749a68a396d5b7152149b9a93364417a" name="a749a68a396d5b7152149b9a93364417a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a749a68a396d5b7152149b9a93364417a">&#9670;&#160;</a></span>model_shapes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;const <a class="el" href="structCalgine_1_1Model.html">Model</a>*, <a class="el" href="structCalgine_1_1ModelShapes.html">ModelShapes</a>&gt; Calgine::PhysicsWorld::Impl::model_shapes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aabf1c5c56a9c7f1703ae2c28433ee252" name="aabf1c5c56a9c7f1703ae2c28433ee252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabf1c5c56a9c7f1703ae2c28433ee252">&#9670;&#160;</a></span>next_joint_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Calgine::PhysicsWorld::Impl::next_joint_id = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a2d3d82ad68861e3dd0ba4835672bb1ca" name="a2d3d82ad68861e3dd0ba4835672bb1ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d3d82ad68861e3dd0ba4835672bb1ca">&#9670;&#160;</a></span>object_pair_filter</h2>
 
@@ -293,6 +616,21 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2b2aafea97012a80efe08b2c9551d6c" name="af2b2aafea97012a80efe08b2c9551d6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2b2aafea97012a80efe08b2c9551d6c">&#9670;&#160;</a></span>pending_joints</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classCalgine_1_1Joint.html">Joint</a>*&gt; Calgine::PhysicsWorld::Impl::pending_joints</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Joints waiting for their bodies to exist. </p>
 
 </div>
 </div>
@@ -324,8 +662,10 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>src/calgine/core/physics/<a class="el" href="physics__internal_8h_source.html">physics_internal.h</a></li>
+<li>src/calgine/core/physics/<a class="el" href="joint_8cxx.html">joint.cxx</a></li>
+<li>src/calgine/core/physics/<a class="el" href="physics__world_8cxx.html">physics_world.cxx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

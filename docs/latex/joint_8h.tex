@@ -1,0 +1,32 @@
+\doxysection{src/calgine/core/physics/joint.h File Reference}
+\hypertarget{joint_8h}{}\label{joint_8h}\index{src/calgine/core/physics/joint.h@{src/calgine/core/physics/joint.h}}
+{\ttfamily \#include "{}calgine/core/behaviour.\+h"{}}\newline
+{\ttfamily \#include "{}calgine/core/physics/physics\+\_\+world.\+h"{}}\newline
+{\ttfamily \#include "{}calgine\+\_\+api.\+h"{}}\newline
+{\ttfamily \#include "{}calgine\+\_\+pch.\+h"{}}\newline
+{\ttfamily \#include $<$cfloat$>$}\newline
+{\ttfamily \#include $<$glm/glm.\+hpp$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1JointSettings}{Calgine\+::\+Joint\+Settings}}
+\begin{DoxyCompactList}\small\item\em Settings used when a \doxylink{classCalgine_1_1Joint}{Joint} connects its bodies. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classCalgine_1_1Joint}{Calgine\+::\+Joint}}
+\begin{DoxyCompactList}\small\item\em Connects this \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} to another \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body}, or to the world. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCalgine}{Calgine}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9}{Calgine\+::\+Joint\+Type}} \{ \newline
+\mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9acec315e3d0975e5cc2811d5d8725f149}{Calgine\+::fixed}}
+, \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a78ee54aa8f813885fe2fe20d232518b9}{Calgine\+::point}}
+, \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a2e115f4171ceb952bca742eb60fc7e81}{Calgine\+::hinge}}
+, \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a10bf08f0bbd6689475be65b4ae441bd9}{Calgine\+::slider}}
+, \newline
+\mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9aa74ec9c5b6882f79e32a8fbd8da90c1b}{Calgine\+::distance}}
+ \}
+\end{DoxyCompactItemize}

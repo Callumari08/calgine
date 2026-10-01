@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['linevertex_0',['LineVertex',['../structCalgine_1_1LineVertex.html',1,'Calgine']]],
-  ['log_1',['Log',['../classCalgine_1_1Log.html',1,'Calgine']]]
+  ['joint_0',['Joint',['../classCalgine_1_1Joint.html',1,'Calgine']]],
+  ['jointrecord_1',['JointRecord',['../structCalgine_1_1JointRecord.html',1,'Calgine']]],
+  ['jointsettings_2',['JointSettings',['../structCalgine_1_1JointSettings.html',1,'Calgine']]]
 ];

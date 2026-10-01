@@ -60,6 +60,16 @@ void \mbox{\hyperlink{classCalgine_1_1GameObject_ae0b908c43ed7f8fd92a59633a2e4d6
 \begin{DoxyCompactList}\small\item\em Rotates this object so its world rotation is {\ttfamily rotation} (children follow). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCalgine_1_1GameObject_a51e53ea78079b5d850e12fe8caea2dda}{set\+\_\+world\+\_\+transform}} (const \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \&world\+\_\+transform)
 \begin{DoxyCompactList}\small\item\em Sets position, rotation and scale in world space. \end{DoxyCompactList}\item 
+glm\+::mat4 \mbox{\hyperlink{classCalgine_1_1GameObject_add4af37ba603b402213a5cd19611bc9d}{get\+\_\+render\+\_\+matrix}} () const
+\begin{DoxyCompactList}\small\item\em World matrix used for drawing\+: the override if set, otherwise parent render matrix \texorpdfstring{$\ast$}{*} local. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \mbox{\hyperlink{classCalgine_1_1GameObject_a1eac3a8fcd564240702a7ff364d508ec}{get\+\_\+render\+\_\+transform}} () const
+\begin{DoxyCompactList}\small\item\em \doxylink{classCalgine_1_1GameObject_add4af37ba603b402213a5cd19611bc9d}{get\+\_\+render\+\_\+matrix()} decomposed into a \doxylink{classCalgine_1_1Transform}{Transform} (used by cameras). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1GameObject_a780d3fa87adf7027b62aa918928801db}{set\+\_\+render\+\_\+override}} (const glm\+::mat4 \&world\+\_\+matrix)
+\begin{DoxyCompactList}\small\item\em Draw this object at {\ttfamily world\+\_\+matrix} instead of its world transform. Normally set by the physics system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1GameObject_a654013081cfc2995d9afed713d2c59cf}{clear\+\_\+render\+\_\+override}} ()
+\item 
+bool \mbox{\hyperlink{classCalgine_1_1GameObject_a30eb14a1a74c64900c5b369364b9137b}{has\+\_\+render\+\_\+override}} () const
+\item 
 {\footnotesize template$<$typename T\+\_\+behaviour , typename... Args$>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$}\\T\+\_\+behaviour \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1GameObject_a058a205e6bb78fa9a2bac40340dfa808}{add\+\_\+behaviour}} (Args \&\&... args)
 \item 

@@ -16,6 +16,8 @@ Settings used when a \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} creates i
 \item 
 \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} \mbox{\hyperlink{structCalgine_1_1RigidBodySettings_a28de0e3466b71187390d6bfd5945964d}{shape}}
 \item 
+\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} \mbox{\hyperlink{structCalgine_1_1RigidBodySettings_a24715530baa74d7416b498d59d2780bb}{layer}} = \mbox{\hyperlink{namespaceCalgine_a594a2849ee70804a9645862ecd781010}{default\+\_\+collision\+\_\+layer}}
+\begin{DoxyCompactList}\small\item\em Collision layer (see \doxylink{structCalgine_1_1CollisionLayerSettings}{Collision\+Layer\+Settings}). \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{structCalgine_1_1RigidBodySettings_a6ef4ea2698a4d8eb39f8f6ba3946a2c5}{mass}} = 0.\+0f
 \begin{DoxyCompactList}\small\item\em Mass in kg. 0 means "{}calculate from the shape\textquotesingle{}s volume"{} (density 1000 kg/m\texorpdfstring{$^\wedge$}{\string^}3). \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{structCalgine_1_1RigidBodySettings_a658d31458365149efa4472f6d6ff4c02}{friction}} = 0.\+2f
@@ -29,7 +31,11 @@ float \mbox{\hyperlink{structCalgine_1_1RigidBodySettings_ac430fb6b15ceaf3be4eb3
 float \mbox{\hyperlink{structCalgine_1_1RigidBodySettings_af88b9a8cfb7da10b9bccb8601c15622b}{gravity\+\_\+factor}} = 1.\+0f
 \begin{DoxyCompactList}\small\item\em Multiplier on world gravity for this body. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{structCalgine_1_1RigidBodySettings_a98f12ca0d2e9d44334bcdf45a210f85d}{is\+\_\+sensor}} = false
-\begin{DoxyCompactList}\small\item\em Sensors report collisions but don\textquotesingle{}t physically block anything (triggers). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sensors report collisions but don\textquotesingle{}t physically block anything (triggers). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structCalgine_1_1RigidBodySettings_a0a78dcc86263c8a53631ba83819e0e1c}{interpolate}} = true
+\begin{DoxyCompactList}\small\item\em Draw this body at a pose blended between physics steps (also needs \doxylink{structCalgine_1_1PhysicsSettings_af6cbb730a5e31d12daaf89e9468f3632}{Physics\+Settings\+::interpolation}). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structCalgine_1_1RigidBodySettings_ada58d3e3c122ce5b1783bbc13d63c40e}{track\+\_\+scale}} = false
+\begin{DoxyCompactList}\small\item\em Rebuild the collider whenever the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s world scale changes. Costs a matrix decompose per body per step, so it\textquotesingle{}s off by default; \doxylink{classCalgine_1_1RigidBody_a710f588292b70608a5aefe79a8ed7580}{Rigid\+Body\+::refresh\+\_\+shape()} does it on demand. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -58,6 +64,16 @@ Settings used when a \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} creates i
 
 Multiplier on world gravity for this body. 
 
+\Hypertarget{structCalgine_1_1RigidBodySettings_a0a78dcc86263c8a53631ba83819e0e1c}\label{structCalgine_1_1RigidBodySettings_a0a78dcc86263c8a53631ba83819e0e1c} 
+\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!interpolate@{interpolate}}
+\index{interpolate@{interpolate}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+\doxysubsubsection{\texorpdfstring{interpolate}{interpolate}}
+{\footnotesize\ttfamily bool Calgine\+::\+Rigid\+Body\+Settings\+::interpolate = true}
+
+
+
+Draw this body at a pose blended between physics steps (also needs \doxylink{structCalgine_1_1PhysicsSettings_af6cbb730a5e31d12daaf89e9468f3632}{Physics\+Settings\+::interpolation}). 
+
 \Hypertarget{structCalgine_1_1RigidBodySettings_a98f12ca0d2e9d44334bcdf45a210f85d}\label{structCalgine_1_1RigidBodySettings_a98f12ca0d2e9d44334bcdf45a210f85d} 
 \index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!is\_sensor@{is\_sensor}}
 \index{is\_sensor@{is\_sensor}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
@@ -67,6 +83,16 @@ Multiplier on world gravity for this body.
 
 
 Sensors report collisions but don\textquotesingle{}t physically block anything (triggers). 
+
+\Hypertarget{structCalgine_1_1RigidBodySettings_a24715530baa74d7416b498d59d2780bb}\label{structCalgine_1_1RigidBodySettings_a24715530baa74d7416b498d59d2780bb} 
+\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!layer@{layer}}
+\index{layer@{layer}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+\doxysubsubsection{\texorpdfstring{layer}{layer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} Calgine\+::\+Rigid\+Body\+Settings\+::layer = \mbox{\hyperlink{namespaceCalgine_a594a2849ee70804a9645862ecd781010}{default\+\_\+collision\+\_\+layer}}}
+
+
+
+Collision layer (see \doxylink{structCalgine_1_1CollisionLayerSettings}{Collision\+Layer\+Settings}). 
 
 \Hypertarget{structCalgine_1_1RigidBodySettings_a5694e5e14c43b58dcd69acf3d60588ae}\label{structCalgine_1_1RigidBodySettings_a5694e5e14c43b58dcd69acf3d60588ae} 
 \index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!linear\_damping@{linear\_damping}}
@@ -105,6 +131,16 @@ Bounciness, 0 = no bounce, 1 = perfectly elastic.
 \index{shape@{shape}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
 \doxysubsubsection{\texorpdfstring{shape}{shape}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structCalgine_1_1ColliderShape}{Collider\+Shape}} Calgine\+::\+Rigid\+Body\+Settings\+::shape}
+
+\Hypertarget{structCalgine_1_1RigidBodySettings_ada58d3e3c122ce5b1783bbc13d63c40e}\label{structCalgine_1_1RigidBodySettings_ada58d3e3c122ce5b1783bbc13d63c40e} 
+\index{Calgine::RigidBodySettings@{Calgine::RigidBodySettings}!track\_scale@{track\_scale}}
+\index{track\_scale@{track\_scale}!Calgine::RigidBodySettings@{Calgine::RigidBodySettings}}
+\doxysubsubsection{\texorpdfstring{track\_scale}{track\_scale}}
+{\footnotesize\ttfamily bool Calgine\+::\+Rigid\+Body\+Settings\+::track\+\_\+scale = false}
+
+
+
+Rebuild the collider whenever the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s world scale changes. Costs a matrix decompose per body per step, so it\textquotesingle{}s off by default; \doxylink{classCalgine_1_1RigidBody_a710f588292b70608a5aefe79a8ed7580}{Rigid\+Body\+::refresh\+\_\+shape()} does it on demand. 
 
 
 

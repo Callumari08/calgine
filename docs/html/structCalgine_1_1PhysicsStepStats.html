@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('structCalgine_1_1PhysicsStepStats.html
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ab8cd67031f021c7ea3d173c5c6607734" id="r_ab8cd67031f021c7ea3d173c5c6607734"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsStepStats.html#ab8cd67031f021c7ea3d173c5c6607734">pre_step_ms</a> = 0.0f</td></tr>
-<tr class="memdesc:ab8cd67031f021c7ea3d173c5c6607734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Syncing enabled state and kinematic targets from GameObjects into Jolt.  <br /></td></tr>
+<tr class="memdesc:ab8cd67031f021c7ea3d173c5c6607734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Syncing enabled state, scale and kinematic targets from GameObjects into Jolt, and creating pending joints.  <br /></td></tr>
 <tr class="separator:ab8cd67031f021c7ea3d173c5c6607734"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f781942a7930ea0563221c30c48a371" id="r_a5f781942a7930ea0563221c30c48a371"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsStepStats.html#a5f781942a7930ea0563221c30c48a371">simulate_ms</a> = 0.0f</td></tr>
 <tr class="memdesc:a5f781942a7930ea0563221c30c48a371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jolt's simulation (PhysicsSystem::Update, runs on the job threads).  <br /></td></tr>
@@ -124,6 +124,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:af69dea93beadb348ed5fd6f7dd474eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3d3634d6cce6734029d686a0a033b97" id="r_af3d3634d6cce6734029d686a0a033b97"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsStepStats.html#af3d3634d6cce6734029d686a0a033b97">collision_events</a> = 0</td></tr>
 <tr class="separator:af3d3634d6cce6734029d686a0a033b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeafbaf8d3694c5ebf777c2df7dbf8a5f" id="r_aeafbaf8d3694c5ebf777c2df7dbf8a5f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCalgine_1_1PhysicsStepStats.html#aeafbaf8d3694c5ebf777c2df7dbf8a5f">joints</a> = 0</td></tr>
+<tr class="separator:aeafbaf8d3694c5ebf777c2df7dbf8a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Timing and counts for a single physics step (see <a class="el" href="classCalgine_1_1PhysicsWorld.html#a01058e687e1784300f8ed3cbb25797dd" title="Stats for the most recent physics step.">PhysicsWorld::get_last_step_stats()</a>). </p>
@@ -187,6 +189,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aeafbaf8d3694c5ebf777c2df7dbf8a5f" name="aeafbaf8d3694c5ebf777c2df7dbf8a5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeafbaf8d3694c5ebf777c2df7dbf8a5f">&#9670;&#160;</a></span>joints</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Calgine::PhysicsStepStats::joints = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a90378acead80370d1afccd9f610d2967" name="a90378acead80370d1afccd9f610d2967"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a90378acead80370d1afccd9f610d2967">&#9670;&#160;</a></span>post_step_ms</h2>
 
@@ -215,7 +231,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Syncing enabled state and kinematic targets from GameObjects into Jolt. </p>
+<p>Syncing enabled state, scale and kinematic targets from GameObjects into Jolt, and creating pending joints. </p>
 
 </div>
 </div>

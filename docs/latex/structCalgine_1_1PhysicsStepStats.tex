@@ -13,7 +13,7 @@ Timing and counts for a single physics step (see \doxylink{classCalgine_1_1Physi
 \begin{DoxyCompactItemize}
 \item 
 float \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats_ab8cd67031f021c7ea3d173c5c6607734}{pre\+\_\+step\+\_\+ms}} = 0.\+0f
-\begin{DoxyCompactList}\small\item\em Syncing enabled state and kinematic targets from Game\+Objects into Jolt. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Syncing enabled state, scale and kinematic targets from Game\+Objects into Jolt, and creating pending joints. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats_a5f781942a7930ea0563221c30c48a371}{simulate\+\_\+ms}} = 0.\+0f
 \begin{DoxyCompactList}\small\item\em Jolt\textquotesingle{}s simulation (Physics\+System\+::\+Update, runs on the job threads). \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats_a90378acead80370d1afccd9f610d2967}{post\+\_\+step\+\_\+ms}} = 0.\+0f
@@ -27,6 +27,8 @@ uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats_a8d463c3d275161
 uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats_af69dea93beadb348ed5fd6f7dd474eb0}{active\+\_\+bodies}} = 0
 \item 
 uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats_af3d3634d6cce6734029d686a0a033b97}{collision\+\_\+events}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1PhysicsStepStats_aeafbaf8d3694c5ebf777c2df7dbf8a5f}{joints}} = 0
 \end{DoxyCompactItemize}
 
 
@@ -64,6 +66,12 @@ All times are wall-\/clock milliseconds measured on the main thread.
 
 Turning Jolt contacts into Collision\+Events. 
 
+\Hypertarget{structCalgine_1_1PhysicsStepStats_aeafbaf8d3694c5ebf777c2df7dbf8a5f}\label{structCalgine_1_1PhysicsStepStats_aeafbaf8d3694c5ebf777c2df7dbf8a5f} 
+\index{Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}!joints@{joints}}
+\index{joints@{joints}!Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}}
+\doxysubsubsection{\texorpdfstring{joints}{joints}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+Physics\+Step\+Stats\+::joints = 0}
+
 \Hypertarget{structCalgine_1_1PhysicsStepStats_a90378acead80370d1afccd9f610d2967}\label{structCalgine_1_1PhysicsStepStats_a90378acead80370d1afccd9f610d2967} 
 \index{Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}!post\_step\_ms@{post\_step\_ms}}
 \index{post\_step\_ms@{post\_step\_ms}!Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}}
@@ -82,7 +90,7 @@ Writing dynamic body poses back into \doxylink{classCalgine_1_1GameObject}{Game\
 
 
 
-Syncing enabled state and kinematic targets from Game\+Objects into Jolt. 
+Syncing enabled state, scale and kinematic targets from Game\+Objects into Jolt, and creating pending joints. 
 
 \Hypertarget{structCalgine_1_1PhysicsStepStats_a5f781942a7930ea0563221c30c48a371}\label{structCalgine_1_1PhysicsStepStats_a5f781942a7930ea0563221c30c48a371} 
 \index{Calgine::PhysicsStepStats@{Calgine::PhysicsStepStats}!simulate\_ms@{simulate\_ms}}

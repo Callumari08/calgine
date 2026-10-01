@@ -1,0 +1,223 @@
+\doxysection{Calgine\+::Joint Class Reference}
+\hypertarget{classCalgine_1_1Joint}{}\label{classCalgine_1_1Joint}\index{Calgine::Joint@{Calgine::Joint}}
+
+
+Connects this \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} to another \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body}, or to the world.  
+
+
+
+
+{\ttfamily \#include $<$joint.\+h$>$}
+
+Inheritance diagram for Calgine\+::Joint\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCalgine_1_1Joint}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1Joint_a2e1945eac6479eb77804b5b42e7dff54}{Joint}} ()
+\item 
+\mbox{\hyperlink{classCalgine_1_1Joint_ae067dcf5b3dd6a520ece7d2721250c27}{Joint}} (const \mbox{\hyperlink{structCalgine_1_1JointSettings}{Joint\+Settings}} \&settings)
+\item 
+\mbox{\hyperlink{classCalgine_1_1Joint_a59f8b091d426d526c3bb91d9ef91367c}{\texorpdfstring{$\sim$}{\string~}\+Joint}} () override
+\item 
+const \mbox{\hyperlink{structCalgine_1_1JointSettings}{Joint\+Settings}} \& \mbox{\hyperlink{classCalgine_1_1Joint_af1b7d9a1f881bcd3de5f14b0c6c30b2f}{get\+\_\+settings}} () const
+\item 
+bool \mbox{\hyperlink{classCalgine_1_1Joint_a1772cc9345406e39093700db36fafb34}{is\+\_\+active}} () const
+\begin{DoxyCompactList}\small\item\em True once the joint exists in the physics world. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCalgine_1_1Joint_aaedba17b66f96f540e4a0b6320284947}{is\+\_\+broken}} () const
+\begin{DoxyCompactList}\small\item\em True if the connected body was destroyed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1Joint_a12d9478fc422cbae38876a99e93f3581}{set\+\_\+enabled}} (bool enabled)
+\begin{DoxyCompactList}\small\item\em Temporarily turns the joint off without destroying it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCalgine_1_1Joint_a8dd73edf1eaea61a92715983ee1b5e9e}{is\+\_\+enabled}} () const
+\item 
+void \mbox{\hyperlink{classCalgine_1_1Joint_a07b057de9ea9e47e36305f6230d68d0f}{set\+\_\+motor\+\_\+enabled}} (bool enabled)
+\begin{DoxyCompactList}\small\item\em Hinge and slider only. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1Joint_a0b06daa7218f0c86581bf0ae7814114e}{set\+\_\+motor\+\_\+target\+\_\+velocity}} (float velocity)
+\begin{DoxyCompactList}\small\item\em Hinge (degrees/s) and slider (metres/s) only. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCalgine_1_1Joint_a129a352daf4becc80a63f9b84a23185a}{get\+\_\+current\+\_\+value}} () const
+\begin{DoxyCompactList}\small\item\em Hinge\+: current angle in degrees. Slider\+: current position in metres. Otherwise 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1Joint_ad5b50daf166a2ec91a73a402d30bd32c}{get\+\_\+connected\+\_\+body}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classCalgine_1_1Behaviour_a5f9a4ac36b5e9a7303c0708c9c9ca435}{\texorpdfstring{$\sim$}{\string~}\+Behaviour}} ()
+\item 
+\mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1Behaviour_aa5ddce8f5605e47c1727f93127634274}{get\+\_\+game\+\_\+object}} ()
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the \doxylink{classCalgine_1_1GameObject}{Game\+Object} that this behaviour is attached to. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \& \mbox{\hyperlink{classCalgine_1_1Behaviour_aec1c964df62ee9bf87b1c05ed630a4be}{get\+\_\+transform}} ()
+\item 
+bool \mbox{\hyperlink{classCalgine_1_1Behaviour_a9c98d44cad6a3f3e84c935e48f1991b2}{is\+\_\+started}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCalgine_1_1Joint_abd7959b8cbcd7c25bc6c0c8b1ea26ce6}{Physics\+World}}
+\item 
+struct \mbox{\hyperlink{classCalgine_1_1Joint_a9c98cd04d28b858c8def96853fc16683}{Physics\+World\+::\+Impl}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalgine_1_1Behaviour_ad995ee4595a558fb17fc3aef161a4652}{Behaviour}} ()
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_afc52ca163104ff8061ecaa31aa083756}{preloop\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\begin{DoxyCompactList}\small\item\em Gets called before the main loop (see \doxylink{classCalgine_1_1App}{App}). Behaviours that are instantiated after the mainloop has started will not have this function called. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_aa20a9f9fea54e6dd8d64ad331da13734}{fixed\+\_\+update\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a62c7640f82c8dc7bca360d31b5a07a66}{update\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\begin{DoxyCompactList}\small\item\em Gets called every frame, before \doxylink{classCalgine_1_1Behaviour_ab92f603c2bc2cbfdd9fbfaa9fdc404ce}{late\+\_\+tick()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ab92f603c2bc2cbfdd9fbfaa9fdc404ce}{late\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\begin{DoxyCompactList}\small\item\em Gets called every frame, after \doxylink{tick__type_8h_a1586ef54a6e26a57539d06db6e6c78b5}{update()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a817b9c70c4b585bc908668522dec44dd}{render\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_a061fd29a42a54921325daac824784a36}{imgui\+\_\+render\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\item 
+virtual void \mbox{\hyperlink{classCalgine_1_1Behaviour_ad39918d214247d73bb93ee2241d44452}{final\+\_\+tick}} (\mbox{\hyperlink{classCalgine_1_1EventContext}{Event\+Context}} \&event\+\_\+context)
+\begin{DoxyCompactList}\small\item\em Gets called last before the next frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Connects this \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} to another \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body}, or to the world. 
+
+Needs a \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} on the same \doxylink{classCalgine_1_1GameObject}{Game\+Object}. The joint is created once both bodies exist (it waits if either hasn\textquotesingle{}t started yet). If the connected body is destroyed, the joint breaks and stays broken.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{JointSettings\ \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a2e115f4171ceb952bca742eb60fc7e81}{hinge}};}
+\DoxyCodeLine{\mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a2e115f4171ceb952bca742eb60fc7e81}{hinge}}.type\ =\ \mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a2e115f4171ceb952bca742eb60fc7e81}{JointType::hinge}};}
+\DoxyCodeLine{\mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a2e115f4171ceb952bca742eb60fc7e81}{hinge}}.connected\_body\ =\ frame.get\_behaviour<RigidBody>();}
+\DoxyCodeLine{\mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a2e115f4171ceb952bca742eb60fc7e81}{hinge}}.anchor\ =\ glm::vec3(-\/1.0f,\ 0.0f,\ 0.0f);\ \ \ \textcolor{comment}{//\ door's\ left\ edge}}
+\DoxyCodeLine{\mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a2e115f4171ceb952bca742eb60fc7e81}{hinge}}.axis\ =\ glm::vec3(0.0f,\ 1.0f,\ 0.0f);}
+\DoxyCodeLine{door.add\_behaviour<\mbox{\hyperlink{classCalgine_1_1Joint_a2e1945eac6479eb77804b5b42e7dff54}{Joint}}>(\mbox{\hyperlink{namespaceCalgine_ad953014b9df06a432ce1ac13f97c24e9a2e115f4171ceb952bca742eb60fc7e81}{hinge}});}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCalgine_1_1Joint_a2e1945eac6479eb77804b5b42e7dff54}\label{classCalgine_1_1Joint_a2e1945eac6479eb77804b5b42e7dff54} 
+\index{Calgine::Joint@{Calgine::Joint}!Joint@{Joint}}
+\index{Joint@{Joint}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{Joint()}{Joint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Calgine\+::\+Joint\+::\+Joint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classCalgine_1_1Joint_ae067dcf5b3dd6a520ece7d2721250c27}\label{classCalgine_1_1Joint_ae067dcf5b3dd6a520ece7d2721250c27} 
+\index{Calgine::Joint@{Calgine::Joint}!Joint@{Joint}}
+\index{Joint@{Joint}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{Joint()}{Joint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Calgine\+::\+Joint\+::\+Joint (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structCalgine_1_1JointSettings}{Joint\+Settings}} \&}]{settings }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\Hypertarget{classCalgine_1_1Joint_a59f8b091d426d526c3bb91d9ef91367c}\label{classCalgine_1_1Joint_a59f8b091d426d526c3bb91d9ef91367c} 
+\index{Calgine::Joint@{Calgine::Joint}!````~Joint@{\texorpdfstring{$\sim$}{\string~}Joint}}
+\index{````~Joint@{\texorpdfstring{$\sim$}{\string~}Joint}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Joint()}{\string~Joint()}}
+{\footnotesize\ttfamily Calgine\+::\+Joint\+::\texorpdfstring{$\sim$}{\string~}\+Joint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalgine_1_1Joint_ad5b50daf166a2ec91a73a402d30bd32c}\label{classCalgine_1_1Joint_ad5b50daf166a2ec91a73a402d30bd32c} 
+\index{Calgine::Joint@{Calgine::Joint}!get\_connected\_body@{get\_connected\_body}}
+\index{get\_connected\_body@{get\_connected\_body}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{get\_connected\_body()}{get\_connected\_body()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1RigidBody}{Rigid\+Body}} \texorpdfstring{$\ast$}{*} Calgine\+::\+Joint\+::get\+\_\+connected\+\_\+body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1Joint_a129a352daf4becc80a63f9b84a23185a}\label{classCalgine_1_1Joint_a129a352daf4becc80a63f9b84a23185a} 
+\index{Calgine::Joint@{Calgine::Joint}!get\_current\_value@{get\_current\_value}}
+\index{get\_current\_value@{get\_current\_value}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{get\_current\_value()}{get\_current\_value()}}
+{\footnotesize\ttfamily float Calgine\+::\+Joint\+::get\+\_\+current\+\_\+value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Hinge\+: current angle in degrees. Slider\+: current position in metres. Otherwise 0. 
+
+\Hypertarget{classCalgine_1_1Joint_af1b7d9a1f881bcd3de5f14b0c6c30b2f}\label{classCalgine_1_1Joint_af1b7d9a1f881bcd3de5f14b0c6c30b2f} 
+\index{Calgine::Joint@{Calgine::Joint}!get\_settings@{get\_settings}}
+\index{get\_settings@{get\_settings}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{get\_settings()}{get\_settings()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structCalgine_1_1JointSettings}{Joint\+Settings}} \& Calgine\+::\+Joint\+::get\+\_\+settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1Joint_a1772cc9345406e39093700db36fafb34}\label{classCalgine_1_1Joint_a1772cc9345406e39093700db36fafb34} 
+\index{Calgine::Joint@{Calgine::Joint}!is\_active@{is\_active}}
+\index{is\_active@{is\_active}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{is\_active()}{is\_active()}}
+{\footnotesize\ttfamily bool Calgine\+::\+Joint\+::is\+\_\+active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+True once the joint exists in the physics world. 
+
+\Hypertarget{classCalgine_1_1Joint_aaedba17b66f96f540e4a0b6320284947}\label{classCalgine_1_1Joint_aaedba17b66f96f540e4a0b6320284947} 
+\index{Calgine::Joint@{Calgine::Joint}!is\_broken@{is\_broken}}
+\index{is\_broken@{is\_broken}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{is\_broken()}{is\_broken()}}
+{\footnotesize\ttfamily bool Calgine\+::\+Joint\+::is\+\_\+broken (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+True if the connected body was destroyed. 
+
+\Hypertarget{classCalgine_1_1Joint_a8dd73edf1eaea61a92715983ee1b5e9e}\label{classCalgine_1_1Joint_a8dd73edf1eaea61a92715983ee1b5e9e} 
+\index{Calgine::Joint@{Calgine::Joint}!is\_enabled@{is\_enabled}}
+\index{is\_enabled@{is\_enabled}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{is\_enabled()}{is\_enabled()}}
+{\footnotesize\ttfamily bool Calgine\+::\+Joint\+::is\+\_\+enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCalgine_1_1Joint_a12d9478fc422cbae38876a99e93f3581}\label{classCalgine_1_1Joint_a12d9478fc422cbae38876a99e93f3581} 
+\index{Calgine::Joint@{Calgine::Joint}!set\_enabled@{set\_enabled}}
+\index{set\_enabled@{set\_enabled}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{set\_enabled()}{set\_enabled()}}
+{\footnotesize\ttfamily void Calgine\+::\+Joint\+::set\+\_\+enabled (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+
+
+Temporarily turns the joint off without destroying it. 
+
+\Hypertarget{classCalgine_1_1Joint_a07b057de9ea9e47e36305f6230d68d0f}\label{classCalgine_1_1Joint_a07b057de9ea9e47e36305f6230d68d0f} 
+\index{Calgine::Joint@{Calgine::Joint}!set\_motor\_enabled@{set\_motor\_enabled}}
+\index{set\_motor\_enabled@{set\_motor\_enabled}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{set\_motor\_enabled()}{set\_motor\_enabled()}}
+{\footnotesize\ttfamily void Calgine\+::\+Joint\+::set\+\_\+motor\+\_\+enabled (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+
+
+Hinge and slider only. 
+
+\Hypertarget{classCalgine_1_1Joint_a0b06daa7218f0c86581bf0ae7814114e}\label{classCalgine_1_1Joint_a0b06daa7218f0c86581bf0ae7814114e} 
+\index{Calgine::Joint@{Calgine::Joint}!set\_motor\_target\_velocity@{set\_motor\_target\_velocity}}
+\index{set\_motor\_target\_velocity@{set\_motor\_target\_velocity}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{set\_motor\_target\_velocity()}{set\_motor\_target\_velocity()}}
+{\footnotesize\ttfamily void Calgine\+::\+Joint\+::set\+\_\+motor\+\_\+target\+\_\+velocity (\begin{DoxyParamCaption}\item[{float}]{velocity }\end{DoxyParamCaption})}
+
+
+
+Hinge (degrees/s) and slider (metres/s) only. 
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classCalgine_1_1Joint_abd7959b8cbcd7c25bc6c0c8b1ea26ce6}\label{classCalgine_1_1Joint_abd7959b8cbcd7c25bc6c0c8b1ea26ce6} 
+\index{Calgine::Joint@{Calgine::Joint}!PhysicsWorld@{PhysicsWorld}}
+\index{PhysicsWorld@{PhysicsWorld}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{PhysicsWorld}{PhysicsWorld}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{Physics\+World}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classCalgine_1_1Joint_a9c98cd04d28b858c8def96853fc16683}\label{classCalgine_1_1Joint_a9c98cd04d28b858c8def96853fc16683} 
+\index{Calgine::Joint@{Calgine::Joint}!PhysicsWorld::Impl@{PhysicsWorld::Impl}}
+\index{PhysicsWorld::Impl@{PhysicsWorld::Impl}!Calgine::Joint@{Calgine::Joint}}
+\doxysubsubsection{\texorpdfstring{PhysicsWorld::Impl}{PhysicsWorld::Impl}}
+{\footnotesize\ttfamily friend struct \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl}{Physics\+World\+::\+Impl}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/calgine/core/physics/\mbox{\hyperlink{joint_8h}{joint.\+h}}\item 
+src/calgine/core/physics/\mbox{\hyperlink{joint_8cxx}{joint.\+cxx}}\end{DoxyCompactItemize}

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['sphere_0',['sphere',['../structCalgine_1_1ColliderShape.html#a80c30efe53556967408ef9a182d873a7ae2fb69b63ceabf8c2e438410a10f4996',1,'Calgine::ColliderShape']]],
-  ['static_5fbody_1',['static_body',['../namespaceCalgine.html#a0bd93786fde78b22db760b7a8cd47b4ca3802c2b14860b60e9acb8d1910285d92',1,'Calgine']]]
+  ['mesh_0',['mesh',['../structCalgine_1_1ColliderShape.html#a80c30efe53556967408ef9a182d873a7a93e82a3df86e5b5df1ba4ddd1a66d7fe',1,'Calgine::ColliderShape']]],
+  ['model_1',['model',['../namespaceCalgine.html#acf0a966a2ef04d27037f626364505e5eacdf938f993c1abc16dc1aa83550ad91d',1,'Calgine']]]
 ];

@@ -29,7 +29,11 @@ uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1AppSettings_a5ce2ae90de3ba65793e
 bool \mbox{\hyperlink{structCalgine_1_1AppSettings_a934eb71fcaf71fc90dcdc34afc2c601b}{render\+\_\+framebuffer\+\_\+to\+\_\+screen}} = true
 \begin{DoxyCompactList}\small\item\em If true, the internal framebuffer is rendered to the window. If false, only available as a texture. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{structCalgine_1_1AppSettings_a792e2f8ceb144b7e13fe2c6b9b5e7547}{imgui\+\_\+config\+\_\+path}} = "{}"{}
-\begin{DoxyCompactList}\small\item\em Path to the Im\+Gui configuration file. If empty, defaults to "{}imgui.\+ini"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Path to the Im\+Gui configuration file. If empty, defaults to "{}imgui.\+ini"{}. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structCalgine_1_1AppSettings_ae2cb6906108d5f4fd7502026e82dda4d}{max\+\_\+fixed\+\_\+steps\+\_\+per\+\_\+frame}} = 5
+\begin{DoxyCompactList}\small\item\em Most fixed steps (fixed\+\_\+update + physics) run in one frame. 0 = unlimited. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structCalgine_1_1PhysicsSettings}{Physics\+Settings}} \mbox{\hyperlink{structCalgine_1_1AppSettings_acaea9a4eb8a3fbf3860678b505a830b1}{physics}}
+\begin{DoxyCompactList}\small\item\em Physics configuration (limits, threads, gravity, collision layers, interpolation). \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -105,6 +109,26 @@ Path to the Im\+Gui configuration file. If empty, defaults to "{}imgui.\+ini"{}.
 \index{imgui\_context@{imgui\_context}!Calgine::AppSettings@{Calgine::AppSettings}}
 \doxysubsubsection{\texorpdfstring{imgui\_context}{imgui\_context}}
 {\footnotesize\ttfamily Im\+Gui\+Context\texorpdfstring{$\ast$}{*} Calgine\+::\+App\+Settings\+::imgui\+\_\+context = nullptr}
+
+\Hypertarget{structCalgine_1_1AppSettings_ae2cb6906108d5f4fd7502026e82dda4d}\label{structCalgine_1_1AppSettings_ae2cb6906108d5f4fd7502026e82dda4d} 
+\index{Calgine::AppSettings@{Calgine::AppSettings}!max\_fixed\_steps\_per\_frame@{max\_fixed\_steps\_per\_frame}}
+\index{max\_fixed\_steps\_per\_frame@{max\_fixed\_steps\_per\_frame}!Calgine::AppSettings@{Calgine::AppSettings}}
+\doxysubsubsection{\texorpdfstring{max\_fixed\_steps\_per\_frame}{max\_fixed\_steps\_per\_frame}}
+{\footnotesize\ttfamily uint32\+\_\+t Calgine\+::\+App\+Settings\+::max\+\_\+fixed\+\_\+steps\+\_\+per\+\_\+frame = 5}
+
+
+
+Most fixed steps (fixed\+\_\+update + physics) run in one frame. 0 = unlimited. 
+
+When a frame falls further behind than this, the extra time is dropped\+: the simulation runs slower than real time, but frames stay short so the game remains responsive. Without a cap, a slow step makes the next frame run even more steps, and the game can grind to a near halt. \Hypertarget{structCalgine_1_1AppSettings_acaea9a4eb8a3fbf3860678b505a830b1}\label{structCalgine_1_1AppSettings_acaea9a4eb8a3fbf3860678b505a830b1} 
+\index{Calgine::AppSettings@{Calgine::AppSettings}!physics@{physics}}
+\index{physics@{physics}!Calgine::AppSettings@{Calgine::AppSettings}}
+\doxysubsubsection{\texorpdfstring{physics}{physics}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCalgine_1_1PhysicsSettings}{Physics\+Settings}} Calgine\+::\+App\+Settings\+::physics}
+
+
+
+Physics configuration (limits, threads, gravity, collision layers, interpolation). 
 
 \Hypertarget{structCalgine_1_1AppSettings_a934eb71fcaf71fc90dcdc34afc2c601b}\label{structCalgine_1_1AppSettings_a934eb71fcaf71fc90dcdc34afc2c601b} 
 \index{Calgine::AppSettings@{Calgine::AppSettings}!render\_framebuffer\_to\_screen@{render\_framebuffer\_to\_screen}}

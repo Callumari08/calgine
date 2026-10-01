@@ -65,6 +65,16 @@ void \mbox{\hyperlink{classCalgine_1_1GameObject_ae0b908c43ed7f8fd92a59633a2e4d6
 \begin{DoxyCompactList}\small\item\em Rotates this object so its world rotation is {\ttfamily rotation} (children follow). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCalgine_1_1GameObject_a51e53ea78079b5d850e12fe8caea2dda}{set\+\_\+world\+\_\+transform}} (const \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \&world\+\_\+transform)
 \begin{DoxyCompactList}\small\item\em Sets position, rotation and scale in world space. \end{DoxyCompactList}\item 
+glm\+::mat4 \mbox{\hyperlink{classCalgine_1_1GameObject_add4af37ba603b402213a5cd19611bc9d}{get\+\_\+render\+\_\+matrix}} () const
+\begin{DoxyCompactList}\small\item\em World matrix used for drawing\+: the override if set, otherwise parent render matrix \texorpdfstring{$\ast$}{*} local. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} \mbox{\hyperlink{classCalgine_1_1GameObject_a1eac3a8fcd564240702a7ff364d508ec}{get\+\_\+render\+\_\+transform}} () const
+\begin{DoxyCompactList}\small\item\em \doxylink{classCalgine_1_1GameObject_add4af37ba603b402213a5cd19611bc9d}{get\+\_\+render\+\_\+matrix()} decomposed into a \doxylink{classCalgine_1_1Transform}{Transform} (used by cameras). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1GameObject_a780d3fa87adf7027b62aa918928801db}{set\+\_\+render\+\_\+override}} (const glm\+::mat4 \&world\+\_\+matrix)
+\begin{DoxyCompactList}\small\item\em Draw this object at {\ttfamily world\+\_\+matrix} instead of its world transform. Normally set by the physics system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalgine_1_1GameObject_a654013081cfc2995d9afed713d2c59cf}{clear\+\_\+render\+\_\+override}} ()
+\item 
+bool \mbox{\hyperlink{classCalgine_1_1GameObject_a30eb14a1a74c64900c5b369364b9137b}{has\+\_\+render\+\_\+override}} () const
+\item 
 {\footnotesize template$<$typename T\+\_\+behaviour , typename... Args$>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$}\\T\+\_\+behaviour \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCalgine_1_1GameObject_a058a205e6bb78fa9a2bac40340dfa808}{add\+\_\+behaviour}} (Args \&\&... args)
 \item 
@@ -169,6 +179,12 @@ T\+\_\+behaviour \texorpdfstring{$\ast$}{*} Calgine\+::\+Game\+Object\+::add\+\_
 \doxysubsubsection{\texorpdfstring{begin()}{begin()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Iterator}} Calgine\+::\+Game\+Object\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+\Hypertarget{classCalgine_1_1GameObject_a654013081cfc2995d9afed713d2c59cf}\label{classCalgine_1_1GameObject_a654013081cfc2995d9afed713d2c59cf} 
+\index{Calgine::GameObject@{Calgine::GameObject}!clear\_render\_override@{clear\_render\_override}}
+\index{clear\_render\_override@{clear\_render\_override}!Calgine::GameObject@{Calgine::GameObject}}
+\doxysubsubsection{\texorpdfstring{clear\_render\_override()}{clear\_render\_override()}}
+{\footnotesize\ttfamily void Calgine\+::\+Game\+Object\+::clear\+\_\+render\+\_\+override (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 \Hypertarget{classCalgine_1_1GameObject_a97c1b01c0e3e8985d1a327ed75199bb7}\label{classCalgine_1_1GameObject_a97c1b01c0e3e8985d1a327ed75199bb7} 
 \index{Calgine::GameObject@{Calgine::GameObject}!destroy@{destroy}}
 \index{destroy@{destroy}!Calgine::GameObject@{Calgine::GameObject}}
@@ -222,6 +238,26 @@ std\+::string
 \index{get\_parent@{get\_parent}!Calgine::GameObject@{Calgine::GameObject}}
 \doxysubsubsection{\texorpdfstring{get\_parent()}{get\_parent()}}
 {\footnotesize\ttfamily std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classCalgine_1_1GameObject}{Game\+Object}} $>$ $>$ Calgine\+::\+Game\+Object\+::get\+\_\+parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classCalgine_1_1GameObject_add4af37ba603b402213a5cd19611bc9d}\label{classCalgine_1_1GameObject_add4af37ba603b402213a5cd19611bc9d} 
+\index{Calgine::GameObject@{Calgine::GameObject}!get\_render\_matrix@{get\_render\_matrix}}
+\index{get\_render\_matrix@{get\_render\_matrix}!Calgine::GameObject@{Calgine::GameObject}}
+\doxysubsubsection{\texorpdfstring{get\_render\_matrix()}{get\_render\_matrix()}}
+{\footnotesize\ttfamily glm\+::mat4 Calgine\+::\+Game\+Object\+::get\+\_\+render\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+World matrix used for drawing\+: the override if set, otherwise parent render matrix \texorpdfstring{$\ast$}{*} local. 
+
+\Hypertarget{classCalgine_1_1GameObject_a1eac3a8fcd564240702a7ff364d508ec}\label{classCalgine_1_1GameObject_a1eac3a8fcd564240702a7ff364d508ec} 
+\index{Calgine::GameObject@{Calgine::GameObject}!get\_render\_transform@{get\_render\_transform}}
+\index{get\_render\_transform@{get\_render\_transform}!Calgine::GameObject@{Calgine::GameObject}}
+\doxysubsubsection{\texorpdfstring{get\_render\_transform()}{get\_render\_transform()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1Transform}{Transform}} Calgine\+::\+Game\+Object\+::get\+\_\+render\+\_\+transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\doxylink{classCalgine_1_1GameObject_add4af37ba603b402213a5cd19611bc9d}{get\+\_\+render\+\_\+matrix()} decomposed into a \doxylink{classCalgine_1_1Transform}{Transform} (used by cameras). 
 
 \Hypertarget{classCalgine_1_1GameObject_a406397e8c9477102f3a41424f4cfe091}\label{classCalgine_1_1GameObject_a406397e8c9477102f3a41424f4cfe091} 
 \index{Calgine::GameObject@{Calgine::GameObject}!get\_transform@{get\_transform}}
@@ -284,6 +320,12 @@ World transform decomposed from \doxylink{classCalgine_1_1GameObject_adfe540eebf
 {\footnotesize\ttfamily template$<$typename T\+\_\+behaviour $>$ \newline
 requires std\+::derived\+\_\+from$<$T\+\_\+behaviour, \mbox{\hyperlink{classCalgine_1_1Behaviour}{Behaviour}}$>$\\
 bool Calgine\+::\+Game\+Object\+::has\+\_\+behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classCalgine_1_1GameObject_a30eb14a1a74c64900c5b369364b9137b}\label{classCalgine_1_1GameObject_a30eb14a1a74c64900c5b369364b9137b} 
+\index{Calgine::GameObject@{Calgine::GameObject}!has\_render\_override@{has\_render\_override}}
+\index{has\_render\_override@{has\_render\_override}!Calgine::GameObject@{Calgine::GameObject}}
+\doxysubsubsection{\texorpdfstring{has\_render\_override()}{has\_render\_override()}}
+{\footnotesize\ttfamily bool Calgine\+::\+Game\+Object\+::has\+\_\+render\+\_\+override (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classCalgine_1_1GameObject_accf41615441ecc4f14ae550a1c3dba5f}\label{classCalgine_1_1GameObject_accf41615441ecc4f14ae550a1c3dba5f} 
 \index{Calgine::GameObject@{Calgine::GameObject}!instantiate\_child@{instantiate\_child}}
@@ -356,6 +398,16 @@ Moves this \doxylink{classCalgine_1_1GameObject}{Game\+Object} under a new paren
 {\em keep\+\_\+world\+\_\+transform} & If true (default), the local transform is recalculated so the object stays where it is in the world. If false, the local transform is kept as-\/is. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{classCalgine_1_1GameObject_a780d3fa87adf7027b62aa918928801db}\label{classCalgine_1_1GameObject_a780d3fa87adf7027b62aa918928801db} 
+\index{Calgine::GameObject@{Calgine::GameObject}!set\_render\_override@{set\_render\_override}}
+\index{set\_render\_override@{set\_render\_override}!Calgine::GameObject@{Calgine::GameObject}}
+\doxysubsubsection{\texorpdfstring{set\_render\_override()}{set\_render\_override()}}
+{\footnotesize\ttfamily void Calgine\+::\+Game\+Object\+::set\+\_\+render\+\_\+override (\begin{DoxyParamCaption}\item[{const glm\+::mat4 \&}]{world\+\_\+matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Draw this object at {\ttfamily world\+\_\+matrix} instead of its world transform. Normally set by the physics system. 
+
 \Hypertarget{classCalgine_1_1GameObject_a6b7680459248f839b1c5859bcc8aa3ad}\label{classCalgine_1_1GameObject_a6b7680459248f839b1c5859bcc8aa3ad} 
 \index{Calgine::GameObject@{Calgine::GameObject}!set\_world\_position@{set\_world\_position}}
 \index{set\_world\_position@{set\_world\_position}!Calgine::GameObject@{Calgine::GameObject}}

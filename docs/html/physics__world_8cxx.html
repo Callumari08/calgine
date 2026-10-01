@@ -96,18 +96,25 @@ $(document).ready(function(){initNavTree('physics__world_8cxx.html',''); initRes
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="physics__internal_8h_source.html">physics_internal.h</a>&quot;</code><br />
 <code>#include &lt;Jolt/RegisterTypes.h&gt;</code><br />
-<code>#include &lt;Jolt/Physics/Collision/RayCast.h&gt;</code><br />
-<code>#include &lt;Jolt/Physics/Collision/CastResult.h&gt;</code><br />
 <code>#include &lt;Jolt/Physics/Body/BodyLock.h&gt;</code><br />
+<code>#include &lt;Jolt/Physics/Collision/CastResult.h&gt;</code><br />
+<code>#include &lt;Jolt/Physics/Collision/RayCast.h&gt;</code><br />
+<code>#include &lt;Jolt/Physics/Collision/Shape/BoxShape.h&gt;</code><br />
+<code>#include &lt;Jolt/Physics/Collision/Shape/CapsuleShape.h&gt;</code><br />
+<code>#include &lt;Jolt/Physics/Collision/Shape/ConvexHullShape.h&gt;</code><br />
+<code>#include &lt;Jolt/Physics/Collision/Shape/MeshShape.h&gt;</code><br />
+<code>#include &lt;Jolt/Physics/Collision/Shape/ScaledShape.h&gt;</code><br />
+<code>#include &lt;Jolt/Physics/Collision/Shape/SphereShape.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="rigid__body_8h_source.html">calgine/core/physics/rigid_body.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="collision__event_8h_source.html">calgine/core/physics/collision_event.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="event__context_8h_source.html">calgine/core/event_context.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="game__object_8h_source.html">calgine/core/game_object.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="model_8h_source.html">calgine/core/renderer/model.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="renderer_8h_source.html">calgine/core/renderer/renderer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="camera__manager_8h_source.html">calgine/core/renderer/camera/camera_manager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="log_8h_source.html">calgine/core/log.h</a>&quot;</code><br />
-<code>#include &lt;chrono&gt;</code><br />
 <code>#include &lt;cstdarg&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -115,6 +122,49 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceCalgine" id="r_namespaceCalgine"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCalgine.html">Calgine</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ac3e7a802173e77e414103d2582ec56d9" name="ac3e7a802173e77e414103d2582ec56d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3e7a802173e77e414103d2582ec56d9">&#9670;&#160;</a></span>inverse_rotation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::quat inverse_rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5ef053a358c647f69ef226e78ed3581" name="ab5ef053a358c647f69ef226e78ed3581"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5ef053a358c647f69ef226e78ed3581">&#9670;&#160;</a></span>inverse_world</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 inverse_world = glm::mat4(1.0f)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6df3ca57fc92d1bddbfc258593ec29a" name="ae6df3ca57fc92d1bddbfc258593ec29a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6df3ca57fc92d1bddbfc258593ec29a">&#9670;&#160;</a></span>world_scale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 world_scale = glm::vec3(1.0f)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

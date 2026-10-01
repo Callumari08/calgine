@@ -7,5 +7,6 @@ var searchData=
   ['camerasettings_4',['CameraSettings',['../structCalgine_1_1CameraSettings.html',1,'Calgine']]],
   ['collidershape_5',['ColliderShape',['../structCalgine_1_1ColliderShape.html',1,'Calgine']]],
   ['collisionevent_6',['CollisionEvent',['../structCalgine_1_1CollisionEvent.html',1,'Calgine']]],
-  ['contactqueue_7',['ContactQueue',['../classCalgine_1_1ContactQueue.html',1,'Calgine']]]
+  ['collisionlayersettings_7',['CollisionLayerSettings',['../structCalgine_1_1CollisionLayerSettings.html',1,'Calgine']]],
+  ['contactqueue_8',['ContactQueue',['../classCalgine_1_1ContactQueue.html',1,'Calgine']]]
 ];

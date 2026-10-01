@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['motiontype_0',['MotionType',['../namespaceCalgine.html#a0bd93786fde78b22db760b7a8cd47b4c',1,'Calgine']]]
+  ['jointtype_0',['JointType',['../namespaceCalgine.html#ad953014b9df06a432ce1ac13f97c24e9',1,'Calgine']]]
 ];

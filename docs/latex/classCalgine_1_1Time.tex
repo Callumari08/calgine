@@ -13,8 +13,14 @@ float \mbox{\hyperlink{classCalgine_1_1Time_a1d27de524a7359756c625e850fb6c942}{g
 \item 
 float \mbox{\hyperlink{classCalgine_1_1Time_a598d7aef24c1484c1568a10ca5d8bfb4}{get\+\_\+fixed\+\_\+delta\+\_\+time}} () const
 \item 
-int \mbox{\hyperlink{classCalgine_1_1Time_ad1b46ae992aad39b25602238d5d0282f}{consume\+\_\+fixed\+\_\+timesteps}} ()
-\end{DoxyCompactItemize}
+float \mbox{\hyperlink{classCalgine_1_1Time_ae50863408e6305969812cfc3bf8628e4}{get\+\_\+fixed\+\_\+alpha}} () const
+\item 
+uint64\+\_\+t \mbox{\hyperlink{classCalgine_1_1Time_a8ded2ad91089c855e044d1890cac1214}{get\+\_\+dropped\+\_\+fixed\+\_\+steps}} () const
+\begin{DoxyCompactList}\small\item\em Total fixed steps skipped because a frame needed more than the per-\/frame cap. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCalgine_1_1Time_a17b3f7ec6bd4723bb7220bdaab6b4ac6}{get\+\_\+last\+\_\+dropped\+\_\+fixed\+\_\+steps}} () const
+\begin{DoxyCompactList}\small\item\em Fixed steps skipped in the most recent frame. Non-\/zero means the simulation is running slower than real time. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCalgine_1_1Time_a7479c887a523f5f6a4ae8d280e9065f6}{consume\+\_\+fixed\+\_\+timesteps}} (int max\+\_\+steps=0)
+\begin{DoxyCompactList}\small\item\em Returns how many fixed steps to run this frame and removes that time from the accumulator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,7 +31,9 @@ static double \mbox{\hyperlink{classCalgine_1_1Time_a1b1984a78828f7a20fb57ca4632
 static float \mbox{\hyperlink{classCalgine_1_1Time_ac039298fea4c2f0ca463943f5af1ae9a}{delta\+\_\+time}} ()
 \item 
 static float \mbox{\hyperlink{classCalgine_1_1Time_a812eed673100109263c73a08ab5f6d8b}{fixed\+\_\+delta\+\_\+time}} ()
-\end{DoxyCompactItemize}
+\item 
+static float \mbox{\hyperlink{classCalgine_1_1Time_aa0c53a44c37531d1315417745c01802c}{fixed\+\_\+alpha}} ()
+\begin{DoxyCompactList}\small\item\em How far the current frame is between the last fixed step and the next one, from 0 to 1. Used to blend (interpolate) physics poses for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,17 +42,36 @@ class \mbox{\hyperlink{classCalgine_1_1Time_a4097b3e04a4f8ece21f5abe1b10e6323}{A
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classCalgine_1_1Time_ad1b46ae992aad39b25602238d5d0282f}\label{classCalgine_1_1Time_ad1b46ae992aad39b25602238d5d0282f} 
+\Hypertarget{classCalgine_1_1Time_a7479c887a523f5f6a4ae8d280e9065f6}\label{classCalgine_1_1Time_a7479c887a523f5f6a4ae8d280e9065f6} 
 \index{Calgine::Time@{Calgine::Time}!consume\_fixed\_timesteps@{consume\_fixed\_timesteps}}
 \index{consume\_fixed\_timesteps@{consume\_fixed\_timesteps}!Calgine::Time@{Calgine::Time}}
 \doxysubsubsection{\texorpdfstring{consume\_fixed\_timesteps()}{consume\_fixed\_timesteps()}}
-{\footnotesize\ttfamily int Calgine\+::\+Time\+::consume\+\_\+fixed\+\_\+timesteps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int Calgine\+::\+Time\+::consume\+\_\+fixed\+\_\+timesteps (\begin{DoxyParamCaption}\item[{int}]{max\+\_\+steps = {\ttfamily 0} }\end{DoxyParamCaption})}
 
+
+
+Returns how many fixed steps to run this frame and removes that time from the accumulator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+\_\+steps} & Upper limit per frame (0 = unlimited). Steps over the limit are dropped rather than carried into the next frame, so a slow frame can\textquotesingle{}t snowball into ever slower frames. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classCalgine_1_1Time_ac039298fea4c2f0ca463943f5af1ae9a}\label{classCalgine_1_1Time_ac039298fea4c2f0ca463943f5af1ae9a} 
 \index{Calgine::Time@{Calgine::Time}!delta\_time@{delta\_time}}
 \index{delta\_time@{delta\_time}!Calgine::Time@{Calgine::Time}}
 \doxysubsubsection{\texorpdfstring{delta\_time()}{delta\_time()}}
 {\footnotesize\ttfamily static float Calgine\+::\+Time\+::delta\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{classCalgine_1_1Time_aa0c53a44c37531d1315417745c01802c}\label{classCalgine_1_1Time_aa0c53a44c37531d1315417745c01802c} 
+\index{Calgine::Time@{Calgine::Time}!fixed\_alpha@{fixed\_alpha}}
+\index{fixed\_alpha@{fixed\_alpha}!Calgine::Time@{Calgine::Time}}
+\doxysubsubsection{\texorpdfstring{fixed\_alpha()}{fixed\_alpha()}}
+{\footnotesize\ttfamily static float Calgine\+::\+Time\+::fixed\+\_\+alpha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+How far the current frame is between the last fixed step and the next one, from 0 to 1. Used to blend (interpolate) physics poses for rendering. 
 
 \Hypertarget{classCalgine_1_1Time_a812eed673100109263c73a08ab5f6d8b}\label{classCalgine_1_1Time_a812eed673100109263c73a08ab5f6d8b} 
 \index{Calgine::Time@{Calgine::Time}!fixed\_delta\_time@{fixed\_delta\_time}}
@@ -58,6 +85,22 @@ class \mbox{\hyperlink{classCalgine_1_1Time_a4097b3e04a4f8ece21f5abe1b10e6323}{A
 \doxysubsubsection{\texorpdfstring{get\_delta\_time()}{get\_delta\_time()}}
 {\footnotesize\ttfamily float Calgine\+::\+Time\+::get\+\_\+delta\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
+\Hypertarget{classCalgine_1_1Time_a8ded2ad91089c855e044d1890cac1214}\label{classCalgine_1_1Time_a8ded2ad91089c855e044d1890cac1214} 
+\index{Calgine::Time@{Calgine::Time}!get\_dropped\_fixed\_steps@{get\_dropped\_fixed\_steps}}
+\index{get\_dropped\_fixed\_steps@{get\_dropped\_fixed\_steps}!Calgine::Time@{Calgine::Time}}
+\doxysubsubsection{\texorpdfstring{get\_dropped\_fixed\_steps()}{get\_dropped\_fixed\_steps()}}
+{\footnotesize\ttfamily uint64\+\_\+t Calgine\+::\+Time\+::get\+\_\+dropped\+\_\+fixed\+\_\+steps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Total fixed steps skipped because a frame needed more than the per-\/frame cap. 
+
+\Hypertarget{classCalgine_1_1Time_ae50863408e6305969812cfc3bf8628e4}\label{classCalgine_1_1Time_ae50863408e6305969812cfc3bf8628e4} 
+\index{Calgine::Time@{Calgine::Time}!get\_fixed\_alpha@{get\_fixed\_alpha}}
+\index{get\_fixed\_alpha@{get\_fixed\_alpha}!Calgine::Time@{Calgine::Time}}
+\doxysubsubsection{\texorpdfstring{get\_fixed\_alpha()}{get\_fixed\_alpha()}}
+{\footnotesize\ttfamily float Calgine\+::\+Time\+::get\+\_\+fixed\+\_\+alpha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
 \Hypertarget{classCalgine_1_1Time_a598d7aef24c1484c1568a10ca5d8bfb4}\label{classCalgine_1_1Time_a598d7aef24c1484c1568a10ca5d8bfb4} 
 \index{Calgine::Time@{Calgine::Time}!get\_fixed\_delta\_time@{get\_fixed\_delta\_time}}
 \index{get\_fixed\_delta\_time@{get\_fixed\_delta\_time}!Calgine::Time@{Calgine::Time}}
@@ -69,6 +112,16 @@ class \mbox{\hyperlink{classCalgine_1_1Time_a4097b3e04a4f8ece21f5abe1b10e6323}{A
 \index{get\_instance@{get\_instance}!Calgine::Time@{Calgine::Time}}
 \doxysubsubsection{\texorpdfstring{get\_instance()}{get\_instance()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classCalgine_1_1Time}{Time}} \& Calgine\+::\+Time\+::get\+\_\+instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classCalgine_1_1Time_a17b3f7ec6bd4723bb7220bdaab6b4ac6}\label{classCalgine_1_1Time_a17b3f7ec6bd4723bb7220bdaab6b4ac6} 
+\index{Calgine::Time@{Calgine::Time}!get\_last\_dropped\_fixed\_steps@{get\_last\_dropped\_fixed\_steps}}
+\index{get\_last\_dropped\_fixed\_steps@{get\_last\_dropped\_fixed\_steps}!Calgine::Time@{Calgine::Time}}
+\doxysubsubsection{\texorpdfstring{get\_last\_dropped\_fixed\_steps()}{get\_last\_dropped\_fixed\_steps()}}
+{\footnotesize\ttfamily int Calgine\+::\+Time\+::get\+\_\+last\+\_\+dropped\+\_\+fixed\+\_\+steps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Fixed steps skipped in the most recent frame. Non-\/zero means the simulation is running slower than real time. 
 
 \Hypertarget{classCalgine_1_1Time_a478b60c4750da7ff55bb68671da82315}\label{classCalgine_1_1Time_a478b60c4750da7ff55bb68671da82315} 
 \index{Calgine::Time@{Calgine::Time}!get\_time@{get\_time}}

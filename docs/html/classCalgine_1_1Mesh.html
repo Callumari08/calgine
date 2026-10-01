@@ -114,6 +114,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a03bd0c347d14bd7e7ea702f054b1a840"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a348e3c54a0d2f8e8fe30fcd23d4d86c6" id="r_a348e3c54a0d2f8e8fe30fcd23d4d86c6"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Mesh.html#a348e3c54a0d2f8e8fe30fcd23d4d86c6">get_index_count</a> () const</td></tr>
 <tr class="separator:a348e3c54a0d2f8e8fe30fcd23d4d86c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3bf48780d664091f1958dc58210b2a5" id="r_aa3bf48780d664091f1958dc58210b2a5"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; glm::vec3 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Mesh.html#aa3bf48780d664091f1958dc58210b2a5">get_positions</a> () const</td></tr>
+<tr class="memdesc:aa3bf48780d664091f1958dc58210b2a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">CPU copy of the vertex positions, kept after upload for collision shapes (see <a class="el" href="structCalgine_1_1ColliderShape.html#add65a79c7074c2f1b6718d4d90baddeb">ColliderShape::make_convex_hull</a> / make_mesh).  <br /></td></tr>
+<tr class="separator:aa3bf48780d664091f1958dc58210b2a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa60fe4e3b7f744115d141ce8ec278136" id="r_aa60fe4e3b7f744115d141ce8ec278136"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; uint32_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalgine_1_1Mesh.html#aa60fe4e3b7f744115d141ce8ec278136">get_indices</a> () const</td></tr>
+<tr class="memdesc:aa60fe4e3b7f744115d141ce8ec278136"><td class="mdescLeft">&#160;</td><td class="mdescRight">CPU copy of the triangle indices into <a class="el" href="classCalgine_1_1Mesh.html#aa3bf48780d664091f1958dc58210b2a5" title="CPU copy of the vertex positions, kept after upload for collision shapes (see ColliderShape::make_con...">get_positions()</a>.  <br /></td></tr>
+<tr class="separator:aa60fe4e3b7f744115d141ce8ec278136"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7515498b20eb594cc1e990ce6b18a19f" name="a7515498b20eb594cc1e990ce6b18a19f"></a>
@@ -252,6 +258,60 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa60fe4e3b7f744115d141ce8ec278136" name="aa60fe4e3b7f744115d141ce8ec278136"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa60fe4e3b7f744115d141ce8ec278136">&#9670;&#160;</a></span>get_indices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; uint32_t &gt; &amp; Calgine::Mesh::get_indices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>CPU copy of the triangle indices into <a class="el" href="classCalgine_1_1Mesh.html#aa3bf48780d664091f1958dc58210b2a5" title="CPU copy of the vertex positions, kept after upload for collision shapes (see ColliderShape::make_con...">get_positions()</a>. </p>
+
+</div>
+</div>
+<a id="aa3bf48780d664091f1958dc58210b2a5" name="aa3bf48780d664091f1958dc58210b2a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3bf48780d664091f1958dc58210b2a5">&#9670;&#160;</a></span>get_positions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; glm::vec3 &gt; &amp; Calgine::Mesh::get_positions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>CPU copy of the vertex positions, kept after upload for collision shapes (see <a class="el" href="structCalgine_1_1ColliderShape.html#add65a79c7074c2f1b6718d4d90baddeb">ColliderShape::make_convex_hull</a> / make_mesh). </p>
 
 </div>
 </div>

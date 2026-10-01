@@ -2,21 +2,49 @@
 \hypertarget{physics__world_8cxx}{}\label{physics__world_8cxx}\index{src/calgine/core/physics/physics\_world.cxx@{src/calgine/core/physics/physics\_world.cxx}}
 {\ttfamily \#include "{}physics\+\_\+internal.\+h"{}}\newline
 {\ttfamily \#include $<$Jolt/\+Register\+Types.\+h$>$}\newline
-{\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Ray\+Cast.\+h$>$}\newline
-{\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Cast\+Result.\+h$>$}\newline
 {\ttfamily \#include $<$Jolt/\+Physics/\+Body/\+Body\+Lock.\+h$>$}\newline
+{\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Cast\+Result.\+h$>$}\newline
+{\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Ray\+Cast.\+h$>$}\newline
+{\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Shape/\+Box\+Shape.\+h$>$}\newline
+{\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Shape/\+Capsule\+Shape.\+h$>$}\newline
+{\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Shape/\+Convex\+Hull\+Shape.\+h$>$}\newline
+{\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Shape/\+Mesh\+Shape.\+h$>$}\newline
+{\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Shape/\+Scaled\+Shape.\+h$>$}\newline
+{\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Shape/\+Sphere\+Shape.\+h$>$}\newline
 {\ttfamily \#include "{}calgine/core/physics/rigid\+\_\+body.\+h"{}}\newline
 {\ttfamily \#include "{}calgine/core/physics/collision\+\_\+event.\+h"{}}\newline
 {\ttfamily \#include "{}calgine/core/event\+\_\+context.\+h"{}}\newline
 {\ttfamily \#include "{}calgine/core/game\+\_\+object.\+h"{}}\newline
+{\ttfamily \#include "{}calgine/core/renderer/model.\+h"{}}\newline
 {\ttfamily \#include "{}calgine/core/renderer/renderer.\+h"{}}\newline
 {\ttfamily \#include "{}calgine/core/renderer/camera/camera\+\_\+manager.\+h"{}}\newline
 {\ttfamily \#include "{}calgine/core/log.\+h"{}}\newline
-{\ttfamily \#include $<$chrono$>$}\newline
 {\ttfamily \#include $<$cstdarg$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
 {\ttfamily \#include $<$thread$>$}\newline
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceCalgine}{Calgine}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{physics__world_8cxx_ac3e7a802173e77e414103d2582ec56d9}\label{physics__world_8cxx_ac3e7a802173e77e414103d2582ec56d9} 
+\index{physics\_world.cxx@{physics\_world.cxx}!inverse\_rotation@{inverse\_rotation}}
+\index{inverse\_rotation@{inverse\_rotation}!physics\_world.cxx@{physics\_world.cxx}}
+\doxysubsubsection{\texorpdfstring{inverse\_rotation}{inverse\_rotation}}
+{\footnotesize\ttfamily glm\+::quat inverse\+\_\+rotation = glm\+::quat(1.\+0f, 0.\+0f, 0.\+0f, 0.\+0f)}
+
+\Hypertarget{physics__world_8cxx_ab5ef053a358c647f69ef226e78ed3581}\label{physics__world_8cxx_ab5ef053a358c647f69ef226e78ed3581} 
+\index{physics\_world.cxx@{physics\_world.cxx}!inverse\_world@{inverse\_world}}
+\index{inverse\_world@{inverse\_world}!physics\_world.cxx@{physics\_world.cxx}}
+\doxysubsubsection{\texorpdfstring{inverse\_world}{inverse\_world}}
+{\footnotesize\ttfamily glm\+::mat4 inverse\+\_\+world = glm\+::mat4(1.\+0f)}
+
+\Hypertarget{physics__world_8cxx_ae6df3ca57fc92d1bddbfc258593ec29a}\label{physics__world_8cxx_ae6df3ca57fc92d1bddbfc258593ec29a} 
+\index{physics\_world.cxx@{physics\_world.cxx}!world\_scale@{world\_scale}}
+\index{world\_scale@{world\_scale}!physics\_world.cxx@{physics\_world.cxx}}
+\doxysubsubsection{\texorpdfstring{world\_scale}{world\_scale}}
+{\footnotesize\ttfamily glm\+::vec3 world\+\_\+scale = glm\+::vec3(1.\+0f)}
+

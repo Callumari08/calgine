@@ -8,8 +8,10 @@
 {\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Contact\+Listener.\+h$>$}\newline
 {\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Object\+Layer.\+h$>$}\newline
 {\ttfamily \#include $<$Jolt/\+Physics/\+Collision/\+Broad\+Phase/\+Broad\+Phase\+Layer.\+h$>$}\newline
+{\ttfamily \#include $<$Jolt/\+Physics/\+Constraints/\+Two\+Body\+Constraint.\+h$>$}\newline
 {\ttfamily \#include $<$Jolt/\+Physics/\+Physics\+System.\+h$>$}\newline
 {\ttfamily \#include "{}calgine/core/physics/physics\+\_\+world.\+h"{}}\newline
+{\ttfamily \#include "{}calgine/core/physics/joint.\+h"{}}\newline
 {\ttfamily \#include "{}calgine\+\_\+pch.\+h"{}}\newline
 {\ttfamily \#include $<$chrono$>$}\newline
 {\ttfamily \#include $<$glm/glm.\+hpp$>$}\newline
@@ -27,14 +29,20 @@ struct \mbox{\hyperlink{structCalgine_1_1QueuedContact}{Calgine\+::\+Queued\+Con
 \item 
 class \mbox{\hyperlink{classCalgine_1_1ContactQueue}{Calgine\+::\+Contact\+Queue}}
 \item 
+struct \mbox{\hyperlink{structCalgine_1_1Pose}{Calgine\+::\+Pose}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1BodyRecord}{Calgine\+::\+Body\+Record}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1JointRecord}{Calgine\+::\+Joint\+Record}}
+\item 
+struct \mbox{\hyperlink{structCalgine_1_1ModelShapes}{Calgine\+::\+Model\+Shapes}}
+\item 
 struct \mbox{\hyperlink{structCalgine_1_1PhysicsWorld_1_1Impl}{Calgine\+::\+Physics\+World\+::\+Impl}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceCalgine}{Calgine}}
-\item 
-namespace \mbox{\hyperlink{namespaceCalgine_1_1PhysicsLayers}{Calgine\+::\+Physics\+Layers}}
 \item 
 namespace \mbox{\hyperlink{namespaceCalgine_1_1PhysicsBroadPhaseLayers}{Calgine\+::\+Physics\+Broad\+Phase\+Layers}}
 \end{DoxyCompactItemize}
@@ -50,4 +58,10 @@ glm\+::vec3 \mbox{\hyperlink{namespaceCalgine_ade91f61cc5cd86023067892bfe702c19}
 glm\+::quat \mbox{\hyperlink{namespaceCalgine_a6998b770127bc0a67dcddb0fb7ea6b43}{Calgine\+::to\+\_\+glm}} (JPH\+::\+Quat\+Arg q)
 \item 
 JPH\+::\+RVec3 \mbox{\hyperlink{namespaceCalgine_ad50a9cbcfcf3c96c045f850bd37f5e8c}{Calgine\+::to\+\_\+jolt\+\_\+r}} (const glm\+::vec3 \&v)
+\item 
+JPH\+::\+Object\+Layer \mbox{\hyperlink{namespaceCalgine_a2f8d3d27c0eb90462d4c10fb2ef8524c}{Calgine\+::make\+\_\+object\+\_\+layer}} (\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} layer, bool moving)
+\item 
+\mbox{\hyperlink{namespaceCalgine_ab9577d0a99a6e1649c54f7b7539b94c0}{Collision\+Layer}} \mbox{\hyperlink{namespaceCalgine_a405ed6dd9d4929e98ca24459f045251c}{Calgine\+::collision\+\_\+layer\+\_\+of}} (JPH\+::\+Object\+Layer object\+\_\+layer)
+\item 
+bool \mbox{\hyperlink{namespaceCalgine_a6e037b4a3cc365d0b1b04ff394ada67a}{Calgine\+::is\+\_\+moving\+\_\+layer}} (JPH\+::\+Object\+Layer object\+\_\+layer)
 \end{DoxyCompactItemize}

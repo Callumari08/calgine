@@ -8,6 +8,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions\+:\
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1BatchRenderCommand}{Calgine\+::\+Batch\+Render\+Command}} }{\pageref{structCalgine_1_1BatchRenderCommand}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1Behaviour}{Calgine\+::\+Behaviour}} \\*Gives access to tick updates for users }{\pageref{classCalgine_1_1Behaviour}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1BehaviourRegistry}{Calgine\+::\+Behaviour\+Registry}} }{\pageref{classCalgine_1_1BehaviourRegistry}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1BodyRecord}{Calgine\+::\+Body\+Record}} }{\pageref{structCalgine_1_1BodyRecord}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1BroadPhaseLayerInterfaceImpl}{Calgine\+::\+Broad\+Phase\+Layer\+Interface\+Impl}} }{\pageref{classCalgine_1_1BroadPhaseLayerInterfaceImpl}}{}
 \item\contentsline{section}{\mbox{\hyperlink{structtinyobj_1_1callback__t__}{tinyobj\+::callback\+\_\+t\+\_\+}} }{\pageref{structtinyobj_1_1callback__t__}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1Camera}{Calgine\+::\+Camera}} }{\pageref{classCalgine_1_1Camera}}{}
@@ -16,6 +17,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions\+:\
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1CameraSettings}{Calgine\+::\+Camera\+Settings}} }{\pageref{structCalgine_1_1CameraSettings}}{}
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1ColliderShape}{Calgine\+::\+Collider\+Shape}} \\*Collision shape of a \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body}, in the \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s local units (multiplied by world scale) }{\pageref{structCalgine_1_1ColliderShape}}{}
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1CollisionEvent}{Calgine\+::\+Collision\+Event}} \\*Submitted to the \doxylink{classCalgine_1_1EventContext}{Event\+Context} by the physics system when two Rigid\+Bodies start or stop touching }{\pageref{structCalgine_1_1CollisionEvent}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1CollisionLayerSettings}{Calgine\+::\+Collision\+Layer\+Settings}} \\*Named collision layers and which pairs of layers collide }{\pageref{structCalgine_1_1CollisionLayerSettings}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1ContactQueue}{Calgine\+::\+Contact\+Queue}} }{\pageref{classCalgine_1_1ContactQueue}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1DataSerializationInterface}{Calgine\+::\+Data\+Serialization\+Interface}} }{\pageref{classCalgine_1_1DataSerializationInterface}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1EventContext}{Calgine\+::\+Event\+Context}} }{\pageref{classCalgine_1_1EventContext}}{}
@@ -36,6 +38,9 @@ Here are the classes, structs, unions and interfaces with brief descriptions\+:\
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1InputMapping}{Calgine\+::\+Input\+Mapping}} }{\pageref{structCalgine_1_1InputMapping}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1InputSystemBehaviour}{Calgine\+::\+Input\+System\+Behaviour}} }{\pageref{classCalgine_1_1InputSystemBehaviour}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1GameObject_1_1Iterator}{Calgine\+::\+Game\+Object\+::\+Iterator}} }{\pageref{classCalgine_1_1GameObject_1_1Iterator}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1Joint}{Calgine\+::\+Joint}} \\*Connects this \doxylink{classCalgine_1_1GameObject}{Game\+Object}\textquotesingle{}s \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body} to another \doxylink{classCalgine_1_1RigidBody}{Rigid\+Body}, or to the world }{\pageref{classCalgine_1_1Joint}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1JointRecord}{Calgine\+::\+Joint\+Record}} }{\pageref{structCalgine_1_1JointRecord}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1JointSettings}{Calgine\+::\+Joint\+Settings}} \\*Settings used when a \doxylink{classCalgine_1_1Joint}{Joint} connects its bodies }{\pageref{structCalgine_1_1JointSettings}}{}
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1LineVertex}{Calgine\+::\+Line\+Vertex}} }{\pageref{structCalgine_1_1LineVertex}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1Log}{Calgine\+::\+Log}} }{\pageref{classCalgine_1_1Log}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1ManagerHierarchy}{Calgine\+::\+Manager\+Hierarchy}} }{\pageref{classCalgine_1_1ManagerHierarchy}}{}
@@ -52,10 +57,13 @@ Here are the classes, structs, unions and interfaces with brief descriptions\+:\
 \item\contentsline{section}{\mbox{\hyperlink{structtinyobj_1_1mesh__t}{tinyobj\+::mesh\+\_\+t}} }{\pageref{structtinyobj_1_1mesh__t}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1MeshRenderer}{Calgine\+::\+Mesh\+Renderer}} }{\pageref{classCalgine_1_1MeshRenderer}}{}
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1Model}{Calgine\+::\+Model}} }{\pageref{structCalgine_1_1Model}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1ModelShapes}{Calgine\+::\+Model\+Shapes}} }{\pageref{structCalgine_1_1ModelShapes}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1ObjectLayerPairFilterImpl}{Calgine\+::\+Object\+Layer\+Pair\+Filter\+Impl}} }{\pageref{classCalgine_1_1ObjectLayerPairFilterImpl}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1ObjectVsBroadPhaseLayerFilterImpl}{Calgine\+::\+Object\+Vs\+Broad\+Phase\+Layer\+Filter\+Impl}} }{\pageref{classCalgine_1_1ObjectVsBroadPhaseLayerFilterImpl}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1PhysicsSettings}{Calgine\+::\+Physics\+Settings}} \\*Physics configuration, set through app.\+settings.\+physics before \doxylink{classCalgine_1_1App_a96e9ed6ce1f9d49d30e334f8633684bf}{App\+::start\+\_\+systems()} }{\pageref{structCalgine_1_1PhysicsSettings}}{}
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1PhysicsStepStats}{Calgine\+::\+Physics\+Step\+Stats}} \\*Timing and counts for a single physics step (see \doxylink{classCalgine_1_1PhysicsWorld_a01058e687e1784300f8ed3cbb25797dd}{Physics\+World\+::get\+\_\+last\+\_\+step\+\_\+stats()}) }{\pageref{structCalgine_1_1PhysicsStepStats}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1PhysicsWorld}{Calgine\+::\+Physics\+World}} \\*The engine\textquotesingle{}s physics simulation (backed by Jolt Physics) }{\pageref{classCalgine_1_1PhysicsWorld}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1Pose}{Calgine\+::\+Pose}} }{\pageref{structCalgine_1_1Pose}}{}
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1QueuedContact}{Calgine\+::\+Queued\+Contact}} }{\pageref{structCalgine_1_1QueuedContact}}{}
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1RawInputData}{Calgine\+::\+Raw\+Input\+Data}} }{\pageref{structCalgine_1_1RawInputData}}{}
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1RawInputEvent}{Calgine\+::\+Raw\+Input\+Event}} }{\pageref{structCalgine_1_1RawInputEvent}}{}
@@ -63,7 +71,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions\+:\
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1RawMouseButtonData}{Calgine\+::\+Raw\+Mouse\+Button\+Data}} }{\pageref{structCalgine_1_1RawMouseButtonData}}{}
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1RawMouseMoveData}{Calgine\+::\+Raw\+Mouse\+Move\+Data}} }{\pageref{structCalgine_1_1RawMouseMoveData}}{}
 \item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1RawMouseWheelData}{Calgine\+::\+Raw\+Mouse\+Wheel\+Data}} }{\pageref{structCalgine_1_1RawMouseWheelData}}{}
-\item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1RaycastHit}{Calgine\+::\+Raycast\+Hit}} \\*Result of \doxylink{classCalgine_1_1PhysicsWorld_a08e14c1d307baf7e675da9c21ad1477f}{Physics\+World\+::raycast()} }{\pageref{structCalgine_1_1RaycastHit}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structCalgine_1_1RaycastHit}{Calgine\+::\+Raycast\+Hit}} \\*Result of \doxylink{classCalgine_1_1PhysicsWorld_ad087ea25aa1a2639b524276d676cee5f}{Physics\+World\+::raycast()} }{\pageref{structCalgine_1_1RaycastHit}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1Renderer}{Calgine\+::\+Renderer}} }{\pageref{classCalgine_1_1Renderer}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1RenderTexture}{Calgine\+::\+Render\+Texture}} }{\pageref{classCalgine_1_1RenderTexture}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classCalgine_1_1RigidBody}{Calgine\+::\+Rigid\+Body}} \\*Gives a \doxylink{classCalgine_1_1GameObject}{Game\+Object} a body in the \doxylink{classCalgine_1_1PhysicsWorld}{Physics\+World} }{\pageref{classCalgine_1_1RigidBody}}{}
