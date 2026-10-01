@@ -4,6 +4,8 @@
 #include "calgine/core/game_object.h"
 #include "calgine/core/window/window.h"
 #include "calgine/core/renderer/frame_buffer.h"
+#include "calgine/core/physics/physics_settings.h"
+#include <chrono>
 #include "calgine_pch.h"
 #include "calgine_api.h"
 #include "imgui.h"
@@ -42,6 +44,18 @@ struct AppSettings
 
   /** @brief Path to the ImGui configuration file. If empty, defaults to "imgui.ini". */
   std::string imgui_config_path = "";
+
+  /**
+   * @brief Most fixed steps (fixed_update + physics) run in one frame. 0 = unlimited.
+   *
+   * @details When a frame falls further behind than this, the extra time is dropped: the simulation runs
+   * slower than real time, but frames stay short so the game remains responsive. Without a cap, a slow
+   * step makes the next frame run even more steps, and the game can grind to a near halt.
+   */
+  uint32_t max_fixed_steps_per_frame = 5;
+
+  /** @brief Physics configuration (limits, threads, gravity, collision layers, interpolation). */
+  PhysicsSettings physics;
 };
 
 /**
@@ -210,7 +224,10 @@ private:
   std::shared_ptr<FrameBuffer> framebuffer;
   bool had_camera_last_frame = true;
 
+  std::chrono::steady_clock::time_point last_dropped_steps_report;
+
   void init_imgui();
+  void report_dropped_fixed_steps();
   void handle_sdl_events(bool& running, EventContext& event_context);
   void render_windows(GameObject& game_hierarchy, GameObject& manager_hierarchy, EventContext& event_context);
 };

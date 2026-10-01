@@ -113,7 +113,7 @@ void App::systems_init()
 
   Time::get_instance().init();
 
-  PhysicsWorld::get_instance().init();
+  PhysicsWorld::get_instance().init(settings.physics);
 
   // Print all registered behaviours
   auto registered_behaviours = BehaviourRegistry::list_registered();
@@ -191,7 +191,10 @@ void App::main_loop()
 
     event_context.update_tick_phase(fixed_update);
 
-    int fixed_timesteps = Time::get_instance().consume_fixed_timesteps();
+    int fixed_timesteps = Time::get_instance().consume_fixed_timesteps(static_cast<int>(settings.max_fixed_steps_per_frame));
+    report_dropped_fixed_steps();
+
+    PhysicsWorld::get_instance().begin_fixed_phase();
     for (int i = 0; i < fixed_timesteps; i++)
     {
       manager_hierarchy.tick_self_and_children(fixed_update, event_context);
@@ -200,6 +203,9 @@ void App::main_loop()
       // Scripts have applied their forces for this step; now simulate.
       PhysicsWorld::get_instance().step(Time::fixed_delta_time(), event_context);
     }
+
+    // Blend physics poses for rendering, using how far this frame is between two fixed steps.
+    PhysicsWorld::get_instance().update_interpolation(Time::fixed_alpha());
 
     event_context.update_tick_phase(update);
 
@@ -229,6 +235,23 @@ void App::main_loop()
     if (window_handler->get_windows().empty())
       running = false;
   }
+}
+
+void App::report_dropped_fixed_steps()
+{
+  const int dropped = Time::get_instance().get_last_dropped_fixed_steps();
+  if (dropped == 0)
+    return;
+
+  // At most one message every 5 seconds.
+  const auto now = std::chrono::steady_clock::now();
+  if (now - last_dropped_steps_report < std::chrono::seconds(5))
+    return;
+  last_dropped_steps_report = now;
+
+  Log::get_engine_logger()->warn("Fixed update can't keep up: dropped {} step(s) this frame ({} total), so the simulation is running slower than real time. "
+                                 "(Cap: app.settings.max_fixed_steps_per_frame = {})",
+                                 dropped, Time::get_instance().get_dropped_fixed_steps(), settings.max_fixed_steps_per_frame);
 }
 
 void App::handle_sdl_events(bool& running, EventContext& event_context)

@@ -21,3 +21,5 @@
 #include "calgine/core/physics/physics_world.h"
 #include "calgine/core/physics/rigid_body.h"
 #include "calgine/core/physics/collision_event.h"
+#include "calgine/core/physics/joint.h"
+#include "calgine/core/physics/physics_settings.h"

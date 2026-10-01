@@ -1,9 +1,5 @@
 #include "physics_internal.h"
 
-#include <Jolt/Physics/Collision/Shape/BoxShape.h>
-#include <Jolt/Physics/Collision/Shape/SphereShape.h>
-#include <Jolt/Physics/Collision/Shape/CapsuleShape.h>
-
 #include "calgine/core/physics/rigid_body.h"
 #include "calgine/core/game_object.h"
 #include "calgine/core/event_context.h"
@@ -25,31 +21,14 @@ JPH::EMotionType to_jolt_motion(MotionType motion)
   return JPH::EMotionType::Dynamic;
 }
 
-JPH::RefConst<JPH::Shape> build_shape(const ColliderShape& shape, const glm::vec3& world_scale)
+/** True if the world matrix is skewed (non-uniform scale under a rotated parent), which colliders can't represent. */
+bool is_skewed(const glm::mat4& world)
 {
-  const glm::vec3 scale = glm::abs(world_scale);
-
-  switch (shape.type)
-  {
-    case ColliderShape::sphere:
-    {
-      const float max_scale = std::max(scale.x, std::max(scale.y, scale.z));
-      return new JPH::SphereShape(std::max(shape.radius * max_scale, 0.001f));
-    }
-    case ColliderShape::capsule:
-    {
-      const float radius_scale = std::max(scale.x, scale.z);
-      return new JPH::CapsuleShape(std::max(shape.half_height * scale.y, 0.001f),
-                                   std::max(shape.radius * radius_scale, 0.001f));
-    }
-    case ColliderShape::box:
-    default:
-    {
-      const glm::vec3 half_extents = glm::max(shape.half_extents * scale, glm::vec3(0.001f));
-      // BoxShape clamps the convex radius to the smallest half extent itself.
-      return new JPH::BoxShape(to_jolt(half_extents));
-    }
-  }
+  const glm::vec3 x = glm::normalize(glm::vec3(world[0]));
+  const glm::vec3 y = glm::normalize(glm::vec3(world[1]));
+  const glm::vec3 z = glm::normalize(glm::vec3(world[2]));
+  constexpr float tolerance = 0.01f;
+  return std::abs(glm::dot(x, y)) > tolerance || std::abs(glm::dot(y, z)) > tolerance || std::abs(glm::dot(x, z)) > tolerance;
 }
 
 }
@@ -97,16 +76,32 @@ void RigidBody::create_body()
     return;
 
   GameObject* game_object = get_game_object();
-  const Transform world = game_object->get_world_transform();
+  const std::string name = game_object->get_name();
+  const glm::mat4 world_matrix = game_object->get_world_matrix();
+  const Transform world = Transform::from_matrix(world_matrix);
 
+  if (is_skewed(world_matrix))
+  {
+    Log::get_engine_logger()->warn("RigidBody on '{}': non-uniform scale under a rotated parent skews the object; "
+                                   "its collider can't be skewed, so it only approximates the mesh.", name);
+  }
+
+  if (settings.layer >= max_collision_layers)
+  {
+    Log::get_engine_logger()->error("RigidBody on '{}': collision layer {} is out of range; using layer 0.", name, settings.layer);
+    settings.layer = default_collision_layer;
+  }
+
+  JPH::RefConst<JPH::Shape> shape = impl->build_shape(settings.shape, world.scale, settings.motion, name);
   const bool is_static = settings.motion == MotionType::static_body;
+  const glm::quat rotation = world.get_rotation_quat();
 
   JPH::BodyCreationSettings creation(
-    build_shape(settings.shape, world.scale),
+    shape,
     to_jolt_r(world.position),
-    to_jolt(world.get_rotation_quat()),
+    to_jolt(rotation),
     to_jolt_motion(settings.motion),
-    is_static ? PhysicsLayers::non_moving : PhysicsLayers::moving);
+    make_object_layer(settings.layer, !is_static));
 
   creation.mFriction = settings.friction;
   creation.mRestitution = settings.restitution;
@@ -140,13 +135,23 @@ void RigidBody::create_body()
 
   if (id.IsInvalid())
   {
-    Log::get_engine_logger()->error("Failed to create physics body for '{}' (body limit reached?).", game_object->get_name());
+    Log::get_engine_logger()->error("Failed to create physics body for '{}' (body limit reached? see app.settings.physics.max_bodies).", name);
     return;
   }
 
   body_id = id.GetIndexAndSequenceNumber();
-  in_simulation = start_in_simulation;
-  impl->bodies[body_id] = this;
+
+  BodyRecord& record = impl->bodies[body_id];
+  record.owner = this;
+  record.id = id;
+  record.motion = settings.motion;
+  record.in_simulation = start_in_simulation;
+  record.is_sensor = settings.is_sensor;
+  record.interpolate = settings.interpolate;
+  record.track_scale = settings.track_scale;
+  record.shape_scale = world.scale;
+  record.shape = shape;
+  record.previous = record.current = Pose { world.position, rotation };
 }
 
 void RigidBody::destroy_body()
@@ -157,6 +162,9 @@ void RigidBody::destroy_body()
   PhysicsWorld::Impl* impl = world_impl();
   if (impl)
   {
+    // Joints can't outlive their bodies.
+    impl->remove_joints_of_body(body_id);
+
     const JPH::BodyID id(body_id);
     JPH::BodyInterface& body_interface = impl->body_interface();
 
@@ -164,64 +172,54 @@ void RigidBody::destroy_body()
     if (body_interface.IsAdded(id))
       body_interface.RemoveBody(id);
     body_interface.DestroyBody(id);
+
+    get_game_object()->clear_render_override();
   }
 
   body_id = invalid_body_id;
-  in_simulation = false;
 }
 
-void RigidBody::pre_step(float delta_time)
+void RigidBody::refresh_shape()
 {
   if (!is_valid())
     return;
 
-  JPH::BodyInterface& body_interface = world_impl()->body_interface();
-  const JPH::BodyID id(body_id);
-  GameObject* game_object = get_game_object();
-
-  // Follow the GameObject's enabled state.
-  const bool should_simulate = game_object->is_enabled();
-  if (should_simulate != in_simulation)
-  {
-    if (should_simulate)
-    {
-      body_interface.SetPositionAndRotation(id, to_jolt_r(game_object->get_world_position()),
-                                            to_jolt(game_object->get_world_rotation()), JPH::EActivation::DontActivate);
-      body_interface.AddBody(id, settings.motion == MotionType::static_body ? JPH::EActivation::DontActivate : JPH::EActivation::Activate);
-    }
-    else
-    {
-      body_interface.RemoveBody(id);
-    }
-    in_simulation = should_simulate;
-  }
-
-  if (in_simulation && settings.motion == MotionType::kinematic)
-  {
-    // Sweep towards wherever the GameObject (or its parents) moved it.
-    body_interface.MoveKinematic(id, to_jolt_r(game_object->get_world_position()),
-                                 to_jolt(game_object->get_world_rotation()), delta_time);
-  }
-}
-
-void RigidBody::post_step()
-{
-  if (!is_valid() || !in_simulation || settings.motion != MotionType::dynamic)
+  PhysicsWorld::Impl* impl = world_impl();
+  BodyRecord* record = impl->record(body_id);
+  if (!record)
     return;
 
-  JPH::BodyInterface& body_interface = world_impl()->body_interface();
-  const JPH::BodyID id(body_id);
-
-  if (!body_interface.IsActive(id))
-    return; // asleep: transform hasn't changed
-
-  JPH::RVec3 position;
-  JPH::Quat rotation;
-  body_interface.GetPositionAndRotation(id, position, rotation);
-
   GameObject* game_object = get_game_object();
-  game_object->set_world_position(to_glm(position));
-  game_object->set_world_rotation(to_glm(rotation));
+  const glm::vec3 world_scale = game_object->get_world_scale();
+
+  record->shape = impl->build_shape(settings.shape, world_scale, settings.motion, game_object->get_name());
+  record->shape_scale = world_scale;
+
+  const bool update_mass = settings.motion == MotionType::dynamic && settings.mass <= 0.0f;
+  impl->body_interface().SetShape(record->id, record->shape, update_mass,
+                                  record->in_simulation && settings.motion != MotionType::static_body
+                                    ? JPH::EActivation::Activate : JPH::EActivation::DontActivate);
+}
+
+void RigidBody::set_layer(CollisionLayer layer)
+{
+  if (layer >= max_collision_layers)
+  {
+    Log::get_engine_logger()->error("RigidBody::set_layer: layer {} is out of range.", layer);
+    return;
+  }
+
+  settings.layer = layer;
+  if (is_valid())
+    world_impl()->body_interface().SetObjectLayer(JPH::BodyID(body_id), make_object_layer(layer, settings.motion != MotionType::static_body));
+}
+
+void RigidBody::set_interpolate(bool interpolate)
+{
+  settings.interpolate = interpolate;
+  if (is_valid())
+    if (BodyRecord* record = world_impl()->record(body_id))
+      record->interpolate = interpolate;
 }
 
 void RigidBody::add_force(const glm::vec3& force)
@@ -274,11 +272,20 @@ void RigidBody::teleport(const glm::vec3& world_position, const glm::quat& world
   game_object->set_world_position(world_position);
   game_object->set_world_rotation(world_rotation);
 
-  if (is_valid())
+  if (!is_valid())
+    return;
+
+  PhysicsWorld::Impl* impl = world_impl();
+  impl->body_interface().SetPositionAndRotation(
+    JPH::BodyID(body_id), to_jolt_r(world_position), to_jolt(world_rotation),
+    settings.motion == MotionType::static_body ? JPH::EActivation::DontActivate : JPH::EActivation::Activate);
+
+  if (BodyRecord* record = impl->record(body_id))
   {
-    world_impl()->body_interface().SetPositionAndRotation(
-      JPH::BodyID(body_id), to_jolt_r(world_position), to_jolt(world_rotation),
-      settings.motion == MotionType::static_body ? JPH::EActivation::DontActivate : JPH::EActivation::Activate);
+    // Jump straight there: no interpolating across the teleport, and it doesn't count as a stray kinematic move.
+    const Pose pose { world_position, glm::normalize(world_rotation) };
+    record->previous = record->current = pose;
+    record->last_fixed_logical = pose;
   }
 }
 

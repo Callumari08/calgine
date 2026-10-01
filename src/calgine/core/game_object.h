@@ -27,6 +27,7 @@ private:
   bool enabled = true;
 
   Transform transform;
+  std::optional<glm::mat4> render_override;
   std::string name = "";
   std::unordered_map<std::type_index, std::unique_ptr<Behaviour>> behaviours;
   std::vector<std::unique_ptr<GameObject>> children;
@@ -84,6 +85,21 @@ public:
   void set_world_rotation(const glm::quat& rotation);
   /** @brief Sets position, rotation and scale in world space. */
   void set_world_transform(const Transform& world_transform);
+
+  // ---- Render space ----
+  // What renderers and cameras draw. Normally identical to world space, but physics can override it
+  // with a pose blended between the last two physics steps (interpolation), so motion looks smooth
+  // at any frame rate. Children of an overridden object follow its render pose.
+
+  /** @brief World matrix used for drawing: the override if set, otherwise parent render matrix * local. */
+  glm::mat4 get_render_matrix() const;
+  /** @brief get_render_matrix() decomposed into a Transform (used by cameras). */
+  Transform get_render_transform() const;
+
+  /** @brief Draw this object at @p world_matrix instead of its world transform. Normally set by the physics system. */
+  void set_render_override(const glm::mat4& world_matrix) { render_override = world_matrix; }
+  void clear_render_override() { render_override.reset(); }
+  bool has_render_override() const { return render_override.has_value(); }
 
   template<typename T_behaviour, typename... Args>
   requires std::derived_from<T_behaviour, Behaviour>

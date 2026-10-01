@@ -238,6 +238,25 @@ glm::mat4 GameObject::get_world_matrix() const
   return transform.to_matrix();
 }
 
+glm::mat4 GameObject::get_render_matrix() const
+{
+  if (render_override)
+    return *render_override;
+
+  if (parent)
+    return parent->get_render_matrix() * transform.to_matrix();
+
+  return transform.to_matrix();
+}
+
+Transform GameObject::get_render_transform() const
+{
+  if (!render_override && !parent)
+    return transform;
+
+  return Transform::from_matrix(get_render_matrix());
+}
+
 Transform GameObject::get_world_transform() const
 {
   if (!parent)

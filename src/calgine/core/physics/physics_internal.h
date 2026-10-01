@@ -12,6 +12,7 @@
 #include <Jolt/Physics/Collision/ContactListener.h>
 #include <Jolt/Physics/Collision/ObjectLayer.h>
 #include <Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h>
+#include <Jolt/Physics/Constraints/TwoBodyConstraint.h>
 #include <Jolt/Physics/PhysicsSystem.h>
 
 #ifdef JPH_DEBUG_RENDERER
@@ -19,6 +20,7 @@
 #endif
 
 #include "calgine/core/physics/physics_world.h"
+#include "calgine/core/physics/joint.h"
 #include "calgine_pch.h"
 #include <chrono>
 #include <glm/glm.hpp>
@@ -27,6 +29,7 @@
 namespace Calgine {
 
 class RigidBody;
+class Joint;
 
 // ---- glm <-> Jolt conversions ----
 
@@ -42,14 +45,9 @@ inline JPH::RVec3 to_jolt_r(const glm::vec3& v) { return to_jolt(v); }
 #endif
 
 // ---- Collision layers ----
-// Two layers: static bodies never test against each other; everything else collides with everything.
-
-namespace PhysicsLayers
-{
-  static constexpr JPH::ObjectLayer non_moving = 0;
-  static constexpr JPH::ObjectLayer moving = 1;
-  static constexpr JPH::ObjectLayer count = 2;
-}
+// A Jolt ObjectLayer packs the user's collision layer and whether the body can move:
+//   object_layer = (collision_layer << 1) | moving
+// Static bodies go in the "non_moving" broad phase tree and never test against each other.
 
 namespace PhysicsBroadPhaseLayers
 {
@@ -58,14 +56,23 @@ namespace PhysicsBroadPhaseLayers
   static constexpr JPH::uint count = 2;
 }
 
+inline JPH::ObjectLayer make_object_layer(CollisionLayer layer, bool moving)
+{
+  return static_cast<JPH::ObjectLayer>((static_cast<uint32_t>(layer) << 1) | (moving ? 1u : 0u));
+}
+inline CollisionLayer collision_layer_of(JPH::ObjectLayer object_layer) { return static_cast<CollisionLayer>(object_layer >> 1); }
+inline bool is_moving_layer(JPH::ObjectLayer object_layer) { return (object_layer & 1u) != 0; }
+
 class ObjectLayerPairFilterImpl final : public JPH::ObjectLayerPairFilter
 {
 public:
+  const CollisionLayerSettings* layers = nullptr;
+
   bool ShouldCollide(JPH::ObjectLayer object_1, JPH::ObjectLayer object_2) const override
   {
-    if (object_1 == PhysicsLayers::non_moving)
-      return object_2 == PhysicsLayers::moving;
-    return true;
+    if (!is_moving_layer(object_1) && !is_moving_layer(object_2))
+      return false;
+    return layers->collides(collision_layer_of(object_1), collision_layer_of(object_2));
   }
 };
 
@@ -76,7 +83,7 @@ public:
 
   JPH::BroadPhaseLayer GetBroadPhaseLayer(JPH::ObjectLayer layer) const override
   {
-    return layer == PhysicsLayers::non_moving ? PhysicsBroadPhaseLayers::non_moving : PhysicsBroadPhaseLayers::moving;
+    return is_moving_layer(layer) ? PhysicsBroadPhaseLayers::moving : PhysicsBroadPhaseLayers::non_moving;
   }
 
 #if defined(JPH_EXTERNAL_PROFILE) || defined(JPH_PROFILE_ENABLED)
@@ -92,7 +99,7 @@ class ObjectVsBroadPhaseLayerFilterImpl final : public JPH::ObjectVsBroadPhaseLa
 public:
   bool ShouldCollide(JPH::ObjectLayer layer_1, JPH::BroadPhaseLayer layer_2) const override
   {
-    if (layer_1 == PhysicsLayers::non_moving)
+    if (!is_moving_layer(layer_1))
       return layer_2 == PhysicsBroadPhaseLayers::moving;
     return true;
   }
@@ -166,8 +173,58 @@ public:
 
 // ---- World state ----
 
+struct Pose
+{
+  glm::vec3 position = glm::vec3(0.0f);
+  glm::quat rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);
+};
+
+/** Everything the world tracks per RigidBody. Only touched on the main thread. */
+struct BodyRecord
+{
+  RigidBody* owner = nullptr;
+  JPH::BodyID id;
+  MotionType motion = MotionType::dynamic;
+  bool in_simulation = false;
+  bool is_sensor = false;
+  bool interpolate = true;
+  bool track_scale = false;
+
+  /** World scale the collider was built for; also used to draw the interpolated pose. */
+  glm::vec3 shape_scale = glm::vec3(1.0f);
+  JPH::RefConst<JPH::Shape> shape;
+
+  /** Body pose after the previous step and after the latest step, for render interpolation. */
+  Pose previous;
+  Pose current;
+
+  /** Kinematic bodies: logical pose at the end of the last fixed phase, to spot moves made outside fixed update. */
+  Pose last_fixed_logical;
+  bool has_last_fixed_logical = false;
+  bool warned_moved_outside_fixed = false;
+};
+
+struct JointRecord
+{
+  Joint* owner = nullptr;
+  JPH::Ref<JPH::TwoBodyConstraint> constraint;
+  uint32_t body_a = 0xffffffff;
+  /** 0xffffffff when attached to the world. */
+  uint32_t body_b = 0xffffffff;
+};
+
+/** Collision shapes built from a Model, in the model's own units (scaled per body with ScaledShape). */
+struct ModelShapes
+{
+  std::weak_ptr<Model> model;
+  JPH::RefConst<JPH::Shape> convex_hull;
+  JPH::RefConst<JPH::Shape> mesh;
+};
+
 struct PhysicsWorld::Impl
 {
+  static constexpr uint32_t invalid_id = 0xffffffff;
+
   // Falls back to malloc when the preallocated block runs out (plain TempAllocatorImpl aborts).
   std::unique_ptr<JPH::TempAllocatorImplWithMallocFallback> temp_allocator;
   std::unique_ptr<JPH::JobSystemThreadPool> job_system;
@@ -183,8 +240,18 @@ struct PhysicsWorld::Impl
   std::unique_ptr<PhysicsDebugRenderer> debug_renderer;
 #endif
 
-  /** Body ID (index + sequence) -> owning RigidBody. Only touched on the main thread. */
-  std::unordered_map<uint32_t, RigidBody*> bodies;
+  /** Body ID (index + sequence) -> record. */
+  std::unordered_map<uint32_t, BodyRecord> bodies;
+
+  std::unordered_map<uint32_t, JointRecord> joints;
+  uint32_t next_joint_id = 0;
+  /** Joints waiting for their bodies to exist. */
+  std::vector<Joint*> pending_joints;
+
+  std::unordered_map<const Model*, ModelShapes> model_shapes;
+
+  /** Blend factor used for the last interpolation, reused by debug drawing so wireframes match meshes. */
+  float last_alpha = 1.0f;
 
   /** Last EPhysicsUpdateError flags that were logged, and when (to avoid logging every step). */
   uint32_t last_logged_error = 0;
@@ -192,11 +259,31 @@ struct PhysicsWorld::Impl
 
   JPH::BodyInterface& body_interface() { return system->GetBodyInterface(); }
 
+  BodyRecord* record(uint32_t id)
+  {
+    auto it = bodies.find(id);
+    return it == bodies.end() ? nullptr : &it->second;
+  }
+
   RigidBody* find(const JPH::BodyID& id) const
   {
     auto it = bodies.find(id.GetIndexAndSequenceNumber());
-    return it == bodies.end() ? nullptr : it->second;
+    return it == bodies.end() ? nullptr : it->second.owner;
   }
+
+  // Implemented in physics_world.cxx
+  JPH::RefConst<JPH::Shape> build_shape(const ColliderShape& shape, const glm::vec3& world_scale, MotionType motion, const std::string& owner_name);
+  JPH::RefConst<JPH::Shape> get_model_shape(const std::shared_ptr<Model>& model, bool triangle_mesh, const std::string& owner_name);
+  Pose read_body_pose(const JPH::BodyID& id);
+
+  // Implemented in joint.cxx
+  bool try_create_joint(Joint* joint);
+  void remove_joint(uint32_t joint_id);
+  /** Removes (and breaks) every joint attached to @p body_id. Call before destroying the body. */
+  void remove_joints_of_body(uint32_t body_id);
+  /** Enables/disables joints attached to @p body_id when it enters or leaves the simulation. */
+  void refresh_joints_of_body(uint32_t body_id);
+  void update_joint_enabled(JointRecord& record);
 };
 
 }

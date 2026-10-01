@@ -29,12 +29,22 @@ void Time::update()
   accumulated_time += delta;
 }
 
-int Time::consume_fixed_timesteps()
+int Time::consume_fixed_timesteps(int max_steps)
 {
   int timesteps = static_cast<int>(accumulated_time / fixed_dt);
-  if (timesteps > 0) {
+  if (timesteps > 0)
     accumulated_time -= timesteps * fixed_dt;
+
+  last_dropped_fixed_steps = 0;
+  if (max_steps > 0 && timesteps > max_steps)
+  {
+    // Drop the excess instead of queueing it: the simulation falls behind real time,
+    // but frames stay short enough for the game to remain responsive.
+    last_dropped_fixed_steps = timesteps - max_steps;
+    dropped_fixed_steps += static_cast<uint64_t>(last_dropped_fixed_steps);
+    timesteps = max_steps;
   }
+
   return timesteps;
 }
 

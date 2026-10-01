@@ -17,7 +17,7 @@ void CameraBehaviour::start_tick()
 
 void CameraBehaviour::late_tick(EventContext&) 
 {
-  camera.update(get_game_object()->get_world_transform());
+  camera.update(get_game_object()->get_render_transform());
 }
 
 void CameraBehaviour::apply_settings(const CameraSettings applied_settings)
