@@ -29,6 +29,7 @@ using InputValue = std::variant<InputButton, float, glm::vec2, glm::vec3>;
 
 struct CALGINE_API InputActionEvent : EventData
 {
+  std::string action_name;
   ControlType type;
   InputValue value;
 };
@@ -36,6 +37,7 @@ struct CALGINE_API InputActionEvent : EventData
 struct CALGINE_API InputMapping
 {
   RawInputEventType type;
+  // Keyboard: SDL_Scancode. Mouse button: button index. Gamepad: SDL_GamepadButton or SDL_GamepadAxis.
   std::variant<SDL_Scancode, Uint8> matcher;
   InputValue contribution;
 };
@@ -81,6 +83,13 @@ private:
   void aggregate_contribution(InputValue& target, const InputValue& contribution);
 
   void on_destroy() override;
+
+  /** @brief Opens the first connected gamepad if none is open (handles plugging in and out). */
+  void ensure_gamepad();
+  /** @brief A gamepad mapping's current value: its contribution while a button is held, or scaled by an axis (-1..1, triggers 0..1). */
+  std::optional<InputValue> poll_gamepad_mapping(const InputMapping& mapping) const;
+
+  SDL_Gamepad* gamepad = nullptr;
 
   static InputSystemBehaviour* instance;
 

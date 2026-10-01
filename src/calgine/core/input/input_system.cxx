@@ -51,6 +51,12 @@ void InputSystemBehaviour::set_active_action_map(const std::string action_map_na
 
 void InputSystemBehaviour::on_destroy()
 {
+  if (gamepad)
+  {
+    SDL_CloseGamepad(gamepad);
+    gamepad = nullptr;
+  }
+
   if (instance == this)
   {
     Log::get_engine_logger()->error("Input System was Destroyed");
@@ -154,6 +160,11 @@ void InputSystemBehaviour::update_action(const InputAction& action, const RawInp
         matches_press = true;
         break;
       }
+
+      case RawInputEventType::gamepad_button:
+      case RawInputEventType::gamepad_axis:
+        // Gamepads are polled in update_tick, they never arrive as raw events.
+        break;
     }
     
     if (!matches_press && !matches_release)
@@ -162,6 +173,7 @@ void InputSystemBehaviour::update_action(const InputAction& action, const RawInp
     // This mapping matched! Submit the contribution
     InputActionEvent action_event;
     action_event.submit_tick = TickType::update;
+    action_event.action_name = action.name;
     action_event.type = action.control_type;
     
     // For mouse move/wheel, use the actual event data; for releases, use empty value
@@ -202,15 +214,17 @@ void InputSystemBehaviour::update_tick(EventContext& event_context)
     }
   }
 
-  // Poll keyboard state every frame for continuous input (movement)
+  // Poll keyboard and gamepad state every frame for continuous input (movement)
   int num_keys = 0;
   const Uint8* keyboard_state = reinterpret_cast<const Uint8*>(SDL_GetKeyboardState(&num_keys));
+  ensure_gamepad();
 
   for (auto const& [action_name, input_action] : action_maps[active_action_map].map)
   {
-    // Only aggregate keyboard mappings (not mouse/etc)
+    // Only aggregate keyboard and gamepad mappings (not mouse/etc)
     InputActionEvent action_event;
     action_event.submit_tick = TickType::update;
+    action_event.action_name = action_name;
     action_event.type = input_action.control_type;
     action_event.value = this->get_empty_value(input_action.control_type);
 
@@ -218,6 +232,16 @@ void InputSystemBehaviour::update_tick(EventContext& event_context)
 
     for (const InputMapping& mapping : input_action.mappings)
     {
+      if (mapping.type == RawInputEventType::gamepad_button || mapping.type == RawInputEventType::gamepad_axis)
+      {
+        if (std::optional<InputValue> value = poll_gamepad_mapping(mapping))
+        {
+          has_input = true;
+          this->aggregate_contribution(action_event.value, *value);
+        }
+        continue;
+      }
+
       // Only handle keyboard mappings here
       if (mapping.type != RawInputEventType::keyboard)
         continue;
@@ -239,6 +263,61 @@ void InputSystemBehaviour::update_tick(EventContext& event_context)
       event_context.submit(action_event);
     }
   }
+}
+
+void InputSystemBehaviour::ensure_gamepad()
+{
+  if (gamepad && SDL_GamepadConnected(gamepad))
+    return;
+
+  if (gamepad)
+  {
+    Log::get_engine_logger()->info("Gamepad disconnected");
+    SDL_CloseGamepad(gamepad);
+    gamepad = nullptr;
+  }
+
+  int count = 0;
+  SDL_JoystickID* ids = SDL_GetGamepads(&count);
+  if (ids && count > 0)
+  {
+    gamepad = SDL_OpenGamepad(ids[0]);
+    if (gamepad)
+      Log::get_engine_logger()->info("Gamepad connected: {}", SDL_GetGamepadName(gamepad));
+  }
+  SDL_free(ids);
+}
+
+std::optional<InputValue> InputSystemBehaviour::poll_gamepad_mapping(const InputMapping& mapping) const
+{
+  if (!gamepad || !std::holds_alternative<Uint8>(mapping.matcher))
+    return std::nullopt;
+
+  const Uint8 index = std::get<Uint8>(mapping.matcher);
+
+  if (mapping.type == RawInputEventType::gamepad_button)
+  {
+    if (!SDL_GetGamepadButton(gamepad, static_cast<SDL_GamepadButton>(index)))
+      return std::nullopt;
+    return mapping.contribution;
+  }
+
+  // Sticks run -1..1 (SDL's Y axes are positive downwards), triggers 0..1.
+  const float axis = static_cast<float>(SDL_GetGamepadAxis(gamepad, static_cast<SDL_GamepadAxis>(index))) / 32767.0f;
+  if (axis == 0.0f)
+    return std::nullopt;
+
+  const InputValue& contribution = mapping.contribution;
+  if (std::holds_alternative<float>(contribution))
+    return std::get<float>(contribution) * axis;
+  if (std::holds_alternative<glm::vec2>(contribution))
+    return std::get<glm::vec2>(contribution) * axis;
+  if (std::holds_alternative<glm::vec3>(contribution))
+    return std::get<glm::vec3>(contribution) * axis;
+  // A button contribution on an axis: pressed past halfway (e.g. a trigger used as a button).
+  if (std::abs(axis) < 0.5f)
+    return std::nullopt;
+  return contribution;
 }
 
 CALGINE_REGISTER_BEHAVIOUR(InputSystemBehaviour, "input_system");

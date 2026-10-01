@@ -471,6 +471,10 @@ RawInputEventType AssetManager::string_to_event_type(const std::string& type_str
     return RawInputEventType::mouse_move;
   else if (type_str == "mouse_wheel")
     return RawInputEventType::mouse_wheel;
+  else if (type_str == "gamepad_button")
+    return RawInputEventType::gamepad_button;
+  else if (type_str == "gamepad_axis")
+    return RawInputEventType::gamepad_axis;
   else
     throw std::runtime_error(std::format("Unknown input type: {}", type_str));
 }
@@ -489,6 +493,22 @@ std::variant<SDL_Scancode, Uint8> AssetManager::parse_matcher(RawInputEventType 
   {
     // mouse_move and mouse_wheel don't need specific matchers, use dummy value
     return SDL_SCANCODE_UNKNOWN;
+  }
+  else if (type == RawInputEventType::gamepad_button)
+  {
+    // SDL's names: "a" (bottom face button), "b", "x", "y", "leftshoulder", "dpup", "start", ...
+    SDL_GamepadButton button = SDL_GetGamepadButtonFromString(input_str.c_str());
+    if (button == SDL_GAMEPAD_BUTTON_INVALID)
+      throw std::runtime_error(std::format("Unknown gamepad button: {}", input_str));
+    return static_cast<Uint8>(button);
+  }
+  else if (type == RawInputEventType::gamepad_axis)
+  {
+    // SDL's names: "leftx", "lefty", "rightx", "righty", "lefttrigger", "righttrigger"
+    SDL_GamepadAxis axis = SDL_GetGamepadAxisFromString(input_str.c_str());
+    if (axis == SDL_GAMEPAD_AXIS_INVALID)
+      throw std::runtime_error(std::format("Unknown gamepad axis: {}", input_str));
+    return static_cast<Uint8>(axis);
   }
   else
     throw std::runtime_error(std::format("Cannot parse matcher for type: {}", static_cast<int>(type)));
@@ -573,6 +593,11 @@ SDL_Scancode AssetManager::string_to_scancode(const std::string& key_name)
   auto it = key_map.find(key_name);
   if (it != key_map.end())
     return it->second;
+
+  // Anything else by SDL's key name ("J", "Left Ctrl", "F1", ...).
+  SDL_Scancode scancode = SDL_GetScancodeFromName(key_name.c_str());
+  if (scancode != SDL_SCANCODE_UNKNOWN)
+    return scancode;
   
   throw std::runtime_error(std::format("Unknown key name: {}", key_name));
 }

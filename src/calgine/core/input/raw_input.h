@@ -15,7 +15,9 @@ enum CALGINE_API RawInputEventType
   mouse_button,
   mouse_move,
   mouse_wheel,
-  //gamepad,
+  // Gamepads are polled each frame by the InputSystem rather than sent as raw events.
+  gamepad_button,
+  gamepad_axis,
 };
 
 struct CALGINE_API RawInputData

@@ -68,7 +68,7 @@ void App::systems_init()
   Log::init(settings.app_name);
 
   // SDL
-  if (!SDL_Init(SDL_INIT_VIDEO)) 
+  if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMEPAD)) 
   {
     Log::get_engine_logger()->error("SDL_Init Failed: {}", SDL_GetError());
     exit(-1);

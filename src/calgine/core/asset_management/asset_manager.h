@@ -45,8 +45,18 @@ public:
   /// ]
   /// @endcode
   ///
-  /// Supported input types: "keyboard", "mouse_button", "mouse_move", "mouse_wheel"
+  /// Supported input types: "keyboard", "mouse_button", "mouse_move", "mouse_wheel", "gamepad_button", "gamepad_axis"
   /// Contribution array: [value] for button/axis, [x, y] for vec2, [x, y, z] for vec3
+  ///
+  /// Gamepad inputs use SDL's names: buttons "a" (bottom face button), "b", "x", "y", "leftshoulder", "dpup", ...
+  /// and axes "leftx", "lefty", "rightx", "righty", "lefttrigger", "righttrigger". An axis multiplies its
+  /// contribution by its value (sticks -1..1, positive Y is down; triggers 0..1):
+  /// @code
+  /// Move = [
+  ///   { type = "gamepad_axis", input = "leftx", contribution = [1, 0] },
+  ///   { type = "gamepad_axis", input = "lefty", contribution = [0, -1] },
+  /// ]
+  /// @endcode
   std::unordered_map<std::string, ActionMap> load_input_config(const std::string& file_path);
 
   // getting allows you to optionally point to an asset path if it doesn't already exist in the map.
