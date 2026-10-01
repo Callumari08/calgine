@@ -33,48 +33,48 @@
 \DoxyCodeLine{00029\ \ \ std::shared\_ptr<Model>\ load\_model(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\&\ file\_path);}
 \DoxyCodeLine{00030\ \ \ std::shared\_ptr<Shader>\ load\_shader(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\ fragment\_path,\ \textcolor{keyword}{const}\ std::string\ vertex\_path);}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00050\ \ \ std::unordered\_map<std::string,\ ActionMap>\ load\_input\_config(\textcolor{keyword}{const}\ std::string\&\ file\_path);}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ getting\ allows\ you\ to\ optionally\ point\ to\ an\ asset\ path\ if\ it\ doesn't\ already\ exist\ in\ the\ map.}}
-\DoxyCodeLine{00053\ \ \ \textcolor{comment}{//\ one\ should\ generally\ use\ get\ rather\ than\ load,\ unless\ they\ specifically\ want\ to\ overwrite\ data\ in\ the\ map.}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ std::optional<std::shared\_ptr<Texture>>\ get\_texture(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\ else\_file\_path\ =\ \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00056\ \ \ std::optional<std::shared\_ptr<Model>>\ get\_model(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\ else\_file\_path\ =\ \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00057\ \ \ std::optional<std::shared\_ptr<Shader>>\ get\_shader(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\ else\_fragment\_path\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{const}\ std::string\ else\_vertex\_path\ =\ \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ clear();}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \textcolor{comment}{//std::optional<std::shared\_ptr<Material>>\ get\_material(const\ std::shared\_ptr<Mesh>,\ const\ )}}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ }
+\DoxyCodeLine{00060\ \ \ std::unordered\_map<std::string,\ ActionMap>\ load\_input\_config(\textcolor{keyword}{const}\ std::string\&\ file\_path);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{comment}{//\ getting\ allows\ you\ to\ optionally\ point\ to\ an\ asset\ path\ if\ it\ doesn't\ already\ exist\ in\ the\ map.}}
+\DoxyCodeLine{00063\ \ \ \textcolor{comment}{//\ one\ should\ generally\ use\ get\ rather\ than\ load,\ unless\ they\ specifically\ want\ to\ overwrite\ data\ in\ the\ map.}}
 \DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \textcolor{comment}{//void\ unload\_texture(const\ std::string\ name);}}
-\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//void\ unload\_mesh(const\ std::string\ name);}}
-\DoxyCodeLine{00067\ \ \ \textcolor{comment}{//void\ unload\_shader(const\ std::string\ name);}}
+\DoxyCodeLine{00065\ \ \ std::optional<std::shared\_ptr<Texture>>\ get\_texture(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\ else\_file\_path\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00066\ \ \ std::optional<std::shared\_ptr<Model>>\ get\_model(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\ else\_file\_path\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00067\ \ \ std::optional<std::shared\_ptr<Shader>>\ get\_shader(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\ else\_fragment\_path\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{const}\ std::string\ else\_vertex\_path\ =\ \textcolor{stringliteral}{"{}"{}});}
 \DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{static}\ std::string\ get\_app\_path();}
-\DoxyCodeLine{00070\ \ \ \textcolor{keyword}{static}\ std::string\ get\_asset\_path(\textcolor{keyword}{const}\ std::string\ asset);}
-\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{static}\ std::string\ read\_file\_to\_string(\textcolor{keyword}{const}\ std::string\ file\_path);}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{void}\ clear();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{comment}{//std::optional<std::shared\_ptr<Material>>\ get\_material(const\ std::shared\_ptr<Mesh>,\ const\ )}}
 \DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::string\ get\_asset\_name(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5e}{AssetType}}\&\ type);}
-\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{bool}\ is\_valid\_file(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5e}{AssetType}}\&\ type,\ \textcolor{keyword}{const}\ std::string\&\ file\_path)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ handle\_asset\_load\_error(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5e}{AssetType}}\&\ type,\ \textcolor{keyword}{const}\ std::string\&\ file\_path,\ std::string\ custom\_msg\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00073\ \ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{comment}{//void\ unload\_texture(const\ std::string\ name);}}
+\DoxyCodeLine{00076\ \ \ \textcolor{comment}{//void\ unload\_mesh(const\ std::string\ name);}}
+\DoxyCodeLine{00077\ \ \ \textcolor{comment}{//void\ unload\_shader(const\ std::string\ name);}}
 \DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ \textcolor{comment}{//\ Input\ config\ parsing\ helpers}}
-\DoxyCodeLine{00080\ \ \ \mbox{\hyperlink{structCalgine_1_1InputMapping}{InputMapping}}\ parse\_input\_mapping(\textcolor{keyword}{const}\ toml::table\&\ mapping\_table);}
-\DoxyCodeLine{00081\ \ \ RawInputEventType\ string\_to\_event\_type(\textcolor{keyword}{const}\ std::string\&\ type\_str);}
-\DoxyCodeLine{00082\ \ \ std::variant<SDL\_Scancode,\ Uint8>\ parse\_matcher(RawInputEventType\ type,\ \textcolor{keyword}{const}\ std::string\&\ input\_str);}
-\DoxyCodeLine{00083\ \ \ std::variant<InputButton,\ float,\ glm::vec2,\ glm::vec3>\ parse\_contribution(ControlType\ control\_type,\ \textcolor{keyword}{const}\ toml::array\&\ contribution\_array);}
-\DoxyCodeLine{00084\ \ \ SDL\_Scancode\ string\_to\_scancode(\textcolor{keyword}{const}\ std::string\&\ key\_name);}
-\DoxyCodeLine{00085\ \ \ Uint8\ string\_to\_mouse\_button(\textcolor{keyword}{const}\ std::string\&\ button\_name);}
+\DoxyCodeLine{00079\ \ \ \textcolor{keyword}{static}\ std::string\ get\_app\_path();}
+\DoxyCodeLine{00080\ \ \ \textcolor{keyword}{static}\ std::string\ get\_asset\_path(\textcolor{keyword}{const}\ std::string\ asset);}
+\DoxyCodeLine{00081\ \ \ \textcolor{keyword}{static}\ std::string\ read\_file\_to\_string(\textcolor{keyword}{const}\ std::string\ file\_path);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00084\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::string\ get\_asset\_name(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5e}{AssetType}}\&\ type);}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{bool}\ is\_valid\_file(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5e}{AssetType}}\&\ type,\ \textcolor{keyword}{const}\ std::string\&\ file\_path)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ std::unordered\_map<std::string,\ std::shared\_ptr<Texture>>\ textures;}
-\DoxyCodeLine{00088\ \ \ std::unordered\_map<std::string,\ std::shared\_ptr<Model>>\ models;}
-\DoxyCodeLine{00089\ \ \ std::unordered\_map<std::string,\ std::shared\_ptr<Shader>>\ shaders;}
-\DoxyCodeLine{00090\ \};}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \}}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{void}\ handle\_asset\_load\_error(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceCalgine_acf0a966a2ef04d27037f626364505e5e}{AssetType}}\&\ type,\ \textcolor{keyword}{const}\ std::string\&\ file\_path,\ std::string\ custom\_msg\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{comment}{//\ Input\ config\ parsing\ helpers}}
+\DoxyCodeLine{00090\ \ \ \mbox{\hyperlink{structCalgine_1_1InputMapping}{InputMapping}}\ parse\_input\_mapping(\textcolor{keyword}{const}\ toml::table\&\ mapping\_table);}
+\DoxyCodeLine{00091\ \ \ RawInputEventType\ string\_to\_event\_type(\textcolor{keyword}{const}\ std::string\&\ type\_str);}
+\DoxyCodeLine{00092\ \ \ std::variant<SDL\_Scancode,\ Uint8>\ parse\_matcher(RawInputEventType\ type,\ \textcolor{keyword}{const}\ std::string\&\ input\_str);}
+\DoxyCodeLine{00093\ \ \ std::variant<InputButton,\ float,\ glm::vec2,\ glm::vec3>\ parse\_contribution(ControlType\ control\_type,\ \textcolor{keyword}{const}\ toml::array\&\ contribution\_array);}
+\DoxyCodeLine{00094\ \ \ SDL\_Scancode\ string\_to\_scancode(\textcolor{keyword}{const}\ std::string\&\ key\_name);}
+\DoxyCodeLine{00095\ \ \ Uint8\ string\_to\_mouse\_button(\textcolor{keyword}{const}\ std::string\&\ button\_name);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ std::unordered\_map<std::string,\ std::shared\_ptr<Texture>>\ textures;}
+\DoxyCodeLine{00098\ \ \ std::unordered\_map<std::string,\ std::shared\_ptr<Model>>\ models;}
+\DoxyCodeLine{00099\ \ \ std::unordered\_map<std::string,\ std::shared\_ptr<Shader>>\ shaders;}
+\DoxyCodeLine{00100\ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \}}
 
 \end{DoxyCode}

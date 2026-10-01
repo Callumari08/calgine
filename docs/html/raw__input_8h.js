@@ -6,6 +6,8 @@ var raw__input_8h =
     [ "Calgine::RawMouseMoveData", "structCalgine_1_1RawMouseMoveData.html", "structCalgine_1_1RawMouseMoveData" ],
     [ "Calgine::RawMouseWheelData", "structCalgine_1_1RawMouseWheelData.html", "structCalgine_1_1RawMouseWheelData" ],
     [ "Calgine::RawInputEvent", "structCalgine_1_1RawInputEvent.html", "structCalgine_1_1RawInputEvent" ],
+    [ "gamepad_axis", "raw__input_8h.html#a664e8a2978fd472e0545502050db47e7", null ],
+    [ "gamepad_button", "raw__input_8h.html#a7ff105f13dea5a97c2c552b2cf17b381", null ],
     [ "keyboard", "raw__input_8h.html#a9976f3faad68f981f425583e48b03252", null ],
     [ "mouse_button", "raw__input_8h.html#aa54b50749fc8ceb3c4d7b9447a09fd20", null ],
     [ "mouse_move", "raw__input_8h.html#a7a070eb813cabf62338cea7dbdef9ab9", null ],

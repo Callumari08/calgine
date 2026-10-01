@@ -343,8 +343,12 @@ Static Public Member Functions</h2></td></tr>
 <div class="line">Jump = [</div>
 <div class="line">  { type = <span class="stringliteral">&quot;keyboard&quot;</span>, input = <span class="stringliteral">&quot;Space&quot;</span>, contribution = [<span class="keyword">true</span>] },</div>
 <div class="line">]</div>
-</div><!-- fragment --><p>Supported input types: "keyboard", "mouse_button", "mouse_move", "mouse_wheel" Contribution array: [value] for button/axis, [x, y] for vec2, [x, y, z] for vec3 </p>
-
+</div><!-- fragment --><p>Supported input types: "keyboard", "mouse_button", "mouse_move", "mouse_wheel", "gamepad_button", "gamepad_axis" Contribution array: [value] for button/axis, [x, y] for vec2, [x, y, z] for vec3</p>
+<p>Gamepad inputs use SDL's names: buttons "a" (bottom face button), "b", "x", "y", "leftshoulder", "dpup", ... and axes "leftx", "lefty", "rightx", "righty", "lefttrigger", "righttrigger". An axis multiplies its contribution by its value (sticks -1..1, positive Y is down; triggers 0..1): </p><div class="fragment"><div class="line">Move = [</div>
+<div class="line">  { type = <span class="stringliteral">&quot;gamepad_axis&quot;</span>, input = <span class="stringliteral">&quot;leftx&quot;</span>, contribution = [1, 0] },</div>
+<div class="line">  { type = <span class="stringliteral">&quot;gamepad_axis&quot;</span>, input = <span class="stringliteral">&quot;lefty&quot;</span>, contribution = [0, -1] },</div>
+<div class="line">]</div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="a23a4fc867619f4c63a261ca5fa6a4242" name="a23a4fc867619f4c63a261ca5fa6a4242"></a>

@@ -107,7 +107,17 @@ Example TOML format\+:
 \end{DoxyCode}
 
 
-Supported input types\+: "{}keyboard"{}, "{}mouse\+\_\+button"{}, "{}mouse\+\_\+move"{}, "{}mouse\+\_\+wheel"{} Contribution array\+: \mbox{[}value\mbox{]} for button/axis, \mbox{[}x, y\mbox{]} for vec2, \mbox{[}x, y, z\mbox{]} for vec3 \Hypertarget{classCalgine_1_1AssetManager_a23a4fc867619f4c63a261ca5fa6a4242}\label{classCalgine_1_1AssetManager_a23a4fc867619f4c63a261ca5fa6a4242} 
+Supported input types\+: "{}keyboard"{}, "{}mouse\+\_\+button"{}, "{}mouse\+\_\+move"{}, "{}mouse\+\_\+wheel"{}, "{}gamepad\+\_\+button"{}, "{}gamepad\+\_\+axis"{} Contribution array\+: \mbox{[}value\mbox{]} for button/axis, \mbox{[}x, y\mbox{]} for vec2, \mbox{[}x, y, z\mbox{]} for vec3
+
+Gamepad inputs use SDL\textquotesingle{}s names\+: buttons "{}a"{} (bottom face button), "{}b"{}, "{}x"{}, "{}y"{}, "{}leftshoulder"{}, "{}dpup"{}, ... and axes "{}leftx"{}, "{}lefty"{}, "{}rightx"{}, "{}righty"{}, "{}lefttrigger"{}, "{}righttrigger"{}. An axis multiplies its contribution by its value (sticks -\/1..1, positive Y is down; triggers 0..1)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Move\ =\ [}
+\DoxyCodeLine{\ \ \{\ type\ =\ \textcolor{stringliteral}{"{}gamepad\_axis"{}},\ input\ =\ \textcolor{stringliteral}{"{}leftx"{}},\ contribution\ =\ [1,\ 0]\ \},}
+\DoxyCodeLine{\ \ \{\ type\ =\ \textcolor{stringliteral}{"{}gamepad\_axis"{}},\ input\ =\ \textcolor{stringliteral}{"{}lefty"{}},\ contribution\ =\ [0,\ -\/1]\ \},}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+ \Hypertarget{classCalgine_1_1AssetManager_a23a4fc867619f4c63a261ca5fa6a4242}\label{classCalgine_1_1AssetManager_a23a4fc867619f4c63a261ca5fa6a4242} 
 \index{Calgine::AssetManager@{Calgine::AssetManager}!load\_model@{load\_model}}
 \index{load\_model@{load\_model}!Calgine::AssetManager@{Calgine::AssetManager}}
 \doxysubsubsection{\texorpdfstring{load\_model()}{load\_model()}}
